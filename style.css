@@ -6,7 +6,7 @@
 
 /* 헤더 */
 header {width: 100vw; height: 25vw; position: fixed; top: 0; left: 0; background: #fff;}
-header > img {height: 10vw; margin: 5vw 0 2vw 0;}
+header > a> img {height: 10vw; margin: 5vw 0 2vw 0;}
 header > ul {width: 75vw; height: 5vw; margin-left: 12.5vw; display: flex; justify-content: center;}
 header > ul > li {width: auto; padding: 0 3vw}
 
