@@ -2,7 +2,7 @@
 @font-face {font-family: "Dia Gothic"; font-weight: 400; src: url(./files/KBO\ Dia\ Gothic_medium.ttf);}
 @font-face {font-family: "Dia Gothic"; font-weight: 700; src: url(./files/KBO\ Dia\ Gothic_bold.ttf);}
 
-* {color: #000831; margin: 0; padding: 0; text-align: center; font-family: "Dia Gothic"; font-weight: 700; font-size: 14px; list-style: none; text-decoration-line: none;}
+* {color: #000831; margin: 0; padding: 0; text-align: center; font-family: "Dia Gothic"; font-weight: 700; font-size: 14px; list-style: none; text-decoration-line: none;  -webkit-touch-callout: none; user-select: none; -moz-user-select: none; -ms-user-select: none; -webkit-user-select: none;}
 
 /* 헤더 */
 header {width: 100vw; height: 25vw; position: fixed; top: 0; left: 0; background: #fff;}
