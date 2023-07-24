@@ -1,6 +1,21 @@
-* {color: #000831; margin: 0; padding: 0; text-align: center; font-weight: bold; list-style: none; text-decoration-line: none;}
+@font-face {font-family: "Dia Gothic"; font-weight: 100; src: url(./files/KBO\ Dia\ Gothic_light.ttf);}
+@font-face {font-family: "Dia Gothic"; font-weight: 400; src: url(./files/KBO\ Dia\ Gothic_medium.ttf);}
+@font-face {font-family: "Dia Gothic"; font-weight: 700; src: url(./files/KBO\ Dia\ Gothic_bold.ttf);}
 
-header {width: 100vw; height: 10vh; position: fixed; top: 0; left: 0;}
-header img {height: 4vh; margin:2vh 0 1vh 0;}
-header ul {width: 75vw; height: 5vw; margin-left: 12.5vw; display: flex; justify-content: center;}
-header ul li {width: auto; padding: 0 3vw;}
+* {color: #000831; margin: 0; padding: 0; text-align: center; font-family: "Dia Gothic"; font-weight: 700; font-size: 14px; list-style: none; text-decoration-line: none;}
+
+/* 헤더 */
+header {width: 100vw; height: 25vw; position: fixed; top: 0; left: 0; background: #fff;}
+header > img {height: 10vw; margin: 5vw 0 2vw 0;}
+header > ul {width: 75vw; height: 5vw; margin-left: 12.5vw; display: flex; justify-content: center;}
+header > ul > li {width: auto; padding: 0 3vw}
+
+/* 선수단 */
+
+#players > div {width: 90vw; margin-left: 5vw; margin-top: 10vw; overflow-x: scroll; text-align: center;}
+#players > div > p {width: 90vw; height: 6vw;}
+#players > div > div {width: 18.5vw; height: 30vw; display: flex; justify-content: center; flex-direction: column; align-items: center; border-radius: 10px; background: #fff; box-shadow: 0px 0px 5px 1px #00083120; float: left; margin: 2vw;}
+#players > div > div > div {width: 18.5vw; height: 22vw; overflow: hidden; box-shadow: none;}
+#players > div > div > div > img {height: 28vw; margin-top: 2vw;}
+#players > div > div > p {width: 18.5vw; height: 8vw; background: #000831; color: #fff; border-radius: 0 0 10px 10px; font-size: 12px; display: flex; justify-content: center; align-items: center;}
+#players > div > div > p > span {margin: 0 1vw 0 .5vw; color: #61f2ff; font-size: inherit; letter-spacing: -2px;}
