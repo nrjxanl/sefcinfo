@@ -2,7 +2,7 @@
 @font-face {font-family: "Dia Gothic"; font-weight: 400; src: url(./files/KBO-Dia-Gothic_medium.woff);}
 @font-face {font-family: "Dia Gothic"; font-weight: 700; src: url(./files/KBO-Dia-Gothic_bold.woff);}
 
-* {color: #000831; margin: 0; padding: 0; text-align: center; font-family: "Dia Gothic"; font-weight: 700; font-size: 16px; list-style: none; text-decoration-line: none;  -webkit-touch-callout: none; -moz-user-select: none; -ms-user-select: none; -webkit-user-select: none; user-select: none;}
+* {color: #000831; margin: 0; padding: 0; text-align: center; font-family: "Dia Gothic"; font-weight: 700; font-size: 12px; list-style: none; text-decoration-line: none;  -webkit-touch-callout: none; -moz-user-select: none; -ms-user-select: none; -webkit-user-select: none; user-select: none;}
 
 /* 헤더 */
 header {width: 100vw; height: 20vw; position: fixed; top: 0; left: 0; background: #fff;}
@@ -10,9 +10,9 @@ header > a > img {height: 10vw; margin: 5vw 0 2vw 0;}
 
 /* 푸터 */
 footer {width: 100vw; height: 15vw; position: fixed; bottom: 0; left: 0; background: #fff;}
-footer > ul {width: 75vw; height: 5vw; margin: 5vw 0 0 12.5vw; display: flex; justify-content: center;}
+footer > ul {width: 80vw; height: 5vw; margin: 5vw 0 0 10vw; display: flex; justify-content: center;}
 footer > ul > li {width: auto; padding: 0 3vw;}
-footer > ul > li > a {font-size: 18px;}
+footer > ul > li > a {font-size: 14px;}
 
 /* 오프셋 */
 #headerOffset {width: 100vw; height: 20vw; display: block; visibility: hidden;}
@@ -22,7 +22,7 @@ footer > ul > li > a {font-size: 18px;}
 /* 선수단 */
 
 .playerButton {width: 100vw; height: 10vw; position: fixed; top: 20vw; left: 0; background: #fff;}
-.playerButton > button {width: 15vw; height: 6vw; background: #fff; color: #000831; margin: 0 2vw; border: 1px solid #000831; border-radius: 10px; letter-spacing: -2px;}
+.playerButton > button {width: 15vw; height: 6vw; background: #fff; color: #000831; margin: 0 2vw; border: 1px solid #000831; border-radius: 10px;}
 
 #playerA > div {width: 90vw; margin-left: 5vw; margin-top: 10vw; overflow: hidden; text-align: center;}
 #playerA > div > p {width: 90vw; height: 6vw;}
