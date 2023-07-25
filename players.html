@@ -11,26 +11,32 @@
 
 <header>
     <a href="./home"><img src="./files/seouleland.png"></a>
+</header>
+
+<footer>
     <ul>
         <li><a href="./club">구단</a></li>
         <li><a href="./news">소식</a></li>
-        <li><a href="./players" style="color: #174fff; border-bottom: 3px solid #174fff">선수단</a></li>
+        <li><a href="./players" style="color: #174fff; border-bottom: 2px solid #174fff">선수단</a></li>
         <li><a href="./fixtures">일정</a></li>
         <li><a href="./standings">순위</a></li>
     </ul>
-</header>
+</footer>
 
 <body>
 
+    <div id="headerOffset"></div>
+    <div id="playerButtonOffset"></div>
+
     <div id="playerA">
 
-        <div>
+        <div class="playerButton" style="margin-top: 0;">
             <button id="playerAB" onclick="playerA()" style="background: #000831; color: #fff;">A팀</button>
             <button id="playerU18B" onclick="playerU18()">U-18</button>
             <button id="playerU15B" onclick="playerU15()">U-15</button>
         </div>
     
-        <div>
+        <div style="margin-top: 5vw;">
             <p>골키퍼</p>
             <div>
                 <div>
@@ -253,13 +259,13 @@
 
     <div id="playerU18">
 
-        <div>
+        <div class="playerButton" style="margin-top: 0;">
             <button id="playerAB" onclick="playerA()">A팀</button>
             <button id="playerU18B" onclick="playerU18()" style="background: #000831; color: #fff;">U-18</button>
             <button id="playerU15B" onclick="playerU15()">U-15</button>
         </div>
 
-        <div>
+        <div style="margin-top: 5vw;">
             <p>골키퍼</p>
             <div>
                 <div>
@@ -458,13 +464,13 @@
 
     <div id="playerU15">
 
-        <div>
+        <div class="playerButton" style="margin-top: 0;">
             <button id="playerAB" onclick="playerA()">A팀</button>
             <button id="playerU18B" onclick="playerU18()">U-18</button>
             <button id="playerU15B" onclick="playerU15()" style="background: #000831; color: #fff;">U-15</button>
         </div>
 
-        <div>
+        <div style="margin-top: 5vw;">
             <p>골키퍼</p>
             <div>
                 <div>
@@ -708,7 +714,8 @@
             </div>
         </div>
     </div>
-
+    
+    <div id="footerOffset"></div>
 
     <script src="script.js"></script>
 
