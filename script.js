@@ -92,3 +92,10 @@ $("td[class*='cafcA']").after("<td><img src='./files/chungnamasan_s.png'></td><t
 $("td[class*='pohA']").after("<td><img src='./files/pohangsteelers_s.png'></td><td>포항 스틸러스</td>");
 $("td[class*='ccfcA']").after("<td><img src='./files/cheonancity_s.png'></td><td>천안 시티 FC</td>");
 $("td[class*='chfcA']").after("<td><img src='./files/chungbukcheongju_s.png'></td><td>충북청주 FC</td>");
+
+// 점수 색
+
+$("td[class='w']").css("background", "#174fff")
+$("td[class='d']").css("background", "#00000080")
+$("td[class='l']").css("background", "#f00")
+$("td[class='y']").css("color", "#000831")
