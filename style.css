@@ -60,11 +60,12 @@ select {width: 20vw; height: 5vw; padding-right: 1vw; border: 1px solid #000831;
 select::-ms-expand {display: none;}
 option {text-align: center;}
 
-div[id*="fixtures20"] > table {width: 90vw; margin-left: 5vw; padding-top: 2vw; border-bottom: 1px solid #00083180;}
-div[id*="fixtures20"] > table > tbody > tr {height: 6vw;}
-div[id*="fixtures20"] > table > tbody > tr > td:nth-child(1) {width: 32vw; font-size: 16px; text-align: right;}
-div[id*="fixtures20"] > table > tbody > tr > td:nth-child(4) {width: 10vw; font-size: 14px; color: #fff; border-radius: 20px; box-sizing: border-box; border: .5vw solid #fff;}
-div[id*="fixtures20"] > table > tbody > tr > td:nth-child(7) {width: 32vw; font-size: 16px; text-align: left;}
-div[id*="fixtures20"] > table > tbody > tr > td:nth-child(4n+2) {width: 8vw;}
-div[id*="fixtures20"] > table > tbody > tr > td:nth-child(4n+2) > img {height: 5vw; margin-top: 1vw;}
-td[colspan="7"] {text-align: center !important; font-weight: 100; font-size: 10px !important; vertical-align: top;}
+div[id*="fixtures20"] > div {width: 90vw; height: 20vw; margin: 5vw 0 0 5vw; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 10px; display: flex; align-items: center;}
+div[id*="fixtures20"] > div > table {width: 80vw; height: 16vw; margin-left: 5vw;}
+div[id*="fixtures20"] > div > table > tbody > tr {height: 7vw;}
+div[id*="fixtures20"] > div > table > tbody > tr > td:nth-child(2) {width: 13vw;}
+div[id*="fixtures20"] > div > table > tbody > tr > td:nth-child(2) > img {height: 5vw; margin: 0.5vw 0 0 2vw;}
+div[id*="fixtures20"] > div > table > tbody > tr > td:nth-child(3) {width: 42vw; text-align: left; font-size: 16px;}
+div[id*="fixtures20"] > div > table > tbody > tr > td:nth-child(4) {width: 10vw; font-size: 16px; line-height: 7vw;}
+div[id*="fixtures20"] > div > table > tbody > tr > td:nth-child(6) {width: 15vw;}
+div[id*="fixtures20"] > div > table > tbody > tr > td:nth-child(6) > img {height: 5vw;}
