@@ -1,10 +1,3 @@
-// 새로고침 시 맨 위로
-window.onload = function() {
-    setTimeout (function() {
-        scrollTo(0, 0);
-    }, 100);
-}
-
 // 선수단 창 전환
 function playerA() {
     document.getElementById("playerA").style.display = "block";
@@ -29,18 +22,21 @@ function fixturesA() {
     document.getElementById("fixturesA").style.display = "block";
     document.getElementById("fixturesU18").style.display = "none";
     document.getElementById("fixturesU15").style.display = "none";
+    document.getElementById("nextMatch").scrollIntoView({behavior: "smooth", block: "center"});
 }
 
 function fixturesU18() {
     document.getElementById("fixturesA").style.display = "none";
     document.getElementById("fixturesU18").style.display = "block";
     document.getElementById("fixturesU15").style.display = "none";
+    document.getElementById("nextMatch8").scrollIntoView({behavior: "smooth", block: "center"});
 }
 
 function fixturesU15() {
     document.getElementById("fixturesA").style.display = "none";
     document.getElementById("fixturesU18").style.display = "none";
     document.getElementById("fixturesU15").style.display = "block";
+    document.getElementById("nextMatch5").scrollIntoView({behavior: "smooth", block: "center"});
 }
 
 function fixturesSeason() {
@@ -53,6 +49,13 @@ function fixturesSeason() {
     }
     
 }
+
+// 일정 글자 수 초과 시 글꼴 크기 조정
+// fontSize = function(){
+//     content = $("div[id*=fixtures] > div > a > div > table > tbody > tr > td:nth-child(3)")
+//     fontSize = parseInt(content.width()/15)+"px";
+//     content.css('font-size', fontSize);
+// };
 
 // 순위 창 전환
 function standingsA() {
@@ -213,5 +216,6 @@ $("td[class='kl']").after("<td rowspan='2'><img style='height: 6vw;' src='./file
 $("td[class='kl40']").after("<td rowspan='2'><img style='height: 6vw;' src='./files/kleague40_s.png'></td>");
 $("td[class='fa']").after("<td rowspan='2'><img src='./files/facup_s.png'></td>");
 $("td[class='klj']").after("<td rowspan='2'><img src='./files/kleaguejunior_s.png'></td>");
+$("td[class='klyc']").after("<td rowspan='2'><img src='./files/kleagueyouthchampionship_s.png'></td>");
 $("td[class='mcst']").after("<td rowspan='2'><img src='./files/mcst_s.png'></td>");
 $("td[class='kfa']").after("<td rowspan='2'><img src='./files/kfa_s.png'></td>");
