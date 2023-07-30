@@ -20,6 +20,7 @@ footer > ul > li > a {font-size: 14px;}
 #footerOffset {width: 100vw; height: 20vw; display: block; visibility: hidden;}
 #playerButtonOffset {width: 100vw; height: 10vw; visibility: hidden;}
 #fixturesButtonOffset {width: 100vw; height: 10vw; visibility: hidden;}
+#standingsButtonOffset {width: 100vw; height: 10vw; visibility: hidden;}
 
 /* 선수단 */
 
@@ -93,3 +94,53 @@ footer > ul > li > a {font-size: 14px;}
 #fixturesU15 > div > a > div > table > tbody > tr > td:nth-child(4) {width: 10vw; font-size: 16px; line-height: 7vw;}
 #fixturesU15 > div > a > div > table > tbody > tr > td:nth-child(6) {width: 15vw;}
 #fixturesU15 > div > a > div > table > tbody > tr > td:nth-child(6) > img {height: 7vw;}
+
+/* 순위 */
+.standingsButton {width: 100vw; height: 10vw; position: fixed; top: 20vw; left: 0; background: #fff;}
+.standingsButton > button {width: 15vw; height: 6vw; background: #fff; color: #000831; margin: 0 2vw; border: 1px solid #000831; border-radius: 50px;}
+
+.standingsSeason {width: 70vw; height: 6vw; margin-left: 5vw; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; align-content: flex-start;}
+.standingsSeason > button {width: 17vw; height: 6vw; background: none; border: 1px solid #000831; border-radius: 50px;}
+.standingsSeason > button:active {background: #000831; color: #fff;}
+.standingsSeason > div {width: 53vw; height: 6vw; overflow: scroll; display: none;}
+.standingsSeason > div > button {height: 6vw; padding: 0 2vw; background: none; border: 1px solid #000831; border-radius: 50px; margin-left: 2vw;}
+
+.standings {width: 20vw; height: 6vw; float: right; margin: -6vw 5vw 0 0; text-align: right;}
+.standings > button {height: 6vw; padding-left: 2vw; background: none; border: none; font-weight: 400; text-align: right;}
+
+.standingsDetail {width: 100vw; height: 10vw;}
+.standingsDetail > button {width: 20vw; height: 10vw; background: none; border: none;}
+
+#standingsA > div {width: 90vw; margin-left: 5vw; overflow: scroll;}
+#standingsA > div > table {width: 90vw; vertical-align: middle;}
+#standingsA > div > table > thead > tr {height: 8vw;}
+#standingsA > div > table > thead > tr > th {font-weight: 400; font-size: 10px}
+#standingsA > div > table > thead > tr > th:nth-child(n+4):nth-child(-n+6) {display: none;}
+#standingsA > div > table > thead > tr > th:nth-child(n+8) {display: none;}
+#standingsA > div > table > tbody > tr {height: 8vw;}
+#standingsA > div > table > tbody > tr > td:nth-child(1) {width: 10vw;}
+#standingsA > div > table > tbody > tr > td:nth-child(2) {width: 0;}
+#standingsA > div > table > tbody > tr > td:nth-child(3) {width: 10vw;}
+#standingsA > div > table > tbody > tr > td:nth-child(3) > img {height: 4vw; margin-top: 0.5vw;}
+#standingsA > div > table > tbody > tr > td:nth-child(4) {width: 40vw; text-align: left;}
+#standingsA > div > table > tbody > tr > td:nth-child(n+5) {width: 15vw;}
+#standingsA > div > table > tbody > tr > td:nth-child(n+6):nth-child(-n+8) {display: none;}
+#standingsA > div > table > tbody > tr > td:nth-child(n+10) {display: none;}
+
+#standingsU18 {display: none;}
+#standingsU18F {display: none;}
+#standingsU18 > div {width: 90vw; margin-left: 5vw; overflow: scroll;}
+#standingsU18 > div > table {width: 90vw; vertical-align: middle;}
+#standingsU18 > div > table > thead > tr {height: 8vw;}
+#standingsU18 > div > table > thead > tr > th {font-weight: 400; font-size: 10px}
+#standingsU18 > div > table > thead > tr > th:nth-child(n+4):nth-child(-n+6) {display: none;}
+#standingsU18 > div > table > thead > tr > th:nth-child(n+8) {display: none;}
+#standingsU18 > div > table > tbody > tr {height: 8vw;}
+#standingsU18 > div > table > tbody > tr > td:nth-child(1) {width: 10vw;}
+#standingsU18 > div > table > tbody > tr > td:nth-child(2) {width: 0;}
+#standingsU18 > div > table > tbody > tr > td:nth-child(3) {width: 10vw;}
+#standingsU18 > div > table > tbody > tr > td:nth-child(3) > img {height: 4vw; margin-top: 0.5vw;}
+#standingsU18 > div > table > tbody > tr > td:nth-child(4) {width: 40vw; text-align: left;}
+#standingsU18 > div > table > tbody > tr > td:nth-child(n+5) {width: 15vw;}
+#standingsU18 > div > table > tbody > tr > td:nth-child(n+6):nth-child(-n+8) {display: none;}
+#standingsU18 > div > table > tbody > tr > td:nth-child(n+10) {display: none;}

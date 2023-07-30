@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet"
+            href="./style.css">
+        <title>SEFCiNFO</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="icon"
+            type="image/x-icon"
+            href="./files/favicon.png">
+    </head>
+
+    <header>
+        <a href="sefc.info"><img src="./files/seouleland.png"></a>
+    </header>
+
+    <footer>
+        <ul>
+            <li><a href="./club">구단</a></li>
+            <li><a href="./news">소식</a></li>
+            <li><a href="./players">선수단</a></li>
+            <li><a href="./fixtures">일정</a></li>
+            <li><a href="./standings" style="color: #174fff; border-bottom: 2px solid #174fff">순위</a></li>
+        </ul>
+    </footer>
+
+    <body>
+
+        <div id="headerOffset"></div>
+        <div id="standingsButtonOffset"></div>
+
+        <div class="standingsSeason">
+            <button onclick="standingsSeason()">시즌 선택</button>
+            <div class="standingsSeason_">
+                <button onclick="location.href='./standings-2023'"
+                    style="background: #000831; color: #fff;">2023</button>
+                <button onclick="location.href='./standings-2022'">2022</button>
+                <button onclick="location.href='./standings-2021'">2021</button>
+                <button onclick="location.href='./standings-2020'">2020</button>
+                <button onclick="location.href='./standings-2019'">2019</button>
+                <button onclick="location.href='./standings-2018'">2018</button>
+                <button onclick="location.href='./standings-2017'">2017</button>
+                <button onclick="location.href='./standings-2016'">2016</button>
+                <button onclick="location.href='./standings-2015'">2015</button>
+            </div>
+        </div>
+        
+        <div class="standings">
+            <button onclick="standings()">자세히 보기</button>
+        </div>
+
+        <div id="standingsA">
+
+            <div class="standingsButton" style="margin-top: 0;">
+                <button onclick="standingsA()" style="background: #000831; color: #fff;">A팀</button>
+                <button onclick="standingsU18()">U-18</button>
+                <button onclick="standingsU15()">U-15</button>
+            </div>
+
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>순위</th>
+                            <th colspan="3">구단</th>
+                            <th>승점</th>
+                            <th>승</th>
+                            <th>무</th>
+                            <th>패</th>
+                            <th>득점</th>
+                            <th>실점</th>
+                            <th>득실차</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="gim"></td>
+                            <td>42</td>
+                            <td>13</td>
+                            <td>3</td>
+                            <td>5</td>
+                            <td>37</td>
+                            <td>23</td>
+                            <td>14</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="gye"></td>
+                            <td>38</td>
+                            <td>10</td>
+                            <td>8</td>
+                            <td>4</td>
+                            <td>37</td>
+                            <td>25</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="bus"></td>
+                            <td>37</td>
+                            <td>10</td>
+                            <td>7</td>
+                            <td>4</td>
+                            <td>30</td>
+                            <td>19</td>
+                            <td>11</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="gfc"></td>
+                            <td>36</td>
+                            <td>9</td>
+                            <td>9</td>
+                            <td>4</td>
+                            <td>22</td>
+                            <td>13</td>
+                            <td>9</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="any"></td>
+                            <td>35</td>
+                            <td>10</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>36</td>
+                            <td>28</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td class="buc"></td>
+                            <td>34</td>
+                            <td>10</td>
+                            <td>4</td>
+                            <td>7</td>
+                            <td>29</td>
+                            <td>23</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td class="jdfc"></td>
+                            <td>31</td>
+                            <td>9</td>
+                            <td>4</td>
+                            <td>9</td>
+                            <td>35</td>
+                            <td>37</td>
+                            <td>-2</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td class="sfc"></td>
+                            <td>29</td>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>8</td>
+                            <td>30</td>
+                            <td>30</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td class="chfc"></td>
+                            <td>29</td>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>7</td>
+                            <td>25</td>
+                            <td>32</td>
+                            <td>-7</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td class="cafc"></td>
+                            <td>26</td>
+                            <td>7</td>
+                            <td>5</td>
+                            <td>10</td>
+                            <td>27</td>
+                            <td>28</td>
+                            <td>-1</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td class="sefc"></td>
+                            <td>25</td>
+                            <td>7</td>
+                            <td>4</td>
+                            <td>10</td>
+                            <td>26</td>
+                            <td>27</td>
+                            <td>-1</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td class="ans"></td>
+                            <td>13</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>14</td>
+                            <td>19</td>
+                            <td>40</td>
+                            <td>-21</td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td class="ccfc"></td>
+                            <td>8</td>
+                            <td>1</td>
+                            <td>5</td>
+                            <td>15</td>
+                            <td>18</td>
+                            <td>46</td>
+                            <td>-28</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <div id="standingsU18">
+
+            <div class="standingsButton" style="margin-top: 0;">
+                <button onclick="standingsA()">A팀</button>
+                <button onclick="standingsU18()" style="background: #000831; color: #fff;">U-18</button>
+                <button onclick="standingsU15()">U-15</button>
+            </div>
+
+            <div class="standingsDetail">
+                <button onclick="standingsU18F()" style="font-weight: 400;">전반기</button>
+                <button onclick="standingsU18S()">후반기</button>
+            </div>
+
+            <div id="standingsU18F">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>순위</th>
+                            <th colspan="3">구단</th>
+                            <th>승점</th>
+                            <th>승</th>
+                            <th>무</th>
+                            <th>패</th>
+                            <th>득점</th>
+                            <th>실점</th>
+                            <th>득실차</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="fcs8"></td>
+                            <td>25</td>
+                            <td>8</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>32</td>
+                            <td>9</td>
+                            <td>23</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="suw8"></td>
+                            <td>22</td>
+                            <td>7</td>
+                            <td>1</td>
+                            <td>3</td>
+                            <td>27</td>
+                            <td>12</td>
+                            <td>15</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="gan8"></td>
+                            <td>21</td>
+                            <td>7</td>
+                            <td>0</td>
+                            <td>4</td>
+                            <td>26</td>
+                            <td>16</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="inc8"></td>
+                            <td>20</td>
+                            <td>6</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>18</td>
+                            <td>11</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="sfc8"></td>
+                            <td>20</td>
+                            <td>6</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>19</td>
+                            <td>14</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td class="ssb8"></td>
+                            <td>19</td>
+                            <td>5</td>
+                            <td>4</td>
+                            <td>2</td>
+                            <td>34</td>
+                            <td>16</td>
+                            <td>18</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td class="buc8"></td>
+                            <td>18</td>
+                            <td>5</td>
+                            <td>3</td>
+                            <td>3</td>
+                            <td>19</td>
+                            <td>14</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td class="jej8"></td>
+                            <td>16</td>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>5</td>
+                            <td>22</td>
+                            <td>22</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td class="sefc8"></td>
+                            <td>13</td>
+                            <td>4</td>
+                            <td>1</td>
+                            <td>6</td>
+                            <td>21</td>
+                            <td>25</td>
+                            <td>-4</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td class="any8"></td>
+                            <td>8</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>7</td>
+                            <td>11</td>
+                            <td>30</td>
+                            <td>-19</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td class="ans8"></td>
+                            <td>6</td>
+                            <td>1</td>
+                            <td>3</td>
+                            <td>7</td>
+                            <td>9</td>
+                            <td>33</td>
+                            <td>-24</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td class="gfc8"></td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>11</td>
+                            <td>10</td>
+                            <td>46</td>
+                            <td>-36</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="standingsU18S">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>순위</th>
+                            <th colspan="3">구단</th>
+                            <th>승점</th>
+                            <th>승</th>
+                            <th>무</th>
+                            <th>패</th>
+                            <th>득점</th>
+                            <th>실점</th>
+                            <th>득실차</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="cafc8"></td>
+                            <td>3</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>5</td>
+                            <td>4</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="gim8"></td>
+                            <td>3</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>4</td>
+                            <td>3</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="sefc8"></td>
+                            <td>3</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>3</td>
+                            <td>2</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="gye8"></td>
+                            <td>3</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="dhfc8"></td>
+                            <td>3</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>-1</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td class="gfc8"></td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td class="buc8"></td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td class="any8"></td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td class="ans8"></td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>-1</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td class="ccfc8"></td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>-1</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td class="jej8"></td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>-1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <div id="footerOffset"></div>
+
+        <script src="script.js"></script>
+
+    </body>
+
+</html>

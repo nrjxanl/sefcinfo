@@ -54,15 +54,84 @@ function fixturesSeason() {
     
 }
 
+// 순위 창 전환
+function standingsA() {
+    document.getElementById("standingsA").style.display = "block";
+    document.getElementById("standingsU18").style.display = "none";
+    document.getElementById("standingsU15").style.display = "none";
+}
+
+function standingsU18() {
+    document.getElementById("standingsA").style.display = "none";
+    document.getElementById("standingsU18").style.display = "block";
+    document.getElementById("standingsU15").style.display = "none";
+}
+
+function standingsU15() {
+    document.getElementById("standingsA").style.display = "none";
+    document.getElementById("standingsU18").style.display = "none";
+    document.getElementById("standingsU15").style.display = "block";
+}
+
+function standingsSeason() {
+    var standingsSeason = $("div[class='standingsSeason_']").css("display")
+
+    if(standingsSeason == "none") {
+        $("div[class='standingsSeason_']").css("display", "flex");
+    }else {
+        $("div[class='standingsSeason_']").css("display", "none");
+    }
+    
+}
+
+function standings() {
+    var standings = $("div[id*='standings'] div table thead tr th:nth-child(8)").css("display")
+
+    if(standings == "none") {
+        $("div[id*='standings'] div table").css("width", "113vw");
+        $("div[id*='standings'] div table thead tr th:nth-child(n+4):nth-child(-n+6)").css({"display": "table-cell", "width": "10vw"});
+        $("div[id*='standings'] div table thead tr th:nth-child(n+8)").css({"display": "table-cell", "width": "10vw"});
+        $("div[id*='standings'] div table tbody tr td:nth-child(n+6):nth-child(-n+8)").css({"display": "table-cell", "width": "10vw"});
+        $("div[id*='standings'] div table tbody tr td:nth-child(n+10)").css({"display": "table-cell", "width": "10vw"});
+        $("div[id*='standings'] div table tbody tr td:nth-child(3)").css("width", "8vw");
+        $("div[id*='standings'] div table tbody tr td:nth-child(4)").css("width", "35vw");
+        $(".standings button").text("간략히 보기");
+    }else {
+        $("div[id*='standings'] div table").css("width", "90vw");
+        $("div[id*='standings'] div table thead tr th:nth-child(n+4):nth-child(-n+6)").css({"display": "none"});
+        $("div[id*='standings'] div table thead tr th:nth-child(n+8)").css({"display": "none"});
+        $("div[id*='standings'] div table tbody tr td:nth-child(n+6):nth-child(-n+8)").css({"display": "none"});
+        $("div[id*='standings'] div table tbody tr td:nth-child(n+10)").css({"display": "none"});
+        $("div[id*='standings'] div table tbody tr td:nth-child(3)").css("width", "10vw");
+        $("div[id*='standings'] div table tbody tr td:nth-child(4)").css("width", "40vw");
+        $(".standings button").text("자세히 보기");
+    }
+    
+}
+
+function standingsU18F() {
+    document.getElementById("standingsU18F").style.display = "block";
+    document.getElementById("standingsU18S").style.display = "none";
+    $(".standingsDetail button:nth-child(1)").css("font-weight", 700)
+    $(".standingsDetail button:nth-child(2)").css("font-weight", 400)
+}
+
+function standingsU18S() {
+    document.getElementById("standingsU18F").style.display = "none";
+    document.getElementById("standingsU18S").style.display = "block";
+    $(".standingsDetail button:nth-child(1)").css("font-weight", 400)
+    $(".standingsDetail button:nth-child(2)").css("font-weight", 700)
+}
+
 //A팀 엠블럼 삽입
-$("td[class='sefc']").after("<td style='opacity: 100% !important;'><img src='./files/seouleland_s.png'></td><td style='opacity: 100% !important;'>서울 이랜드 FC</td>");
+$("td[class='sefc']").after("<td><img src='./files/seouleland_s.png'></td><td>서울 이랜드 FC</td>");
 $("td[class='gan']").after("<td><img src='./files/gangwonfc_s.png'></td><td>강원 FC</td>");
 $("td[class='gye']").after("<td><img src='./files/gyeongnamfc_s.png'></td><td>경남 FC</td>");
 $("td[class='gwa']").after("<td><img src='./files/gwangjufc_s.png'></td><td>광주 FC</td>");
 $("td[class='gim']").after("<td><img src='./files/gimcheonsangmu_s.png'></td><td>김천 상무 FC</td>");
 $("td[class='gfc']").after("<td><img src='./files/gimpofc_s.png'></td><td>김포 FC</td>");
 $("td[class='dae']").after("<td><img src='./files/daegufc_s.png'></td><td>대구 FC</td>");
-$("td[class='dhfc']").after("<td><img src='./files/daejeon_s.png'></td><td>대전 하나 시티즌</td>");
+$("td[class='dhfc']").after("<td><img src='./files/daejeonhana_s.png'></td><td>대전 하나 시티즌</td>");
 $("td[class='bus']").after("<td><img src='./files/busanipark_s.png'></td><td>부산 아이파크</td>");
 $("td[class='buc']").after("<td><img src='./files/bucheonfc_s.png'></td><td>부천 FC 1995</td>");
 $("td[class='fcs']").after("<td><img src='./files/fcseoul_s.png'></td><td>FC 서울</td>");
@@ -89,7 +158,7 @@ $("td[class='gwa8']").after("<td><img src='./files/gwangjufc_s.png'></td><td>광
 $("td[class='gim8']").after("<td><img src='./files/gimcheonsangmu_s.png'></td><td>김천 상무 FC U-18</td>");
 $("td[class='gfc8']").after("<td><img src='./files/gimpofc_s.png'></td><td>김포 FC U-18</td>");
 $("td[class='dae8']").after("<td><img src='./files/daegufc_s.png'></td><td>대구 FC U-18</td>");
-$("td[class='dhfc8']").after("<td><img src='./files/daejeon_s.png'></td><td>대전 하나 시티즌 U-18</td>");
+$("td[class='dhfc8']").after("<td><img src='./files/daejeonhana_s.png'></td><td>대전 하나 시티즌 U-18</td>");
 $("td[class='bus8']").after("<td><img src='./files/busanipark_s.png'></td><td>부산 아이파크 U-18</td>");
 $("td[class='buc8']").after("<td><img src='./files/bucheonfc_s.png'></td><td>부천 FC 1995 U-18</td>");
 $("td[class='fcs8']").after("<td><img src='./files/fcseoul_s.png'></td><td>FC 서울 U-18</td>");
@@ -120,7 +189,7 @@ $("td[class='gwa5']").after("<td><img src='./files/gwangjufc_s.png'></td><td>광
 $("td[class='gim5']").after("<td><img src='./files/gimcheonsangmu_s.png'></td><td>김천 상무 FC U-15</td>");
 $("td[class='gfc5']").after("<td><img src='./files/gimpofc_s.png'></td><td>김포 FC U-15</td>");
 $("td[class='dae5']").after("<td><img src='./files/daegufc_s.png'></td><td>대구 FC U-15</td>");
-$("td[class='dhfc5']").after("<td><img src='./files/daejeon_s.png'></td><td>대전 하나 시티즌 U-15</td>");
+$("td[class='dhfc5']").after("<td><img src='./files/daejeonhana_s.png'></td><td>대전 하나 시티즌 U-15</td>");
 $("td[class='bus5']").after("<td><img src='./files/busanipark_s.png'></td><td>부산 아이파크 U-15</td>");
 $("td[class='buc5']").after("<td><img src='./files/bucheonfc_s.png'></td><td>부천 FC 1995 U-15</td>");
 $("td[class='fcs5']").after("<td><img src='./files/fcseoul_s.png'></td><td>FC 서울 U-15</td>");
