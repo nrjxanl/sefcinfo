@@ -144,3 +144,20 @@ footer > ul > li > a {font-size: 14px;}
 #standingsU18 > div > table > tbody > tr > td:nth-child(n+5) {width: 15vw;}
 #standingsU18 > div > table > tbody > tr > td:nth-child(n+6):nth-child(-n+8) {display: none;}
 #standingsU18 > div > table > tbody > tr > td:nth-child(n+10) {display: none;}
+
+#standingsU15 {display: none;}
+#standingsU15 > div {width: 90vw; margin-left: 5vw; overflow: scroll;}
+#standingsU15 > div > table {width: 90vw; vertical-align: middle;}
+#standingsU15 > div > table > thead > tr {height: 8vw;}
+#standingsU15 > div > table > thead > tr > th {font-weight: 400; font-size: 10px}
+#standingsU15 > div > table > thead > tr > th:nth-child(n+4):nth-child(-n+6) {display: none;}
+#standingsU15 > div > table > thead > tr > th:nth-child(n+8) {display: none;}
+#standingsU15 > div > table > tbody > tr {height: 8vw;}
+#standingsU15 > div > table > tbody > tr > td:nth-child(1) {width: 10vw;}
+#standingsU15 > div > table > tbody > tr > td:nth-child(2) {width: 0;}
+#standingsU15 > div > table > tbody > tr > td:nth-child(3) {width: 10vw;}
+#standingsU15 > div > table > tbody > tr > td:nth-child(3) > img {height: 4vw; margin-top: 0.5vw;}
+#standingsU15 > div > table > tbody > tr > td:nth-child(4) {width: 40vw; text-align: left;}
+#standingsU15 > div > table > tbody > tr > td:nth-child(n+5) {width: 15vw;}
+#standingsU15 > div > table > tbody > tr > td:nth-child(n+6):nth-child(-n+8) {display: none;}
+#standingsU15 > div > table > tbody > tr > td:nth-child(n+10) {display: none;}
