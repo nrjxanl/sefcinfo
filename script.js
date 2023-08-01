@@ -26,7 +26,7 @@ $("td[class='ccfc']").after("<td><img src='./files/cheonancity_s.png'></td><td>�
 $("td[class='chfc']").after("<td><img src='./files/chungbukcheongju_s.png'></td><td>충북청주 FC</td>");
 
 //U18 엠블럼 삽입
-$("td[class='sefc8']").after("<td style='opacity: 100% !important;'><img src='./files/seouleland_s.png'></td><td style='opacity: 100% !important;'>서울 이랜드 FC U-18</td>");
+$("td[class='sefc8']").after("<td><img src='./files/seouleland_s.png'></td><td>서울 이랜드 FC U-18</td>");
 $("td[class='gan8']").after("<td><img src='./files/gangwonfc_s.png'></td><td>강원 FC U-18</td>");
 $("td[class='gye8']").after("<td><img src='./files/gyeongnamfc_s.png'></td><td>경남 FC U-18</td>");
 $("td[class='gwa8']").after("<td><img src='./files/gwangjufc_s.png'></td><td>광주 FC U-18</td>");
@@ -38,7 +38,7 @@ $("td[class='bus8']").after("<td><img src='./files/busanipark_s.png'></td><td>�
 $("td[class='buc8']").after("<td><img src='./files/bucheonfc_s.png'></td><td>부천 FC 1995 U-18</td>");
 $("td[class='fcs8']").after("<td><img src='./files/fcseoul_s.png'></td><td>FC 서울 U-18</td>");
 $("td[class='sfc8']").after("<td><img src='./files/seongnamfc_s.png'></td><td>성남 FC U-18</td>");
-$("td[class='ssb8']").after("<td><img src='./files/suwonsamsung_s.png'></td><td style='font-size: 14px'>수원 삼성 블루윙즈 U-18</td>");
+$("td[class='ssb8']").after("<td><img src='./files/suwonsamsung_s.png'></td><td>수원 삼성 블루윙즈 U-18</td>");
 $("td[class='suw8']").after("<td><img src='./files/suwonfc_s.png'></td><td>수원 FC U-18</td>");
 $("td[class='ans8']").after("<td><img src='./files/ansangreeners_s.png'></td><td>안산 그리너스 U-18</td>");
 $("td[class='any8']").after("<td><img src='./files/fcanyang_s.png'></td><td>FC 안양 U-18</td>");
@@ -57,7 +57,7 @@ $("td[class='pajukorea8']").after("<td><img src='./files/pajukorea_s.png'></td><
 $("td[class='hongcheonfc']").after("<td><img src='./files/hongcheonfc_s.png'></td><td>홍천 안정환 FC U-18</td>");
 
 //U15 엠블럼 삽입
-$("td[class='sefc5']").after("<td style='opacity: 100% !important;'><img src='./files/seouleland_s.png'></td><td style='opacity: 100% !important;'>서울 이랜드 FC U-15</td>");
+$("td[class='sefc5']").after("<td><img src='./files/seouleland_s.png'></td><td>서울 이랜드 FC U-15</td>");
 $("td[class='gan5']").after("<td><img src='./files/gangwonfc_s.png'></td><td>강원 FC U-15</td>");
 $("td[class='gye5']").after("<td><img src='./files/gyeongnamfc_s.png'></td><td>경남 FC U-15</td>");
 $("td[class='gwa5']").after("<td><img src='./files/gwangjufc_s.png'></td><td>광주 FC U-15</td>");
@@ -69,7 +69,7 @@ $("td[class='bus5']").after("<td><img src='./files/busanipark_s.png'></td><td>�
 $("td[class='buc5']").after("<td><img src='./files/bucheonfc_s.png'></td><td>부천 FC 1995 U-15</td>");
 $("td[class='fcs5']").after("<td><img src='./files/fcseoul_s.png'></td><td>FC 서울 U-15</td>");
 $("td[class='sfc5']").after("<td><img src='./files/seongnamfc_s.png'></td><td>성남 FC U-15</td>");
-$("td[class='ssb5']").after("<td><img src='./files/suwonsamsung_s.png'></td><td style='font-size: 14px'>수원 삼성 블루윙즈 U-15</td>");
+$("td[class='ssb5']").after("<td><img src='./files/suwonsamsung_s.png'></td><td>수원 삼성 블루윙즈 U-15</td>");
 $("td[class='suw5']").after("<td><img src='./files/suwonfc_s.png'></td><td>수원 FC U-15</td>");
 $("td[class='ans5']").after("<td><img src='./files/ansangreeners_s.png'></td><td>안산 그리너스 U-15</td>");
 $("td[class='any5']").after("<td><img src='./files/fcanyang_s.png'></td><td>FC 안양 U-15</td>");
@@ -162,6 +162,10 @@ function fixturesSeason() {
 $("div[id*='fixtures'] > div > a > div > table > tbody > tr:has(.sefc) > td:nth-child(n-2):nth-child(-n+3)").css("opacity", "100%")
 $("div[id*='fixtures'] > div > a > div > table > tbody > tr:has(.sefc8) > td:nth-child(n-2):nth-child(-n+3)").css("opacity", "100%")
 $("div[id*='fixtures'] > div > a > div > table > tbody > tr:has(.sefc5) > td:nth-child(n-2):nth-child(-n+3)").css("opacity", "100%")
+
+$("div[id*='fixtures'] > div > a > div > table > tbody > tr:has(.ssb) > td:nth-child(3)").css("font-size", "14px")
+$("div[id*='fixtures'] > div > a > div > table > tbody > tr:has(.ssb8) > td:nth-child(3)").css("font-size", "14px")
+$("div[id*='fixtures'] > div > a > div > table > tbody > tr:has(.ssb5) > td:nth-child(3)").css("font-size", "14px")
 
 // 순위 창 전환
 function standingsA() {

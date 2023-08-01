@@ -118,6 +118,7 @@ footer > ul > li > a {font-size: 14px;}
 #standingsA > div > table > thead > tr > th:nth-child(n+4):nth-child(-n+6) {display: none;}
 #standingsA > div > table > thead > tr > th:nth-child(n+8) {display: none;}
 #standingsA > div > table > tbody > tr {height: 8vw;}
+#standingsA > div > table > tbody > tr > td {font-size: 14px;}
 #standingsA > div > table > tbody > tr > td:nth-child(1) {width: 10vw;}
 #standingsA > div > table > tbody > tr > td:nth-child(2) {width: 0;}
 #standingsA > div > table > tbody > tr > td:nth-child(3) {width: 10vw;}
@@ -136,6 +137,7 @@ footer > ul > li > a {font-size: 14px;}
 #standingsU18 > div > table > thead > tr > th:nth-child(n+4):nth-child(-n+6) {display: none;}
 #standingsU18 > div > table > thead > tr > th:nth-child(n+8) {display: none;}
 #standingsU18 > div > table > tbody > tr {height: 8vw;}
+#standingsU18 > div > table > tbody > tr > td {font-size: 14px;}
 #standingsU18 > div > table > tbody > tr > td:nth-child(1) {width: 10vw;}
 #standingsU18 > div > table > tbody > tr > td:nth-child(2) {width: 0;}
 #standingsU18 > div > table > tbody > tr > td:nth-child(3) {width: 10vw;}
@@ -153,6 +155,7 @@ footer > ul > li > a {font-size: 14px;}
 #standingsU15 > div > table > thead > tr > th:nth-child(n+4):nth-child(-n+6) {display: none;}
 #standingsU15 > div > table > thead > tr > th:nth-child(n+8) {display: none;}
 #standingsU15 > div > table > tbody > tr {height: 8vw;}
+#standingsU15 > div > table > tbody > tr > td {font-size: 14px;}
 #standingsU15 > div > table > tbody > tr > td:nth-child(1) {width: 10vw;}
 #standingsU15 > div > table > tbody > tr > td:nth-child(2) {width: 0;}
 #standingsU15 > div > table > tbody > tr > td:nth-child(3) {width: 10vw;}
