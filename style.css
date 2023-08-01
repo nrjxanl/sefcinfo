@@ -2,15 +2,15 @@
 @font-face {font-family: "Dia Gothic"; font-weight: 400; src: url(./files/KBO-Dia-Gothic_medium.woff);}
 @font-face {font-family: "Dia Gothic"; font-weight: 700; src: url(./files/KBO-Dia-Gothic_bold.woff);}
 
-* {color: #000831; margin: 0; padding: 0; text-align: center; font-family: "Dia Gothic"; font-weight: 700; font-size: 12px; list-style: none; text-decoration-line: none;  -webkit-touch-callout: none; -moz-user-select: none; -ms-user-select: none; -webkit-user-select: none; user-select: none;}
+* {color: #000831; margin: 0; padding: 0; text-align: center; font-family: "Dia Gothic"; font-weight: 700; font-size: 12px; list-style: none; text-decoration-line: none;  -webkit-touch-callout: none; -moz-user-select: none; -ms-user-select: none; -webkit-user-select: none; user-select: none; border-collapse: collapse; border-spacing: 0}
 *::-webkit-scrollbar {display: none;}
 
 /* 헤더 */
-header {width: 100vw; height: 20vw; position: fixed; top: 0; left: 0; background: #fff;}
+header {width: 100vw; height: 20vw; position: fixed; top: 0; left: 0; background: #fff; z-index: 100;}
 header > a > img {height: 10vw; margin: 5vw 0 2vw 0;}
 
 /* 푸터 */
-footer {width: 100vw; height: 15vw; position: fixed; bottom: 0; left: 0; background: #fff;}
+footer {width: 100vw; height: 15vw; position: fixed; bottom: 0; left: 0; background: #fff; z-index: 100;}
 footer > ul {width: 80vw; height: 5vw; margin: 5vw 0 0 10vw; display: flex; justify-content: center;}
 footer > ul > li {width: auto; padding: 0 3vw;}
 footer > ul > li > a {font-size: 14px;}
@@ -28,33 +28,33 @@ footer > ul > li > a {font-size: 14px;}
 .playerButton > button {width: 15vw; height: 6vw; background: #fff; color: #000831; margin: 0 2vw; border: 1px solid #000831; border-radius: 50px;}
 
 #playerA > div {width: 90vw; margin-left: 5vw; margin-top: 10vw; overflow: hidden; text-align: center;}
-#playerA > div > p {width: 90vw; height: 6vw;}
+#playerA > div > p {width: 90vw; height: 6vw; font-size: 14px;}
 #playerA > div > div {width: 18.5vw; height: 30vw; display: flex; justify-content: center; flex-direction: column; align-items: center; border-radius: 10px; background: #fff; box-shadow: 0px 0px 5px 1px #00083120; float: left; margin: 2vw;}
 #playerA > div > div > div {width: 18.5vw; height: 22vw; overflow: hidden; box-shadow: none;}
 #playerA > div > div > div > img {height: 28vw; margin-top: 2vw;}
-#playerA > div > div > p {width: 18.5vw; height: 8vw; background: #000831; color: #fff; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center;}
+#playerA > div > div > p {width: 18.5vw; height: 8vw; font-size: 14px; background: #000831; color: #fff; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center;}
 #playerA > div > div > p > span {margin-right: 4px; color: #61f2ff; font-size: inherit; letter-spacing: -2px;}
 
 #playerU18 {display: none;}
 #playerU18 > div {width: 90vw; margin-left: 5vw; margin-top: 10vw; overflow-x: scroll; text-align: center;}
-#playerU18 > div > p {width: 90vw; height: 6vw;}
+#playerU18 > div > p {width: 90vw; height: 6vw; font-size: 14px;}
 #playerU18 > div > div {width: 18.5vw; height: 30vw; display: flex; justify-content: center; flex-direction: column; align-items: center; border-radius: 10px; background: #fff; box-shadow: 0px 0px 5px 1px #00083120; float: left; margin: 2vw;}
 #playerU18 > div > div > div {width: 18.5vw; height: 22vw; overflow: hidden; box-shadow: none;}
 #playerU18 > div > div > div > img {width: 18.5vw; height: 22vw; object-fit: cover; border-radius: 10px 10px 0 0;}
-#playerU18 > div > div > p {width: 18.5vw; height: 8vw; background: #000831; color: #fff; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center;}
+#playerU18 > div > div > p {width: 18.5vw; height: 8vw; font-size: 14px; background: #000831; color: #fff; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center;}
 #playerU18 > div > div > p > span {margin-right: 4px; color: #61f2ff; font-size: inherit; letter-spacing: -2px;}
 
 #playerU15 {display: none;}
 #playerU15 > div {width: 90vw; margin-left: 5vw; margin-top: 10vw; overflow-x: scroll; text-align: center;}
-#playerU15 > div > p {width: 90vw; height: 6vw;}
+#playerU15 > div > p {width: 90vw; height: 6vw; font-size: 14px;}
 #playerU15 > div > div {width: 18.5vw; height: 30vw; display: flex; justify-content: center; flex-direction: column; align-items: center; border-radius: 10px; background: #fff; box-shadow: 0px 0px 5px 1px #00083120; float: left; margin: 2vw;}
 #playerU15 > div > div > div {width: 18.5vw; height: 22vw; overflow: hidden; box-shadow: none;}
 #playerU15 > div > div > div > img {width: 18.5vw; height: 22vw; object-fit: cover; border-radius: 10px 10px 0 0;}
-#playerU15 > div > div > p {width: 18.5vw; height: 8vw; background: #000831; color: #fff; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center;}
+#playerU15 > div > div > p {width: 18.5vw; height: 8vw; font-size: 14px; background: #000831; color: #fff; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center;}
 #playerU15 > div > div > p > span {margin-right: 4px; color: #61f2ff; font-size: inherit; letter-spacing: -2px;}
 
 /* 일정 */
-.fixturesButton {width: 100vw; height: 10vw; position: fixed; top: 20vw; left: 0; background: #fff;}
+.fixturesButton {width: 100vw; height: 10vw; position: fixed; top: 20vw; left: 0; background: #fff; z-index: 100;}
 .fixturesButton > button {width: 15vw; height: 6vw; background: #fff; color: #000831; margin: 0 2vw; border: 1px solid #000831; border-radius: 50px;}
 
 .fixturesSeason {width: 90vw; height: 6vw; margin-left: 5vw; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap;}
@@ -66,9 +66,9 @@ footer > ul > li > a {font-size: 14px;}
 #fixturesA > div > a > div {width: 90vw; height: 20vw; margin: 5vw 0 0 5vw; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 10px; display: flex; align-items: center;}
 #fixturesA > div > a > div > table {width: 80vw; height: 16vw; margin-left: 5vw;}
 #fixturesA > div > a > div > table > tbody > tr {height: 7vw;}
-#fixturesA > div > a > div > table > tbody > tr > td:nth-child(2) {width: 13vw;}
+#fixturesA > div > a > div > table > tbody > tr > td:nth-child(2) {width: 13vw; opacity: 70%;}
 #fixturesA > div > a > div > table > tbody > tr > td:nth-child(2) > img {height: 5vw; margin: 0.5vw 0 0 2vw;}
-#fixturesA > div > a > div > table > tbody > tr > td:nth-child(3) {width: 42vw; text-align: left; font-size: 16px;}
+#fixturesA > div > a > div > table > tbody > tr > td:nth-child(3) {width: 42vw; text-align: left; font-size: 16px; opacity: 70%;}
 #fixturesA > div > a > div > table > tbody > tr > td:nth-child(4) {width: 10vw; font-size: 16px; line-height: 7vw;}
 #fixturesA > div > a > div > table > tbody > tr > td:nth-child(6) {width: 15vw;}
 #fixturesA > div > a > div > table > tbody > tr > td:nth-child(6) > img {height: 7vw;}
@@ -77,9 +77,9 @@ footer > ul > li > a {font-size: 14px;}
 #fixturesU18 > div > a > div {width: 90vw; height: 20vw; margin: 5vw 0 0 5vw; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 10px; display: flex; align-items: center;}
 #fixturesU18 > div > a > div > table {width: 80vw; height: 16vw; margin-left: 5vw;}
 #fixturesU18 > div > a > div > table > tbody > tr {height: 7vw;}
-#fixturesU18 > div > a > div > table > tbody > tr > td:nth-child(2) {width: 13vw;}
+#fixturesU18 > div > a > div > table > tbody > tr > td:nth-child(2) {width: 13vw; opacity: 70%;}
 #fixturesU18 > div > a > div > table > tbody > tr > td:nth-child(2) > img {height: 5vw; margin: 0.5vw 0 0 2vw;}
-#fixturesU18 > div > a > div > table > tbody > tr > td:nth-child(3) {width: 42vw; text-align: left; font-size: 16px;}
+#fixturesU18 > div > a > div > table > tbody > tr > td:nth-child(3) {width: 42vw; text-align: left; font-size: 16px; opacity: 70%;}
 #fixturesU18 > div > a > div > table > tbody > tr > td:nth-child(4) {width: 10vw; font-size: 16px; line-height: 7vw;}
 #fixturesU18 > div > a > div > table > tbody > tr > td:nth-child(6) {width: 15vw;}
 #fixturesU18 > div > a > div > table > tbody > tr > td:nth-child(6) > img {height: 7vw;}
@@ -88,9 +88,9 @@ footer > ul > li > a {font-size: 14px;}
 #fixturesU15 > div > a > div {width: 90vw; height: 20vw; margin: 5vw 0 0 5vw; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 10px; display: flex; align-items: center;}
 #fixturesU15 > div > a > div > table {width: 80vw; height: 16vw; margin-left: 5vw;}
 #fixturesU15 > div > a > div > table > tbody > tr {height: 7vw;}
-#fixturesU15 > div > a > div > table > tbody > tr > td:nth-child(2) {width: 13vw;}
+#fixturesU15 > div > a > div > table > tbody > tr > td:nth-child(2) {width: 13vw; opacity: 70%;}
 #fixturesU15 > div > a > div > table > tbody > tr > td:nth-child(2) > img {height: 5vw; margin: 0.5vw 0 0 2vw;}
-#fixturesU15 > div > a > div > table > tbody > tr > td:nth-child(3) {width: 42vw; text-align: left; font-size: 16px;}
+#fixturesU15 > div > a > div > table > tbody > tr > td:nth-child(3) {width: 42vw; text-align: left; font-size: 16px; opacity: 70%;}
 #fixturesU15 > div > a > div > table > tbody > tr > td:nth-child(4) {width: 10vw; font-size: 16px; line-height: 7vw;}
 #fixturesU15 > div > a > div > table > tbody > tr > td:nth-child(6) {width: 15vw;}
 #fixturesU15 > div > a > div > table > tbody > tr > td:nth-child(6) > img {height: 7vw;}
