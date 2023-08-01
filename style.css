@@ -29,29 +29,29 @@ footer > ul > li > a {font-size: 14px;}
 
 #playerA > div {width: 90vw; margin-left: 5vw; margin-top: 10vw; overflow: hidden; text-align: center;}
 #playerA > div > p {width: 90vw; height: 6vw; font-size: 14px;}
-#playerA > div > div {width: 18.5vw; height: 30vw; display: flex; justify-content: center; flex-direction: column; align-items: center; border-radius: 10px; background: #fff; box-shadow: 0px 0px 5px 1px #00083120; float: left; margin: 2vw;}
-#playerA > div > div > div {width: 18.5vw; height: 22vw; overflow: hidden; box-shadow: none;}
-#playerA > div > div > div > img {height: 28vw; margin-top: 2vw;}
-#playerA > div > div > p {width: 18.5vw; height: 8vw; font-size: 14px; background: #000831; color: #fff; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center;}
-#playerA > div > div > p > span {margin-right: 4px; color: #61f2ff; font-size: inherit; letter-spacing: -2px;}
+#playerA > div > a > div {width: 18.5vw; height: 30vw; display: flex; justify-content: center; flex-direction: column; align-items: center; border-radius: 10px; background: #fff; box-shadow: 0px 0px 5px 1px #00083120; float: left; margin: 2vw;}
+#playerA > div > a > div > div {width: 18.5vw; height: 22vw; overflow: hidden; box-shadow: none;}
+#playerA > div > a > div > div > img {height: 28vw; margin-top: 2vw;}
+#playerA > div > a > div > p {width: 18.5vw; height: 8vw; font-size: 14px; background: #000831; color: #fff; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center;}
+#playerA > div > a > div > p > span {margin-right: 4px; color: #61f2ff; font-size: inherit; letter-spacing: -2px;}
 
 #playerU18 {display: none;}
 #playerU18 > div {width: 90vw; margin-left: 5vw; margin-top: 10vw; overflow-x: scroll; text-align: center;}
 #playerU18 > div > p {width: 90vw; height: 6vw; font-size: 14px;}
-#playerU18 > div > div {width: 18.5vw; height: 30vw; display: flex; justify-content: center; flex-direction: column; align-items: center; border-radius: 10px; background: #fff; box-shadow: 0px 0px 5px 1px #00083120; float: left; margin: 2vw;}
-#playerU18 > div > div > div {width: 18.5vw; height: 22vw; overflow: hidden; box-shadow: none;}
-#playerU18 > div > div > div > img {width: 18.5vw; height: 22vw; object-fit: cover; border-radius: 10px 10px 0 0;}
-#playerU18 > div > div > p {width: 18.5vw; height: 8vw; font-size: 14px; background: #000831; color: #fff; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center;}
-#playerU18 > div > div > p > span {margin-right: 4px; color: #61f2ff; font-size: inherit; letter-spacing: -2px;}
+#playerU18 > div > a > div {width: 18.5vw; height: 30vw; display: flex; justify-content: center; flex-direction: column; align-items: center; border-radius: 10px; background: #fff; box-shadow: 0px 0px 5px 1px #00083120; float: left; margin: 2vw;}
+#playerU18 > div > a > div > div {width: 18.5vw; height: 22vw; overflow: hidden; box-shadow: none;}
+#playerU18 > div > a > div > div > img {width: 18.5vw; height: 22vw; object-fit: cover; border-radius: 10px 10px 0 0;}
+#playerU18 > div > a > div > p {width: 18.5vw; height: 8vw; font-size: 14px; background: #000831; color: #fff; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center;}
+#playerU18 > div > a > div > p > span {margin-right: 4px; color: #61f2ff; font-size: inherit; letter-spacing: -2px;}
 
 #playerU15 {display: none;}
 #playerU15 > div {width: 90vw; margin-left: 5vw; margin-top: 10vw; overflow-x: scroll; text-align: center;}
 #playerU15 > div > p {width: 90vw; height: 6vw; font-size: 14px;}
-#playerU15 > div > div {width: 18.5vw; height: 30vw; display: flex; justify-content: center; flex-direction: column; align-items: center; border-radius: 10px; background: #fff; box-shadow: 0px 0px 5px 1px #00083120; float: left; margin: 2vw;}
-#playerU15 > div > div > div {width: 18.5vw; height: 22vw; overflow: hidden; box-shadow: none;}
-#playerU15 > div > div > div > img {width: 18.5vw; height: 22vw; object-fit: cover; border-radius: 10px 10px 0 0;}
-#playerU15 > div > div > p {width: 18.5vw; height: 8vw; font-size: 14px; background: #000831; color: #fff; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center;}
-#playerU15 > div > div > p > span {margin-right: 4px; color: #61f2ff; font-size: inherit; letter-spacing: -2px;}
+#playerU15 > div > a > div {width: 18.5vw; height: 30vw; display: flex; justify-content: center; flex-direction: column; align-items: center; border-radius: 10px; background: #fff; box-shadow: 0px 0px 5px 1px #00083120; float: left; margin: 2vw;}
+#playerU15 > div > a > div > div {width: 18.5vw; height: 22vw; overflow: hidden; box-shadow: none;}
+#playerU15 > div > a > div > div > img {width: 18.5vw; height: 22vw; object-fit: cover; border-radius: 10px 10px 0 0;}
+#playerU15 > div > a > div > p {width: 18.5vw; height: 8vw; font-size: 14px; background: #000831; color: #fff; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center;}
+#playerU15 > div > a > div > p > span {margin-right: 4px; color: #61f2ff; font-size: inherit; letter-spacing: -2px;}
 
 /* 일정 */
 .fixturesButton {width: 100vw; height: 10vw; position: fixed; top: 20vw; left: 0; background: #fff; z-index: 100;}
