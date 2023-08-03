@@ -2,7 +2,7 @@
 @font-face {font-family: "Dia Gothic"; font-weight: 400; src: url(./files/KBO-Dia-Gothic_medium.woff);}
 @font-face {font-family: "Dia Gothic"; font-weight: 700; src: url(./files/KBO-Dia-Gothic_bold.woff);}
 
-* {color: #000831; margin: 0; padding: 0; text-align: center; font-family: "Dia Gothic"; font-weight: 700; font-size: 12px; list-style: none; text-decoration-line: none;  -webkit-touch-callout: none; -moz-user-select: none; -ms-user-select: none; -webkit-user-select: none; user-select: none; border-collapse: collapse; border-spacing: 0}
+* {color: #000831; margin: 0; padding: 0; text-align: center; font-family: "Dia Gothic"; font-weight: 700; font-size: 12px; list-style: none; text-decoration-line: none; border-collapse: collapse; border-spacing: 0}
 *::-webkit-scrollbar {display: none;}
 
 /* 헤더 */
