@@ -67,7 +67,7 @@ footer > ul > li > a {font-size: 14px;}
 #playerImg {width: 100vw; height: 60vw; overflow: hidden;}
 #playerImg > img {height: 80vw; margin-left: 15vw;}
 
-#playerInfo {width: 100vw; margin-top: 60vw; background: #fff; box-shadow: 0 -3px 3px 1px #00083110; border-radius: 15vw 15vw 0 0;}
+#playerInfo {width: 100vw; height: 400vw; margin-top: 60vw; background: #fff; box-shadow: 0 -3px 3px 1px #00083110; border-radius: 15vw 15vw 0 0;}
 
 #playerPers {width: 75vw; height: 20vw; display: flex; margin-left: 12.5vw;}
 #playerPers > div {width: 20vw; height: 15vw; margin: 2.5vw;}
