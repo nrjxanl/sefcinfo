@@ -2,7 +2,7 @@
 @font-face {font-family: "Dia Gothic"; font-weight: 400; src: url(./files/KBO-Dia-Gothic_medium.woff);}
 @font-face {font-family: "Dia Gothic"; font-weight: 700; src: url(./files/KBO-Dia-Gothic_bold.woff);}
 
-* {color: #000831; margin: 0; padding: 0; text-align: center; font-family: "Dia Gothic"; font-weight: 700; font-size: 12px; list-style: none; text-decoration-line: none; border-collapse: collapse; border-spacing: 0}
+* {color: #000831; margin: 0; padding: 0; text-align: center; font-family: "Dia Gothic"; font-weight: 700; font-size: 12px; list-style: none; text-decoration-line: none; border-collapse: collapse; border-spacing: 0;}
 *::-webkit-scrollbar {display: none;}
 
 /* 헤더 */
@@ -54,7 +54,7 @@ footer > ul > li > a {font-size: 14px;}
 #playerU15 > div > a > div > p > span {margin-right: 4px; color: #61f2ff; font-size: inherit; letter-spacing: -2px;}
 
 /* 선수 정보 */
-#playerMain {width: 100vw; display: flex; position: fixed; top: 20vw; left: 0;}
+#playerMain {width: 100vw; display: flex; position: fixed; top: 20vw; left: 0; z-index: -100;}
 
 #playerName {width: 30vw; height: 20vw; position: absolute; top: 5vw; left: 20vw;}
 #playerName > div {display: flex; align-items: center;}
