@@ -92,20 +92,6 @@ $("td[class='klyc']").after("<td rowspan='2'><img src='./files/kleagueyouthchamp
 $("td[class='mcst']").after("<td rowspan='2'><img src='./files/mcst_s.png'></td>");
 $("td[class='kfa']").after("<td rowspan='2'><img src='./files/kfa_s.png'></td>");
 
-// 화면 크기별 폰트 크기 조절
-screenWidth = $(window).width()
-$(document).ready(function() {
-    if (screenWidth < 350) {
-        $("*").css("font-size", function(_i, val) {
-            return parseInt(val) - 4 + "px";
-        });
-    } else if (screenWidth < 410) {
-        $("*").css("font-size", function(_i, val) {
-            return parseInt(val) - 2 + "px";
-        });
-    } else {}
-})
-
 // 선수단 창 전환
 function playerA() {
     document.getElementById("playerA").style.display = "block";
@@ -258,3 +244,57 @@ $("div[id*='standings'] > div > table > tbody > tr:has(.sefc8) > td:nth-last-chi
 $("div[id*='standings'] > div > table > tbody > tr:has(.sefc5) > td").css({"background": "#000831", "color": "#fff"});
 $("div[id*='standings'] > div > table > tbody > tr:has(.sefc5) > td:nth-child(1)").css("border-radius", "50px 0 0 50px");
 $("div[id*='standings'] > div > table > tbody > tr:has(.sefc5) > td:nth-last-child(3)").css("border-radius", "0 50px 50px 0");
+
+// 포지션
+$("#cf").text("CF")
+$("#lw").text("LW")
+$("#rw").text("RW")
+$("#am").text("AM")
+$("#lm").text("LM")
+$("#cm").text("CM")
+$("#rm").text("RM")
+$("#dm").text("DM")
+$("#lb").text("LB")
+$("#cb").text("CB")
+$("#rb").text("RB")
+$("#gk").text("GK")
+
+$("#cf").css({"width": "5vw", "height": "3vw", "border-radius": "5px", "color": "#fff", "background": "#174fff", "position": "absolute", "top": "-50vw", "left": "0"})
+$("#lw").css({"width": "5vw", "height": "3vw", "border-radius": "5px", "color": "#fff", "background": "#174fff", "position": "absolute", "top": "-50vw", "left": "0"})
+$("#rw").css({"width": "5vw", "height": "3vw", "border-radius": "5px", "color": "#fff", "background": "#174fff", "position": "absolute", "top": "-50vw", "left": "0"})
+$("#am").css({"width": "5vw", "height": "3vw", "border-radius": "5px", "color": "#fff", "background": "#174fff", "position": "absolute", "top": "-50vw", "left": "0"})
+$("#lm").css({"width": "5vw", "height": "3vw", "border-radius": "5px", "color": "#fff", "background": "#174fff", "position": "absolute", "top": "-50vw", "left": "0"})
+$("#cm").css({"width": "5vw", "height": "3vw", "border-radius": "5px", "color": "#fff", "background": "#174fff", "position": "absolute", "top": "-50vw", "left": "0"})
+$("#rm").css({"width": "5vw", "height": "3vw", "border-radius": "5px", "color": "#fff", "background": "#174fff", "position": "absolute", "top": "-50vw", "left": "0"})
+$("#dm").css({"width": "5vw", "height": "3vw", "border-radius": "5px", "color": "#fff", "background": "#174fff", "position": "absolute", "top": "-50vw", "left": "0"})
+$("#lb").css({"width": "5vw", "height": "3vw", "border-radius": "5px", "color": "#fff", "background": "#174fff", "position": "absolute", "top": "-50vw", "left": "0"})
+$("#cb").css({"width": "5vw", "height": "3vw", "border-radius": "5px", "color": "#fff", "background": "#174fff", "position": "absolute", "top": "-50vw", "left": "0"})
+$("#rb").css({"width": "5vw", "height": "3vw", "border-radius": "5px", "color": "#fff", "background": "#174fff", "position": "absolute", "top": "-50vw", "left": "0"})
+$("#gk").css({"width": "5vw", "height": "3vw", "border-radius": "5px", "color": "#fff", "background": "#174fff", "position": "absolute", "top": "-50vw", "left": "0"})
+
+// 새로고침 시
+
+$(document).ready(function() {
+
+    // 맨 위로 이동
+    if($("#nextMatch").length) {
+        document.getElementById("nextMatch").scrollIntoView({behavior: "smooth", block: "center"});
+    } else {
+        $("html").animate({
+            scrollTop: 0
+        }, 500)
+    };
+    
+    // 글자 크기 자동 조정
+    screenWidth = $(window).width()
+    if (screenWidth < 350) {
+        $("*").css("font-size", function(_i, val) {
+            return parseInt(val) - 4 + "px";
+        });
+    } else if (screenWidth < 410) {
+        $("*").css("font-size", function(_i, val) {
+            return parseInt(val) - 2 + "px";
+        });
+    } else {}
+
+})
