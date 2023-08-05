@@ -255,25 +255,47 @@ $("#cm").text("CM")
 $("#rm").text("RM")
 $("#dm").text("DM")
 $("#lb").text("LB")
-$("#cb").text("CB")
 $("#rb").text("RB")
+$("#cb").text("CB")
 $("#gk").text("GK")
 
-$("#cf").css({"width": "5vw", "height": "3vw", "border-radius": "5px", "color": "#fff", "background": "#174fff", "position": "absolute", "top": "-50vw", "left": "0"})
-$("#lw").css({"width": "5vw", "height": "3vw", "border-radius": "5px", "color": "#fff", "background": "#174fff", "position": "absolute", "top": "-50vw", "left": "0"})
-$("#rw").css({"width": "5vw", "height": "3vw", "border-radius": "5px", "color": "#fff", "background": "#174fff", "position": "absolute", "top": "-50vw", "left": "0"})
-$("#am").css({"width": "5vw", "height": "3vw", "border-radius": "5px", "color": "#fff", "background": "#174fff", "position": "absolute", "top": "-50vw", "left": "0"})
-$("#lm").css({"width": "5vw", "height": "3vw", "border-radius": "5px", "color": "#fff", "background": "#174fff", "position": "absolute", "top": "-50vw", "left": "0"})
-$("#cm").css({"width": "5vw", "height": "3vw", "border-radius": "5px", "color": "#fff", "background": "#174fff", "position": "absolute", "top": "-50vw", "left": "0"})
-$("#rm").css({"width": "5vw", "height": "3vw", "border-radius": "5px", "color": "#fff", "background": "#174fff", "position": "absolute", "top": "-50vw", "left": "0"})
-$("#dm").css({"width": "5vw", "height": "3vw", "border-radius": "5px", "color": "#fff", "background": "#174fff", "position": "absolute", "top": "-50vw", "left": "0"})
-$("#lb").css({"width": "5vw", "height": "3vw", "border-radius": "5px", "color": "#fff", "background": "#174fff", "position": "absolute", "top": "-50vw", "left": "0"})
-$("#cb").css({"width": "5vw", "height": "3vw", "border-radius": "5px", "color": "#fff", "background": "#174fff", "position": "absolute", "top": "-50vw", "left": "0"})
-$("#rb").css({"width": "5vw", "height": "3vw", "border-radius": "5px", "color": "#fff", "background": "#174fff", "position": "absolute", "top": "-50vw", "left": "0"})
-$("#gk").css({"width": "5vw", "height": "3vw", "border-radius": "5px", "color": "#fff", "background": "#174fff", "position": "absolute", "top": "-50vw", "left": "0"})
+$("#cf").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "126.5vw", "left": "45vw"})
+$("#lw").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "132.5vw", "left": "31vw"})
+$("#rw").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "132.5vw", "left": "59vw"})
+$("#am").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "138.5vw", "left": "45vw"})
+$("#lm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "150.5vw", "left": "31vw"})
+$("#cm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "150.5vw", "left": "45vw"})
+$("#rm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "150.5vw", "left": "59vw"})
+$("#dm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "162.5vw", "left": "45vw"})
+$("#lb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "168.5vw", "left": "31vw"})
+$("#rb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "168.5vw", "left": "59vw"})
+$("#cb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "174.5vw", "left": "45vw"})
+$("#gk").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "186.5vw", "left": "45vw"})
+
+$("p[pos=o]").css({"color": "#fff", "background": "#174fff", "opacity": "1"})
+
+// 나이 계산
+birthday = $("#birth").text()
+birthday = new Date(birthday + "T00:00:00.000Z")
+
+now = new Date();
+dd = String(now.getDate()).padStart(2, '0');
+mm = String(now.getMonth() + 1).padStart(2, '0');
+yyyy = now.getFullYear();
+nowYMD = yyyy + '-' + mm + '-' + dd + 'T00:00:00.000Z';
+today = new Date(nowYMD);
+
+years = today.getFullYear() - birthday.getFullYear();
+birthday.setFullYear(today.getFullYear());
+
+if (today < birthday)
+{
+    years--;
+}
+
+$("#age").text(years + "세")
 
 // 새로고침 시
-
 $(document).ready(function() {
 
     // 맨 위로 이동
@@ -282,7 +304,7 @@ $(document).ready(function() {
     } else {
         $("html").animate({
             scrollTop: 0
-        }, 500)
+        }, 300)
     };
     
     // 글자 크기 자동 조정
