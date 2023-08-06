@@ -134,7 +134,7 @@ function fixturesU15() {
 }
 
 function fixturesSeason() {
-    var fixturesSeason = $("div[class='fixturesSeason_']").css("display")
+    fixturesSeason = $("div[class='fixturesSeason_']").css("display")
 
     if(fixturesSeason == "none") {
         $("div[class='fixturesSeason_']").css("display", "flex");
@@ -173,7 +173,7 @@ function standingsU15() {
 }
 
 function standingsSeason() {
-    var standingsSeason = $("div[class='standingsSeason_']").css("display")
+    standingsSeason = $("div[class='standingsSeason_']").css("display")
 
     if(standingsSeason == "none") {
         $("div[class='standingsSeason_']").css("display", "flex");
@@ -184,7 +184,7 @@ function standingsSeason() {
 }
 
 function standings() {
-    var standings = $("div[id*='standings'] div table thead tr th:nth-child(8)").css("display")
+    standings = $("div[id*='standings'] div table thead tr th:nth-child(8)").css("display")
 
     if(standings == "none") {
         $("div[id*='standings'] div table").css("width", "113vw");
@@ -259,20 +259,48 @@ $("#rb").text("RB")
 $("#cb").text("CB")
 $("#gk").text("GK")
 
-$("#cf").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "126.5vw", "left": "45vw"})
-$("#lw").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "132.5vw", "left": "31vw"})
-$("#rw").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "132.5vw", "left": "59vw"})
-$("#am").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "138.5vw", "left": "45vw"})
-$("#lm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "150.5vw", "left": "31vw"})
-$("#cm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "150.5vw", "left": "45vw"})
-$("#rm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "150.5vw", "left": "59vw"})
-$("#dm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "162.5vw", "left": "45vw"})
-$("#lb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "168.5vw", "left": "31vw"})
-$("#rb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "168.5vw", "left": "59vw"})
-$("#cb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "174.5vw", "left": "45vw"})
-$("#gk").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "186.5vw", "left": "45vw"})
+$("#cf").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "137.5vw", "left": "45vw"})
+$("#lw").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "143.5vw", "left": "31vw"})
+$("#rw").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "143.5vw", "left": "59vw"})
+$("#am").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "149.5vw", "left": "45vw"})
+$("#lm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "161.5vw", "left": "31vw"})
+$("#cm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "161.5vw", "left": "45vw"})
+$("#rm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "161.5vw", "left": "59vw"})
+$("#dm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "173.5vw", "left": "45vw"})
+$("#lb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "179.5vw", "left": "31vw"})
+$("#rb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "179.5vw", "left": "59vw"})
+$("#cb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "185.5vw", "left": "45vw"})
+$("#gk").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "197.5vw", "left": "45vw"})
 
 $("p[pos=o]").css({"color": "#fff", "background": "#174fff", "opacity": "1"})
+
+// 선수 정보 창 전환
+function playerInfo() {
+    document.getElementById("playerInfo").style.display = "block";
+    document.getElementById("playerStat").style.display = "none";
+    document.getElementById("playerCareer").style.display = "none";
+    $(".playerDetail button:nth-child(1)").css("font-weight", 700);
+    $(".playerDetail button:nth-child(2)").css("font-weight", 400);
+    $(".playerDetail button:nth-child(3)").css("font-weight", 400);
+}
+
+function playerStat() {
+    document.getElementById("playerPos").style.display = "none";
+    document.getElementById("playerStat").style.display = "block";
+    document.getElementById("playerCareer").style.display = "none";
+    $(".playerDetail button:nth-child(1)").css("font-weight", 400);
+    $(".playerDetail button:nth-child(2)").css("font-weight", 700);
+    $(".playerDetail button:nth-child(3)").css("font-weight", 400);
+}
+
+function playerCareer() {
+    document.getElementById("playerPos").style.display = "none";
+    document.getElementById("playerStat").style.display = "none";
+    document.getElementById("playerCareer").style.display = "block";
+    $(".playerDetail button:nth-child(1)").css("font-weight", 400);
+    $(".playerDetail button:nth-child(2)").css("font-weight", 400);
+    $(".playerDetail button:nth-child(3)").css("font-weight", 700);
+}
 
 // 나이 계산
 birthday = $("#birth").text()

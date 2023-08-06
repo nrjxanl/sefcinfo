@@ -69,6 +69,13 @@
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1280px-Instagram_logo.svg.png">
                 </div>
             </a>
+
+            <div class="playerDetail">
+                <button onclick="playerInfo()">정보</button>
+                <button onclick="playerStat()" style="font-weight: 400;">기록</button>
+                <button onclick="playerCareer()" style="font-weight: 400;">경력</button>
+            </div>
+
             <div id="playerPos">
                 <img src="./files/field.png">
                 <p id="cf"></p>
@@ -84,6 +91,37 @@
                 <p id="rb"></p>
                 <p id="gk" pos="o"></p>
             </div>
+
+            <div id="playerStat">
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+                <p></p>
+                <p>출전</p>
+                <canvas id="chart2023">
+                    <script>
+                        app = "1";
+                        pct = app / 39 * 100;
+                        $("#playerStat > p:nth-child(2)").text(app);
+
+                        chart = document.getElementById("chart2023").getContext("2d");
+                        chart2023 = new Chart(chart, {
+                            type: "doughnut",
+                            data: {
+                                datasets: [{
+                                    data: [pct, "100" - pct],
+                                    backgroundColor: ["#174fff", "#00083120"],
+                                }]
+                            },
+                            options: {
+                                rotation: -90,
+                                circumference: 180,
+                                animation: false,
+                            }
+                        });
+                    </script>
+                </canvas>
+            </div>
+
+            <div id="playerCareer"></div>
 
         </div>
 
