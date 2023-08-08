@@ -94,31 +94,62 @@
 
             <div id="playerStat">
                 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-                <p></p>
-                <p>출전</p>
-                <canvas id="chart2023">
-                    <script>
-                        app = "1";
-                        pct = app / 39 * 100;
-                        $("#playerStat > p:nth-child(2)").text(app);
-
-                        chart = document.getElementById("chart2023").getContext("2d");
-                        chart2023 = new Chart(chart, {
-                            type: "doughnut",
-                            data: {
-                                datasets: [{
-                                    data: [pct, "100" - pct],
-                                    backgroundColor: ["#174fff", "#00083120"],
-                                }]
-                            },
-                            options: {
-                                rotation: -90,
-                                circumference: 180,
-                                animation: false,
-                            }
-                        });
-                    </script>
-                </canvas>
+                <div id="appDiv">
+                    <p></p>
+                    <p>출전</p>
+                    <canvas id="app">13</canvas>
+                </div>
+                <div id="goalDiv">
+                    <p></p>
+                    <p>득점</p>
+                    <canvas id="goal">0</canvas>
+                </div>
+                <div id="assistDiv">
+                    <p></p>
+                    <p>도움</p>
+                    <canvas id="assist">0</canvas>
+                </div>
+                <div id="shotDiv">
+                    <p></p>
+                    <p>슈팅</p>
+                    <canvas id="shot">0</canvas>
+                </div>
+                <div id="sotDiv">
+                    <p></p>
+                    <p>유효슈팅</p>
+                    <canvas id="sot">0</canvas>
+                </div>
+                <div id="foulcDiv">
+                    <p></p>
+                    <p>파울</p>
+                    <canvas id="foulc">2</canvas>
+                </div>
+                <div id="foulsDiv">
+                    <p></p>
+                    <p>피파울</p>
+                    <canvas id="fouls">1</canvas>
+                </div>
+                <div id="ycDiv">
+                    <p></p>
+                    <p>경고</p>
+                    <canvas id="yc">2</canvas>
+                </div>
+                <div id="rcDiv">
+                    <p></p>
+                    <p>퇴장</p>
+                    <canvas id="rc">0</canvas>
+                </div>
+                <div id="concDiv">
+                    <p></p>
+                    <p>실점</p>
+                    <canvas id="conc">16</canvas>
+                </div>
+                <div id="ogDiv">
+                    <p></p>
+                    <p>자책</p>
+                    <canvas id="og">0</canvas>
+                </div>
+                
             </div>
 
             <div id="playerCareer"></div>

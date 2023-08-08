@@ -54,7 +54,7 @@ footer > ul > li > a {font-size: 14px;}
 #playerU15 > div > a > div > p > span {margin-right: 4px; color: #61f2ff; font-size: inherit; letter-spacing: -2px;}
 
 /* 선수 정보 */
-.playerDetail {width: 100vw; height: 10vw; margin-top: 5vw;}
+.playerDetail {width: 100vw; height: 10vw; margin-top: 5vw; position: relative; z-index: 99;}
 .playerDetail > button {width: 15vw; height: 10vw; font-size: 16px; background: none; border: none;}
 
 #playerMain {width: 100vw; display: flex; position: fixed; top: 20vw; left: 0; z-index: -100;}
@@ -84,10 +84,34 @@ footer > ul > li > a {font-size: 14px;}
 #playerPos {width: 50vw; margin: 5vw 0 0 25vw;}
 #playerPos > img {width: 50vw; border-radius: 2vw; opacity: 50%;}
 
-#playerStat {width: 80vw; margin: 15vw 0 0 10vw; display: none;}
-#playerStat > p:nth-child(2) {width: 30vw; margin-left: 5vw; font-size: 20px;}
-#playerStat > p:nth-child(3) {width: 30vw; margin-left: 5vw; font-size: 16px; font-weight: 400;}
-#playerStat > canvas {width: 30vw !important; height: 30vw !important; margin: -28vw 5vw 0 5vw; pointer-events: none;}
+#playerStat {width: 80vw; margin-left: 10vw; display: none; align-items: center; flex-direction: row; flex-wrap: wrap;}
+#playerStat > div {width: 40vw; display: flex; justify-content: center;}
+#playerStat > div:nth-child(n+3):nth-child(-n+12) > canvas {width: 30vw !important; height: 30vw !important; pointer-events: none;}
+
+#appDiv {width: 80vw !important; margin-bottom: -10vw;}
+#appDiv > canvas {width: 70vw !important; height: 70vw !important; margin-top: -10vw;}
+#appDiv > p:nth-child(1) {width: 60vw; font-size: 30px; position: absolute; top: 162vw;}
+#appDiv > p:nth-child(2) {width: 60vw; font-size: 16px; font-weight: 400; position: absolute; top: 172vw;}
+#goalDiv > p:nth-child(1) {width: 30vw; font-size: 20px; position: absolute; top: 196vw;}
+#goalDiv > p:nth-child(2) {width: 30vw; font-size: 14px; font-weight: 400; position: absolute; top: 202vw;}
+#assistDiv > p:nth-child(1) {width: 30vw; font-size: 20px; position: absolute; top: 196vw;}
+#assistDiv > p:nth-child(2) {width: 30vw; font-size: 14px; font-weight: 400; position: absolute; top: 202vw;}
+#shotDiv > p:nth-child(1) {width: 30vw; font-size: 20px; position: absolute; top: 226vw;}
+#shotDiv > p:nth-child(2) {width: 30vw; font-size: 14px; font-weight: 400; position: absolute; top: 232vw;}
+#sotDiv > p:nth-child(1) {width: 30vw; font-size: 20px; position: absolute; top: 226vw;}
+#sotDiv > p:nth-child(2) {width: 30vw; font-size: 14px; font-weight: 400; position: absolute; top: 232vw;}
+#foulcDiv > p:nth-child(1) {width: 30vw; font-size: 20px; position: absolute; top: 256vw;}
+#foulcDiv > p:nth-child(2) {width: 30vw; font-size: 14px; font-weight: 400; position: absolute; top: 262vw;}
+#foulsDiv > p:nth-child(1) {width: 30vw; font-size: 20px; position: absolute; top: 256vw;}
+#foulsDiv > p:nth-child(2) {width: 30vw; font-size: 14px; font-weight: 400; position: absolute; top: 262vw;}
+#ycDiv > p:nth-child(1) {width: 30vw; font-size: 20px; position: absolute; top: 286vw;}
+#ycDiv > p:nth-child(2) {width: 30vw; font-size: 14px; font-weight: 400; position: absolute; top: 292vw;}
+#rcDiv > p:nth-child(1) {width: 30vw; font-size: 20px; position: absolute; top: 286vw;}
+#rcDiv > p:nth-child(2) {width: 30vw; font-size: 14px; font-weight: 400; position: absolute; top: 292vw;}
+#concDiv > p:nth-child(1) {width: 30vw; font-size: 20px; position: absolute; top: 316vw;}
+#concDiv > p:nth-child(2) {width: 30vw; font-size: 14px; font-weight: 400; position: absolute; top: 322vw;}
+#ogDiv > p:nth-child(1) {width: 30vw; font-size: 20px; position: absolute; top: 316vw;}
+#ogDiv > p:nth-child(2) {width: 30vw; font-size: 14px; font-weight: 400; position: absolute; top: 322vw;}
 
 /* 일정 */
 .fixturesButton {width: 100vw; height: 10vw; position: fixed; top: 20vw; left: 0; background: #fff; z-index: 100;}

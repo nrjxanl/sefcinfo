@@ -276,7 +276,7 @@ $("p[pos=o]").css({"color": "#fff", "background": "#174fff", "opacity": "1"})
 
 // 선수 정보 창 전환
 function playerInfo() {
-    document.getElementById("playerInfo").style.display = "block";
+    document.getElementById("playerPos").style.display = "block";
     document.getElementById("playerStat").style.display = "none";
     document.getElementById("playerCareer").style.display = "none";
     $(".playerDetail button:nth-child(1)").css("font-weight", 700);
@@ -286,7 +286,7 @@ function playerInfo() {
 
 function playerStat() {
     document.getElementById("playerPos").style.display = "none";
-    document.getElementById("playerStat").style.display = "block";
+    document.getElementById("playerStat").style.display = "flex";
     document.getElementById("playerCareer").style.display = "none";
     $(".playerDetail button:nth-child(1)").css("font-weight", 400);
     $(".playerDetail button:nth-child(2)").css("font-weight", 700);
@@ -322,6 +322,171 @@ if (today < birthday)
 }
 
 $("#age").text(years + "세")
+
+// 선수 기록
+
+
+app = $("#app").text();
+appPct = app / 183 * 100;
+$("#appDiv > p:nth-child(1)").text(app);
+goal = $("#goal").text();
+goalPct = goal / 37 * 100;
+$("#goalDiv > p:nth-child(1)").text(goal);
+assist = $("#assist").text();
+assistPct = assist / 13 * 100;
+$("#assistDiv > p:nth-child(1)").text(assist);
+shot = $("#shot").text();
+shotPct = shot / 175 * 100;
+$("#shotDiv > p:nth-child(1)").text(shot);
+sot = $("#sot").text();
+sotPct = sot / 100 * 100;
+$("#sotDiv > p:nth-child(1)").text(sot);
+foulc = $("#foulc").text();
+foulcPct = foulc / 146 * 100;
+$("#foulcDiv > p:nth-child(1)").text(foulc);
+fouls = $("#fouls").text();
+foulsPct = fouls / 144 * 100;
+$("#foulsDiv > p:nth-child(1)").text(fouls);
+yc = $("#yc").text();
+ycPct = yc / 19 * 100;
+$("#ycDiv > p:nth-child(1)").text(yc);
+rc = $("#rc").text();
+rcPct = rc / 2 * 100;
+$("#rcDiv > p:nth-child(1)").text(rc);
+conc = $("#conc").text();
+concPct = conc / 255 * 100;
+$("#concDiv > p:nth-child(1)").text(conc);
+og = $("#og").text();
+ogPct = og / 2 * 100;
+$("#ogDiv > p:nth-child(1)").text(og);
+
+options = {
+    rotation: -90,
+    circumference: 180,
+    animation: false,
+};
+
+appChart = document.getElementById("app").getContext("2d");
+app = new Chart(appChart, {
+    type: "doughnut",
+    data: {
+        datasets: [{
+            data: [appPct, "100" - appPct],
+            backgroundColor: ["#174fff", "#00083120"],
+        }]
+    },
+        options: options,
+});
+goalChart = document.getElementById("goal").getContext("2d");
+goal = new Chart(goalChart, {
+    type: "doughnut",
+    data: {
+        datasets: [{
+            data: [goalPct, "100" - goalPct],
+            backgroundColor: ["#174fff", "#00083120"],
+        }]
+    },
+        options: options,
+});
+assistChart = document.getElementById("assist").getContext("2d");
+assist = new Chart(assistChart, {
+    type: "doughnut",
+    data: {
+        datasets: [{
+            data: [assistPct, "100" - assistPct],
+            backgroundColor: ["#174fff", "#00083120"],
+        }]
+    },
+        options: options,
+});
+shotChart = document.getElementById("shot").getContext("2d");
+shot = new Chart(shotChart, {
+    type: "doughnut",
+    data: {
+        datasets: [{
+            data: [shotPct, "100" - shotPct],
+            backgroundColor: ["#174fff", "#00083120"],
+        }]
+    },
+        options: options,
+});
+sotChart = document.getElementById("sot").getContext("2d");
+sot = new Chart(sotChart, {
+    type: "doughnut",
+    data: {
+        datasets: [{
+            data: [sotPct, "100" - sotPct],
+            backgroundColor: ["#174fff", "#00083120"],
+        }]
+    },
+        options: options,
+});
+foulcChart = document.getElementById("foulc").getContext("2d");
+foulc = new Chart(foulcChart, {
+    type: "doughnut",
+    data: {
+        datasets: [{
+            data: [foulcPct, "100" - foulcPct],
+            backgroundColor: ["#174fff", "#00083120"],
+        }]
+    },
+        options: options,
+});
+foulsChart = document.getElementById("fouls").getContext("2d");
+fouls = new Chart(foulsChart, {
+    type: "doughnut",
+    data: {
+        datasets: [{
+            data: [foulsPct, "100" - foulsPct],
+            backgroundColor: ["#174fff", "#00083120"],
+        }]
+    },
+        options: options,
+});
+ycChart = document.getElementById("yc").getContext("2d");
+yc = new Chart(ycChart, {
+    type: "doughnut",
+    data: {
+        datasets: [{
+            data: [ycPct, "100" - ycPct],
+            backgroundColor: ["#174fff", "#00083120"],
+        }]
+    },
+        options: options,
+});
+rcChart = document.getElementById("rc").getContext("2d");
+rc = new Chart(rcChart, {
+    type: "doughnut",
+    data: {
+        datasets: [{
+            data: [rcPct, "100" - rcPct],
+            backgroundColor: ["#174fff", "#00083120"],
+        }]
+    },
+        options: options,
+});
+concChart = document.getElementById("conc").getContext("2d");
+conc = new Chart(concChart, {
+    type: "doughnut",
+    data: {
+        datasets: [{
+            data: [concPct, "100" - concPct],
+            backgroundColor: ["#174fff", "#00083120"],
+        }]
+    },
+        options: options,
+});
+ogChart = document.getElementById("og").getContext("2d");
+og = new Chart(ogChart, {
+    type: "doughnut",
+    data: {
+        datasets: [{
+            data: [ogPct, "100" - ogPct],
+            backgroundColor: ["#174fff", "#00083120"],
+        }]
+    },
+        options: options,
+});
 
 // 새로고침 시
 $(document).ready(function() {
