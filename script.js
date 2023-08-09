@@ -324,8 +324,6 @@ if (today < birthday)
 $("#age").text(years + "세")
 
 // 선수 기록
-
-
 app = $("#app").text();
 appPct = app / 183;
 $("#appDiv > p:nth-child(1)").text(app);
@@ -359,7 +357,6 @@ $("#concDiv > p:nth-child(2)").text(conc);
 og = $("#ogDiv > canvas").text();
 ogPct = og / 2;
 $("#ogDiv > p:nth-child(2)").text(og);
-
 
 options = {
     rotation: -90,
@@ -400,6 +397,10 @@ $("#conc").css("width", $(window).width() * 0.3 * concPct)
 $("#ogDiv > canvas").after("<p></p><p id='og'></p>")
 $("#og").css("width", $(window).width() * 0.3 * ogPct)
 
+// 선수 경력 임대 div 들여쓰기
+$("div[loan='o']").css({"padding-left": "3vw", "opacity": "0.8"});
+$("div[loan='o'] > p:nth-of-type(1)").css("width", "32vw");
+
 // 새로고침 시
 $(document).ready(function() {
 
@@ -422,6 +423,6 @@ $(document).ready(function() {
         $("*").css("font-size", function(_i, val) {
             return parseInt(val) - 2 + "px";
         });
-    } else {}
+    } else {};
 
-})
+});
