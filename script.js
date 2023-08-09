@@ -327,38 +327,39 @@ $("#age").text(years + "세")
 
 
 app = $("#app").text();
-appPct = app / 183 * 100;
+appPct = app / 183;
 $("#appDiv > p:nth-child(1)").text(app);
-goal = $("#goal").text();
-goalPct = goal / 37 * 100;
-$("#goalDiv > p:nth-child(1)").text(goal);
-assist = $("#assist").text();
-assistPct = assist / 13 * 100;
-$("#assistDiv > p:nth-child(1)").text(assist);
-shot = $("#shot").text();
-shotPct = shot / 175 * 100;
-$("#shotDiv > p:nth-child(1)").text(shot);
-sot = $("#sot").text();
-sotPct = sot / 100 * 100;
-$("#sotDiv > p:nth-child(1)").text(sot);
-foulc = $("#foulc").text();
-foulcPct = foulc / 146 * 100;
-$("#foulcDiv > p:nth-child(1)").text(foulc);
-fouls = $("#fouls").text();
-foulsPct = fouls / 144 * 100;
-$("#foulsDiv > p:nth-child(1)").text(fouls);
-yc = $("#yc").text();
-ycPct = yc / 19 * 100;
-$("#ycDiv > p:nth-child(1)").text(yc);
-rc = $("#rc").text();
-rcPct = rc / 2 * 100;
-$("#rcDiv > p:nth-child(1)").text(rc);
-conc = $("#conc").text();
-concPct = conc / 255 * 100;
-$("#concDiv > p:nth-child(1)").text(conc);
-og = $("#og").text();
-ogPct = og / 2 * 100;
-$("#ogDiv > p:nth-child(1)").text(og);
+goal = $("#goalDiv > canvas").text();
+goalPct = goal / 37;
+$("#goalDiv > p:nth-child(2)").text(goal);
+assist = $("#assistDiv > canvas").text();
+assistPct = assist / 13;
+$("#assistDiv > p:nth-child(2)").text(assist);
+shot = $("#shotDiv > canvas").text();
+shotPct = shot / 175;
+$("#shotDiv > p:nth-child(2)").text(shot);
+sot = $("#sotDiv > canvas").text();
+sotPct = sot / 100;
+$("#sotDiv > p:nth-child(2)").text(sot);
+foulc = $("#foulcDiv > canvas").text();
+foulcPct = foulc / 146;
+$("#foulcDiv > p:nth-child(2)").text(foulc);
+fouls = $("#foulsDiv > canvas").text();
+foulsPct = fouls / 144;
+$("#foulsDiv > p:nth-child(2)").text(fouls);
+yc = $("#ycDiv > canvas").text();
+ycPct = yc / 19;
+$("#ycDiv > p:nth-child(2)").text(yc);
+rc = $("#rcDiv > canvas").text();
+rcPct = rc / 2;
+$("#rcDiv > p:nth-child(2)").text(rc);
+conc = $("#concDiv > canvas").text();
+concPct = conc / 255;
+$("#concDiv > p:nth-child(2)").text(conc);
+og = $("#ogDiv > canvas").text();
+ogPct = og / 2;
+$("#ogDiv > p:nth-child(2)").text(og);
+
 
 options = {
     rotation: -90,
@@ -371,122 +372,33 @@ app = new Chart(appChart, {
     type: "doughnut",
     data: {
         datasets: [{
-            data: [appPct, "100" - appPct],
+            data: [appPct * 100, "100" - appPct * 100],
             backgroundColor: ["#174fff", "#00083120"],
         }]
     },
         options: options,
 });
-goalChart = document.getElementById("goal").getContext("2d");
-goal = new Chart(goalChart, {
-    type: "doughnut",
-    data: {
-        datasets: [{
-            data: [goalPct, "100" - goalPct],
-            backgroundColor: ["#174fff", "#00083120"],
-        }]
-    },
-        options: options,
-});
-assistChart = document.getElementById("assist").getContext("2d");
-assist = new Chart(assistChart, {
-    type: "doughnut",
-    data: {
-        datasets: [{
-            data: [assistPct, "100" - assistPct],
-            backgroundColor: ["#174fff", "#00083120"],
-        }]
-    },
-        options: options,
-});
-shotChart = document.getElementById("shot").getContext("2d");
-shot = new Chart(shotChart, {
-    type: "doughnut",
-    data: {
-        datasets: [{
-            data: [shotPct, "100" - shotPct],
-            backgroundColor: ["#174fff", "#00083120"],
-        }]
-    },
-        options: options,
-});
-sotChart = document.getElementById("sot").getContext("2d");
-sot = new Chart(sotChart, {
-    type: "doughnut",
-    data: {
-        datasets: [{
-            data: [sotPct, "100" - sotPct],
-            backgroundColor: ["#174fff", "#00083120"],
-        }]
-    },
-        options: options,
-});
-foulcChart = document.getElementById("foulc").getContext("2d");
-foulc = new Chart(foulcChart, {
-    type: "doughnut",
-    data: {
-        datasets: [{
-            data: [foulcPct, "100" - foulcPct],
-            backgroundColor: ["#174fff", "#00083120"],
-        }]
-    },
-        options: options,
-});
-foulsChart = document.getElementById("fouls").getContext("2d");
-fouls = new Chart(foulsChart, {
-    type: "doughnut",
-    data: {
-        datasets: [{
-            data: [foulsPct, "100" - foulsPct],
-            backgroundColor: ["#174fff", "#00083120"],
-        }]
-    },
-        options: options,
-});
-ycChart = document.getElementById("yc").getContext("2d");
-yc = new Chart(ycChart, {
-    type: "doughnut",
-    data: {
-        datasets: [{
-            data: [ycPct, "100" - ycPct],
-            backgroundColor: ["#174fff", "#00083120"],
-        }]
-    },
-        options: options,
-});
-rcChart = document.getElementById("rc").getContext("2d");
-rc = new Chart(rcChart, {
-    type: "doughnut",
-    data: {
-        datasets: [{
-            data: [rcPct, "100" - rcPct],
-            backgroundColor: ["#174fff", "#00083120"],
-        }]
-    },
-        options: options,
-});
-concChart = document.getElementById("conc").getContext("2d");
-conc = new Chart(concChart, {
-    type: "doughnut",
-    data: {
-        datasets: [{
-            data: [concPct, "100" - concPct],
-            backgroundColor: ["#174fff", "#00083120"],
-        }]
-    },
-        options: options,
-});
-ogChart = document.getElementById("og").getContext("2d");
-og = new Chart(ogChart, {
-    type: "doughnut",
-    data: {
-        datasets: [{
-            data: [ogPct, "100" - ogPct],
-            backgroundColor: ["#174fff", "#00083120"],
-        }]
-    },
-        options: options,
-});
+
+$("#goalDiv > canvas").after("<p></p><p id='goal'></p>")
+$("#goal").css("width", $(window).width() * 0.3 * goalPct)
+$("#assistDiv > canvas").after("<p></p><p id='assist'></p>")
+$("#assist").css("width", $(window).width() * 0.3 * assistPct)
+$("#shotDiv > canvas").after("<p></p><p id='shot'></p>")
+$("#shot").css("width", $(window).width() * 0.3 * shotPct)
+$("#sotDiv > canvas").after("<p></p><p id='sot'></p>")
+$("#sot").css("width", $(window).width() * 0.3 * sotPct)
+$("#foulcDiv > canvas").after("<p></p><p id='foulc'></p>")
+$("#foulc").css("width", $(window).width() * 0.3 * foulcPct)
+$("#foulsDiv > canvas").after("<p></p><p id='fouls'></p>")
+$("#fouls").css("width", $(window).width() * 0.3 * foulsPct)
+$("#ycDiv > canvas").after("<p></p><p id='yc'></p>")
+$("#yc").css("width", $(window).width() * 0.3 * ycPct)
+$("#rcDiv > canvas").after("<p></p><p id='rc'></p>")
+$("#rc").css("width", $(window).width() * 0.3 * rcPct)
+$("#concDiv > canvas").after("<p></p><p id='conc'></p>")
+$("#conc").css("width", $(window).width() * 0.3 * concPct)
+$("#ogDiv > canvas").after("<p></p><p id='og'></p>")
+$("#og").css("width", $(window).width() * 0.3 * ogPct)
 
 // 새로고침 시
 $(document).ready(function() {
