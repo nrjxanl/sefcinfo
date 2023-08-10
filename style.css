@@ -63,6 +63,7 @@ footer > ul > li > a {font-size: 14px;}
 #playerName > div {display: flex; align-items: center;}
 #playerName > div > img {height: 10vw;}
 #playerName > div > img:nth-child(2) {height: 8vw; margin-top: 1vw; border-radius: 100%; box-shadow: 0 0 0 2px #000831 inset; margin-left: -3vw; z-index: -100;}
+#playerName > p {text-shadow: 3px 0px 5px #fff;}
 #playerName > p:nth-child(2) {font-size: 30px; text-align: left;}
 #playerName > p:nth-child(3) {color: #174fff; float: left; margin-right: 1vw;}
 #playerName > p:nth-child(4) {font-weight: 400; text-align: left;}
@@ -93,7 +94,7 @@ footer > ul > li > a {font-size: 14px;}
 #appDiv > p:nth-child(1) {width: 70vw; font-size: 30px; position: absolute; top: 162vw;}
 #appDiv > p:nth-child(2) {width: 70vw; font-size: 16px; font-weight: 400; position: absolute; top: 172vw;}
 #playerStat > div:nth-child(n+3) > p:nth-child(2) {width: 30vw; height: 5vw; margin: 7vw 0 0 5vw; background: #00083120; position: absolute;}
-#playerStat > div:nth-child(n+3) > p:nth-child(3) {height: 5vw; margin: 7vw 0 2vw 5vw; background: #174fff;}
+#playerStat > div:nth-child(n+3) > p:nth-child(3) {height: 5vw; margin: 7vw 0 2vw 5vw; background: #000831;}
 #playerStat > div:nth-child(n+3) > p:nth-child(4) {width: 40vw; font-size: 20px;}
 #playerStat > div:nth-child(n+3) > p:nth-child(5) {width: 40vw; font-size: 14px; font-weight: 400;}
 #playerStat > div:nth-child(n+3) > canvas {display: none;}

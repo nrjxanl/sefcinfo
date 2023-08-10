@@ -245,6 +245,9 @@ $("div[id*='standings'] > div > table > tbody > tr:has(.sefc5) > td").css({"back
 $("div[id*='standings'] > div > table > tbody > tr:has(.sefc5) > td:nth-child(1)").css("border-radius", "50px 0 0 50px");
 $("div[id*='standings'] > div > table > tbody > tr:has(.sefc5) > td:nth-last-child(3)").css("border-radius", "0 50px 50px 0");
 
+// 인스타그램 링크
+$("#playerInfo").find("a[href='#']").attr({"onclick": "return false", "style": "opacity: 0.5"})
+
 // 포지션
 $("#cf").text("CF")
 $("#lw").text("LW")
@@ -272,7 +275,7 @@ $("#rb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-
 $("#cb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "185.5vw", "left": "45vw"})
 $("#gk").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "197.5vw", "left": "45vw"})
 
-$("p[pos=o]").css({"color": "#fff", "background": "#174fff", "opacity": "1"})
+$("p[pos=o]").css({"color": "#fff", "background": "#000831", "opacity": "1"})
 
 // 선수 정보 창 전환
 function playerInfo() {
@@ -370,7 +373,7 @@ app = new Chart(appChart, {
     data: {
         datasets: [{
             data: [appPct * 100, "100" - appPct * 100],
-            backgroundColor: ["#174fff", "#00083120"],
+            backgroundColor: ["#000831", "#00083120"],
         }]
     },
         options: options,
@@ -400,6 +403,9 @@ $("#og").css("width", $(window).width() * 0.3 * ogPct)
 // 선수 경력 임대 div 들여쓰기
 $("div[loan='o']").css({"padding-left": "3vw", "opacity": "0.8"});
 $("div[loan='o'] > p:nth-of-type(1)").css("width", "32vw");
+
+// 선수 경력 구단 엠블럼 dummy
+$("#playerCareer").find("img").attr("onerror", "this.src = './files/dummy.png'");
 
 // 새로고침 시
 $(document).ready(function() {
