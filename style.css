@@ -62,7 +62,7 @@ footer > ul > li > a {font-size: 14px;}
 #playerName {width: 30vw; height: 20vw; position: absolute; top: 5vw; left: 20vw;}
 #playerName > div {display: flex; align-items: center;}
 #playerName > div > img {height: 10vw;}
-#playerName > div > img:nth-child(2) {height: 8vw; margin-top: 1vw; border-radius: 100%; box-shadow: 0 0 0 2px #000831 inset; margin-left: -3vw; z-index: -100;}
+#playerName > div > img:nth-child(2) {height: 8vw; margin-top: 1vw; border-radius: 100%; border: 0.5vw solid #000831; margin-left: -3vw; z-index: -100;}
 #playerName > p {text-shadow: 3px 0px 5px #fff;}
 #playerName > p:nth-child(2) {font-size: 30px; text-align: left;}
 #playerName > p:nth-child(3) {color: #174fff; float: left; margin-right: 1vw;}
