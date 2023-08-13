@@ -1,8 +1,9 @@
 @font-face {font-family: "Dia Gothic"; font-weight: 100; src: url(./files/KBO-Dia-Gothic_light.woff);}
 @font-face {font-family: "Dia Gothic"; font-weight: 400; src: url(./files/KBO-Dia-Gothic_medium.woff);}
 @font-face {font-family: "Dia Gothic"; font-weight: 700; src: url(./files/KBO-Dia-Gothic_bold.woff);}
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@200;500;800&family=Noto+Sans:wght@200;500;800&display=swap");
 
-* {color: #000831; margin: 0; padding: 0; text-align: center; font-family: "Dia Gothic"; font-weight: 700; font-size: 12px; list-style: none; text-decoration-line: none; border-collapse: collapse; border-spacing: 0;}
+* {color: #000831; margin: 0; padding: 0; text-align: center; font-family: "Dia Gothic"; font-weight: 700; font-size: 12px; list-style: none; text-decoration-line: none; border-collapse: collapse; border-spacing: 0; word-break: keep-all;}
 *::-webkit-scrollbar {display: none;}
 
 /* 헤더 */
@@ -59,12 +60,14 @@ footer > ul > li > a {font-size: 14px;}
 
 #playerMain {width: 100vw; display: flex; position: fixed; top: 20vw; left: 0; z-index: -100;}
 
-#playerName {width: 30vw; height: 20vw; position: absolute; top: 5vw; left: 20vw;}
+#playerName {height: 20vw; position: absolute; top: 5vw; left: 20vw;}
 #playerName > div {display: flex; align-items: center;}
 #playerName > div > img {height: 10vw;}
 #playerName > div > img:nth-child(2) {height: 8vw; margin-top: 1vw; border-radius: 100%; border: 0.5vw solid #000831; margin-left: -3vw; z-index: -100;}
-#playerName > p {text-shadow: 3px 0px 5px #fff;}
-#playerName > p:nth-child(2) {font-size: 30px; text-align: left;}
+#playerName > p {text-shadow: 1px 0 #fff, -1px 0 #fff, 0 1px #fff, 0 -1px #fff, 0.5px 0.5px #fff, -0.5px -0.5px #fff, -0.5px 0.5px #fff, 0.5px -0.5px #fff;}
+#playerName > p:nth-child(2) {font-size: 30px; text-align: left; display: flex; flex-direction: column; align-items: flex-start;}
+#playerName > p:nth-child(2) > span {font-weight: 400;}
+#playerName > p:nth-child(2) > span:nth-child(2) {margin-bottom: 1vw;}
 #playerName > p:nth-child(3) {color: #174fff; float: left; margin-right: 1vw;}
 #playerName > p:nth-child(4) {font-weight: 400; text-align: left;}
 

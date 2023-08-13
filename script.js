@@ -92,6 +92,75 @@ $("td[class='klyc']").after("<td rowspan='2'><img src='./files/kleagueyouthchamp
 $("td[class='mcst']").after("<td rowspan='2'><img src='./files/mcst_s.png'></td>");
 $("td[class='kfa']").after("<td rowspan='2'><img src='./files/kfa_s.png'></td>");
 
+// 문자별 글꼴 적용
+characterList = []
+
+i = 0x00c0; // Latin-1 Supplement
+while(i <= 0x00d6) {
+    characterList.push(i);
+    i++;
+}
+i = 0x0100; // Latin Extended-A, B
+while(i <= 0x024f) {
+    characterList.push(i);
+    i++;
+}
+i = 0x0370; // Greek, Coptic, Cyrillic
+while(i <= 0x052f) {
+    characterList.push(i);
+    i++;
+}
+i = 0x1ea0; // Vietnamese
+while(i <= 0x1ef9) {
+    characterList.push(i);
+    i++;
+}
+i = 0x2e80; // CJK Hanja 1
+while(i <= 0x2ef3) {
+    characterList.push(i);
+    i++;
+}
+i = 0x2f00; // CJK Hanja 2
+while(i <= 0x2fd5) {
+    characterList.push(i);
+    i++;
+}
+i = 0x3400; // CJK Hanja 3
+while(i <= 0x4dbf) {
+    characterList.push(i);
+    i++;
+}
+i = 0x4e00; // CJK Hanja 4
+while(i <= 0x9fff) {
+    characterList.push(i);
+    i++;
+}
+i = 0xf900; // CJK Hanja 5
+while(i <= 0xfaff) {
+    characterList.push(i);
+    i++;
+}
+i = 0x20000; // CJK Hanja 6
+while(i <= 0x2fa1f) {
+    characterList.push(i);
+    i++;
+}
+
+_playerName = $("#playerName").find("span:nth-of-type(2)");
+playerName = []
+
+i = 0
+while ( i < _playerName.text().length) {
+    playerName.push(_playerName.text().charCodeAt(i));
+    i++;
+}
+
+intersection = playerName.filter(value => characterList.includes(value));
+if (intersection.length != 0) {
+    _playerName.css({"font-family": "'Noto Sans', 'Noto Sans KR'", "font-weight": "500"})
+}
+console.log(intersection)
+
 // 선수단 창 전환
 function playerA() {
     document.getElementById("playerA").style.display = "block";
