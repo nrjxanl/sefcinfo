@@ -151,19 +151,18 @@ while(i <= 0x2fa1f) {
 }
 
 _playerName = $("#playerName").find("span:nth-of-type(2)");
-playerName = []
+playerName = [];
 
 i = 0
 while ( i < _playerName.text().length) {
     playerName.push(_playerName.text().charCodeAt(i));
     i++;
-}
+};
 
 intersection = playerName.filter(value => characterList.includes(value));
 if (intersection.length != 0) {
-    _playerName.css({"font-family": "'Noto Sans', 'Noto Sans KR'", "font-weight": "500"})
-}
-console.log(intersection)
+    _playerName.css({"font-family": "'Noto Sans', 'Noto Sans KR'", "font-weight": "500"});
+};
 
 // 선수단 창 전환
 function playerA() {
