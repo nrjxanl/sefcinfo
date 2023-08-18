@@ -92,6 +92,10 @@ $("td[class='klyc']").after("<td rowspan='2'><img src='./files/kleagueyouthchamp
 $("td[class='mcst']").after("<td rowspan='2'><img src='./files/mcst_s.png'></td>");
 $("td[class='kfa']").after("<td rowspan='2'><img src='./files/kfa_s.png'></td>");
 
+// 헤더, 푸터
+$("header").html("<a href='https://sefc.info'><img src='./files/seouleland.png'></a></header>")
+$("footer").html("<ul><li><a href='./club'>구단</a></li><li><a href='./news'>소식</a></li><li><a href='./players' style='color: #174fff; border-bottom: 2px solid #174fff'>선수단</a></li><li><a href='./fixtures'>일정</a></li><li><a href='./standings'>순위</a></li></ul>")
+
 // 문자별 글꼴 적용
 characterList = []
 
