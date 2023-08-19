@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>SEFCiNFO</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="./files/favicon.png">
+</head>
+
+<header></header>
+<footer></footer>
+
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onkeydownn="return false">
+
+    <div id="headerOffset"></div>
+
+    <div>
+        <div id="matchScore">
+            <div>
+                <img src="./files/seouleland.png">
+                <p>서울 이랜드 FC</p>
+            </div>
+            <div>
+                <div>
+                    <p id="homeScore"></p>
+                    <img src="./files/kleague40_s.png">
+                    <p id="awayScore"></p>
+                </div>
+                <p id="date"></p>
+            </div>
+            <div>
+                <img src="./files/chungbukcheongju_s.png">
+                <p>충북청주 FC</p>
+            </div>
+        </div>
+
+        <div id="highlight">
+            <iframe src="https://www.youtube.com/embed/Vb43tL5wJjk" allowfullscreen></iframe>
+        </div>
+
+        <div class="matchDetail">
+            <button onclick="()">정보</button>
+            <button onclick="()" style="font-weight: 400;">기록</button>
+            <button onclick="()" style="font-weight: 400;">경력</button>
+        </div>
+    </div>
+
+    <div id="footerOffset"></div>
+
+    <script src="script.js"></script>
+
+    <script src="result2023.js"></script>
+
+</body>
+
+</html>

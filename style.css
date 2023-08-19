@@ -154,6 +154,22 @@ footer > ul > li > a {font-size: 14px;}
 #fixturesU15 > div > a > div > table > tbody > tr > td:nth-child(6) {width: 15vw;}
 #fixturesU15 > div > a > div > table > tbody > tr > td:nth-child(6) > img {height: 7vw;}
 
+/* 경기 세부 정보 */
+#matchScore {width: 70vw; margin: 5vw 0 0 10vw; padding: 7vw 5vw; display: flex; border-radius: 20px; box-shadow: 0px 0px 5px 1px #00083120;}
+#matchScore > div:nth-of-type(2n+1) {width: 20vw; height: 15vw;}
+#matchScore > div:nth-of-type(2n+1) > img {height: 10vw;}
+#matchScore > div:nth-of-type(2n+1) > p {width: 25vw; height: 5vw; font-size: 14px; margin: 1vw 0 0 -2.5vw; font-weight: 400;}
+#matchScore > div:nth-of-type(2) > div {width: 30vw; height: 12vw; display: flex; align-items: center;}
+#matchScore > div:nth-of-type(2) > div > p {width: 12vw; font-size: 30px;}
+#matchScore > div:nth-of-type(2) > div > img {width: 6vw;}
+#date {width: 30vw; font-size: 10px; margin-top: 2px; font-weight: 400;}
+
+#highlight {width: 80vw; height: auto; padding: 10vw 0 0 10vw;}
+#highlight > iframe {width: 80vw; height: calc(80vw * 9 / 16); border: none; border-radius: 20px;}
+
+.matchDetail {width: 100vw; height: 10vw; margin-top: 5vw; position: relative; z-index: 99;}
+.matchDetail > button {width: 15vw; height: 10vw; font-size: 16px; background: none; border: none;}
+
 /* 순위 */
 .standingsButton {width: 100vw; height: 10vw; position: fixed; top: 20vw; left: 0; background: #fff;}
 .standingsButton > button {width: 15vw; height: 6vw; background: #fff; color: #000831; margin: 0 2vw; border: 1px solid #000831; border-radius: 50px;}
