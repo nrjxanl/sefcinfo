@@ -1,3 +1,29 @@
+// 새로고침 시
+$(document).ready(function() {
+
+    // 맨 위로 이동
+    if($("#yetA").length) {
+        document.getElementById("yetA").scrollIntoView({behavior: "smooth", block: "center"});
+    } else {
+        $("html").animate({
+            scrollTop: 0
+        }, 300)
+    };
+    
+    // 글자 크기 자동 조정
+    screenWidth = $(window).width()
+    if (screenWidth < 350) {
+        $("*").css("font-size", function(_i, val) {
+            return parseInt(val) - 4 + "px";
+        });
+    } else if (screenWidth < 410) {
+        $("*").css("font-size", function(_i, val) {
+            return parseInt(val) - 2 + "px";
+        });
+    } else {};
+
+});
+
 //A팀 엠블럼 삽입
 $("td[class='sefc']").after("<td><img src='./files/seouleland_s.png'></td><td>서울 이랜드 FC</td>");
 $("td[class='gan']").after("<td><img src='./files/gangwonfc_s.png'></td><td>강원 FC</td>");
@@ -94,7 +120,7 @@ $("td[class='kfa']").after("<td rowspan='2'><img src='./files/kfa_s.png'></td>")
 
 // 헤더, 푸터
 $("header").html("<a href='https://sefc.info'><img src='./files/seouleland.png'></a></header>")
-$("footer").html("<ul><li><a href='./club'>구단</a></li><li><a href='./news'>소식</a></li><li><a href='./players' style='color: #174fff; border-bottom: 2px solid #174fff'>선수단</a></li><li><a href='./fixtures'>일정</a></li><li><a href='./standings'>순위</a></li></ul>")
+$("footer").html("<ul><li><a href='./club'>구단</a></li><li><a href='./news'>소식</a></li><li><a href='./players'>선수단</a></li><li><a href='./fixtures'>일정</a></li><li><a href='./standings'>순위</a></li></ul>")
 
 // 문자별 글꼴 적용
 characterList = []
@@ -188,21 +214,21 @@ function fixturesA() {
     document.getElementById("fixturesA").style.display = "block";
     document.getElementById("fixturesU18").style.display = "none";
     document.getElementById("fixturesU15").style.display = "none";
-    document.getElementById("nextMatch").scrollIntoView({behavior: "smooth", block: "center"});
+    document.getElementById("yetA").scrollIntoView({behavior: "smooth", block: "center"});
 }
 
 function fixturesU18() {
     document.getElementById("fixturesA").style.display = "none";
     document.getElementById("fixturesU18").style.display = "block";
     document.getElementById("fixturesU15").style.display = "none";
-    document.getElementById("nextMatch8").scrollIntoView({behavior: "smooth", block: "center"});
+    document.getElementById("yetU18").scrollIntoView({behavior: "smooth", block: "center"});
 }
 
 function fixturesU15() {
     document.getElementById("fixturesA").style.display = "none";
     document.getElementById("fixturesU18").style.display = "none";
     document.getElementById("fixturesU15").style.display = "block";
-    document.getElementById("nextMatch5").scrollIntoView({behavior: "smooth", block: "center"});
+    document.getElementById("yetU15").scrollIntoView({behavior: "smooth", block: "center"});
 }
 
 function fixturesSeason() {
@@ -477,29 +503,3 @@ $("div[loan='o'] > p:nth-of-type(1)").css("width", "32vw");
 
 // 선수 경력 구단 엠블럼 dummy
 $("#playerCareer").find("img").attr("onerror", "this.src = './files/dummy.png'");
-
-// 새로고침 시
-$(document).ready(function() {
-
-    // 맨 위로 이동
-    if($("#nextMatch").length) {
-        document.getElementById("nextMatch").scrollIntoView({behavior: "smooth", block: "center"});
-    } else {
-        $("html").animate({
-            scrollTop: 0
-        }, 300)
-    };
-    
-    // 글자 크기 자동 조정
-    screenWidth = $(window).width()
-    if (screenWidth < 350) {
-        $("*").css("font-size", function(_i, val) {
-            return parseInt(val) - 4 + "px";
-        });
-    } else if (screenWidth < 410) {
-        $("*").css("font-size", function(_i, val) {
-            return parseInt(val) - 2 + "px";
-        });
-    } else {};
-
-});
