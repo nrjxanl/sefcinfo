@@ -100,7 +100,7 @@ $("footer").html("<ul><li><a href='./club'>구단</a></li><li><a href='./news'>�
 characterList = []
 
 i = 0x00c0; // Latin-1 Supplement
-while(i <= 0x00d6) {
+while(i <= 0x00ff) {
     characterList.push(i);
     i++;
 }
