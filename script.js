@@ -251,6 +251,12 @@ $("div[id*='fixtures'] > div > a > div > table > tbody > tr:has(.ssb) > td:nth-c
 $("div[id*='fixtures'] > div > a > div > table > tbody > tr:has(.ssb8) > td:nth-child(3)").css("font-size", "14px")
 $("div[id*='fixtures'] > div > a > div > table > tbody > tr:has(.ssb5) > td:nth-child(3)").css("font-size", "14px")
 
+// 포메이션 table td 너비
+$("#startingXI tr").each(function () {
+    width = 70 / $(this).find("td").length + "vw";
+    $(this).find("td").css("width", width);
+});
+
 // 순위 창 전환
 function standingsA() {
     document.getElementById("standingsA").style.display = "block";
@@ -346,31 +352,31 @@ $("div[id*='standings'] > div > table > tbody > tr:has(.sefc5) > td:nth-last-chi
 $("#playerInfo").find("a[href='#']").attr({"onclick": "return false", "style": "opacity: 0.5"})
 
 // 포지션
-$("#cf").text("CF")
-$("#lw").text("LW")
-$("#rw").text("RW")
-$("#am").text("AM")
-$("#lm").text("LM")
-$("#cm").text("CM")
-$("#rm").text("RM")
-$("#dm").text("DM")
-$("#lb").text("LB")
-$("#rb").text("RB")
-$("#cb").text("CB")
-$("#gk").text("GK")
+$("#playerPos > #cf").text("CF")
+$("#playerPos > #lw").text("LW")
+$("#playerPos > #rw").text("RW")
+$("#playerPos > #am").text("AM")
+$("#playerPos > #lm").text("LM")
+$("#playerPos > #cm").text("CM")
+$("#playerPos > #rm").text("RM")
+$("#playerPos > #dm").text("DM")
+$("#playerPos > #lb").text("LB")
+$("#playerPos > #rb").text("RB")
+$("#playerPos > #cb").text("CB")
+$("#playerPos > #gk").text("GK")
 
-$("#cf").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "137.5vw", "left": "45vw"})
-$("#lw").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "143.5vw", "left": "31vw"})
-$("#rw").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "143.5vw", "left": "59vw"})
-$("#am").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "149.5vw", "left": "45vw"})
-$("#lm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "161.5vw", "left": "31vw"})
-$("#cm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "161.5vw", "left": "45vw"})
-$("#rm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "161.5vw", "left": "59vw"})
-$("#dm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "173.5vw", "left": "45vw"})
-$("#lb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "179.5vw", "left": "31vw"})
-$("#rb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "179.5vw", "left": "59vw"})
-$("#cb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "185.5vw", "left": "45vw"})
-$("#gk").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "197.5vw", "left": "45vw"})
+$("#playerPos > #cf").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "137.5vw", "left": "45vw"})
+$("#playerPos > #lw").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "143.5vw", "left": "31vw"})
+$("#playerPos > #rw").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "143.5vw", "left": "59vw"})
+$("#playerPos > #am").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "149.5vw", "left": "45vw"})
+$("#playerPos > #lm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "161.5vw", "left": "31vw"})
+$("#playerPos > #cm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "161.5vw", "left": "45vw"})
+$("#playerPos > #rm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "161.5vw", "left": "59vw"})
+$("#playerPos > #dm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "173.5vw", "left": "45vw"})
+$("#playerPos > #lb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "179.5vw", "left": "31vw"})
+$("#playerPos > #rb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "179.5vw", "left": "59vw"})
+$("#playerPos > #cb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "185.5vw", "left": "45vw"})
+$("#playerPos > #gk").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "top": "197.5vw", "left": "45vw"})
 
 $("p[pos=o]").css({"color": "#fff", "background": "#000831", "opacity": "1"})
 

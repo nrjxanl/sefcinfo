@@ -156,11 +156,13 @@ footer > ul > li > a {font-size: 14px;}
 
 /* 경기 세부 정보 */
 #matchScore {width: 70vw; margin: 5vw 0 0 10vw; padding: 7vw 5vw; display: flex; border-radius: 20px; box-shadow: 0px 0px 5px 1px #00083120;}
-#matchScore > div:nth-of-type(2n+1) {width: 20vw; height: 15vw;}
+#matchScore > div:nth-of-type(2n+1) {width: 20vw; display: flex; flex-direction: column; align-items: center;}
 #matchScore > div:nth-of-type(2n+1) > img {height: 10vw;}
-#matchScore > div:nth-of-type(2n+1) > p {width: 25vw; height: 5vw; font-size: 14px; margin: 1vw 0 0 -2.5vw; font-weight: 400;}
+#matchScore > div:nth-of-type(2n+1) > p:nth-of-type(1) {width: 25vw; height: 5vw; font-size: 14px; margin-top: 1vw; font-weight: 400;}
+#matchScore > div:nth-of-type(2n+1) > p:nth-of-type(2) {font-size: 10px; font-weight: 100; line-height: 1.6; text-align: left; margin-top: 1vw;}
 #matchScore > div:nth-of-type(2) > div {width: 30vw; height: 12vw; display: flex; align-items: center;}
 #matchScore > div:nth-of-type(2) > div > p {width: 12vw; font-size: 30px;}
+#matchScore > div:nth-of-type(2) > p:nth-of-type(1) {font-weight: 400;}
 #matchScore > div:nth-of-type(2) > div > img {width: 6vw;}
 #date {width: 30vw; font-size: 10px; margin-top: 2px; font-weight: 400;}
 
@@ -168,7 +170,18 @@ footer > ul > li > a {font-size: 14px;}
 #highlight > iframe {width: 80vw; height: calc(80vw * 9 / 16); border: none; border-radius: 20px;}
 
 .matchDetail {width: 100vw; height: 10vw; margin-top: 5vw; position: relative; z-index: 99;}
-.matchDetail > button {width: 15vw; height: 10vw; font-size: 16px; background: none; border: none;}
+.matchDetail > button {height: 10vw; padding: 0 2vw; font-size: 16px; background: none; border: none;}
+
+#startingXI {width: 80vw; margin: 5vw 0 0 10vw;}
+#startingXI > img {width: 80vw; border-radius: 2vw; opacity: 50%;}
+#startingXI > table {width: 70vw; height: 110vw; position: relative; top: -115vw; left: 5vw;}
+#startingXI > table > tbody > tr {display: flex;}
+#startingXI > table > tbody > tr > td {height: 27.5vw; display: flex; flex-direction: column; justify-content: center; align-items: center;}
+#startingXI > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fff; border: .5vw solid #fff;}
+#startingXI > table > tbody > tr > td > div > img {width: 10vw;}
+#startingXI > table > tbody > tr > td > p:nth-of-type(1) {font-weight: 400; margin-top: 1vw;}
+#startingXI > table > tbody > tr > td > p:nth-of-type(1) > span {color: #174fff; margin-right: 1vw;}
+#startingXI > table > tbody > tr > td > p:nth-of-type(2) {padding: .5vw 2vw; margin-top: 1vw; border-radius: 50vw; color: #fff; background: #000831;}
 
 /* 순위 */
 .standingsButton {width: 100vw; height: 10vw; position: fixed; top: 20vw; left: 0; background: #fff;}
