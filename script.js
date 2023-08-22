@@ -251,12 +251,6 @@ $("div[id*='fixtures'] > div > a > div > table > tbody > tr:has(.ssb) > td:nth-c
 $("div[id*='fixtures'] > div > a > div > table > tbody > tr:has(.ssb8) > td:nth-child(3)").css("font-size", "14px")
 $("div[id*='fixtures'] > div > a > div > table > tbody > tr:has(.ssb5) > td:nth-child(3)").css("font-size", "14px")
 
-// 포메이션 table td 너비
-$("#startingXI tr").each(function () {
-    width = 70 / $(this).find("td").length + "vw";
-    $(this).find("td").css("width", width);
-});
-
 // 순위 창 전환
 function standingsA() {
     document.getElementById("standingsA").style.display = "block";
