@@ -289,25 +289,34 @@ $("#startingXI").html("<img src='./files/field.png'><table><tr id='fw'></tr><tr 
 
 i = 0;
 while(i < gkList.length) {
-    $("#gk").append("<td id='" + gkList[i] +"'>");
+    $("#gk").append("<td id='" + gkList[i] +"'></td>");
     i++;
 };
 
 i = 0;
 while(i < dfList.length) {
-    $("#df").append("<td id='" + dfList[i] +"'>");
+    $("#df").append("<td id='" + dfList[i] +"'></td>");
     i++;
 };
 
 i = 0;
 while(i < mfList.length) {
-    $("#mf").append("<td id='" + mfList[i] +"'>");
+    $("#mf").append("<td id='" + mfList[i] +"'></td>");
     i++;
 };
 
 i = 0;
 while(i < fwList.length) {
-    $("#fw").append("<td id='" + fwList[i] +"'>");
+    $("#fw").append("<td id='" + fwList[i] +"'></td>");
+    i++;
+};
+
+$("#sub").html("<table><thead><tr><th>교체 명단</th></tr></thead><tbody></tbody></table>");
+
+i = 0;
+
+while(i < subList.length) {
+    $("#sub > table").append("<tr><td id='" + subList[i] +"'></td></tr>");
     i++;
 };
 
