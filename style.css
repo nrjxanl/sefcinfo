@@ -194,6 +194,9 @@ footer > ul > li > a {font-size: 14px;}
 #sub > table > tbody > tr > td > p:nth-of-type(1) > span {font-size: 16px; color: #174fff; margin: 0 1.5vw 0 3vw;}
 #sub > table > tbody > tr > td > p:nth-of-type(2) {width: 10vw; padding: .5vw 0; font-size: 14px; margin-top: 1vw; border-radius: 50vw; color: #fff; background: #000831; position: absolute; right: 0;}
 
+#potm {background: #174fff !important;}
+#sub > table > tbody > tr > td:has(#potm) > div {background: #174fff !important; border: .5vw solid #174fff !important;}
+
 /* 순위 */
 .standingsButton {width: 100vw; height: 10vw; position: fixed; top: 20vw; left: 0; background: #fff;}
 .standingsButton > button {width: 15vw; height: 6vw; background: #fff; color: #000831; margin: 0 2vw; border: 1px solid #000831; border-radius: 50px;}
