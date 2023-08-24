@@ -27,18 +27,18 @@ $(document).ready(function() {
 //A팀 엠블럼 삽입
 $("td[class='sefc']").after("<td><img src='./files/seouleland_s.png'></td><td>서울 이랜드 FC</td>");
 $("td[class='gan']").after("<td><img src='./files/gangwonfc_s.png'></td><td>강원 FC</td>");
-$("td[class='gye']").after("<td><img src='./files/gyeongnamfc_s.png'></td><td>경남 FC</td>");
-$("td[class='gwa']").after("<td><img src='./files/gwangjufc_s.png'></td><td>광주 FC</td>");
+$("td[class='gye']").after("<td><img src='./files/gyeongnamfc2010_s.png'></td><td>경남 FC</td>");
+$("td[class='gwa']").after("<td><img src='./files/gwangjufc2020_s.png'></td><td>광주 FC</td>");
 $("td[class='gim']").after("<td><img src='./files/gimcheonsangmu_s.png'></td><td>김천 상무 FC</td>");
-$("td[class='gfc']").after("<td><img src='./files/gimpofc_s.png'></td><td>김포 FC</td>");
-$("td[class='dae']").after("<td><img src='./files/daegufc_s.png'></td><td>대구 FC</td>");
+$("td[class='gfc']").after("<td><img src='./files/gimpofc2022_s.png'></td><td>김포 FC</td>");
+$("td[class='dae']").after("<td><img src='./files/daegufc2013_s.png'></td><td>대구 FC</td>");
 $("td[class='dhfc']").after("<td><img src='./files/daejeonhana2020_s.png'></td><td>대전 하나 시티즌</td>");
 $("td[class='bus']").after("<td><img src='./files/busanipark2012_s.png'></td><td>부산 아이파크</td>");
 $("td[class='buc']").after("<td><img src='./files/bucheonfc_s.png'></td><td>부천 FC 1995</td>");
 $("td[class='fcs']").after("<td><img src='./files/fcseoul_s.png'></td><td>FC 서울</td>");
 $("td[class='sfc']").after("<td><img src='./files/seongnamfc2014_s.png'></td><td>성남 FC</td>");
 $("td[class='ssb']").after("<td><img src='./files/suwonsamsung_s.png'></td><td>수원 삼성 블루윙즈</td>");
-$("td[class='suw']").after("<td><img src='./files/suwonfc_s.png'></td><td>수원 FC</td>");
+$("td[class='suw']").after("<td><img src='./files/suwonfc2016_s.png'></td><td>수원 FC</td>");
 $("td[class='ans']").after("<td><img src='./files/ansangreeners_s.png'></td><td>안산 그리너스</td>");
 $("td[class='any']").after("<td><img src='./files/fcanyang_s.png'></td><td>FC 안양</td>");
 $("td[class='uls']").after("<td><img src='./files/ulsanhyundai2016_s.png'></td><td>울산 현대 축구단</td>");
@@ -54,18 +54,18 @@ $("td[class='chfc']").after("<td><img src='./files/chungbukcheongju_s.png'></td>
 //U18 엠블럼 삽입
 $("td[class='sefc8']").after("<td><img src='./files/seouleland_s.png'></td><td>서울 이랜드 FC U-18</td>");
 $("td[class='gan8']").after("<td><img src='./files/gangwonfc_s.png'></td><td>강원 FC U-18</td>");
-$("td[class='gye8']").after("<td><img src='./files/gyeongnamfc_s.png'></td><td>경남 FC U-18</td>");
-$("td[class='gwa8']").after("<td><img src='./files/gwangjufc_s.png'></td><td>광주 FC U-18</td>");
+$("td[class='gye8']").after("<td><img src='./files/gyeongnamfc2010_s.png'></td><td>경남 FC U-18</td>");
+$("td[class='gwa8']").after("<td><img src='./files/gwangjufc2020_s.png'></td><td>광주 FC U-18</td>");
 $("td[class='gim8']").after("<td><img src='./files/gimcheonsangmu_s.png'></td><td>김천 상무 FC U-18</td>");
-$("td[class='gfc8']").after("<td><img src='./files/gimpofc_s.png'></td><td>김포 FC U-18</td>");
-$("td[class='dae8']").after("<td><img src='./files/daegufc_s.png'></td><td>대구 FC U-18</td>");
+$("td[class='gfc8']").after("<td><img src='./files/gimpofc2022_s.png'></td><td>김포 FC U-18</td>");
+$("td[class='dae8']").after("<td><img src='./files/daegufc2013_s.png'></td><td>대구 FC U-18</td>");
 $("td[class='dhfc8']").after("<td><img src='./files/daejeonhana2020_s.png'></td><td>대전 하나 시티즌 U-18</td>");
 $("td[class='bus8']").after("<td><img src='./files/busanipark2012_s.png'></td><td>부산 아이파크 U-18</td>");
 $("td[class='buc8']").after("<td><img src='./files/bucheonfc_s.png'></td><td>부천 FC 1995 U-18</td>");
 $("td[class='fcs8']").after("<td><img src='./files/fcseoul_s.png'></td><td>FC 서울 U-18</td>");
 $("td[class='sfc8']").after("<td><img src='./files/seongnamfc2014_s.png'></td><td>성남 FC U-18</td>");
 $("td[class='ssb8']").after("<td><img src='./files/suwonsamsung_s.png'></td><td>수원 삼성 블루윙즈 U-18</td>");
-$("td[class='suw8']").after("<td><img src='./files/suwonfc_s.png'></td><td>수원 FC U-18</td>");
+$("td[class='suw8']").after("<td><img src='./files/suwonfc2016_s.png'></td><td>수원 FC U-18</td>");
 $("td[class='ans8']").after("<td><img src='./files/ansangreeners_s.png'></td><td>안산 그리너스 U-18</td>");
 $("td[class='any8']").after("<td><img src='./files/fcanyang_s.png'></td><td>FC 안양 U-18</td>");
 $("td[class='uls8']").after("<td><img src='./files/ulsanhyundai2016_s.png'></td><td>울산 현대 축구단 U-18</td>");
@@ -85,18 +85,18 @@ $("td[class='hongcheonfc']").after("<td><img src='./files/hongcheonfc_s.png'></t
 //U15 엠블럼 삽입
 $("td[class='sefc5']").after("<td><img src='./files/seouleland_s.png'></td><td>서울 이랜드 FC U-15</td>");
 $("td[class='gan5']").after("<td><img src='./files/gangwonfc_s.png'></td><td>강원 FC U-15</td>");
-$("td[class='gye5']").after("<td><img src='./files/gyeongnamfc_s.png'></td><td>경남 FC U-15</td>");
-$("td[class='gwa5']").after("<td><img src='./files/gwangjufc_s.png'></td><td>광주 FC U-15</td>");
+$("td[class='gye5']").after("<td><img src='./files/gyeongnamfc2010_s.png'></td><td>경남 FC U-15</td>");
+$("td[class='gwa5']").after("<td><img src='./files/gwangjufc2020_s.png'></td><td>광주 FC U-15</td>");
 $("td[class='gim5']").after("<td><img src='./files/gimcheonsangmu_s.png'></td><td>김천 상무 FC U-15</td>");
-$("td[class='gfc5']").after("<td><img src='./files/gimpofc_s.png'></td><td>김포 FC U-15</td>");
-$("td[class='dae5']").after("<td><img src='./files/daegufc_s.png'></td><td>대구 FC U-15</td>");
+$("td[class='gfc5']").after("<td><img src='./files/gimpofc2022_s.png'></td><td>김포 FC U-15</td>");
+$("td[class='dae5']").after("<td><img src='./files/daegufc2013_s.png'></td><td>대구 FC U-15</td>");
 $("td[class='dhfc5']").after("<td><img src='./files/daejeonhana2020_s.png'></td><td>대전 하나 시티즌 U-15</td>");
 $("td[class='bus5']").after("<td><img src='./files/busanipark2012_s.png'></td><td>부산 아이파크 U-15</td>");
 $("td[class='buc5']").after("<td><img src='./files/bucheonfc_s.png'></td><td>부천 FC 1995 U-15</td>");
 $("td[class='fcs5']").after("<td><img src='./files/fcseoul_s.png'></td><td>FC 서울 U-15</td>");
 $("td[class='sfc5']").after("<td><img src='./files/seongnamfc2014_s.png'></td><td>성남 FC U-15</td>");
 $("td[class='ssb5']").after("<td><img src='./files/suwonsamsung_s.png'></td><td>수원 삼성 블루윙즈 U-15</td>");
-$("td[class='suw5']").after("<td><img src='./files/suwonfc_s.png'></td><td>수원 FC U-15</td>");
+$("td[class='suw5']").after("<td><img src='./files/suwonfc2016_s.png'></td><td>수원 FC U-15</td>");
 $("td[class='ans5']").after("<td><img src='./files/ansangreeners_s.png'></td><td>안산 그리너스 U-15</td>");
 $("td[class='any5']").after("<td><img src='./files/fcanyang_s.png'></td><td>FC 안양 U-15</td>");
 $("td[class='uls5']").after("<td><img src='./files/ulsanhyundai2016_s.png'></td><td>울산 현대 축구단 U-15</td>");
@@ -502,4 +502,4 @@ $("div[loan='o']").css({"padding-left": "3vw", "opacity": "0.8"});
 $("div[loan='o'] > p:nth-of-type(1)").css("width", "32vw");
 
 // 선수 경력 구단 엠블럼 dummy
-$("#playerCareer").find("img").attr("onerror", "this.src = './files/dummy.png'");
+$("#playerCareer > div > div").find("img").attr("onerror", "this.src = './files/dummy.png'");
