@@ -48,7 +48,7 @@ $("td[class='jeo']").after("<td><img src='./files/jeonbukhyundai2018_s.png'></td
 $("td[class='jej']").after("<td><img src='./files/jejuutd_s.png'></td><td>제주 유나이티드</td>");
 $("td[class='cafc']").after("<td><img src='./files/chungnamasan_s.png'></td><td>충남아산 FC</td>");
 $("td[class='poh']").after("<td><img src='./files/pohangsteelers_s.png'></td><td>포항 스틸러스</td>");
-$("td[class='ccfc']").after("<td><img src='./files/cheonancity_s.png'></td><td>천안 시티 FC</td>");
+$("td[class='ccfc']").after("<td><img src='./files/cheonancity2023_s.png'></td><td>천안 시티 FC</td>");
 $("td[class='chfc']").after("<td><img src='./files/chungbukcheongju_s.png'></td><td>충북청주 FC</td>");
 
 //U18 엠블럼 삽입
@@ -75,7 +75,7 @@ $("td[class='jeo8']").after("<td><img src='./files/jeonbukhyundai2018_s.png'></t
 $("td[class='jej8']").after("<td><img src='./files/jejuutd_s.png'></td><td>제주 유나이티드 U-18</td>");
 $("td[class='cafc8']").after("<td><img src='./files/chungnamasan_s.png'></td><td>충남아산 FC U-18</td>");
 $("td[class='poh8']").after("<td><img src='./files/pohangsteelers_s.png'></td><td>포항 스틸러스 U-18</td>");
-$("td[class='ccfc8']").after("<td><img src='./files/cheonancity_s.png'></td><td>천안 시티 FC U-18</td>");
+$("td[class='ccfc8']").after("<td><img src='./files/cheonancity2023_s.png'></td><td>천안 시티 FC U-18</td>");
 $("td[class='chfc8']").after("<td><img src='./files/chungbukcheongju_s.png'></td><td>충북청주 FC U-18</td>");
 $("td[class='soongsilhs']").after("<td><img src='./files/soongsilhs_s.png'></td><td>숭실고등학교</td>");
 $("td[class='chojihs']").after("<td><img src='./files/chojihs_s.png'></td><td>초지고등학교</td>");
@@ -106,7 +106,7 @@ $("td[class='jeo5']").after("<td><img src='./files/jeonbukhyundai2018_s.png'></t
 $("td[class='jej5']").after("<td><img src='./files/jejuutd_s.png'></td><td>제주 유나이티드 U-15</td>");
 $("td[class='cafc5']").after("<td><img src='./files/chungnamasan_s.png'></td><td>충남아산 FC U-15</td>");
 $("td[class='poh5']").after("<td><img src='./files/pohangsteelers_s.png'></td><td>포항 스틸러스 U-15</td>");
-$("td[class='ccfc5']").after("<td><img src='./files/cheonancity_s.png'></td><td>천안 시티 FC U-15</td>");
+$("td[class='ccfc5']").after("<td><img src='./files/cheonancity2023_s.png'></td><td>천안 시티 FC U-15</td>");
 $("td[class='chfc5']").after("<td><img src='./files/chungbukcheongju_s.png'></td><td>충북청주 FC U-15</td>");
 
 // 대회 엠블럼 삽입
@@ -250,6 +250,51 @@ $("div[id*='fixtures'] > div > a > div > table > tbody > tr:has(.sefc5) > td:nth
 $("div[id*='fixtures'] > div > a > div > table > tbody > tr:has(.ssb) > td:nth-child(3)").css("font-size", "14px")
 $("div[id*='fixtures'] > div > a > div > table > tbody > tr:has(.ssb8) > td:nth-child(3)").css("font-size", "14px")
 $("div[id*='fixtures'] > div > a > div > table > tbody > tr:has(.ssb5) > td:nth-child(3)").css("font-size", "14px")
+
+// 경기 세부 정보 창 전환
+function matchTimeline() {
+    document.getElementById("matchTimeline").style.display = "block";
+    document.getElementById("matchLineup").style.display = "none";
+    document.getElementById("matchStat").style.display = "none";
+    document.getElementById("matchH2H").style.display = "none";
+    $(".matchDetail button:nth-child(1)").css("font-weight", 700);
+    $(".matchDetail button:nth-child(2)").css("font-weight", 400);
+    $(".matchDetail button:nth-child(3)").css("font-weight", 400);
+    $(".matchDetail button:nth-child(4)").css("font-weight", 400);
+}
+
+function matchLineup() {
+    document.getElementById("matchTimeline").style.display = "none";
+    document.getElementById("matchLineup").style.display = "block";
+    document.getElementById("matchStat").style.display = "none";
+    document.getElementById("matchH2H").style.display = "none";
+    $(".matchDetail button:nth-child(1)").css("font-weight", 400);
+    $(".matchDetail button:nth-child(2)").css("font-weight", 700);
+    $(".matchDetail button:nth-child(3)").css("font-weight", 400);
+    $(".matchDetail button:nth-child(4)").css("font-weight", 400);
+}
+
+function matchStat() {
+    document.getElementById("matchTimeline").style.display = "none";
+    document.getElementById("matchLineup").style.display = "none";
+    document.getElementById("matchStat").style.display = "block";
+    document.getElementById("matchH2H").style.display = "none";
+    $(".matchDetail button:nth-child(1)").css("font-weight", 400);
+    $(".matchDetail button:nth-child(2)").css("font-weight", 400);
+    $(".matchDetail button:nth-child(3)").css("font-weight", 700);
+    $(".matchDetail button:nth-child(4)").css("font-weight", 400);
+}
+
+function matchH2H() {
+    document.getElementById("matchTimeline").style.display = "none";
+    document.getElementById("matchLineup").style.display = "none";
+    document.getElementById("matchStat").style.display = "none";
+    document.getElementById("matchH2H").style.display = "block";
+    $(".matchDetail button:nth-child(1)").css("font-weight", 400);
+    $(".matchDetail button:nth-child(2)").css("font-weight", 400);
+    $(".matchDetail button:nth-child(3)").css("font-weight", 400);
+    $(".matchDetail button:nth-child(4)").css("font-weight", 700);
+}
 
 // 순위 창 전환
 function standingsA() {

@@ -169,12 +169,14 @@ footer > ul > li > a {font-size: 14px;}
 #highlight {width: 80vw; height: auto; padding: 10vw 0 0 10vw;}
 #highlight > iframe {width: 80vw; height: calc(80vw * 9 / 16); border: none; border-radius: 20px;}
 
+#matchLineup {display: none;}
+
 .matchDetail {width: 100vw; height: 10vw; margin-top: 5vw; position: relative; z-index: 99;}
 .matchDetail > button {height: 10vw; padding: 0 2vw; font-size: 16px; background: none; border: none;}
 
 #startingXI {width: 80vw; margin: 5vw 0 0 10vw;}
-#startingXI > img {width: 80vw; border-radius: 2vw; opacity: 50%;}
-#startingXI > table {width: 70vw; height: 110vw; position: relative; top: -115vw; left: 5vw;}
+#startingXI > img {width: 80vw; border-radius: 2vw; position: relative; z-index: -100; opacity: 0.5;}
+#startingXI > table {width: 70vw; height: 110vw; margin: -115vw 0 0 5vw;}
 #startingXI > table > tbody > tr {display: flex;}
 #startingXI > table > tbody > tr > td {height: 27.5vw; display: flex; flex-direction: column; justify-content: center; align-items: center;}
 #startingXI > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fff; border: .5vw solid #fff;}
@@ -183,8 +185,8 @@ footer > ul > li > a {font-size: 14px;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(1) > span {color: #174fff; margin-right: 1vw;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(2) {width: 8vw; padding: .5vw 0; margin-top: 1vw; border-radius: 50vw; color: #fff; background: #000831;}
 
-#sub {width: 70vw; margin: 5vw 0 0 15vw;}
-#sub > table {width: 70vw; height: 110vw; position: relative; top: -105vw;}
+#sub {width: 70vw; margin: 10vw 0 0 15vw;}
+#sub > table {width: 70vw; height: 110vw;}
 #sub > table > thead > tr > th {width: 70vw; height: 10vw; font-size: 16px;}
 #sub > table > tbody > tr {display: flex; width: 70vw;}
 #sub > table > tbody > tr > td {height: 15vw; display: flex; flex-direction: row; justify-content: center; align-items: center;}
@@ -192,10 +194,14 @@ footer > ul > li > a {font-size: 14px;}
 #sub > table > tbody > tr > td > div > img {width: 10vw;}
 #sub > table > tbody > tr > td > p:nth-of-type(1) {font-size: 16px; font-weight: 400; margin-top: 1vw;}
 #sub > table > tbody > tr > td > p:nth-of-type(1) > span {font-size: 16px; color: #174fff; margin: 0 1.5vw 0 3vw;}
-#sub > table > tbody > tr > td > p:nth-of-type(2) {width: 10vw; padding: .5vw 0; font-size: 14px; margin-top: 1vw; border-radius: 50vw; color: #fff; background: #000831; position: absolute; right: 0;}
+#sub > table > tbody > tr > td > p:nth-of-type(2) {width: 10vw; padding: .5vw 0; font-size: 14px; border-radius: 50vw; color: #fff; background: #000831; position: absolute; right: 15vw;}
 
 #potm {background: #174fff !important;}
 #sub > table > tbody > tr > td:has(#potm) > div {background: #174fff !important; border: .5vw solid #174fff !important;}
+
+#matchH2H {display: none; margin-top: 10vw;}
+#matchH2H > div {width: 70vw; margin-left: 15vw; display: flex;}
+#matchH2H > div > p {height: 10vw; color: #fff; display: flex; align-items: center; justify-content: center;}
 
 /* 순위 */
 .standingsButton {width: 100vw; height: 10vw; position: fixed; top: 20vw; left: 0; background: #fff;}
