@@ -56,12 +56,11 @@ $("#startingXI td").each(function () {
     $("#" + id).html("<div><img src='./files/" + id + ".png'></div><p><span>" + playerNum + "</span>" + playerName + "</p><p>" + rating + "</p>");
 
     if(data[Object.keys(data)[index]][round].match("p")) {
-        $("#" + id).find("p:nth-of-type(2)").attr("id", "potm");
-        $("#" + id).find("div").css({"background": "#174fff", "border": ".5vw solid #174fff"})
+        $("#" + id).find("p:nth-of-type(2)").attr("class", "potm");
     };
 
     href = "location.href='./" + id + "'";
-    $("#" + id).parents("tr").attr("onclick", href);
+    $("#" + id).attr("onclick", href);
 
 });
 
@@ -70,7 +69,7 @@ $("#sub td").each(function () {
     index = dataList.indexOf(id, 0);
     playerNum = data[Object.keys(data)[index]][1];
     playerName = data[Object.keys(data)[index]][0];
-    rating = data[Object.keys(data)[index]][round];
+    rating = data[Object.keys(data)[index]][round].replace(/[^0-9, "."]/g, "");
 
     if(rating.length === 1) {
         rating += ".0";
@@ -80,6 +79,10 @@ $("#sub td").each(function () {
 
     $("#" + id).html("<div><img src='./files/" + id + ".png'></div><p><span>" + playerNum + "</span>" + playerName + "</p><p>" + rating + "</p>");
 
+    if(data[Object.keys(data)[index]][round].match("p")) {
+        $("#" + id).find("p:nth-of-type(2)").attr("class", "potm");
+    };
+
     href = "location.href='./" + id + "'";
-    $("#" + id).parents("tr").attr("onclick", href);
+    $("#" + id).attr("onclick", href);
 });

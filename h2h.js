@@ -1,42 +1,42 @@
 data = {
-    "gangwonfc": ["0", "3", "5", "10", "17"],
-    "gyeongnamfc2010": ["10", "8", "7", "29", "28"],
-    "goyanghifc": ["4", "3", "1", "15", "7"],
-    "goyangzaicro": ["4", "3", "1", "15", ""],
-    "gwangjufc2020": ["0", "3", "9", "8", "28"],
-    "gwangjufc2010": ["0", "3", "9", "8", "28"],
-    "gimcheonsangmu": ["1", "1", "4", "5", "10"],
-    "gimpofc2022": ["3", "2", "1", "11", "4"],
-    "daegufc2013": ["1", "4", "3", "6", "10"],
-    "daejeoncitizen2003": ["9", "7", "11", "29", "30"],
-    "daejeonhana2020": ["9", "7", "11", "29", "30"],
-    "busanipark2012": ["6", "6", "15", "34", "52"],
-    "bucheonfc": ["17", "7", "9", "56", "30"],
-    "sangjusangmu": ["1", "1", "2", "6", "7"],
-    "seongnamfc2014": ["3", "5", "2", "13", "11"],
-    "suwonfc2016": ["5", "6", "9", "23", "30"],
-    "suwonfc2003": ["5", "6", "9", "23", "30"],
-    "asanmugunghwa": ["1", "3", "8", "9", "25"],
-    "ansangreeners": ["12", "8", "5", "36", "24"],
-    "ansanmugunghwa": ["2", "4", "2", "8", "8"],
-    "ansanpolice": ["2", "4", "2", "8", "8"],
-    "jeonnamdragons2014": ["2", "10", "5", "15", "22"],
-    "jeonnamdragons2022": ["2", "10", "5", "15", "22"],
-    "jejuutd": ["0", "1", "2", "4", "6"],
-    "cheonancity2023": ["1", "1", "0", "3", "2"],
-    "chungnamasan": ["2", "4", "7", "8", "13"],
-    "chungbukcheongju": ["0", "0", "2", "3", "5"],
-    "chungjuhummel": ["6", "1", "1", "17", "7"],
-    "fcanyang": ["7", "9", "17", "34", "48"],
-    }    
+    "gangwonfc": ["dd5828", "ffffff", "0", "3", "5", "10", "17"],
+    "gyeongnamfc2010": ["e83827", "f5cd21", "10", "8", "7", "29", "28"],
+    "goyanghifc": ["171c61", "b31d23", "4", "3", "1", "15", "7"],
+    "goyangzaicro": ["171c61", "b31d23", "4", "3", "1", "15", ""],
+    "gwangjufc2020": ["ffd24f", "c41230", "0", "3", "9", "8", "28"],
+    "gwangjufc2010": ["ffd24f", "c41230", "0", "3", "9", "8", "28"],
+    "gimcheonsangmu": ["002649", "c5a775", "1", "1", "4", "5", "10"],
+    "gimpofc2022": ["203d41", "cdb161", "3", "2", "1", "11", "4"],
+    "daegufc2013": ["59b8f6", "000000", "1", "4", "3", "6", "10"],
+    "daejeoncitizen2003": ["9b2743", "041e42", "9", "7", "11", "29", "30"],
+    "daejeonhana2020": ["007e6e", "9b2743", "9", "7", "11", "29", "30"],
+    "busanipark2012": ["ee2e24", "ffffff", "6", "6", "15", "34", "52"],
+    "bucheonfc": ["ac2424", "ffffff", "17", "7", "9", "56", "30"],
+    "sangjusangmu": ["ed1a2e", "ffffff", "1", "1", "2", "6", "7"],
+    "seongnamfc2014": ["000000", "ffffff", "3", "5", "2", "13", "11"],
+    "suwonfc2016": ["00396f", "eb0028", "5", "6", "9", "23", "30"],
+    "suwonfc2003": ["00396f", "eb0028", "5", "6", "9", "23", "30"],
+    "asanmugunghwa": ["ffe806", "0a2a3b", "1", "3", "8", "9", "25"],
+    "ansangreeners": ["00979c", "0a2a3b", "12", "8", "5", "36", "24"],
+    "ansanmugunghwa": ["161270", "fcd715", "2", "4", "2", "8", "8"],
+    "ansanpolice": ["f0c018", "183090", "2", "4", "2", "8", "8"],
+    "jeonnamdragons2014": ["ffde00", "6900e5", "2", "10", "5", "15", "22"],
+    "jeonnamdragons2022": ["ffde00", "000000", "2", "10", "5", "15", "22"],
+    "jejuutd": ["f58026", "ffffff", "0", "1", "2", "4", "6"],
+    "cheonancity2023": ["5dacd8", "ffffff", "1", "1", "0", "3", "2"],
+    "chungnamasan": ["f4cd1c", "093c91", "2", "4", "7", "8", "13"],
+    "chungbukcheongju": ["1c235a", "e8343d", "0", "0", "2", "3", "5"],
+    "chungjuhummel": ["0f6b39", "ffffff", "6", "1", "1", "17", "7"],
+    "fcanyang": ["4f1b87", "cda55f", "7", "9", "17", "34", "48"],
+}
 
 hrefH = $("#matchScore > div:nth-of-type(1)").find("img").attr("src").replace("./files/", "").replace("_s.png", "");
 hrefA = $("#matchScore > div:nth-of-type(3)").find("img").attr("src").replace("./files/", "").replace("_s.png", "");
 
-if(hrefH == "seouleland") {
+if (hrefH == "seouleland") {
     sefc = hrefH;
     opp = hrefA;
-} else if(hrefA == "seouleland") {
+} else if (hrefA == "seouleland") {
     sefc = hrefA;
     opp = hrefH;
 };
@@ -44,16 +44,37 @@ if(hrefH == "seouleland") {
 dataList = Object.keys(data);
 index = dataList.indexOf(opp, 0);
 
-w = Number(data[Object.keys(data)[index]][0]);
-d = Number(data[Object.keys(data)[index]][1]);
-l = Number(data[Object.keys(data)[index]][2]);
+w = Number(data[Object.keys(data)[index]][2]);
+d = Number(data[Object.keys(data)[index]][3]);
+l = Number(data[Object.keys(data)[index]][4]);
+goalS = Number(data[Object.keys(data)[index]][5]);
+goalC = Number(data[Object.keys(data)[index]][6]);
 
-wWidth = 70 * w / (w + d + l) + "vw";
-dWidth = 70 * d / (w + d + l) + "vw";
-lWidth = 70 * l / (w + d + l) + "vw";
+wPct = 100 * w / (w + d + l) + "%";
+dPct = 100 * d / (w + d + l) + "%";
+lPct = 100 * l / (w + d + l) + "%";
 
-$("#matchH2H").append("<div><p></p><p></p><p></p></div>")
+wWidth = 80 * w / (w + d + l) + "vw";
+dWidth = 80 * d / (w + d + l) + "vw";
+lWidth = 80 * l / (w + d + l) + "vw";
+goalSWidth = 80 * goalS / (goalS + goalC) + "vw";
+goalCWidth = 80 * goalC / (goalS + goalC) + "vw";
 
-$("#matchH2H > div").find("p:nth-of-type(1)").text(w + "승").css({"width": wWidth, "background": "#174fff"});
-$("#matchH2H > div").find("p:nth-of-type(2)").text(d + "무").css({"width": dWidth, "background": "#c8c8c8"});
-$("#matchH2H > div").find("p:nth-of-type(3)").text(l + "패").css({"width": lWidth, "background": "#f00"});
+oppBg = "#" + (data[Object.keys(data)[index]][0]);
+oppText = "#" + (data[Object.keys(data)[index]][1]);
+
+$("#matchH2H").append("<div><p></p><p></p><p></p></div><div><div><p></p><div><p>승리</p><p></p></div></div><div><p></p><div><p>무승부</p><p></p></div></div><div><p></p><div><p>패배</p><p></p></div></div></div>")
+
+$("#matchH2H > div:nth-of-type(1) > p:nth-of-type(1)").css({"width": wWidth, "height": "1vw", "background": "#000831"});
+$("#matchH2H > div:nth-of-type(1) > p:nth-of-type(2)").css({"width": dWidth, "height": "1vw", "background": "#808080"});
+$("#matchH2H > div:nth-of-type(1) > p:nth-of-type(3)").css({"width": lWidth, "height": "1vw", "background": oppBg});
+$("#matchH2H > div:nth-of-type(2)").css({"display": "flex", "justify-content": "flex-start", "margin-top": "5vw"});
+$("#matchH2H > div:nth-of-type(2) > div").css({"display": "flex"});
+$("#matchH2H > div:nth-of-type(2) > div:nth-of-type(1)").css("margin-left", "10vw");
+$("#matchH2H > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)").text(w).css({"width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#000831", "color": "#fff", "display": "flex", "align-items": "center", "justify-content": "center"});
+$("#matchH2H > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)").text(d).css({"width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#c8c8c8", "color": "#fff", "display": "flex", "align-items": "center", "justify-content": "center"});
+$("#matchH2H > div:nth-of-type(2) > div:nth-of-type(3) > p:nth-of-type(1)").text(l).css({"width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center"});
+$("#matchH2H > div:nth-of-type(2) > div > div > p:nth-of-type(1)").css({"height": "3vw", "font-weight": "400", "padding": "1.5vw 0 1vw 2vw", "text-align": "left"});
+$("#matchH2H > div:nth-of-type(2) > div:nth-of-type(1) > div > p:nth-of-type(2)").text(wPct).css({"height": "4.5vw", "font-weight": "400", "text-align": "left", "padding": "0 10vw 0 2vw"});
+$("#matchH2H > div:nth-of-type(2) > div:nth-of-type(2) > div > p:nth-of-type(2)").text(dPct).css({"height": "4.5vw", "font-weight": "400", "text-align": "left", "padding": "0 10vw 0 2vw"});
+$("#matchH2H > div:nth-of-type(2) > div:nth-of-type(3) > div > p:nth-of-type(2)").text(lPct).css({"height": "4.5vw", "font-weight": "400", "text-align": "left", "padding": "0 10vw 0 2vw"});

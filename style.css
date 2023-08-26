@@ -196,12 +196,12 @@ footer > ul > li > a {font-size: 14px;}
 #sub > table > tbody > tr > td > p:nth-of-type(1) > span {font-size: 16px; color: #174fff; margin: 0 1.5vw 0 3vw;}
 #sub > table > tbody > tr > td > p:nth-of-type(2) {width: 10vw; padding: .5vw 0; font-size: 14px; border-radius: 50vw; color: #fff; background: #000831; position: absolute; right: 15vw;}
 
-#potm {background: #174fff !important;}
-#sub > table > tbody > tr > td:has(#potm) > div {background: #174fff !important; border: .5vw solid #174fff !important;}
+.potm {background: #174fff !important;}
 
-#matchH2H {display: none; margin-top: 10vw;}
-#matchH2H > div {width: 70vw; margin-left: 15vw; display: flex;}
-#matchH2H > div > p {height: 10vw; color: #fff; display: flex; align-items: center; justify-content: center;}
+#matchH2H {display: none; margin-top: 7vw; flex-direction: column; align-items: center;}
+#matchH2H > p {font-size: 16px; height: 7vw;}
+#matchH2H > div:nth-of-type(1) {width: 80vw; display: flex; border-radius: 10px; overflow: hidden;}
+#matchH2H > div:nth-of-type(1) > p {height: 10vw; font-size: 16px; font-weight: 400; color: #fff; display: flex; align-items: center; justify-content: center;}
 
 /* 순위 */
 .standingsButton {width: 100vw; height: 10vw; position: fixed; top: 20vw; left: 0; background: #fff;}

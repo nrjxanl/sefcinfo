@@ -289,7 +289,7 @@ function matchH2H() {
     document.getElementById("matchTimeline").style.display = "none";
     document.getElementById("matchLineup").style.display = "none";
     document.getElementById("matchStat").style.display = "none";
-    document.getElementById("matchH2H").style.display = "block";
+    document.getElementById("matchH2H").style.display = "flex";
     $(".matchDetail button:nth-child(1)").css("font-weight", 400);
     $(".matchDetail button:nth-child(2)").css("font-weight", 400);
     $(".matchDetail button:nth-child(3)").css("font-weight", 400);
