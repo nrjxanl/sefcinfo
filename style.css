@@ -6,12 +6,14 @@
 * {color: #000831; margin: 0; padding: 0; text-align: center; font-family: "Dia Gothic"; font-weight: 700; font-size: 12px; list-style: none; text-decoration-line: none; border-collapse: collapse; border-spacing: 0; word-break: keep-all;}
 *::-webkit-scrollbar {display: none;}
 
+body {position: absolute; background: #fafafa;}
+
 /* 헤더 */
-header {width: 100vw; height: 20vw; position: fixed; top: 0; left: 0; background: #fff; z-index: 100;}
+header {width: 100vw; height: 20vw; position: fixed; top: 0; left: 0; background: #fafafa; z-index: 100;}
 header > a > img {height: 10vw; margin: 5vw 0 2vw 0;}
 
 /* 푸터 */
-footer {width: 100vw; height: 15vw; position: fixed; bottom: 0; left: 0; background: #fff; z-index: 100;}
+footer {width: 100vw; height: 15vw; position: fixed; bottom: 0; left: 0; background: #fafafa; z-index: 100;}
 footer > ul {width: 80vw; height: 5vw; margin: 5vw 0 0 10vw; display: flex; justify-content: center;}
 footer > ul > li {width: auto; padding: 0 3vw;}
 footer > ul > li > a {font-size: 14px;}
@@ -25,33 +27,33 @@ footer > ul > li > a {font-size: 14px;}
 
 /* 선수단 */
 
-.playerButton {width: 100vw; height: 10vw; position: fixed; top: 20vw; left: 0; background: #fff;}
-.playerButton > button {width: 15vw; height: 6vw; background: #fff; color: #000831; margin: 0 2vw; border: 1px solid #000831; border-radius: 50px;}
+.playerButton {width: 100vw; height: 10vw; position: fixed; top: 20vw; left: 0; background: #fafafa;}
+.playerButton > button {width: 15vw; height: 6vw; background: #fafafa; color: #000831; margin: 0 2vw; border: 1px solid #000831; border-radius: 50px;}
 
 #playerA > div {width: 90vw; margin-left: 5vw; margin-top: 10vw; overflow: hidden; text-align: center;}
 #playerA > div > p {width: 90vw; height: 6vw; font-size: 14px;}
-#playerA > div > a > div {width: 18.5vw; height: 30vw; display: flex; justify-content: center; flex-direction: column; align-items: center; border-radius: 10px; background: #fff; box-shadow: 0px 0px 5px 1px #00083120; float: left; margin: 2vw;}
+#playerA > div > a > div {width: 18.5vw; height: 30vw; display: flex; justify-content: center; flex-direction: column; align-items: center; border-radius: 10px; background: #fafafa; box-shadow: 0px 0px 5px 1px #00083120; float: left; margin: 2vw;}
 #playerA > div > a > div > div {width: 18.5vw; height: 22vw; overflow: hidden; box-shadow: none;}
 #playerA > div > a > div > div > img {height: 28vw; margin-top: 2vw;}
-#playerA > div > a > div > p {width: 18.5vw; height: 8vw; font-size: 14px; background: #000831; color: #fff; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center;}
+#playerA > div > a > div > p {width: 18.5vw; height: 8vw; font-size: 14px; background: #000831; color: #fafafa; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center;}
 #playerA > div > a > div > p > span {margin-right: 4px; color: #61f2ff; font-size: inherit; letter-spacing: -2px;}
 
 #playerU18 {display: none;}
 #playerU18 > div {width: 90vw; margin-left: 5vw; margin-top: 10vw; overflow-x: scroll; text-align: center;}
 #playerU18 > div > p {width: 90vw; height: 6vw; font-size: 14px;}
-#playerU18 > div > a > div {width: 18.5vw; height: 30vw; display: flex; justify-content: center; flex-direction: column; align-items: center; border-radius: 10px; background: #fff; box-shadow: 0px 0px 5px 1px #00083120; float: left; margin: 2vw;}
+#playerU18 > div > a > div {width: 18.5vw; height: 30vw; display: flex; justify-content: center; flex-direction: column; align-items: center; border-radius: 10px; background: #fafafa; box-shadow: 0px 0px 5px 1px #00083120; float: left; margin: 2vw;}
 #playerU18 > div > a > div > div {width: 18.5vw; height: 22vw; overflow: hidden; box-shadow: none;}
 #playerU18 > div > a > div > div > img {width: 18.5vw; height: 22vw; object-fit: cover; border-radius: 10px 10px 0 0;}
-#playerU18 > div > a > div > p {width: 18.5vw; height: 8vw; font-size: 14px; background: #000831; color: #fff; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center;}
+#playerU18 > div > a > div > p {width: 18.5vw; height: 8vw; font-size: 14px; background: #000831; color: #fafafa; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center;}
 #playerU18 > div > a > div > p > span {margin-right: 4px; color: #61f2ff; font-size: inherit; letter-spacing: -2px;}
 
 #playerU15 {display: none;}
 #playerU15 > div {width: 90vw; margin-left: 5vw; margin-top: 10vw; overflow-x: scroll; text-align: center;}
 #playerU15 > div > p {width: 90vw; height: 6vw; font-size: 14px;}
-#playerU15 > div > a > div {width: 18.5vw; height: 30vw; display: flex; justify-content: center; flex-direction: column; align-items: center; border-radius: 10px; background: #fff; box-shadow: 0px 0px 5px 1px #00083120; float: left; margin: 2vw;}
+#playerU15 > div > a > div {width: 18.5vw; height: 30vw; display: flex; justify-content: center; flex-direction: column; align-items: center; border-radius: 10px; background: #fafafa; box-shadow: 0px 0px 5px 1px #00083120; float: left; margin: 2vw;}
 #playerU15 > div > a > div > div {width: 18.5vw; height: 22vw; overflow: hidden; box-shadow: none;}
 #playerU15 > div > a > div > div > img {width: 18.5vw; height: 22vw; object-fit: cover; border-radius: 10px 10px 0 0;}
-#playerU15 > div > a > div > p {width: 18.5vw; height: 8vw; font-size: 14px; background: #000831; color: #fff; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center;}
+#playerU15 > div > a > div > p {width: 18.5vw; height: 8vw; font-size: 14px; background: #000831; color: #fafafa; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center;}
 #playerU15 > div > a > div > p > span {margin-right: 4px; color: #61f2ff; font-size: inherit; letter-spacing: -2px;}
 
 /* 선수 정보 */
@@ -64,7 +66,7 @@ footer > ul > li > a {font-size: 14px;}
 #playerName > div {display: flex; align-items: center;}
 #playerName > div > img {height: 10vw;}
 #playerName > div > img:nth-child(2) {height: 8vw; margin-top: 1vw; border-radius: 100%; border: 0.5vw solid #000831; margin-left: -3vw; z-index: -100;}
-#playerName > p {text-shadow: 1px 0 #fff, -1px 0 #fff, 0 1px #fff, 0 -1px #fff, 0.5px 0.5px #fff, -0.5px -0.5px #fff, -0.5px 0.5px #fff, 0.5px -0.5px #fff;}
+#playerName > p {text-shadow: 1px 0 #fafafa, -1px 0 #fafafa, 0 1px #fafafa, 0 -1px #fafafa, 0.5px 0.5px #fafafa, -0.5px -0.5px #fafafa, -0.5px 0.5px #fafafa, 0.5px -0.5px #fafafa;}
 #playerName > p:nth-child(2) {font-size: 30px; text-align: left; display: flex; flex-direction: column; align-items: flex-start;}
 #playerName > p:nth-child(2) > span {font-weight: 400;}
 #playerName > p:nth-child(2) > span:nth-child(2) {margin-bottom: 1vw;}
@@ -74,7 +76,7 @@ footer > ul > li > a {font-size: 14px;}
 #playerImg {width: 100vw; height: 60vw; overflow: hidden;}
 #playerImg > img {height: 80vw; margin-left: 15vw;}
 
-#playerInfo {width: 100vw; margin-top: 60vw; background: #fff; box-shadow: 0 -3px 3px 1px #00083110; border-radius: 15vw 15vw 0 0;}
+#playerInfo {width: 100vw; margin-top: 60vw; background: #fafafa; box-shadow: 0 -3px 3px 1px #00083110; border-radius: 15vw 15vw 0 0;}
 
 #playerPers {width: 75vw; height: 20vw; display: flex; margin-left: 12.5vw;}
 #playerPers > div {width: 20vw; height: 15vw; margin: 2.5vw;}
@@ -114,8 +116,8 @@ footer > ul > li > a {font-size: 14px;}
 #playerCareer > div > div > p > span {display: block; text-align: left; font-weight: 400;}
 
 /* 일정 */
-.fixturesButton {width: 100vw; height: 10vw; position: fixed; top: 20vw; left: 0; background: #fff; z-index: 100;}
-.fixturesButton > button {width: 15vw; height: 6vw; background: #fff; color: #000831; margin: 0 2vw; border: 1px solid #000831; border-radius: 50px;}
+.fixturesButton {width: 100vw; height: 10vw; position: fixed; top: 20vw; left: 0; background: #fafafa; z-index: 100;}
+.fixturesButton > button {width: 15vw; height: 6vw; background: #fafafa; color: #000831; margin: 0 2vw; border: 1px solid #000831; border-radius: 50px;}
 
 .fixturesSeason {width: 90vw; height: 6vw; margin-left: 5vw; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap;}
 .fixturesSeason > button {width: 17vw; height: 6vw; background: none; border: 1px solid #000831; border-radius: 50px;}
@@ -175,39 +177,45 @@ footer > ul > li > a {font-size: 14px;}
 .matchDetail > button {height: 10vw; padding: 0 2vw; font-size: 16px; background: none; border: none;}
 
 #startingXI {width: 80vw; margin: 5vw 0 0 10vw;}
-#startingXI > img {width: 80vw; border-radius: 2vw; position: relative; z-index: -100; opacity: 0.5;}
-#startingXI > table {width: 70vw; height: 110vw; margin: -115vw 0 0 5vw;}
+#startingXI > img {width: 80vw; border-radius: 2vw; position: relative; opacity: 0.5;}
+#startingXI > table {width: 70vw; height: 110vw; margin: -115vw 0 0 5vw; z-index: 99; position: absolute;}
 #startingXI > table > tbody > tr {display: flex;}
 #startingXI > table > tbody > tr > td {height: 27.5vw; display: flex; flex-direction: column; justify-content: center; align-items: center;}
-#startingXI > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fff; border: .5vw solid #fff;}
+#startingXI > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: .5vw solid #fafafa;}
 #startingXI > table > tbody > tr > td > div > img {width: 10vw;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(1) {font-weight: 400; margin-top: 1vw;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(1) > span {color: #174fff; margin-right: 1vw;}
-#startingXI > table > tbody > tr > td > p:nth-of-type(2) {width: 8vw; padding: .5vw 0; margin-top: 1vw; border-radius: 50vw; color: #fff; background: #000831;}
+#startingXI > table > tbody > tr > td > p:nth-of-type(2) {width: 8vw; padding: .5vw 0; margin-top: 1vw; border-radius: 50vw; color: #fafafa; background: #000831;}
 
 #sub {width: 70vw; margin: 10vw 0 0 15vw;}
 #sub > table {width: 70vw; height: 110vw;}
 #sub > table > thead > tr > th {width: 70vw; height: 10vw; font-size: 16px;}
 #sub > table > tbody > tr {display: flex; width: 70vw;}
 #sub > table > tbody > tr > td {height: 15vw; display: flex; flex-direction: row; justify-content: center; align-items: center;}
-#sub > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fff; border: .5vw solid #fff;}
+#sub > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: .5vw solid #fafafa;}
 #sub > table > tbody > tr > td > div > img {width: 10vw;}
 #sub > table > tbody > tr > td > p:nth-of-type(1) {font-size: 16px; font-weight: 400; margin-top: 1vw;}
 #sub > table > tbody > tr > td > p:nth-of-type(1) > span {font-size: 16px; color: #174fff; margin: 0 1.5vw 0 3vw;}
-#sub > table > tbody > tr > td > p:nth-of-type(2) {width: 10vw; padding: .5vw 0; font-size: 14px; border-radius: 50vw; color: #fff; background: #000831; position: absolute; right: 15vw;}
+#sub > table > tbody > tr > td > p:nth-of-type(2) {width: 10vw; padding: .5vw 0; font-size: 14px; border-radius: 50vw; color: #fafafa; background: #000831; position: absolute; right: 15vw;}
 
 .potm {background: #174fff !important;}
+
+#matchStat {display: none;}
+#matchStat > table {width: 70vw; margin-left: 15vw; margin-top: 5vw;}
+#matchStat > table > tbody > tr {height: 10vw;}
+#matchStat > table > tbody > tr > td {font-size: 16px;}
+#matchStat > table > tbody > tr > td:nth-of-type(2n+2) {font-weight: 400;}
 
 #matchH2H {display: none; margin-top: 7vw; flex-direction: column; align-items: center;}
 #matchH2H > p {font-size: 16px; height: 7vw;}
 #matchH2H > div:nth-of-type(1) {width: 80vw; display: flex; border-radius: 10px; overflow: hidden;}
-#matchH2H > div:nth-of-type(1) > p {height: 10vw; font-size: 16px; font-weight: 400; color: #fff; display: flex; align-items: center; justify-content: center;}
+#matchH2H > div:nth-of-type(1) > p {height: 10vw; font-size: 16px; font-weight: 400; color: #fafafa; display: flex; align-items: center; justify-content: center;}
 #matchH2H > div:nth-of-type(3) {width: 80vw; display: flex; border-radius: 10px; overflow: hidden; margin-top: 10vw;}
-#matchH2H > div:nth-of-type(3) > p {height: 10vw; font-size: 16px; font-weight: 400; color: #fff; display: flex; align-items: center; justify-content: center;}
+#matchH2H > div:nth-of-type(3) > p {height: 10vw; font-size: 16px; font-weight: 400; color: #fafafa; display: flex; align-items: center; justify-content: center;}
 
 /* 순위 */
-.standingsButton {width: 100vw; height: 10vw; position: fixed; top: 20vw; left: 0; background: #fff;}
-.standingsButton > button {width: 15vw; height: 6vw; background: #fff; color: #000831; margin: 0 2vw; border: 1px solid #000831; border-radius: 50px;}
+.standingsButton {width: 100vw; height: 10vw; position: fixed; top: 20vw; left: 0; background: #fafafa;}
+.standingsButton > button {width: 15vw; height: 6vw; background: #fafafa; color: #000831; margin: 0 2vw; border: 1px solid #000831; border-radius: 50px;}
 
 .standingsSeason {width: 70vw; height: 6vw; margin-left: 5vw; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; align-content: flex-start;}
 .standingsSeason > button {width: 17vw; height: 6vw; background: none; border: 1px solid #000831; border-radius: 50px;}
