@@ -10,7 +10,7 @@ data = {
     "daegufc2013": ["59b8f6", "000000", "1", "4", "3", "6", "10"],
     "daejeoncitizen2003": ["9b2743", "041e42", "9", "7", "11", "29", "30"],
     "daejeonhana2020": ["007e6e", "9b2743", "9", "7", "11", "29", "30"],
-    "busanipark2012": ["ee2e24", "ffffff", "6", "6", "15", "34", "52"],
+    "busanipark2012": ["ff0d00", "ffffff", "6", "6", "15", "34", "52"],
     "bucheonfc": ["ac2424", "ffffff", "17", "7", "9", "56", "30"],
     "sangjusangmu": ["ed1a2e", "ffffff", "1", "1", "2", "6", "7"],
     "seongnamfc2014": ["000000", "ffffff", "3", "5", "2", "13", "11"],
@@ -50,31 +50,56 @@ l = Number(data[Object.keys(data)[index]][4]);
 goalS = Number(data[Object.keys(data)[index]][5]);
 goalC = Number(data[Object.keys(data)[index]][6]);
 
-wPct = 100 * w / (w + d + l) + "%";
-dPct = 100 * d / (w + d + l) + "%";
-lPct = 100 * l / (w + d + l) + "%";
+wPct = (100 * w / (w + d + l)).toFixed(1) + "%";
+dPct = (100 * d / (w + d + l)).toFixed(1) + "%";
+lPct = (100 * l / (w + d + l)).toFixed(1) + "%";
+goalSpG = "경기당 " + (goalS / (w + d + l)).toFixed(1);
+goalCpG = "경기당 " + (goalC / (w + d + l)).toFixed(1);
 
-wWidth = 80 * w / (w + d + l) + "vw";
-dWidth = 80 * d / (w + d + l) + "vw";
-lWidth = 80 * l / (w + d + l) + "vw";
-goalSWidth = 80 * goalS / (goalS + goalC) + "vw";
-goalCWidth = 80 * goalC / (goalS + goalC) + "vw";
+wGrd = ((100 * w / (w + d + l)) - 5) + "%";
+dGrd1 = (100 * w / (w + d + l)) + "%";
+dGrd2 = ((100 * (w + d) / (w + d + l)) - 5) + "%";
+lGrd = (100 * (w + d) / (w + d + l)) + "%";
+
+goalSGrd = ((100 * goalS / (goalS + goalC)) - 5) + "%";
+goalCGrd = (100 * goalS / (goalS + goalC)) + "%";
 
 oppBg = "#" + (data[Object.keys(data)[index]][0]);
 oppText = "#" + (data[Object.keys(data)[index]][1]);
 
-$("#matchH2H").append("<div><p></p><p></p><p></p></div><div><div><p></p><div><p>승리</p><p></p></div></div><div><p></p><div><p>무승부</p><p></p></div></div><div><p></p><div><p>패배</p><p></p></div></div></div>")
+h2hGradient = "linear-gradient(105deg, #000831 " + wGrd + ", #c8c8c8 " + dGrd1 + dGrd2 + ", " + oppBg + " " + lGrd + ")";
+goalGradient = "linear-gradient(105deg, #000831 " + goalSGrd + ", " + oppBg + " " + goalCGrd + ")";
 
-$("#matchH2H > div:nth-of-type(1) > p:nth-of-type(1)").css({"width": wWidth, "height": "1vw", "background": "#000831"});
-$("#matchH2H > div:nth-of-type(1) > p:nth-of-type(2)").css({"width": dWidth, "height": "1vw", "background": "#808080"});
-$("#matchH2H > div:nth-of-type(1) > p:nth-of-type(3)").css({"width": lWidth, "height": "1vw", "background": oppBg});
+if(d == 0) {
+    h2hGradient = "linear-gradient(105deg, #000831 " + wGrd + ", " + oppBg + " " + lGrd + ")";
+};
+
+if(l == 0) {
+    h2hGradient = "linear-gradient(105deg, #000831 " + wGrd + ", " + "#c8c8c8" + " " + dGrd1 + ")";
+};
+
+$("#matchH2H").append("<div><p></p></div><div><div><p></p><div><p>승리</p><p></p></div></div><div><p></p><div><p>무승부</p><p></p></div></div><div><p></p><div><p>패배</p><p></p></div></div></div><div><p></p></div><div><div><p></p><div><p>득점</p><p></p></div></div><div><p></p><div><p>실점</p><p></p></div></div></div>");
+
+$("#matchH2H > div:nth-of-type(1) > p").css({"width": "80vw", "height": "2vw", "background-image": h2hGradient});
+
 $("#matchH2H > div:nth-of-type(2)").css({"display": "flex", "justify-content": "flex-start", "margin-top": "5vw"});
 $("#matchH2H > div:nth-of-type(2) > div").css({"display": "flex"});
 $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(1)").css("margin-left", "10vw");
 $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)").text(w).css({"width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#000831", "color": "#fff", "display": "flex", "align-items": "center", "justify-content": "center"});
 $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)").text(d).css({"width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#c8c8c8", "color": "#fff", "display": "flex", "align-items": "center", "justify-content": "center"});
 $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(3) > p:nth-of-type(1)").text(l).css({"width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center"});
-$("#matchH2H > div:nth-of-type(2) > div > div > p:nth-of-type(1)").css({"height": "3vw", "font-weight": "400", "padding": "1.5vw 0 1vw 2vw", "text-align": "left"});
-$("#matchH2H > div:nth-of-type(2) > div:nth-of-type(1) > div > p:nth-of-type(2)").text(wPct).css({"height": "4.5vw", "font-weight": "400", "text-align": "left", "padding": "0 10vw 0 2vw"});
-$("#matchH2H > div:nth-of-type(2) > div:nth-of-type(2) > div > p:nth-of-type(2)").text(dPct).css({"height": "4.5vw", "font-weight": "400", "text-align": "left", "padding": "0 10vw 0 2vw"});
-$("#matchH2H > div:nth-of-type(2) > div:nth-of-type(3) > div > p:nth-of-type(2)").text(lPct).css({"height": "4.5vw", "font-weight": "400", "text-align": "left", "padding": "0 10vw 0 2vw"});
+$("#matchH2H > div:nth-of-type(2) > div > div > p:nth-of-type(1)").css({"height": "4vw", "font-weight": "400", "padding": "1vw 0 0 2vw", "text-align": "left", "display": "flex", "align-items": "center"});
+$("#matchH2H > div:nth-of-type(2) > div:nth-of-type(1) > div > p:nth-of-type(2)").text(wPct).css({"height": "4vw", "font-weight": "400", "text-align": "left", "padding": "0 8vw 0 2vw", "display": "flex", "align-items": "center"});
+$("#matchH2H > div:nth-of-type(2) > div:nth-of-type(2) > div > p:nth-of-type(2)").text(dPct).css({"height": "4vw", "font-weight": "400", "text-align": "left", "padding": "0 8vw 0 2vw", "display": "flex", "align-items": "center"});
+$("#matchH2H > div:nth-of-type(2) > div:nth-of-type(3) > div > p:nth-of-type(2)").text(lPct).css({"height": "4vw", "font-weight": "400", "text-align": "left", "padding": "0 8vw 0 2vw", "display": "flex", "align-items": "center"});
+
+$("#matchH2H > div:nth-of-type(3) > p").css({"width": "80vw", "height": "2vw", "background-image": goalGradient});
+
+$("#matchH2H > div:nth-of-type(4)").css({"display": "flex", "justify-content": "flex-start", "margin-top": "5vw"});
+$("#matchH2H > div:nth-of-type(4) > div").css({"display": "flex"});
+$("#matchH2H > div:nth-of-type(4) > div:nth-of-type(1)").css("margin-left", "10vw");
+$("#matchH2H > div:nth-of-type(4) > div:nth-of-type(1) > p:nth-of-type(1)").text(goalS).css({"width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#000831", "color": "#fff", "display": "flex", "align-items": "center", "justify-content": "center"});
+$("#matchH2H > div:nth-of-type(4) > div:nth-of-type(2) > p:nth-of-type(1)").text(goalC).css({"width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center"});
+$("#matchH2H > div:nth-of-type(4) > div > div > p:nth-of-type(1)").css({"height": "4vw", "font-weight": "400", "padding": "1vw 0 0 2vw", "text-align": "left", "display": "flex", "align-items": "center"});
+$("#matchH2H > div:nth-of-type(4) > div:nth-of-type(1) > div > p:nth-of-type(2)").text(goalSpG).css({"height": "4vw", "font-weight": "400", "text-align": "left", "padding": "0 8vw 0 2vw", "display": "flex", "align-items": "center"});
+$("#matchH2H > div:nth-of-type(4) > div:nth-of-type(2) > div > p:nth-of-type(2)").text(goalCpG).css({"height": "4vw", "font-weight": "400", "text-align": "left", "padding": "0 8vw 0 2vw", "display": "flex", "align-items": "center"});
