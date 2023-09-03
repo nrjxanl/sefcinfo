@@ -68,26 +68,26 @@ fkA = (data[Object.keys(data)[index]][17]);
 offsideH = (data[Object.keys(data)[index]][18]);
 offsideA = (data[Object.keys(data)[index]][19]);
 
-posHGauge = "calc(18vw * " + posH / 100 + ")";
-posAGauge = "calc(18vw * " + posA / 100 + ")";
-shotHGauge = "calc(18vw * " + shotH / 30 + ")";
-shotAGauge = "calc(18vw * " + shotA / 30 + ")";
-sotHGauge = "calc(18vw * " + sotH / 20 + ")";
-sotAGauge = "calc(18vw * " + sotA / 20 + ")";
-foulHGauge = "calc(18vw * " + foulH / 30 + ")";
-foulAGauge = "calc(18vw * " + foulA / 30 + ")";
-ycHGauge = "calc(18vw * " + ycH / 10 + ")";
-ycAGauge = "calc(18vw * " + ycA / 10 + ")";
-rcHGauge = "calc(18vw * " + rcH / 10 + ")";
-rcAGauge = "calc(18vw * " + rcA / 10 + ")";
-yc2ndHGauge = "calc(18vw * " + yc2ndH / 10 + ")";
-yc2ndAGauge = "calc(18vw * " + yc2ndA / 10 + ")";
-ckHGauge = "calc(18vw * " + ckH / 30 + ")";
-ckAGauge = "calc(18vw * " + ckA / 30 + ")";
-fkHGauge = "calc(18vw * " + fkH / 30 + ")";
-fkAGauge = "calc(18vw * " + fkA / 30 + ")";
-offsideHGauge = "calc(18vw * " + offsideH / 10 + ")";
-offsideAGauge = "calc(18vw * " + offsideA / 10 + ")";
+posHGauge = "calc(15.5vw * " + posH / 100 + ")";
+posAGauge = "calc(15.5vw * " + posA / 100 + ")";
+shotHGauge = "calc(15.5vw * " + shotH / 30 + ")";
+shotAGauge = "calc(15.5vw * " + shotA / 30 + ")";
+sotHGauge = "calc(15.5vw * " + sotH / 20 + ")";
+sotAGauge = "calc(15.5vw * " + sotA / 20 + ")";
+foulHGauge = "calc(15.5vw * " + foulH / 30 + ")";
+foulAGauge = "calc(15.5vw * " + foulA / 30 + ")";
+ycHGauge = "calc(15.5vw * " + ycH / 10 + ")";
+ycAGauge = "calc(15.5vw * " + ycA / 10 + ")";
+rcHGauge = "calc(15.5vw * " + rcH / 10 + ")";
+rcAGauge = "calc(15.5vw * " + rcA / 10 + ")";
+yc2ndHGauge = "calc(15.5vw * " + yc2ndH / 10 + ")";
+yc2ndAGauge = "calc(15.5vw * " + yc2ndA / 10 + ")";
+ckHGauge = "calc(15.5vw * " + ckH / 30 + ")";
+ckAGauge = "calc(15.5vw * " + ckA / 30 + ")";
+fkHGauge = "calc(15.5vw * " + fkH / 30 + ")";
+fkAGauge = "calc(15.5vw * " + fkA / 30 + ")";
+offsideHGauge = "calc(15.5vw * " + offsideH / 10 + ")";
+offsideAGauge = "calc(15.5vw * " + offsideA / 10 + ")";
 
 pos = $("#matchStat > table > tbody > tr:nth-of-type(1)");
 shot = $("#matchStat > table > tbody > tr:nth-of-type(2)");
@@ -142,7 +142,7 @@ fk.find("td:nth-child(5) > p").css({"width": fkAGauge, "background": awayColor})
 offside.find("td:nth-child(1) > p").css({"width": offsideHGauge, "background": homeColor});
 offside.find("td:nth-child(5) > p").css({"width": offsideAGauge, "background": awayColor});
 
-$("tr").each(function () {
+$("#matchStat > table > tbody > tr").each(function () {
     if($(this).find("td:nth-of-type(2)").text() == 0) {
         $(this).find("td:nth-of-type(1) > p").css("width", ".3vw");
     };
