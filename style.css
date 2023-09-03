@@ -201,10 +201,15 @@ footer > ul > li > a {font-size: 14px;}
 .potm {background: #174fff !important;}
 
 #matchStat {display: none;}
-#matchStat > table {width: 70vw; margin-left: 15vw; margin-top: 5vw;}
+#matchStat > table {width: 90vw; margin: 5vw 0 0 5vw;}
 #matchStat > table > tbody > tr {height: 10vw;}
-#matchStat > table > tbody > tr > td {font-size: 16px;}
-#matchStat > table > tbody > tr > td:nth-of-type(2n+2) {font-weight: 400;}
+#matchStat > table > tbody > tr > td {font-size: 14px;}
+#matchStat > table > tbody > tr > td:nth-of-type(1) {width: 20.5vw; padding-right: 2vw; display: flex; margin-top: 3.5vw; justify-content: flex-end; background: #c8c8c880; border-radius: 5vw; background-clip: content-box;}
+#matchStat > table > tbody > tr > td:nth-of-type(3) {width: 15vw;}
+#matchStat > table > tbody > tr > td:nth-of-type(5) {width: 20.5vw; padding-left: 2vw; display: flex; margin-top: 3.5vw; justify-content: flex-start; background: #c8c8c880; border-radius: 5vw; background-clip: content-box;}
+#matchStat > table > tbody > tr > td:nth-of-type(2n+2) {font-weight: 400; width: 15vw;}
+#matchStat > table > tbody > tr > td:nth-of-type(1) > p {height: 3vw; border-radius: 5vw 0 0 5vw;}
+#matchStat > table > tbody > tr > td:nth-of-type(5) > p {height: 3vw; border-radius: 0 5vw 5vw 0;}
 
 #matchH2H {display: none; margin-top: 7vw; flex-direction: column; align-items: center;}
 #matchH2H > p {font-size: 16px; height: 7vw;}

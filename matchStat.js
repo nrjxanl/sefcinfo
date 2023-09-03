@@ -44,6 +44,9 @@ round = $("#round").text().replace(/[^0-9]/g, "");
 dataList = Object.keys(data);
 index = dataList.indexOf("R" + round);
 
+homeColor = $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(1) > p").css("background-color");
+awayColor = $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(3) > p").css("background-color");
+
 posH = (data[Object.keys(data)[index]][0]);
 posA = (data[Object.keys(data)[index]][1]);
 shotH = (data[Object.keys(data)[index]][2]);
@@ -65,26 +68,26 @@ fkA = (data[Object.keys(data)[index]][17]);
 offsideH = (data[Object.keys(data)[index]][18]);
 offsideA = (data[Object.keys(data)[index]][19]);
 
-posHGauge = 100 * posH / 100;
-posAGauge = 100 * posA / 100;
-shotHGauge = 100 * shotH / 30;
-shotAGauge = 100 * shotA / 30;
-sotHGauge = 100 * sotH / 20;
-sotAGauge = 100 * sotA / 20;
-foulHGauge = 100 * foulH / 30;
-foulAGauge = 100 * foulA / 30;
-ycHGauge = 100 * ycH / 10;
-ycAGauge = 100 * ycA / 10;
-rcHGauge = 100 * rcH / 10;
-rcAGauge = 100 * rcA / 10;
-yc2ndHGauge = 100 * yc2ndH / 10;
-yc2ndAGauge = 100 * yc2ndA / 10;
-ckHGauge = 100 * ckH / 30;
-ckAGauge = 100 * ckA / 30;
-fkHGauge = 100 * fkH / 30;
-fkAGauge = 100 * fkA / 30;
-offsideHGauge = 100 * offsideH / 10;
-offsideAGauge = 100 * offsideA / 10;
+posHGauge = "calc(18vw * " + posH / 100 + ")";
+posAGauge = "calc(18vw * " + posA / 100 + ")";
+shotHGauge = "calc(18vw * " + shotH / 30 + ")";
+shotAGauge = "calc(18vw * " + shotA / 30 + ")";
+sotHGauge = "calc(18vw * " + sotH / 20 + ")";
+sotAGauge = "calc(18vw * " + sotA / 20 + ")";
+foulHGauge = "calc(18vw * " + foulH / 30 + ")";
+foulAGauge = "calc(18vw * " + foulA / 30 + ")";
+ycHGauge = "calc(18vw * " + ycH / 10 + ")";
+ycAGauge = "calc(18vw * " + ycA / 10 + ")";
+rcHGauge = "calc(18vw * " + rcH / 10 + ")";
+rcAGauge = "calc(18vw * " + rcA / 10 + ")";
+yc2ndHGauge = "calc(18vw * " + yc2ndH / 10 + ")";
+yc2ndAGauge = "calc(18vw * " + yc2ndA / 10 + ")";
+ckHGauge = "calc(18vw * " + ckH / 30 + ")";
+ckAGauge = "calc(18vw * " + ckA / 30 + ")";
+fkHGauge = "calc(18vw * " + fkH / 30 + ")";
+fkAGauge = "calc(18vw * " + fkA / 30 + ")";
+offsideHGauge = "calc(18vw * " + offsideH / 10 + ")";
+offsideAGauge = "calc(18vw * " + offsideA / 10 + ")";
 
 pos = $("#matchStat > table > tbody > tr:nth-of-type(1)");
 shot = $("#matchStat > table > tbody > tr:nth-of-type(2)");
@@ -117,3 +120,33 @@ fk.find("td:nth-child(2)").text(fkH);
 fk.find("td:nth-child(4)").text(fkA);
 offside.find("td:nth-child(2)").text(offsideH);
 offside.find("td:nth-child(4)").text(offsideA);
+
+pos.find("td:nth-child(1) > p").css({"width": posHGauge, "background": homeColor});
+pos.find("td:nth-child(5) > p").css({"width": posAGauge, "background": awayColor});
+shot.find("td:nth-child(1) > p").css({"width": shotHGauge, "background": homeColor});
+shot.find("td:nth-child(5) > p").css({"width": shotAGauge, "background": awayColor});
+sot.find("td:nth-child(1) > p").css({"width": sotHGauge, "background": homeColor});
+sot.find("td:nth-child(5) > p").css({"width": sotAGauge, "background": awayColor});
+foul.find("td:nth-child(1) > p").css({"width": foulHGauge, "background": homeColor});
+foul.find("td:nth-child(5) > p").css({"width": foulAGauge, "background": awayColor});
+yc.find("td:nth-child(1) > p").css({"width": ycHGauge, "background": homeColor});
+yc.find("td:nth-child(5) > p").css({"width": ycAGauge, "background": awayColor});
+rc.find("td:nth-child(1) > p").css({"width": rcHGauge, "background": homeColor});
+rc.find("td:nth-child(5) > p").css({"width": rcAGauge, "background": awayColor});
+yc2nd.find("td:nth-child(1) > p").css({"width": yc2ndHGauge, "background": homeColor});
+yc2nd.find("td:nth-child(5) > p").css({"width": yc2ndAGauge, "background": awayColor});
+ck.find("td:nth-child(1) > p").css({"width": ckHGauge, "background": homeColor});
+ck.find("td:nth-child(5) > p").css({"width": ckAGauge, "background": awayColor});
+fk.find("td:nth-child(1) > p").css({"width": fkHGauge, "background": homeColor});
+fk.find("td:nth-child(5) > p").css({"width": fkAGauge, "background": awayColor});
+offside.find("td:nth-child(1) > p").css({"width": offsideHGauge, "background": homeColor});
+offside.find("td:nth-child(5) > p").css({"width": offsideAGauge, "background": awayColor});
+
+$("tr").each(function () {
+    if($(this).find("td:nth-of-type(2)").text() == 0) {
+        $(this).find("td:nth-of-type(1) > p").css("width", ".3vw");
+    };
+    if($(this).find("td:nth-of-type(4)").text() == 0) {
+        $(this).find("td:nth-of-type(5) > p").css("width", ".3vw");
+    };
+});
