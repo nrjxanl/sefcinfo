@@ -18,14 +18,14 @@ id = $("#playerImg > img").attr("src").substring(8, 16);
 dataList = Object.values(data.id);
 n = dataList.indexOf(id);
 
-$("#app").text(data.app[n])
-$("#goalDiv > canvas").text(data.goal[n])
-$("#assistDiv > canvas").text(data.assist[n])
-$("#shotDiv > canvas").text(data.shot[n])
-$("#sotDiv > canvas").text(data.sot[n])
-$("#foulcDiv > canvas").text(data.foulc[n])
-$("#foulsDiv > canvas").text(data.fouls[n])
-$("#ycDiv > canvas").text(data.yc[n])
-$("#rcDiv > canvas").text(data.rc[n])
-$("#concDiv > canvas").text(data.conc[n])
-$("#ogDiv > canvas").text(data.og[n])
+$("#app").text(data.app[n]);
+$("#goalDiv > canvas").text(data.goal[n]);
+$("#assistDiv > canvas").text(data.assist[n]);
+$("#shotDiv > canvas").text(data.shot[n]);
+$("#sotDiv > canvas").text(data.sot[n]);
+$("#foulcDiv > canvas").text(data.foulc[n]);
+$("#foulsDiv > canvas").text(data.fouls[n]);
+$("#ycDiv > canvas").text(data.yc[n]);
+$("#rcDiv > canvas").text(data.rc[n]);
+$("#concDiv > canvas").text(data.conc[n]);
+$("#ogDiv > canvas").text(data.og[n]);

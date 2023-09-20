@@ -1,7 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Noto+Sans+KR:wght@200;500;800&family=Noto+Sans:wght@200;500;800&display=swap");
 @font-face {font-family: "Dia Gothic"; font-weight: 100; src: url(./files/KBO-Dia-Gothic_light.woff);}
 @font-face {font-family: "Dia Gothic"; font-weight: 400; src: url(./files/KBO-Dia-Gothic_medium.woff);}
 @font-face {font-family: "Dia Gothic"; font-weight: 700; src: url(./files/KBO-Dia-Gothic_bold.woff);}
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@200;500;800&family=Noto+Sans:wght@200;500;800&display=swap");
 
 * {color: #000831; margin: 0; padding: 0; text-align: center; font-family: "Dia Gothic"; font-weight: 700; font-size: 12px; list-style: none; text-decoration-line: none; border-collapse: collapse; border-spacing: 0; word-break: keep-all;}
 *::-webkit-scrollbar {display: none;}
@@ -9,97 +9,97 @@
 body {position: absolute; background: #fafafa;}
 
 /* 헤더 */
-header {width: 100vw; height: 20vw; position: fixed; top: 0; left: 0; background: #fafafa; z-index: 100;}
-header > a > img {height: 10vw; margin: 5vw 0 2vw 0;}
+header {width: 100vw; height: 80px; position: fixed; top: 0; left: 0; background: #fafafa; z-index: 100;}
+header > a > img {height: 50px; margin: 15px;}
 
 /* 푸터 */
-footer {width: 100vw; height: 15vw; position: fixed; bottom: 0; left: 0; background: #fafafa; z-index: 100;}
-footer > ul {width: 80vw; height: 5vw; margin: 5vw 0 0 10vw; display: flex; justify-content: center;}
-footer > ul > li {width: auto; padding: 0 3vw;}
+footer {width: 100vw; height: 70px; position: fixed; bottom: 0; left: 0; background: #fafafa; z-index: 100;}
+footer > ul {width: 80vw; height: 40px; margin: 15px 0 0 10vw; display: flex; justify-content: center;}
+footer > ul > li {width: auto; padding: 0 3vw; display: flex; align-items: center;}
 footer > ul > li > a {font-size: 14px;}
 
 /* 오프셋 */
-#headerOffset {width: 100vw; height: 20vw; display: block; visibility: hidden;}
-#footerOffset {width: 100vw; height: 20vw; display: block; visibility: hidden;}
-#playerButtonOffset {width: 100vw; height: 10vw; visibility: hidden;}
-#fixturesButtonOffset {width: 100vw; height: 10vw; visibility: hidden;}
-#standingsButtonOffset {width: 100vw; height: 10vw; visibility: hidden;}
+#headerOffset {width: 100vw; height: 80px; display: block; visibility: hidden;}
+#footerOffset {width: 100vw; height: 70px; display: block; visibility: hidden;}
+#playerButtonOffset {width: 100vw; height: 40px; visibility: hidden;}
+#fixturesButtonOffset {width: 100vw; height: 40px; visibility: hidden;}
+#standingsButtonOffset {width: 100vw; height: 40px; visibility: hidden;}
 
 /* 선수단 */
 
-.playerButton {width: 100vw; height: 10vw; position: fixed; top: 20vw; left: 0; background: #fafafa;}
-.playerButton > button {width: 15vw; height: 6vw; background: #fafafa; color: #000831; margin: 0 2vw; border: 1px solid #000831; border-radius: 50px;}
+.playerButton {width: 100vw; height: 50px; position: fixed; top: 79px; left: 0; background: #fafafa;}
+.playerButton > button {width: 70px; height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
 
-#playerA > div {width: 90vw; margin-left: 5vw; margin-top: 10vw; overflow: hidden; text-align: center;}
-#playerA > div > p {width: 90vw; height: 6vw; font-size: 14px;}
-#playerA > div > a > div {width: 18.5vw; height: 30vw; display: flex; justify-content: center; flex-direction: column; align-items: center; border-radius: 10px; background: #fafafa; box-shadow: 0px 0px 5px 1px #00083120; float: left; margin: 2vw;}
-#playerA > div > a > div > div {width: 18.5vw; height: 22vw; overflow: hidden; box-shadow: none;}
-#playerA > div > a > div > div > img {height: 28vw; margin-top: 2vw;}
-#playerA > div > a > div > p {width: 18.5vw; height: 8vw; font-size: 14px; background: #000831; color: #fafafa; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center;}
-#playerA > div > a > div > p > span {margin-right: 4px; color: #61f2ff; font-size: inherit; letter-spacing: -2px;}
+#playerA > div {width: 90vw; margin-left: 5vw; margin-top: 50px; overflow: scroll; text-align: center;}
+#playerA > div > p {width: 90vw; height: 25px; font-size: 14px;}
+#playerA > div > a > div {width: 85vw; height: 30vw; display: flex; justify-content: center; flex-direction: row; align-items: center; border-radius: 10px; background: #fafafa; box-shadow: 0px 0px 5px 1px #00083120; float: left; margin: 2vw 2.5vw;}
+#playerA > div > a > div > div {width: 30vw; height: 30vw; overflow: hidden; box-shadow: none;}
+#playerA > div > a > div > div > img {width: 30vw; margin-top: 2vw;}
+#playerA > div > a > div > p {width: 40vw; font-size: 30px; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center;}
+#playerA > div > a > div > p > span {font-family: "Kaushan Script"; margin-right: 3vw; color: #174fff; font-size: inherit; -webkit-text-stroke: 1px;}
 
 #playerU18 {display: none;}
-#playerU18 > div {width: 90vw; margin-left: 5vw; margin-top: 10vw; overflow-x: scroll; text-align: center;}
-#playerU18 > div > p {width: 90vw; height: 6vw; font-size: 14px;}
-#playerU18 > div > a > div {width: 18.5vw; height: 30vw; display: flex; justify-content: center; flex-direction: column; align-items: center; border-radius: 10px; background: #fafafa; box-shadow: 0px 0px 5px 1px #00083120; float: left; margin: 2vw;}
-#playerU18 > div > a > div > div {width: 18.5vw; height: 22vw; overflow: hidden; box-shadow: none;}
-#playerU18 > div > a > div > div > img {width: 18.5vw; height: 22vw; object-fit: cover; border-radius: 10px 10px 0 0;}
-#playerU18 > div > a > div > p {width: 18.5vw; height: 8vw; font-size: 14px; background: #000831; color: #fafafa; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center;}
-#playerU18 > div > a > div > p > span {margin-right: 4px; color: #61f2ff; font-size: inherit; letter-spacing: -2px;}
+#playerU18 > div {width: 90vw; margin-left: 5vw; margin-top: 50px; overflow-x: scroll; text-align: center;}
+#playerU18 > div > p {width: 90vw; height: 25px; font-size: 14px;}
+#playerU18 > div > a > div {width: 85vw; height: 30vw; display: flex; justify-content: center; flex-direction: row; align-items: center; border-radius: 10px; background: #fafafa; box-shadow: 0px 0px 5px 1px #00083120; float: left; margin: 2vw;}
+#playerU18 > div > a > div > div {width: 26vw; height: 26vw; overflow: hidden; box-shadow: none;}
+#playerU18 > div > a > div > div > img {width: 26vw; border-radius: 50%;}
+#playerU18 > div > a > div > p {width: 40vw; font-size: 30px; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center;}
+#playerU18 > div > a > div > p > span {font-family: "Kaushan Script"; margin-right: 3vw; color: #174fff; font-size: inherit; -webkit-text-stroke: 1px;}
 
 #playerU15 {display: none;}
-#playerU15 > div {width: 90vw; margin-left: 5vw; margin-top: 10vw; overflow-x: scroll; text-align: center;}
-#playerU15 > div > p {width: 90vw; height: 6vw; font-size: 14px;}
-#playerU15 > div > a > div {width: 18.5vw; height: 30vw; display: flex; justify-content: center; flex-direction: column; align-items: center; border-radius: 10px; background: #fafafa; box-shadow: 0px 0px 5px 1px #00083120; float: left; margin: 2vw;}
-#playerU15 > div > a > div > div {width: 18.5vw; height: 22vw; overflow: hidden; box-shadow: none;}
-#playerU15 > div > a > div > div > img {width: 18.5vw; height: 22vw; object-fit: cover; border-radius: 10px 10px 0 0;}
-#playerU15 > div > a > div > p {width: 18.5vw; height: 8vw; font-size: 14px; background: #000831; color: #fafafa; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center;}
-#playerU15 > div > a > div > p > span {margin-right: 4px; color: #61f2ff; font-size: inherit; letter-spacing: -2px;}
+#playerU15 > div {width: 90vw; margin-left: 5vw; margin-top: 50px; overflow-x: scroll; text-align: center;}
+#playerU15 > div > p {width: 90vw; height: 25px; font-size: 14px;}
+#playerU15 > div > a > div {width: 85vw; height: 30vw; display: flex; justify-content: center; flex-direction: row; align-items: center; border-radius: 10px; background: #fafafa; box-shadow: 0px 0px 5px 1px #00083120; float: left; margin: 2vw;}
+#playerU15 > div > a > div > div {width: 26vw; height: 26vw; overflow: hidden; box-shadow: none;}
+#playerU15 > div > a > div > div > img {width: 26vw; border-radius: 50%;}
+#playerU15 > div > a > div > p {width: 40vw; font-size: 30px; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center;}
+#playerU15 > div > a > div > p > span {font-family: "Kaushan Script"; margin-right: 3vw; color: #174fff; font-size: inherit; -webkit-text-stroke: 1px;}
 
 /* 선수 정보 */
-.playerDetail {width: 100vw; height: 10vw; margin-top: 5vw; position: relative; z-index: 99;}
-.playerDetail > button {width: 15vw; height: 10vw; font-size: 16px; background: none; border: none;}
+.playerDetail {width: 100vw; height: 50px; margin-top: 25px; position: relative; z-index: 99;}
+.playerDetail > button {width: 70px; height: 25px; font-size: 16px; background: none; border: none;}
 
-#playerMain {width: 100vw; display: flex; position: fixed; top: 20vw; left: 0; z-index: -100;}
+#playerMain {width: 100vw; display: flex; position: fixed; top: 79px; left: 0; z-index: -100;}
 
-#playerName {height: 20vw; position: absolute; top: 5vw; left: 20vw;}
+#playerName {position: absolute; top: 30px; left: 20vw;}
 #playerName > div {display: flex; align-items: center;}
-#playerName > div > img {height: 10vw;}
-#playerName > div > img:nth-child(2) {height: 8vw; margin-top: 1vw; border-radius: 100%; border: 0.5vw solid #000831; margin-left: -3vw; z-index: -100;}
+#playerName > div > img {height: 50px;}
+#playerName > div > img:nth-child(2) {height: 35px; margin-top: 5px; border-radius: 100%; border: 0.5vw solid #000831; margin-left: -15px; z-index: -100;}
 #playerName > p {text-shadow: 1px 0 #fafafa, -1px 0 #fafafa, 0 1px #fafafa, 0 -1px #fafafa, 0.5px 0.5px #fafafa, -0.5px -0.5px #fafafa, -0.5px 0.5px #fafafa, 0.5px -0.5px #fafafa;}
 #playerName > p:nth-child(2) {font-size: 30px; text-align: left; display: flex; flex-direction: column; align-items: flex-start;}
 #playerName > p:nth-child(2) > span {font-weight: 400;}
-#playerName > p:nth-child(2) > span:nth-child(2) {margin-bottom: 1vw;}
-#playerName > p:nth-child(3) {color: #174fff; float: left; margin-right: 1vw;}
+#playerName > p:nth-child(2) > span:nth-child(2) {margin-bottom: 1px;}
+#playerName > p:nth-child(3) {font-family: "Kaushan Script"; color: #174fff; float: left; margin: -1px 5px 0 0;}
 #playerName > p:nth-child(4) {font-weight: 400; text-align: left;}
 
-#playerImg {width: 100vw; height: 60vw; overflow: hidden;}
-#playerImg > img {height: 80vw; margin-left: 15vw;}
+#playerImg {width: 100vw; height: 250px; overflow: hidden;}
+#playerImg > img {height: 350px; margin-left: 15vw;}
 
-#playerInfo {width: 100vw; margin-top: 60vw; background: #fafafa; box-shadow: 0 -3px 3px 1px #00083110; border-radius: 15vw 15vw 0 0;}
+#playerInfo {width: 100vw; margin-top: 250px; background: #fafafa; box-shadow: 0 -3px 3px 1px #00083110; border-radius: 15vw 15vw 0 0;}
 
-#playerPers {width: 75vw; height: 20vw; display: flex; margin-left: 12.5vw;}
-#playerPers > div {width: 20vw; height: 15vw; margin: 2.5vw;}
-#playerPers > div > p:nth-child(1) {font-size: 18px; height: 5vw; margin-top: 4vw;}
-#playerPers > div > p:nth-child(2) {font-size: 10px; height: 5vw; margin-top: 1vw; font-weight: 400;}
+#playerPers {width: 75vw; height: 100px; display: flex; margin-left: 12.5vw; align-items: center;}
+#playerPers > div {width: 20vw; margin: 0 2.5vw;}
+#playerPers > div > p:nth-child(1) {font-size: 18px;}
+#playerPers > div > p:nth-child(2) {font-size: 10px; margin-top: 5px; font-weight: 400;}
 
-#playerSNS {width: 40vw; border: 1px solid #000831; border-radius: 50px; padding: 1vw 0; margin: 5vw 0 0 30vw; display: flex; justify-content: center; align-items: center;}
-#playerSNS > img:nth-child(1) {height: 4vw; margin-right: 2vw;}
-#playerSNS > img:nth-child(2) {height: 6vw;}
+#playerSNS {width: 200px; border: 1px solid #000831; border-radius: 50px; padding: 5px 0; margin: 20px 0 0 calc((100vw - 200px) / 2); display: flex; justify-content: center; align-items: center;}
+#playerSNS > img:nth-child(1) {height: 20px; margin-right: 5px;}
+#playerSNS > img:nth-child(2) {height: 30px;}
 
-#playerPos {width: 50vw; margin: 5vw 0 0 25vw;}
+#playerPos {width: 50vw; margin: 30px 0 0 25vw;}
 #playerPos > img {width: 50vw; border-radius: 2vw; opacity: 50%;}
 
 #playerStat {width: 80vw; margin-left: 10vw; display: none; align-items: center; flex-direction: row; flex-wrap: wrap;}
 #playerStat > div {width: 40vw;}
 #playerStat > div:nth-child(n+3):nth-child(-n+12) > canvas {width: 30vw !important; height: 30vw !important; pointer-events: none;}
 
-#appDiv {width: 80vw !important; margin: 0 0 -10vw 5vw;}
-#appDiv > canvas {width: 70vw !important; height: 70vw !important; margin-top: -10vw;}
-#appDiv > p:nth-child(1) {width: 70vw; font-size: 30px; position: absolute; top: 162vw;}
-#appDiv > p:nth-child(2) {width: 70vw; font-size: 16px; font-weight: 400; position: absolute; top: 172vw;}
-#playerStat > div:nth-child(n+3) > p:nth-child(2) {width: 30vw; height: 5vw; margin: 7vw 0 0 5vw; background: #00083120; position: absolute;}
-#playerStat > div:nth-child(n+3) > p:nth-child(3) {height: 5vw; margin: 7vw 0 2vw 5vw; background: #000831;}
+#appDiv {width: 80vw !important; margin: 0 0 -50px 5vw;}
+#appDiv > canvas {width: 70vw !important; height: 70vw !important; margin-top: -50px;}
+#appDiv > p:nth-of-type(1) {width: 70vw; font-size: 30px; position: absolute; margin-top: -130px;}
+#appDiv > p:nth-of-type(2) {width: 70vw; font-size: 16px; font-weight: 400; position: absolute; margin-top: -95px;}
+#playerStat > div:nth-child(n+3) > p:nth-child(2) {width: 30vw; height: 20px; margin: 30px 0 0 5vw; background: #00083120; position: absolute; border-radius: 50px 50px 50px 50px;}
+#playerStat > div:nth-child(n+3) > p:nth-child(3) {height: 20px; margin: 30px 0 10px 5vw; background: #000831; border-radius: 50px 0 0 50px;}
 #playerStat > div:nth-child(n+3) > p:nth-child(4) {width: 40vw; font-size: 20px;}
 #playerStat > div:nth-child(n+3) > p:nth-child(5) {width: 40vw; font-size: 14px; font-weight: 400;}
 #playerStat > div:nth-child(n+3) > canvas {display: none;}
