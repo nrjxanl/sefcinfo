@@ -2,7 +2,7 @@ data = {
     "R1": {
         "GK": ["20160074"],
         "DF": ["20180156", "20170208", "20180105", "20140126"],
-        "MF": ["20190015", "20170011", "20180293", "20160151"],
+        "MF": ["20190015", "20170011c", "20180293", "20160151"],
         "FW": ["20230194", "20230196"],
         "SUB": ["20170029", "20180186", "20120007", "20160059", "20120052", "20230195", "20190131"],
     },
@@ -279,6 +279,7 @@ dataList = Object.keys(data);
 
 index = dataList.indexOf("R" + round);
 playerList = data[Object.keys(data)[index]];
+
 gkList = playerList.GK;
 dfList = playerList.DF;
 mfList = playerList.MF;
@@ -289,34 +290,33 @@ $("#startingXI").html("<img src='./files/field.png'><table><tr id='fw'></tr><tr 
 
 i = 0;
 while(i < gkList.length) {
-    $("#gk").append("<td id='" + gkList[i] +"'></td>");
+    $("#gk").append("<td id='" + gkList[i].replace(/[^0-9]/g, "") +"'></td>");
     i++;
 };
 
 i = 0;
 while(i < dfList.length) {
-    $("#df").append("<td id='" + dfList[i] +"'></td>");
+    $("#df").append("<td id='" + dfList[i].replace(/[^0-9]/g, "") +"'></td>");
     i++;
 };
 
 i = 0;
 while(i < mfList.length) {
-    $("#mf").append("<td id='" + mfList[i] +"'></td>");
+    $("#mf").append("<td id='" + mfList[i].replace(/[^0-9]/g, "") +"'></td>");
     i++;
 };
 
 i = 0;
 while(i < fwList.length) {
-    $("#fw").append("<td id='" + fwList[i] +"'></td>");
+    $("#fw").append("<td id='" + fwList[i].replace(/[^0-9]/g, "") +"'></td>");
     i++;
 };
 
 $("#sub").html("<table><thead><tr><th>교체 명단</th></tr></thead><tbody></tbody></table>");
 
 i = 0;
-
 while(i < subList.length) {
-    $("#sub > table").append("<tr><td id='" + subList[i] +"'></td></tr>");
+    $("#sub > table").append("<tr><td id='" + subList[i].replace(/[^0-9]/g, "") +"'></td></tr>");
     i++;
 };
 

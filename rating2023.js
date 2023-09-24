@@ -86,3 +86,22 @@ $("#sub td").each(function () {
     href = "location.href='./" + id + "'";
     $("#" + id).attr("onclick", href);
 });
+
+
+
+// 주장 표시
+list = [];
+
+list.push(...gkList);
+list.push(...dfList);
+list.push(...mfList);
+list.push(...fwList);
+
+$("#startingXI td").each(function () {
+    id = $(this).attr("id");
+    m = list.indexOf(id);
+    if(m == -1) {
+        $(this).find("p:nth-of-type(1)").append("<span style='color: #174fff'>C</span>");
+        console.log(m);
+    }
+});

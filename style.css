@@ -9,7 +9,7 @@
 body {position: absolute; background: #fafafa;}
 
 /* 헤더 */
-header {width: 100vw; height: 80px; position: fixed; top: 0; left: 0; background: #fafafa; z-index: 100;}
+header {width: 100vw; height: 80px; position: fixed; top: 0; left: 0; background: #fafafa; z-index: 99;}
 header > a > img {height: 50px; margin: 15px;}
 
 /* 푸터 */
@@ -21,51 +21,51 @@ footer > ul > li > a {font-size: 14px;}
 /* 오프셋 */
 #headerOffset {width: 100vw; height: 80px; display: block; visibility: hidden;}
 #footerOffset {width: 100vw; height: 70px; display: block; visibility: hidden;}
-#playerButtonOffset {width: 100vw; height: 40px; visibility: hidden;}
-#fixturesButtonOffset {width: 100vw; height: 40px; visibility: hidden;}
-#standingsButtonOffset {width: 100vw; height: 40px; visibility: hidden;}
+#playerButtonOffset {width: 100vw; height: 50px; visibility: hidden;}
+#fixturesButtonOffset {width: 100vw; height: 50px; visibility: hidden;}
+#standingsButtonOffset {width: 100vw; height: 50px; visibility: hidden;}
 
 /* 선수단 */
 
-.playerButton {width: 100vw; height: 50px; position: fixed; top: 79px; left: 0; background: #fafafa;}
+.playerButton {width: 100vw; position: fixed; top: 80px; left: 0; background: #fafafa; z-index: 100;}
 .playerButton > button {width: 70px; height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
 
 #playerA > div {width: 90vw; margin-left: 5vw; margin-top: 50px; overflow: scroll; text-align: center;}
-#playerA > div > p {width: 90vw; height: 25px; font-size: 14px;}
-#playerA > div > a > div {width: 85vw; height: 30vw; display: flex; justify-content: center; flex-direction: row; align-items: center; border-radius: 10px; background: #fafafa; box-shadow: 0px 0px 5px 1px #00083120; float: left; margin: 2vw 2.5vw;}
+#playerA > div > p {width: 90vw; height: 25px; font-size: 18px;}
+#playerA > div > a > div {width: 85vw; height: 30vw; display: flex; justify-content: center; flex-direction: row; align-items: center; border-radius: 10px; background: #fafafa; box-shadow: 0px 0px 5px 1px #00083120; margin: 20px 2.5vw;}
 #playerA > div > a > div > div {width: 30vw; height: 30vw; overflow: hidden; box-shadow: none;}
 #playerA > div > a > div > div > img {width: 30vw; margin-top: 2vw;}
-#playerA > div > a > div > p {width: 40vw; font-size: 30px; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center;}
-#playerA > div > a > div > p > span {font-family: "Kaushan Script"; margin-right: 3vw; color: #174fff; font-size: inherit; -webkit-text-stroke: 1px;}
+#playerA > div > a > div > p {width: 40vw; font-size: 30px; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center; font-style: italic;}
+#playerA > div > a > div > p > span {font-family: "Kaushan Script"; margin-right: 3vw; color: #174fff; font-size: inherit; -webkit-text-stroke: 1px; font-style: normal;}
 
 #playerU18 {display: none;}
-#playerU18 > div {width: 90vw; margin-left: 5vw; margin-top: 50px; overflow-x: scroll; text-align: center;}
-#playerU18 > div > p {width: 90vw; height: 25px; font-size: 14px;}
-#playerU18 > div > a > div {width: 85vw; height: 30vw; display: flex; justify-content: center; flex-direction: row; align-items: center; border-radius: 10px; background: #fafafa; box-shadow: 0px 0px 5px 1px #00083120; float: left; margin: 2vw;}
+#playerU18 > div {width: 90vw; margin-left: 5vw; margin-top: 50px; overflow: scroll; text-align: center;}
+#playerU18 > div > p {width: 90vw; height: 25px; font-size: 18px;}
+#playerU18 > div > a > div {width: 85vw; height: 30vw; display: flex; justify-content: center; flex-direction: row; align-items: center; border-radius: 10px; background: #fafafa; box-shadow: 0px 0px 5px 1px #00083120; margin: 20px 2.5vw;}
 #playerU18 > div > a > div > div {width: 26vw; height: 26vw; overflow: hidden; box-shadow: none;}
 #playerU18 > div > a > div > div > img {width: 26vw; border-radius: 50%;}
-#playerU18 > div > a > div > p {width: 40vw; font-size: 30px; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center;}
-#playerU18 > div > a > div > p > span {font-family: "Kaushan Script"; margin-right: 3vw; color: #174fff; font-size: inherit; -webkit-text-stroke: 1px;}
+#playerU18 > div > a > div > p {width: 40vw; font-size: 30px; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center; font-style: italic;}
+#playerU18 > div > a > div > p > span {font-family: "Kaushan Script"; margin-right: 3vw; color: #174fff; font-size: inherit; -webkit-text-stroke: 1px; font-style: normal;}
 
 #playerU15 {display: none;}
-#playerU15 > div {width: 90vw; margin-left: 5vw; margin-top: 50px; overflow-x: scroll; text-align: center;}
-#playerU15 > div > p {width: 90vw; height: 25px; font-size: 14px;}
-#playerU15 > div > a > div {width: 85vw; height: 30vw; display: flex; justify-content: center; flex-direction: row; align-items: center; border-radius: 10px; background: #fafafa; box-shadow: 0px 0px 5px 1px #00083120; float: left; margin: 2vw;}
+#playerU15 > div {width: 90vw; margin-left: 5vw; margin-top: 50px; overflow: scroll; text-align: center;}
+#playerU15 > div > p {width: 90vw; height: 25px; font-size: 18px;}
+#playerU15 > div > a > div {width: 85vw; height: 30vw; display: flex; justify-content: center; flex-direction: row; align-items: center; border-radius: 10px; background: #fafafa; box-shadow: 0px 0px 5px 1px #00083120; margin: 20px 2.5vw;}
 #playerU15 > div > a > div > div {width: 26vw; height: 26vw; overflow: hidden; box-shadow: none;}
 #playerU15 > div > a > div > div > img {width: 26vw; border-radius: 50%;}
-#playerU15 > div > a > div > p {width: 40vw; font-size: 30px; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center;}
-#playerU15 > div > a > div > p > span {font-family: "Kaushan Script"; margin-right: 3vw; color: #174fff; font-size: inherit; -webkit-text-stroke: 1px;}
+#playerU15 > div > a > div > p {width: 40vw; font-size: 30px; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center; font-style: italic;}
+#playerU15 > div > a > div > p > span {font-family: "Kaushan Script"; margin-right: 3vw; color: #174fff; font-size: inherit; -webkit-text-stroke: 1px; font-style: normal;}
 
 /* 선수 정보 */
-.playerDetail {width: 100vw; height: 50px; margin-top: 25px; position: relative; z-index: 99;}
+.playerDetail {width: 100vw; height: 50px; margin-top: 25px; position: relative; z-index: 98;}
 .playerDetail > button {width: 70px; height: 25px; font-size: 16px; background: none; border: none;}
 
-#playerMain {width: 100vw; display: flex; position: fixed; top: 79px; left: 0; z-index: -100;}
+#playerMain {width: 100vw; display: flex; position: fixed; top: 80px; left: 0; z-index: -100;}
 
 #playerName {position: absolute; top: 30px; left: 20vw;}
 #playerName > div {display: flex; align-items: center;}
 #playerName > div > img {height: 50px;}
-#playerName > div > img:nth-child(2) {height: 35px; margin-top: 5px; border-radius: 100%; border: 0.5vw solid #000831; margin-left: -15px; z-index: -100;}
+#playerName > div > img:nth-child(2) {height: 35px; margin-top: 5px; border-radius: 100%; border: 3px solid #000831; margin-left: -15px; z-index: -100;}
 #playerName > p {text-shadow: 1px 0 #fafafa, -1px 0 #fafafa, 0 1px #fafafa, 0 -1px #fafafa, 0.5px 0.5px #fafafa, -0.5px -0.5px #fafafa, -0.5px 0.5px #fafafa, 0.5px -0.5px #fafafa;}
 #playerName > p:nth-child(2) {font-size: 30px; text-align: left; display: flex; flex-direction: column; align-items: flex-start;}
 #playerName > p:nth-child(2) > span {font-weight: 400;}
@@ -105,64 +105,44 @@ footer > ul > li > a {font-size: 14px;}
 #playerStat > div:nth-child(n+3) > canvas {display: none;}
 
 #playerCareer {width: 70vw; margin-left: 15vw; display: none;}
-#playerCareer > div {width: 70vw; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 10px; margin: 10vw 0;}
-#playerCareer > div > p {width: 65vw; height: 7vw; font-weight: 400; font-size: 16px; padding: 4vw 0 0 5vw; text-align: left;}
-#playerCareer > div > div {width: 70vw; height: 15vw; display: flex;}
-#playerCareer > div > div > div {width: 15vw; height: 10vw; margin-top: 2.5vw;}
-#playerCareer > div > div > div > img {width: auto; height: 8vw; margin-top: 1vw;}
+#playerCareer > div {width: 70vw; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 10px; margin: 30px 0;}
+#playerCareer > div > p {width: 65vw; height: 30px; font-weight: 400; font-size: 16px; padding: 4vw 0 0 5vw; text-align: left;}
+#playerCareer > div > div {width: 70vw; height: 60px; display: flex;}
+#playerCareer > div > div > div {width: 15vw; height: 40px; margin-top: 10px;}
+#playerCareer > div > div > div > img {width: auto; height: 30px; margin-top: 5px;}
 #playerCareer > div > div > div > img[src$="./files/dummy.png"] {opacity: 0.5;}
 #playerCareer > div > div > p:nth-of-type(1) {width: 35vw; text-align: left; font-size: 16px; display: flex; justify-content: center; flex-direction: column;}
 #playerCareer > div > div > p:nth-of-type(2) {width: 15vw; text-align: right; padding-right: 5vw; font-weight: 400; display: flex; justify-content: center; flex-direction: column;}
 #playerCareer > div > div > p > span {display: block; text-align: left; font-weight: 400;}
 
 /* 일정 */
-.fixturesButton {width: 100vw; height: 10vw; position: fixed; top: 20vw; left: 0; background: #fafafa; z-index: 100;}
-.fixturesButton > button {width: 15vw; height: 6vw; background: #fafafa; color: #000831; margin: 0 2vw; border: 1px solid #000831; border-radius: 50px;}
+.fixturesButton {width: 100vw; position: fixed; top: 80px; left: 0; background: #fafafa; z-index: 100;}
+.fixturesButton > button {width: 15vw; height: 25px; background: #fafafa; color: #000831; margin: 0 2vw; border: 1px solid #000831; border-radius: 50px;}
 
-.fixturesSeason {width: 90vw; height: 6vw; margin-left: 5vw; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap;}
-.fixturesSeason > button {width: 17vw; height: 6vw; background: none; border: 1px solid #000831; border-radius: 50px;}
-.fixturesSeason > div {width: 73vw; height: 6vw; overflow: scroll; display: none;}
-.fixturesSeason > div > button {height: 6vw; padding: 0 2vw; background: none; border: 1px solid #000831; border-radius: 50px; margin-left: 2vw;}
+.fixturesSeason {width: 90vw; height: 25px; padding: 10px 5vw; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; position: fixed; background: #fafafa; z-index: 100;}
+.fixturesSeason > button {width: 17vw; height: 25px; background: none; border: 1px solid #000831; border-radius: 50px;}
+.fixturesSeason > div {width: 73vw; height: 25px; overflow: scroll; display: none;}
+.fixturesSeason > div > button {height: 25px; padding: 0 2vw; background: none; border: 1px solid #000831; border-radius: 50px; margin-left: 2vw;}
 
-#fixturesA > div > a > div {width: 90vw; height: 20vw; margin: 5vw 0 0 5vw; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 10px; display: flex; align-items: center;}
-#fixturesA > div > a > div > table {width: 80vw; height: 16vw; margin-left: 5vw;}
-#fixturesA > div > a > div > table > tbody > tr {height: 7vw;}
-#fixturesA > div > a > div > table > tbody > tr > td:nth-child(2) {width: 13vw; opacity: 70%;}
-#fixturesA > div > a > div > table > tbody > tr > td:nth-child(2) > img {height: 5vw; margin: 0.5vw 0 0 2vw;}
-#fixturesA > div > a > div > table > tbody > tr > td:nth-child(3) {width: 42vw; text-align: left; font-size: 16px; opacity: 70%;}
-#fixturesA > div > a > div > table > tbody > tr > td:nth-child(4) {width: 10vw; font-size: 16px; line-height: 7vw;}
-#fixturesA > div > a > div > table > tbody > tr > td:nth-child(6) {width: 15vw;}
-#fixturesA > div > a > div > table > tbody > tr > td:nth-child(6) > img {height: 7vw;}
-
-#fixturesU18 {display: none;}
-#fixturesU18 > div > a > div {width: 90vw; height: 20vw; margin: 5vw 0 0 5vw; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 10px; display: flex; align-items: center;}
-#fixturesU18 > div > a > div > table {width: 80vw; height: 16vw; margin-left: 5vw;}
-#fixturesU18 > div > a > div > table > tbody > tr {height: 7vw;}
-#fixturesU18 > div > a > div > table > tbody > tr > td:nth-child(2) {width: 13vw; opacity: 70%;}
-#fixturesU18 > div > a > div > table > tbody > tr > td:nth-child(2) > img {height: 5vw; margin: 0.5vw 0 0 2vw;}
-#fixturesU18 > div > a > div > table > tbody > tr > td:nth-child(3) {width: 42vw; text-align: left; font-size: 16px; opacity: 70%;}
-#fixturesU18 > div > a > div > table > tbody > tr > td:nth-child(4) {width: 10vw; font-size: 16px; line-height: 7vw;}
-#fixturesU18 > div > a > div > table > tbody > tr > td:nth-child(6) {width: 15vw;}
-#fixturesU18 > div > a > div > table > tbody > tr > td:nth-child(6) > img {height: 7vw;}
-
-#fixturesU15 {display: none;}
-#fixturesU15 > div > a > div {width: 90vw; height: 20vw; margin: 5vw 0 0 5vw; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 10px; display: flex; align-items: center;}
-#fixturesU15 > div > a > div > table {width: 80vw; height: 16vw; margin-left: 5vw;}
-#fixturesU15 > div > a > div > table > tbody > tr {height: 7vw;}
-#fixturesU15 > div > a > div > table > tbody > tr > td:nth-child(2) {width: 13vw; opacity: 70%;}
-#fixturesU15 > div > a > div > table > tbody > tr > td:nth-child(2) > img {height: 5vw; margin: 0.5vw 0 0 2vw;}
-#fixturesU15 > div > a > div > table > tbody > tr > td:nth-child(3) {width: 42vw; text-align: left; font-size: 16px; opacity: 70%;}
-#fixturesU15 > div > a > div > table > tbody > tr > td:nth-child(4) {width: 10vw; font-size: 16px; line-height: 7vw;}
-#fixturesU15 > div > a > div > table > tbody > tr > td:nth-child(6) {width: 15vw;}
-#fixturesU15 > div > a > div > table > tbody > tr > td:nth-child(6) > img {height: 7vw;}
+.fixtures > div {width: 90vw; height: 120px; margin-left: 5vw; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px;}
+.fixtures > div > div:nth-of-type(1) {width: 90vw; height: 90px; border-bottom: 3px solid #00083110; border-radius: 20px 20px 0 0; display: flex; align-items: center; justify-content: center;}
+.fixtures > div > div:nth-of-type(1) > div:nth-of-type(1) {display: flex; align-items: center; position: absolute; left: 10vw;}
+.fixtures > div > div:nth-of-type(1) > div:nth-of-type(1) > p {text-align: left; font-size: 20px; margin-left: 5px;}
+.fixtures > div > div:nth-of-type(1) > div:nth-of-type(2) {padding: 5px 3vw; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px;}
+.fixtures > div > div:nth-of-type(1) > div:nth-of-type(2) > span {font-size: 20px;}
+.fixtures > div > div:nth-of-type(1) > div:nth-of-type(3) {display: flex; align-items: center; position: absolute; right: 10vw;}
+.fixtures > div > div:nth-of-type(1) > div:nth-of-type(3) > p {text-align: right; font-size: 20px; margin-right: 5px;}
+.fixtures > div > div:nth-of-type(1) > div:nth-of-type(2n+1) > div > img {width: auto; height: 30px; vertical-align: middle;}
+.fixtures > div > div:nth-of-type(2) {width: 90vw; height: 30px; display: flex; align-items: center; justify-content: center;}
+.fixtures > div > div:nth-of-type(2) > img {width: auto; height: 10px;}
 
 /* 경기 세부 정보 */
-#matchScore {width: 70vw; margin: 5vw 0 0 10vw; padding: 7vw 5vw; display: flex; border-radius: 20px; box-shadow: 0px 0px 5px 1px #00083120;}
+#matchScore {width: 70vw; margin: 20px 0 0 10vw; padding: 7vw 5vw; display: flex; border-radius: 20px; box-shadow: 0px 0px 5px 1px #00083120;}
 #matchScore > div:nth-of-type(2n+1) {width: 20vw; display: flex; flex-direction: column; align-items: center;}
-#matchScore > div:nth-of-type(2n+1) > img {height: 10vw;}
-#matchScore > div:nth-of-type(2n+1) > p:nth-of-type(1) {width: 25vw; height: 5vw; font-size: 14px; margin-top: 1vw; font-weight: 400;}
-#matchScore > div:nth-of-type(2n+1) > p:nth-of-type(2) {font-size: 10px; font-weight: 100; line-height: 1.6; text-align: left; margin-top: 1vw;}
-#matchScore > div:nth-of-type(2) > div {width: 30vw; height: 12vw; display: flex; align-items: center;}
+#matchScore > div:nth-of-type(2n+1) > img {height: 50px;}
+#matchScore > div:nth-of-type(2n+1) > p:nth-of-type(1) {width: 25vw; font-size: 14px; margin-top: 10px; font-weight: 400;}
+#matchScore > div:nth-of-type(2n+1) > p:nth-of-type(2) {font-size: 10px; font-weight: 100; line-height: 1.6; text-align: left; margin-top: 10px;}
+#matchScore > div:nth-of-type(2) > div {width: 30vw; height: 50px; display: flex; align-items: center;}
 #matchScore > div:nth-of-type(2) > div > p {width: 12vw; font-size: 30px;}
 #matchScore > div:nth-of-type(2) > p:nth-of-type(1) {font-weight: 400;}
 #matchScore > div:nth-of-type(2) > div > img {width: 6vw;}
@@ -173,78 +153,78 @@ footer > ul > li > a {font-size: 14px;}
 
 #matchLineup {display: none;}
 
-.matchDetail {width: 100vw; height: 10vw; margin-top: 5vw; position: relative; z-index: 99;}
-.matchDetail > button {height: 10vw; padding: 0 2vw; font-size: 16px; background: none; border: none;}
+.matchDetail {width: 100vw; height: 50px; margin-top: 5vw; position: relative; z-index: 98;}
+.matchDetail > button {height: 25px; padding: 0 2vw; font-size: 16px; background: none; border: none;}
 
-#startingXI {width: 80vw; margin: 5vw 0 0 10vw;}
+#startingXI {width: 80vw; margin: 30px 0 0 10vw;}
 #startingXI > img {width: 80vw; border-radius: 2vw; position: relative; opacity: 0.5;}
-#startingXI > table {width: 70vw; height: 110vw; margin: -115vw 0 0 5vw; z-index: 99; position: absolute;}
+#startingXI > table {width: 70vw; height: 110vw; margin: -115vw 0 0 5vw; z-index: 98; position: absolute;}
 #startingXI > table > tbody > tr {display: flex;}
 #startingXI > table > tbody > tr > td {height: 27.5vw; display: flex; flex-direction: column; justify-content: center; align-items: center;}
-#startingXI > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: .5vw solid #fafafa;}
+#startingXI > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: 3px solid #fafafa;}
 #startingXI > table > tbody > tr > td > div > img {width: 10vw;}
-#startingXI > table > tbody > tr > td > p:nth-of-type(1) {font-weight: 400; margin-top: 1vw;}
-#startingXI > table > tbody > tr > td > p:nth-of-type(1) > span {color: #174fff; margin-right: 1vw;}
-#startingXI > table > tbody > tr > td > p:nth-of-type(2) {width: 8vw; padding: .5vw 0; margin-top: 1vw; border-radius: 50vw; color: #fafafa; background: #000831;}
+#startingXI > table > tbody > tr > td > p:nth-of-type(1) {font-weight: 400; margin-top: 5px;}
+#startingXI > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(1) {color: #174fff; margin-right: 5px; font-family: "Kaushan Script";}
+#startingXI > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) {color: #174fff; margin-left: 3px; font-family: "Kaushan Script";}
+#startingXI > table > tbody > tr > td > p:nth-of-type(2) {width: 8vw; padding: 3px 0; margin-top: 5px; border-radius: 50vw; color: #fafafa; background: #000831;}
 
-#sub {width: 70vw; margin: 10vw 0 0 15vw;}
+#sub {width: 70vw; margin: 30px 0 0 15vw;}
 #sub > table {width: 70vw; height: 110vw;}
-#sub > table > thead > tr > th {width: 70vw; height: 10vw; font-size: 16px;}
+#sub > table > thead > tr > th {width: 70vw; height: 30px; font-size: 18px;}
 #sub > table > tbody > tr {display: flex; width: 70vw;}
-#sub > table > tbody > tr > td {height: 15vw; display: flex; flex-direction: row; justify-content: center; align-items: center;}
-#sub > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: .5vw solid #fafafa;}
+#sub > table > tbody > tr > td {height: 60px; display: flex; flex-direction: row; justify-content: center; align-items: center;}
+#sub > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: 3px solid #fafafa;}
 #sub > table > tbody > tr > td > div > img {width: 10vw;}
-#sub > table > tbody > tr > td > p:nth-of-type(1) {font-size: 16px; font-weight: 400; margin-top: 1vw;}
-#sub > table > tbody > tr > td > p:nth-of-type(1) > span {font-size: 16px; color: #174fff; margin: 0 1.5vw 0 3vw;}
-#sub > table > tbody > tr > td > p:nth-of-type(2) {width: 10vw; padding: .5vw 0; font-size: 14px; border-radius: 50vw; color: #fafafa; background: #000831; position: absolute; right: 15vw;}
+#sub > table > tbody > tr > td > p:nth-of-type(1) {font-size: 16px; font-weight: 400; margin-top: 5px;}
+#sub > table > tbody > tr > td > p:nth-of-type(1) > span {font-size: 16px; color: #174fff; margin: 0 1.5vw 0 3vw; font-family: "Kaushan Script";}
+#sub > table > tbody > tr > td > p:nth-of-type(2) {width: 10vw; padding: 3px 0; font-size: 14px; border-radius: 50vw; color: #fafafa; background: #000831; position: absolute; right: 15vw;}
 
 .potm {background: #174fff !important;}
 
 #matchStat {display: none;}
-#matchStat > table {width: 80vw; margin: 5vw 0 0 10vw;}
-#matchStat > table > tbody > tr {height: 10vw;}
+#matchStat > table {width: 80vw; margin: 30px 0 0 10vw;}
+#matchStat > table > tbody > tr {height: 50px; display: flex; align-items: center;}
 #matchStat > table > tbody > tr > td {font-size: 14px;}
-#matchStat > table > tbody > tr > td:nth-of-type(1) {width: 15.5vw; padding-right: 2vw; display: flex; margin-top: 4vw; justify-content: flex-end; background: #c8c8c880; border-radius: 5vw; background-clip: content-box;}
+#matchStat > table > tbody > tr > td:nth-of-type(1) {width: 15.5vw; padding-right: 2vw; display: flex; justify-content: flex-end; background: #c8c8c880; border-radius: 5vw; background-clip: content-box;}
 #matchStat > table > tbody > tr > td:nth-of-type(3) {width: 15vw;}
-#matchStat > table > tbody > tr > td:nth-of-type(5) {width: 15.5vw; padding-left: 2vw; display: flex; margin-top: 4vw; justify-content: flex-start; background: #c8c8c880; border-radius: 5vw; background-clip: content-box;}
+#matchStat > table > tbody > tr > td:nth-of-type(5) {width: 15.5vw; padding-left: 2vw; display: flex; justify-content: flex-start; background: #c8c8c880; border-radius: 5vw; background-clip: content-box;}
 #matchStat > table > tbody > tr > td:nth-of-type(2n+2) {font-weight: 400; width: 15vw;}
-#matchStat > table > tbody > tr > td:nth-of-type(1) > p {height: 2vw; border-radius: 5vw 0 0 5vw;}
-#matchStat > table > tbody > tr > td:nth-of-type(5) > p {height: 2vw; border-radius: 0 5vw 5vw 0;}
+#matchStat > table > tbody > tr > td:nth-of-type(1) > p {height: 2vw; border-radius: 30px 0 0 5vw;}
+#matchStat > table > tbody > tr > td:nth-of-type(5) > p {height: 2vw; border-radius: 0 5vw 30px 0;}
 
-#matchH2H {display: none; margin-top: 7vw; flex-direction: column; align-items: center;}
-#matchH2H > p {font-size: 16px; height: 7vw;}
+#matchH2H {display: none; margin-top: 30px; flex-direction: column; align-items: center;}
 #matchH2H > div:nth-of-type(1) {width: 80vw; display: flex; border-radius: 10px; overflow: hidden;}
-#matchH2H > div:nth-of-type(1) > p {height: 10vw; font-size: 16px; font-weight: 400; color: #fafafa; display: flex; align-items: center; justify-content: center;}
+#matchH2H > div:nth-of-type(1) > p {font-size: 16px; font-weight: 400; color: #fafafa; display: flex; align-items: center; justify-content: center;}
 #matchH2H > div:nth-of-type(3) {width: 80vw; display: flex; border-radius: 10px; overflow: hidden; margin-top: 10vw;}
-#matchH2H > div:nth-of-type(3) > p {height: 10vw; font-size: 16px; font-weight: 400; color: #fafafa; display: flex; align-items: center; justify-content: center;}
+#matchH2H > div:nth-of-type(3) > p {font-size: 16px; font-weight: 400; color: #fafafa; display: flex; align-items: center; justify-content: center;}
 
 /* 순위 */
-.standingsButton {width: 100vw; height: 10vw; position: fixed; top: 20vw; left: 0; background: #fafafa;}
-.standingsButton > button {width: 15vw; height: 6vw; background: #fafafa; color: #000831; margin: 0 2vw; border: 1px solid #000831; border-radius: 50px;}
+.standingsButton {width: 100vw; position: fixed; top: 20vw; left: 0; background: #fafafa; z-index: 100;}
+.standingsButton > button {width: 15vw; height: 25px; background: #fafafa; color: #000831; margin: 0 2vw; border: 1px solid #000831; border-radius: 50px;}
 
-.standingsSeason {width: 70vw; height: 6vw; margin-left: 5vw; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; align-content: flex-start;}
-.standingsSeason > button {width: 17vw; height: 6vw; background: none; border: 1px solid #000831; border-radius: 50px;}
-.standingsSeason > div {width: 53vw; height: 6vw; overflow: scroll; display: none;}
-.standingsSeason > div > button {height: 6vw; padding: 0 2vw; background: none; border: 1px solid #000831; border-radius: 50px; margin-left: 2vw;}
+.standingsSeason {width: 70vw; height: 25px; margin-left: 5vw; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; align-content: flex-start;}
+.standingsSeason > button {width: 17vw; height: 25px; background: none; border: 1px solid #000831; border-radius: 50px;}
+.standingsSeason > div {width: 53vw; height: 25px; overflow: scroll; display: none;}
+.standingsSeason > div > button {height: 25px; padding: 0 2vw; background: none; border: 1px solid #000831; border-radius: 50px; margin-left: 2vw;}
 
-.standings {width: 20vw; height: 6vw; float: right; margin: -6vw 5vw 0 0; text-align: right;}
+.standings {width: 20vw; height: 25px; float: right; margin: -25px 5vw 0 0; text-align: right;}
 .standings > button {height: 6vw; padding-left: 2vw; background: none; border: none; font-weight: 400; text-align: right;}
 
-.standingsDetail {width: 100vw; height: 10vw;}
-.standingsDetail > button {width: 20vw; height: 10vw; background: none; border: none;}
+.standingsDetail {height: 25px;}
+.standingsDetail > button {width: 20vw; height: 25px; background: none; border: none;}
 
 #standingsA > div {width: 90vw; margin-left: 5vw; overflow: scroll;}
 #standingsA > div > table {width: 90vw; vertical-align: middle;}
-#standingsA > div > table > thead > tr {height: 8vw;}
-#standingsA > div > table > thead > tr > th {font-weight: 400; font-size: 10px}
+#standingsA > div > table > thead > tr {height: 40px;}
+#standingsA > div > table > thead > tr > th {font-weight: 400; font-size: 12px;}
 #standingsA > div > table > thead > tr > th:nth-child(n+4):nth-child(-n+6) {display: none;}
 #standingsA > div > table > thead > tr > th:nth-child(n+8) {display: none;}
-#standingsA > div > table > tbody > tr {height: 8vw;}
+#standingsA > div > table > tbody > tr {height: 40px;}
 #standingsA > div > table > tbody > tr > td {font-size: 14px;}
 #standingsA > div > table > tbody > tr > td:nth-child(1) {width: 10vw;}
 #standingsA > div > table > tbody > tr > td:nth-child(2) {width: 0;}
 #standingsA > div > table > tbody > tr > td:nth-child(3) {width: 10vw;}
-#standingsA > div > table > tbody > tr > td:nth-child(3) > img {height: 4vw; margin-top: 0.5vw;}
+#standingsA > div > table > tbody > tr > td:nth-child(3) > img {height: 25px; vertical-align: middle;}
 #standingsA > div > table > tbody > tr > td:nth-child(4) {width: 40vw; text-align: left;}
 #standingsA > div > table > tbody > tr > td:nth-child(n+5) {width: 15vw;}
 #standingsA > div > table > tbody > tr > td:nth-child(n+6):nth-child(-n+8) {display: none;}
@@ -254,16 +234,16 @@ footer > ul > li > a {font-size: 14px;}
 #standingsU18F {display: none;}
 #standingsU18 > div {width: 90vw; margin-left: 5vw; overflow: scroll;}
 #standingsU18 > div > table {width: 90vw; vertical-align: middle;}
-#standingsU18 > div > table > thead > tr {height: 8vw;}
-#standingsU18 > div > table > thead > tr > th {font-weight: 400; font-size: 10px}
+#standingsU18 > div > table > thead > tr {height: 40px;}
+#standingsU18 > div > table > thead > tr > th {font-weight: 400; font-size: 12px;}
 #standingsU18 > div > table > thead > tr > th:nth-child(n+4):nth-child(-n+6) {display: none;}
 #standingsU18 > div > table > thead > tr > th:nth-child(n+8) {display: none;}
-#standingsU18 > div > table > tbody > tr {height: 8vw;}
+#standingsU18 > div > table > tbody > tr {height: 40px;}
 #standingsU18 > div > table > tbody > tr > td {font-size: 14px;}
 #standingsU18 > div > table > tbody > tr > td:nth-child(1) {width: 10vw;}
 #standingsU18 > div > table > tbody > tr > td:nth-child(2) {width: 0;}
 #standingsU18 > div > table > tbody > tr > td:nth-child(3) {width: 10vw;}
-#standingsU18 > div > table > tbody > tr > td:nth-child(3) > img {height: 4vw; margin-top: 0.5vw;}
+#standingsU18 > div > table > tbody > tr > td:nth-child(3) > img {height: 25px; vertical-align: middle;}
 #standingsU18 > div > table > tbody > tr > td:nth-child(4) {width: 40vw; text-align: left;}
 #standingsU18 > div > table > tbody > tr > td:nth-child(n+5) {width: 15vw;}
 #standingsU18 > div > table > tbody > tr > td:nth-child(n+6):nth-child(-n+8) {display: none;}
@@ -272,16 +252,16 @@ footer > ul > li > a {font-size: 14px;}
 #standingsU15 {display: none;}
 #standingsU15 > div {width: 90vw; margin-left: 5vw; overflow: scroll;}
 #standingsU15 > div > table {width: 90vw; vertical-align: middle;}
-#standingsU15 > div > table > thead > tr {height: 8vw;}
-#standingsU15 > div > table > thead > tr > th {font-weight: 400; font-size: 10px}
+#standingsU15 > div > table > thead > tr {height: 40px;}
+#standingsU15 > div > table > thead > tr > th {font-weight: 400; font-size: 12px;}
 #standingsU15 > div > table > thead > tr > th:nth-child(n+4):nth-child(-n+6) {display: none;}
 #standingsU15 > div > table > thead > tr > th:nth-child(n+8) {display: none;}
-#standingsU15 > div > table > tbody > tr {height: 8vw;}
+#standingsU15 > div > table > tbody > tr {height: 40px;}
 #standingsU15 > div > table > tbody > tr > td {font-size: 14px;}
 #standingsU15 > div > table > tbody > tr > td:nth-child(1) {width: 10vw;}
 #standingsU15 > div > table > tbody > tr > td:nth-child(2) {width: 0;}
 #standingsU15 > div > table > tbody > tr > td:nth-child(3) {width: 10vw;}
-#standingsU15 > div > table > tbody > tr > td:nth-child(3) > img {height: 4vw; margin-top: 0.5vw;}
+#standingsU15 > div > table > tbody > tr > td:nth-child(3) > img {height: 25px; vertical-align: middle;}
 #standingsU15 > div > table > tbody > tr > td:nth-child(4) {width: 40vw; text-align: left;}
 #standingsU15 > div > table > tbody > tr > td:nth-child(n+5) {width: 15vw;}
 #standingsU15 > div > table > tbody > tr > td:nth-child(n+6):nth-child(-n+8) {display: none;}
