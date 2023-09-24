@@ -102,6 +102,5 @@ $("#startingXI td").each(function () {
     m = list.indexOf(id);
     if(m == -1) {
         $(this).find("p:nth-of-type(1)").append("<span style='color: #174fff'>C</span>");
-        console.log(m);
     }
 });

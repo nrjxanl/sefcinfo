@@ -124,17 +124,27 @@ footer > ul > li > a {font-size: 14px;}
 .fixturesSeason > div {width: 73vw; height: 25px; overflow: scroll; display: none;}
 .fixturesSeason > div > button {height: 25px; padding: 0 2vw; background: none; border: 1px solid #000831; border-radius: 50px; margin-left: 2vw;}
 
-.fixtures > div {width: 90vw; height: 120px; margin-left: 5vw; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px;}
+.fixtures > div {width: 90vw; height: 120px; margin: 30px 0 0 5vw; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px;}
+.fixtures > div:nth-of-type(1) {margin-top: 80px;}
 .fixtures > div > div:nth-of-type(1) {width: 90vw; height: 90px; border-bottom: 3px solid #00083110; border-radius: 20px 20px 0 0; display: flex; align-items: center; justify-content: center;}
 .fixtures > div > div:nth-of-type(1) > div:nth-of-type(1) {display: flex; align-items: center; position: absolute; left: 10vw;}
+.fixtures > div > div:nth-of-type(1) > div:nth-of-type(1) > div {width: 10vw;}
 .fixtures > div > div:nth-of-type(1) > div:nth-of-type(1) > p {text-align: left; font-size: 20px; margin-left: 5px;}
-.fixtures > div > div:nth-of-type(1) > div:nth-of-type(2) {padding: 5px 3vw; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px;}
+.fixtures > div > div:nth-of-type(1) > div:nth-of-type(2) {padding: 5px 3vw; box-shadow: 0px 0px 5px 1px #00083140; border-radius: 20px;}
 .fixtures > div > div:nth-of-type(1) > div:nth-of-type(2) > span {font-size: 20px;}
 .fixtures > div > div:nth-of-type(1) > div:nth-of-type(3) {display: flex; align-items: center; position: absolute; right: 10vw;}
+.fixtures > div > div:nth-of-type(1) > div:nth-of-type(3) > div {width: 10vw;}
 .fixtures > div > div:nth-of-type(1) > div:nth-of-type(3) > p {text-align: right; font-size: 20px; margin-right: 5px;}
 .fixtures > div > div:nth-of-type(1) > div:nth-of-type(2n+1) > div > img {width: auto; height: 30px; vertical-align: middle;}
-.fixtures > div > div:nth-of-type(2) {width: 90vw; height: 30px; display: flex; align-items: center; justify-content: center;}
-.fixtures > div > div:nth-of-type(2) > img {width: auto; height: 10px;}
+.fixtures > div > div:nth-of-type(2) {width: 90vw; display: flex; align-items: center; margin-top: -2px;}
+.fixtures > div > div:nth-of-type(2) > div:nth-of-type(1) {height: 30px; display: flex; align-items: center; justify-content: left;}
+.fixtures > div > div:nth-of-type(2) > div:nth-of-type(1) > img {width: auto; height: 10px; margin: 0 5px 0 30px;}
+.fixtures > div > div:nth-of-type(2) > div:nth-of-type(1) > p {font-weight: 400; text-align: left;}
+.fixtures > div > div:nth-of-type(2) > div:nth-of-type(2) {height: 30px; display: flex; align-items: center; justify-content: right; position: absolute; right: 5vw;}
+.fixtures > div > div:nth-of-type(2) > div:nth-of-type(2) > p {font-weight: 400; text-align: right; margin-right: 30px;}
+
+#fixturesU18 {display: none;}
+#fixturesU15 {display: none;}
 
 /* 경기 세부 정보 */
 #matchScore {width: 70vw; margin: 20px 0 0 10vw; padding: 7vw 5vw; display: flex; border-radius: 20px; box-shadow: 0px 0px 5px 1px #00083120;}
