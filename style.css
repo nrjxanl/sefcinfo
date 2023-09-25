@@ -25,8 +25,26 @@ footer > ul > li > a {font-size: 14px;}
 #fixturesButtonOffset {width: 100vw; height: 50px; visibility: hidden;}
 #standingsButtonOffset {width: 100vw; height: 50px; visibility: hidden;}
 
-/* 선수단 */
+/* 홈 화면 */
+#nextMatch {width: 90vw; height: 120px; margin: 30px 0 0 5vw; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px;}
+#nextMatch > div:nth-of-type(1) {width: 90vw; height: 90px; border-bottom: 3px solid #00083110; border-radius: 20px 20px 0 0; display: flex; align-items: center; justify-content: center;}
+#nextMatch > div:nth-of-type(1) > div:nth-of-type(1) {display: flex; align-items: center; position: absolute; left: 10vw;}
+#nextMatch > div:nth-of-type(1) > div:nth-of-type(1) > div {width: 10vw;}
+#nextMatch > div:nth-of-type(1) > div:nth-of-type(1) > p {text-align: left; font-size: 20px; margin-left: 5px;}
+#nextMatch > div:nth-of-type(1) > div:nth-of-type(2) {padding: 5px 3vw; box-shadow: 0px 0px 5px 1px #00083140; border-radius: 20px;}
+#nextMatch > div:nth-of-type(1) > div:nth-of-type(2) > span {font-size: 20px;}
+#nextMatch > div:nth-of-type(1) > div:nth-of-type(3) {display: flex; align-items: center; position: absolute; right: 10vw;}
+#nextMatch > div:nth-of-type(1) > div:nth-of-type(3) > div {width: 10vw;}
+#nextMatch > div:nth-of-type(1) > div:nth-of-type(3) > p {text-align: right; font-size: 20px; margin-right: 5px;}
+#nextMatch > div:nth-of-type(1) > div:nth-of-type(2n+1) > div > img {width: auto; height: 30px; vertical-align: middle;}
+#nextMatch > div:nth-of-type(2) {width: 90vw; display: flex; align-items: center; margin-top: -2px;}
+#nextMatch > div:nth-of-type(2) > div:nth-of-type(1) {height: 30px; display: flex; align-items: center; justify-content: left;}
+#nextMatch > div:nth-of-type(2) > div:nth-of-type(1) > img {width: auto; height: 10px; margin: 0 5px 0 30px;}
+#nextMatch > div:nth-of-type(2) > div:nth-of-type(1) > p {font-weight: 400; text-align: left;}
+#nextMatch > div:nth-of-type(2) > div:nth-of-type(2) {height: 30px; display: flex; align-items: center; justify-content: right; position: absolute; right: 5vw;}
+#nextMatch > div:nth-of-type(2) > div:nth-of-type(2) > p {font-weight: 400; text-align: right; margin-right: 30px;}
 
+/* 선수단 */
 .playerButton {width: 100vw; position: fixed; top: 80px; left: 0; background: #fafafa; z-index: 100;}
 .playerButton > button {width: 70px; height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
 
