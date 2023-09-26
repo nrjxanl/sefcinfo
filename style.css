@@ -108,19 +108,19 @@ footer > ul > li > a {font-size: 14px;}
 #playerPos {width: 50vw; margin: 30px 0 0 25vw;}
 #playerPos > img {width: 50vw; border-radius: 2vw; opacity: 50%;}
 
-#playerStat {width: 80vw; margin-left: 10vw; display: none; align-items: center; flex-direction: row; flex-wrap: wrap;}
-#playerStat > div {width: 40vw;}
-#playerStat > div:nth-child(n+3):nth-child(-n+12) > canvas {width: 30vw !important; height: 30vw !important; pointer-events: none;}
+#playerStat {width: 70vw; margin-left: 15vw; display: none; align-items: center; flex-direction: row; flex-wrap: wrap;}
+#playerStat > div {width: 35vw;}
+#playerStat > div:nth-of-type(1) {width: 70vw;}
 
-#appDiv {width: 80vw !important; margin: 0 0 -50px 5vw;}
-#appDiv > canvas {width: 70vw !important; height: 70vw !important; margin-top: -50px;}
-#appDiv > p:nth-of-type(1) {width: 70vw; font-size: 30px; position: absolute; margin-top: -130px;}
-#appDiv > p:nth-of-type(2) {width: 70vw; font-size: 16px; font-weight: 400; position: absolute; margin-top: -95px;}
-#playerStat > div:nth-child(n+3) > p:nth-child(2) {width: 30vw; height: 20px; margin: 30px 0 0 5vw; background: #00083120; position: absolute; border-radius: 50px 50px 50px 50px;}
-#playerStat > div:nth-child(n+3) > p:nth-child(3) {height: 20px; margin: 30px 0 10px 5vw; background: #000831; border-radius: 50px 0 0 50px;}
-#playerStat > div:nth-child(n+3) > p:nth-child(4) {width: 40vw; font-size: 20px;}
-#playerStat > div:nth-child(n+3) > p:nth-child(5) {width: 40vw; font-size: 14px; font-weight: 400;}
-#playerStat > div:nth-child(n+3) > canvas {display: none;}
+#playerStat > div:nth-child(2) > p:nth-child(2) {width: 60vw; height: 10px; margin: 30px 0 0 5vw; background: #00083120; position: absolute; border-radius: 5px;}
+#playerStat > div:nth-child(2) > p:nth-child(3) {height: 10px; margin: 30px 0 10px 5vw; background: #000831; border-radius: 5px;}
+#playerStat > div:nth-child(2) > p:nth-child(4) {width: 70vw; font-size: 20px;}
+#playerStat > div:nth-child(2) > p:nth-child(5) {width: 70vw; font-size: 14px; font-weight: 400;}
+#playerStat > div:nth-child(n+3) > p:nth-child(2) {width: 25vw; height: 10px; margin: 30px 0 0 5vw; background: #00083120; position: absolute; border-radius: 5px;}
+#playerStat > div:nth-child(n+3) > p:nth-child(3) {height: 10px; margin: 30px 0 10px 5vw; background: #000831; border-radius: 5px;}
+#playerStat > div:nth-child(n+3) > p:nth-child(4) {width: 35vw; font-size: 20px;}
+#playerStat > div:nth-child(n+3) > p:nth-child(5) {width: 35vw; font-size: 14px; font-weight: 400;}
+#playerStat > div > canvas {display: none;}
 
 #playerCareer {width: 70vw; margin-left: 15vw; display: none;}
 #playerCareer > div {width: 70vw; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 10px; margin: 30px 0;}
@@ -176,8 +176,8 @@ footer > ul > li > a {font-size: 14px;}
 #matchScore > div:nth-of-type(2) > div > img {width: 6vw;}
 #date {width: 30vw; font-size: 10px; margin-top: 2px; font-weight: 400;}
 
-#highlight {width: 80vw; height: auto; padding: 10vw 0 0 10vw;}
-#highlight > iframe {width: 80vw; height: calc(80vw * 9 / 16); border: none; border-radius: 20px;}
+#highlight {width: 80vw; height: auto; padding: 30px 0 0 10vw;}
+#highlight > a > div > iframe {width: 80vw; height: calc(80vw * 9 / 16); border: none; border-radius: 20px;}
 
 #matchLineup {display: none;}
 

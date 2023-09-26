@@ -440,17 +440,14 @@ today = new Date(nowYMD);
 years = today.getFullYear() - birthday.getFullYear();
 birthday.setFullYear(today.getFullYear());
 
-if (today < birthday)
-{
-    years--;
-}
+if (today < birthday) {years--;};
 
 $("#age").text(years + "세")
 
 // 선수 기록
-app = $("#app").text();
+app = $("#appDiv > canvas").text();
 appPct = app / 183;
-$("#appDiv > p:nth-of-type(1)").text(app);
+$("#appDiv > p:nth-child(2)").text(app);
 goal = $("#goalDiv > canvas").text();
 goalPct = goal / 37;
 $("#goalDiv > p:nth-child(2)").text(goal);
@@ -482,24 +479,8 @@ og = $("#ogDiv > canvas").text();
 ogPct = og / 2;
 $("#ogDiv > p:nth-child(2)").text(og);
 
-options = {
-    rotation: -90,
-    circumference: 180,
-    animation: false,
-};
-
-appChart = document.getElementById("app").getContext("2d");
-app = new Chart(appChart, {
-    type: "doughnut",
-    data: {
-        datasets: [{
-            data: [appPct * 100, "100" - appPct * 100],
-            backgroundColor: ["#000831", "#00083120"],
-        }]
-    },
-        options: options,
-});
-
+$("#appDiv > canvas").after("<p></p><p id='app'></p>")
+$("#app").css("width", $(window).width() * 0.3 * appPct)
 $("#goalDiv > canvas").after("<p></p><p id='goal'></p>")
 $("#goal").css("width", $(window).width() * 0.3 * goalPct)
 $("#assistDiv > canvas").after("<p></p><p id='assist'></p>")
@@ -527,3 +508,7 @@ $("div[loan='o'] > p:nth-of-type(1)").css("width", "32vw");
 
 // 선수 경력 구단 엠블럼 dummy
 $("#playerCareer > div > div").find("img").attr("onerror", "this.src = './files/dummy.png'");
+
+// 하이라이트 가져오기
+href = $("#highlight").text();
+$("#highlight").empty().append("<a href='https://youtu.be/" + href + "' target='_blank'><div><iframe src='http://youtube.com/embed/" + href + "' style='pointer-events: none'></div></a>")
