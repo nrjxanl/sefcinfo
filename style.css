@@ -20,7 +20,7 @@ footer > ul > li > a {font-size: 14px;}
 
 /* 오프셋 */
 #headerOffset {width: 100vw; height: 80px; display: block; visibility: hidden;}
-#footerOffset {width: 100vw; height: 70px; display: block; visibility: hidden;}
+#footerOffset {width: 100vw; height: 100px; display: block; visibility: hidden;}
 #playerButtonOffset {width: 100vw; height: 50px; visibility: hidden;}
 #fixturesButtonOffset {width: 100vw; height: 50px; visibility: hidden;}
 #standingsButtonOffset {width: 100vw; height: 50px; visibility: hidden;}

@@ -2,8 +2,8 @@
 $(document).ready(function() {
 
     // 맨 위로 이동
-    if($("#yetA").length) {
-        document.getElementById("yetA").scrollIntoView({behavior: "smooth", block: "center"});
+    if($("#nextMatchA").length) {
+        document.getElementById("nextMatchA").scrollIntoView({behavior: "smooth", block: "center"});
     } else {
         $("html").animate({
             scrollTop: 0
@@ -174,38 +174,41 @@ function playerA() {
     document.getElementById("playerA").style.display = "block";
     document.getElementById("playerU18").style.display = "none";
     document.getElementById("playerU15").style.display = "none";
-}
+};
 
 function playerU18() {
     document.getElementById("playerA").style.display = "none";
     document.getElementById("playerU18").style.display = "block";
     document.getElementById("playerU15").style.display = "none";
-}
+};
 
 function playerU15() {
     document.getElementById("playerA").style.display = "none";
     document.getElementById("playerU18").style.display = "none";
     document.getElementById("playerU15").style.display = "block";
-}
+};
 
 // 일정 창 전환
 function fixturesA() {
     document.getElementById("fixturesA").style.display = "block";
     document.getElementById("fixturesU18").style.display = "none";
     document.getElementById("fixturesU15").style.display = "none";
-}
+    document.getElementById("nextMatchA").scrollIntoView({behavior: "smooth", block: "center"});
+};
 
 function fixturesU18() {
     document.getElementById("fixturesA").style.display = "none";
     document.getElementById("fixturesU18").style.display = "block";
     document.getElementById("fixturesU15").style.display = "none";
-}
+    document.getElementById("nextMatchU18").scrollIntoView({behavior: "smooth", block: "center"});
+};
 
 function fixturesU15() {
     document.getElementById("fixturesA").style.display = "none";
     document.getElementById("fixturesU18").style.display = "none";
     document.getElementById("fixturesU15").style.display = "block";
-}
+    document.getElementById("nextMatchU15").scrollIntoView({behavior: "smooth", block: "center"});
+};
 
 function fixturesSeason() {
     season = $("#fixturesSeason_").css("display");
@@ -214,9 +217,9 @@ function fixturesSeason() {
         document.getElementById("fixturesSeason_").style.display = "flex";
     } else {
         document.getElementById("fixturesSeason_").style.display = "none";
-    }
+    };
     
-}
+};
 
 // 일정 SEFC tr 투명도 변경
 $("div[id*='fixtures'] > div > a > div > table > tbody > tr:has(.sefc) > td:nth-child(n-2):nth-child(-n+3)").css("opacity", "100%")
@@ -237,7 +240,7 @@ function matchTimeline() {
     $(".matchDetail button:nth-child(2)").css("font-weight", 400);
     $(".matchDetail button:nth-child(3)").css("font-weight", 400);
     $(".matchDetail button:nth-child(4)").css("font-weight", 400);
-}
+};
 
 function matchLineup() {
     document.getElementById("matchTimeline").style.display = "none";
@@ -248,7 +251,7 @@ function matchLineup() {
     $(".matchDetail button:nth-child(2)").css("font-weight", 700);
     $(".matchDetail button:nth-child(3)").css("font-weight", 400);
     $(".matchDetail button:nth-child(4)").css("font-weight", 400);
-}
+};
 
 function matchStat() {
     document.getElementById("matchTimeline").style.display = "none";
@@ -259,7 +262,7 @@ function matchStat() {
     $(".matchDetail button:nth-child(2)").css("font-weight", 400);
     $(".matchDetail button:nth-child(3)").css("font-weight", 700);
     $(".matchDetail button:nth-child(4)").css("font-weight", 400);
-}
+};
 
 function matchH2H() {
     document.getElementById("matchTimeline").style.display = "none";
@@ -270,7 +273,7 @@ function matchH2H() {
     $(".matchDetail button:nth-child(2)").css("font-weight", 400);
     $(".matchDetail button:nth-child(3)").css("font-weight", 400);
     $(".matchDetail button:nth-child(4)").css("font-weight", 700);
-}
+};
 
 // 순위 창 전환
 function standingsA() {
