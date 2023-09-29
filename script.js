@@ -454,4 +454,5 @@ $("#playerCareer > div > div").find("img").attr("onerror", "this.src = './files/
 
 // 하이라이트 가져오기
 href = $("#highlight").text();
-$("#highlight").empty().append("<a href='https://youtu.be/" + href + "' target='_blank'><div><iframe src='http://youtube.com/embed/" + href + "' style='pointer-events: none'></div></a>")
+
+$("#highlight").empty().append("<a href='https://youtu.be/" + href + "' target='_blank'><img src='http://img.youtube.com/vi/" + href + "/mqdefault.jpg'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/640px-YouTube_full-color_icon_%282017%29.svg.png'></a>");
