@@ -231,8 +231,8 @@ $("div[id*='fixtures'] > div > a > div > table > tbody > tr:has(.ssb8) > td:nth-
 $("div[id*='fixtures'] > div > a > div > table > tbody > tr:has(.ssb5) > td:nth-child(3)").css("font-size", "14px")
 
 // 경기 세부 정보 창 전환
-function matchTimeline() {
-    document.getElementById("matchTimeline").style.display = "block";
+function matchInfo() {
+    document.getElementById("matchInfo").style.display = "block";
     document.getElementById("matchLineup").style.display = "none";
     document.getElementById("matchStat").style.display = "none";
     document.getElementById("matchH2H").style.display = "none";
@@ -243,7 +243,7 @@ function matchTimeline() {
 };
 
 function matchLineup() {
-    document.getElementById("matchTimeline").style.display = "none";
+    document.getElementById("matchInfo").style.display = "none";
     document.getElementById("matchLineup").style.display = "block";
     document.getElementById("matchStat").style.display = "none";
     document.getElementById("matchH2H").style.display = "none";
@@ -254,7 +254,7 @@ function matchLineup() {
 };
 
 function matchStat() {
-    document.getElementById("matchTimeline").style.display = "none";
+    document.getElementById("matchInfo").style.display = "none";
     document.getElementById("matchLineup").style.display = "none";
     document.getElementById("matchStat").style.display = "block";
     document.getElementById("matchH2H").style.display = "none";
@@ -265,7 +265,7 @@ function matchStat() {
 };
 
 function matchH2H() {
-    document.getElementById("matchTimeline").style.display = "none";
+    document.getElementById("matchInfo").style.display = "none";
     document.getElementById("matchLineup").style.display = "none";
     document.getElementById("matchStat").style.display = "none";
     document.getElementById("matchH2H").style.display = "flex";
@@ -305,6 +305,7 @@ function standingsSeason() {
     
 }
 
+// 순위 자세히/간략히 보기
 function standings() {
     standingsTh = $("div[id*='standings'] div table thead tr th:nth-child(6)").css("display")
     
@@ -383,20 +384,20 @@ $("#playerPos > #rb").text("RB")
 $("#playerPos > #cb").text("CB")
 $("#playerPos > #gk").text("GK")
 
-$("#playerPos > #cf").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-70vw", "margin-left": "20vw"})
-$("#playerPos > #lw").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-63.8vw", "margin-left": "5vw"})
-$("#playerPos > #rw").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-63.8vw", "margin-left": "35vw"})
-$("#playerPos > #am").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-57.6vw", "margin-left": "20vw"})
-$("#playerPos > #lm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-46.4vw", "margin-left": "5vw"})
-$("#playerPos > #cm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-46.4vw", "margin-left": "20vw"})
-$("#playerPos > #rm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-46.4vw", "margin-left": "35vw"})
-$("#playerPos > #dm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-35.2vw", "margin-left": "20vw"})
-$("#playerPos > #lb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-29.4vw", "margin-left": "5vw"})
-$("#playerPos > #rb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-29.4vw", "margin-left": "35vw"})
-$("#playerPos > #cb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-23.6vw", "margin-left": "20vw"})
-$("#playerPos > #gk").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-12vw", "margin-left": "20vw"})
+$("#playerPos > #cf").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-70vw", "margin-left": "20vw"});
+$("#playerPos > #lw").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-63.8vw", "margin-left": "5vw"});
+$("#playerPos > #rw").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-63.8vw", "margin-left": "35vw"});
+$("#playerPos > #am").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-57.6vw", "margin-left": "20vw"});
+$("#playerPos > #lm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-46.4vw", "margin-left": "5vw"});
+$("#playerPos > #cm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-46.4vw", "margin-left": "20vw"});
+$("#playerPos > #rm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-46.4vw", "margin-left": "35vw"});
+$("#playerPos > #dm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-35.2vw", "margin-left": "20vw"});
+$("#playerPos > #lb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-29.4vw", "margin-left": "5vw"});
+$("#playerPos > #rb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-29.4vw", "margin-left": "35vw"});
+$("#playerPos > #cb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-23.6vw", "margin-left": "20vw"});
+$("#playerPos > #gk").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-12vw", "margin-left": "20vw"});
 
-$("p[pos=o]").css({"color": "#fafafa", "background": "#000831", "opacity": "1"})
+$("p[pos=o]").css({"color": "#fafafa", "background": "#000831", "opacity": "1"});
 
 // 선수 정보 창 전환
 function playerInfo() {
@@ -427,8 +428,8 @@ function playerCareer() {
 }
 
 // 나이 계산
-birthday = $("#birth").text()
-birthday = new Date(birthday + "T00:00:00.000Z")
+birthday = $("#birth").text();
+birthday = new Date(birthday + "T00:00:00.000Z");
 
 now = new Date();
 dd = String(now.getDate()).padStart(2, "0");
@@ -442,65 +443,7 @@ birthday.setFullYear(today.getFullYear());
 
 if (today < birthday) {years--;};
 
-$("#age").text(years + "세")
-
-// 선수 기록
-app = $("#appDiv > canvas").text();
-appPct = app / 183;
-$("#appDiv > p:nth-child(2)").text(app);
-goal = $("#goalDiv > canvas").text();
-goalPct = goal / 37;
-$("#goalDiv > p:nth-child(2)").text(goal);
-assist = $("#assistDiv > canvas").text();
-assistPct = assist / 13;
-$("#assistDiv > p:nth-child(2)").text(assist);
-shot = $("#shotDiv > canvas").text();
-shotPct = shot / 175;
-$("#shotDiv > p:nth-child(2)").text(shot);
-sot = $("#sotDiv > canvas").text();
-sotPct = sot / 100;
-$("#sotDiv > p:nth-child(2)").text(sot);
-foulc = $("#foulcDiv > canvas").text();
-foulcPct = foulc / 146;
-$("#foulcDiv > p:nth-child(2)").text(foulc);
-fouls = $("#foulsDiv > canvas").text();
-foulsPct = fouls / 144;
-$("#foulsDiv > p:nth-child(2)").text(fouls);
-yc = $("#ycDiv > canvas").text();
-ycPct = yc / 19;
-$("#ycDiv > p:nth-child(2)").text(yc);
-rc = $("#rcDiv > canvas").text();
-rcPct = rc / 2;
-$("#rcDiv > p:nth-child(2)").text(rc);
-conc = $("#concDiv > canvas").text();
-concPct = conc / 255;
-$("#concDiv > p:nth-child(2)").text(conc);
-og = $("#ogDiv > canvas").text();
-ogPct = og / 2;
-$("#ogDiv > p:nth-child(2)").text(og);
-
-$("#appDiv > canvas").after("<p></p><p id='app'></p>")
-$("#app").css("width", $(window).width() * 0.3 * appPct)
-$("#goalDiv > canvas").after("<p></p><p id='goal'></p>")
-$("#goal").css("width", $(window).width() * 0.3 * goalPct)
-$("#assistDiv > canvas").after("<p></p><p id='assist'></p>")
-$("#assist").css("width", $(window).width() * 0.3 * assistPct)
-$("#shotDiv > canvas").after("<p></p><p id='shot'></p>")
-$("#shot").css("width", $(window).width() * 0.3 * shotPct)
-$("#sotDiv > canvas").after("<p></p><p id='sot'></p>")
-$("#sot").css("width", $(window).width() * 0.3 * sotPct)
-$("#foulcDiv > canvas").after("<p></p><p id='foulc'></p>")
-$("#foulc").css("width", $(window).width() * 0.3 * foulcPct)
-$("#foulsDiv > canvas").after("<p></p><p id='fouls'></p>")
-$("#fouls").css("width", $(window).width() * 0.3 * foulsPct)
-$("#ycDiv > canvas").after("<p></p><p id='yc'></p>")
-$("#yc").css("width", $(window).width() * 0.3 * ycPct)
-$("#rcDiv > canvas").after("<p></p><p id='rc'></p>")
-$("#rc").css("width", $(window).width() * 0.3 * rcPct)
-$("#concDiv > canvas").after("<p></p><p id='conc'></p>")
-$("#conc").css("width", $(window).width() * 0.3 * concPct)
-$("#ogDiv > canvas").after("<p></p><p id='og'></p>")
-$("#og").css("width", $(window).width() * 0.3 * ogPct)
+$("#age").text(years + "세");
 
 // 선수 경력 임대 div 들여쓰기
 $("div[loan='o']").css({"padding-left": "3vw", "opacity": "0.8"});

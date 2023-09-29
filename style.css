@@ -207,6 +207,15 @@ footer > ul > li > a {font-size: 14px;}
 #sub > table > tbody > tr > td > p:nth-of-type(1) > span {font-size: 16px; color: #174fff; margin: 0 1.5vw 0 3vw; font-family: "Kaushan Script";}
 #sub > table > tbody > tr > td > p:nth-of-type(2) {width: 10vw; padding: 3px 0; font-size: 14px; border-radius: 50vw; color: #fafafa; background: #000831; position: absolute; right: 15vw;}
 
+#potm {width: 70vw; padding: 1vw 3vw 2vw 3vw; margin-left: 12vw; border-radius: 20px; box-shadow: 0px 0px 5px 1px #00083120;}
+#potm > p {padding: 2vw; text-align: left;}
+#potm > div {display: flex; align-items: center;}
+#potm > div > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: 3px solid #fafafa;}
+#potm > div > div > img {width: 10vw;}
+#potm > div > p:nth-of-type(1) {font-size: 16px; font-weight: 400; margin-top: 5px;}
+#potm > div > p:nth-of-type(1) > span {font-size: 16px; color: #174fff; margin: 0 1.5vw 0 3vw; font-family: "Kaushan Script";}
+#potm > div > p:nth-of-type(2) {width: 10vw; padding: 3px 0; font-size: 14px; border-radius: 50vw; color: #fafafa; background: #000831; position: absolute; right: 15vw;}
+
 .potm {background: #174fff !important;}
 
 #matchStat {display: none;}

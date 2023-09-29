@@ -13,7 +13,7 @@ data= {
     "conc": ["0", "16", "0", "0", "0", "0", "0", "0", "0", "0", "0", "34", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "255", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "4", "0", "0", "36", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "28", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "48", "0", "0", "0", "0", "0", "0", "0", "0", "4", "0", "3", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "4", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"],
     "og": ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0", "0", "2", "0", "0", "0", "0", "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0", "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0", "0", "0", "0", "0", "0", "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"],
 }	
-    
+
 id = $("#playerImg > img").attr("src").substring(8, 16);
 dataList = Object.values(data.id);
 n = dataList.indexOf(id);
@@ -29,3 +29,61 @@ $("#ycDiv > canvas").text(data.yc[n]);
 $("#rcDiv > canvas").text(data.rc[n]);
 $("#concDiv > canvas").text(data.conc[n]);
 $("#ogDiv > canvas").text(data.og[n]);
+
+// 선수 기록 삽입
+app = $("#appDiv > canvas").text();
+appPct = app / 183;
+$("#appDiv > p:nth-child(2)").text(app);
+goal = $("#goalDiv > canvas").text();
+goalPct = goal / 37;
+$("#goalDiv > p:nth-child(2)").text(goal);
+assist = $("#assistDiv > canvas").text();
+assistPct = assist / 13;
+$("#assistDiv > p:nth-child(2)").text(assist);
+shot = $("#shotDiv > canvas").text();
+shotPct = shot / 175;
+$("#shotDiv > p:nth-child(2)").text(shot);
+sot = $("#sotDiv > canvas").text();
+sotPct = sot / 100;
+$("#sotDiv > p:nth-child(2)").text(sot);
+foulc = $("#foulcDiv > canvas").text();
+foulcPct = foulc / 146;
+$("#foulcDiv > p:nth-child(2)").text(foulc);
+fouls = $("#foulsDiv > canvas").text();
+foulsPct = fouls / 144;
+$("#foulsDiv > p:nth-child(2)").text(fouls);
+yc = $("#ycDiv > canvas").text();
+ycPct = yc / 19;
+$("#ycDiv > p:nth-child(2)").text(yc);
+rc = $("#rcDiv > canvas").text();
+rcPct = rc / 2;
+$("#rcDiv > p:nth-child(2)").text(rc);
+conc = $("#concDiv > canvas").text();
+concPct = conc / 255;
+$("#concDiv > p:nth-child(2)").text(conc);
+og = $("#ogDiv > canvas").text();
+ogPct = og / 2;
+$("#ogDiv > p:nth-child(2)").text(og);
+
+$("#appDiv > canvas").after("<p></p><p id='app'></p>");
+$("#app").css("width", $(window).width() * 0.3 * appPct);
+$("#goalDiv > canvas").after("<p></p><p id='goal'></p>");
+$("#goal").css("width", $(window).width() * 0.3 * goalPct);
+$("#assistDiv > canvas").after("<p></p><p id='assist'></p>");
+$("#assist").css("width", $(window).width() * 0.3 * assistPct);
+$("#shotDiv > canvas").after("<p></p><p id='shot'></p>");
+$("#shot").css("width", $(window).width() * 0.3 * shotPct);
+$("#sotDiv > canvas").after("<p></p><p id='sot'></p>");
+$("#sot").css("width", $(window).width() * 0.3 * sotPct);
+$("#foulcDiv > canvas").after("<p></p><p id='foulc'></p>");
+$("#foulc").css("width", $(window).width() * 0.3 * foulcPct);
+$("#foulsDiv > canvas").after("<p></p><p id='fouls'></p>");
+$("#fouls").css("width", $(window).width() * 0.3 * foulsPct);
+$("#ycDiv > canvas").after("<p></p><p id='yc'></p>");
+$("#yc").css("width", $(window).width() * 0.3 * ycPct);
+$("#rcDiv > canvas").after("<p></p><p id='rc'></p>");
+$("#rc").css("width", $(window).width() * 0.3 * rcPct);
+$("#concDiv > canvas").after("<p></p><p id='conc'></p>");
+$("#conc").css("width", $(window).width() * 0.3 * concPct);
+$("#ogDiv > canvas").after("<p></p><p id='og'></p>");
+$("#og").css("width", $(window).width() * 0.3 * ogPct);
