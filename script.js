@@ -8,91 +8,6 @@ $(document).ready(function() {
 
 });
 
-//A팀 엠블럼 삽입
-$("td[class='sefc']").after("<td><img src='./files/seouleland_s.png'></td><td>서울 이랜드 FC</td>");
-$("td[class='gan']").after("<td><img src='./files/gangwonfc_s.png'></td><td>강원 FC</td>");
-$("td[class='gye']").after("<td><img src='./files/gyeongnamfc2010_s.png'></td><td>경남 FC</td>");
-$("td[class='gwa']").after("<td><img src='./files/gwangjufc2020_s.png'></td><td>광주 FC</td>");
-$("td[class='gim']").after("<td><img src='./files/gimcheonsangmu_s.png'></td><td>김천 상무 FC</td>");
-$("td[class='gfc']").after("<td><img src='./files/gimpofc2022_s.png'></td><td>김포 FC</td>");
-$("td[class='dae']").after("<td><img src='./files/daegufc2013_s.png'></td><td>대구 FC</td>");
-$("td[class='dhfc']").after("<td><img src='./files/daejeonhana2020_s.png'></td><td>대전 하나 시티즌</td>");
-$("td[class='bus']").after("<td><img src='./files/busanipark2012_s.png'></td><td>부산 아이파크</td>");
-$("td[class='buc']").after("<td><img src='./files/bucheonfc_s.png'></td><td>부천 FC 1995</td>");
-$("td[class='fcs']").after("<td><img src='./files/fcseoul_s.png'></td><td>FC 서울</td>");
-$("td[class='sfc']").after("<td><img src='./files/seongnamfc2014_s.png'></td><td>성남 FC</td>");
-$("td[class='ssb']").after("<td><img src='./files/suwonsamsung_s.png'></td><td>수원 삼성 블루윙즈</td>");
-$("td[class='suw']").after("<td><img src='./files/suwonfc2016_s.png'></td><td>수원 FC</td>");
-$("td[class='ans']").after("<td><img src='./files/ansangreeners_s.png'></td><td>안산 그리너스</td>");
-$("td[class='any']").after("<td><img src='./files/fcanyang_s.png'></td><td>FC 안양</td>");
-$("td[class='uls']").after("<td><img src='./files/ulsanhyundai2016_s.png'></td><td>울산 현대 축구단</td>");
-$("td[class='inc']").after("<td><img src='./files/incheonutd_s.png'></td><td>인천 유나이티드</td>");
-$("td[class='jdfc']").after("<td><img src='./files/jeonnamdragons2022_s.png'></td><td>전남 드래곤즈</td>");
-$("td[class='jeo']").after("<td><img src='./files/jeonbukhyundai2018_s.png'></td><td>전북 현대 모터스</td>");
-$("td[class='jej']").after("<td><img src='./files/jejuutd_s.png'></td><td>제주 유나이티드</td>");
-$("td[class='cafc']").after("<td><img src='./files/chungnamasan_s.png'></td><td>충남아산 FC</td>");
-$("td[class='poh']").after("<td><img src='./files/pohangsteelers_s.png'></td><td>포항 스틸러스</td>");
-$("td[class='ccfc']").after("<td><img src='./files/cheonancity2023_s.png'></td><td>천안 시티 FC</td>");
-$("td[class='chfc']").after("<td><img src='./files/chungbukcheongju_s.png'></td><td>충북청주 FC</td>");
-
-//U18 엠블럼 삽입
-$("td[class='sefc8']").after("<td><img src='./files/seouleland_s.png'></td><td>서울 이랜드 FC U-18</td>");
-$("td[class='gan8']").after("<td><img src='./files/gangwonfc_s.png'></td><td>강원 FC U-18</td>");
-$("td[class='gye8']").after("<td><img src='./files/gyeongnamfc2010_s.png'></td><td>경남 FC U-18</td>");
-$("td[class='gwa8']").after("<td><img src='./files/gwangjufc2020_s.png'></td><td>광주 FC U-18</td>");
-$("td[class='gim8']").after("<td><img src='./files/gimcheonsangmu_s.png'></td><td>김천 상무 FC U-18</td>");
-$("td[class='gfc8']").after("<td><img src='./files/gimpofc2022_s.png'></td><td>김포 FC U-18</td>");
-$("td[class='dae8']").after("<td><img src='./files/daegufc2013_s.png'></td><td>대구 FC U-18</td>");
-$("td[class='dhfc8']").after("<td><img src='./files/daejeonhana2020_s.png'></td><td>대전 하나 시티즌 U-18</td>");
-$("td[class='bus8']").after("<td><img src='./files/busanipark2012_s.png'></td><td>부산 아이파크 U-18</td>");
-$("td[class='buc8']").after("<td><img src='./files/bucheonfc_s.png'></td><td>부천 FC 1995 U-18</td>");
-$("td[class='fcs8']").after("<td><img src='./files/fcseoul_s.png'></td><td>FC 서울 U-18</td>");
-$("td[class='sfc8']").after("<td><img src='./files/seongnamfc2014_s.png'></td><td>성남 FC U-18</td>");
-$("td[class='ssb8']").after("<td><img src='./files/suwonsamsung_s.png'></td><td>수원 삼성 블루윙즈 U-18</td>");
-$("td[class='suw8']").after("<td><img src='./files/suwonfc2016_s.png'></td><td>수원 FC U-18</td>");
-$("td[class='ans8']").after("<td><img src='./files/ansangreeners_s.png'></td><td>안산 그리너스 U-18</td>");
-$("td[class='any8']").after("<td><img src='./files/fcanyang_s.png'></td><td>FC 안양 U-18</td>");
-$("td[class='uls8']").after("<td><img src='./files/ulsanhyundai2016_s.png'></td><td>울산 현대 축구단 U-18</td>");
-$("td[class='inc8']").after("<td><img src='./files/incheonutd_s.png'></td><td>인천 유나이티드 U-18</td>");
-$("td[class='jdfc8']").after("<td><img src='./files/jeonnamdragons2022_s.png'></td><td>전남 드래곤즈 U-18</td>");
-$("td[class='jeo8']").after("<td><img src='./files/jeonbukhyundai2018_s.png'></td><td>전북 현대 모터스 U-18</td>");
-$("td[class='jej8']").after("<td><img src='./files/jejuutd_s.png'></td><td>제주 유나이티드 U-18</td>");
-$("td[class='cafc8']").after("<td><img src='./files/chungnamasan_s.png'></td><td>충남아산 FC U-18</td>");
-$("td[class='poh8']").after("<td><img src='./files/pohangsteelers_s.png'></td><td>포항 스틸러스 U-18</td>");
-$("td[class='ccfc8']").after("<td><img src='./files/cheonancity2023_s.png'></td><td>천안 시티 FC U-18</td>");
-$("td[class='chfc8']").after("<td><img src='./files/chungbukcheongju_s.png'></td><td>충북청주 FC U-18</td>");
-$("td[class='soongsilhs']").after("<td><img src='./files/soongsilhs_s.png'></td><td>숭실고등학교</td>");
-$("td[class='chojihs']").after("<td><img src='./files/chojihs_s.png'></td><td>초지고등학교</td>");
-$("td[class='pajukorea8']").after("<td><img src='./files/pajukorea_s.png'></td><td>파주고려 FC U-18</td>");
-$("td[class='hongcheonfc']").after("<td><img src='./files/hongcheonfc_s.png'></td><td>홍천 안정환 FC U-18</td>");
-
-//U15 엠블럼 삽입
-$("td[class='sefc5']").after("<td><img src='./files/seouleland_s.png'></td><td>서울 이랜드 FC U-15</td>");
-$("td[class='gan5']").after("<td><img src='./files/gangwonfc_s.png'></td><td>강원 FC U-15</td>");
-$("td[class='gye5']").after("<td><img src='./files/gyeongnamfc2010_s.png'></td><td>경남 FC U-15</td>");
-$("td[class='gwa5']").after("<td><img src='./files/gwangjufc2020_s.png'></td><td>광주 FC U-15</td>");
-$("td[class='gim5']").after("<td><img src='./files/gimcheonsangmu_s.png'></td><td>김천 상무 FC U-15</td>");
-$("td[class='gfc5']").after("<td><img src='./files/gimpofc2022_s.png'></td><td>김포 FC U-15</td>");
-$("td[class='dae5']").after("<td><img src='./files/daegufc2013_s.png'></td><td>대구 FC U-15</td>");
-$("td[class='dhfc5']").after("<td><img src='./files/daejeonhana2020_s.png'></td><td>대전 하나 시티즌 U-15</td>");
-$("td[class='bus5']").after("<td><img src='./files/busanipark2012_s.png'></td><td>부산 아이파크 U-15</td>");
-$("td[class='buc5']").after("<td><img src='./files/bucheonfc_s.png'></td><td>부천 FC 1995 U-15</td>");
-$("td[class='fcs5']").after("<td><img src='./files/fcseoul_s.png'></td><td>FC 서울 U-15</td>");
-$("td[class='sfc5']").after("<td><img src='./files/seongnamfc2014_s.png'></td><td>성남 FC U-15</td>");
-$("td[class='ssb5']").after("<td><img src='./files/suwonsamsung_s.png'></td><td>수원 삼성 블루윙즈 U-15</td>");
-$("td[class='suw5']").after("<td><img src='./files/suwonfc2016_s.png'></td><td>수원 FC U-15</td>");
-$("td[class='ans5']").after("<td><img src='./files/ansangreeners_s.png'></td><td>안산 그리너스 U-15</td>");
-$("td[class='any5']").after("<td><img src='./files/fcanyang_s.png'></td><td>FC 안양 U-15</td>");
-$("td[class='uls5']").after("<td><img src='./files/ulsanhyundai2016_s.png'></td><td>울산 현대 축구단 U-15</td>");
-$("td[class='inc5']").after("<td><img src='./files/incheonutd_s.png'></td><td>인천 유나이티드 U-15</td>");
-$("td[class='jdfc5']").after("<td><img src='./files/jeonnamdragons2022_s.png'></td><td>전남 드래곤즈 U-15</td>");
-$("td[class='jeo5']").after("<td><img src='./files/jeonbukhyundai2018_s.png'></td><td>전북 현대 모터스 U-15</td>");
-$("td[class='jej5']").after("<td><img src='./files/jejuutd_s.png'></td><td>제주 유나이티드 U-15</td>");
-$("td[class='cafc5']").after("<td><img src='./files/chungnamasan_s.png'></td><td>충남아산 FC U-15</td>");
-$("td[class='poh5']").after("<td><img src='./files/pohangsteelers_s.png'></td><td>포항 스틸러스 U-15</td>");
-$("td[class='ccfc5']").after("<td><img src='./files/cheonancity2023_s.png'></td><td>천안 시티 FC U-15</td>");
-$("td[class='chfc5']").after("<td><img src='./files/chungbukcheongju_s.png'></td><td>충북청주 FC U-15</td>");
-
 // 푸터
 if ($(".matchDetail").length || $(".fixturesButton").length) { // 일정
     $("footer").html("<a href='./news'><ul><img src='./files/news.png'></ul></a><a href='./players'><ul><img src='./files/players.png'></ul></a><a href='https://sefc.info'><ul><img src='./files/seouleland_s.png'></ul></a><a href='./fixtures'><div><img src='./files/fixtures.png'>일정</div></a><a href='./standings'><ul><img src='./files/standings.png'></ul></a>")
@@ -310,40 +225,17 @@ function standingsSeason() {
 
 // 순위 자세히/간략히 보기
 function standings() {
-    standingsTh = $("div[id*='standings'] div table thead tr th:nth-child(6)").css("display")
-    
-    if($("div[id*='standings']").find("th:nth-child(6)").css("display") == "none") {
-        $("div[id*='standings'] div table").css("width", "113vw");
-        $("div[id*='standings'] div table thead tr th:nth-child(n+4):nth-child(-n+6)").css({"display": "table-cell", "width": "10vw"});
-        $("div[id*='standings'] div table thead tr th:nth-child(n+8)").css({"display": "table-cell", "width": "10vw"});
-        $("div[id*='standings'] div table tbody tr td:nth-child(n+6):nth-child(-n+8)").css({"display": "table-cell", "width": "10vw"});
-        $("div[id*='standings'] div table tbody tr td:nth-child(n+10)").css({"display": "table-cell", "width": "10vw"});
-        $("div[id*='standings'] div table tbody tr td:nth-child(3)").css("width", "8vw");
-        $("div[id*='standings'] div table tbody tr td:nth-child(4)").css("width", "35vw");
-        $("div[id*='standings'] > div > table > tbody > tr:has(.sefc) > td:nth-last-child(1)").css("border-radius", "0 50px 50px 0");
-        $("div[id*='standings'] > div > table > tbody > tr:has(.sefc) > td:nth-last-child(3)").css("border-radius", "");
-        $("div[id*='standings'] > div > table > tbody > tr:has(.sefc8) > td:nth-last-child(1)").css("border-radius", "0 50px 50px 0");
-        $("div[id*='standings'] > div > table > tbody > tr:has(.sefc8) > td:nth-last-child(3)").css("border-radius", "");
-        $("div[id*='standings'] > div > table > tbody > tr:has(.sefc5) > td:nth-last-child(1)").css("border-radius", "0 50px 50px 0");
-        $("div[id*='standings'] > div > table > tbody > tr:has(.sefc5) > td:nth-last-child(3)").css("border-radius", "");
-        $(".standings button").text("간략히 보기");
+    if($("div[id*='standings']").find("th:nth-of-type(6)").css("display") == "none") {
+        $("div[id*='standings'] > div > table > thead > tr > th:nth-of-type(n+3)").css({"display": "table-cell", "width": "calc(50vw/7)"});
+        $("div[id*='standings'] > div > table > tbody > tr > td:nth-of-type(n+4)").css({"display": "table-cell", "width": "calc(50vw/7)", "font-size": "12px"});
     } else {
-        $("div[id*='standings'] div table").css("width", "90vw");
-        $("div[id*='standings'] div table thead tr th:nth-child(n+4):nth-child(-n+6)").css({"display": "none"});
-        $("div[id*='standings'] div table thead tr th:nth-child(n+8)").css({"display": "none"});
-        $("div[id*='standings'] div table tbody tr td:nth-child(n+6):nth-child(-n+8)").css({"display": "none"});
-        $("div[id*='standings'] div table tbody tr td:nth-child(n+10)").css({"display": "none"});
-        $("div[id*='standings'] div table tbody tr td:nth-child(3)").css("width", "10vw");
-        $("div[id*='standings'] div table tbody tr td:nth-child(4)").css("width", "40vw");
-        $("div[id*='standings'] > div > table > tbody > tr:has(.sefc) > td:nth-last-child(1)").css("border-radius", "");
-        $("div[id*='standings'] > div > table > tbody > tr:has(.sefc) > td:nth-last-child(3)").css("border-radius", "0 50px 50px 0");
-        $("div[id*='standings'] > div > table > tbody > tr:has(.sefc8) > td:nth-last-child(1)").css("border-radius", "");
-        $("div[id*='standings'] > div > table > tbody > tr:has(.sefc8) > td:nth-last-child(3)").css("border-radius", "0 50px 50px 0");
-        $("div[id*='standings'] > div > table > tbody > tr:has(.sefc5) > td:nth-last-child(1)").css("border-radius", "");
-        $("div[id*='standings'] > div > table > tbody > tr:has(.sefc5) > td:nth-last-child(3)").css("border-radius", "0 50px 50px 0");
+        $("div[id*='standings'] > div > table > thead > tr > th:nth-of-type(n+3)").css({"width": "12.5vw"})
+        $("div[id*='standings'] > div > table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+6)").css({"display": "none"});
+        $("div[id*='standings'] > div > table > tbody > tr > td:nth-of-type(n+4)").css({"width": "12.5vw", "font-size": "14px"})
+        $("div[id*='standings'] > div > table > tbody > tr > td:nth-of-type(n+5):nth-of-type(-n+7)").css({"display": "none"});
         $(".standings button").text("자세히 보기");
-    }
-}
+    };
+};
 
 function standingsU18F() {
     document.getElementById("standingsU18F").style.display = "block";
