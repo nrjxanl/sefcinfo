@@ -4,10 +4,6 @@ $(document).ready(function() {
     // 맨 위로 이동
     if($("#nextMatchA").length) {
         document.getElementById("nextMatchA").scrollIntoView({behavior: "smooth", block: "center"});
-    } else {
-        $("html").animate({
-            scrollTop: 0
-        }, 300)
     };
 
 });
@@ -99,10 +95,19 @@ $("td[class='chfc5']").after("<td><img src='./files/chungbukcheongju_s.png'></td
 
 // 헤더, 푸터
 $("header").html("<a href='https://sefc.info'><img src='./files/seouleland.png'></a></header>")
-$("footer").html("<ul><li><a href='./club'>구단</a></li><li><a href='./news'>소식</a></li><li><a href='./players'>선수단</a></li><li><a href='./fixtures'>일정</a></li><li><a href='./standings'>순위</a></li></ul>")
+
+if ($(".matchDetail").length) { // 일정
+    $("footer").html("<a href='./news'><ul><img src='./files/news.png'></ul></a><a href='./players'><ul><img src='./files/players.png'></ul></a><a href='https://sefc.info'><ul><img src='./files/seouleland_s.png'></ul></a><a href='./fixtures'><div><img src='./files/fixtures.png'>일정</div></a><a href='./standings'><ul><img src='./files/standings.png'></ul></a>")
+} else if ($(".playerDetail").length || $(".playerButton").length) { // 선수
+    $("footer").html("<a href='./news'><ul><img src='./files/news.png'></ul></a><a href='./players'><div><img src='./files/players.png'>선수</div></a><a href='https://sefc.info'><ul><img src='./files/seouleland_s.png'></ul></a><a href='./fixtures'><ul><img src='./files/fixtures.png'></ul></a><a href='./standings'><ul><img src='./files/standings.png'></ul></a>")
+} else if ($(".standingsButton").length) { // 일정
+    $("footer").html("<a href='./news'><ul><img src='./files/news.png'></ul></a><a href='./players'><ul><img src='./files/players.png'></ul></a><a href='https://sefc.info'><ul><img src='./files/seouleland_s.png'></ul></a><a href='./fixtures'><ul><img src='./files/fixtures.png'></ul></a><a href='./standings'><div><img src='./files/standings.png'>순위</div></a>")
+} else {
+    $("footer").html("<a href='./news'><ul><img src='./files/news.png'></ul></a><a href='./players'><ul><img src='./files/players.png'></ul></a><a href='https://sefc.info'><ul><img src='./files/seouleland_s.png'></ul></a><a href='./fixtures'><ul><img src='./files/fixtures.png'></ul></a><a href='./standings'><ul><img src='./files/standings.png'></ul></a>")
+};
 
 // 문자별 글꼴 적용
-characterList = []
+characterList = [];
 
 i = 0x00c0; // Latin-1 Supplement
 while(i <= 0x00ff) {
