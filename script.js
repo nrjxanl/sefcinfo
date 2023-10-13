@@ -93,14 +93,12 @@ $("td[class='poh5']").after("<td><img src='./files/pohangsteelers_s.png'></td><t
 $("td[class='ccfc5']").after("<td><img src='./files/cheonancity2023_s.png'></td><td>천안 시티 FC U-15</td>");
 $("td[class='chfc5']").after("<td><img src='./files/chungbukcheongju_s.png'></td><td>충북청주 FC U-15</td>");
 
-// 헤더, 푸터
-$("header").html("<a href='https://sefc.info'><img src='./files/seouleland.png'></a></header>")
-
-if ($(".matchDetail").length) { // 일정
+// 푸터
+if ($(".matchDetail").length || $(".fixturesButton").length) { // 일정
     $("footer").html("<a href='./news'><ul><img src='./files/news.png'></ul></a><a href='./players'><ul><img src='./files/players.png'></ul></a><a href='https://sefc.info'><ul><img src='./files/seouleland_s.png'></ul></a><a href='./fixtures'><div><img src='./files/fixtures.png'>일정</div></a><a href='./standings'><ul><img src='./files/standings.png'></ul></a>")
 } else if ($(".playerDetail").length || $(".playerButton").length) { // 선수
     $("footer").html("<a href='./news'><ul><img src='./files/news.png'></ul></a><a href='./players'><div><img src='./files/players.png'>선수</div></a><a href='https://sefc.info'><ul><img src='./files/seouleland_s.png'></ul></a><a href='./fixtures'><ul><img src='./files/fixtures.png'></ul></a><a href='./standings'><ul><img src='./files/standings.png'></ul></a>")
-} else if ($(".standingsButton").length) { // 일정
+} else if ($(".standingsButton").length) { // 순위
     $("footer").html("<a href='./news'><ul><img src='./files/news.png'></ul></a><a href='./players'><ul><img src='./files/players.png'></ul></a><a href='https://sefc.info'><ul><img src='./files/seouleland_s.png'></ul></a><a href='./fixtures'><ul><img src='./files/fixtures.png'></ul></a><a href='./standings'><div><img src='./files/standings.png'>순위</div></a>")
 } else {
     $("footer").html("<a href='./news'><ul><img src='./files/news.png'></ul></a><a href='./players'><ul><img src='./files/players.png'></ul></a><a href='https://sefc.info'><ul><img src='./files/seouleland_s.png'></ul></a><a href='./fixtures'><ul><img src='./files/fixtures.png'></ul></a><a href='./standings'><ul><img src='./files/standings.png'></ul></a>")
@@ -453,9 +451,6 @@ $("#age").text(years + "세");
 // 선수 경력 임대 div 들여쓰기
 $("div[loan='o']").css({"padding-left": "3vw", "opacity": "0.8"});
 $("div[loan='o'] > p:nth-of-type(1)").css("width", "32vw");
-
-// 선수 경력 구단 엠블럼 dummy
-$("#playerCareer > div > div").find("img").attr("onerror", "this.src = './files/dummy.png'");
 
 // 하이라이트 가져오기
 href = $("#highlight").text();
