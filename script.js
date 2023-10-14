@@ -9,7 +9,9 @@ $(document).ready(function() {
 });
 
 // 푸터
-if ($(".matchDetail").length || $(".fixturesButton").length) { // 일정
+if ($("#news").length) { // 뉴스
+    $("footer").html("<a href='./news'><div><img src='./files/news.png'>뉴스</div></a><a href='./players'><ul><img src='./files/players.png'></ul></a><a href='https://sefc.info'><ul><img src='./files/seouleland_s.png'></ul></a><a href='./fixtures'><ul><img src='./files/fixtures.png'></ul></a><a href='./standings'><ul><img src='./files/standings.png'></ul></a>")
+} else if ($(".matchDetail").length || $(".fixturesButton").length) { // 일정
     $("footer").html("<a href='./news'><ul><img src='./files/news.png'></ul></a><a href='./players'><ul><img src='./files/players.png'></ul></a><a href='https://sefc.info'><ul><img src='./files/seouleland_s.png'></ul></a><a href='./fixtures'><div><img src='./files/fixtures.png'>일정</div></a><a href='./standings'><ul><img src='./files/standings.png'></ul></a>")
 } else if ($(".playerDetail").length || $(".playerButton").length) { // 선수
     $("footer").html("<a href='./news'><ul><img src='./files/news.png'></ul></a><a href='./players'><div><img src='./files/players.png'>선수</div></a><a href='https://sefc.info'><ul><img src='./files/seouleland_s.png'></ul></a><a href='./fixtures'><ul><img src='./files/fixtures.png'></ul></a><a href='./standings'><ul><img src='./files/standings.png'></ul></a>")
