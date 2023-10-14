@@ -14,9 +14,23 @@ data= {
     "og": ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0", "0", "2", "0", "0", "0", "0", "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0", "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0", "0", "0", "0", "0", "0", "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"],
 }	
 
+idList = Object.values(data.id);
+nameList = Object.values(data.name);
+appList = Object.values(data.app);
+goalList = Object.values(data.goal);
+assistList = Object.values(data.assist);
+shotList = Object.values(data.shot);
+sotList = Object.values(data.sot);
+foulcList = Object.values(data.foulc);
+foulsList = Object.values(data.fouls);
+foulcList = Object.values(data.foulc);
+ycList = Object.values(data.yc);
+rcList = Object.values(data.rc);
+concList = Object.values(data.conc);
+ogList = Object.values(data.og);
+
 id = $("#playerImg > img").attr("src").substring(8, 16);
-dataList = Object.values(data.id);
-n = dataList.indexOf(id);
+n = idList.indexOf(id);
 
 $("#appDiv > canvas").text(data.app[n]);
 $("#goalDiv > canvas").text(data.goal[n]);
@@ -31,38 +45,38 @@ $("#concDiv > canvas").text(data.conc[n]);
 $("#ogDiv > canvas").text(data.og[n]);
 
 // 선수 기록 삽입
-app = $("#appDiv > canvas").text();
-appPct = app / 183;
+app = $("#appDiv > canvas").text() > 0 ? $("#appDiv > canvas").text() : 0;
+appPct = app / Math.max(...appList.map(Number));
 $("#appDiv > p:nth-child(2)").text(app);
-goal = $("#goalDiv > canvas").text();
-goalPct = goal / 37;
+goal = $("#goalDiv > canvas").text() > 0 ? $("#goalDiv > canvas").text() : 0;
+goalPct = goal / Math.max(...goalList.map(Number));
 $("#goalDiv > p:nth-child(2)").text(goal);
-assist = $("#assistDiv > canvas").text();
-assistPct = assist / 13;
+assist = $("#assistDiv > canvas").text() > 0 ? $("#assistDiv > canvas").text() : 0;
+assistPct = assist / Math.max(...assistList.map(Number));
 $("#assistDiv > p:nth-child(2)").text(assist);
-shot = $("#shotDiv > canvas").text();
-shotPct = shot / 175;
+shot = $("#shotDiv > canvas").text() > 0 ? $("#shotDiv > canvas").text() : 0;
+shotPct = shot / Math.max(...shotList.map(Number));
 $("#shotDiv > p:nth-child(2)").text(shot);
-sot = $("#sotDiv > canvas").text();
-sotPct = sot / 100;
+sot = $("#sotDiv > canvas").text() > 0 ? $("#sotDiv > canvas").text() : 0;
+sotPct = sot / Math.max(...sotList.map(Number));
 $("#sotDiv > p:nth-child(2)").text(sot);
-foulc = $("#foulcDiv > canvas").text();
-foulcPct = foulc / 146;
+foulc = $("#foulcDiv > canvas").text() > 0 ? $("#foulcDiv > canvas").text() : 0;
+foulcPct = foulc / Math.max(...foulcList.map(Number));
 $("#foulcDiv > p:nth-child(2)").text(foulc);
-fouls = $("#foulsDiv > canvas").text();
-foulsPct = fouls / 144;
+fouls = $("#foulsDiv > canvas").text() > 0 ? $("#foulsDiv > canvas").text() : 0;
+foulsPct = fouls / Math.max(...foulsList.map(Number));
 $("#foulsDiv > p:nth-child(2)").text(fouls);
-yc = $("#ycDiv > canvas").text();
-ycPct = yc / 19;
+yc = $("#ycDiv > canvas").text() > 0 ? $("#ycDiv > canvas").text() : 0;
+ycPct = yc / Math.max(...ycList.map(Number));
 $("#ycDiv > p:nth-child(2)").text(yc);
-rc = $("#rcDiv > canvas").text();
-rcPct = rc / 2;
+rc = $("#rcDiv > canvas").text() > 0 ? $("#rcDiv > canvas").text() : 0;
+rcPct = rc / Math.max(...rcList.map(Number));
 $("#rcDiv > p:nth-child(2)").text(rc);
-conc = $("#concDiv > canvas").text();
-concPct = conc / 255;
+conc = $("#concDiv > canvas").text() > 0 ? $("#concDiv > canvas").text() : 0;
+concPct = conc / Math.max(...concList.map(Number));
 $("#concDiv > p:nth-child(2)").text(conc);
-og = $("#ogDiv > canvas").text();
-ogPct = og / 2;
+og = $("#ogDiv > canvas").text() > 0 ? $("#ogDiv > canvas").text() : 0;
+ogPct = og / Math.max(...ogList.map(Number));
 $("#ogDiv > p:nth-child(2)").text(og);
 
 $("#appDiv > canvas").after("<p></p><p id='app'></p>");
