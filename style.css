@@ -46,10 +46,12 @@ footer > a:nth-of-type(3) > ul {background: #000831; width: 45px; height: 45px; 
 #nextMatch > div:nth-of-type(2) > div:nth-of-type(2) {height: 30px; display: flex; align-items: center; justify-content: right; position: absolute; right: 5vw;}
 #nextMatch > div:nth-of-type(2) > div:nth-of-type(2) > p {font-weight: 500; text-align: right; margin-right: 30px;}
 
-#latestNews {width: 90vw; margin: 50px 0 0 5vw; overflow: scroll; display: flex;}
+#latestNews {width: 90vw; height: 300px; margin-left: 5vw; overflow: scroll; display: flex; align-items: center;}
 #latestNews > div {width: 60vw; height: 200px; box-shadow: 0px 0px 5px 1px #00083140; border-radius: 5vw; flex-shrink: 0; margin: 0 10px; display: flex; align-items: flex-end;}
 #latestNews > div:nth-of-type(1) {margin: 0 10px 0 0;}
 #latestNews > div > p {color: #fafafa; padding: 5vw; text-align: left; font-size: 14px; line-height: 1.4;}
+
+#latestNews > a > div {box-shadow: 0px 0px 5px 1px #00083140; border-radius: 5vw; flex-shrink: 0; margin: 0 10px; display: flex; align-items: flex-end;}
 
 /* 뉴스 */
 #news {width: 80vw; margin-left: 10vw;}

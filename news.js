@@ -130,4 +130,4 @@ for (i = 0; i < 3; i++) {
 };
 
 url = "./news"
-$("#latestNews").append("<div style='width: 5vw; height: 200px; display: flex; align-items: center; justify-content: center; onclick='location.href='" + url + "'><img src='./files/rightarrow.png' style='width: 3vw'></div>")
+$("#latestNews").append("<a href='./news'><div style='width: 5vw; height: 200px; display: flex; align-items: center; justify-content: center;'><img src='./files/rightarrow.png' style='width: 3vw'></div></a>")
