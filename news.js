@@ -14,8 +14,8 @@ if (dataList.length <= 5) {
 }
 
 if (dataList[0] == "news") {
-    $("#news").append("<div class='news'></p></div>");
-    $(".news:nth-of-type(1)").css({"background": "linear-gradient(180deg, #ffffff00 60%, #000000 100%), url(" + data.imgUrl[0] + ")", "background-size": "cover"}).attr("onclick", "window.open('" + data.url[0] + "')")
+    $("#news").append("<div class='news'><p></p></div>");
+    $(".news:nth-of-type(1)").css({"background": "linear-gradient(180deg, #ffffff00 60%, #000000 100%), url(" + data.imgUrl[0] + ") no-repeat center center / cover"}).attr("onclick", "window.open('" + data.url[0] + "')")
     $(".news:nth-of-type(1) > p").text(data.title1[0].replaceAll("&quot;", '"'));
     i = 1;
 } else {
@@ -122,3 +122,12 @@ function showMore() {
         };
     };
 };
+
+for (i = 0; i < 3; i++) {
+    $("#latestNews").append("<div><p></p></div>")
+    $("#latestNews > div:nth-of-type(" + (i + 1) + ")").css({"background": "linear-gradient(180deg, #ffffff00 60%, #000000 100%), url(" + data.imgUrl[i] + ") no-repeat center center / cover"}).attr("onclick", "window.open('" + data.url[0] + "')")
+    $("#latestNews > div:nth-of-type("  + (i + 1) + ") > p").text(data.title1[i].replaceAll("&quot;", '"'));
+};
+
+url = "./news"
+$("#latestNews").append("<div style='width: 5vw; height: 200px; display: flex; align-items: center; justify-content: center; onclick='location.href='" + url + "'><img src='./files/rightarrow.png' style='width: 3vw'></div>")
