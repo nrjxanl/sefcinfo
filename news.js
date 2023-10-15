@@ -129,5 +129,4 @@ for (i = 0; i < 3; i++) {
     $("#latestNews > div:nth-of-type("  + (i + 1) + ") > p").text(data.title1[i].replaceAll("&quot;", '"'));
 };
 
-url = "./news"
 $("#latestNews").append("<a href='./news'><div style='width: 5vw; height: 200px; display: flex; align-items: center; justify-content: center;'><img src='./files/rightarrow.png' style='width: 3vw'></div></a>")
