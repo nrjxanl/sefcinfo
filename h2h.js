@@ -103,15 +103,15 @@ if ($("#matchScore > div:nth-of-type(1)").find("img").attr("src").replace("./fil
     dGrd2 = (100 * l / (w + d + l)) + "%";
     lGrd = ((100 * l / (w + d + l)) - 5) + "%";
 
-    h2hGradient = "linear-gradient(105deg, #000831 " + lGrd + ", #c8c8c8 " + dGrd1 + dGrd2 + ", " + oppBg + " " + wGrd + ")";
-    goalGradient = "linear-gradient(105deg, #000831 " + goalCGrd + ", " + oppBg + " " + goalSGrd + ")";
+    h2hGradient = "linear-gradient(105deg, " + oppBg + " " + lGrd + ", #c8c8c8 " + dGrd1 + dGrd2 + ", #000831 " + wGrd + ")";
+    goalGradient = "linear-gradient(105deg, " + oppBg + " " + goalCGrd + ", #000831 " + goalSGrd + ")";
 
     if (d == 0) {
-        h2hGradient = "linear-gradient(105deg, #000831 " + lGrd + ", " + oppBg + " " + wGrd + ")";
+        h2hGradient = "linear-gradient(105deg, " + oppBg + " " + lGrd + ", #000831 " + wGrd + ")";
     };
 
     if (l == 0) {
-        h2hGradient = "linear-gradient(105deg, #000831 " + dGrd2 + ", " + "#c8c8c8" + " " + wGrd + ")";
+        h2hGradient = "linear-gradient(105deg, " + oppBg + " " + dGrd2 + ", " + "#c8c8c8" + " " + wGrd + ")";
     };
 
     $("#matchH2H").append("<div><p></p></div><div><div><p></p><div><p>패배</p><p></p></div></div><div><p></p><div><p>무승부</p><p></p></div></div><div><p></p><div><p>승리</p><p></p></div></div></div><div><p></p></div><div><div><p></p><div><p>실점</p><p></p></div></div><div><p></p><div><p>득점</p><p></p></div></div></div>");

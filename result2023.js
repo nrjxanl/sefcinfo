@@ -3,10 +3,10 @@ data= {
     "comp": ["k2", "k2", "k2", "fa", "k2", "k2", "fa", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "fa", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "mcst", "mcst", "mcst", "mcst", "mcst", "mcst", "kj8f", "kj8f", "kj8f", "kj8f", "kj8f", "kj8f", "kj8f", "kj8f", "kf8", "kf8", "kj8f", "kj8f", "kj8f", "kj8s", "kyc8", "kyc8", "kyc8", "kj8s", "kj8s", "kj8s", "kj8s", "kj8s", "kj8s", "kj8s", "kj8s", "kj8s", "kj8s", "yd", "yd", "yd", "yd", "yd", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kyc5", "kyc5", "kyc5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5"],
     "home": ["서울E", "안양", "서울E", "서울E", "부산", "서울E", "서울E", "충남아산", "부천", "서울E", "서울E", "경남", "김포", "서울E", "서울E", "서울E", "안산", "서울E", "성남", "서울E", "전남", "천안", "서울E", "충북청주", "서울E", "서울E", "김천", "서울E", "부천", "서울E", "김포", "서울E", "충북청주", "서울E", "충남아산", "서울E", "안양", "서울E", "김천", "파주고려", "홍천FC", "서울E", "숭실고", "안산", "서울E", "안양", "서울E", "FC서울", "부천", "서울E", "서울E", "안산", "서울E", "부천", "서울E", "수원삼성", "서울E", "서울E", "서울E", "전북", "서울E", "대구", "서울E", "서울E", "천안", "안양", "서울E", "안산", "김천", "서울E", "김포", "제주", "김포", "서울E", "충남아산", "제주", "포항", "서울E", "서울E", "안양", "서울E", "부천", "강원", "서울E", "수원삼성", "서울E", "수원FC", "안산", "서울E", "성남", "서울E", "전남", "서울E", "성남", "김포", "서울E", "제주", "서울E", "인천", "서울E", "FC서울", "서울E"],
     "homeScore": ["2", "1", "0", "6", "1", "4", "2", "2", "0", "0", "1", "1", "0", "3", "2", "0", "1", "1", "1", "1", "3", "0", "0", "2", "0", "1", "4", "2", "1", "1", "2", "0", "0", "3", "1", "1", "", "", "", "1", "1", "1", "1", "2", "1", "2", "4", "2", "1", "2", "3", "2", "0", "2", "3", "4", "2", "4", "3", "5", "4", "2", "3", "0", "2", "2", "1", "", "", "", "", "", "0", "0", "1", "2", "4", "1", "0", "3", "0", "2", "0", "1", "6", "0", "3", "3", "1", "4", "1", "4", "0", "0", "6", "1", "6", "0", "", "", "", ""],
-    "homeScorer": ["70' 브루노<br>75' 츠바사", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+    "homeScorer": ["70' 브루노<br>75' 츠바사", "", "", "24', 30', 34' 이시헌<br>28', 68' 브루노<br>56' 유정완", "", "23' 이시헌<br>31'이동률<br>45' 유정완<br>87' 브루노", "50' 곽성욱<br>85' 브루노", "", "", "", "71' 유정완", "", "", "47', 90' 호난<br>90+2' 차승현", "71', 86' 호난", "", "", "46' 이시헌", "", "9' 유정완", "", "", "", "", "", "87' 이강희(OG)", "", "35' 브루노<br>70' 이시헌", "", "90+1' 차승현", "", "", "", "32' 유정완<br>60' 변경준<br>90+4' 호난", "", "17' 송시우", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
     "away": ["충북청주", "서울E", "전남", "부천", "서울E", "안산", "수원FC", "서울E", "서울E", "김천", "성남", "서울E", "서울E", "천안", "부천", "광주", "서울E", "부산", "서울E", "안양", "서울E", "서울E", "김포", "서울E", "충남아산", "경남", "서울E", "부산", "서울E", "전남", "서울E", "천안", "서울E", "안산", "서울E", "경남", "서울E", "성남", "서울E", "서울E", "서울E", "초지고", "서울E", "서울E", "제주", "서울E", "김포", "서울E", "서울E", "성남", "강원", "서울E", "인천", "서울E", "강원", "서울E", "수원FC", "제주", "충남아산", "서울E", "충남아산", "서울E", "부천", "부산", "서울E", "서울E", "대전", "서울E", "서울E", "경남", "서울E", "서울E", "서울E", "울산", "서울E", "서울E", "서울E", "인천", "제주", "서울E", "성남", "서울E", "서울E", "김포", "서울E", "FC서울", "서울E", "서울E", "부천", "서울E", "안양", "서울E", "제주", "서울E", "서울E", "안산", "서울E", "수원삼성", "서울E", "강원", "서울E", "수원FC"],
     "awayScore": ["3", "1", "1", "0", "0", "1", "1", "0", "1", "1", "2", "2", "0", "2", "0", "1", "2", "2", "2", "2", "3", "0", "1", "1", "0", "2", "0", "1", "0", "0", "1", "3", "1", "4", "0", "3", "", "", "", "4", "2", "0", "5", "3", "2", "1", "2", "0", "0", "4", "2", "4", "2", "0", "3", "2", "2", "2", "2", "0", "2", "0", "3", "2", "2", "1", "1", "", "", "", "", "", "0", "2", "7", "3", "0", "2", "2", "3", "3", "2", "2", "0", "0", "4", "1", "1", "1", "0", "2", "4", "1", "2", "0", "4", "1", "7", "", "", "", ""],
-    "awayScorer": ["8' 파울리뉴<br>50' 문상윤<br>63' 조르지", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+    "awayScorer": ["", "36' 브루노", "", "", "", "", "", "", "34' 차승현", "", "", "19' 글레이손(OG)<br>65' 호난", "", "", "", "", "42' 변경준<br>69' 브루노", "", "45+2' 브루노<br>70' 한용수", "", "14' 최희원(OG)<br>26' 송시우<br>75' 이동률", "", "", "31' 박정인", "", "", "", "", "", "", "2' 호난", "", "27' 변경준", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
 }
 
 // 경기 세부 정보
@@ -16,10 +16,78 @@ n = dataList.indexOf(id);
 date = document.URL.substring(document.URL.lastIndexOf("/") + 1, document.URL.lastIndexOf("/") + 5) + ". " + document.URL.substring(document.URL.lastIndexOf("/") + 5, document.URL.lastIndexOf("/") + 7) + ". " + document.URL.substring(document.URL.lastIndexOf("/") + 7, document.URL.lastIndexOf("/") + 9) + ".";
 
 $("#homeScore").html(data.homeScore[n]);
-$("#awayScore").html(data.awayScore[n]);
-$("#date").html(date);
 $("#homeScorer").html(data.homeScorer[n]);
+$("#awayScore").html(data.awayScore[n]);
 $("#awayScorer").html(data.awayScorer[n]);
+$("#date").html(date);
+
+$("#matchScore > div:nth-of-type(1) > p:nth-of-type(1)").text(data.home[n]);
+$("#matchScore > div:nth-of-type(3) > p:nth-of-type(1)").text(data.away[n]);
+
+homeImg = 
+    data.home[n] == "서울E" ? "seouleland_s" :
+    data.home[n] == "울산" ? "ulsanhyundai2016_s" :
+    data.home[n] == "수원삼성" ? "suwonsamsung_s" :
+    data.home[n] == "수원FC" ? "suwonfc2016_s" :
+    data.home[n] == "성남" ? "seongnamfc2014_s" :
+    data.home[n] == "포항" ? "pohangsteelers_s" :
+    data.home[n] == "전남" ? "jeonnamdragons2022_s" :
+    data.home[n] == "전북" ? "jeonbukhyundai2018_s" :
+    data.home[n] == "제주" ? "jejuutd_s" :
+    data.home[n] == "인천" ? "incheonutd_s" :
+    data.home[n] == "경남" ? "gyeongnamfc2010_s" :
+    data.home[n] == "광주" ? "gwangjufc2020_s" :
+    data.home[n] == "김포" ? "gimpofc2022_s" :
+    data.home[n] == "김천" ? "gimcheonsangmu_s" :
+    data.home[n] == "강원" ? "gangwonfc_s" :
+    data.home[n] == "FC서울" ? "fcseoul_s" :
+    data.home[n] == "안양" ? "fcanyang_s" :
+    data.home[n] == "대전" ? "daejeonhana2020_s" :
+    data.home[n] == "대구" ? "daegufc2013_s" :
+    data.home[n] == "충남아산" ? "chungnamasan_s" :
+    data.home[n] == "충북청주" ? "chungbukcheongju_s" :
+    data.home[n] == "천안" ? "cheonancity2023_s" :
+    data.home[n] == "부산" ? "busanipark2012_s" :
+    data.home[n] == "부천" ? "bucheonfc_s" :
+    data.home[n] == "안산" ? "ansangreeners_s" :
+"dummy";
+
+awayImg = 
+    data.away[n] == "서울E" ? "seouleland_s" :
+    data.away[n] == "울산" ? "ulsanhyundai2016_s" :
+    data.away[n] == "수원삼성" ? "suwonsamsung_s" :
+    data.away[n] == "수원FC" ? "suwonfc2016_s" :
+    data.away[n] == "성남" ? "seongnamfc2014_s" :
+    data.away[n] == "포항" ? "pohangsteelers_s" :
+    data.away[n] == "전남" ? "jeonnamdragons2022_s" :
+    data.away[n] == "전북" ? "jeonbukhyundai2018_s" :
+    data.away[n] == "제주" ? "jejuutd_s" :
+    data.away[n] == "인천" ? "incheonutd_s" :
+    data.away[n] == "경남" ? "gyeongnamfc2010_s" :
+    data.away[n] == "광주" ? "gwangjufc2020_s" :
+    data.away[n] == "김포" ? "gimpofc2022_s" :
+    data.away[n] == "김천" ? "gimcheonsangmu_s" :
+    data.away[n] == "강원" ? "gangwonfc_s" :
+    data.away[n] == "FC서울" ? "fcseoul_s" :
+    data.away[n] == "안양" ? "fcanyang_s" :
+    data.away[n] == "대전" ? "daejeonhana2020_s" :
+    data.away[n] == "대구" ? "daegufc2013_s" :
+    data.away[n] == "충남아산" ? "chungnamasan_s" :
+    data.away[n] == "충북청주" ? "chungbukcheongju_s" :
+    data.away[n] == "천안" ? "cheonancity2023_s" :
+    data.away[n] == "부산" ? "busanipark2012_s" :
+    data.away[n] == "부천" ? "bucheonfc_s" :
+    data.away[n] == "안산" ? "ansangreeners_s" :
+    "dummy";
+
+compImg = 
+    data.comp[n] == "k2" ? "kleague40_s" :
+    data.comp[n] == "fa" ? "facup_s" :
+    "dummy";
+
+$("#matchScore > div:nth-of-type(1) > img").attr("src", "./files/" + homeImg + ".png");
+$("#matchScore > div:nth-of-type(2) > div > img").attr("src", "./files/" + compImg + ".png");
+$("#matchScore > div:nth-of-type(3) > img").attr("src", "./files/" + awayImg + ".png");
 
 if(data.homeScore[n] > data.awayScore[n]) {
     $("#awayScore").css("opacity", "0.7");
