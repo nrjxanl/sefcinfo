@@ -12,13 +12,13 @@ body {position: absolute; background: #fafafa;}
 header {width: 100vw; height: 50px; position: fixed; top: 0; left: 0; background: #fafafa; z-index: 99;}
 
 /* 푸터 */
-footer {width: 95vw; height: calc(70px - 2.5vw); position: fixed; bottom: 2.5vw; left: 2.5vw; background: #fafafa; z-index: 100; display: flex; align-items: center; justify-content: center; border-radius: 50vw; box-shadow: 0px 0px 5px 1px #00083120;}
-footer > a > ul {width: 60px; height: 35px; display: flex; align-items: center; justify-content: center;}
-footer > a > ul > img {height: 20px; filter: invert(8%) sepia(23%) saturate(6149%) hue-rotate(216deg) brightness(89%) contrast(112%);}
+footer {width: 100vw; height: 70px; position: fixed; bottom: 0; left: 0; background: #fafafa; z-index: 100; display: flex; align-items: center; justify-content: center; box-shadow: 0px 0px 5px 1px #00083120;}
+footer > a > ul {width: 60px; height: 50px; display: flex; align-items: center; justify-content: center;}
+footer > a > ul > img {height: 25px; filter: invert(8%) sepia(23%) saturate(6149%) hue-rotate(216deg) brightness(89%) contrast(112%);}
 footer > a:nth-of-type(3) > ul > img {height: 35px; filter: none;}
-footer > a > div {width: 100px; height: 35px; margin: 0 10px; color: #fafafa; background: #000831; font-size: 16px; display: flex; align-items: center; justify-content: center; border-radius: 100vw;}
-footer > a > div > img {height: 20px; padding: 0 3vw 0 0; filter: invert(98%) sepia(26%) saturate(0%) hue-rotate(201deg) brightness(110%) contrast(100%);}
-footer > a:nth-of-type(3) > ul {background: #000831; width: 45px; height: 45px; border-radius: 50%; margin: 0 10px;}
+footer > a > div {width: 100px; height: 50px; margin: 0 10px; color: #fafafa; background: #000831; font-size: 16px; display: flex; align-items: center; justify-content: center; border-radius: 100vw;}
+footer > a > div > img {height: 25px; padding: 0 3vw 0 0; filter: invert(98%) sepia(26%) saturate(0%) hue-rotate(201deg) brightness(110%) contrast(100%);}
+footer > a:nth-of-type(3) > ul {background: #000831; width: 55px; height: 55px; border-radius: 50%; margin: 0 10px;}
 
 /* 404 */
 #page404 {height: calc(100vh - 250px); display: flex; align-items: center; justify-content: center; flex-direction: column;}
