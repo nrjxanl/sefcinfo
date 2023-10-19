@@ -3,7 +3,7 @@
 @font-face {font-family: "Dia Gothic"; font-weight: 500; src: url(./files/Pretendard-Medium.woff2);}
 @font-face {font-family: "Dia Gothic"; font-weight: 900; src: url(./files/Pretendard-Black.woff2);}
 
-* {color: #000831; margin: 0; padding: 0; text-align: center; font-family: "Dia Gothic"; font-weight: 900; font-size: 12px; list-style: none; text-decoration-line: none; border-collapse: collapse; border-spacing: 0; word-break: keep-all;}
+* {color: #000831; margin: 0; padding: 0; text-align: center; font-family: "Dia Gothic"; font-weight: 900; font-size: 12px; list-style: none; text-decoration-line: none; border-collapse: collapse; border-spacing: 0; word-break: keep-all; -webkit-tap-highlight-color: transparent;}
 *::-webkit-scrollbar {display: none;}
 
 body {position: absolute; background: #fafafa;}
