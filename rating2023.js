@@ -38,7 +38,9 @@ data= {
 
 dataList = Object.keys(data);
 
-round = index_ + 1;
+round = index_ + 2;
+
+console.log(round)
 
 $("#startingXI td").each(function () {
     id = $(this).attr("id");
@@ -108,19 +110,3 @@ for (i = 0; i <= dataList.length; i++) {
 
     };
 };
-
-// 주장 표시
-list = [];
-
-list.push(...gkList);
-list.push(...dfList);
-list.push(...mfList);
-list.push(...fwList);
-
-$("#startingXI td").each(function () {
-    id = $(this).attr("id");
-    m = list.indexOf(id);
-    if(m == -1) {
-        $(this).find("p:nth-of-type(1)").append("<span style='color: #174fff'>C</span>");
-    }
-});
