@@ -351,3 +351,7 @@ $("div[loan='o'] > p:nth-of-type(1)").css("width", "32vw");
 href = $("#highlight").text();
 
 $("#highlight").empty().append("<a href='https://youtu.be/" + href + "' target='_blank'><img src='http://img.youtube.com/vi/" + href + "/mqdefault.jpg'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/640px-YouTube_full-color_icon_%282017%29.svg.png'></a>");
+
+if ($("#highlight > a").attr("href") == "https://youtu.be/") {
+    $("#highlight").css("display", "none");
+};

@@ -40,8 +40,6 @@ dataList = Object.keys(data);
 
 round = index_ + 2;
 
-console.log(round)
-
 $("#startingXI td").each(function () {
     id = $(this).attr("id");
     index = dataList.indexOf(id, 0);
