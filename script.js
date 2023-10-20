@@ -3,7 +3,7 @@ $(document).ready(function() {
 
     // 맨 위로 이동
     if($("#nextMatchA").length) {
-        document.getElementById("nextMatchA").scrollIntoView({behavior: "smooth", block: "center"});
+        document.getElementById("nextMatchA").scrollIntoView({block: "center"});
     };
 
 });
@@ -114,21 +114,21 @@ function fixturesA() {
     document.getElementById("fixturesA").style.display = "block";
     document.getElementById("fixturesU18").style.display = "none";
     document.getElementById("fixturesU15").style.display = "none";
-    document.getElementById("nextMatchA").scrollIntoView({behavior: "smooth", block: "center"});
+    document.getElementById("nextMatchA").scrollIntoView({block: "center"});
 };
 
 function fixturesU18() {
     document.getElementById("fixturesA").style.display = "none";
     document.getElementById("fixturesU18").style.display = "block";
     document.getElementById("fixturesU15").style.display = "none";
-    document.getElementById("nextMatchU18").scrollIntoView({behavior: "smooth", block: "center"});
+    document.getElementById("nextMatchU18").scrollIntoView({block: "center"});
 };
 
 function fixturesU15() {
     document.getElementById("fixturesA").style.display = "none";
     document.getElementById("fixturesU18").style.display = "none";
     document.getElementById("fixturesU15").style.display = "block";
-    document.getElementById("nextMatchU15").scrollIntoView({behavior: "smooth", block: "center"});
+    document.getElementById("nextMatchU15").scrollIntoView({block: "center"});
 };
 
 function fixturesSeason() {
