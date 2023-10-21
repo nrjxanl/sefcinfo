@@ -258,10 +258,10 @@ footer > a:nth-of-type(3) > ul {background: #000831; width: 55px; height: 55px; 
 #startingXI > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) {color: #174fff; margin-left: 3px; font-family: "Kaushan Script";}
 #startingXI > table > tbody > tr > td > p:nth-of-type(2) {width: 8vw; padding: 3px 0; margin-top: 5px; border-radius: 50vw; color: #fafafa; background: #000831;}
 
-#startingXI > div > table {width: 70vw; height: 110vw;}
-#startingXI > div > table > thead > tr > th {width: 70vw; height: 30px; font-size: 18px;}
+#startingXI > div {width: 70vw; margin-left: 5vw;}
+#startingXI > div > table {width: 70vw;}
 #startingXI > div > table > tbody > tr {display: flex; width: 70vw;}
-#startingXI > div > table > tbody > tr > td {height: 60px; display: flex; flex-direction: row; justify-content: center; align-items: center;}
+#startingXI > div > table > tbody > tr > td {height: 60px; display: flex; flex-direction: row; align-items: center;}
 #startingXI > div > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: 3px solid #fafafa;}
 #startingXI > div > table > tbody > tr > td > div > img {width: 10vw;}
 #startingXI > div > table > tbody > tr > td > p:nth-of-type(1) {font-size: 16px; font-weight: 500; margin-top: 5px;}
@@ -272,7 +272,7 @@ footer > a:nth-of-type(3) > ul {background: #000831; width: 55px; height: 55px; 
 #sub > table {width: 70vw; height: 110vw;}
 #sub > table > thead > tr > th {width: 70vw; height: 30px; font-size: 18px;}
 #sub > table > tbody > tr {display: flex; width: 70vw;}
-#sub > table > tbody > tr > td {height: 60px; display: flex; flex-direction: row; justify-content: center; align-items: center;}
+#sub > table > tbody > tr > td {height: 60px; display: flex; flex-direction: row; align-items: center;}
 #sub > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: 3px solid #fafafa;}
 #sub > table > tbody > tr > td > div > img {width: 10vw;}
 #sub > table > tbody > tr > td > p:nth-of-type(1) {font-size: 16px; font-weight: 500; margin-top: 5px;}

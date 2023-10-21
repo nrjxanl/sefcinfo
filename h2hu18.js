@@ -128,7 +128,7 @@ if ($("#matchScore > div:nth-of-type(1)").find("img").attr("src").replace("./fil
     };
 
     if (l == 0) {
-        h2hGradient = "linear-gradient(105deg, " + oppBg + " " + grd1 + ", " + "#c8c8c8" + " " + grd1 + ")";
+        h2hGradient = "linear-gradient(105deg, #c8c8c8 " + grd1 + ", #000831 " + grd1 + ")";
     };
 
     $("#matchH2H").append("<div><p></p></div><div><div><p></p><div><p>패배</p><p></p></div></div><div><p></p><div><p>무승부</p><p></p></div></div><div><p></p><div><p>승리</p><p></p></div></div></div><div><p></p></div><div><div><p></p><div><p>실점</p><p></p></div></div><div><p></p><div><p>득점</p><p></p></div></div></div>");

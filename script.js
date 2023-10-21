@@ -55,7 +55,7 @@ while(i <= 0x2fd5) {
     characterList.push(i);
     i++;
 }
-i = 0x3400; // CJK Hanja 3
+i = 0x3500; // CJK Hanja 3
 while(i <= 0x4dbf) {
     characterList.push(i);
     i++;
@@ -157,10 +157,10 @@ function matchInfo() {
     document.getElementById("matchLineup").style.display = "none";
     document.getElementById("matchStat").style.display = "none";
     document.getElementById("matchH2H").style.display = "none";
-    $(".matchDetail button:nth-child(1)").css("font-weight", 700);
-    $(".matchDetail button:nth-child(2)").css("font-weight", 400);
-    $(".matchDetail button:nth-child(3)").css("font-weight", 400);
-    $(".matchDetail button:nth-child(4)").css("font-weight", 400);
+    $(".matchDetail button:nth-child(1)").css("font-weight", 900);
+    $(".matchDetail button:nth-child(2)").css("font-weight", 500);
+    $(".matchDetail button:nth-child(3)").css("font-weight", 500);
+    $(".matchDetail button:nth-child(4)").css("font-weight", 500);
 };
 
 function matchLineup() {
@@ -168,10 +168,10 @@ function matchLineup() {
     document.getElementById("matchLineup").style.display = "block";
     document.getElementById("matchStat").style.display = "none";
     document.getElementById("matchH2H").style.display = "none";
-    $(".matchDetail button:nth-child(1)").css("font-weight", 400);
-    $(".matchDetail button:nth-child(2)").css("font-weight", 700);
-    $(".matchDetail button:nth-child(3)").css("font-weight", 400);
-    $(".matchDetail button:nth-child(4)").css("font-weight", 400);
+    $(".matchDetail button:nth-child(1)").css("font-weight", 500);
+    $(".matchDetail button:nth-child(2)").css("font-weight", 900);
+    $(".matchDetail button:nth-child(3)").css("font-weight", 500);
+    $(".matchDetail button:nth-child(4)").css("font-weight", 500);
 };
 
 function matchStat() {
@@ -179,10 +179,10 @@ function matchStat() {
     document.getElementById("matchLineup").style.display = "none";
     document.getElementById("matchStat").style.display = "block";
     document.getElementById("matchH2H").style.display = "none";
-    $(".matchDetail button:nth-child(1)").css("font-weight", 400);
-    $(".matchDetail button:nth-child(2)").css("font-weight", 400);
-    $(".matchDetail button:nth-child(3)").css("font-weight", 700);
-    $(".matchDetail button:nth-child(4)").css("font-weight", 400);
+    $(".matchDetail button:nth-child(1)").css("font-weight", 500);
+    $(".matchDetail button:nth-child(2)").css("font-weight", 500);
+    $(".matchDetail button:nth-child(3)").css("font-weight", 900);
+    $(".matchDetail button:nth-child(4)").css("font-weight", 500);
 };
 
 function matchH2H() {
@@ -190,11 +190,17 @@ function matchH2H() {
     document.getElementById("matchLineup").style.display = "none";
     document.getElementById("matchStat").style.display = "none";
     document.getElementById("matchH2H").style.display = "flex";
-    $(".matchDetail button:nth-child(1)").css("font-weight", 400);
-    $(".matchDetail button:nth-child(2)").css("font-weight", 400);
-    $(".matchDetail button:nth-child(3)").css("font-weight", 400);
-    $(".matchDetail button:nth-child(4)").css("font-weight", 700);
+    $(".matchDetail button:nth-child(1)").css("font-weight", 500);
+    $(".matchDetail button:nth-child(2)").css("font-weight", 500);
+    $(".matchDetail button:nth-child(3)").css("font-weight", 500);
+    $(".matchDetail button:nth-child(4)").css("font-weight", 900);
 };
+
+if (document.getElementById("highlight")) {} else {
+    document.getElementById("matchLineup").style.display = "block";
+    $(".matchDetail button:nth-child(1)").css("display", "none");
+    $(".matchDetail button:nth-child(2)").css("font-weight", 900);
+}
 
 // 순위 창 전환
 function standingsA() {
@@ -243,15 +249,15 @@ function standings() {
 function standingsU18F() {
     document.getElementById("standingsU18F").style.display = "block";
     document.getElementById("standingsU18S").style.display = "none";
-    $(".standingsDetail button:nth-child(1)").css("font-weight", 700)
-    $(".standingsDetail button:nth-child(2)").css("font-weight", 400)
+    $(".standingsDetail button:nth-child(1)").css("font-weight", 900)
+    $(".standingsDetail button:nth-child(2)").css("font-weight", 500)
 }
 
 function standingsU18S() {
     document.getElementById("standingsU18F").style.display = "none";
     document.getElementById("standingsU18S").style.display = "block";
-    $(".standingsDetail button:nth-child(1)").css("font-weight", 400)
-    $(".standingsDetail button:nth-child(2)").css("font-weight", 700)
+    $(".standingsDetail button:nth-child(1)").css("font-weight", 500)
+    $(".standingsDetail button:nth-child(2)").css("font-weight", 900)
 }
 
 // 순위표 SEFC tr 속성 변경
@@ -302,27 +308,27 @@ function playerInfo() {
     document.getElementById("playerPos").style.display = "block";
     document.getElementById("playerStat").style.display = "none";
     document.getElementById("playerCareer").style.display = "none";
-    $(".playerDetail button:nth-child(1)").css("font-weight", 700);
-    $(".playerDetail button:nth-child(2)").css("font-weight", 400);
-    $(".playerDetail button:nth-child(3)").css("font-weight", 400);
+    $(".playerDetail button:nth-child(1)").css("font-weight", 900);
+    $(".playerDetail button:nth-child(2)").css("font-weight", 500);
+    $(".playerDetail button:nth-child(3)").css("font-weight", 500);
 }
 
 function playerStat() {
     document.getElementById("playerPos").style.display = "none";
     document.getElementById("playerStat").style.display = "flex";
     document.getElementById("playerCareer").style.display = "none";
-    $(".playerDetail button:nth-child(1)").css("font-weight", 400);
-    $(".playerDetail button:nth-child(2)").css("font-weight", 700);
-    $(".playerDetail button:nth-child(3)").css("font-weight", 400);
+    $(".playerDetail button:nth-child(1)").css("font-weight", 500);
+    $(".playerDetail button:nth-child(2)").css("font-weight", 900);
+    $(".playerDetail button:nth-child(3)").css("font-weight", 500);
 }
 
 function playerCareer() {
     document.getElementById("playerPos").style.display = "none";
     document.getElementById("playerStat").style.display = "none";
     document.getElementById("playerCareer").style.display = "block";
-    $(".playerDetail button:nth-child(1)").css("font-weight", 400);
-    $(".playerDetail button:nth-child(2)").css("font-weight", 400);
-    $(".playerDetail button:nth-child(3)").css("font-weight", 700);
+    $(".playerDetail button:nth-child(1)").css("font-weight", 500);
+    $(".playerDetail button:nth-child(2)").css("font-weight", 500);
+    $(".playerDetail button:nth-child(3)").css("font-weight", 900);
 }
 
 // 나이 계산

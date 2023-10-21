@@ -50,6 +50,7 @@ homeImg =
     data.home[n] == "부산" ? "busanipark2012_s" :
     data.home[n] == "부천" ? "bucheonfc_s" :
     data.home[n] == "안산" ? "ansangreeners_s" :
+    data.home[n] == "파주고려" ? "pajukorea_s" :
 "dummy";
 
 awayImg = 
@@ -78,6 +79,7 @@ awayImg =
     data.away[n] == "부산" ? "busanipark2012_s" :
     data.away[n] == "부천" ? "bucheonfc_s" :
     data.away[n] == "안산" ? "ansangreeners_s" :
+    data.away[n] == "파주고려" ? "pajukorea_s" :
     "dummy";
 
 compImg = 
@@ -139,7 +141,7 @@ $(".fixtures_").each(function(index) {
         $(this).find("div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1)").text(homeScore);
         $(this).find("div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(3)").text(awayScore);    
     };
-console.log(homeScore)
+    
     if (home == "서울E") {
         if (homeScore > awayScore) {
             $(this).find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#174fff");
@@ -193,6 +195,7 @@ console.log(homeScore)
         home == "부산" ? "busanipark2012_s" :
         home == "부천" ? "bucheonfc_s" :
         home == "안산" ? "ansangreeners_s" :
+        home == "파주고려" ? "pajukorea_s" :
         "dummy";
 
     awayImg = 
@@ -221,6 +224,7 @@ console.log(homeScore)
         away == "부산" ? "busanipark2012_s" :
         away == "부천" ? "bucheonfc_s" :
         away == "안산" ? "ansangreeners_s" :
+        away == "파주고려" ? "pajukorea_s" :
         "dummy";
 
     compImg = 
@@ -339,6 +343,7 @@ if ($("#nextMatch").length) {
         home == "부산" ? "busanipark2012_s" :
         home == "부천" ? "bucheonfc_s" :
         home == "안산" ? "ansangreeners_s" :
+        home == "파주고려" ? "pajukorea_s" :
         "dummy";
 
     awayImg = 
@@ -367,6 +372,7 @@ if ($("#nextMatch").length) {
         away == "부산" ? "busanipark2012_s" :
         away == "부천" ? "bucheonfc_s" :
         away == "안산" ? "ansangreeners_s" :
+        away == "파주고려" ? "pajukorea_s" :
         "dummy";
 
     compImg = 
