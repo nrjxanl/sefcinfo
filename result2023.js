@@ -131,6 +131,30 @@ $(".fixtures_").each(function(index) {
         $(this).find("div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1)").text(homeScore);
         $(this).find("div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(3)").text(awayScore);    
     };
+console.log(homeScore)
+    if (home == "서울E") {
+        if (homeScore > awayScore) {
+            $(this).find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#174fff");
+            $(this).find("div:nth-of-type(1) > div:nth-of-type(2) > span").css("color", "#fafafa");
+        } else if (homeScore < awayScore) {
+            $(this).find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#f00");
+            $(this).find("div:nth-of-type(1) > div:nth-of-type(2) > span").css("color", "#fafafa");
+        } else if (homeScore = awayScore) {
+            $(this).find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#aaa");
+            $(this).find("div:nth-of-type(1) > div:nth-of-type(2) > span").css("color", "#fafafa");
+        }
+    } else {
+        if (homeScore < awayScore) {
+            $(this).find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#174fff");
+            $(this).find("div:nth-of-type(1) > div:nth-of-type(2) > span").css("color", "#fafafa");
+        } else if (homeScore > awayScore) {
+            $(this).find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#f00");
+            $(this).find("div:nth-of-type(1) > div:nth-of-type(2) > span").css("color", "#fafafa");
+        } else if (homeScore = awayScore) {
+            $(this).find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#aaa");
+            $(this).find("div:nth-of-type(1) > div:nth-of-type(2) > span").css("color", "#fafafa");
+        };
+    }
 
     $(this).attr("onclick", "location.href='./" + data.id[index] + "'");
 

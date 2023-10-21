@@ -3,7 +3,7 @@ $(document).ready(function() {
 
     // 맨 위로 이동
     if($("#nextMatchA").length) {
-        document.getElementById("nextMatchA").scrollIntoView({block: "center"});
+        document.getElementById("nextMatchA").scrollIntoView({behavior: "smooth", block: "center"});
     };
 
 });
