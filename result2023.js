@@ -92,7 +92,7 @@ compImg =
     data.comp[n] == "k2" ? "kleague40_s" :
     data.comp[n] == "fa" ? "facup_s" :
     data.comp[n] == "kj8f" ? "kleague40_s" :
-    data.comp[n] == "kf8s" ? "kleague40_s" :
+    data.comp[n] == "kj8s" ? "kleague40_s" :
     data.comp[n] == "kj5" ? "kleague40_s" :
     data.comp[n] == "mcst" ? "mcst_s" :
     data.comp[n] == "kf8" ? "kfa_s" :

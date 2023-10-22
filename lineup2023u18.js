@@ -295,6 +295,7 @@ if ($("#matchScore > div:nth-of-type(2) > div > img").attr("src") == "./files/kl
     if (index_ == -1) {
         index_ = dataList.indexOf("kyc" + round);
     };
+    console.log(index_)
 };
 
 playerList = data[Object.keys(data)[index_]];
