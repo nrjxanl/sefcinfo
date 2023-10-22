@@ -276,9 +276,9 @@ data = {
 
 round = $("#round").text().replace(/[^0-9]/g, "");
 dataList = Object.keys(data);
-if ($("#matchScore > div:nth-of-type(2) > div > img").attr("src") == "./files/kleague40_s.png" || Number(document.URL.substring(document.URL.lastIndexOf("/")).substring(5, 9)) < 624) {
+if ($("#matchScore > div:nth-of-type(2) > div > img").attr("src") == "./files/kleague40_s.png" && Number(document.URL.substring(document.URL.lastIndexOf("/")).substring(5, 9)) < 620) {
     index_ = dataList.indexOf("fR" + round);
-} else if ($("#matchScore > div:nth-of-type(2) > div > img").attr("src") == "./files/kleague40_s.png" || Number(document.URL.substring(document.URL.lastIndexOf("/")).substring(5, 9)) >= 624) {
+} else if ($("#matchScore > div:nth-of-type(2) > div > img").attr("src") == "./files/kleague40_s.png" && Number(document.URL.substring(document.URL.lastIndexOf("/")).substring(5, 9)) > 620) {
     index_ = dataList.indexOf("sR" + round);
 } else if ($("#matchScore > div:nth-of-type(2) > div > img").attr("src") == "./files/mcst_s.png") {
     index_ = dataList.indexOf("mcstR" + round);
@@ -295,7 +295,6 @@ if ($("#matchScore > div:nth-of-type(2) > div > img").attr("src") == "./files/kl
     if (index_ == -1) {
         index_ = dataList.indexOf("kyc" + round);
     };
-    console.log(index_)
 };
 
 playerList = data[Object.keys(data)[index_]];
