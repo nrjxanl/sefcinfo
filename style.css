@@ -53,6 +53,18 @@ footer > a:nth-of-type(3) > ul {background: #000831; width: 55px; height: 55px; 
 #nextMatch > div:nth-of-type(2) > div:nth-of-type(2) {height: 30px; display: flex; align-items: center; justify-content: right; position: absolute; right: 5vw;}
 #nextMatch > div:nth-of-type(2) > div:nth-of-type(2) > p {font-weight: 500; text-align: right; margin-right: 30px;}
 
+#standingsHome {width: 90vw; margin-left: 5vw; margin-top: 50px; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 5vw;}
+#standingsHome > table {width: 90vw; vertical-align: middle;}
+#standingsHome > table > thead > tr {height: 40px;}
+#standingsHome > table > thead > tr > th {font-weight: 500; font-size: 12px;}
+#standingsHome > table > tbody > tr {height: 40px;}
+#standingsHome > table > tbody > tr > td {font-size: 14px;}
+#standingsHome > table > tbody > tr > td > img {height: 20px; vertical-align: middle;}
+#standingsHome > table > tbody > tr > td:nth-of-type(1) {width: 15vw;}
+#standingsHome > table > tbody > tr > td:nth-of-type(2) {width: 15vw;}
+#standingsHome > table > tbody > tr > td:nth-of-type(3) {width: 30vw; text-align: left;}
+#standingsHome > table > tbody > tr > td:nth-of-type(n+4) {width: 15vw;}
+
 #latestNews {width: 90vw; height: 300px; margin-left: 5vw; overflow: scroll; display: flex; align-items: center;}
 #latestNews > div {width: 60vw; height: 200px; box-shadow: 0px 0px 5px 1px #00083140; border-radius: 5vw; flex-shrink: 0; margin: 0 10px; display: flex; align-items: flex-end;}
 #latestNews > div:nth-of-type(1) {margin: 0 10px 0 0;}
@@ -325,7 +337,8 @@ footer > a:nth-of-type(3) > ul {background: #000831; width: 55px; height: 55px; 
 #standingsA > div > table > tbody > tr > td:nth-of-type(1) {width: 10vw;}
 #standingsA > div > table > tbody > tr > td:nth-of-type(2) {width: 10vw;}
 #standingsA > div > table > tbody > tr > td:nth-of-type(3) {width: 20vw; text-align: left;}
-#standingsA > div > table > tbody > tr > td:nth-of-type(n+3) {width: 12.5vw;}
+#standingsA > div > table > tbody > tr > td:nth-of-type(n+4) {width: 12.5vw;}
+
 tr.sefc {background: #000831;}
 tr.sefc > td {color: #fafafa;}
 tr.sefc > td:nth-of-type(1) {border-radius: 15px 0 0 15px;}
