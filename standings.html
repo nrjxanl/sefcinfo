@@ -5,14 +5,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Refresh" content="0; url='./standings-2023'">
     <link rel="stylesheet" href="./style.css">
     <title>SEFCiNFO</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="icon" type="image/x-icon" href="./files/favicon.png">
 </head>
 
-<header></header>
-<footer></footer>
+    <header style="height: 130px;"></header>
+    <footer></footer>
+
+    <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onkeydownn="return false">
+
+        <div id="headerOffset"></div>
+        <div id="standingsButtonOffset"></div>
+
+        <div class="standingsSeason">
+            <button onclick="standingsSeason()">시즌 선택</button>
+            <div id="standingsSeason_">
+                <button onclick="standings2023()">2023</button>
+                <button onclick="standings2022()">2022</button>
+                <button onclick="standings2021()">2021</button>
+                <button onclick="standings2020()">2020</button>
+                <button onclick="standings2019()">2019</button>
+                <button onclick="standings2018()">2018</button>
+                <button onclick="standings2017()">2017</button>
+                <button onclick="standings2016()">2016</button>
+                <button onclick="standings2015()">2015</button>
+            </div>
+        </div>
+        
+        <div class="standings">
+            <button onclick="standings()">자세히 보기</button>
+        </div>
+
+        <div id="standingsA">
+
+            <div class="standingsButton">
+                <button onclick="standingsA()" style="background: #000831; color: #fafafa;">A팀</button>
+                <button onclick="standingsU18()">U-18</button>
+                <button onclick="standingsU15()">U-15</button>
+            </div>
+
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>순위</th>
+                            <th colspan="2">구단</th>
+                            <th>승점</th>
+                            <th>승</th>
+                            <th>무</th>
+                            <th>패</th>
+                            <th>득점</th>
+                            <th>실점</th>
+                            <th>득실차</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <div id="standingsU18">
+
+            <div class="standingsButton" style="margin-top: 0;">
+                <button onclick="standingsA()">A팀</button>
+                <button onclick="standingsU18()" style="background: #000831; color: #fafafa;">U-18</button>
+                <button onclick="standingsU15()">U-15</button>
+            </div>
+
+            <div class="standingsDetail">
+                <button onclick="standingsU18F()" style="font-weight: 400;">전반기</button>
+                <button onclick="standingsU18S()">후반기</button>
+            </div>
+
+            <div id="standingsU18F">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>순위</th>
+                            <th colspan="2">구단</th>
+                            <th>승점</th>
+                            <th>승</th>
+                            <th>무</th>
+                            <th>패</th>
+                            <th>득점</th>
+                            <th>실점</th>
+                            <th>득실차</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <div id="standingsU18S">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>순위</th>
+                            <th colspan="2">구단</th>
+                            <th>승점</th>
+                            <th>승</th>
+                            <th>무</th>
+                            <th>패</th>
+                            <th>득점</th>
+                            <th>실점</th>
+                            <th>득실차</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <div id="standingsU15">
+
+            <div class="standingsButton" style="margin-top: 0;">
+                <button onclick="standingsA()">A팀</button>
+                <button onclick="standingsU18()">U-18</button>
+                <button onclick="standingsU15()" style="background: #000831; color: #fafafa;">U-15</button>
+            </div>
+
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>순위</th>
+                            <th colspan="2">구단</th>
+                            <th>승점</th>
+                            <th>승</th>
+                            <th>무</th>
+                            <th>패</th>
+                            <th>득점</th>
+                            <th>실점</th>
+                            <th>득실차</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <div id="footerOffset"></div>
+
+        <script src="standings2023.js"></script>
+
+        <script src="standings2022.js"></script>
+
+        <script src="standings2021.js"></script>
+
+        <script src="standings2020.js"></script>
+
+        <script src="standings2019.js"></script>
+
+        <script src="standings2018.js"></script>
+
+        <script src="standings2017.js"></script>
+
+        <script src="standings2016.js"></script>
+
+        <script src="standings2015.js"></script>
+
+        <script src="script.js"></script>
+
+    </body>
 
 </html>
