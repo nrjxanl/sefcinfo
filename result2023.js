@@ -29,7 +29,7 @@ function fixtures2023() {
 
     // 경기 세부 정보
     id = document.URL.substring(document.URL.lastIndexOf("/") + 1, document.URL.lastIndexOf("/") + 10);
-    n = aMatch.indexOf(id);
+    n = f2023.id.indexOf(id);
     date = document.URL.substring(document.URL.lastIndexOf("/") + 1, document.URL.lastIndexOf("/") + 5) + ". " + document.URL.substring(document.URL.lastIndexOf("/") + 5, document.URL.lastIndexOf("/") + 7) + ". " + document.URL.substring(document.URL.lastIndexOf("/") + 7, document.URL.lastIndexOf("/") + 9) + ".";
 
     $("#homeScore").html(f2023.homeScore[n]);

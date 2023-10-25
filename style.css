@@ -73,6 +73,20 @@ footer > a:nth-of-type(3) > ul {background: #000831; width: 55px; height: 55px; 
 #standingsHome > table > tbody > tr > td:nth-of-type(n+4) {width: 15vw;}
 #standingsHome > a > p {height: 2vw; font-weight: 500;}
 
+#playerRanking {width: 90vw; height: inherit; margin: 30px 0 0 5vw; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 5vw; display: flex; align-items: center; justify-content: center;}
+#playerRanking > div {width: 40vw; margin: 0 calc(10vw / 6);}
+#playerRanking > div > div {width: 40vw; height: 12vw; margin: 20px 0; display: flex;}
+#playerRanking > div > div > div {width: 12vw; height: 12vw; border-radius: 50%; overflow: hidden;}
+#playerRanking > div > div > div > img {width: 12vw;}
+#playerRanking > div > div > p {width: 25vw; margin-left: 3vw; font-size: 18px; text-align: left; display: flex; flex-direction: column; justify-content: center;}
+#playerRanking > div > div > p > span {font-size: 14px; text-align: left; font-weight: 500;}
+
+#playerRanking > div > div:nth-of-type(1) {width: 40vw; height: 200px; margin: 20px 0; display: flex; flex-direction: column; align-items: center; justify-content: center;}
+#playerRanking > div > div:nth-of-type(1) > div {width: 40vw; height: 130px; margin-bottom: 10px;}
+#playerRanking > div > div:nth-of-type(1) > div > img {width: 40vw;}
+#playerRanking > div > div:nth-of-type(1) > p {width: 40vw; margin: 0; font-size: 22px; text-align: center; display: flex; flex-direction: column; justify-content: center;}
+#playerRanking > div > div:nth-of-type(1) > p > span {font-size: 18px; text-align: center; font-weight: 500;}
+
 #latestNews {width: 90vw; height: 300px; margin-left: 5vw; overflow: scroll; display: flex; align-items: center;}
 #latestNews > div {width: 60vw; height: 200px; box-shadow: 0px 0px 5px 1px #00083140; border-radius: 5vw; flex-shrink: 0; margin: 0 10px; display: flex; align-items: flex-end;}
 #latestNews > div:nth-of-type(1) {margin: 0 10px 0 0;}
