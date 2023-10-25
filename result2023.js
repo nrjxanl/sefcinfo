@@ -9,25 +9,27 @@ f2023 = {
     "awayScorer": ["", "36' 브루노", "", "", "", "", "", "", "34' 차승현", "", "", "19' 글레이손(OG)<br>65' 호난", "", "", "", "", "42' 변경준<br>69' 브루노", "", "45+2' 브루노<br>70' 한용수", "", "14' 최희원(OG)<br>26' 송시우<br>75' 이동률", "", "", "31' 박정인", "", "", "", "", "", "", "2' 호난", "", "27' 변경준", "", "", "", "", "", "", "44' 오현택<br>68' 김서준<br>80' 장석훈<br>80+1' 김성연", "38' 오현택<br>42' 문성욱", "", "3' 문성욱<br>41' 이원빈(OG)<br>61' 오현택<br>79', 80+1' 박서준", "18' 김성연<br>57' 오현택<br>59' 장석훈", "", "54' 장석훈", "", "", "", "", "", "11', 35', 45+1' 김성연<br>70' 장석훈", "", "", "", "85', 87' 문종보", "", "", "", "", "", "", "", "", "80' 김서준<br>90+3' 문우주", "90' 김우현", "", "32' 황윤우<br>86' 윤진서", "14' 황윤우<br>20' 김지완<br>68' 문종보<br>83', 86' 신정우", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
 }
 
+aMatch = f2023.id.filter((a) => a.substr(-1) == 0);
+u18Match = f2023.id.filter((a) => a.substr(-1) == 8);
+u15Match = f2023.id.filter((a) => a.substr(-1) == 5);
+
+homeImg = f2023.home.join();
+homeImg = homeImg.replaceAll("서울E", "seouleland_s").replaceAll("울산", "ulsanhyundai2016_s").replaceAll("수원삼성", "suwonsamsung_s").replaceAll("수원FC", "suwonfc2016_s").replaceAll("성남", "seongnamfc2014_s").replaceAll("포항", "pohangsteelers_s").replaceAll("전남", "jeonnamdragons2022_s").replaceAll("전북", "jeonbukhyundai2018_s").replaceAll("제주", "jejuutd_s").replaceAll("인천", "incheonutd_s").replaceAll("경남", "gyeongnamfc2010_s").replaceAll("광주", "gwangjufc2020_s").replaceAll("김포", "gimpofc2022_s").replaceAll("김천", "gimcheonsangmu_s").replaceAll("강원", "gangwonfc_s").replaceAll("FC서울", "fcseoul_s").replaceAll("안양", "fcanyang_s").replaceAll("대전", "daejeonhana2020_s").replaceAll("대구", "daegufc2013_s").replaceAll("충남아산", "chungnamasan_s").replaceAll("충북청주", "chungbukcheongju_s").replaceAll("천안", "cheonancity2023_s").replaceAll("부산", "busanipark2012_s").replaceAll("부천", "bucheonfc_s").replaceAll("안산", "ansangreeners_s").replaceAll("파주고려", "pajukorea_s").replaceAll("홍천FC", "hongcheonfc_s").replaceAll("초지고", "chojihs_s").replaceAll("숭실고", "soongsilhs_s");
+homeImg = homeImg.split(",")
+
+awayImg = f2023.away.join();
+awayImg = awayImg.replaceAll("서울E", "seouleland_s").replaceAll("울산", "ulsanhyundai2016_s").replaceAll("수원삼성", "suwonsamsung_s").replaceAll("수원FC", "suwonfc2016_s").replaceAll("성남", "seongnamfc2014_s").replaceAll("포항", "pohangsteelers_s").replaceAll("전남", "jeonnamdragons2022_s").replaceAll("전북", "jeonbukhyundai2018_s").replaceAll("제주", "jejuutd_s").replaceAll("인천", "incheonutd_s").replaceAll("경남", "gyeongnamfc2010_s").replaceAll("광주", "gwangjufc2020_s").replaceAll("김포", "gimpofc2022_s").replaceAll("김천", "gimcheonsangmu_s").replaceAll("강원", "gangwonfc_s").replaceAll("FC서울", "fcseoul_s").replaceAll("안양", "fcanyang_s").replaceAll("대전", "daejeonhana2020_s").replaceAll("대구", "daegufc2013_s").replaceAll("충남아산", "chungnamasan_s").replaceAll("충북청주", "chungbukcheongju_s").replaceAll("천안", "cheonancity2023_s").replaceAll("부산", "busanipark2012_s").replaceAll("부천", "bucheonfc_s").replaceAll("안산", "ansangreeners_s").replaceAll("파주고려", "pajukorea_s").replaceAll("홍천FC", "hongcheonfc_s").replaceAll("초지고", "chojihs_s").replaceAll("숭실고", "soongsilhs_s");
+awayImg = awayImg.split(",")
+
+compImg = f2023.comp.join();
+compImg = compImg.replaceAll("k2", "kleague40_s").replaceAll("fa", "facup_s").replaceAll("kj8f", "kleague40_s").replaceAll("kj8s", "kleague40_s").replaceAll("kj5", "kleague40_s").replaceAll("mcst", "mcst_s").replaceAll("kf8", "kfa_s").replaceAll("kyc8", "kleagueyouthchampionship_s").replaceAll("kyc5", "kleagueyouthchampionship_s").replaceAll("yd", "kfa_s");
+compImg = compImg.split(",")
+
 function fixtures2023() {
-
-    // 엠블럼
-    homeImg = f2023.home.join();
-    homeImg = homeImg.replaceAll("서울E", "seouleland_s").replaceAll("울산", "ulsanhyundai2016_s").replaceAll("수원삼성", "suwonsamsung_s").replaceAll("수원FC", "suwonfc2016_s").replaceAll("성남", "seongnamfc2014_s").replaceAll("포항", "pohangsteelers_s").replaceAll("전남", "jeonnamdragons2022_s").replaceAll("전북", "jeonbukhyundai2018_s").replaceAll("제주", "jejuutd_s").replaceAll("인천", "incheonutd_s").replaceAll("경남", "gyeongnamfc2010_s").replaceAll("광주", "gwangjufc2020_s").replaceAll("김포", "gimpofc2022_s").replaceAll("김천", "gimcheonsangmu_s").replaceAll("강원", "gangwonfc_s").replaceAll("FC서울", "fcseoul_s").replaceAll("안양", "fcanyang_s").replaceAll("대전", "daejeonhana2020_s").replaceAll("대구", "daegufc2013_s").replaceAll("충남아산", "chungnamasan_s").replaceAll("충북청주", "chungbukcheongju_s").replaceAll("천안", "cheonancity2023_s").replaceAll("부산", "busanipark2012_s").replaceAll("부천", "bucheonfc_s").replaceAll("안산", "ansangreeners_s").replaceAll("파주고려", "pajukorea_s").replaceAll("홍천FC", "hongcheonfc_s").replaceAll("초지고", "chojihs_s").replaceAll("숭실고", "soongsilhs_s");
-    homeImg = homeImg.split(",")
-
-    awayImg = f2023.away.join();
-    awayImg = awayImg.replaceAll("서울E", "seouleland_s").replaceAll("울산", "ulsanhyundai2016_s").replaceAll("수원삼성", "suwonsamsung_s").replaceAll("수원FC", "suwonfc2016_s").replaceAll("성남", "seongnamfc2014_s").replaceAll("포항", "pohangsteelers_s").replaceAll("전남", "jeonnamdragons2022_s").replaceAll("전북", "jeonbukhyundai2018_s").replaceAll("제주", "jejuutd_s").replaceAll("인천", "incheonutd_s").replaceAll("경남", "gyeongnamfc2010_s").replaceAll("광주", "gwangjufc2020_s").replaceAll("김포", "gimpofc2022_s").replaceAll("김천", "gimcheonsangmu_s").replaceAll("강원", "gangwonfc_s").replaceAll("FC서울", "fcseoul_s").replaceAll("안양", "fcanyang_s").replaceAll("대전", "daejeonhana2020_s").replaceAll("대구", "daegufc2013_s").replaceAll("충남아산", "chungnamasan_s").replaceAll("충북청주", "chungbukcheongju_s").replaceAll("천안", "cheonancity2023_s").replaceAll("부산", "busanipark2012_s").replaceAll("부천", "bucheonfc_s").replaceAll("안산", "ansangreeners_s").replaceAll("파주고려", "pajukorea_s").replaceAll("홍천FC", "hongcheonfc_s").replaceAll("초지고", "chojihs_s").replaceAll("숭실고", "soongsilhs_s");
-    awayImg = awayImg.split(",")
-
-    compImg = f2023.comp.join();
-    compImg = compImg.replaceAll("k2", "kleague40_s").replaceAll("fa", "facup_s").replaceAll("kj8f", "kleague40_s").replaceAll("kj8s", "kleague40_s").replaceAll("kj5", "kleague40_s").replaceAll("mcst", "mcst_s").replaceAll("kf8", "kfa_s").replaceAll("kyc8", "kleagueyouthchampionship_s").replaceAll("kyc5", "kleagueyouthchampionship_s").replaceAll("yd", "kfa_s");
-    compImg = compImg.split(",")
 
     // 경기 세부 정보
     id = document.URL.substring(document.URL.lastIndexOf("/") + 1, document.URL.lastIndexOf("/") + 10);
-    f2023List = Object.values(f2023.id);
-    n = f2023List.indexOf(id);
+    n = aMatch.indexOf(id);
     date = document.URL.substring(document.URL.lastIndexOf("/") + 1, document.URL.lastIndexOf("/") + 5) + ". " + document.URL.substring(document.URL.lastIndexOf("/") + 5, document.URL.lastIndexOf("/") + 7) + ". " + document.URL.substring(document.URL.lastIndexOf("/") + 7, document.URL.lastIndexOf("/") + 9) + ".";
 
     $("#homeScore").html(f2023.homeScore[n]);
@@ -50,10 +52,6 @@ function fixtures2023() {
     };
 
     // 경기 일정
-    aMatch = f2023.id.filter((a) => a.substr(-1) == 0);
-    u18Match = f2023.id.filter((a) => a.substr(-1) == 8);
-    u15Match = f2023.id.filter((a) => a.substr(-1) == 5);
-
     for(i = 0; i < aMatch.length; i++) {
         $("#fixturesA > .fixtures").append("<div class='fixtures_'></div>");
     };
@@ -117,90 +115,6 @@ function fixtures2023() {
         $(this).find("div:nth-of-type(2) > div:nth-of-type(1) > img").attr("src", "./files/" + compImg[index] + ".png");
     });
 
-    // 홈 화면
-    if ($("#nextMatch").length) {
-        date = new Date();
-        year = date.getFullYear().toString();
-        month = date.getMonth().toString() <= 8 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
-        day = date.getDate().toString().length == 1 ? "0" + date.getDate() : date.getDate();
-        hour = date.getHours();
-        min = date.getMinutes();
-        sec = date.getSeconds();
-        millisec = date.getMilliseconds();
-
-        nextMatch = Number(year + month + day + "0");
-
-        n = aMatch.indexOf(nextMatch.toString());
-
-        while (true) {
-            n = aMatch.indexOf(nextMatch.toString());
-
-            if (n !== -1) {
-                break;
-            };
-            nextMatch += 10;
-        };
-
-        n = aMatch.indexOf(nextMatch.toString());
-        year = nextMatch.toString().substr(0, 4);
-        month = nextMatch.toString().substr(4, 2);
-        day = nextMatch.toString().substr(6, 2);
-
-        matchDay = new Date(Number(year) + "," + Number(month) + "," + Number(day))
-        diff = matchDay - date;
-
-        if (hour === 0) {
-            if (min === 0) {
-                if (sec === 0) {
-                    if (millisec === 0) {
-                        diffDay = Math.floor(diff / (1000*60*60*24));
-                    } else {
-                        diffDay = Math.floor(diff / (1000*60*60*24) + 1);
-                    };
-                } else {
-                    diffDay = Math.floor(diff / (1000*60*60*24) + 1);
-                };
-            } else {
-                diffDay = Math.floor(diff / (1000*60*60*24) + 1);
-            };
-        } else {
-            diffDay = Math.floor(diff / (1000*60*60*24) + 1);
-        };
-
-        if (diffDay == 0) {
-            diffDay = "DAY";
-        };
-
-        home = f2023.home[n];
-        homeScore = f2023.homeScore[n];
-        away = f2023.away[n];
-        awayScore = f2023.awayScore[n];
-        comp = f2023.comp[n].replaceAll("k2", "하나원큐 K리그2 2023 ").replaceAll("fa", "2023 하나원큐 FA CUP ").replaceAll("t", "강전").toUpperCase();
-        date = f2023.id[n].substr(0, 4) + "." + f2023.id[n].substr(4, 2) + "." + f2023.id[n].substr(6, 2) + ".";
-
-        $("#nextMatch").find("div:nth-of-type(1) > div:nth-of-type(1) > p").text(home);
-        $("#nextMatch").find("div:nth-of-type(1) > div:nth-of-type(3) > p").text(away);
-        $("#nextMatch").find("div:nth-of-type(1) > div:nth-of-type(2) > span").text("D-" + diffDay);
-        $("#nextMatch").find("div:nth-of-type(2) > div:nth-of-type(1) > p").text(comp);
-        $("#nextMatch").find("div:nth-of-type(2) > div:nth-of-type(2) > p").text(date);
-
-        if (diffDay == "DAY") {
-            $("#nextMatch").find("div:nth-of-type(1) > div:nth-of-type(2) > span").css({"font-size": "16px", "letter-spacing": "-1px"});
-        };
-
-        if (f2023.homeScore[n] !== "") {
-            $("#nextMatch").find("div:nth-of-type(1) > div:nth-of-type(2) > span").text(f2023.homeScore[n] + ":" + f2023.awayScore[n]);
-            $("#nextMatch").find("div:nth-of-type(1) > div:nth-of-type(2) > span").css({"font-size": "20px", "letter-spacing": "0"})
-        };
-
-        $("#nextMatch").attr("onclick", "location.href='./" + f2023.id[n] + "'");
-
-        $("#nextMatch").find("div:nth-of-type(1) > div:nth-of-type(1) > div > img").attr("src", "./files/" + homeImg[n] + ".png");
-        $("#nextMatch").find("div:nth-of-type(1) > div:nth-of-type(3) > div > img").attr("src", "./files/" + awayImg[n] + ".png");
-        $("#nextMatch").find("div:nth-of-type(2) > div:nth-of-type(1) > img").attr("src", "./files/" + compImg[n] + ".png");
-
-    };
-
     // 일정 목록 화면 다음 일정 찾기
     if($(".fixtures_").length) {
         date = new Date();
@@ -257,6 +171,266 @@ function fixtures2023() {
 };
 
 // 일정 불러오기
-if($("#fixturesA").length || $("#nextmatch").length) {
+if($("#fixturesA").length || $("#matchScore").length) {
     fixtures2023();
+};
+
+// 다음 경기
+if ($("#nextMatch").length) {
+    date = new Date();
+    year = date.getFullYear().toString();
+    month = date.getMonth().toString() <= 8 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+    day = date.getDate().toString().length == 1 ? "0" + date.getDate() : date.getDate();
+    hour = date.getHours();
+    min = date.getMinutes();
+    sec = date.getSeconds();
+    millisec = date.getMilliseconds();
+
+    nextMatch = Number(year + month + day + "0");
+
+    while (true) {
+        n = aMatch.indexOf(nextMatch.toString());
+
+        if (n !== -1) {
+            break;
+        };
+        nextMatch += 10;
+    };
+
+    n = aMatch.indexOf(nextMatch.toString());
+    year = nextMatch.toString().substr(0, 4);
+    month = nextMatch.toString().substr(4, 2);
+    day = nextMatch.toString().substr(6, 2);
+
+    matchDay = new Date(Number(year) + "," + Number(month) + "," + Number(day))
+    diff = matchDay - date;
+
+    if (hour === 0) {
+        if (min === 0) {
+            if (sec === 0) {
+                if (millisec === 0) {
+                    diffDay = Math.floor(diff / (1000*60*60*24));
+                } else {
+                    diffDay = Math.floor(diff / (1000*60*60*24) + 1);
+                };
+            } else {
+                diffDay = Math.floor(diff / (1000*60*60*24) + 1);
+            };
+        } else {
+            diffDay = Math.floor(diff / (1000*60*60*24) + 1);
+        };
+    } else {
+        diffDay = Math.floor(diff / (1000*60*60*24) + 1);
+    };
+
+    if (diffDay == 0) {
+        diffDay = "DAY";
+    };
+
+    home = f2023.home[n];
+    homeScore = f2023.homeScore[n];
+    away = f2023.away[n];
+    awayScore = f2023.awayScore[n];
+    comp = f2023.comp[n].replaceAll("k2", "하나원큐 K리그2 2023 ").replaceAll("fa", "2023 하나원큐 FA CUP ").replaceAll("t", "강전").toUpperCase();
+    date = f2023.id[n].substr(0, 4) + "." + f2023.id[n].substr(4, 2) + "." + f2023.id[n].substr(6, 2) + ".";
+
+    $("#nextMatch").find("div:nth-of-type(1) > div:nth-of-type(1) > p").text(home);
+    $("#nextMatch").find("div:nth-of-type(1) > div:nth-of-type(3) > p").text(away);
+    $("#nextMatch").find("div:nth-of-type(1) > div:nth-of-type(2) > span").text("D-" + diffDay);
+    $("#nextMatch").find("div:nth-of-type(2) > div:nth-of-type(1) > p").text(comp);
+    $("#nextMatch").find("div:nth-of-type(2) > div:nth-of-type(2) > p").text(date);
+
+    if (diffDay == "DAY") {
+        $("#nextMatch").find("div:nth-of-type(1) > div:nth-of-type(2) > span").css({"font-size": "16px", "letter-spacing": "-1px"});
+    };
+
+    if (f2023.homeScore[n] !== "") {
+        $("#nextMatch").find("div:nth-of-type(1) > div:nth-of-type(2) > span").text(f2023.homeScore[n] + ":" + f2023.awayScore[n]);
+        $("#nextMatch").find("div:nth-of-type(1) > div:nth-of-type(2) > span").css({"font-size": "20px", "letter-spacing": "0"})
+    };
+
+    $("#nextMatch").attr("onclick", "location.href='./" + f2023.id[n] + "'");
+
+    $("#nextMatch").find("div:nth-of-type(1) > div:nth-of-type(1) > div > img").attr("src", "./files/" + homeImg[n] + ".png");
+    $("#nextMatch").find("div:nth-of-type(1) > div:nth-of-type(3) > div > img").attr("src", "./files/" + awayImg[n] + ".png");
+    $("#nextMatch").find("div:nth-of-type(2) > div:nth-of-type(1) > img").attr("src", "./files/" + compImg[n] + ".png");
+
+};
+
+// 이전 경기
+if ($("#prevMatch").length) {
+    date = new Date();
+    year = date.getFullYear().toString();
+    month = date.getMonth().toString() <= 8 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+    day = date.getDate().toString().length == 1 ? "0" + date.getDate() : date.getDate();
+    hour = date.getHours();
+    min = date.getMinutes();
+    sec = date.getSeconds();
+    millisec = date.getMilliseconds();
+
+    prevMatch = Number(year + month + day + "0");
+
+    while (true) {
+        n = aMatch.indexOf(prevMatch.toString());
+
+        if (n !== -1) {
+            break;
+        };
+
+        prevMatch -= 10;
+
+        if (prevMatch.toString().substr(0, 4) < 2023) {
+            break;
+        };
+    };
+
+    n = aMatch.indexOf(prevMatch.toString());
+
+    score1 = f2023.homeScore[n] + "-" + f2023.awayScore[n];
+    score2 = f2023.homeScore[n-1] + "-" + f2023.awayScore[n-1];
+    score3 = f2023.homeScore[n-2] + "-" + f2023.awayScore[n-2];
+    score4 = f2023.homeScore[n-3] + "-" + f2023.awayScore[n-3];
+    score5 = f2023.homeScore[n-4] + "-" + f2023.awayScore[n-4];
+
+    if (score5 == "undefined-undefined") {
+        $("#prevMatch > div:nth-of-type(1)").css("display", "none");
+    };
+    if (score4 == "undefined-undefined") {
+        $("#prevMatch > div:nth-of-type(2)").css("display", "none");
+    };
+    if (score3 == "undefined-undefined") {
+        $("#prevMatch > div:nth-of-type(3)").css("display", "none");
+    };
+    if (score2 == "undefined-undefined") {
+        $("#prevMatch > div:nth-of-type(4)").css("display", "none");
+    };
+    if (score1 == "undefined-undefined") {
+        $("#prevMatch").remove();
+    };
+
+    if (f2023.home[n] == "서울E") {
+        prev1 = awayImg[n];
+        
+        if (f2023.homeScore[n] > f2023.awayScore[n]) {
+            $("#prevMatch > div:nth-of-type(5) > p").css({"color": "#fafafa", "background": "#174fff"});
+        } else if (f2023.homeScore[n] < f2023.awayScore[n]) {
+            $("#prevMatch > div:nth-of-type(5) > p").css({"color": "#fafafa", "background": "#f00"});
+        } else {
+            $("#prevMatch > div:nth-of-type(5) > p").css({"color": "#fafafa", "background": "#aaa"});
+        };
+
+    } else {
+        prev1 = homeImg[n];
+        
+        if (f2023.homeScore[n] > f2023.awayScore[n]) {
+            $("#prevMatch > div:nth-of-type(5) > p").css({"color": "#fafafa", "background": "#f00"});
+        } else if (f2023.homeScore[n] < f2023.awayScore[n]) {
+            $("#prevMatch > div:nth-of-type(5) > p").css({"color": "#fafafa", "background": "#174fff"});
+        } else {
+            $("#prevMatch > div:nth-of-type(5) > p").css({"color": "#fafafa", "background": "#aaa"});
+        };
+    };
+
+    if (f2023.home[n-1] == "서울E") {
+        prev2 = awayImg[n-1];
+        
+        if (f2023.homeScore[n-1] > f2023.awayScore[n-1]) {
+            $("#prevMatch > div:nth-of-type(4) > p").css({"color": "#fafafa", "background": "#174fff"});
+        } else if (f2023.homeScore[n-1] < f2023.awayScore[n-1]) {
+            $("#prevMatch > div:nth-of-type(4) > p").css({"color": "#fafafa", "background": "#f00"});
+        } else {
+            $("#prevMatch > div:nth-of-type(4) > p").css({"color": "#fafafa", "background": "#aaa"});
+        };
+
+    } else {
+        prev2 = homeImg[n-1];
+        
+        if (f2023.homeScore[n-1] > f2023.awayScore[n-1]) {
+            $("#prevMatch > div:nth-of-type(4) > p").css({"color": "#fafafa", "background": "#f00"});
+        } else if (f2023.homeScore[n-1] < f2023.awayScore[n-1]) {
+            $("#prevMatch > div:nth-of-type(4) > p").css({"color": "#fafafa", "background": "#174fff"});
+        } else {
+            $("#prevMatch > div:nth-of-type(4) > p").css({"color": "#fafafa", "background": "#aaa"});
+        };
+    };
+
+    if (f2023.home[n-2] == "서울E") {
+        prev3 = awayImg[n-2];
+        
+        if (f2023.homeScore[n-2] > f2023.awayScore[n-2]) {
+            $("#prevMatch > div:nth-of-type(3) > p").css({"color": "#fafafa", "background": "#174fff"});
+        } else if (f2023.homeScore[n-2] < f2023.awayScore[n-2]) {
+            $("#prevMatch > div:nth-of-type(3) > p").css({"color": "#fafafa", "background": "#f00"});
+        } else {
+            $("#prevMatch > div:nth-of-type(3) > p").css({"color": "#fafafa", "background": "#aaa"});
+        };
+
+    } else {
+        prev3 = homeImg[n-2];
+        
+        if (f2023.homeScore[n-2] > f2023.awayScore[n-2]) {
+            $("#prevMatch > div:nth-of-type(3) > p").css({"color": "#fafafa", "background": "#f00"});
+        } else if (f2023.homeScore[n-2] < f2023.awayScore[n-2]) {
+            $("#prevMatch > div:nth-of-type(3) > p").css({"color": "#fafafa", "background": "#174fff"});
+        } else {
+            $("#prevMatch > div:nth-of-type(3) > p").css({"color": "#fafafa", "background": "#aaa"});
+        };
+    };
+
+    if (f2023.home[n-3] == "서울E") {
+        prev4 = awayImg[n-3];
+        
+        if (f2023.homeScore[n-3] > f2023.awayScore[n-3]) {
+            $("#prevMatch > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#174fff"});
+        } else if (f2023.homeScore[n-3] < f2023.awayScore[n-3]) {
+            $("#prevMatch > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#f00"});
+        } else {
+            $("#prevMatch > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#aaa"});
+        };
+
+    } else {
+        prev4 = homeImg[n-3];
+        
+        if (f2023.homeScore[n-3] > f2023.awayScore[n-3]) {
+            $("#prevMatch > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#f00"});
+        } else if (f2023.homeScore[n-3] < f2023.awayScore[n-3]) {
+            $("#prevMatch > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#174fff"});
+        } else {
+            $("#prevMatch > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#aaa"});
+        };
+    };
+
+    if (f2023.home[n-4] == "서울E") {
+        prev5 = awayImg[n-4];
+        
+        if (f2023.homeScore[n-4] > f2023.awayScore[n-4]) {
+            $("#prevMatch > div:nth-of-type(1) > p").css({"color": "#fafafa", "background": "#174fff"});
+        } else if (f2023.homeScore[n-4] < f2023.awayScore[n-4]) {
+            $("#prevMatch > div:nth-of-type(1) > p").css({"color": "#fafafa", "background": "#f00"});
+        } else {
+            $("#prevMatch > div:nth-of-type(1) > p").css({"color": "#fafafa", "background": "#aaa"});
+        };
+
+    } else {
+        prev5 = homeImg[n-4];
+        
+        if (f2023.homeScore[n-4] > f2023.awayScore[n-4]) {
+            $("#prevMatch > div:nth-of-type(1) > p").css({"color": "#fafafa", "background": "#f00"});
+        } else if (f2023.homeScore[n-4] < f2023.awayScore[n-4]) {
+            $("#prevMatch > div:nth-of-type(1) > p").css({"color": "#fafafa", "background": "#174fff"});
+        } else {
+            $("#prevMatch > div:nth-of-type(1) > p").css({"color": "#fafafa", "background": "#aaa"});
+        };
+    };
+
+    $("#prevMatch > div:nth-of-type(5) > p:nth-of-type(1)").text(score1);
+    $("#prevMatch > div:nth-of-type(5) > div > img").attr("src", "./files/" + prev1 + ".png");
+    $("#prevMatch > div:nth-of-type(4) > p").text(score2);
+    $("#prevMatch > div:nth-of-type(4) > div > img").attr("src", "./files/" + prev2 + ".png");
+    $("#prevMatch > div:nth-of-type(3) > p").text(score3);
+    $("#prevMatch > div:nth-of-type(3) > div > img").attr("src", "./files/" + prev3 + ".png");
+    $("#prevMatch > div:nth-of-type(2) > p").text(score4);
+    $("#prevMatch > div:nth-of-type(2) > div > img").attr("src", "./files/" + prev4 + ".png");
+    $("#prevMatch > div:nth-of-type(1) > p").text(score5);
+    $("#prevMatch > div:nth-of-type(1) > div > img").attr("src", "./files/" + prev5 + ".png");
 };

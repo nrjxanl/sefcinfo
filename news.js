@@ -122,11 +122,3 @@ function showMore() {
         };
     };
 };
-
-for (i = 0; i < 3; i++) {
-    $("#latestNews").append("<div><p></p></div>")
-    $("#latestNews > div:nth-of-type(" + (i + 1) + ")").css({"background": "linear-gradient(180deg, #ffffff00 60%, #000000 100%), url(" + data.imgUrl[i] + ") no-repeat center center / cover"}).attr("onclick", "window.open('" + data.url[0] + "')")
-    $("#latestNews > div:nth-of-type("  + (i + 1) + ") > p").text(data.title1[i].replaceAll("&quot;", '"'));
-};
-
-$("#latestNews").append("<a href='./news'><div style='width: 5vw; height: 200px; display: flex; align-items: center; justify-content: center;'><img src='./files/rightarrow.png' style='width: 3vw'></div></a>")
