@@ -29,16 +29,47 @@ assistp3 = assist.player[2];
 assistid3 = assist.id[2];
 assist3 = assist.assist[2];
 
-$("#playerRanking > div:nth-of-type(1) > div:nth-of-type(1) > div > img").attr("src", "./files/" + goalid1 + ".png");
-$("#playerRanking > div:nth-of-type(1) > div:nth-of-type(2) > div > img").attr("src", "./files/" + goalid2 + ".png");
-$("#playerRanking > div:nth-of-type(1) > div:nth-of-type(3) > div > img").attr("src", "./files/" + goalid3 + ".png");
-$("#playerRanking > div:nth-of-type(1) > div:nth-of-type(1) > p").html(goalp1 + "<span>" + goal1 + "득점</span>")
-$("#playerRanking > div:nth-of-type(1) > div:nth-of-type(2) > p").html(goalp2 + "<span>" + goal2 + "득점</span>")
-$("#playerRanking > div:nth-of-type(1) > div:nth-of-type(3) > p").html(goalp3 + "<span>" + goal3 + "득점</span>")
+$("#goalRanking > a > div > div > img").attr("src", "./files/" + goalid1 + ".png");
+$("#goalRanking > a > div > p").html("<span>득점 1위</span>" + goalp1 + "<span>" + goal1 + "득점</span>");
+$("#goalRanking > div:nth-of-type(1) > a:nth-of-type(1) > div > p:nth-of-type(2)").html(goalp2 + "<span> | " + goal2 + "득점</span>");
+$("#goalRanking > div:nth-of-type(1) > a:nth-of-type(2) > div > p:nth-of-type(2)").html(goalp3 + "<span> | " + goal3 + "득점</span>");
 
-$("#playerRanking > div:nth-of-type(2) > div:nth-of-type(1) > div > img").attr("src", "./files/" + assistid1 + ".png");
-$("#playerRanking > div:nth-of-type(2) > div:nth-of-type(2) > div > img").attr("src", "./files/" + assistid2 + ".png");
-$("#playerRanking > div:nth-of-type(2) > div:nth-of-type(3) > div > img").attr("src", "./files/" + assistid3 + ".png");
-$("#playerRanking > div:nth-of-type(2) > div:nth-of-type(1) > p").html(assistp1 + "<span>" + assist1 + "도움</span>")
-$("#playerRanking > div:nth-of-type(2) > div:nth-of-type(2) > p").html(assistp2 + "<span>" + assist2 + "도움</span>")
-$("#playerRanking > div:nth-of-type(2) > div:nth-of-type(3) > p").html(assistp3 + "<span>" + assist3 + "도움</span>")
+for (i = 0; i < goal.player.length; i++) {
+    $("#goalRankingPopup > div").append("<a><div><p></p><div><img></div><p></p></div></a>");
+};
+
+function goalRanking() {
+    $("#goalRankingPopup").css("display", "block");
+    for (i = 0; i < goal.player.length; i++) {
+        rank = goal.goal.indexOf(goal.goal[i], 0);
+        $("#goalRankingPopup > div > a:nth-of-type(" + (i + 1) + ")").attr("href", "./" + goal.id[i])
+        $("#goalRankingPopup > div > a:nth-of-type(" + (i + 1) + ") > div > div > img").attr("src", "./files/" + goal.id[i] + ".png");
+        $("#goalRankingPopup > div > a:nth-of-type(" + (i + 1) + ") > div > p:nth-of-type(1)").text(rank + 1);
+        $("#goalRankingPopup > div > a:nth-of-type(" + (i + 1) + ") > div > p:nth-of-type(2)").html(goal.player[i] + "<span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;" + goal.goal[i] + "득점</span>");
+    };
+};
+
+$("#assistRanking > a > div > div > img").attr("src", "./files/" + assistid1 + ".png");
+$("#assistRanking > a > div > p").html("<span>도움 1위</span>" + assistp1 + "<span>" + assist1 + "도움</span>");
+$("#assistRanking > div:nth-of-type(1) > a:nth-of-type(1) > div > p:nth-of-type(2)").html(assistp2 + "<span> | " + assist2 + "도움</span>");
+$("#assistRanking > div:nth-of-type(1) > a:nth-of-type(2) > div > p:nth-of-type(2)").html(assistp3 + "<span> | " + assist3 + "도움</span>");
+
+for (i = 0; i < assist.player.length; i++) {
+    $("#assistRankingPopup > div").append("<a><div><p></p><div><img></div><p></p></div></a>");
+};
+
+function assistRanking() {
+    $("#assistRankingPopup").css("display", "block");
+    for (i = 0; i < assist.player.length; i++) {
+        rank = assist.assist.indexOf(assist.assist[i], 0);
+        $("#assistRankingPopup > div > a:nth-of-type(" + (i + 1) + ")").attr("href", "./" + assist.id[i])
+        $("#assistRankingPopup > div > a:nth-of-type(" + (i + 1) + ") > div > div > img").attr("src", "./files/" + assist.id[i] + ".png");
+        $("#assistRankingPopup > div > a:nth-of-type(" + (i + 1) + ") > div > p:nth-of-type(1)").text(rank + 1);
+        $("#assistRankingPopup > div > a:nth-of-type(" + (i + 1) + ") > div > p:nth-of-type(2)").html(assist.player[i] + "<span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;" + assist.assist[i] + "도움</span>");
+    };
+};
+
+function closePopup() {
+    $("#goalRankingPopup").css("display", "none");
+    $("#assistRankingPopup").css("display", "none");
+};

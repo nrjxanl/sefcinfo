@@ -293,16 +293,16 @@ if ($("#prevMatch").length) {
     score5 = f2023.homeScore[n-4] + "-" + f2023.awayScore[n-4];
 
     if (score5 == "undefined-undefined") {
-        $("#prevMatch > div:nth-of-type(1)").css("display", "none");
+        $("#prevMatch > div > div:nth-of-type(1)").css("display", "none");
     };
     if (score4 == "undefined-undefined") {
-        $("#prevMatch > div:nth-of-type(2)").css("display", "none");
+        $("#prevMatch > div > div:nth-of-type(2)").css("display", "none");
     };
     if (score3 == "undefined-undefined") {
-        $("#prevMatch > div:nth-of-type(3)").css("display", "none");
+        $("#prevMatch > div > div:nth-of-type(3)").css("display", "none");
     };
     if (score2 == "undefined-undefined") {
-        $("#prevMatch > div:nth-of-type(4)").css("display", "none");
+        $("#prevMatch > div > div:nth-of-type(4)").css("display", "none");
     };
     if (score1 == "undefined-undefined") {
         $("#prevMatch").remove();
@@ -312,22 +312,22 @@ if ($("#prevMatch").length) {
         prev1 = awayImg[n];
         
         if (f2023.homeScore[n] > f2023.awayScore[n]) {
-            $("#prevMatch > div:nth-of-type(5) > p").css({"color": "#fafafa", "background": "#174fff"});
+            $("#prevMatch > div > div:nth-of-type(5) > p").css({"color": "#fafafa", "background": "#174fff"});
         } else if (f2023.homeScore[n] < f2023.awayScore[n]) {
-            $("#prevMatch > div:nth-of-type(5) > p").css({"color": "#fafafa", "background": "#f00"});
+            $("#prevMatch > div > div:nth-of-type(5) > p").css({"color": "#fafafa", "background": "#f00"});
         } else {
-            $("#prevMatch > div:nth-of-type(5) > p").css({"color": "#fafafa", "background": "#aaa"});
+            $("#prevMatch > div > div:nth-of-type(5) > p").css({"color": "#fafafa", "background": "#aaa"});
         };
 
     } else {
         prev1 = homeImg[n];
         
         if (f2023.homeScore[n] > f2023.awayScore[n]) {
-            $("#prevMatch > div:nth-of-type(5) > p").css({"color": "#fafafa", "background": "#f00"});
+            $("#prevMatch > div > div:nth-of-type(5) > p").css({"color": "#fafafa", "background": "#f00"});
         } else if (f2023.homeScore[n] < f2023.awayScore[n]) {
-            $("#prevMatch > div:nth-of-type(5) > p").css({"color": "#fafafa", "background": "#174fff"});
+            $("#prevMatch > div > div:nth-of-type(5) > p").css({"color": "#fafafa", "background": "#174fff"});
         } else {
-            $("#prevMatch > div:nth-of-type(5) > p").css({"color": "#fafafa", "background": "#aaa"});
+            $("#prevMatch > div > div:nth-of-type(5) > p").css({"color": "#fafafa", "background": "#aaa"});
         };
     };
 
@@ -335,22 +335,22 @@ if ($("#prevMatch").length) {
         prev2 = awayImg[n-1];
         
         if (f2023.homeScore[n-1] > f2023.awayScore[n-1]) {
-            $("#prevMatch > div:nth-of-type(4) > p").css({"color": "#fafafa", "background": "#174fff"});
+            $("#prevMatch > div > div:nth-of-type(4) > p").css({"color": "#fafafa", "background": "#174fff"});
         } else if (f2023.homeScore[n-1] < f2023.awayScore[n-1]) {
-            $("#prevMatch > div:nth-of-type(4) > p").css({"color": "#fafafa", "background": "#f00"});
+            $("#prevMatch > div > div:nth-of-type(4) > p").css({"color": "#fafafa", "background": "#f00"});
         } else {
-            $("#prevMatch > div:nth-of-type(4) > p").css({"color": "#fafafa", "background": "#aaa"});
+            $("#prevMatch > div > div:nth-of-type(4) > p").css({"color": "#fafafa", "background": "#aaa"});
         };
 
     } else {
         prev2 = homeImg[n-1];
         
         if (f2023.homeScore[n-1] > f2023.awayScore[n-1]) {
-            $("#prevMatch > div:nth-of-type(4) > p").css({"color": "#fafafa", "background": "#f00"});
+            $("#prevMatch > div > div:nth-of-type(4) > p").css({"color": "#fafafa", "background": "#f00"});
         } else if (f2023.homeScore[n-1] < f2023.awayScore[n-1]) {
-            $("#prevMatch > div:nth-of-type(4) > p").css({"color": "#fafafa", "background": "#174fff"});
+            $("#prevMatch > div > div:nth-of-type(4) > p").css({"color": "#fafafa", "background": "#174fff"});
         } else {
-            $("#prevMatch > div:nth-of-type(4) > p").css({"color": "#fafafa", "background": "#aaa"});
+            $("#prevMatch > div > div:nth-of-type(4) > p").css({"color": "#fafafa", "background": "#aaa"});
         };
     };
 
@@ -358,22 +358,22 @@ if ($("#prevMatch").length) {
         prev3 = awayImg[n-2];
         
         if (f2023.homeScore[n-2] > f2023.awayScore[n-2]) {
-            $("#prevMatch > div:nth-of-type(3) > p").css({"color": "#fafafa", "background": "#174fff"});
+            $("#prevMatch > div > div:nth-of-type(3) > p").css({"color": "#fafafa", "background": "#174fff"});
         } else if (f2023.homeScore[n-2] < f2023.awayScore[n-2]) {
-            $("#prevMatch > div:nth-of-type(3) > p").css({"color": "#fafafa", "background": "#f00"});
+            $("#prevMatch > div > div:nth-of-type(3) > p").css({"color": "#fafafa", "background": "#f00"});
         } else {
-            $("#prevMatch > div:nth-of-type(3) > p").css({"color": "#fafafa", "background": "#aaa"});
+            $("#prevMatch > div > div:nth-of-type(3) > p").css({"color": "#fafafa", "background": "#aaa"});
         };
 
     } else {
         prev3 = homeImg[n-2];
         
         if (f2023.homeScore[n-2] > f2023.awayScore[n-2]) {
-            $("#prevMatch > div:nth-of-type(3) > p").css({"color": "#fafafa", "background": "#f00"});
+            $("#prevMatch > div > div:nth-of-type(3) > p").css({"color": "#fafafa", "background": "#f00"});
         } else if (f2023.homeScore[n-2] < f2023.awayScore[n-2]) {
-            $("#prevMatch > div:nth-of-type(3) > p").css({"color": "#fafafa", "background": "#174fff"});
+            $("#prevMatch > div > div:nth-of-type(3) > p").css({"color": "#fafafa", "background": "#174fff"});
         } else {
-            $("#prevMatch > div:nth-of-type(3) > p").css({"color": "#fafafa", "background": "#aaa"});
+            $("#prevMatch > div > div:nth-of-type(3) > p").css({"color": "#fafafa", "background": "#aaa"});
         };
     };
 
@@ -381,22 +381,22 @@ if ($("#prevMatch").length) {
         prev4 = awayImg[n-3];
         
         if (f2023.homeScore[n-3] > f2023.awayScore[n-3]) {
-            $("#prevMatch > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#174fff"});
+            $("#prevMatch > div > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#174fff"});
         } else if (f2023.homeScore[n-3] < f2023.awayScore[n-3]) {
-            $("#prevMatch > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#f00"});
+            $("#prevMatch > div > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#f00"});
         } else {
-            $("#prevMatch > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#aaa"});
+            $("#prevMatch > div > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#aaa"});
         };
 
     } else {
         prev4 = homeImg[n-3];
         
         if (f2023.homeScore[n-3] > f2023.awayScore[n-3]) {
-            $("#prevMatch > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#f00"});
+            $("#prevMatch > div > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#f00"});
         } else if (f2023.homeScore[n-3] < f2023.awayScore[n-3]) {
-            $("#prevMatch > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#174fff"});
+            $("#prevMatch > div > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#174fff"});
         } else {
-            $("#prevMatch > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#aaa"});
+            $("#prevMatch > div > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#aaa"});
         };
     };
 
@@ -404,33 +404,33 @@ if ($("#prevMatch").length) {
         prev5 = awayImg[n-4];
         
         if (f2023.homeScore[n-4] > f2023.awayScore[n-4]) {
-            $("#prevMatch > div:nth-of-type(1) > p").css({"color": "#fafafa", "background": "#174fff"});
+            $("#prevMatch > div > div:nth-of-type(1) > p").css({"color": "#fafafa", "background": "#174fff"});
         } else if (f2023.homeScore[n-4] < f2023.awayScore[n-4]) {
-            $("#prevMatch > div:nth-of-type(1) > p").css({"color": "#fafafa", "background": "#f00"});
+            $("#prevMatch > div > div:nth-of-type(1) > p").css({"color": "#fafafa", "background": "#f00"});
         } else {
-            $("#prevMatch > div:nth-of-type(1) > p").css({"color": "#fafafa", "background": "#aaa"});
+            $("#prevMatch > div > div:nth-of-type(1) > p").css({"color": "#fafafa", "background": "#aaa"});
         };
 
     } else {
         prev5 = homeImg[n-4];
         
         if (f2023.homeScore[n-4] > f2023.awayScore[n-4]) {
-            $("#prevMatch > div:nth-of-type(1) > p").css({"color": "#fafafa", "background": "#f00"});
+            $("#prevMatch > div > div:nth-of-type(1) > p").css({"color": "#fafafa", "background": "#f00"});
         } else if (f2023.homeScore[n-4] < f2023.awayScore[n-4]) {
-            $("#prevMatch > div:nth-of-type(1) > p").css({"color": "#fafafa", "background": "#174fff"});
+            $("#prevMatch > div > div:nth-of-type(1) > p").css({"color": "#fafafa", "background": "#174fff"});
         } else {
-            $("#prevMatch > div:nth-of-type(1) > p").css({"color": "#fafafa", "background": "#aaa"});
+            $("#prevMatch > div > div:nth-of-type(1) > p").css({"color": "#fafafa", "background": "#aaa"});
         };
     };
 
-    $("#prevMatch > div:nth-of-type(5) > p:nth-of-type(1)").text(score1);
-    $("#prevMatch > div:nth-of-type(5) > div > img").attr("src", "./files/" + prev1 + ".png");
-    $("#prevMatch > div:nth-of-type(4) > p").text(score2);
-    $("#prevMatch > div:nth-of-type(4) > div > img").attr("src", "./files/" + prev2 + ".png");
-    $("#prevMatch > div:nth-of-type(3) > p").text(score3);
-    $("#prevMatch > div:nth-of-type(3) > div > img").attr("src", "./files/" + prev3 + ".png");
-    $("#prevMatch > div:nth-of-type(2) > p").text(score4);
-    $("#prevMatch > div:nth-of-type(2) > div > img").attr("src", "./files/" + prev4 + ".png");
-    $("#prevMatch > div:nth-of-type(1) > p").text(score5);
-    $("#prevMatch > div:nth-of-type(1) > div > img").attr("src", "./files/" + prev5 + ".png");
+    $("#prevMatch > div > div:nth-of-type(5) > p:nth-of-type(1)").text(score1);
+    $("#prevMatch > div > div:nth-of-type(5) > div > img").attr("src", "./files/" + prev1 + ".png");
+    $("#prevMatch > div > div:nth-of-type(4) > p").text(score2);
+    $("#prevMatch > div > div:nth-of-type(4) > div > img").attr("src", "./files/" + prev2 + ".png");
+    $("#prevMatch > div > div:nth-of-type(3) > p").text(score3);
+    $("#prevMatch > div > div:nth-of-type(3) > div > img").attr("src", "./files/" + prev3 + ".png");
+    $("#prevMatch > div > div:nth-of-type(2) > p").text(score4);
+    $("#prevMatch > div > div:nth-of-type(2) > div > img").attr("src", "./files/" + prev4 + ".png");
+    $("#prevMatch > div > div:nth-of-type(1) > p").text(score5);
+    $("#prevMatch > div > div:nth-of-type(1) > div > img").attr("src", "./files/" + prev5 + ".png");
 };

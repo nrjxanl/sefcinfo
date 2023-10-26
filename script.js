@@ -195,7 +195,7 @@ function matchH2H() {
     $(".matchDetail button:nth-child(4)").css("font-weight", 900);
 };
 
-if (document.getElementById("highlight")) {} else {
+if ($("#matchScore").length && !$("#highlight").length) {
     document.getElementById("matchLineup").style.display = "block";
     $(".matchDetail button:nth-child(1)").css("display", "none");
     $(".matchDetail button:nth-child(2)").css("font-weight", 900);
@@ -248,15 +248,15 @@ function standings() {
 function standingsU18F() {
     document.getElementById("standingsU18F").style.display = "block";
     document.getElementById("standingsU18S").style.display = "none";
-    $(".standingsDetail button:nth-child(1)").css("font-weight", 900)
-    $(".standingsDetail button:nth-child(2)").css("font-weight", 500)
+    $(".standingsDetail button:nth-child(1)").css("font-weight", 900);
+    $(".standingsDetail button:nth-child(2)").css("font-weight", 500);
 }
 
 function standingsU18S() {
     document.getElementById("standingsU18F").style.display = "none";
     document.getElementById("standingsU18S").style.display = "block";
-    $(".standingsDetail button:nth-child(1)").css("font-weight", 500)
-    $(".standingsDetail button:nth-child(2)").css("font-weight", 900)
+    $(".standingsDetail button:nth-child(1)").css("font-weight", 500);
+    $(".standingsDetail button:nth-child(2)").css("font-weight", 900);
 }
 
 // 순위표 SEFC tr 속성 변경

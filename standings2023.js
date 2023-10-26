@@ -187,35 +187,6 @@ function standings2023() {
             $("#standingsU18F").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(9)").text(goalCListU18F2023[i]);
             $("#standingsU18F").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(10)").text(diffListU18F2023[i]);
 
-        if (j == 0) {
-            if (i >= j && i <= (j + 2)) {
-                $("#standingsHome").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(1)").text(i + 1);
-                $("#standingsHome").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(2)").html("<img src='./files/" + emblem + ".png'>");
-                $("#standingsHome").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(3)").text(teamListU18F2023[i]);
-                $("#standingsHome").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(4)").text(ptsListU18F2023[i]);
-                $("#standingsHome").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(5)").text(goalSListU18F2023[i]);
-                $("#standingsHome").find("tbody > tr:nth-of-type(1)").attr("class", "sefc");
-            };
-        } else if (j == (teamListU18F2023.length - 1)) {
-            if (i >= (j - 2) && i <= j) {
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 3)) + ") > td:nth-of-type(1)").text(i + 1);
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 3)) + ") > td:nth-of-type(2)").html("<img src='./files/" + emblem + ".png'>");
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 3)) + ") > td:nth-of-type(3)").text(teamListU18F2023[i]);
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 3)) + ") > td:nth-of-type(4)").text(ptsListU18F2023[i]);
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 3)) + ") > td:nth-of-type(5)").text(goalSListU18F2023[i]);
-                $("#standingsHome").find("tbody > tr:nth-of-type(3)").attr("class", "sefc");
-            };
-        } else {
-            if (i >= (j - 1) && i <= (j + 1)) {
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 2)) + ") > td:nth-of-type(1)").text(i + 1);
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 2)) + ") > td:nth-of-type(2)").html("<img src='./files/" + emblem + ".png'>");
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 2)) + ") > td:nth-of-type(3)").text(teamListU18F2023[i]);
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 2)) + ") > td:nth-of-type(4)").text(ptsListU18F2023[i]);
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 2)) + ") > td:nth-of-type(5)").text(goalSListU18F2023[i]);
-                $("#standingsHome").find("tbody > tr:nth-of-type(2)").attr("class", "sefc");
-            };
-        };
-
         if (teamListU18F2023[i] == "서울E") {
             $("#standingsU18F").find("tbody > tr:nth-of-type(" + (i + 1) + ")").attr("class", "sefc");
         };
@@ -276,35 +247,6 @@ function standings2023() {
             $("#standingsU18S").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(9)").text(goalCListU18S2023[i]);
             $("#standingsU18S").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(10)").text(diffListU18S2023[i]);
 
-        if (j == 0) {
-            if (i >= j && i <= (j + 2)) {
-                $("#standingsHome").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(1)").text(i + 1);
-                $("#standingsHome").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(2)").html("<img src='./files/" + emblem + ".png'>");
-                $("#standingsHome").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(3)").text(teamListU18S2023[i]);
-                $("#standingsHome").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(4)").text(ptsListU18S2023[i]);
-                $("#standingsHome").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(5)").text(goalSListU18S2023[i]);
-                $("#standingsHome").find("tbody > tr:nth-of-type(1)").attr("class", "sefc");
-            };
-        } else if (j == (teamListU18S2023.length - 1)) {
-            if (i >= (j - 2) && i <= j) {
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 3)) + ") > td:nth-of-type(1)").text(i + 1);
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 3)) + ") > td:nth-of-type(2)").html("<img src='./files/" + emblem + ".png'>");
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 3)) + ") > td:nth-of-type(3)").text(teamListU18S2023[i]);
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 3)) + ") > td:nth-of-type(4)").text(ptsListU18S2023[i]);
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 3)) + ") > td:nth-of-type(5)").text(goalSListU18S2023[i]);
-                $("#standingsHome").find("tbody > tr:nth-of-type(3)").attr("class", "sefc");
-            };
-        } else {
-            if (i >= (j - 1) && i <= (j + 1)) {
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 2)) + ") > td:nth-of-type(1)").text(i + 1);
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 2)) + ") > td:nth-of-type(2)").html("<img src='./files/" + emblem + ".png'>");
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 2)) + ") > td:nth-of-type(3)").text(teamListU18S2023[i]);
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 2)) + ") > td:nth-of-type(4)").text(ptsListU18S2023[i]);
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 2)) + ") > td:nth-of-type(5)").text(goalSListU18S2023[i]);
-                $("#standingsHome").find("tbody > tr:nth-of-type(2)").attr("class", "sefc");
-            };
-        };
-
         if (teamListU18S2023[i] == "서울E") {
             $("#standingsU18S").find("tbody > tr:nth-of-type(" + (i + 1) + ")").attr("class", "sefc");
         };
@@ -362,35 +304,6 @@ function standings2023() {
             $("#standingsU15").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(8)").text(goalSListU152023[i]);
             $("#standingsU15").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(9)").text(goalCListU152023[i]);
             $("#standingsU15").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(10)").text(diffListU152023[i]);
-
-        if (j == 0) {
-            if (i >= j && i <= (j + 2)) {
-                $("#standingsHome").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(1)").text(i + 1);
-                $("#standingsHome").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(2)").html("<img src='./files/" + emblem + ".png'>");
-                $("#standingsHome").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(3)").text(teamListU152023[i]);
-                $("#standingsHome").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(4)").text(ptsListU152023[i]);
-                $("#standingsHome").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(5)").text(goalSListU152023[i]);
-                $("#standingsHome").find("tbody > tr:nth-of-type(1)").attr("class", "sefc");
-            };
-        } else if (j == (teamListU152023.length - 1)) {
-            if (i >= (j - 2) && i <= j) {
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 3)) + ") > td:nth-of-type(1)").text(i + 1);
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 3)) + ") > td:nth-of-type(2)").html("<img src='./files/" + emblem + ".png'>");
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 3)) + ") > td:nth-of-type(3)").text(teamListU152023[i]);
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 3)) + ") > td:nth-of-type(4)").text(ptsListU152023[i]);
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 3)) + ") > td:nth-of-type(5)").text(goalSListU152023[i]);
-                $("#standingsHome").find("tbody > tr:nth-of-type(3)").attr("class", "sefc");
-            };
-        } else {
-            if (i >= (j - 1) && i <= (j + 1)) {
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 2)) + ") > td:nth-of-type(1)").text(i + 1);
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 2)) + ") > td:nth-of-type(2)").html("<img src='./files/" + emblem + ".png'>");
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 2)) + ") > td:nth-of-type(3)").text(teamListU152023[i]);
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 2)) + ") > td:nth-of-type(4)").text(ptsListU152023[i]);
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 2)) + ") > td:nth-of-type(5)").text(goalSListU152023[i]);
-                $("#standingsHome").find("tbody > tr:nth-of-type(2)").attr("class", "sefc");
-            };
-        };
 
         if (teamListU152023[i] == "서울E") {
             $("#standingsU15").find("tbody > tr:nth-of-type(" + (i + 1) + ")").attr("class", "sefc");
