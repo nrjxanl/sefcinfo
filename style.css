@@ -366,6 +366,20 @@ footer > a:nth-of-type(3) > ul {background: #000831; width: 55px; height: 55px; 
 #matchH2H > div:nth-of-type(3) {width: 80vw; display: flex; border-radius: 10px; overflow: hidden; margin-top: 10vw;}
 #matchH2H > div:nth-of-type(3) > p {font-size: 16px; font-weight: 500; color: #fafafa; display: flex; align-items: center; justify-content: center;}
 
+#recentMatch {width: 90vw; margin-top: 20px; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px;}
+#recentMatch > div {width: 90vw; height: 80px;}
+#recentMatch > div > div {width: 90vw; height: 80px; border-radius: 20px 20px 0 0; display: flex; align-items: center; justify-content: center; border-bottom: 3px solid #00083105;}
+#recentMatch > div > div > div:nth-of-type(1) {display: flex; align-items: center; position: absolute; left: 10vw;}
+#recentMatch > div > div > div:nth-of-type(1) > div {width: 10vw;}
+#recentMatch > div > div > div:nth-of-type(1) > p {text-align: left; font-size: 18px; margin-left: 5px;}
+#recentMatch > div > div > div:nth-of-type(2) {padding: 5px 3vw; box-shadow: 0px 0px 5px 1px #00083140; border-radius: 20px; display: flex; align-items: center; justify-content: center;}
+#recentMatch > div > div > div:nth-of-type(2) > span {font-size: 18px;}
+#recentMatch > div > div > div:nth-of-type(2) > p {width: 50px; height: 3px; background: #f00; position: absolute; margin-top: 40px;}
+#recentMatch > div > div > div:nth-of-type(3) {display: flex; align-items: center; position: absolute; right: 10vw;}
+#recentMatch > div > div > div:nth-of-type(3) > div {width: 10vw;}
+#recentMatch > div > div > div:nth-of-type(3) > p {text-align: right; font-size: 18px; margin-right: 5px;}
+#recentMatch > div > div > div:nth-of-type(2n+1) > div > img {width: auto; height: 30px; vertical-align: middle;}
+
 /* 순위 */
 .standingsButton {width: 100vw; position: fixed; top: 80px; left: 0; background: #fafafa; z-index: 100;}
 .standingsButton > button {width: 70px; height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
