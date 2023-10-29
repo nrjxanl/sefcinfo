@@ -29,9 +29,12 @@ assistp3 = assist.player[2];
 assistid3 = assist.id[2];
 assist3 = assist.assist[2];
 
+$("#goalRanking > a").attr("href", "./" + goalid1);
 $("#goalRanking > a > div > div > img").attr("src", "./files/" + goalid1 + ".png");
 $("#goalRanking > a > div > p").html("<span>득점 1위</span>" + goalp1 + "<span>" + goal1 + "득점</span>");
+$("#goalRanking > div:nth-of-type(1) > a:nth-of-type(1)").attr("href", "./" + goalid2);
 $("#goalRanking > div:nth-of-type(1) > a:nth-of-type(1) > div > p:nth-of-type(2)").html(goalp2 + "<span> | " + goal2 + "득점</span>");
+$("#goalRanking > div:nth-of-type(1) > a:nth-of-type(2)").attr("href", "./" + goalid3);
 $("#goalRanking > div:nth-of-type(1) > a:nth-of-type(2) > div > p:nth-of-type(2)").html(goalp3 + "<span> | " + goal3 + "득점</span>");
 
 for (i = 0; i < goal.player.length; i++) {
@@ -49,9 +52,12 @@ function goalRanking() {
     };
 };
 
+$("#assistRanking > a").attr("href", "./" + assistid1);
 $("#assistRanking > a > div > div > img").attr("src", "./files/" + assistid1 + ".png");
 $("#assistRanking > a > div > p").html("<span>도움 1위</span>" + assistp1 + "<span>" + assist1 + "도움</span>");
+$("#assistRanking > div:nth-of-type(1) > a:nth-of-type(1)").attr("href", "./" + assistid2);
 $("#assistRanking > div:nth-of-type(1) > a:nth-of-type(1) > div > p:nth-of-type(2)").html(assistp2 + "<span> | " + assist2 + "도움</span>");
+$("#assistRanking > div:nth-of-type(1) > a:nth-of-type(2)").attr("href", "./" + assistid3);
 $("#assistRanking > div:nth-of-type(1) > a:nth-of-type(2) > div > p:nth-of-type(2)").html(assistp3 + "<span> | " + assist3 + "도움</span>");
 
 for (i = 0; i < assist.player.length; i++) {
