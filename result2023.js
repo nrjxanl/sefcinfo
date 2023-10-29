@@ -191,7 +191,7 @@ function fixtures2023() {
             };
         };
     } else if (n >= (aMatch.length + u18Match.length)) {
-        for (i = aMatch.length; i < (aMatch.length + u18Match.length); i++) {
+        for (i = (aMatch.length + u18Match.length); i < (aMatch.length + u18Match.length + u15Match.length); i++) {
             if (f2023.home[i] == opp || f2023.away[i] == opp) {
                 recentMatchIndex.push(i);
             };
@@ -199,9 +199,7 @@ function fixtures2023() {
     };
 
     recentMatchIndex.reverse();
-
-    console.log(recentMatchIndex)
-
+    
     window.onload = function() {
 
         $("#matchH2H").append("<div id='recentMatch'></div>")

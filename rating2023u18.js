@@ -47,7 +47,7 @@ $("#startingXI td").each(function () {
     playerName = data[Object.keys(data)[index]][0];
 
     $("#" + id).html("<div><img src='./files/" + id + ".png'></div><p><span>" + playerNum + "</span>" + playerName + "</p><p>-</p>");
- 
+
 });
 
 $("#sub td").each(function () {

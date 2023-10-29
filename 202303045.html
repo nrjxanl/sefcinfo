@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>SEFCiNFO</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="./files/favicon.png">
+</head>
+
+<header></header>
+<footer></footer>
+
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onkeydownn="return false">
+
+    <div id="headerOffset"></div>
+
+    <div>
+        <div id="matchScore">
+            <div>
+                <img>
+                <p></p>
+                <p id="homeScorer"></p>
+            </div>
+            <div>
+                <div>
+                    <p id="homeScore"></p>
+                    <img>
+                    <p id="awayScore"></p>
+                </div>
+                <p id="round">1라운드</p>
+                <p id="date"></p>
+            </div>
+            <div>
+                <img>
+                <p></p>
+                <p id="awayScorer"></p>
+            </div>
+        </div>
+
+        <div class="matchDetail">
+            <button onclick="matchInfo()">정보</button>
+            <button onclick="matchLineup()" style="font-weight: 400;">라인업</button>
+            <button onclick="matchStat()" style="font-weight: 400;">기록</button>
+            <button onclick="matchH2H()" style="font-weight: 400;">전적</button>
+        </div>
+
+        <div id="matchInfo"></div>
+
+        <div id="matchLineup">
+
+            <div id="startingXI">
+            </div>
+
+            <div id="sub">
+            </div>
+
+        </div>
+
+        <div id="matchStat">
+            <table>
+                <tr>
+                    <td>
+                        <p></p>
+                    </td>
+                    <td></td>
+                    <td>점유율</td>
+                    <td></td>
+                    <td>
+                        <p></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p></p>
+                    </td>
+                    <td></td>
+                    <td>슈팅</td>
+                    <td></td>
+                    <td>
+                        <p></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p></p>
+                    </td>
+                    <td></td>
+                    <td>유효슈팅</td>
+                    <td></td>
+                    <td>
+                        <p></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p></p>
+                    </td>
+                    <td></td>
+                    <td>파울</td>
+                    <td></td>
+                    <td>
+                        <p></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p></p>
+                    </td>
+                    <td></td>
+                    <td>경고</td>
+                    <td></td>
+                    <td>
+                        <p></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p></p>
+                    </td>
+                    <td></td>
+                    <td>퇴장</td>
+                    <td></td>
+                    <td>
+                        <p></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p></p>
+                    </td>
+                    <td></td>
+                    <td>경고누적</td>
+                    <td></td>
+                    <td>
+                        <p></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p></p>
+                    </td>
+                    <td></td>
+                    <td>코너킥</td>
+                    <td></td>
+                    <td>
+                        <p></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p></p>
+                    </td>
+                    <td></td>
+                    <td>프리킥</td>
+                    <td></td>
+                    <td>
+                        <p></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p></p>
+                    </td>
+                    <td></td>
+                    <td>오프사이드</td>
+                    <td></td>
+                    <td>
+                        <p></p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="matchH2H">
+        </div>
+
+    </div>
+
+    <div id="footerOffset"></div>
+
+    <script src="script.js"></script>
+
+    <script src="result2023.js"></script>
+
+    <script src="lineup2023u15.js"></script>
+
+    <script src="rating2023u15.js"></script>
+
+    <script src="h2hu15.js"></script>
+
+    <script src="matchstat2023u15.js"></script>
+
+</body>
+
+</html>
