@@ -190,6 +190,12 @@ function fixtures2023() {
                 recentMatchIndex.push(i);
             };
         };
+    } else if (n >= (aMatch.length + u18Match.length)) {
+        for (i = aMatch.length; i < (aMatch.length + u18Match.length); i++) {
+            if (f2023.home[i] == opp || f2023.away[i] == opp) {
+                recentMatchIndex.push(i);
+            };
+        };
     };
 
     recentMatchIndex.reverse();
@@ -246,26 +252,30 @@ function fixtures2023() {
                     $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > p").css("background", "#aaa");
                     $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > span").css("color", "#fafafa");
                 };
-            }
+            };
     
             $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").attr("onclick", "location.href='./" + f2023.id[recentMatchIndex[j]] + "'");
         
             $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(1) > div > img").attr("src", "./files/" + homeImg[recentMatchIndex[j]] + ".png");
             $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(3) > div > img").attr("src", "./files/" + awayImg[recentMatchIndex[j]] + ".png");
-    
-            $("#recentMatch > div").each(function () {
-                if ($(this).find("div > div:nth-of-type(2) > span:nth-of-type(2)").text() == "vs") {
-                    $(this).css("display", "none");
-                };
-            });
 
         };
+
+        $("#recentMatch > div").each(function () {
+
+            if ($(this).find("div > div:nth-of-type(2) > span:nth-of-type(2)").text() == "vs") {
+                $(this).remove();
+            };
+        });
     
         if ($("#recentMatch > div").length < 1) {
             $("#recentMatch").css("display", "none");
         };
 
-    }
+        $("#recentMatch > div:nth-of-type(1) > div > div:nth-of-type(2) > p").css({"width": "40px", "height": "3px", "position": "absolute", "margin-top": "45px"});
+        
+    };
+    
 };
 
 // 일정 불러오기

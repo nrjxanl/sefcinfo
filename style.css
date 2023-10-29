@@ -379,8 +379,6 @@ footer > a:nth-of-type(3) > ul {background: #000831; width: 55px; height: 55px; 
 #recentMatch > div > div > div:nth-of-type(3) > p {text-align: right; font-size: 18px; margin-right: 5px;}
 #recentMatch > div > div > div:nth-of-type(2n+1) > div > img {width: auto; height: 30px; vertical-align: middle;}
 
-#recentMatch > div:nth-of-type(1) > div > div:nth-of-type(2) > p {width: 40px; height: 3px; position: absolute; margin-top: 45px;}
-
 /* 순위 */
 .standingsButton {width: 100vw; position: fixed; top: 80px; left: 0; background: #fafafa; z-index: 100;}
 .standingsButton > button {width: 70px; height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
