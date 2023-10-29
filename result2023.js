@@ -27,6 +27,12 @@ compImg = compImg.split(",")
 
 function fixtures2023() {
 
+    $("#fixturesSeason_ > button").css({"color": "#000831", "background": "#fafafa"})
+    $("#fixturesSeason_ > button:contains(2023)").css({"color": "#fafafa", "background": "#000831"})
+    $("#fixturesA > .fixtures").empty();
+    $("#fixturesU18 > .fixtures").empty();
+    $("#fixturesU15 > .fixtures").empty();
+
     // 경기 세부 정보
     id = document.URL.substring(document.URL.lastIndexOf("/") + 1, document.URL.lastIndexOf("/") + 10);
     n = f2023.id.indexOf(id);
