@@ -16,7 +16,7 @@ footer {width: 100vw; height: 70px; position: fixed; bottom: 0; left: 0; backgro
 footer > a > ul {width: 60px; height: 40px; display: flex; align-items: center; justify-content: center;}
 footer > a > ul > img {height: 25px;}
 footer > a:nth-of-type(3) > ul > img {height: 35px; filter: none;}
-footer > a > div {width: 100px; height: 40px; margin: 0 10px; color: #fafafa; background: #000831; font-size: 16px; display: flex; align-items: center; justify-content: center; border-radius: 100vw;}
+footer > a > div {width: 100px; height: 40px; margin: 0 10px; color: #fafafa; background: #000831; font-size: 16px; display: flex; align-items: center; justify-content: center; border-radius: 10vw;}
 footer > a > div > img {height: 25px; padding: 0 1.5vw 0 0; filter: invert(98%) sepia(26%) saturate(0%) hue-rotate(201deg) brightness(110%) contrast(100%);}
 footer > a:nth-of-type(3) > ul {background: #000831; width: 55px; height: 55px; border-radius: 50%; margin: 0 10px;}
 
@@ -168,6 +168,7 @@ footer > a:nth-of-type(3) > ul {background: #000831; width: 55px; height: 55px; 
 /* 선수단 */
 .playerButton {width: 100vw; position: fixed; top: 80px; left: 0; background: #fafafa; z-index: 100;}
 .playerButton > button {width: 70px; height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
+.playerButton > button:nth-of-type(4) {width: 260px;}
 
 #playerA > div {width: 90vw; margin-left: 5vw; overflow: scroll; text-align: center;}
 #playerA > div > p {width: 90vw; height: 25px; font-size: 18px; margin-top: 50px;}
@@ -194,6 +195,14 @@ footer > a:nth-of-type(3) > ul {background: #000831; width: 55px; height: 55px; 
 #playerU15 > div > a > div > div > img {width: 26vw; margin-top: -10px;}
 #playerU15 > div > a > div > p {width: 40vw; font-size: 30px; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center; font-style: italic;}
 #playerU15 > div > a > div > p > span {font-family: "Kaushan Script"; margin-right: 3vw; color: #174fff; font-size: inherit; -webkit-text-stroke: 1px; font-style: normal;}
+
+#playerAllTime {display: none; width: 90vw; margin: 50px 0 0 5vw;}
+#playerAllTime > div > div {width: 25vw; height: 150px; float: left; padding: 10px 0; margin: 20px 2.5vw; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 10px;}
+#playerAllTime > div > div:nth-last-of-type(1) {margin-bottom: 100px;}
+#playerAllTime > div > div > div {width: 25vw; height: 100px; overflow: hidden; border-radius: 0 0 20vw 20vw;}
+#playerAllTime > div > div > div > img {width: 25vw;}
+#playerAllTime > div > div > p {width: 25vw; height: 40px; margin-top: 10px; font-size: 20px; line-height: 1.2; display: flex; justify-content: center; align-items: center; flex-direction: column;}
+#playerAllTime > div > div > p > span {font-size: 16px; font-family: "Kaushan Script"; color: #174fff;}
 
 /* 선수 정보 */
 .playerDetail {width: 100vw; height: 50px; margin-top: 25px; position: relative; z-index: 98;}
