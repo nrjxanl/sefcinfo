@@ -5,7 +5,7 @@ data = {
     "goyangzaicro": ["171c61", "b31d23", "1", "0", "1", "2", "2"],
     "gwangjufc": ["ffd24f", "c41230", "0", "0", "5", "0", "23"],
     "gimcheonsangmu": ["002649", "c5a775", "2", "1", "1", "9", "3"],
-    "gimpofc": ["203d41", "cdb161", "4", "0", "0", "18", "3"],
+    "gimpofc": ["203d41", "cdb161", "5", "0", "0", "22", "7"],
     "daegufc": ["59b8f6", "000000", "1", "0", "5", "4", "18"],
     "daejeoncitizen": ["9b2743", "041e42", "2", "2", "0", "8", "6"],
     "daejeonhana": ["007e6e", "9b2743", "2", "2", "0", "8", "6"],
@@ -51,6 +51,7 @@ data = {
     "chojihs": ["019241", "fff500", "1", "0", "0", "1", "0"],
     "soongsilhs": ["122a4a", "ffffff", "1", "0", "0", "5", "1"],
 }
+    
 
 hrefH = $("#matchScore > div:nth-of-type(1)").find("img").attr("src").replace("./files/", "").replace("_s.png", "").replace(/[0-9]/g, "");
 hrefA = $("#matchScore > div:nth-of-type(3)").find("img").attr("src").replace("./files/", "").replace("_s.png", "").replace(/[0-9]/g, "");
