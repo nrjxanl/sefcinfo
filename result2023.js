@@ -140,7 +140,7 @@ function fixtures2023() {
         while (true) {
             nA = aMatch.indexOf(nextMatchA.toString());
 
-            if (nA !== -1) {
+            if (nA !== -1 || nextMatchA > aMatch[aMatch.length - 1]) {
                 break;
             };
             nextMatchA += 10;
@@ -148,7 +148,7 @@ function fixtures2023() {
         while (true) {
             nU18 = u18Match.indexOf(nextMatchU18.toString());
 
-            if (nU18 !== -1) {
+            if (nU18 !== -1 || nextMatchU18 > u18Match[u18Match.length - 1]) {
                 break;
             };
             nextMatchU18 += 10;
@@ -156,7 +156,7 @@ function fixtures2023() {
         while (true) {
             nU15 = u15Match.indexOf(nextMatchU15.toString());
 
-            if (nU15 !== -1) {
+            if (nU15 !== -1 || nextMatchU15 > u15Match[u15Match.length - 1]) {
                 break;
             };
             nextMatchU15 += 10;
