@@ -142,11 +142,17 @@ if ((document.URL.substring(document.URL.lastIndexOf("/") + 9, document.URL.last
     offside.find("td:nth-child(5) > p").css({"width": offsideAGauge, "background": awayColor});
 
     $("#matchStat > table > tbody > tr").each(function () {
-        if($(this).find("td:nth-of-type(2)").text() == 0) {
+        if ($(this).find("td:nth-of-type(2)").text() == 0) {
             $(this).find("td:nth-of-type(1) > p").css("width", ".3vw");
         };
-        if($(this).find("td:nth-of-type(4)").text() == 0) {
+        if ($(this).find("td:nth-of-type(4)").text() == 0) {
             $(this).find("td:nth-of-type(5) > p").css("width", ".3vw");
+        };
+    });
+
+    $("#matchStat > table > tbody > tr > td:nth-of-type(2n)").each(function () {
+        if ($(this).text().replace(/[^0-9]/g, "") == "") {
+            $(this).text("-");
         };
     });
 

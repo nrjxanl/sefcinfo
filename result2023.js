@@ -1,5 +1,5 @@
 f2023 = {
-    "id": ["202303010", "202303050", "202303110", "202303290", "202304020", "202304090", "202304120", "202304150", "202304180", "202304220", "202304300", "202305030", "202305060", "202305130", "202305200", "202305240", "202305280", "202306040", "202306110", "202306250", "202307030", "202307080", "202307180", "202307230", "202307310", "202308060", "202308150", "202308200", "202308260", "202308300", "202309030", "202309160", "202309190", "202309240", "202309300", "202310070", "202310280", "202311110", "202311260", "202302138", "202302158", "202302178", "202302208", "202302228", "202302248", "202303048", "202303118", "202303188", "202304018", "202304088", "202304158", "202304228", "202304268", "202305068", "202305088", "202305208", "202306028", "202306108", "202306248", "202307158", "202307178", "202307198", "202308268", "202309098", "202309168", "202309228", "202310078", "202310148", "202310218", "202310288", "202311048", "202311118", "202302075", "202302095", "202302115", "202302135", "202302165", "202303045", "202303185", "202303255", "202304015", "202304085", "202304155", "202304225", "202304295", "202305205", "202306025", "202306105", "202306175", "202306245", "202307015", "202308095", "202308115", "202308135", "202308265", "202309025", "202309095", "202309165", "202310145", "202310215", "202310285", "202311045"],
+    "id": ["202303010", "202303050", "202303110", "202303290", "202304020", "202304090", "202304120", "202304150", "202304180", "202304220", "202304300", "202305030", "202305060", "202305130", "202305200", "202305240", "202305280", "202306040", "202306110", "202306250", "202307030", "202307080", "202307180", "202307230", "202307310", "202308060", "202308150", "202308200", "202308260", "202308300", "202309030", "202309160", "202309190", "202309240", "202309300", "202310070", "202310280", "202311110", "202311260", "202302138", "202302158", "202302178", "202302308", "202302328", "202302348", "202303048", "202303118", "202303188", "202304018", "202304088", "202304158", "202304228", "202304268", "202305068", "202305088", "202305208", "202306028", "202306108", "202306248", "202307158", "202307178", "202307198", "202308268", "202309098", "202309168", "202309228", "202310078", "202310148", "202310218", "202310288", "202311048", "202311118", "202302075", "202302095", "202302115", "202302135", "202302165", "202303045", "202303185", "202303255", "202304015", "202304085", "202304155", "202304225", "202304295", "202305205", "202306025", "202306105", "202306175", "202306245", "202307015", "202308095", "202308115", "202308135", "202308265", "202309025", "202309095", "202309165", "202310145", "202310215", "202310285", "202311045"],
     "comp": ["k2", "k2", "k2", "fa", "k2", "k2", "fa", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "fa", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "mcst", "mcst", "mcst", "mcst", "mcst", "mcst", "kj8f", "kj8f", "kj8f", "kj8f", "kj8f", "kj8f", "kj8f", "kj8f", "kf8", "kf8", "kj8f", "kj8f", "kj8f", "kj8s", "kyc8", "kyc8", "kyc8", "kj8s", "kj8s", "kj8s", "kj8s", "kj8s", "kj8s", "kj8s", "kj8s", "kj8s", "kj8s", "yd", "yd", "yd", "yd", "yd", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kyc5", "kyc5", "kyc5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5"],
     "home": ["서울E", "안양", "서울E", "서울E", "부산", "서울E", "서울E", "충남아산", "부천", "서울E", "서울E", "경남", "김포", "서울E", "서울E", "서울E", "안산", "서울E", "성남", "서울E", "전남", "천안", "서울E", "충북청주", "서울E", "서울E", "김천", "서울E", "부천", "서울E", "김포", "서울E", "충북청주", "서울E", "충남아산", "서울E", "안양", "서울E", "김천", "파주고려", "홍천FC", "서울E", "숭실고", "안산", "서울E", "안양", "서울E", "FC서울", "부천", "서울E", "서울E", "안산", "서울E", "부천", "서울E", "수원삼성", "서울E", "서울E", "서울E", "전북", "서울E", "대구", "서울E", "서울E", "천안", "안양", "서울E", "안산", "김천", "서울E", "김포", "제주", "김포", "서울E", "충남아산", "제주", "포항", "서울E", "서울E", "안양", "서울E", "부천", "강원", "서울E", "수원삼성", "서울E", "수원FC", "안산", "서울E", "성남", "서울E", "전남", "서울E", "성남", "김포", "서울E", "제주", "서울E", "인천", "서울E", "FC서울", "서울E"],
     "homeScore": ["2", "1", "0", "6", "1", "4", "2", "2", "0", "0", "1", "1", "0", "3", "2", "0", "1", "1", "1", "1", "3", "0", "0", "2", "0", "1", "4", "2", "1", "1", "2", "0", "0", "3", "1", "1", "3", "", "", "1", "1", "1", "1", "2", "1", "2", "4", "2", "1", "1", "3", "2", "0", "2", "3", "4", "2", "4", "3", "5", "4", "2", "3", "0", "2", "2", "1", "0", "1", "1", "3", "", "0", "0", "1", "2", "4", "1", "0", "3", "0", "2", "0", "1", "6", "0", "3", "3", "1", "4", "1", "4", "0", "0", "6", "1", "6", "0", "1", "0", "7", "1"],
@@ -9,21 +9,21 @@ f2023 = {
     "awayScorer": ["", "36' 브루노", "", "", "", "", "", "", "34' 차승현", "", "", "19' 글레이손(OG)<br>65' 호난", "", "", "", "", "42' 변경준<br>69' 브루노", "", "45+2' 브루노<br>70' 한용수", "", "14' 최희원(OG)<br>26' 송시우<br>75' 이동률", "", "", "31' 박정인", "", "", "", "", "", "", "2' 호난", "", "27' 변경준", "", "", "", "", "", "", "44' 오현택<br>68' 김서준<br>80' 장석훈<br>80+1' 김성연", "38' 오현택<br>42' 문성욱", "", "3' 문성욱<br>41' 이원빈(OG)<br>61' 오현택<br>79', 80+1' 박서준", "18' 김성연<br>57' 오현택<br>59' 장석훈", "", "54' 장석훈", "", "", "", "", "", "11', 35', 45+1' 김성연<br>70' 장석훈", "", "", "", "85', 87' 문종보", "", "", "", "", "", "", "", "", "80' 김서준<br>90+3' 문우주", "90' 김우현", "", "32' 황윤우<br>86' 윤진서", "14' 황윤우<br>20' 김지완<br>68' 문종보<br>83', 86' 신정우", "", "6' 오현택<br>27' 양재민<br>57' 황윤우<br>81' 김지완", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
 }
 
-aMatch = f2023.id.filter((a) => a.substr(-1) == 0);
-u18Match = f2023.id.filter((a) => a.substr(-1) == 8);
-u15Match = f2023.id.filter((a) => a.substr(-1) == 5);
+aMatch2023 = f2023.id.filter((a) => a.substr(-1) == "0");
+u18Match2023 = f2023.id.filter((a) => a.substr(-1) == "8");
+u15Match2023 = f2023.id.filter((a) => a.substr(-1) == "5");
 
-homeImg = f2023.home.join();
-homeImg = homeImg.replaceAll("서울E", "seouleland_s").replaceAll("울산", "ulsanhyundai2016_s").replaceAll("수원삼성", "suwonsamsung_s").replaceAll("수원FC", "suwonfc2016_s").replaceAll("성남", "seongnamfc2014_s").replaceAll("포항", "pohangsteelers_s").replaceAll("전남", "jeonnamdragons2022_s").replaceAll("전북", "jeonbukhyundai2018_s").replaceAll("제주", "jejuutd_s").replaceAll("인천", "incheonutd_s").replaceAll("경남", "gyeongnamfc2010_s").replaceAll("광주", "gwangjufc2020_s").replaceAll("김포", "gimpofc2022_s").replaceAll("김천", "gimcheonsangmu_s").replaceAll("강원", "gangwonfc_s").replaceAll("FC서울", "fcseoul_s").replaceAll("안양", "fcanyang_s").replaceAll("대전", "daejeonhana2020_s").replaceAll("대구", "daegufc2013_s").replaceAll("충남아산", "chungnamasan_s").replaceAll("충북청주", "chungbukcheongju_s").replaceAll("천안", "cheonancity2023_s").replaceAll("부산", "busanipark2012_s").replaceAll("부천", "bucheonfc_s").replaceAll("안산", "ansangreeners_s").replaceAll("파주고려", "pajukorea_s").replaceAll("홍천FC", "hongcheonfc_s").replaceAll("초지고", "chojihs_s").replaceAll("숭실고", "soongsilhs_s");
-homeImg = homeImg.split(",")
+homeImg2023 = f2023.home.join();
+homeImg2023 = homeImg2023.replaceAll("서울E", "seouleland_s").replaceAll("울산", "ulsanhyundai2016_s").replaceAll("수원삼성", "suwonsamsung_s").replaceAll("수원FC", "suwonfc2016_s").replaceAll("성남", "seongnamfc2014_s").replaceAll("포항", "pohangsteelers_s").replaceAll("전남", "jeonnamdragons2022_s").replaceAll("전북", "jeonbukhyundai2018_s").replaceAll("제주", "jejuutd_s").replaceAll("인천", "incheonutd_s").replaceAll("경남", "gyeongnamfc2010_s").replaceAll("광주", "gwangjufc2020_s").replaceAll("김포", "gimpofc2022_s").replaceAll("김천", "gimcheonsangmu_s").replaceAll("강원", "gangwonfc_s").replaceAll("FC서울", "fcseoul_s").replaceAll("안양", "fcanyang_s").replaceAll("대전", "daejeonhana2020_s").replaceAll("대구", "daegufc2013_s").replaceAll("충남아산", "chungnamasan_s").replaceAll("충북청주", "chungbukcheongju_s").replaceAll("천안", "cheonancity2023_s").replaceAll("부산", "busanipark2012_s").replaceAll("부천", "bucheonfc_s").replaceAll("안산", "ansangreeners_s").replaceAll("파주고려", "pajukorea_s").replaceAll("홍천FC", "hongcheonfc_s").replaceAll("초지고", "chojihs_s").replaceAll("숭실고", "soongsilhs_s");
+homeImg2023 = homeImg2023.split(",")
 
-awayImg = f2023.away.join();
-awayImg = awayImg.replaceAll("서울E", "seouleland_s").replaceAll("울산", "ulsanhyundai2016_s").replaceAll("수원삼성", "suwonsamsung_s").replaceAll("수원FC", "suwonfc2016_s").replaceAll("성남", "seongnamfc2014_s").replaceAll("포항", "pohangsteelers_s").replaceAll("전남", "jeonnamdragons2022_s").replaceAll("전북", "jeonbukhyundai2018_s").replaceAll("제주", "jejuutd_s").replaceAll("인천", "incheonutd_s").replaceAll("경남", "gyeongnamfc2010_s").replaceAll("광주", "gwangjufc2020_s").replaceAll("김포", "gimpofc2022_s").replaceAll("김천", "gimcheonsangmu_s").replaceAll("강원", "gangwonfc_s").replaceAll("FC서울", "fcseoul_s").replaceAll("안양", "fcanyang_s").replaceAll("대전", "daejeonhana2020_s").replaceAll("대구", "daegufc2013_s").replaceAll("충남아산", "chungnamasan_s").replaceAll("충북청주", "chungbukcheongju_s").replaceAll("천안", "cheonancity2023_s").replaceAll("부산", "busanipark2012_s").replaceAll("부천", "bucheonfc_s").replaceAll("안산", "ansangreeners_s").replaceAll("파주고려", "pajukorea_s").replaceAll("홍천FC", "hongcheonfc_s").replaceAll("초지고", "chojihs_s").replaceAll("숭실고", "soongsilhs_s");
-awayImg = awayImg.split(",")
+awayImg2023 = f2023.away.join();
+awayImg2023 = awayImg2023.replaceAll("서울E", "seouleland_s").replaceAll("울산", "ulsanhyundai2016_s").replaceAll("수원삼성", "suwonsamsung_s").replaceAll("수원FC", "suwonfc2016_s").replaceAll("성남", "seongnamfc2014_s").replaceAll("포항", "pohangsteelers_s").replaceAll("전남", "jeonnamdragons2022_s").replaceAll("전북", "jeonbukhyundai2018_s").replaceAll("제주", "jejuutd_s").replaceAll("인천", "incheonutd_s").replaceAll("경남", "gyeongnamfc2010_s").replaceAll("광주", "gwangjufc2020_s").replaceAll("김포", "gimpofc2022_s").replaceAll("김천", "gimcheonsangmu_s").replaceAll("강원", "gangwonfc_s").replaceAll("FC서울", "fcseoul_s").replaceAll("안양", "fcanyang_s").replaceAll("대전", "daejeonhana2020_s").replaceAll("대구", "daegufc2013_s").replaceAll("충남아산", "chungnamasan_s").replaceAll("충북청주", "chungbukcheongju_s").replaceAll("천안", "cheonancity2023_s").replaceAll("부산", "busanipark2012_s").replaceAll("부천", "bucheonfc_s").replaceAll("안산", "ansangreeners_s").replaceAll("파주고려", "pajukorea_s").replaceAll("홍천FC", "hongcheonfc_s").replaceAll("초지고", "chojihs_s").replaceAll("숭실고", "soongsilhs_s");
+awayImg2023 = awayImg2023.split(",")
 
-compImg = f2023.comp.join();
-compImg = compImg.replaceAll("k2", "kleague40_s").replaceAll("fa", "facup_s").replaceAll("kj8f", "kleague40_s").replaceAll("kj8s", "kleague40_s").replaceAll("kj5", "kleague40_s").replaceAll("mcst", "mcst_s").replaceAll("kf8", "kfa_s").replaceAll("kyc8", "kleagueyouthchampionship_s").replaceAll("kyc5", "kleagueyouthchampionship_s").replaceAll("yd", "kfa_s");
-compImg = compImg.split(",")
+compImg2023 = f2023.comp.join();
+compImg2023 = compImg2023.replaceAll("k2", "kleague40_s").replaceAll("fa", "facup_s").replaceAll("kj8f", "kleague40_s").replaceAll("kj8s", "kleague40_s").replaceAll("kj5", "kleague40_s").replaceAll("mcst", "mcst_s").replaceAll("kf8", "kfa_s").replaceAll("kyc8", "kleagueyouthchampionship_s").replaceAll("kyc5", "kleagueyouthchampionship_s").replaceAll("yd", "kfa_s");
+compImg2023 = compImg2023.split(",")
 
 function fixtures2023() {
 
@@ -47,24 +47,29 @@ function fixtures2023() {
     $("#matchScore > div:nth-of-type(1) > p:nth-of-type(1)").text(f2023.home[n]);
     $("#matchScore > div:nth-of-type(3) > p:nth-of-type(1)").text(f2023.away[n]);
 
-    $("#matchScore > div:nth-of-type(1) > img").attr("src", "./files/" + homeImg[n] + ".png");
-    $("#matchScore > div:nth-of-type(2) > div > img").attr("src", "./files/" + compImg[n] + ".png");
-    $("#matchScore > div:nth-of-type(3) > img").attr("src", "./files/" + awayImg[n] + ".png");
+    $("#matchScore > div:nth-of-type(1) > img").attr("src", "./files/" + homeImg2023[n] + ".png");
+    $("#matchScore > div:nth-of-type(2) > div > img").attr("src", "./files/" + compImg2023[n] + ".png");
+    $("#matchScore > div:nth-of-type(3) > img").attr("src", "./files/" + awayImg2023[n] + ".png");
 
-    if(f2023.homeScore[n] > f2023.awayScore[n]) {
+    if (f2023.homeScore[n] > f2023.awayScore[n]) {
         $("#awayScore").css("opacity", "0.7");
-    } else if(f2023.homeScore[n] < f2023.awayScore[n]) {
+    } else if (f2023.homeScore[n] < f2023.awayScore[n]) {
         $("#homeScore").css("opacity", "0.7");
     };
 
+    if (f2023.homeScore[n] == "") {
+        $(".matchDetail > button[onclick='matchInfo()']").css("display", "none");
+        matchH2H();
+    }
+
     // 경기 일정
-    for(i = 0; i < aMatch.length; i++) {
+    for (i = 0; i < aMatch2023.length; i++) {
         $("#fixturesA > .fixtures").append("<div class='fixtures_'></div>");
     };
-    for(i = 0; i < u18Match.length; i++) {
+    for (i = 0; i < u18Match2023.length; i++) {
         $("#fixturesU18 > .fixtures").append("<div class='fixtures_'></div>");
     };
-    for(i = 0; i < u15Match.length; i++) {
+    for (i = 0; i < u15Match2023.length; i++) {
         $("#fixturesU15 > .fixtures").append("<div class='fixtures_'></div>");
     };
 
@@ -116,13 +121,13 @@ function fixtures2023() {
 
         $(this).attr("onclick", "location.href='./" + f2023.id[index] + "'");
 
-        $(this).find("div:nth-of-type(1) > div:nth-of-type(1) > div > img").attr("src", "./files/" + homeImg[index] + ".png");
-        $(this).find("div:nth-of-type(1) > div:nth-of-type(3) > div > img").attr("src", "./files/" + awayImg[index] + ".png");
-        $(this).find("div:nth-of-type(2) > div:nth-of-type(1) > img").attr("src", "./files/" + compImg[index] + ".png");
+        $(this).find("div:nth-of-type(1) > div:nth-of-type(1) > div > img").attr("src", "./files/" + homeImg2023[index] + ".png");
+        $(this).find("div:nth-of-type(1) > div:nth-of-type(3) > div > img").attr("src", "./files/" + awayImg2023[index] + ".png");
+        $(this).find("div:nth-of-type(2) > div:nth-of-type(1) > img").attr("src", "./files/" + compImg2023[index] + ".png");
     });
 
     // 일정 목록 화면 다음 일정 찾기
-    if($(".fixtures_").length) {
+    if ($(".fixtures_").length) {
         date = new Date();
 
         year = date.getFullYear().toString();
@@ -133,38 +138,38 @@ function fixtures2023() {
         nextMatchU18 = Number(year + month + day + "8");
         nextMatchU15 = Number(year + month + day + "5");
 
-        nA = aMatch.indexOf(nextMatchA.toString());
-        nA = u18Match.indexOf(nextMatchU18.toString());
-        nA = u15Match.indexOf(nextMatchU15.toString());
+        nA = aMatch2023.indexOf(nextMatchA.toString());
+        nA = u18Match2023.indexOf(nextMatchU18.toString());
+        nA = u15Match2023.indexOf(nextMatchU15.toString());
 
         while (true) {
-            nA = aMatch.indexOf(nextMatchA.toString());
+            nA = aMatch2023.indexOf(nextMatchA.toString());
 
-            if (nA !== -1 || nextMatchA > aMatch[aMatch.length - 1]) {
+            if (nA !== -1 || nextMatchA > aMatch2023[aMatch2023.length - 1]) {
                 break;
             };
             nextMatchA += 10;
         };
         while (true) {
-            nU18 = u18Match.indexOf(nextMatchU18.toString());
+            nU18 = u18Match2023.indexOf(nextMatchU18.toString());
 
-            if (nU18 !== -1 || nextMatchU18 > u18Match[u18Match.length - 1]) {
+            if (nU18 !== -1 || nextMatchU18 > u18Match2023[u18Match2023.length - 1]) {
                 break;
             };
             nextMatchU18 += 10;
         };
         while (true) {
-            nU15 = u15Match.indexOf(nextMatchU15.toString());
+            nU15 = u15Match2023.indexOf(nextMatchU15.toString());
 
-            if (nU15 !== -1 || nextMatchU15 > u15Match[u15Match.length - 1]) {
+            if (nU15 !== -1 || nextMatchU15 > u15Match2023[u15Match2023.length - 1]) {
                 break;
             };
             nextMatchU15 += 10;
         };
 
-        nA = aMatch.indexOf(nextMatchA.toString());
-        nU18 = u18Match.indexOf(nextMatchU18.toString());
-        nU15 = u15Match.indexOf(nextMatchU15.toString());
+        nA = aMatch2023.indexOf(nextMatchA.toString());
+        nU18 = u18Match2023.indexOf(nextMatchU18.toString());
+        nU15 = u15Match2023.indexOf(nextMatchU15.toString());
 
         nextMatchAIndex = ".fixtures_:nth-of-type(" + (nA + 1) + ")";
         nextMatchU18Index = ".fixtures_:nth-of-type(" + (nU18 + 1) + ")";
@@ -174,8 +179,18 @@ function fixtures2023() {
         $("#fixturesU18 > .fixtures").find(nextMatchU18Index).attr("id", "nextMatchU18");
         $("#fixturesU15 > .fixtures").find(nextMatchU15Index).attr("id", "nextMatchU15");
     };
+    
+};
 
-    // 최근 경기 결과
+function recentMatch2023() {
+
+    if (typeof recentMatchLength == "undefined") {
+        recentMatchLength = 0;
+    };
+
+    id = document.URL.substring(document.URL.lastIndexOf("/") + 1, document.URL.lastIndexOf("/") + 10);
+    n = f2023.id.indexOf(id);
+
     if (f2023.home[n] == "서울E") {
         opp = f2023.away[n];
     } else if (f2023.away[n] == "서울E") {
@@ -183,21 +198,21 @@ function fixtures2023() {
     };
 
     recentMatchIndex = [];
-    
-    if (n < aMatch.length) {
-        for (i = 0; i < aMatch.length; i++) {
+
+    if (n < aMatch2023.length) {
+        for (i = 0; i < aMatch2023.length; i++) {
             if (f2023.home[i] == opp || f2023.away[i] == opp) {
                 recentMatchIndex.push(i);
             };
         };
-    } else if (n >= aMatch.length && n < (aMatch.length + u18Match.length)) {
-        for (i = aMatch.length; i < (aMatch.length + u18Match.length); i++) {
+    } else if (n >= aMatch2023.length && n < (aMatch2023.length + u18Match2023.length)) {
+        for (i = aMatch2023.length; i < (aMatch2023.length + u18Match2023.length); i++) {
             if (f2023.home[i] == opp || f2023.away[i] == opp) {
                 recentMatchIndex.push(i);
             };
         };
-    } else if (n >= (aMatch.length + u18Match.length)) {
-        for (i = (aMatch.length + u18Match.length); i < (aMatch.length + u18Match.length + u15Match.length); i++) {
+    } else if (n >= (aMatch2023.length + u18Match2023.length)) {
+        for (i = (aMatch2023.length + u18Match2023.length); i < (aMatch2023.length + u18Match2023.length + u15Match2023.length); i++) {
             if (f2023.home[i] == opp || f2023.away[i] == opp) {
                 recentMatchIndex.push(i);
             };
@@ -205,85 +220,89 @@ function fixtures2023() {
     };
 
     recentMatchIndex.reverse();
-    
-    window.onload = function() {
 
-        $("#matchH2H").append("<div id='recentMatch'></div>")
-
-        for (j = 0; j < recentMatchIndex.length; j++) {
-            $("#recentMatch").append("<div><div><div><div><img></div><p></p></div><div><span></span><span>:</span><span></span><p></p></div><div><p></p><div><img></div></div></div></div>")
-    
-            home = f2023.home[recentMatchIndex[j]];
-            homeScore = f2023.homeScore[recentMatchIndex[j]];
-            away = f2023.away[recentMatchIndex[j]];
-            awayScore = f2023.awayScore[recentMatchIndex[j]];
-    
-            $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(1) > p").text(home);
-            $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(3) > p").text(away);
-        
-            if (homeScore == "") {
-                $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(2)").text("vs");    
-            } else {
-                $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1)").text(homeScore);
-                $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(3)").text(awayScore);    
-            };
-        
-            if (home == "서울E") {
-                if (homeScore > awayScore) {
-                    $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#174fff");
-                    $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > p").css("background", "#174fff");
-                    $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > span").css("color", "#fafafa");
-                } else if (homeScore < awayScore) {
-                    $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#f00");
-                    $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > p").css("background", "#f00");
-                    $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > span").css("color", "#fafafa");
-                } else if (homeScore = awayScore) {
-                    $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#aaa");
-                    $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > p").css("background", "#aaa");
-                    $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > span").css("color", "#fafafa");
-                }
-            } else {
-                if (homeScore < awayScore) {
-                    $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#174fff");
-                    $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > p").css("background", "#174fff");
-                    $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > span").css("color", "#fafafa");
-                } else if (homeScore > awayScore) {
-                    $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#f00");
-                    $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > p").css("background", "#f00");
-                    $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > span").css("color", "#fafafa");
-                } else if (homeScore = awayScore) {
-                    $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#aaa");
-                    $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > p").css("background", "#aaa");
-                    $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > span").css("color", "#fafafa");
-                };
-            };
-    
-            $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").attr("onclick", "location.href='./" + f2023.id[recentMatchIndex[j]] + "'");
-        
-            $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(1) > div > img").attr("src", "./files/" + homeImg[recentMatchIndex[j]] + ".png");
-            $("#recentMatch > div:nth-of-type(" + (j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(3) > div > img").attr("src", "./files/" + awayImg[recentMatchIndex[j]] + ".png");
-
-        };
-
-        $("#recentMatch > div").each(function () {
-
-            if ($(this).find("div > div:nth-of-type(2) > span:nth-of-type(2)").text() == "vs") {
-                $(this).remove();
-            };
-        });
-    
-        if ($("#recentMatch > div").length < 1) {
-            $("#recentMatch").css("display", "none");
-        };
-
-        $("#recentMatch > div:nth-of-type(1) > div > div:nth-of-type(2) > p").css({"width": "40px", "height": "3px", "position": "absolute", "margin-top": "45px"});
-        
+    if ($("#recentMatch").length) { } else {
+        $("#matchH2H").append("<div id='recentMatch'></div>");
     };
-    
+
+    for (j = 0; j < recentMatchIndex.length; j++) {
+        $("#recentMatch").append("<div><div><div><div><img></div><p></p></div><div><span></span><span>:</span><span></span><p></p></div><div><p></p><div><img></div></div></div></div>")
+
+        home = f2023.home[recentMatchIndex[j]];
+        homeScore = f2023.homeScore[recentMatchIndex[j]];
+        away = f2023.away[recentMatchIndex[j]];
+        awayScore = f2023.awayScore[recentMatchIndex[j]];
+
+        $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(1) > p").text(home);
+        $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(3) > p").text(away);
+
+        if (homeScore == "") {
+            $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(2)").text("vs");
+        } else {
+            $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1)").text(homeScore);
+            $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(3)").text(awayScore);
+        };
+
+        if (home == "서울E") {
+            if (homeScore > awayScore) {
+                $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#174fff");
+                $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > p").css("background", "#174fff");
+                $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > span").css("color", "#fafafa");
+            } else if (homeScore < awayScore) {
+                $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#f00");
+                $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > p").css("background", "#f00");
+                $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > span").css("color", "#fafafa");
+            } else if (homeScore = awayScore) {
+                $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#aaa");
+                $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > p").css("background", "#aaa");
+                $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > span").css("color", "#fafafa");
+            }
+        } else {
+            if (homeScore < awayScore) {
+                $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#174fff");
+                $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > p").css("background", "#174fff");
+                $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > span").css("color", "#fafafa");
+            } else if (homeScore > awayScore) {
+                $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#f00");
+                $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > p").css("background", "#f00");
+                $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > span").css("color", "#fafafa");
+            } else if (homeScore = awayScore) {
+                $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#aaa");
+                $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > p").css("background", "#aaa");
+                $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > span").css("color", "#fafafa");
+            };
+        };
+
+        $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").attr("onclick", "location.href='./" + f2023.id[recentMatchIndex[j]] + "'");
+
+        $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(1) > div > img").attr("src", "./files/" + homeImg2023[recentMatchIndex[j]] + ".png");
+        $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(3) > div > img").attr("src", "./files/" + awayImg2023[recentMatchIndex[j]] + ".png");
+
+    };
+
+    $("#recentMatch > div").each(function () {
+
+        if ($(this).find("div > div:nth-of-type(2) > span:nth-of-type(2)").text() == "vs") {
+            $(this).remove();
+        };
+    });
+
+    if ($("#recentMatch > div").length < 1) {
+        $("#recentMatch").css("display", "none");
+    };
+
+    $("#recentMatch > div:nth-of-type(1) > div > div:nth-of-type(2) > p").css({ "width": "40px", "height": "3px", "position": "absolute", "margin-top": "45px" });
+
+    if (typeof recentMatchLength == "undefined") {
+        recentMatchLength = recentMatchIndex.length;
+    } else {
+        recentMatchLength += recentMatchIndex.length;
+    };
+
 };
 
 // 일정 불러오기
-if($("#fixturesA").length || ($("#matchScore").length && document.URL.substring(document.URL.lastIndexOf("/") + 1, document.URL.lastIndexOf("/") + 5) == 2023)) {
+if ($("#fixturesA").length || ($("#matchScore").length && document.URL.substring(document.URL.lastIndexOf("/") + 1, document.URL.lastIndexOf("/") + 5) == 2023)) {
     fixtures2023();
 };
 
@@ -301,7 +320,7 @@ if ($("#nextMatch").length) {
     nextMatch = Number(year + month + day + "0");
 
     while (true) {
-        n = aMatch.indexOf(nextMatch.toString());
+        n = aMatch2023.indexOf(nextMatch.toString());
 
         if (n !== -1) {
             break;
@@ -309,7 +328,7 @@ if ($("#nextMatch").length) {
         nextMatch += 10;
     };
 
-    n = aMatch.indexOf(nextMatch.toString());
+    n = aMatch2023.indexOf(nextMatch.toString());
     year = nextMatch.toString().substr(0, 4);
     month = nextMatch.toString().substr(4, 2);
     day = nextMatch.toString().substr(6, 2);
@@ -363,9 +382,9 @@ if ($("#nextMatch").length) {
 
     $("#nextMatch").attr("onclick", "location.href='./" + f2023.id[n] + "'");
 
-    $("#nextMatch").find("div:nth-of-type(1) > div:nth-of-type(1) > div > img").attr("src", "./files/" + homeImg[n] + ".png");
-    $("#nextMatch").find("div:nth-of-type(1) > div:nth-of-type(3) > div > img").attr("src", "./files/" + awayImg[n] + ".png");
-    $("#nextMatch").find("div:nth-of-type(2) > div:nth-of-type(1) > img").attr("src", "./files/" + compImg[n] + ".png");
+    $("#nextMatch").find("div:nth-of-type(1) > div:nth-of-type(1) > div > img").attr("src", "./files/" + homeImg2023[n] + ".png");
+    $("#nextMatch").find("div:nth-of-type(1) > div:nth-of-type(3) > div > img").attr("src", "./files/" + awayImg2023[n] + ".png");
+    $("#nextMatch").find("div:nth-of-type(2) > div:nth-of-type(1) > img").attr("src", "./files/" + compImg2023[n] + ".png");
 
 };
 
@@ -383,7 +402,7 @@ if ($("#prevMatch").length) {
     prevMatch = Number(year + month + day + "0");
 
     while (true) {
-        n = aMatch.indexOf(prevMatch.toString());
+        n = aMatch2023.indexOf(prevMatch.toString());
 
         if (n !== -1) {
             break;
@@ -396,7 +415,7 @@ if ($("#prevMatch").length) {
         };
     };
 
-    n = aMatch.indexOf(prevMatch.toString());
+    n = aMatch2023.indexOf(prevMatch.toString());
 
     score1 = f2023.homeScore[n] + "-" + f2023.awayScore[n];
     score2 = f2023.homeScore[n-1] + "-" + f2023.awayScore[n-1];
@@ -421,7 +440,7 @@ if ($("#prevMatch").length) {
     };
 
     if (f2023.home[n] == "서울E") {
-        prev1 = awayImg[n];
+        prev1 = awayImg2023[n];
         
         if (f2023.homeScore[n] > f2023.awayScore[n]) {
             $("#prevMatch > div > div:nth-of-type(5) > p").css({"color": "#fafafa", "background": "#174fff"});
@@ -434,7 +453,7 @@ if ($("#prevMatch").length) {
         };
 
     } else {
-        prev1 = homeImg[n];
+        prev1 = homeImg2023[n];
         
         if (f2023.homeScore[n] > f2023.awayScore[n]) {
             $("#prevMatch > div > div:nth-of-type(5) > p").css({"color": "#fafafa", "background": "#f00"});
@@ -448,7 +467,7 @@ if ($("#prevMatch").length) {
     };
 
     if (f2023.home[n-1] == "서울E") {
-        prev2 = awayImg[n-1];
+        prev2 = awayImg2023[n-1];
         
         if (f2023.homeScore[n-1] > f2023.awayScore[n-1]) {
             $("#prevMatch > div > div:nth-of-type(4) > p").css({"color": "#fafafa", "background": "#174fff"});
@@ -461,7 +480,7 @@ if ($("#prevMatch").length) {
         };
 
     } else {
-        prev2 = homeImg[n-1];
+        prev2 = homeImg2023[n-1];
         
         if (f2023.homeScore[n-1] > f2023.awayScore[n-1]) {
             $("#prevMatch > div > div:nth-of-type(4) > p").css({"color": "#fafafa", "background": "#f00"});
@@ -475,7 +494,7 @@ if ($("#prevMatch").length) {
     };
 
     if (f2023.home[n-2] == "서울E") {
-        prev3 = awayImg[n-2];
+        prev3 = awayImg2023[n-2];
         
         if (f2023.homeScore[n-2] > f2023.awayScore[n-2]) {
             $("#prevMatch > div > div:nth-of-type(3) > p").css({"color": "#fafafa", "background": "#174fff"});
@@ -488,7 +507,7 @@ if ($("#prevMatch").length) {
         };
 
     } else {
-        prev3 = homeImg[n-2];
+        prev3 = homeImg2023[n-2];
         
         if (f2023.homeScore[n-2] > f2023.awayScore[n-2]) {
             $("#prevMatch > div > div:nth-of-type(3) > p").css({"color": "#fafafa", "background": "#f00"});
@@ -502,7 +521,7 @@ if ($("#prevMatch").length) {
     };
 
     if (f2023.home[n-3] == "서울E") {
-        prev4 = awayImg[n-3];
+        prev4 = awayImg2023[n-3];
         
         if (f2023.homeScore[n-3] > f2023.awayScore[n-3]) {
             $("#prevMatch > div > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#174fff"});
@@ -515,7 +534,7 @@ if ($("#prevMatch").length) {
         };
 
     } else {
-        prev4 = homeImg[n-3];
+        prev4 = homeImg2023[n-3];
         
         if (f2023.homeScore[n-3] > f2023.awayScore[n-3]) {
             $("#prevMatch > div > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#f00"});
@@ -529,7 +548,7 @@ if ($("#prevMatch").length) {
     };
 
     if (f2023.home[n-4] == "서울E") {
-        prev5 = awayImg[n-4];
+        prev5 = awayImg2023[n-4];
         
         if (f2023.homeScore[n-4] > f2023.awayScore[n-4]) {
             $("#prevMatch > div > div:nth-of-type(1) > p").css({"color": "#fafafa", "background": "#174fff"});
@@ -542,7 +561,7 @@ if ($("#prevMatch").length) {
         };
 
     } else {
-        prev5 = homeImg[n-4];
+        prev5 = homeImg2023[n-4];
         
         if (f2023.homeScore[n-4] > f2023.awayScore[n-4]) {
             $("#prevMatch > div > div:nth-of-type(1) > p").css({"color": "#fafafa", "background": "#f00"});
