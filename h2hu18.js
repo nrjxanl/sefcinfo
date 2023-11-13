@@ -19,7 +19,7 @@ data = {
     "ansanmugunghwa": ["161270", "fcd715", "2", "1", "0", "9", "3"],
     "ansanpolice": ["f0c018", "183090", "0", "0", "0", "0", "0"],
     "jeonnamdragons": ["ffde00", "000000", "0", "1", "2", "0", "6"],
-    "jejuutd": ["f58026", "ffffff", "2", "3", "11", "15", "39"],
+    "jejuutd": ["f58026", "ffffff", "3", "3", "11", "17", "40"],
     "cheonancity": ["5dacd8", "ffffff", "0", "1", "0", "2", "2"],
     "chungnamasan": ["f4cd1c", "093c91", "3", "0", "0", "8", "4"],
     "chungbukcheongju": ["1c235a", "e8343d", "0", "0", "0", "0", "0"],
@@ -51,7 +51,6 @@ data = {
     "chojihs": ["019241", "fff500", "1", "0", "0", "1", "0"],
     "soongsilhs": ["122a4a", "ffffff", "1", "0", "0", "5", "1"],
 }
-    
 
 hrefH = $("#matchScore > div:nth-of-type(1)").find("img").attr("src").replace("./files/", "").replace("_s.png", "").replace(/[0-9]/g, "");
 hrefA = $("#matchScore > div:nth-of-type(3)").find("img").attr("src").replace("./files/", "").replace("_s.png", "").replace(/[0-9]/g, "");

@@ -44,7 +44,7 @@ $("#startingXI td").each(function () {
     id = $(this).attr("id");
     index = dataList.indexOf(id, 0);
     playerNum = data[Object.keys(data)[index]][1];
-    playerName = data[Object.keys(data)[index]][0];
+    playerName = data[Object.keys(data)[index]][0].replace(/[0-9, "."]/g, "");
 
     $("#" + id).html("<div><img src='./files/" + id + ".png'></div><p><span>" + playerNum + "</span>" + playerName + "</p><p>-</p>");
 
@@ -54,7 +54,7 @@ $("#sub td").each(function () {
     id = $(this).attr("id");
     index = dataList.indexOf(id, 0);
     playerNum = data[Object.keys(data)[index]][1];
-    playerName = data[Object.keys(data)[index]][0];
+    playerName = data[Object.keys(data)[index]][0].replace(/[0-9, "."]/g, "");
 
     $("#" + id).html("<div><img src='./files/" + id + ".png'></div><p><span>" + playerNum + "</span>" + playerName + "</p><p>-</p>");
 });
