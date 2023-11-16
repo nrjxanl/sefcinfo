@@ -329,6 +329,11 @@ while(i < subList.length) {
 
 // 포메이션 table td 너비
 $("#startingXI tr").each(function () {
-    width = 70 / $(this).find("td").length + "vw";
-    $(this).find("td").css("width", width);
+    if ($(window).width() < 768) {
+        width = 70 / $(this).find("td").length + "vw";
+        $(this).find("td").css("width", width);
+    } else {
+        width = 280 / $(this).find("td").length + "px";
+        $(this).find("td").css("width", width);    
+    }
 });

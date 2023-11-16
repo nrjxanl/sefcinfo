@@ -8,10 +8,20 @@ $(document).ready(function() {
         window.scroll({top: document.body.scrollHeight, left: 0, behavior: "smooth"})
     }
 
+    // 화면 너비 300px 이하일 때 경고
+    if ($(window).width() < 300) {
+        $("body").append("<div style='width: 80vw; height: 65px; padding: 0 10vw; background: #fafafa; position: fixed; bottom: 0; left: 0; font-size: 14px; font-weight: 500; z-index: 300; display: flex; align-items: center; justify-content: center;'>기기의 화면 크기가 작아 페이지가 정상적으로 보이지 않을 수 있습니다.</div>")
+    }
+
+    // 화면 너비 768px~1023px일 때 경고
+    if ($(window).width() >= 768 && $(window).width() < 1023) {
+        $("body").append("<div style='width: 80vw; height: 65px; padding: 0 10vw; background: #fafafa; position: fixed; bottom: 0; left: 0; font-size: 14px; font-weight: 500; z-index: 300; display: flex; align-items: center; justify-content: center;'>페이지가 아직 이 기기를 완벽히 지원하지 않아 페이지가 정상적으로 보이지 않을 수 있습니다.</div>")
+    }
+
 })
 
 // 헤더
-$("header").html("<a href='https://sefc.info'><img src='./files/sefcinfo.png'></a>")
+$("header").html("<a href='https://sefc.info'><img src='./files/seouleland_s.png'></a>")
 
 // 푸터
 $("footer").html("<div></div>")
@@ -19,24 +29,26 @@ $("footer").html("<div></div>")
 // 메뉴
 $("body").append("<div id='menu'><div id='hamburger' onclick='menuOpen()'><span></span><span></span><span></span></div><a href='./news'>뉴스</a><a href='./players'>선수단</a><a href='./fixtures'>경기 일정</a><a href='./standings'>순위</a></div><div id='menuBg' onclick='menuClose()'></div>")
 
-function menuOpen() {
-    $("#hamburger").attr("onclick", "menuClose()")
-    $("#hamburger > span:nth-of-type(1)").animate({marginLeft: "10px"}, 300)
-    $("#hamburger > span:nth-of-type(3)").animate({marginLeft: "5px"}, 300)
-    $("#menu").animate({left: 0}, 300)
-    $("#menuBg").delay(100).animate({opacity: 0.2}, 300)
-    $("#menuBg").css("pointer-events", "auto")
+if ($(window).width() < 768) {
+    function menuOpen() {
+        $("#hamburger").attr("onclick", "menuClose()")
+        $("#hamburger > span:nth-of-type(1)").animate({marginLeft: "10px"}, 300)
+        $("#hamburger > span:nth-of-type(3)").animate({marginLeft: "5px"}, 300)
+        $("#menu").animate({left: 0}, 300)
+        $("#menuBg").delay(100).animate({opacity: 0.2}, 300)
+        $("#menuBg").css("pointer-events", "auto")
+    }
+    
+    function menuClose() {
+        $("#hamburger").attr("onclick", "menuOpen()")
+        $("#hamburger > span:nth-of-type(1)").animate({marginLeft: "0"}, 300)
+        $("#hamburger > span:nth-of-type(3)").animate({marginLeft: "0"}, 300)
+        $("#menuBg").animate({opacity: 0}, 300)
+        $("#menu").delay(100).animate({left: "-80vw"}, 300)
+        $("#menuBg").css("pointer-events", "none")
+    }
 }
-
-function menuClose() {
-    $("#hamburger").attr("onclick", "menuOpen()")
-    $("#hamburger > span:nth-of-type(1)").animate({marginLeft: "0"}, 300)
-    $("#hamburger > span:nth-of-type(3)").animate({marginLeft: "0"}, 300)
-    $("#menuBg").animate({opacity: 0}, 300)
-    $("#menu").delay(100).animate({left: "-80vw"}, 300)
-    $("#menuBg").css("pointer-events", "none")
-}
-
+    
 if ($("#news").length) { // 뉴스
     $("#menu > a:nth-of-type(1)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
 } else if ($(".playerDetail").length || $(".playerButton").length) { // 일정
@@ -277,6 +289,7 @@ function standings() {
     if($("div[id*='standings']").find("th:nth-of-type(6)").css("display") == "none") {
         $("div[id*='standings'] > div > table > thead > tr > th:nth-of-type(n+3)").css({"display": "table-cell", "width": "calc(50vw/7)"})
         $("div[id*='standings'] > div > table > tbody > tr > td:nth-of-type(n+4)").css({"display": "table-cell", "width": "calc(50vw/7)", "font-size": "12px"})
+        $(".standings button").text("간략히 보기")
     } else {
         $("div[id*='standings'] > div > table > thead > tr > th:nth-of-type(n+3)").css({"width": "12.5vw"})
         $("div[id*='standings'] > div > table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+6)").css({"display": "none"})
@@ -328,18 +341,33 @@ $("#playerPos > #rb").text("RB")
 $("#playerPos > #cb").text("CB")
 $("#playerPos > #gk").text("GK")
 
-$("#playerPos > #cf").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-70vw", "margin-left": "20vw"})
-$("#playerPos > #lw").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-63.8vw", "margin-left": "5vw"})
-$("#playerPos > #rw").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-63.8vw", "margin-left": "35vw"})
-$("#playerPos > #am").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-57.6vw", "margin-left": "20vw"})
-$("#playerPos > #lm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-46.4vw", "margin-left": "5vw"})
-$("#playerPos > #cm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-46.4vw", "margin-left": "20vw"})
-$("#playerPos > #rm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-46.4vw", "margin-left": "35vw"})
-$("#playerPos > #dm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-35.2vw", "margin-left": "20vw"})
-$("#playerPos > #lb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-29.4vw", "margin-left": "5vw"})
-$("#playerPos > #rb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-29.4vw", "margin-left": "35vw"})
-$("#playerPos > #cb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-23.6vw", "margin-left": "20vw"})
-$("#playerPos > #gk").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-12vw", "margin-left": "20vw"})
+if ($(window).width() < 768) {
+    $("#playerPos > #cf").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-70vw", "margin-left": "20vw"})
+    $("#playerPos > #lw").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-63.8vw", "margin-left": "5vw"})
+    $("#playerPos > #rw").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-63.8vw", "margin-left": "35vw"})
+    $("#playerPos > #am").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-57.6vw", "margin-left": "20vw"})
+    $("#playerPos > #lm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-46.4vw", "margin-left": "5vw"})
+    $("#playerPos > #cm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-46.4vw", "margin-left": "20vw"})
+    $("#playerPos > #rm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-46.4vw", "margin-left": "35vw"})
+    $("#playerPos > #dm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-35.2vw", "margin-left": "20vw"})
+    $("#playerPos > #lb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-29.4vw", "margin-left": "5vw"})
+    $("#playerPos > #rb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-29.4vw", "margin-left": "35vw"})
+    $("#playerPos > #cb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-23.6vw", "margin-left": "20vw"})
+    $("#playerPos > #gk").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-12vw", "margin-left": "20vw"})
+} else {
+    $("#playerPos > #cf").css({"width": "40px", "padding": "4px 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-280px", "margin-left": "80px"})
+    $("#playerPos > #lw").css({"width": "40px", "padding": "4px 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-255.2px", "margin-left": "20px"})
+    $("#playerPos > #rw").css({"width": "40px", "padding": "4px 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-255.2px", "margin-left": "140px"})
+    $("#playerPos > #am").css({"width": "40px", "padding": "4px 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-230.4px", "margin-left": "80px"})
+    $("#playerPos > #lm").css({"width": "40px", "padding": "4px 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-185.6px", "margin-left": "20px"})
+    $("#playerPos > #cm").css({"width": "40px", "padding": "4px 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-185.6px", "margin-left": "80px"})
+    $("#playerPos > #rm").css({"width": "40px", "padding": "4px 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-185.6px", "margin-left": "140px"})
+    $("#playerPos > #dm").css({"width": "40px", "padding": "4px 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-140.8px", "margin-left": "80px"})
+    $("#playerPos > #lb").css({"width": "40px", "padding": "4px 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-117.6px", "margin-left": "20px"})
+    $("#playerPos > #rb").css({"width": "40px", "padding": "4px 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-117.6px", "margin-left": "140px"})
+    $("#playerPos > #cb").css({"width": "40px", "padding": "4px 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-94.4px", "margin-left": "80px"})
+    $("#playerPos > #gk").css({"width": "40px", "padding": "4px 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-48px", "margin-left": "80px"})
+}
 
 $("p[pos=o]").css({"color": "#fafafa", "background": "#000831", "opacity": "1"})
 
@@ -390,8 +418,13 @@ if (today < birthday) {years--}
 $("#age").text(years + "세")
 
 // 선수 경력 임대 div 들여쓰기
-$("div[loan='o']").css({"padding-left": "3vw", "opacity": "0.8"})
-$("div[loan='o'] > p:nth-of-type(1)").css("width", "32vw")
+if ($(window).width() < 768) {
+    $("div[loan='o']").css({"padding-left": "3vw", "opacity": "0.8"})
+    $("div[loan='o'] > p:nth-of-type(1)").css("width", "32vw")
+} else {
+    $("div[loan='o']").css({"padding-left": "12px", "opacity": "0.8"})
+    $("div[loan='o'] > p:nth-of-type(1)").css("width", "128px")
+}
 
 // 하이라이트 가져오기
 href = $("#highlight").text()
