@@ -10,6 +10,9 @@ $(document).ready(function() {
 
 })
 
+// 헤더
+$("header").html("<a href='https://sefc.info'><img src='./files/sefcinfo.png'></a>")
+
 // 푸터
 $("footer").html("<div></div>")
 
