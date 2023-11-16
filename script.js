@@ -21,8 +21,12 @@ $(document).ready(function() {
 })
 
 // 화면 크기 변경 시
+before = $(this).width()
 $(window).resize(function() {
-    location.reload()
+    after = $(this).width()
+    if (after != before) {
+        location.reload()
+    }
 })
 
 // 헤더
