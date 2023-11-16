@@ -47,6 +47,11 @@ if ($(window).width() < 768) {
         $("#menu").delay(100).animate({left: "-80vw"}, 300)
         $("#menuBg").css("pointer-events", "none")
     }
+
+    $("#menu > a").click(function() {
+        $("#hamburger > span:nth-of-type(1)").animate({marginLeft: "0"}, 300)
+        $("#hamburger > span:nth-of-type(3)").animate({marginLeft: "0"}, 300)
+    })
 }
     
 if ($("#news").length) { // 뉴스
