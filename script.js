@@ -20,6 +20,11 @@ $(document).ready(function() {
 
 })
 
+// 화면 크기 변경 시
+$(window).resize(function() {
+    location.reload()
+})
+
 // 헤더
 $("header").html("<a href='https://sefc.info'><img src='./files/seouleland_s.png'></a>")
 
