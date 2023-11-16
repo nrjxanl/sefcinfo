@@ -35,7 +35,7 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 
 /* 오프셋 */
 #headerOffset {width: 100vw; height: 100px; display: block; visibility: hidden;}
-#footerOffset {width: 100vw; height: 20px; display: block; visibility: hidden;}
+#footerOffset {width: 100vw; height: 70px; display: block; visibility: hidden;}
 #playerButtonOffset {width: 100vw; height: 80px; visibility: hidden;}
 #fixturesButtonOffset {width: 100vw; height: 40px; visibility: hidden;}
 #standingsButtonOffset {width: 100vw; height: 40px; visibility: hidden;}
