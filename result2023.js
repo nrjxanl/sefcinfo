@@ -139,10 +139,10 @@ function fixtures2023() {
         nextMatchU15 = Number(year + month + day + "5");
 
         nA = aMatch2023.indexOf(nextMatchA.toString());
-        nA = u18Match2023.indexOf(nextMatchU18.toString());
-        nA = u15Match2023.indexOf(nextMatchU15.toString());
+        nU18 = u18Match2023.indexOf(nextMatchU18.toString());
+        nU15 = u15Match2023.indexOf(nextMatchU15.toString());
 
-        while (true) {
+        while (nextMatchA <= f2023.id[aMatch2023.length - 1]) {
             nA = aMatch2023.indexOf(nextMatchA.toString());
 
             if (nA !== -1 || nextMatchA > aMatch2023[aMatch2023.length - 1]) {
@@ -150,7 +150,7 @@ function fixtures2023() {
             };
             nextMatchA += 10;
         };
-        while (true) {
+        while (nextMatchU18 <= f2023.id[aMatch2023.length + u18Match2023.length - 1]) {
             nU18 = u18Match2023.indexOf(nextMatchU18.toString());
 
             if (nU18 !== -1 || nextMatchU18 > u18Match2023[u18Match2023.length - 1]) {
@@ -158,18 +158,17 @@ function fixtures2023() {
             };
             nextMatchU18 += 10;
         };
-        while (true) {
+        while (nextMatchU15 <= f2023.id[aMatch2023.length + u18Match2023.length + u15Match2023.length - 1]) {
             nU15 = u15Match2023.indexOf(nextMatchU15.toString());
 
             if (nU15 !== -1 || nextMatchU15 > u15Match2023[u15Match2023.length - 1]) {
                 break;
             };
+            if (nU15 == -1 && nextMatchU15 > u15Match2023[u15Match2023.length - 1]) {
+                break;
+            };
             nextMatchU15 += 10;
         };
-
-        nA = aMatch2023.indexOf(nextMatchA.toString());
-        nU18 = u18Match2023.indexOf(nextMatchU18.toString());
-        nU15 = u15Match2023.indexOf(nextMatchU15.toString());
 
         nextMatchAIndex = ".fixtures_:nth-of-type(" + (nA + 1) + ")";
         nextMatchU18Index = ".fixtures_:nth-of-type(" + (nU18 + 1) + ")";
@@ -221,20 +220,24 @@ function recentMatch2023() {
 
     recentMatchIndex.reverse();
 
-    if ($("#recentMatch").length) { } else {
+    if ($("#recentMatch").length) {} else {
         $("#matchH2H").append("<div id='recentMatch'></div>");
     };
 
     for (j = 0; j < recentMatchIndex.length; j++) {
-        $("#recentMatch").append("<div><div><div><div><img></div><p></p></div><div><span></span><span>:</span><span></span><p></p></div><div><p></p><div><img></div></div></div></div>")
+        $("#recentMatch").append("<div><div><div><div><img></div><p></p></div><div><span></span><span>:</span><span></span></div><div><p></p><div><img></div></div></div><div><div><img><p></p></div><div><p></p></div></div></div>")
 
         home = f2023.home[recentMatchIndex[j]];
         homeScore = f2023.homeScore[recentMatchIndex[j]];
         away = f2023.away[recentMatchIndex[j]];
         awayScore = f2023.awayScore[recentMatchIndex[j]];
+        comp = f2023.comp[recentMatchIndex[j]].replaceAll("k2", "하나원큐 K리그2 2023").replaceAll("fa", "2023 하나원큐 FA CUP").replaceAll("kj8f", "2023 K리그 주니어 U18 전반기").replaceAll("kj8s", "2023 K리그 주니어 U18 후반기").replaceAll("kj5", "2023 K리그 주니어 U15").replaceAll("mcst", "제45회 문체부장관배 전국고교 축구대회").replaceAll("kf8", "제44회 대한축구협회장배 전국고교 축구대회").replaceAll("kyc8", "2023 GROUND.N K리그 U18 챔피언십").replaceAll("kyc5", "2023 GROUND.N K리그 U15 챔피언십").replaceAll("yd", "2023 STAY 영덕 춘계 U15 축구대회").toUpperCase();
+        date = f2023.id[recentMatchIndex[j]].substr(0, 4) + "." + f2023.id[recentMatchIndex[j]].substr(4, 2) + "." + f2023.id[recentMatchIndex[j]].substr(6, 2) + ".";
 
         $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(1) > p").text(home);
         $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(3) > p").text(away);
+        $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(2) > div:nth-of-type(1) > p").text(comp);
+        $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(2) > div:nth-of-type(2) > p").text(date);
 
         if (homeScore == "") {
             $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(2)").text("vs");
@@ -277,6 +280,7 @@ function recentMatch2023() {
 
         $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(1) > div > img").attr("src", "./files/" + homeImg2023[recentMatchIndex[j]] + ".png");
         $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(3) > div > img").attr("src", "./files/" + awayImg2023[recentMatchIndex[j]] + ".png");
+        $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(2) > div > img").attr("src", "./files/" + compImg2023[recentMatchIndex[j]] + ".png");
 
     };
 
@@ -290,8 +294,6 @@ function recentMatch2023() {
     if ($("#recentMatch > div").length < 1) {
         $("#recentMatch").css("display", "none");
     };
-
-    $("#recentMatch > div:nth-of-type(1) > div > div:nth-of-type(2) > p").css({ "width": "40px", "height": "3px", "position": "absolute", "margin-top": "45px" });
 
     if (typeof recentMatchLength == "undefined") {
         recentMatchLength = recentMatchIndex.length;

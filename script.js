@@ -2,8 +2,10 @@
 $(document).ready(function() {
 
     // 다음 경기로 이동
-    if($("#nextMatchA").length) {
+    if ($("#nextMatchA").length) {
         document.getElementById("nextMatchA").scrollIntoView({behavior: "smooth", block: "center"});
+    } else if (!$("#nextMatchA").length && $("#fixturesButtonOffset").length) {
+        window.scroll({top: document.body.scrollHeight, left: 0, behavior: "smooth"});
     };
 
 });
@@ -116,21 +118,33 @@ function fixturesA() {
     document.getElementById("fixturesA").style.display = "block";
     document.getElementById("fixturesU18").style.display = "none";
     document.getElementById("fixturesU15").style.display = "none";
-    document.getElementById("nextMatchA").scrollIntoView({block: "center"});
+    if ($("#nextMatchA").length) {
+        document.getElementById("nextMatchA").scrollIntoView({block: "center"});
+    } else {
+        window.scroll({top: document.body.scrollHeight, left: 0});
+    };
 };
 
 function fixturesU18() {
     document.getElementById("fixturesA").style.display = "none";
     document.getElementById("fixturesU18").style.display = "block";
     document.getElementById("fixturesU15").style.display = "none";
-    document.getElementById("nextMatchU18").scrollIntoView({block: "center"});
+    if ($("#nextMatchU18").length) {
+        document.getElementById("nextMatchU18").scrollIntoView({block: "center"});
+    } else {
+        window.scroll({top: document.body.scrollHeight, left: 0});
+    };
 };
 
 function fixturesU15() {
     document.getElementById("fixturesA").style.display = "none";
     document.getElementById("fixturesU18").style.display = "none";
     document.getElementById("fixturesU15").style.display = "block";
-    document.getElementById("nextMatchU15").scrollIntoView({block: "center"});
+    if ($("#nextMatchU15").length) {
+        document.getElementById("nextMatchU15").scrollIntoView({block: "center"});
+    } else {
+        window.scroll({top: document.body.scrollHeight, left: 0});
+    };
 };
 
 function fixturesSeason() {
