@@ -303,11 +303,6 @@ function recentMatch2022() {
 
 };
 
-// 일정 불러오기
-if ($("#fixturesA").length || ($("#matchScore").length && document.URL.substring(document.URL.lastIndexOf("/") + 1, document.URL.lastIndexOf("/") + 5) == 2022)) {
-    fixtures2022();
-};
-
 // 다음 경기
 if ($("#nextMatch").length) {
     date = new Date();
