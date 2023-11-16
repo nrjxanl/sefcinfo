@@ -22,8 +22,6 @@ ogList = Object.values(data.og);
 
 id = $("#playerImg > img").attr("src").substring(8, 16);
 n = idList.indexOf(id);
-console.log(id)
-console.log(n)
 
 $("#appDiv > canvas").text(data.app[n]);
 $("#goalDiv > canvas").text(data.goal[n]);
@@ -57,16 +55,16 @@ ogPct = og / Math.max(...ogList.map(Number));
 $("#ogDiv > p:nth-child(2)").text(og);
 
 $("#appDiv > canvas").after("<p></p><p id='app'></p>");
-$("#app").css("width", $(window).width() * 0.3 * appPct);
+$("#app").css("width", $(window).width() * 0.25 * appPct);
 $("#goalDiv > canvas").after("<p></p><p id='goal'></p>");
-$("#goal").css("width", $(window).width() * 0.3 * goalPct);
+$("#goal").css("width", $(window).width() * 0.25 * goalPct);
 $("#assistDiv > canvas").after("<p></p><p id='assist'></p>");
-$("#assist").css("width", $(window).width() * 0.3 * assistPct);
+$("#assist").css("width", $(window).width() * 0.25 * assistPct);
 $("#ycDiv > canvas").after("<p></p><p id='yc'></p>");
-$("#yc").css("width", $(window).width() * 0.3 * ycPct);
+$("#yc").css("width", $(window).width() * 0.25 * ycPct);
 $("#rcDiv > canvas").after("<p></p><p id='rc'></p>");
-$("#rc").css("width", $(window).width() * 0.3 * rcPct);
+$("#rc").css("width", $(window).width() * 0.25 * rcPct);
 $("#concDiv > canvas").after("<p></p><p id='conc'></p>");
-$("#conc").css("width", $(window).width() * 0.3 * concPct);
+$("#conc").css("width", $(window).width() * 0.25 * concPct);
 $("#ogDiv > canvas").after("<p></p><p id='og'></p>");
-$("#og").css("width", $(window).width() * 0.3 * ogPct);
+$("#og").css("width", $(window).width() * 0.25 * ogPct);

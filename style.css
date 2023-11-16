@@ -9,16 +9,21 @@
 body {position: absolute; background: #fafafa;}
 
 /* 헤더 */
-header {width: 100vw; height: 50px; position: fixed; top: 0; left: 0; background: #fafafa; z-index: 99;}
+header {width: 100vw; height: 100px; position: fixed; top: 0; left: 0; background: #fafafa; z-index: 99;}
 
 /* 푸터 */
-footer {width: 100vw; height: 70px; position: fixed; bottom: 0; left: 0; background: #fafafa; z-index: 100; display: flex; align-items: center; justify-content: center; box-shadow: 0px 0px 5px 1px #00083120;}
-footer > a > ul {width: 60px; height: 40px; display: flex; align-items: center; justify-content: center;}
-footer > a > ul > img {height: 25px;}
-footer > a:nth-of-type(3) > ul > img {height: 35px; filter: none;}
-footer > a > div {width: 100px; height: 40px; margin: 0 10px; color: #fafafa; background: #000831; font-size: 16px; display: flex; align-items: center; justify-content: center; border-radius: 10vw;}
-footer > a > div > img {height: 25px; padding: 0 1.5vw 0 0; filter: invert(98%) sepia(26%) saturate(0%) hue-rotate(201deg) brightness(110%) contrast(100%);}
-footer > a:nth-of-type(3) > ul {background: #000831; width: 55px; height: 55px; border-radius: 50%; margin: 0 10px;}
+footer {width: 100vw; height: 51px; position: fixed; bottom: -1px; left: 0; background: #fafafa; z-index: 99;}
+
+/* 메뉴 */
+#menu {width: 80vw; height: 100vh; position: fixed; top: 0; left: -80vw; background: #fafafa; z-index: 200; display: flex; flex-direction: column;}
+#menu > p {width: fit-content; overflow: hidden; font-size: 32px; text-align: left; margin-left: calc(40vw - 70px); padding: 10px 0; white-space: nowrap;}
+#menu > p:nth-of-type(1) {margin-top: 150px;}
+
+#hamburger {width: 40px; height: 25px; position: fixed; top: 37.5px; left: 37.5px;}
+#hamburger > span {width: 30px; height: 5px; background: #000831; border-radius: 25px; display: block;}
+#hamburger > span:nth-of-type(2) {margin: 5px 0;}
+
+#menuBg {width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; background: #000; opacity: 0; z-index: 199; pointer-events: none;}
 
 /* 404 */
 #page404 {height: calc(100vh - 250px); display: flex; align-items: center; justify-content: center; flex-direction: column;}
@@ -28,11 +33,11 @@ footer > a:nth-of-type(3) > ul {background: #000831; width: 55px; height: 55px; 
 #page404 > p:nth-of-type(3) > a {font-size: 18px; font-weight: 500; text-decoration: underline;}
 
 /* 오프셋 */
-#headerOffset {width: 100vw; height: 50px; display: block; visibility: hidden;}
-#footerOffset {width: 100vw; height: 100px; display: block; visibility: hidden;}
+#headerOffset {width: 100vw; height: 100px; display: block; visibility: hidden;}
+#footerOffset {width: 100vw; height: 51px; display: block; visibility: hidden;}
 #playerButtonOffset {width: 100vw; height: 80px; visibility: hidden;}
-#fixturesButtonOffset {width: 100vw; height: 80px; visibility: hidden;}
-#standingsButtonOffset {width: 100vw; height: 80px; visibility: hidden;}
+#fixturesButtonOffset {width: 100vw; height: 40px; visibility: hidden;}
+#standingsButtonOffset {width: 100vw; height: 40px; visibility: hidden;}
 #playerSortButtonOffset {width: 100vw; height: 50px; visibility: hidden; display: none;}
 
 /* 홈 화면 */
@@ -167,7 +172,7 @@ footer > a:nth-of-type(3) > ul {background: #000831; width: 55px; height: 55px; 
 #showMore {width: 80vw; height: 30px; margin-left: 10vw; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 5vw; display: flex; align-items: center; justify-content: center;}
 
 /* 선수단 */
-.playerButton {width: 100vw; position: fixed; top: 80px; left: 0; background: #fafafa; z-index: 100;}
+.playerButton {width: 100vw; height: 80px; position: fixed; top: 100px; left: 0; background: #fafafa; z-index: 100;}
 .playerButton > button {width: 70px; height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
 .playerButton > button:nth-of-type(4) {width: 260px;}
 
@@ -212,7 +217,7 @@ footer > a:nth-of-type(3) > ul {background: #000831; width: 55px; height: 55px; 
 .playerDetail {width: 100vw; height: 50px; margin-top: 25px; position: relative; z-index: 98;}
 .playerDetail > button {width: 70px; height: 25px; font-size: 16px; background: none; border: none;}
 
-#playerMain {width: 100vw; display: flex; position: fixed; top: 80px; left: 0; z-index: -100;}
+#playerMain {width: 100vw; display: flex; height: 40px; position: fixed; top: 100px; left: 0; z-index: -100;}
 
 #playerName {position: absolute; top: 30px; left: 20vw;}
 #playerName > div {display: flex; align-items: center;}
@@ -268,7 +273,7 @@ footer > a:nth-of-type(3) > ul {background: #000831; width: 55px; height: 55px; 
 #playerCareer > div > div > p > span {display: block; text-align: left; font-weight: 500;}
 
 /* 일정 */
-.fixturesButton {width: 100vw; position: fixed; top: 80px; left: 0; background: #fafafa; z-index: 100;}
+.fixturesButton {width: 100vw; height: 40px; position: fixed; top: 100px; left: 0; background: #fafafa; z-index: 100;}
 .fixturesButton > button {width: 70px; height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
 
 .fixturesSeason {width: 90vw; height: 25px; padding: 10px 5vw; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; position: fixed; background: #fafafa; z-index: 100;}
@@ -399,7 +404,7 @@ footer > a:nth-of-type(3) > ul {background: #000831; width: 55px; height: 55px; 
 #recentMatch > div > div:nth-of-type(2) > div:nth-of-type(2) > p {font-weight: 500; text-align: right; margin-right: 30px;}
 
 /* 순위 */
-.standingsButton {width: 100vw; position: fixed; top: 80px; left: 0; background: #fafafa; z-index: 100;}
+.standingsButton {width: 100vw; height: 40px; position: fixed; top: 100px; left: 0; background: #fafafa; z-index: 100;}
 .standingsButton > button {width: 70px; height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
 
 .standingsSeason {width: 70vw; height: 25px; margin-left: 5vw; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; align-content: flex-start;}
