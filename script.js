@@ -10,16 +10,18 @@ $(document).ready(function() {
 
 })
 
+// 푸터
+$("footer").html("<div></div>")
+
 // 메뉴
-$("body").append("<div id='menu'><div id='hamburger' onclick='menuOpen()'><span></span><span></span><span></span></div><p>뉴스</p><p>선수단</p><p>경기 일정</p><p>순위</p></div><div id='menuBg' onclick='menuClose()'></div>")
+$("body").append("<div id='menu'><div id='hamburger' onclick='menuOpen()'><span></span><span></span><span></span></div><a href='./news'>뉴스</a><a href='./players'>선수단</a><a href='./fixtures'>경기 일정</a><a href='./standings'>순위</a></div><div id='menuBg' onclick='menuClose()'></div>")
 
 function menuOpen() {
     $("#hamburger").attr("onclick", "menuClose()")
     $("#hamburger > span:nth-of-type(1)").animate({marginLeft: "10px"}, 300)
     $("#hamburger > span:nth-of-type(3)").animate({marginLeft: "5px"}, 300)
-    $("#menu").animate({left: 0}, 300, function() {
-        $("#menuBg").animate({opacity: 0.2}, 300)
-    })
+    $("#menu").animate({left: 0}, 300)
+    $("#menuBg").delay(100).animate({opacity: 0.2}, 300)
     $("#menuBg").css("pointer-events", "auto")
 }
 
@@ -27,21 +29,19 @@ function menuClose() {
     $("#hamburger").attr("onclick", "menuOpen()")
     $("#hamburger > span:nth-of-type(1)").animate({marginLeft: "0"}, 300)
     $("#hamburger > span:nth-of-type(3)").animate({marginLeft: "0"}, 300)
-    $("#menuBg").animate({opacity: 0}, 300, function() {
-        $("#menu").animate({left: "-80vw"}, 300)
-    })
+    $("#menuBg").animate({opacity: 0}, 300)
+    $("#menu").delay(100).animate({left: "-80vw"}, 300)
     $("#menuBg").css("pointer-events", "none")
 }
 
-// 푸터
 if ($("#news").length) { // 뉴스
-    $("#menu > p:nth-of-type(1)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
+    $("#menu > a:nth-of-type(1)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
 } else if ($(".playerDetail").length || $(".playerButton").length) { // 일정
-    $("#menu > p:nth-of-type(2)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
+    $("#menu > a:nth-of-type(2)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
 } else if ($(".matchDetail").length || $(".fixturesButton").length) { // 선수
-    $("#menu > p:nth-of-type(3)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
+    $("#menu > a:nth-of-type(3)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
 } else if ($(".standingsButton").length) { // 순위
-    $("#menu > p:nth-of-type(4)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
+    $("#menu > a:nth-of-type(4)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
 }
 
 // 문자별 글꼴 적용

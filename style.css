@@ -12,12 +12,13 @@ body {position: absolute; background: #fafafa;}
 header {width: 100vw; height: 100px; position: fixed; top: 0; left: 0; background: #fafafa; z-index: 99;}
 
 /* 푸터 */
-footer {width: 100vw; height: 51px; position: fixed; bottom: -1px; left: 0; background: #fafafa; z-index: 99;}
+footer {width: 100vw; height: 51px; position: fixed; bottom: 19px; left: 0; z-index: 99; background: linear-gradient(to top, #fafafa, #fafafa 10%, transparent);}
+footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; bottom: -1px;}
 
 /* 메뉴 */
 #menu {width: 80vw; height: 100vh; position: fixed; top: 0; left: -80vw; background: #fafafa; z-index: 200; display: flex; flex-direction: column;}
-#menu > p {width: fit-content; overflow: hidden; font-size: 32px; text-align: left; margin-left: calc(40vw - 70px); padding: 10px 0; white-space: nowrap;}
-#menu > p:nth-of-type(1) {margin-top: 150px;}
+#menu > a {width: fit-content; overflow: hidden; font-size: 32px; text-align: left; margin-left: 70px; padding: 10px 0; white-space: nowrap;}
+#menu > a:nth-of-type(1) {margin-top: 150px;}
 
 #hamburger {width: 40px; height: 25px; position: fixed; top: 37.5px; left: 37.5px;}
 #hamburger > span {width: 30px; height: 5px; background: #000831; border-radius: 25px; display: block;}
@@ -34,7 +35,7 @@ footer {width: 100vw; height: 51px; position: fixed; bottom: -1px; left: 0; back
 
 /* 오프셋 */
 #headerOffset {width: 100vw; height: 100px; display: block; visibility: hidden;}
-#footerOffset {width: 100vw; height: 51px; display: block; visibility: hidden;}
+#footerOffset {width: 100vw; height: 20px; display: block; visibility: hidden;}
 #playerButtonOffset {width: 100vw; height: 80px; visibility: hidden;}
 #fixturesButtonOffset {width: 100vw; height: 40px; visibility: hidden;}
 #standingsButtonOffset {width: 100vw; height: 40px; visibility: hidden;}
