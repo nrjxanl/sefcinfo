@@ -32,6 +32,12 @@ $(window).resize(function() {
 // 헤더
 $("header").html("<a href='https://sefc.info'><img src='./files/seouleland_s.png'></a>")
 
+if ($("div[id*=ButtonOffset]").length) {
+    $("div[class*=Button]").css({"background": "linear-gradient(0deg, transparent 0%, #fafafa 20%)", "padding-bottom": "20px"})
+} else {
+    $("header").css("linear-gradient(0deg, transparent 0%, #fafafa 20%)")
+}
+
 // 푸터
 $("footer").html("<div></div>")
 

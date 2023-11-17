@@ -412,7 +412,7 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 .standingsButton {width: 400px; height: 40px; position: fixed; top: 100px; left: calc(50vw - 200px); background: #fafafa; z-index: 100;}
 .standingsButton > button {width: 70px; height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
 
-.standingsSeason {width: 280px; height: 25px; margin-left: 20px; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; align-content: flex-start;}
+.standingsSeason {width: 280px; height: 25px; margin: 20px 0 0 20px; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; align-content: flex-start;}
 .standingsSeason > button {width: 68px; height: 25px; background: none; border: 1px solid #000831; border-radius: 50px;}
 .standingsSeason > div {width: 212px; height: 25px; overflow: scroll; display: none;}
 .standingsSeason > div > button {height: 25px; padding: 0 8px; background: none; border: 1px solid #000831; border-radius: 50px; margin-left: 8px;}
