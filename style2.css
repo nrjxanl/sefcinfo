@@ -281,10 +281,12 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 .fixturesButton {width: 400px; height: 40px; position: fixed; top: 100px; left: calc(50vw - 200px); background: #fafafa; z-index: 100;}
 .fixturesButton > button {width: 70px; height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
 
-.fixturesSeason {width: 360px; height: 25px; padding: 10px 20px; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; position: fixed; background: #fafafa; z-index: 100;}
+.fixturesSeason {width: 360px; height: 25px; padding: 20px; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; align-content: flex-start; position: fixed; z-index: 100;}
 .fixturesSeason > button {width: 68px; height: 25px; background: none; border: 1px solid #000831; border-radius: 50px;}
-.fixturesSeason > div {width: 292px; height: 25px; overflow: scroll; display: none;}
+.fixturesSeason > div {width: 212px; height: 25px; overflow: scroll; display: none;}
 .fixturesSeason > div > button {height: 25px; padding: 0 8px; background: none; border: 1px solid #000831; border-radius: 50px; margin-left: 8px;}
+
+.fixtures {padding-top: 45px;}
 
 .fixtures_ {width: 360px; height: 120px; margin: 30px 0 0 20px; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px;}
 .fixtures_:nth-of-type(1) {margin-top: 80px;}
@@ -412,17 +414,18 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 .standingsButton {width: 400px; height: 40px; position: fixed; top: 100px; left: calc(50vw - 200px); background: #fafafa; z-index: 100;}
 .standingsButton > button {width: 70px; height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
 
-.standingsSeason {width: 280px; height: 25px; margin: 20px 0 0 20px; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; align-content: flex-start;}
+.standingsSeason {width: 360px; height: 25px; padding: 20px 0 0 20px; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; align-content: flex-start; position: fixed; background: #fafafa;}
 .standingsSeason > button {width: 68px; height: 25px; background: none; border: 1px solid #000831; border-radius: 50px;}
 .standingsSeason > div {width: 212px; height: 25px; overflow: scroll; display: none;}
 .standingsSeason > div > button {height: 25px; padding: 0 8px; background: none; border: 1px solid #000831; border-radius: 50px; margin-left: 8px;}
 
-.standings {width: 80px; height: 25px; float: right; margin: -25px 20px 0 0; text-align: right;}
+.standings {width: 80px; height: 25px; float: right; text-align: right; padding-top: 45px; position: fixed; z-index: 100; margin-top: -25px; left: calc(50vw - 200px + 300px);}
 .standings > button {height: 24px; padding-left: 8px; background: none; border: none; font-weight: 500; text-align: right;}
 
 .standingsDetail {height: 25px;}
 .standingsDetail > button {width: 80px; height: 25px; background: none; border: none;}
 
+#standingsA {padding-top: 65px;}
 #standingsA > div {width: 360px; margin-left: 20px;}
 #standingsA > div > table {width: 360px; vertical-align: middle;}
 #standingsA > div > table > thead > tr {height: 40px;}
@@ -442,7 +445,7 @@ tr.sefc > td {color: #fafafa;}
 tr.sefc > td:nth-of-type(1) {border-radius: 15px 0 0 15px;}
 tr.sefc > td:nth-last-of-type(1) {border-radius: 0 15px 15px 0;}
 
-#standingsU18 {display: none;}
+#standingsU18 {display: none; padding-top: 65px;}
 #standingsU18 > div {width: 360px; margin-left: 20px;}
 #standingsU18 > div > table {width: 360px; vertical-align: middle;}
 #standingsU18 > div > table > thead > tr {height: 40px;}
@@ -457,7 +460,7 @@ tr.sefc > td:nth-last-of-type(1) {border-radius: 0 15px 15px 0;}
 #standingsU18 > div > table > tbody > tr > td:nth-of-type(3) {width: 80px; text-align: left;}
 #standingsU18 > div > table > tbody > tr > td:nth-of-type(n+4) {width: 50px;}
 
-#standingsU15 {display: none;}
+#standingsU15 {display: none; padding-top: 65px;}
 #standingsU15 > div {width: 360px; margin-left: 20px;}
 #standingsU15 > div > table {width: 360px; vertical-align: middle;}
 #standingsU15 > div > table > thead > tr {height: 40px;}

@@ -279,13 +279,14 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 .fixturesButton {width: 100vw; height: 40px; position: fixed; top: 100px; left: 0; background: #fafafa; z-index: 100;}
 .fixturesButton > button {width: 70px; height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
 
-.fixturesSeason {width: 90vw; height: 25px; padding: 10px 5vw; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; position: fixed; background: #fafafa; z-index: 100;}
+.fixturesSeason {width: 90vw; height: 25px; padding: 20px 5vw; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; align-content: flex-start; position: fixed; z-index: 100;}
 .fixturesSeason > button {width: 17vw; height: 25px; background: none; border: 1px solid #000831; border-radius: 50px;}
-.fixturesSeason > div {width: 73vw; height: 25px; overflow: scroll; display: none;}
+.fixturesSeason > div {width: 53vw; height: 25px; overflow: scroll; display: none;}
 .fixturesSeason > div > button {height: 25px; padding: 0 2vw; background: none; border: 1px solid #000831; border-radius: 50px; margin-left: 2vw;}
 
+.fixtures {padding-top: 45px;}
+
 .fixtures_ {width: 90vw; height: 120px; margin: 30px 0 0 5vw; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px;}
-.fixtures_:nth-of-type(1) {margin-top: 80px;}
 .fixtures_ > div:nth-of-type(1) {width: 90vw; height: 90px; border-bottom: 3px solid #00083110; border-radius: 20px 20px 0 0; display: flex; align-items: center; justify-content: center;}
 .fixtures_ > div:nth-of-type(1) > div:nth-of-type(1) {display: flex; align-items: center; position: absolute; left: 10vw;}
 .fixtures_ > div:nth-of-type(1) > div:nth-of-type(1) > div {width: 10vw;}
@@ -410,17 +411,18 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 .standingsButton {width: 100vw; height: 40px; position: fixed; top: 100px; left: 0; background: #fafafa; z-index: 100;}
 .standingsButton > button {width: 70px; height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
 
-.standingsSeason {width: 70vw; height: 25px; margin: 20px 0 0 5vw; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; align-content: flex-start;}
+.standingsSeason {width: 90vw; height: 25px; padding: 20px 0 0 5vw; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; align-content: flex-start; position: fixed;}
 .standingsSeason > button {width: 17vw; height: 25px; background: none; border: 1px solid #000831; border-radius: 50px;}
 .standingsSeason > div {width: 53vw; height: 25px; overflow: scroll; display: none;}
 .standingsSeason > div > button {height: 25px; padding: 0 2vw; background: none; border: 1px solid #000831; border-radius: 50px; margin-left: 2vw;}
 
-.standings {width: 20vw; height: 25px; float: right; margin: -25px 5vw 0 0; text-align: right;}
+.standings {width: 20vw; height: 25px; float: right; text-align: right; padding-top: 45px; position: fixed; z-index: 100; margin-top: -25px; left: 75vw;}
 .standings > button {height: 6vw; padding-left: 2vw; background: none; border: none; font-weight: 500; text-align: right;}
 
 .standingsDetail {height: 25px;}
 .standingsDetail > button {width: 20vw; height: 25px; background: none; border: none;}
 
+#standingsA {padding-top: 65px;}
 #standingsA > div {width: 90vw; margin-left: 5vw;}
 #standingsA > div > table {width: 90vw; vertical-align: middle;}
 #standingsA > div > table > thead > tr {height: 40px;}
@@ -440,7 +442,7 @@ tr.sefc > td {color: #fafafa;}
 tr.sefc > td:nth-of-type(1) {border-radius: 15px 0 0 15px;}
 tr.sefc > td:nth-last-of-type(1) {border-radius: 0 15px 15px 0;}
 
-#standingsU18 {display: none;}
+#standingsU18 {display: none; padding-top: 65px;}
 #standingsU18 > div {width: 90vw; margin-left: 5vw;}
 #standingsU18 > div > table {width: 90vw; vertical-align: middle;}
 #standingsU18 > div > table > thead > tr {height: 40px;}
@@ -455,7 +457,7 @@ tr.sefc > td:nth-last-of-type(1) {border-radius: 0 15px 15px 0;}
 #standingsU18 > div > table > tbody > tr > td:nth-of-type(3) {width: 20vw; text-align: left;}
 #standingsU18 > div > table > tbody > tr > td:nth-of-type(n+4) {width: 12.5vw;}
 
-#standingsU15 {display: none;}
+#standingsU15 {display: none; padding-top: 65px;}
 #standingsU15 > div {width: 90vw; margin-left: 5vw;}
 #standingsU15 > div > table {width: 90vw; vertical-align: middle;}
 #standingsU15 > div > table > thead > tr {height: 40px;}

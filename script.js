@@ -33,7 +33,7 @@ $(window).resize(function() {
 $("header").html("<a href='https://sefc.info'><img src='./files/seouleland_s.png'></a>")
 
 if ($("div[id*=ButtonOffset]").length) {
-    $("div[class*=Button]").css({"background": "linear-gradient(0deg, transparent 0%, #fafafa 20%)", "padding-bottom": "20px"})
+    $("div[class*=Season]").css({"background": "linear-gradient(0deg, transparent 0%, #fafafa 20%)", "padding-bottom": "20px"})
 } else {
     $("header").css("linear-gradient(0deg, transparent 0%, #fafafa 20%)")
 }
