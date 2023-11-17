@@ -35,7 +35,7 @@ $("header").html("<a href='https://sefc.info'><img src='./files/seouleland_s.png
 if ($("div[id*=ButtonOffset]").length) {
     $("div[class*=Season]").css({"background": "linear-gradient(0deg, transparent 0%, #fafafa 20%)", "padding-bottom": "20px"})
 } else {
-    $("header").css("linear-gradient(0deg, transparent 0%, #fafafa 20%)")
+    $("header").css({"background": "linear-gradient(0deg, transparent 0%, #fafafa 20%)", "padding-bottom": "20px"})
 }
 
 // 푸터

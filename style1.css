@@ -279,7 +279,7 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 .fixturesButton {width: 100vw; height: 40px; position: fixed; top: 100px; left: 0; background: #fafafa; z-index: 100;}
 .fixturesButton > button {width: 70px; height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
 
-.fixturesSeason {width: 90vw; height: 25px; padding: 20px 5vw; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; align-content: flex-start; position: fixed; z-index: 100;}
+.fixturesSeason {width: 90vw; height: 25px; padding: 20px 5vw; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; align-content: flex-start; position: fixed; z-index: 100; margin-top: -1px;}
 .fixturesSeason > button {width: 17vw; height: 25px; background: none; border: 1px solid #000831; border-radius: 50px;}
 .fixturesSeason > div {width: 53vw; height: 25px; overflow: scroll; display: none;}
 .fixturesSeason > div > button {height: 25px; padding: 0 2vw; background: none; border: 1px solid #000831; border-radius: 50px; margin-left: 2vw;}
@@ -411,7 +411,7 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 .standingsButton {width: 100vw; height: 40px; position: fixed; top: 100px; left: 0; background: #fafafa; z-index: 100;}
 .standingsButton > button {width: 70px; height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
 
-.standingsSeason {width: 90vw; height: 25px; padding: 20px 0 0 5vw; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; align-content: flex-start; position: fixed;}
+.standingsSeason {width: 90vw; height: 25px; padding: 20px 0 0 5vw; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; align-content: flex-start; position: fixed; margin-top: -1px;}
 .standingsSeason > button {width: 17vw; height: 25px; background: none; border: 1px solid #000831; border-radius: 50px;}
 .standingsSeason > div {width: 53vw; height: 25px; overflow: scroll; display: none;}
 .standingsSeason > div > button {height: 25px; padding: 0 2vw; background: none; border: 1px solid #000831; border-radius: 50px; margin-left: 2vw;}
