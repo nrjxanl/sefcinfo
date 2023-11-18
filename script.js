@@ -42,7 +42,7 @@ if ($("div[id*=ButtonOffset]").length) {
 $("footer").html("<div></div>")
 
 // 메뉴
-$("body").append("<div id='menu'><div id='hamburger' onclick='menuOpen()'><span></span><span></span><span></span></div><a href='./news'>뉴스</a><a href='./players'>선수단</a><a href='./fixtures'>경기 일정</a><a href='./standings'>순위</a></div><div id='menuBg' onclick='menuClose()'></div>")
+$("body").append("<div id='menu'><div id='hamburger' onclick='menuOpen()'><span></span><span></span><span></span></div><a href='https://sefc.info'>홈</a><a href='./news'>뉴스</a><a href='./players'>선수단</a><a href='./records'>선수 기록</a><a href='./fixtures'>경기 일정</a><a href='./standings'>순위</a></div><div id='menuBg' onclick='menuClose()'></div>")
 
 if ($(window).width() < 768) {
     function menuOpen() {
@@ -68,15 +68,19 @@ if ($(window).width() < 768) {
         $("#hamburger > span:nth-of-type(3)").animate({marginLeft: "0"}, 300)
     })
 }
-    
-if ($("#news").length) { // 뉴스
+
+if ($("#news").length) { // 홈
     $("#menu > a:nth-of-type(1)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
-} else if ($(".playerDetail").length || $(".playerButton").length) { // 일정
+} else if ($("#news").length) { // 뉴스
     $("#menu > a:nth-of-type(2)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
-} else if ($(".matchDetail").length || $(".fixturesButton").length) { // 선수
+} else if ($(".playerDetail").length || $(".playerButton").length) { // 선수
     $("#menu > a:nth-of-type(3)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
+// } else if ($(".matchDetail").length || $(".fixturesButton").length) { // 선수 기록
+//     $("#menu > a:nth-of-type(4)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
+} else if ($(".matchDetail").length || $(".fixturesButton").length) { // 일정
+    $("#menu > a:nth-of-type(5)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
 } else if ($(".standingsButton").length) { // 순위
-    $("#menu > a:nth-of-type(4)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
+    $("#menu > a:nth-of-type(6)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
 }
 
 // 문자별 글꼴 적용
@@ -272,6 +276,36 @@ if ($("#matchScore").length && !$("#highlight").length) {
     document.getElementById("matchLineup").style.display = "block"
     $(".matchDetail button:nth-child(1)").css("display", "none")
     $(".matchDetail button:nth-child(2)").css("font-weight", 900)
+}
+
+// 선수 기록 창 전환
+function recordsA() {
+    document.getElementById("recordsA").style.display = "block"
+    document.getElementById("recordsU18").style.display = "none"
+    document.getElementById("recordsU15").style.display = "none"
+}
+
+function recordsU18() {
+    document.getElementById("recordsA").style.display = "none"
+    document.getElementById("recordsU18").style.display = "block"
+    document.getElementById("recordsU15").style.display = "none"
+}
+
+function recordsU15() {
+    document.getElementById("recordsA").style.display = "none"
+    document.getElementById("recordsU18").style.display = "none"
+    document.getElementById("recordsU15").style.display = "block"
+}
+
+function recordsSeason() {
+    season = $("#recordsSeason_").css("display")
+
+    if(season == "none") {
+        document.getElementById("recordsSeason_").style.display = "flex"
+    } else {
+        document.getElementById("recordsSeason_").style.display = "none"
+    }
+
 }
 
 // 순위 창 전환

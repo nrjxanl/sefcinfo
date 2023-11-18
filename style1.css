@@ -40,6 +40,7 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 #footerOffset {width: 100vw; height: 70px; display: block; visibility: hidden;}
 #playerButtonOffset {width: 100vw; height: 80px; visibility: hidden;}
 #fixturesButtonOffset {width: 100vw; height: 40px; visibility: hidden;}
+#recordsButtonOffset {width: 100vw; height: 40px; visibility: hidden;}
 #standingsButtonOffset {width: 100vw; height: 40px; visibility: hidden;}
 #playerSortButtonOffset {width: 100vw; height: 50px; visibility: hidden; display: none;}
 
@@ -84,51 +85,41 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 #standingsHome > table > tbody > tr > td:nth-of-type(n+4) {width: 15vw;}
 #standingsHome > a > p {font-weight: 500; padding: 10px 0 20px 0;}
 
-#goalRanking {width: 90vw; height: inherit; margin: 30px 0 0 5vw; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 5vw; display: flex; align-items: center; justify-content: center; flex-direction: column;}
-#goalRanking > a > div {width: 90vw; display: flex; align-items: center; justify-content: center; padding-top: 20px;}
-#goalRanking > a > div > div {width: 30vw; height: 30vw; margin: 0 5vw; border-radius: 0 0 50% 50%; overflow: hidden;}
-#goalRanking > a > div > div > img {width: 30vw;}
-#goalRanking > a > div > p {font-size: 24px; text-align: right; display: flex; flex-direction: column; align-items: flex-end;}
-#goalRanking > a > div > p > span {font-size: 20px; font-weight: 500;}
-#goalRanking > div:nth-of-type(1) {display: flex;}
-#goalRanking > div:nth-of-type(1) > a > div {display: flex; align-items: center; justify-content: center; padding: 20px 10px;}
-#goalRanking > div:nth-of-type(1) > a > div:nth-of-type(1) > p:nth-of-type(1) {font-size: 24px; padding-right: 3vw;}
-#goalRanking > div:nth-of-type(1) > a > div:nth-of-type(2) > p:nth-of-type(1) {font-size: 24px; padding: 0 3vw 0 7vw;}
+#appRanking {width: 90vw; height: inherit; margin: 30px 0 0 5vw; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 5vw; display: flex; align-items: flex-start; justify-content: center; flex-direction: column;}
+#appRanking > div:nth-of-type(1) {display: flex; flex-direction: column;}
+#appRanking > div:nth-of-type(1) > a > div {display: flex; align-items: center; padding: 10px 0;}
+#appRanking > div:nth-of-type(1) > a:nth-of-type(1) > div {padding-top: 20px;}
+#appRanking > div:nth-of-type(1) > a:nth-of-type(3) > div {padding-bottom: 20px;}
+#appRanking > div:nth-of-type(1) > a > div > div {width: 15vw; height: 15vw; overflow: hidden; border-radius: 0 0 50% 50%; margin: 0 3vw;}
+#appRanking > div:nth-of-type(1) > a > div > div > img {width: 15vw;}
+#appRanking > div:nth-of-type(1) > a > div > p:nth-of-type(1) {font-size: 24px; padding-right: 3vw;}
+#appRanking > div:nth-of-type(1) > a > div > p:nth-of-type(2) {font-size: 20px; text-align: left;}
+#appRanking > div:nth-of-type(1) > a > div > p:nth-of-type(2) > span {font-size: 20px; font-weight: 500;}
+#appRanking > div:nth-of-type(2) {width: 90vw; font-weight: 500; padding-bottom: 20px;}
+
+#goalRanking {width: 90vw; height: inherit; margin: 30px 0 0 5vw; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 5vw; display: flex; align-items: flex-start; justify-content: center; flex-direction: column;}
+#goalRanking > div:nth-of-type(1) {display: flex; flex-direction: column;}
+#goalRanking > div:nth-of-type(1) > a > div {display: flex; align-items: center; padding: 10px 0;}
+#goalRanking > div:nth-of-type(1) > a:nth-of-type(1) > div {padding-top: 20px;}
+#goalRanking > div:nth-of-type(1) > a:nth-of-type(3) > div {padding-bottom: 20px;}
+#goalRanking > div:nth-of-type(1) > a > div > div {width: 15vw; height: 15vw; overflow: hidden; border-radius: 0 0 50% 50%; margin: 0 3vw;}
+#goalRanking > div:nth-of-type(1) > a > div > div > img {width: 15vw;}
+#goalRanking > div:nth-of-type(1) > a > div > p:nth-of-type(1) {font-size: 24px; padding-right: 3vw;}
 #goalRanking > div:nth-of-type(1) > a > div > p:nth-of-type(2) {font-size: 20px; text-align: left;}
 #goalRanking > div:nth-of-type(1) > a > div > p:nth-of-type(2) > span {font-size: 20px; font-weight: 500;}
-#goalRanking > div:nth-of-type(2) {font-weight: 500; padding-bottom: 20px;}
+#goalRanking > div:nth-of-type(2) {width: 90vw; font-weight: 500; padding-bottom: 20px;}
 
-#assistRanking {width: 90vw; height: inherit; margin: 30px 0 0 5vw; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 5vw; display: flex; align-items: center; justify-content: center; flex-direction: column;}
-#assistRanking > a > div {width: 90vw; display: flex; align-items: center; justify-content: center; padding-top: 20px;}
-#assistRanking > a > div > div {width: 30vw; height: 30vw; margin: 0 5vw; border-radius: 0 0 50% 50%; overflow: hidden;}
-#assistRanking > a > div > div > img {width: 30vw;}
-#assistRanking > a > div > p {font-size: 24px; text-align: right; display: flex; flex-direction: column; align-items: flex-end;}
-#assistRanking > a > div > p > span {font-size: 20px; font-weight: 500;}
-#assistRanking > div:nth-of-type(1) {display: flex;}
-#assistRanking > div:nth-of-type(1) > a > div {display: flex; align-items: center; justify-content: center; padding: 20px 10px;}
-#assistRanking > div:nth-of-type(1) > a > div:nth-of-type(1) > p:nth-of-type(1) {font-size: 24px; padding-right: 3vw;}
-#assistRanking > div:nth-of-type(1) > a > div:nth-of-type(2) > p:nth-of-type(1) {font-size: 24px; padding: 0 3vw 0 7vw;}
+#assistRanking {width: 90vw; height: inherit; margin: 30px 0 0 5vw; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 5vw; display: flex; align-items: flex-start; justify-content: center; flex-direction: column;}
+#assistRanking > div:nth-of-type(1) {display: flex; flex-direction: column;}
+#assistRanking > div:nth-of-type(1) > a > div {display: flex; align-items: center; padding: 10px 0;}
+#assistRanking > div:nth-of-type(1) > a:nth-of-type(1) > div {padding-top: 20px;}
+#assistRanking > div:nth-of-type(1) > a:nth-of-type(3) > div {padding-bottom: 20px;}
+#assistRanking > div:nth-of-type(1) > a > div > div {width: 15vw; height: 15vw; overflow: hidden; border-radius: 0 0 50% 50%; margin: 0 3vw;}
+#assistRanking > div:nth-of-type(1) > a > div > div > img {width: 15vw;}
+#assistRanking > div:nth-of-type(1) > a > div > p:nth-of-type(1) {font-size: 24px; padding-right: 3vw;}
 #assistRanking > div:nth-of-type(1) > a > div > p:nth-of-type(2) {font-size: 20px; text-align: left;}
 #assistRanking > div:nth-of-type(1) > a > div > p:nth-of-type(2) > span {font-size: 20px; font-weight: 500;}
-#assistRanking > div:nth-of-type(2) {font-weight: 500; padding-bottom: 20px;}
-
-#goalRankingPopup{display: none; width: 100vw; height: 100vh; z-index: 110; background: #00083120; position: fixed; top: 0; left: 0;}
-#goalRankingPopup > div {width: 80vw; height: 70vh; margin: 15vh 10vw; padding: 2vh 0; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 5vw; position: relative; z-index: 111; background: #fafafa; overflow: scroll;}
-#goalRankingPopup > div > a > div {width: calc(70vw + 50px); height: 50px; margin: 10px 0; display: flex; align-items: center; justify-content: center;}
-#goalRankingPopup > div > a > div > div {width: 50px; height: 50px;border: 2px solid #00083120; border-radius: 50%; overflow: hidden;}
-#goalRankingPopup > div > a > div > div > img {width: 50px;}
-#goalRankingPopup > div > a > div > p:nth-of-type(1) {font-size: 20px; padding-right: 5vw; text-align: right;}
-#goalRankingPopup > div > a > div > p:nth-of-type(2) {width: 40vw; font-size: 20px; text-align: left; padding-left: 5vw;}
-#goalRankingPopup > div > a > div > p:nth-of-type(2) > span {font-size: 20px; font-weight: 500;}
-
-#assistRankingPopup{display: none; width: 100vw; height: 100vh; z-index: 110; background: #00083120; position: fixed; top: 0; left: 0;}
-#assistRankingPopup > div {width: 80vw; height: 70vh; margin: 15vh 10vw; padding: 2vh 0; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 5vw; position: relative; z-index: 111; background: #fafafa; overflow: scroll;}
-#assistRankingPopup > div > a > div {width: calc(70vw + 50px); height: 50px; margin: 10px 0; display: flex; align-items: center; justify-content: center;}
-#assistRankingPopup > div > a > div > div {width: 50px; height: 50px;border: 2px solid #00083120; border-radius: 50%; overflow: hidden;}
-#assistRankingPopup > div > a > div > div > img {width: 50px;}
-#assistRankingPopup > div > a > div > p:nth-of-type(1) {font-size: 20px; padding-right: 5vw; text-align: right;}
-#assistRankingPopup > div > a > div > p:nth-of-type(2) {width: 40vw; font-size: 20px; text-align: left; padding-left: 5vw;}
-#assistRankingPopup > div > a > div > p:nth-of-type(2) > span {font-size: 20px; font-weight: 500;}
+#assistRanking > div:nth-of-type(2) {width: 90vw; font-weight: 500; padding-bottom: 20px;}
 
 #latestNews {width: 90vw; height: 300px; margin-left: 5vw; overflow: scroll; display: flex; align-items: center;}
 #latestNews > div {width: 60vw; height: 200px; box-shadow: 0px 0px 5px 1px #00083140; border-radius: 5vw; flex-shrink: 0; margin: 0 10px; display: flex; align-items: flex-end;}
@@ -275,13 +266,22 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 #playerCareer > div > div > p:nth-of-type(2) {width: 15vw; text-align: right; padding-right: 5vw; font-weight: 500; display: flex; justify-content: center; flex-direction: column;}
 #playerCareer > div > div > p > span {display: block; text-align: left; font-weight: 500;}
 
+/* 선수 기록 */
+.recordsButton {width: 100vw; height: 40px; position: fixed; top: 100px; left: 0; background: #fafafa; z-index: 100;}
+.recordsButton > button {width: 70px; height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
+
+.recordsSeason {width: 90vw; height: 25px; padding: 20px 5vw; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; align-content: flex-start; position: fixed; z-index: 100; margin-top: -1px;}
+.recordsSeason > button {width: 17vw; height: 25px; background: none; border: 1px solid #000831; border-radius: 50px;}
+.recordsSeason > div {width: 73vw; height: 25px; overflow: scroll; display: none;}
+.recordsSeason > div > button {height: 25px; padding: 0 2vw; background: none; border: 1px solid #000831; border-radius: 50px; margin-left: 2vw;}
+
 /* 일정 */
 .fixturesButton {width: 100vw; height: 40px; position: fixed; top: 100px; left: 0; background: #fafafa; z-index: 100;}
 .fixturesButton > button {width: 70px; height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
 
 .fixturesSeason {width: 90vw; height: 25px; padding: 20px 5vw; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; align-content: flex-start; position: fixed; z-index: 100; margin-top: -1px;}
 .fixturesSeason > button {width: 17vw; height: 25px; background: none; border: 1px solid #000831; border-radius: 50px;}
-.fixturesSeason > div {width: 53vw; height: 25px; overflow: scroll; display: none;}
+.fixturesSeason > div {width: 73vw; height: 25px; overflow: scroll; display: none;}
 .fixturesSeason > div > button {height: 25px; padding: 0 2vw; background: none; border: 1px solid #000831; border-radius: 50px; margin-left: 2vw;}
 
 .fixtures {padding-top: 45px;}

@@ -42,6 +42,7 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 #footerOffset {width: 400px; height: 70px; display: block; visibility: hidden;}
 #playerButtonOffset {width: 400px; height: 80px; visibility: hidden;}
 #fixturesButtonOffset {width: 400px; height: 40px; visibility: hidden;}
+#recordsButtonOffset {width: 400px; height: 40px; visibility: hidden;}
 #standingsButtonOffset {width: 400px; height: 40px; visibility: hidden;}
 #playerSortButtonOffset {width: 400px; height: 50px; visibility: hidden; display: none;}
 
@@ -113,24 +114,6 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 #assistRanking > div:nth-of-type(1) > a > div > p:nth-of-type(2) {font-size: 20px; text-align: left;}
 #assistRanking > div:nth-of-type(1) > a > div > p:nth-of-type(2) > span {font-size: 20px; font-weight: 500;}
 #assistRanking > div:nth-of-type(2) {font-weight: 500; padding-bottom: 20px;}
-
-#goalRankingPopup{display: none; width: 100vw; height: 100vh; z-index: 301; background: #00083120; position: fixed; top: 0; left: 0;}
-#goalRankingPopup > div {width: calc(50vw - 200px - 40px); height: 70vh; margin: 15vh 0; padding: 2vh 0; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px; position: fixed; top: 0; right: 20px; z-index: 302; background: #fafafa; overflow: scroll;}
-#goalRankingPopup > div > a > div {width: calc(280px + 50px); height: 50px; margin: 10px 0; display: flex; align-items: center; justify-content: center;}
-#goalRankingPopup > div > a > div > div {width: 50px; height: 50px;border: 2px solid #00083120; border-radius: 50%; overflow: hidden;}
-#goalRankingPopup > div > a > div > div > img {width: 50px;}
-#goalRankingPopup > div > a > div > p:nth-of-type(1) {font-size: 20px; padding-right: 20px; text-align: right;}
-#goalRankingPopup > div > a > div > p:nth-of-type(2) {width: 160px; font-size: 20px; text-align: left; padding-left: 20px;}
-#goalRankingPopup > div > a > div > p:nth-of-type(2) > span {font-size: 20px; font-weight: 500;}
-
-#assistRankingPopup{display: none; width: 100vw; height: 100vh; z-index: 301; background: #00083120; position: fixed; top: 0; left: 0;}
-#assistRankingPopup > div {width: calc(50vw - 200px - 40px); height: 70vh; margin: 15vh 0; padding: 2vh 0; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px; position: fixed; top: 0; right: 20px; z-index: 302; background: #fafafa; overflow: scroll;}
-#assistRankingPopup > div > a > div {width: calc(280px + 50px); height: 50px; margin: 10px 0; display: flex; align-items: center; justify-content: center;}
-#assistRankingPopup > div > a > div > div {width: 50px; height: 50px;border: 2px solid #00083120; border-radius: 50%; overflow: hidden;}
-#assistRankingPopup > div > a > div > div > img {width: 50px;}
-#assistRankingPopup > div > a > div > p:nth-of-type(1) {font-size: 20px; padding-right: 20px; text-align: right;}
-#assistRankingPopup > div > a > div > p:nth-of-type(2) {width: 160px; font-size: 20px; text-align: left; padding-left: 20px;}
-#assistRankingPopup > div > a > div > p:nth-of-type(2) > span {font-size: 20px; font-weight: 500;}
 
 #latestNews {width: 360px; height: 300px; margin-left: 20px; overflow: scroll; display: flex; align-items: center;}
 #latestNews > div {width: 240px; height: 200px; box-shadow: 0px 0px 5px 1px #00083140; border-radius: 20px; flex-shrink: 0; margin: 0 10px; display: flex; align-items: flex-end;}
@@ -277,13 +260,22 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 #playerCareer > div > div > p:nth-of-type(2) {width: 60px; text-align: right; padding-right: 20px; font-weight: 500; display: flex; justify-content: center; flex-direction: column;}
 #playerCareer > div > div > p > span {display: block; text-align: left; font-weight: 500;}
 
+/* 선수 기록 */
+.recordsButton {width: 400px; height: 40px; position: fixed; top: 100px; left: calc(50vw - 200px); background: #fafafa; z-index: 100;}
+.recordsButton > button {width: 70px; height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
+
+.recordsSeason {width: 360px; height: 25px; padding: 20px; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; align-content: flex-start; position: fixed; z-index: 100; margin-top: -1px;}
+.recordsSeason > button {width: 68px; height: 25px; background: none; border: 1px solid #000831; border-radius: 50px;}
+.recordsSeason > div {width: 292px; height: 25px; overflow: scroll; display: none;}
+.recordsSeason > div > button {height: 25px; padding: 0 8px; background: none; border: 1px solid #000831; border-radius: 50px; margin-left: 8px;}
+
 /* 일정 */
 .fixturesButton {width: 400px; height: 40px; position: fixed; top: 100px; left: calc(50vw - 200px); background: #fafafa; z-index: 100;}
 .fixturesButton > button {width: 70px; height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
 
 .fixturesSeason {width: 360px; height: 25px; padding: 20px; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; align-content: flex-start; position: fixed; z-index: 100; margin-top: -1px;}
 .fixturesSeason > button {width: 68px; height: 25px; background: none; border: 1px solid #000831; border-radius: 50px;}
-.fixturesSeason > div {width: 212px; height: 25px; overflow: scroll; display: none;}
+.fixturesSeason > div {width: 292px; height: 25px; overflow: scroll; display: none;}
 .fixturesSeason > div > button {height: 25px; padding: 0 8px; background: none; border: 1px solid #000831; border-radius: 50px; margin-left: 8px;}
 
 .fixtures {padding-top: 45px;}

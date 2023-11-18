@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="style2.css" media="screen and (min-width: 768px)">
+    <title>SEFCiNFO</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="./files/favicon.png">
+</head>
+
+    <header></header>
+    <footer></footer>
+
+    <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onkeydown="return false">
+
+        <div id="headerOffset"></div>
+        <div id="recordsButtonOffset"></div>
+
+        <div class="recordsSeason">
+            <button onclick="recordsSeason()">시즌 선택</button>
+            <div id="recordsSeason_">
+                <button onclick="recordsTotal()">합계</button>
+                <button onclick="records2023()">2023</button>
+                <button onclick="records2022()">2022</button>
+                <button onclick="records2021()">2021</button>
+                <button onclick="records2020()">2020</button>
+                <button onclick="records2019()">2019</button>
+                <button onclick="records2018()">2018</button>
+                <button onclick="records2017()">2017</button>
+                <button onclick="records2016()">2016</button>
+                <button onclick="records2015()">2015</button>
+            </div>
+        </div>
+
+        <div id="recordsA">
+            
+            <div class="fixturesButton" style="margin-top: 0;">
+                <button onclick="fixturesA()" style="background: #000831; color: #fafafa;">A팀</button>
+                <button onclick="fixturesU18()">U-18</button>
+                <button onclick="fixturesU15()">U-15</button>
+            </div>
+    
+        </div>
+
+        <div id="footerOffset"></div>
+
+        <script src="record.js"></script>
+
+        <script src="stat.js"></script>
+
+        <script src="script.js"></script>
+
+    </body>
+
+</html>
