@@ -87,33 +87,41 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 #standingsHome > table > tbody > tr > td:nth-of-type(n+4) {width: 60px;}
 #standingsHome > a > p {font-weight: 500; padding: 10px 0 20px 0;}
 
-#goalRanking {width: 360px; height: inherit; margin: 30px 0 0 20px; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px; display: flex; align-items: center; justify-content: center; flex-direction: column;}
-#goalRanking > a > div {width: 360px; display: flex; align-items: center; justify-content: center; padding-top: 20px;}
-#goalRanking > a > div > div {width: 120px; height: 120px; margin: 0 20px; border-radius: 0 0 50% 50%; overflow: hidden;}
-#goalRanking > a > div > div > img {width: 120px;}
-#goalRanking > a > div > p {font-size: 24px; text-align: right; display: flex; flex-direction: column; align-items: flex-end;}
-#goalRanking > a > div > p > span {font-size: 20px; font-weight: 500;}
-#goalRanking > div:nth-of-type(1) {display: flex;}
-#goalRanking > div:nth-of-type(1) > a > div {display: flex; align-items: center; justify-content: center; padding: 20px 10px;}
-#goalRanking > div:nth-of-type(1) > a > div:nth-of-type(1) > p:nth-of-type(1) {font-size: 24px; padding-right: 12px;}
-#goalRanking > div:nth-of-type(1) > a > div:nth-of-type(2) > p:nth-of-type(1) {font-size: 24px; padding: 0 12px 0 28px;}
+#appRanking {width: 360px; height: inherit; margin: 30px 0 0 20px; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px; display: flex; align-items: flex-start; justify-content: center; flex-direction: column;}
+#appRanking > div:nth-of-type(1) {display: flex; flex-direction: column;}
+#appRanking > div:nth-of-type(1) > a > div {display: flex; align-items: center; padding: 10px 0;}
+#appRanking > div:nth-of-type(1) > a:nth-of-type(1) > div {padding-top: 20px;}
+#appRanking > div:nth-of-type(1) > a:nth-of-type(3) > div {padding-bottom: 20px;}
+#appRanking > div:nth-of-type(1) > a > div > div {width: 60px; height: 60px; overflow: hidden; border-radius: 0 0 50% 50%; margin: 0 15px;}
+#appRanking > div:nth-of-type(1) > a > div > div > img {width: 60px;}
+#appRanking > div:nth-of-type(1) > a > div > p:nth-of-type(1) {font-size: 24px; padding-right: 15px;}
+#appRanking > div:nth-of-type(1) > a > div > p:nth-of-type(2) {font-size: 20px; text-align: left;}
+#appRanking > div:nth-of-type(1) > a > div > p:nth-of-type(2) > span {font-size: 20px; font-weight: 500;}
+#appRanking > div:nth-of-type(2) {width: 360px; font-weight: 500; padding-bottom: 20px;}
+
+#goalRanking {width: 360px; height: inherit; margin: 30px 0 0 20px; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px; display: flex; align-items: flex-start; justify-content: center; flex-direction: column;}
+#goalRanking > div:nth-of-type(1) {display: flex; flex-direction: column;}
+#goalRanking > div:nth-of-type(1) > a > div {display: flex; align-items: center; padding: 10px 0;}
+#goalRanking > div:nth-of-type(1) > a:nth-of-type(1) > div {padding-top: 20px;}
+#goalRanking > div:nth-of-type(1) > a:nth-of-type(3) > div {padding-bottom: 20px;}
+#goalRanking > div:nth-of-type(1) > a > div > div {width: 60px; height: 60px; overflow: hidden; border-radius: 0 0 50% 50%; margin: 0 15px;}
+#goalRanking > div:nth-of-type(1) > a > div > div > img {width: 60px;}
+#goalRanking > div:nth-of-type(1) > a > div > p:nth-of-type(1) {font-size: 24px; padding-right: 15px;}
 #goalRanking > div:nth-of-type(1) > a > div > p:nth-of-type(2) {font-size: 20px; text-align: left;}
 #goalRanking > div:nth-of-type(1) > a > div > p:nth-of-type(2) > span {font-size: 20px; font-weight: 500;}
-#goalRanking > div:nth-of-type(2) {font-weight: 500; padding-bottom: 20px;}
+#goalRanking > div:nth-of-type(2) {width: 360px; font-weight: 500; padding-bottom: 20px;}
 
-#assistRanking {width: 360px; height: inherit; margin: 30px 0 0 20px; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px; display: flex; align-items: center; justify-content: center; flex-direction: column;}
-#assistRanking > a > div {width: 360px; display: flex; align-items: center; justify-content: center; padding-top: 20px;}
-#assistRanking > a > div > div {width: 120px; height: 120px; margin: 0 20px; border-radius: 0 0 50% 50%; overflow: hidden;}
-#assistRanking > a > div > div > img {width: 120px;}
-#assistRanking > a > div > p {font-size: 24px; text-align: right; display: flex; flex-direction: column; align-items: flex-end;}
-#assistRanking > a > div > p > span {font-size: 20px; font-weight: 500;}
-#assistRanking > div:nth-of-type(1) {display: flex;}
-#assistRanking > div:nth-of-type(1) > a > div {display: flex; align-items: center; justify-content: center; padding: 20px 10px;}
-#assistRanking > div:nth-of-type(1) > a > div:nth-of-type(1) > p:nth-of-type(1) {font-size: 24px; padding-right: 12px;}
-#assistRanking > div:nth-of-type(1) > a > div:nth-of-type(2) > p:nth-of-type(1) {font-size: 24px; padding: 0 12px 0 28px;}
+#assistRanking {width: 360px; height: inherit; margin: 30px 0 0 20px; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px; display: flex; align-items: flex-start; justify-content: center; flex-direction: column;}
+#assistRanking > div:nth-of-type(1) {display: flex; flex-direction: column;}
+#assistRanking > div:nth-of-type(1) > a > div {display: flex; align-items: center; padding: 10px 0;}
+#assistRanking > div:nth-of-type(1) > a:nth-of-type(1) > div {padding-top: 20px;}
+#assistRanking > div:nth-of-type(1) > a:nth-of-type(3) > div {padding-bottom: 20px;}
+#assistRanking > div:nth-of-type(1) > a > div > div {width: 60px; height: 60px; overflow: hidden; border-radius: 0 0 50% 50%; margin: 0 15px;}
+#assistRanking > div:nth-of-type(1) > a > div > div > img {width: 60px;}
+#assistRanking > div:nth-of-type(1) > a > div > p:nth-of-type(1) {font-size: 24px; padding-right: 15px;}
 #assistRanking > div:nth-of-type(1) > a > div > p:nth-of-type(2) {font-size: 20px; text-align: left;}
 #assistRanking > div:nth-of-type(1) > a > div > p:nth-of-type(2) > span {font-size: 20px; font-weight: 500;}
-#assistRanking > div:nth-of-type(2) {font-weight: 500; padding-bottom: 20px;}
+#assistRanking > div:nth-of-type(2) {width: 360px; font-weight: 500; padding-bottom: 20px;}
 
 #latestNews {width: 360px; height: 300px; margin-left: 20px; overflow: scroll; display: flex; align-items: center;}
 #latestNews > div {width: 240px; height: 200px; box-shadow: 0px 0px 5px 1px #00083140; border-radius: 20px; flex-shrink: 0; margin: 0 10px; display: flex; align-items: flex-end;}

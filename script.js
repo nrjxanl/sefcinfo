@@ -69,14 +69,14 @@ if ($(window).width() < 768) {
     })
 }
 
-if ($("#news").length) { // 홈
+if ($("#nextMatch").length) { // 홈
     $("#menu > a:nth-of-type(1)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
 } else if ($("#news").length) { // 뉴스
     $("#menu > a:nth-of-type(2)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
 } else if ($(".playerDetail").length || $(".playerButton").length) { // 선수
     $("#menu > a:nth-of-type(3)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
-// } else if ($(".matchDetail").length || $(".fixturesButton").length) { // 선수 기록
-//     $("#menu > a:nth-of-type(4)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
+} else if ($(".matchDetail").length || $(".recordsButton").length) { // 선수 기록
+    $("#menu > a:nth-of-type(4)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
 } else if ($(".matchDetail").length || $(".fixturesButton").length) { // 일정
     $("#menu > a:nth-of-type(5)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
 } else if ($(".standingsButton").length) { // 순위

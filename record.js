@@ -106,6 +106,12 @@ $("#assistRanking > div:nth-of-type(1) > a:nth-of-type(3)").attr("href", "./" + 
 $("#assistRanking > div:nth-of-type(1) > a:nth-of-type(3) > div > p:nth-of-type(2)").html(assistp3.replace(/[0-9]/g, "") + "<span> | " + assist3 + "도움</span>");
 $("#assistRanking > div:nth-of-type(1) > a:nth-of-type(3) > div > div > img").attr("src", "./files/" + assistid3 + ".png")
 
-$("#appRanking > div:nth-of-type(1) > a > div").css("margin-left", "calc((90vw - " + $("#appRanking > div:nth-of-type(1) > a:nth-of-type(1) > div").width() + "px) / 2")
-$("#goalRanking > div:nth-of-type(1) > a > div").css("margin-left", "calc((90vw - " + $("#goalRanking > div:nth-of-type(1) > a:nth-of-type(1) > div").width() + "px) / 2")
-$("#assistRanking > div:nth-of-type(1) > a > div").css("margin-left", "calc((90vw - " + $("#assistRanking > div:nth-of-type(1) > a:nth-of-type(1) > div").width() + "px) / 2")
+if ($(window).width() < 768) {
+    $("#appRanking > div:nth-of-type(1) > a > div").css("margin-left", "calc((90vw - " + $("#appRanking > div:nth-of-type(1) > a:nth-of-type(1) > div").width() + "px) / 2")
+    $("#goalRanking > div:nth-of-type(1) > a > div").css("margin-left", "calc((90vw - " + $("#goalRanking > div:nth-of-type(1) > a:nth-of-type(1) > div").width() + "px) / 2")
+    $("#assistRanking > div:nth-of-type(1) > a > div").css("margin-left", "calc((90vw - " + $("#assistRanking > div:nth-of-type(1) > a:nth-of-type(1) > div").width() + "px) / 2")
+} else {
+    $("#appRanking > div:nth-of-type(1) > a > div").css("margin-left", "calc((360px - " + $("#appRanking > div:nth-of-type(1) > a:nth-of-type(1) > div").width() + "px) / 2")
+    $("#goalRanking > div:nth-of-type(1) > a > div").css("margin-left", "calc((360px - " + $("#goalRanking > div:nth-of-type(1) > a:nth-of-type(1) > div").width() + "px) / 2")
+    $("#assistRanking > div:nth-of-type(1) > a > div").css("margin-left", "calc((360px - " + $("#assistRanking > div:nth-of-type(1) > a:nth-of-type(1) > div").width() + "px) / 2")
+}
