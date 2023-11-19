@@ -269,6 +269,9 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 #playerCareer > div > div > p > span {display: block; text-align: left; font-weight: 500;}
 
 /* 선수 기록 */
+.recordsDetail {width: 400px; height: 25px; margin-top: 64px; position: fixed; background: #fafafa;}
+.recordsDetail > button {width: 80px; height: 25px; background: none; border: none; font-size: 16px;}
+
 .recordsButton {width: 400px; height: 40px; position: fixed; top: 100px; left: calc(50vw - 200px); background: #fafafa; z-index: 100;}
 .recordsButton > button {width: 70px; height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
 
@@ -276,6 +279,42 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 .recordsSeason > button {width: 68px; height: 25px; background: none; border: 1px solid #000831; border-radius: 50px;}
 .recordsSeason > div {width: 292px; height: 25px; overflow: scroll; display: none;}
 .recordsSeason > div > button {height: 25px; padding: 0 8px; background: none; border: 1px solid #000831; border-radius: 50px; margin-left: 8px;}
+
+#recordsA, #recordsU18, #recordsU15 {margin-top: 110px;}
+#recordsU18, #recordsU15 {display: none;}
+
+.appRecord {width: 360px; height: inherit; margin: 30px 0 0 20px; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px; display: flex; align-items: flex-start; justify-content: center; flex-direction: column;}
+.appRecord > div {display: flex; flex-direction: column;}
+.appRecord > div > a > div {display: flex; align-items: center; padding: 10px 0;}
+.appRecord > div > a:nth-of-type(1) > div {padding-top: 20px;}
+.appRecord > div > a:nth-of-type(3) > div {padding-bottom: 20px;}
+.appRecord > div > a > div > div {width: 60px; height: 60px; overflow: hidden; border-radius: 0 0 50% 50%; margin: 0 12px;}
+.appRecord > div > a > div > div > img {width: 60px;}
+.appRecord > div > a > div > p:nth-of-type(1) {font-size: 24px; padding-right: 12px;}
+.appRecord > div > a > div > p:nth-of-type(2) {font-size: 20px; text-align: left;}
+.appRecord > div > a > div > p:nth-of-type(2) > span {font-size: 20px; font-weight: 500;}
+
+.goalRecord {width: 360px; height: inherit; margin: 30px 0 0 20px; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px; display: none; align-items: flex-start; justify-content: center; flex-direction: column;}
+.goalRecord > div {display: flex; flex-direction: column;}
+.goalRecord > div > a > div {display: flex; align-items: center; padding: 10px 0;}
+.goalRecord > div > a:nth-of-type(1) > div {padding-top: 20px;}
+.goalRecord > div > a:nth-of-type(3) > div {padding-bottom: 20px;}
+.goalRecord > div > a > div > div {width: 60px; height: 60px; overflow: hidden; border-radius: 0 0 50% 50%; margin: 0 12px;}
+.goalRecord > div > a > div > div > img {width: 60px;}
+.goalRecord > div > a > div > p:nth-of-type(1) {font-size: 24px; padding-right: 12px;}
+.goalRecord > div > a > div > p:nth-of-type(2) {font-size: 20px; text-align: left;}
+.goalRecord > div > a > div > p:nth-of-type(2) > span {font-size: 20px; font-weight: 500;}
+
+.assistRecord {width: 360px; height: inherit; margin: 30px 0 0 20px; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px; display: none; align-items: flex-start; justify-content: center; flex-direction: column;}
+.assistRecord > div {display: flex; flex-direction: column;}
+.assistRecord > div > a > div {display: flex; align-items: center; padding: 10px 0;}
+.assistRecord > div > a:nth-of-type(1) > div {padding-top: 20px;}
+.assistRecord > div > a:nth-of-type(3) > div {padding-bottom: 20px;}
+.assistRecord > div > a > div > div {width: 60px; height: 60px; overflow: hidden; border-radius: 0 0 50% 50%; margin: 0 12px;}
+.assistRecord > div > a > div > div > img {width: 60px;}
+.assistRecord > div > a > div > p:nth-of-type(1) {font-size: 24px; padding-right: 12px;}
+.assistRecord > div > a > div > p:nth-of-type(2) {font-size: 20px; text-align: left;}
+.assistRecord > div > a > div > p:nth-of-type(2) > span {font-size: 20px; font-weight: 500;}
 
 /* 일정 */
 .fixturesButton {width: 400px; height: 40px; position: fixed; top: 100px; left: calc(50vw - 200px); background: #fafafa; z-index: 100;}
@@ -423,7 +462,7 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 .standings > button {height: 24px; padding-left: 8px; background: none; border: none; font-weight: 500; text-align: right;}
 
 .standingsDetail {height: 25px;}
-.standingsDetail > button {width: 80px; height: 25px; background: none; border: none;}
+.standingsDetail > button {width: 80px; height: 25px; background: none; border: none; font-size: 16px;}
 
 #standingsA {padding-top: 65px;}
 #standingsA > div {width: 360px; margin-left: 20px;}

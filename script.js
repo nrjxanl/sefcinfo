@@ -33,7 +33,12 @@ $(window).resize(function() {
 $("header").html("<a href='https://sefc.info'><img src='./files/seouleland_s.png'></a>")
 
 if ($("div[id*=ButtonOffset]").length) {
-    $("div[class*=Season]").css({"background": "linear-gradient(0deg, transparent 0%, #fafafa 20%)", "padding-bottom": "20px"})
+    if ($(".recordsDetail").length) {
+        $(".recordsSeason").css({"background": "#fafafa"})
+        $(".recordsDetail").css({"background": "linear-gradient(0deg, transparent 0%, #fafafa 20%)", "padding-bottom": "20px"})
+    } else {
+        $("div[class*=Season]").css({"background": "linear-gradient(0deg, transparent 0%, #fafafa 20%)", "padding-bottom": "20px"})
+    }
 } else {
     $("header").css({"background": "linear-gradient(0deg, transparent 0%, #fafafa 20%)", "padding-bottom": "20px"})
 }
@@ -306,6 +311,33 @@ function recordsSeason() {
         document.getElementById("recordsSeason_").style.display = "none"
     }
 
+}
+
+function recordsApp() {
+    $(".appRecord").css("display", "flex")
+    $(".goalRecord").css("display", "none")
+    $(".assistRecord").css("display", "none")
+    $(".recordsDetail button:nth-child(1)").css("font-weight", 900)
+    $(".recordsDetail button:nth-child(2)").css("font-weight", 500)
+    $(".recordsDetail button:nth-child(3)").css("font-weight", 500)
+}
+
+function recordsGoal() {
+    $(".appRecord").css("display", "none")
+    $(".goalRecord").css("display", "flex")
+    $(".assistRecord").css("display", "none")
+    $(".recordsDetail button:nth-child(1)").css("font-weight", 500)
+    $(".recordsDetail button:nth-child(2)").css("font-weight", 900)
+    $(".recordsDetail button:nth-child(3)").css("font-weight", 500)
+}
+
+function recordsAssist() {
+    $(".appRecord").css("display", "none")
+    $(".goalRecord").css("display", "none")
+    $(".assistRecord").css("display", "flex")
+    $(".recordsDetail button:nth-child(1)").css("font-weight", 500)
+    $(".recordsDetail button:nth-child(2)").css("font-weight", 500)
+    $(".recordsDetail button:nth-child(3)").css("font-weight", 900)
 }
 
 // 순위 창 전환
