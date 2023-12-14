@@ -52,25 +52,25 @@ $("body").append("<div id='menu'><div id='hamburger' onclick='menuOpen()'><span>
 if ($(window).width() < 768) {
     function menuOpen() {
         $("#hamburger").attr("onclick", "menuClose()")
-        $("#hamburger > span:nth-of-type(1)").animate({marginLeft: "10px"}, 300)
-        $("#hamburger > span:nth-of-type(3)").animate({marginLeft: "5px"}, 300)
-        $("#menu").animate({left: 0}, 300)
-        $("#menuBg").delay(100).animate({opacity: 0.2}, 300)
+        $("#hamburger > span:nth-of-type(1)").animate({marginLeft: "10px"}, 200)
+        $("#hamburger > span:nth-of-type(3)").animate({marginLeft: "5px"}, 200)
+        $("#menu").animate({left: 0}, 200)
+        $("#menuBg").delay(100).animate({opacity: 0.2}, 200)
         $("#menuBg").css("pointer-events", "auto")
     }
     
     function menuClose() {
         $("#hamburger").attr("onclick", "menuOpen()")
-        $("#hamburger > span:nth-of-type(1)").animate({marginLeft: "0"}, 300)
-        $("#hamburger > span:nth-of-type(3)").animate({marginLeft: "0"}, 300)
-        $("#menuBg").animate({opacity: 0}, 300)
-        $("#menu").delay(100).animate({left: "-80vw"}, 300)
+        $("#hamburger > span:nth-of-type(1)").animate({marginLeft: "0"}, 200)
+        $("#hamburger > span:nth-of-type(3)").animate({marginLeft: "0"}, 200)
+        $("#menuBg").animate({opacity: 0}, 200)
+        $("#menu").delay(100).animate({left: "-80vw"}, 200)
         $("#menuBg").css("pointer-events", "none")
     }
 
     $("#menu > a").click(function() {
-        $("#hamburger > span:nth-of-type(1)").animate({marginLeft: "0"}, 300)
-        $("#hamburger > span:nth-of-type(3)").animate({marginLeft: "0"}, 300)
+        $("#hamburger > span:nth-of-type(1)").animate({marginLeft: "0"}, 200)
+        $("#hamburger > span:nth-of-type(3)").animate({marginLeft: "0"}, 200)
     })
 }
 
