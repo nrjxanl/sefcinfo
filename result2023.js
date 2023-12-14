@@ -216,6 +216,7 @@ function recentMatch2023() {
         };
 
         if (home == "서울E") {
+            
             if (homeScore > awayScore) {
                 $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#174fff");
                 $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > p").css("background", "#174fff");

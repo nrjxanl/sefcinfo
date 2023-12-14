@@ -17,7 +17,7 @@ for (i = 0; i < data.numA.length; i++) {
     if(Number(data.numA[i]) < Number(data.numA[i-1])) {
         $("#playerA > div:nth-of-type(2)").append("<p></p>");
     };
-    $("#playerA > div:nth-of-type(2)").append("<a href='./" + data.idA[i] + "'><div><div><img src='https://sefc.info/files/" + data.idA[i] +  ".png'></div><p><span>" + data.numA[i] + "</span>" + data.nameA[i].replace(/[A-Z,0-9]/g, "") +"</p></div></a>");
+    $("#playerA > div:nth-of-type(2)").append("<a href='./players/" + data.idA[i] + "'><div><div><img src='https://sefc.info/files/" + data.idA[i] +  ".png'></div><p><span>" + data.numA[i] + "</span>" + data.nameA[i].replace(/[A-Z,0-9]/g, "") +"</p></div></a>");
 };
 
 $("#playerA > div:nth-of-type(2) > p:nth-of-type(1)").text("골키퍼");

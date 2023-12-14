@@ -20,7 +20,7 @@ rcList = Object.values(data.rc);
 concList = Object.values(data.conc);
 ogList = Object.values(data.og);
 
-id = $("#playerImg > img").attr("src").substring(8, 16);
+id = $("#playerImg > img").attr("src").substring(24, 32);
 n = idList.indexOf(id);
 
 $("#appDiv > canvas").text(data.app[n]);

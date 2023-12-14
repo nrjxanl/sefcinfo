@@ -47,7 +47,7 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 #playerSortButtonOffset {width: 400px; height: 50px; visibility: hidden; display: none;}
 
 /* 홈 화면 */
-#nextMatch {width: 360px; height: 120px; margin: 30px 0 0 20px; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px;}
+#nextMatch {width: 360px; height: 120px; margin: 30px 0 0 20px; box-shadow: 0 0 3px 2px #00083120; border-radius: 20px;}
 #nextMatch > div:nth-of-type(1) {width: 360px; height: 90px; border-bottom: 3px solid #00083110; border-radius: 20px 20px 0 0; display: flex; align-items: center; justify-content: center;}
 #nextMatch > div:nth-of-type(1) > div:nth-of-type(1) {display: flex; align-items: center; position: absolute; left: 40px;}
 #nextMatch > div:nth-of-type(1) > div:nth-of-type(1) > div {width: 40px;}
@@ -65,16 +65,16 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 #nextMatch > div:nth-of-type(2) > div:nth-of-type(2) {height: 30px; display: flex; align-items: center; justify-content: right; position: absolute; right: 20px;}
 #nextMatch > div:nth-of-type(2) > div:nth-of-type(2) > p {font-weight: 500; text-align: right; margin-right: 30px;}
 
-#prevMatch {width: 360px; margin: 30px 0 0 20px; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px; display: flex; align-items: center; justify-content: center; flex-direction: column;}
+#prevMatch {width: 360px; margin: 30px 0 0 20px; box-shadow: 0 0 3px 2px #00083120; border-radius: 20px; display: flex; align-items: center; justify-content: center; flex-direction: column;}
 #prevMatch > div {display: flex; align-items: center; justify-content: center; margin-top: 20px;}
 #prevMatch > div > div {width: 64px; height: 85px;}
 #prevMatch > div > div > div {width: 56px; height: 40px; margin: 0 8px 10px 8px;}
 #prevMatch > div > div > div > img {width: auto; height: 40px;}
-#prevMatch > div > div > p:nth-of-type(1) {width: 48px; height: 25px; box-shadow: 0px 0px 5px 1px #00083120; margin: 0 12px; font-size: 16px; line-height: 25px; border-radius: 40px;}
+#prevMatch > div > div > p:nth-of-type(1) {width: 48px; height: 25px; box-shadow: 0 0 3px 2px #00083120; margin: 0 12px; font-size: 16px; line-height: 25px; border-radius: 40px;}
 #prevMatch > div > div > p:nth-of-type(2) {width: 32px; height: 3px; margin: 3px 20px 0 20px; font-size: 16px; border-radius: 40px;}
 #prevMatch > a > p {font-weight: 500; padding: 10px 0 20px 0;}
 
-#standingsHome {width: 360px; height: calc(160px + 40px); margin-left: 20px; margin-top: 30px; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px; display: flex; justify-content: center; align-items: center; flex-direction: column;}
+#standingsHome {width: 360px; height: calc(160px + 40px); margin-left: 20px; margin-top: 30px; box-shadow: 0 0 3px 2px #00083120; border-radius: 20px; display: flex; justify-content: center; align-items: center; flex-direction: column;}
 #standingsHome > table {width: 320px; height: 160px; vertical-align: middle;}
 #standingsHome > table > thead > tr {height: 40px;}
 #standingsHome > table > thead > tr > th {font-weight: 500; font-size: 12px;}
@@ -87,7 +87,7 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 #standingsHome > table > tbody > tr > td:nth-of-type(n+4) {width: 60px;}
 #standingsHome > a > p {font-weight: 500; padding: 10px 0 20px 0;}
 
-#appRanking {width: 360px; height: inherit; margin: 30px 0 0 20px; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px; display: flex; align-items: flex-start; justify-content: center; flex-direction: column;}
+#appRanking {width: 360px; height: inherit; margin: 30px 0 0 20px; box-shadow: 0 0 3px 2px #00083120; border-radius: 20px; display: flex; align-items: flex-start; justify-content: center; flex-direction: column;}
 #appRanking > div:nth-of-type(1) {display: flex; flex-direction: column;}
 #appRanking > div:nth-of-type(1) > a > div {display: flex; align-items: center; padding: 10px 0;}
 #appRanking > div:nth-of-type(1) > a:nth-of-type(1) > div {padding-top: 20px;}
@@ -99,7 +99,7 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 #appRanking > div:nth-of-type(1) > a > div > p:nth-of-type(2) > span {font-size: 20px; font-weight: 500;}
 #appRanking > div:nth-of-type(2) {width: 360px; font-weight: 500; padding-bottom: 20px;}
 
-#goalRanking {width: 360px; height: inherit; margin: 30px 0 0 20px; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px; display: flex; align-items: flex-start; justify-content: center; flex-direction: column;}
+#goalRanking {width: 360px; height: inherit; margin: 30px 0 0 20px; box-shadow: 0 0 3px 2px #00083120; border-radius: 20px; display: flex; align-items: flex-start; justify-content: center; flex-direction: column;}
 #goalRanking > div:nth-of-type(1) {display: flex; flex-direction: column;}
 #goalRanking > div:nth-of-type(1) > a > div {display: flex; align-items: center; padding: 10px 0;}
 #goalRanking > div:nth-of-type(1) > a:nth-of-type(1) > div {padding-top: 20px;}
@@ -111,7 +111,7 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 #goalRanking > div:nth-of-type(1) > a > div > p:nth-of-type(2) > span {font-size: 20px; font-weight: 500;}
 #goalRanking > div:nth-of-type(2) {width: 360px; font-weight: 500; padding-bottom: 20px;}
 
-#assistRanking {width: 360px; height: inherit; margin: 30px 0 0 20px; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px; display: flex; align-items: flex-start; justify-content: center; flex-direction: column;}
+#assistRanking {width: 360px; height: inherit; margin: 30px 0 0 20px; box-shadow: 0 0 3px 2px #00083120; border-radius: 20px; display: flex; align-items: flex-start; justify-content: center; flex-direction: column;}
 #assistRanking > div:nth-of-type(1) {display: flex; flex-direction: column;}
 #assistRanking > div:nth-of-type(1) > a > div {display: flex; align-items: center; padding: 10px 0;}
 #assistRanking > div:nth-of-type(1) > a:nth-of-type(1) > div {padding-top: 20px;}
@@ -132,14 +132,14 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 
 /* 뉴스 */
 #news {width: 320px; margin-left: 40px;}
-.news {width: 320px; display: flex; align-items: center; border-radius: 20px; box-shadow: 0px 0px 5px 1px #00083120; padding: 12px 0; margin: 20px 0;}
+.news {width: 320px; display: flex; align-items: center; border-radius: 20px; box-shadow: 0 0 3px 2px #00083120; padding: 12px 0; margin: 20px 0;}
 .news > div {width: 80px; height: 80px; overflow: hidden; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-left: 20px;}
 .news > div > img {height: 80px;}
 .news > p {width: 180px; padding-left: 20px; text-align: left; font-size: 16px; line-height: 1.4;}
-.news:nth-of-type(1) {width: 320px; height: 240px; overflow: hidden; border-radius: 20px; box-shadow: 0px 0px 5px 1px #00083120; padding: 0; margin: 20px 0; display: flex; align-items: flex-end;}
+.news:nth-of-type(1) {width: 320px; height: 240px; overflow: hidden; border-radius: 20px; box-shadow: 0 0 3px 2px #00083120; padding: 0; margin: 20px 0; display: flex; align-items: flex-end;}
 .news:nth-of-type(1) > p {width: 280px; color: #fafafa; padding: 20px;}
 
-.rumour {width: 320px; border-radius: 20px; box-shadow: 0px 0px 5px 1px #00083120; padding: 12px 0; margin: 20px 0;}
+.rumour {width: 320px; border-radius: 20px; box-shadow: 0 0 3px 2px #00083120; padding: 12px 0; margin: 20px 0;}
 .rumour > div:nth-of-type(1) {width: 280px; margin-left: 20px; border-bottom: 1px solid #000831; display: flex; align-items: center; justify-content: flex-start; padding-bottom: 12px;}
 .rumour > div:nth-of-type(1) > div {width: 40px; height: 40px; overflow: hidden; object-fit: cover; border-radius: 50%;}
 .rumour > div:nth-of-type(1) > div > img {width: 40px;}
@@ -152,7 +152,7 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 .rumour > div:nth-of-type(2) > div > img {height: 30px;}
 .rumour > div:nth-of-type(2) > img {width: 16px;}
 
-.official {width: 320px; border-radius: 20px; box-shadow: 0px 0px 5px 1px #00083120; padding: 12px 0; margin: 20px 0;}
+.official {width: 320px; border-radius: 20px; box-shadow: 0 0 3px 2px #00083120; padding: 12px 0; margin: 20px 0;}
 .official > div:nth-of-type(1) {width: 280px; margin-left: 20px; border-bottom: 1px solid #000831; display: flex; align-items: center; justify-content: flex-start; padding-bottom: 12px;}
 .official > div:nth-of-type(1) > div {width: 40px; height: 40px; overflow: hidden; object-fit: cover; border-radius: 50%;}
 .official > div:nth-of-type(1) > div > img {width: 40px;}
@@ -165,7 +165,7 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 .official > div:nth-of-type(2) > div > img {height: 30px;}
 .official > div:nth-of-type(2) > img {width: 16px;}
 
-#showMore {width: 320px; height: 30px; margin-left: 40px; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px; display: flex; align-items: center; justify-content: center;}
+#showMore {width: 320px; height: 30px; margin-left: 40px; box-shadow: 0 0 3px 2px #00083120; border-radius: 20px; display: flex; align-items: center; justify-content: center;}
 
 /* 선수단 */
 .playerButton {width: 400px; height: 80px; position: fixed; top: 100px; left: calc(50vw - 200px); background: #fafafa; z-index: 100;}
@@ -174,7 +174,7 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 
 #playerA > div {width: 360px; margin-left: 20px; overflow: scroll; text-align: center;}
 #playerA > div > p {width: 360px; height: 25px; font-size: 18px; margin-top: 50px;}
-#playerA > div > a > div {width: 340px; height: 120px; display: flex; justify-content: center; flex-direction: row; align-items: center; border-radius: 10px; background: #fafafa; box-shadow: 0px 0px 5px 1px #00083120; margin: 20px 10px;}
+#playerA > div > a > div {width: 340px; height: 120px; display: flex; justify-content: center; flex-direction: row; align-items: center; border-radius: 10px; background: #fafafa; box-shadow: 0 0 3px 2px #00083120; margin: 20px 10px;}
 #playerA > div > a > div > div {width: 120px; height: 120px; overflow: hidden; box-shadow: none;}
 #playerA > div > a > div > div > img {width: 120px; margin-top: 8px;}
 #playerA > div > a > div > p {width: 160px; font-size: 30px; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center; font-style: italic;}
@@ -183,7 +183,7 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 #playerU18 {display: none;}
 #playerU18 > div {width: 360px; margin-left: 20px; overflow: scroll; text-align: center;}
 #playerU18 > div > p {width: 360px; height: 25px; font-size: 18px; margin-top: 50px;}
-#playerU18 > div > a > div {width: 340px; height: 120px; display: flex; justify-content: center; flex-direction: row; align-items: center; border-radius: 10px; background: #fafafa; box-shadow: 0px 0px 5px 1px #00083120; margin: 20px 10px;}
+#playerU18 > div > a > div {width: 340px; height: 120px; display: flex; justify-content: center; flex-direction: row; align-items: center; border-radius: 10px; background: #fafafa; box-shadow: 0 0 3px 2px #00083120; margin: 20px 10px;}
 #playerU18 > div > a > div > div {width: 104px; height: 104px; margin-right: 16px; overflow: hidden; box-shadow: none; border-radius: 50%;}
 #playerU18 > div > a > div > div > img {width: 104px; margin-top: -10px;}
 #playerU18 > div > a > div > p {width: 160px; font-size: 30px; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center; font-style: italic;}
@@ -192,7 +192,7 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 #playerU15 {display: none;}
 #playerU15 > div {width: 360px; margin-left: 20px; overflow: scroll; text-align: center;}
 #playerU15 > div > p {width: 360px; height: 25px; font-size: 18px; margin-top: 50px;}
-#playerU15 > div > a > div {width: 340px; height: 120px; display: flex; justify-content: center; flex-direction: row; align-items: center; border-radius: 10px; background: #fafafa; box-shadow: 0px 0px 5px 1px #00083120; margin: 20px 10px;}
+#playerU15 > div > a > div {width: 340px; height: 120px; display: flex; justify-content: center; flex-direction: row; align-items: center; border-radius: 10px; background: #fafafa; box-shadow: 0 0 3px 2px #00083120; margin: 20px 10px;}
 #playerU15 > div > a > div > div {width: 104px; height: 104px; margin-right: 16px; overflow: hidden; box-shadow: none; border-radius: 50%;}
 #playerU15 > div > a > div > div > img {width: 104px; margin-top: -10px;}
 #playerU15 > div > a > div > p {width: 160px; font-size: 30px; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center; font-style: italic;}
@@ -202,7 +202,7 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 .playerSortButton > button {height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: none; font-weight: 500;}
 
 #playerAllTime {display: none; width: 360px; margin: 50px 0 0 20px;}
-#playerAllTime > div > div {width: 100px; height: 150px; float: left; padding: 10px 0; margin: 20px 10px; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 10px;}
+#playerAllTime > div > div {width: 100px; height: 150px; float: left; padding: 10px 0; margin: 20px 10px; box-shadow: 0 0 3px 2px #00083120; border-radius: 10px;}
 #playerAllTime > div > div:nth-last-of-type(1) {margin-bottom: 100px;}
 #playerAllTime > div > div > div {width: 100px; height: 100px; overflow: hidden; border-radius: 0 0 80px 80px;}
 #playerAllTime > div > div > div > img {width: 100px;}
@@ -258,7 +258,7 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 #playerStat > div > canvas {display: none;}
 
 #playerCareer {width: 280px; margin-left: 60px; display: none;}
-#playerCareer > div {width: 280px; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 10px; margin: 30px 0;}
+#playerCareer > div {width: 280px; box-shadow: 0 0 3px 2px #00083120; border-radius: 10px; margin: 30px 0;}
 #playerCareer > div > p {width: 260px; height: 30px; font-weight: 500; font-size: 16px; padding: 16px 0 0 20px; text-align: left;}
 #playerCareer > div > div {width: 280px; height: 60px; display: flex;}
 #playerCareer > div > div > div {width: 60px; height: 40px; margin-top: 10px;}
@@ -283,7 +283,7 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 #recordsA, #recordsU18, #recordsU15 {margin-top: 110px;}
 #recordsU18, #recordsU15 {display: none;}
 
-.appRecord {width: 360px; height: inherit; margin: 30px 0 0 20px; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px; display: flex; align-items: flex-start; justify-content: center; flex-direction: column;}
+.appRecord {width: 360px; height: inherit; margin: 30px 0 0 20px; box-shadow: 0 0 3px 2px #00083120; border-radius: 20px; display: flex; align-items: flex-start; justify-content: center; flex-direction: column;}
 .appRecord > div {display: flex; flex-direction: column;}
 .appRecord > div > a > div {display: flex; align-items: center; padding: 10px 0;}
 .appRecord > div > a:nth-of-type(1) > div {padding-top: 20px;}
@@ -294,7 +294,7 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 .appRecord > div > a > div > p:nth-of-type(2) {font-size: 20px; text-align: left;}
 .appRecord > div > a > div > p:nth-of-type(2) > span {font-size: 20px; font-weight: 500;}
 
-.goalRecord {width: 360px; height: inherit; margin: 30px 0 0 20px; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px; display: none; align-items: flex-start; justify-content: center; flex-direction: column;}
+.goalRecord {width: 360px; height: inherit; margin: 30px 0 0 20px; box-shadow: 0 0 3px 2px #00083120; border-radius: 20px; display: none; align-items: flex-start; justify-content: center; flex-direction: column;}
 .goalRecord > div {display: flex; flex-direction: column;}
 .goalRecord > div > a > div {display: flex; align-items: center; padding: 10px 0;}
 .goalRecord > div > a:nth-of-type(1) > div {padding-top: 20px;}
@@ -305,7 +305,7 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 .goalRecord > div > a > div > p:nth-of-type(2) {font-size: 20px; text-align: left;}
 .goalRecord > div > a > div > p:nth-of-type(2) > span {font-size: 20px; font-weight: 500;}
 
-.assistRecord {width: 360px; height: inherit; margin: 30px 0 0 20px; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px; display: none; align-items: flex-start; justify-content: center; flex-direction: column;}
+.assistRecord {width: 360px; height: inherit; margin: 30px 0 0 20px; box-shadow: 0 0 3px 2px #00083120; border-radius: 20px; display: none; align-items: flex-start; justify-content: center; flex-direction: column;}
 .assistRecord > div {display: flex; flex-direction: column;}
 .assistRecord > div > a > div {display: flex; align-items: center; padding: 10px 0;}
 .assistRecord > div > a:nth-of-type(1) > div {padding-top: 20px;}
@@ -327,7 +327,7 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 
 .fixtures {padding-top: 45px;}
 
-.fixtures_ {width: 360px; height: 120px; margin: 30px 0 0 20px; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px;}
+.fixtures_ {width: 360px; height: 120px; margin: 30px 0 0 20px; box-shadow: 0 0 3px 2px #00083120; border-radius: 20px;}
 .fixtures_:nth-of-type(1) {margin-top: 80px;}
 .fixtures_ > div:nth-of-type(1) {width: 360px; height: 90px; border-bottom: 3px solid #00083110; border-radius: 20px 20px 0 0; display: flex; align-items: center; justify-content: center;}
 .fixtures_ > div:nth-of-type(1) > div:nth-of-type(1) {display: flex; align-items: center; position: absolute; left: 40px;}
@@ -350,7 +350,7 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 #fixturesU15 {display: none;}
 
 /* 경기 세부 정보 */
-#matchScore {width: 280px; margin: 20px 0 0 40px; padding: 28px 20px; display: flex; border-radius: 20px; box-shadow: 0px 0px 5px 1px #00083120;}
+#matchScore {width: 280px; margin: 20px 0 0 40px; padding: 28px 20px; display: flex; border-radius: 20px; box-shadow: 0 0 3px 2px #00083120;}
 #matchScore > div:nth-of-type(2n+1) {width: 80px; display: flex; flex-direction: column; align-items: center;}
 #matchScore > div:nth-of-type(2n+1) > img {height: 50px;}
 #matchScore > div:nth-of-type(2n+1) > p:nth-of-type(1) {width: 100px; font-size: 14px; margin-top: 10px; font-weight: 500;}
@@ -430,7 +430,7 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 #matchH2H > div:nth-of-type(3) {width: 320px; display: flex; border-radius: 10px; overflow: hidden; margin-top: 40px;}
 #matchH2H > div:nth-of-type(3) > p {font-size: 16px; font-weight: 500; color: #fafafa; display: flex; align-items: center; justify-content: center;}
 
-#recentMatch > div {height: 120px; margin-top: 30px; box-shadow: 0px 0px 5px 1px #00083120; border-radius: 20px;}
+#recentMatch > div {height: 120px; margin-top: 30px; box-shadow: 0 0 3px 2px #00083120; border-radius: 20px;}
 #recentMatch > div:nth-of-type(1) {margin-top: 80px;}
 #recentMatch > div > div:nth-of-type(1) {width: 360px; height: 90px; border-bottom: 3px solid #00083110; border-radius: 20px 20px 0 0; display: flex; align-items: center; justify-content: center;}
 #recentMatch > div > div:nth-of-type(1) > div:nth-of-type(1) {display: flex; align-items: center; position: absolute; left: 40px;}
