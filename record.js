@@ -73,33 +73,33 @@ assist3 = assistIndex[2][4]
 
 $("#appRanking > div:nth-of-type(1) > a:nth-of-type(1)").attr("href", "./" + appid1)
 $("#appRanking > div:nth-of-type(1) > a:nth-of-type(1) > div > p:nth-of-type(2)").html(appn1.replace(/[0-9]/g, "") + "<span> | " + app1 + "경기</span>")
-$("#appRanking > div:nth-of-type(1) > a:nth-of-type(1) > div > div > img").attr("src", "./files/" + appid1 + ".png")
+$("#appRanking > div:nth-of-type(1) > a:nth-of-type(1) > div > div > img").attr("src", "https://sefc.info/files/" + appid1 + ".png")
 $("#appRanking > div:nth-of-type(1) > a:nth-of-type(2)").attr("href", "./" + appid2)
 $("#appRanking > div:nth-of-type(1) > a:nth-of-type(2) > div > p:nth-of-type(2)").html(appn2.replace(/[0-9]/g, "") + "<span> | " + app2 + "경기</span>")
-$("#appRanking > div:nth-of-type(1) > a:nth-of-type(2) > div > div > img").attr("src", "./files/" + appid2 + ".png")
+$("#appRanking > div:nth-of-type(1) > a:nth-of-type(2) > div > div > img").attr("src", "https://sefc.info/files/" + appid2 + ".png")
 $("#appRanking > div:nth-of-type(1) > a:nth-of-type(3)").attr("href", "./" + appid3)
 $("#appRanking > div:nth-of-type(1) > a:nth-of-type(3) > div > p:nth-of-type(2)").html(appn3.replace(/[0-9]/g, "") + "<span> | " + app3 + "경기</span>")
-$("#appRanking > div:nth-of-type(1) > a:nth-of-type(3) > div > div > img").attr("src", "./files/" + appid3 + ".png")
+$("#appRanking > div:nth-of-type(1) > a:nth-of-type(3) > div > div > img").attr("src", "https://sefc.info/files/" + appid3 + ".png")
 
 $("#goalRanking > div:nth-of-type(1) > a:nth-of-type(1)").attr("href", "./" + goalid1)
 $("#goalRanking > div:nth-of-type(1) > a:nth-of-type(1) > div > p:nth-of-type(2)").html(goaln1.replace(/[0-9]/g, "") + "<span> | " + goal1 + "득점</span>")
-$("#goalRanking > div:nth-of-type(1) > a:nth-of-type(1) > div > div > img").attr("src", "./files/" + goalid1 + ".png")
+$("#goalRanking > div:nth-of-type(1) > a:nth-of-type(1) > div > div > img").attr("src", "https://sefc.info/files/" + goalid1 + ".png")
 $("#goalRanking > div:nth-of-type(1) > a:nth-of-type(2)").attr("href", "./" + goalid2)
 $("#goalRanking > div:nth-of-type(1) > a:nth-of-type(2) > div > p:nth-of-type(2)").html(goaln2.replace(/[0-9]/g, "") + "<span> | " + goal2 + "득점</span>")
-$("#goalRanking > div:nth-of-type(1) > a:nth-of-type(2) > div > div > img").attr("src", "./files/" + goalid2 + ".png")
+$("#goalRanking > div:nth-of-type(1) > a:nth-of-type(2) > div > div > img").attr("src", "https://sefc.info/files/" + goalid2 + ".png")
 $("#goalRanking > div:nth-of-type(1) > a:nth-of-type(3)").attr("href", "./" + goalid3)
 $("#goalRanking > div:nth-of-type(1) > a:nth-of-type(3) > div > p:nth-of-type(2)").html(goaln3.replace(/[0-9]/g, "") + "<span> | " + goal3 + "득점</span>")
-$("#goalRanking > div:nth-of-type(1) > a:nth-of-type(3) > div > div > img").attr("src", "./files/" + goalid3 + ".png")
+$("#goalRanking > div:nth-of-type(1) > a:nth-of-type(3) > div > div > img").attr("src", "https://sefc.info/files/" + goalid3 + ".png")
 
 $("#assistRanking > div:nth-of-type(1) > a:nth-of-type(1)").attr("href", "./" + assistid1)
 $("#assistRanking > div:nth-of-type(1) > a:nth-of-type(1) > div > p:nth-of-type(2)").html(assistn1.replace(/[0-9]/g, "") + "<span> | " + assist1 + "도움</span>")
-$("#assistRanking > div:nth-of-type(1) > a:nth-of-type(1) > div > div > img").attr("src", "./files/" + assistid1 + ".png")
+$("#assistRanking > div:nth-of-type(1) > a:nth-of-type(1) > div > div > img").attr("src", "https://sefc.info/files/" + assistid1 + ".png")
 $("#assistRanking > div:nth-of-type(1) > a:nth-of-type(2)").attr("href", "./" + assistid2)
 $("#assistRanking > div:nth-of-type(1) > a:nth-of-type(2) > div > p:nth-of-type(2)").html(assistn2.replace(/[0-9]/g, "") + "<span> | " + assist2 + "도움</span>")
-$("#assistRanking > div:nth-of-type(1) > a:nth-of-type(2) > div > div > img").attr("src", "./files/" + assistid2 + ".png")
+$("#assistRanking > div:nth-of-type(1) > a:nth-of-type(2) > div > div > img").attr("src", "https://sefc.info/files/" + assistid2 + ".png")
 $("#assistRanking > div:nth-of-type(1) > a:nth-of-type(3)").attr("href", "./" + assistid3)
 $("#assistRanking > div:nth-of-type(1) > a:nth-of-type(3) > div > p:nth-of-type(2)").html(assistn3.replace(/[0-9]/g, "") + "<span> | " + assist3 + "도움</span>")
-$("#assistRanking > div:nth-of-type(1) > a:nth-of-type(3) > div > div > img").attr("src", "./files/" + assistid3 + ".png")
+$("#assistRanking > div:nth-of-type(1) > a:nth-of-type(3) > div > div > img").attr("src", "https://sefc.info/files/" + assistid3 + ".png")
 
 if ($(window).width() < 768) {
     $("#appRanking > div:nth-of-type(1) > a > div").css("margin-left", "calc((90vw - " + $("#appRanking > div:nth-of-type(1) > a:nth-of-type(1) > div").width() + "px) / 2")
@@ -113,13 +113,13 @@ if ($(window).width() < 768) {
 
 // 기록 창
 for (i = 0; i < appIndex.length; i++) {
-    $("#recordsA > .appRecord").append("<div><a><div><p>" + (i + 1) + "</p><div><img src='./files/" + appIndex[i][1] + ".png'></div><p>" + appIndex[i][0].replace(/[0-9]/g, "") + "<span> | " + appIndex[i][2] + "경기</span></p></div></a>")
+    $("#recordsA > .appRecord").append("<div><a><div><p>" + (i + 1) + "</p><div><img src='https://sefc.info/files/" + appIndex[i][1] + ".png'></div><p>" + appIndex[i][0].replace(/[0-9]/g, "") + "<span> | " + appIndex[i][2] + "경기</span></p></div></a>")
 }
 for (i = 0; i < goalIndex.length; i++) {
-    $("#recordsA > .goalRecord").append("<div><a><div><p>" + (i + 1) + "</p><div><img src='./files/" + goalIndex[i][1] + ".png'></div><p>" + goalIndex[i][0].replace(/[0-9]/g, "") + "<span> | " + goalIndex[i][3] + "득점</span></p></div></a>")
+    $("#recordsA > .goalRecord").append("<div><a><div><p>" + (i + 1) + "</p><div><img src='https://sefc.info/files/" + goalIndex[i][1] + ".png'></div><p>" + goalIndex[i][0].replace(/[0-9]/g, "") + "<span> | " + goalIndex[i][3] + "득점</span></p></div></a>")
 }
 for (i = 0; i < assistIndex.length; i++) {
-    $("#recordsA > .assistRecord").append("<div><a><div><p>" + (i + 1) + "</p><div><img src='./files/" + assistIndex[i][1] + ".png'></div><p>" + assistIndex[i][0].replace(/[0-9]/g, "") + "<span> | " + assistIndex[i][4] + "도움</span></p></div></a>")
+    $("#recordsA > .assistRecord").append("<div><a><div><p>" + (i + 1) + "</p><div><img src='https://sefc.info/files/" + assistIndex[i][1] + ".png'></div><p>" + assistIndex[i][0].replace(/[0-9]/g, "") + "<span> | " + assistIndex[i][4] + "도움</span></p></div></a>")
 }
 
 if ($(window).width() < 768) {

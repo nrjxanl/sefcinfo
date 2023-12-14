@@ -47,9 +47,9 @@ function fixtures2023() {
     $("#matchScore > div:nth-of-type(1) > p:nth-of-type(1)").text(f2023.home[n]);
     $("#matchScore > div:nth-of-type(3) > p:nth-of-type(1)").text(f2023.away[n]);
 
-    $("#matchScore > div:nth-of-type(1) > img").attr("src", "./files/" + homeImg2023[n] + ".png");
-    $("#matchScore > div:nth-of-type(2) > div > img").attr("src", "./files/" + compImg2023[n] + ".png");
-    $("#matchScore > div:nth-of-type(3) > img").attr("src", "./files/" + awayImg2023[n] + ".png");
+    $("#matchScore > div:nth-of-type(1) > img").attr("src", "https://sefc.info/files/" + homeImg2023[n] + ".png");
+    $("#matchScore > div:nth-of-type(2) > div > img").attr("src", "https://sefc.info/files/" + compImg2023[n] + ".png");
+    $("#matchScore > div:nth-of-type(3) > img").attr("src", "https://sefc.info/files/" + awayImg2023[n] + ".png");
 
     if (f2023.homeScore[n] > f2023.awayScore[n]) {
         $("#awayScore").css("opacity", "0.7");
@@ -119,11 +119,11 @@ function fixtures2023() {
             };
         }
 
-        $(this).attr("onclick", "location.href='./" + f2023.id[index] + "'");
+        $(this).attr("onclick", "location.href='./fixtures/" + f2023.id[index] + "'");
 
-        $(this).find("div:nth-of-type(1) > div:nth-of-type(1) > div > img").attr("src", "./files/" + homeImg2023[index] + ".png");
-        $(this).find("div:nth-of-type(1) > div:nth-of-type(3) > div > img").attr("src", "./files/" + awayImg2023[index] + ".png");
-        $(this).find("div:nth-of-type(2) > div:nth-of-type(1) > img").attr("src", "./files/" + compImg2023[index] + ".png");
+        $(this).find("div:nth-of-type(1) > div:nth-of-type(1) > div > img").attr("src", "https://sefc.info/files/" + homeImg2023[index] + ".png");
+        $(this).find("div:nth-of-type(1) > div:nth-of-type(3) > div > img").attr("src", "https://sefc.info/files/" + awayImg2023[index] + ".png");
+        $(this).find("div:nth-of-type(2) > div:nth-of-type(1) > img").attr("src", "https://sefc.info/files/" + compImg2023[index] + ".png");
     });
 
     // 일정 목록 화면 다음 일정 찾기
@@ -245,11 +245,11 @@ function recentMatch2023() {
             };
         };
 
-        $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").attr("onclick", "location.href='./" + f2023.id[recentMatchIndex[j]] + "'");
+        $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").attr("onclick", "location.href='./fixtures/" + f2023.id[recentMatchIndex[j]] + "'");
 
-        $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(1) > div > img").attr("src", "./files/" + homeImg2023[recentMatchIndex[j]] + ".png");
-        $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(3) > div > img").attr("src", "./files/" + awayImg2023[recentMatchIndex[j]] + ".png");
-        $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(2) > div > img").attr("src", "./files/" + compImg2023[recentMatchIndex[j]] + ".png");
+        $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(1) > div > img").attr("src", "https://sefc.info/files/" + homeImg2023[recentMatchIndex[j]] + ".png");
+        $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(3) > div > img").attr("src", "https://sefc.info/files/" + awayImg2023[recentMatchIndex[j]] + ".png");
+        $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(2) > div > img").attr("src", "https://sefc.info/files/" + compImg2023[recentMatchIndex[j]] + ".png");
 
     };
 
@@ -345,11 +345,11 @@ if ($("#nextMatch").length) {
             $("#nextMatch").find("div:nth-of-type(1) > div:nth-of-type(2) > span").css({"font-size": "20px", "letter-spacing": "0"})
         };
     
-        $("#nextMatch").attr("onclick", "location.href='./" + f2023.id[n] + "'");
+        $("#nextMatch").attr("onclick", "location.href='./fixtures/" + f2023.id[n] + "'");
     
-        $("#nextMatch").find("div:nth-of-type(1) > div:nth-of-type(1) > div > img").attr("src", "./files/" + homeImg2023[n] + ".png");
-        $("#nextMatch").find("div:nth-of-type(1) > div:nth-of-type(3) > div > img").attr("src", "./files/" + awayImg2023[n] + ".png");
-        $("#nextMatch").find("div:nth-of-type(2) > div:nth-of-type(1) > img").attr("src", "./files/" + compImg2023[n] + ".png");
+        $("#nextMatch").find("div:nth-of-type(1) > div:nth-of-type(1) > div > img").attr("src", "https://sefc.info/files/" + homeImg2023[n] + ".png");
+        $("#nextMatch").find("div:nth-of-type(1) > div:nth-of-type(3) > div > img").attr("src", "https://sefc.info/files/" + awayImg2023[n] + ".png");
+        $("#nextMatch").find("div:nth-of-type(2) > div:nth-of-type(1) > img").attr("src", "https://sefc.info/files/" + compImg2023[n] + ".png");
     } else {
         $("#nextMatch").css("display", "none")
     }
@@ -535,17 +535,17 @@ if ($("#prevMatch").length) {
     
     $("#prevMatch > div > div:nth-of-type(5)").attr("onclick", "location.href='" + f2023.id[n] + "'")
     $("#prevMatch > div > div:nth-of-type(5) > p:nth-of-type(1)").text(score1);
-    $("#prevMatch > div > div:nth-of-type(5) > div > img").attr("src", "./files/" + prev1 + ".png");
+    $("#prevMatch > div > div:nth-of-type(5) > div > img").attr("src", "https://sefc.info/files/" + prev1 + ".png");
     $("#prevMatch > div > div:nth-of-type(4)").attr("onclick", "location.href='" + f2023.id[n-1] + "'")
     $("#prevMatch > div > div:nth-of-type(4) > p").text(score2);
-    $("#prevMatch > div > div:nth-of-type(4) > div > img").attr("src", "./files/" + prev2 + ".png");
+    $("#prevMatch > div > div:nth-of-type(4) > div > img").attr("src", "https://sefc.info/files/" + prev2 + ".png");
     $("#prevMatch > div > div:nth-of-type(3)").attr("onclick", "location.href='" + f2023.id[n-2] + "'")
     $("#prevMatch > div > div:nth-of-type(3) > p").text(score3);
-    $("#prevMatch > div > div:nth-of-type(3) > div > img").attr("src", "./files/" + prev3 + ".png");
+    $("#prevMatch > div > div:nth-of-type(3) > div > img").attr("src", "https://sefc.info/files/" + prev3 + ".png");
     $("#prevMatch > div > div:nth-of-type(2)").attr("onclick", "location.href='" + f2023.id[n-3] + "'")
     $("#prevMatch > div > div:nth-of-type(2) > p").text(score4);
-    $("#prevMatch > div > div:nth-of-type(2) > div > img").attr("src", "./files/" + prev4 + ".png");
+    $("#prevMatch > div > div:nth-of-type(2) > div > img").attr("src", "https://sefc.info/files/" + prev4 + ".png");
     $("#prevMatch > div > div:nth-of-type(1)").attr("onclick", "location.href='" + f2023.id[n-4] + "'")
     $("#prevMatch > div > div:nth-of-type(1) > p").text(score5);
-    $("#prevMatch > div > div:nth-of-type(1) > div > img").attr("src", "./files/" + prev5 + ".png");
+    $("#prevMatch > div > div:nth-of-type(1) > div > img").attr("src", "https://sefc.info/files/" + prev5 + ".png");
 };

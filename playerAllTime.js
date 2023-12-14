@@ -20,7 +20,7 @@ function playerAllTime() {
 
     if (!$("#playerAllTime > div:nth-of-type(3) > div").length) {
         for (i = 0; i < data.name.length; i++) {
-            $("#playerAllTime > div:nth-of-type(3)").append("<div><div><img src='./files/" + data.id[i] + ".png'></div><p><span>" + data.legacy[i] + "</span>" + data.name[i].replace(/[0-9]/g,"") + "</p></div>");
+            $("#playerAllTime > div:nth-of-type(3)").append("<div><div><img src='https://sefc.info/files/" + data.id[i] + ".png'></div><p><span>" + data.legacy[i] + "</span>" + data.name[i].replace(/[0-9]/g,"") + "</p></div>");
             $("#playerAllTime > div:nth-of-type(3) > div:nth-of-type(" + (i + 1) + ")").attr("onclick", "location.href='./" + data.id[i] + "'");
         };
     };
@@ -45,7 +45,7 @@ function sortByLegacyNum() {
         playerName = data.name[data.legacy.indexOf(legacy[i])];
         playerId = data.id[data.legacy.indexOf(legacy[i])];
 
-        $("#playerAllTime > div:nth-of-type(3)").append("<div><div><img src='./files/" + playerId + ".png'></div><p><span>" + legacy[i] + "</span>" + playerName.replace(/[0-9]/g,"") + "</p></div>");
+        $("#playerAllTime > div:nth-of-type(3)").append("<div><div><img src='https://sefc.info/files/" + playerId + ".png'></div><p><span>" + legacy[i] + "</span>" + playerName.replace(/[0-9]/g,"") + "</p></div>");
         $("#playerAllTime > div:nth-of-type(3) > div:nth-of-type(" + (i + 1) + ")").attr("onclick", "location.href='./" + playerId + "'");
     };
     
@@ -61,7 +61,7 @@ function sortByLegacyNum() {
         playerName = data.name[a[i]];
         playerId = data.id[a[i]];
 
-        $("#playerAllTime > div:nth-of-type(3)").append("<div><div><img src='./files/" + playerId + ".png'></div><p><span>-</span>" + playerName.replace(/[0-9]/g,"") + "</p></div>");
+        $("#playerAllTime > div:nth-of-type(3)").append("<div><div><img src='https://sefc.info/files/" + playerId + ".png'></div><p><span>-</span>" + playerName.replace(/[0-9]/g,"") + "</p></div>");
         $("#playerAllTime > div:nth-of-type(3) > div:nth-of-type(" + (data.legacy.filter((a) => a !== "-").length + i + 1) + ")").attr("onclick", "location.href='./" + playerId + "'");
     }
 

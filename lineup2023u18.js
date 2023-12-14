@@ -276,21 +276,21 @@ data = {
 
 round = $("#round").text().replace(/[^0-9]/g, "");
 dataList = Object.keys(data);
-if ($("#matchScore > div:nth-of-type(2) > div > img").attr("src") == "./files/kleague40_s.png" && Number(document.URL.substring(document.URL.lastIndexOf("/")).substring(5, 9)) < 620) {
+if ($("#matchScore > div:nth-of-type(2) > div > img").attr("src") == "https://sefc.info/files/kleague40_s.png" && Number(document.URL.substring(document.URL.lastIndexOf("/")).substring(5, 9)) < 620) {
     index_ = dataList.indexOf("fR" + round);
-} else if ($("#matchScore > div:nth-of-type(2) > div > img").attr("src") == "./files/kleague40_s.png" && Number(document.URL.substring(document.URL.lastIndexOf("/")).substring(5, 9)) > 620) {
+} else if ($("#matchScore > div:nth-of-type(2) > div > img").attr("src") == "https://sefc.info/files/kleague40_s.png" && Number(document.URL.substring(document.URL.lastIndexOf("/")).substring(5, 9)) > 620) {
     index_ = dataList.indexOf("sR" + round);
-} else if ($("#matchScore > div:nth-of-type(2) > div > img").attr("src") == "./files/mcst_s.png") {
+} else if ($("#matchScore > div:nth-of-type(2) > div > img").attr("src") == "https://sefc.info/files/mcst_s.png") {
     index_ = dataList.indexOf("mcstR" + round);
     if (index_ == -1) {
         index_ = dataList.indexOf("mcst" + round);
     };
-} else if ($("#matchScore > div:nth-of-type(2) > div > img").attr("src") == "./files/kfa_s.png") {
+} else if ($("#matchScore > div:nth-of-type(2) > div > img").attr("src") == "https://sefc.info/files/kfa_s.png") {
     index_ = dataList.indexOf("kfR" + round);
     if (index_ == -1) {
         index_ = dataList.indexOf("kf" + round);
     };
-} else if ($("#matchScore > div:nth-of-type(2) > div > img").attr("src") == "./files/kleagueyouthchampionship_s.png") {
+} else if ($("#matchScore > div:nth-of-type(2) > div > img").attr("src") == "https://sefc.info/files/kleagueyouthchampionship_s.png") {
     index_ = dataList.indexOf("kycR" + round);
     if (index_ == -1) {
         index_ = dataList.indexOf("kyc" + round);

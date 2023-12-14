@@ -52,8 +52,8 @@ data = {
     "soongsilhs": ["122a4a", "ffffff", "1", "0", "0", "5", "1"],
 }
 
-hrefH = $("#matchScore > div:nth-of-type(1)").find("img").attr("src").replace("./files/", "").replace("_s.png", "").replace(/[0-9]/g, "");
-hrefA = $("#matchScore > div:nth-of-type(3)").find("img").attr("src").replace("./files/", "").replace("_s.png", "").replace(/[0-9]/g, "");
+hrefH = $("#matchScore > div:nth-of-type(1)").find("img").attr("src").replace("https://sefc.info/files/", "").replace("_s.png", "").replace(/[0-9]/g, "");
+hrefA = $("#matchScore > div:nth-of-type(3)").find("img").attr("src").replace("https://sefc.info/files/", "").replace("_s.png", "").replace(/[0-9]/g, "");
 
 if (hrefH == "seouleland") {
     sefc = hrefH;
@@ -81,7 +81,7 @@ goalCpG = "경기당 " + (goalC / (w + d + l)).toFixed(1);
 oppBg = "#" + (data[Object.keys(data)[index]][0]);
 oppText = "#" + (data[Object.keys(data)[index]][1]);
 
-if ($("#matchScore > div:nth-of-type(1)").find("img").attr("src").replace("./files/", "").replace("_s.png", "") == "seouleland") {
+if ($("#matchScore > div:nth-of-type(1)").find("img").attr("src").replace("https://sefc.info/files/", "").replace("_s.png", "") == "seouleland") {
     grd1 = ((100 * w / (w + d + l))) + "%";
     grd2 = ((100 * (w + d) / (w + d + l))) + "%";
     goalGrd = (100 * goalS / (goalS + goalC)) + "%";

@@ -276,9 +276,9 @@ data = {
 
 round = $("#round").text().replace(/[^0-9]/g, "");
 dataList = Object.keys(data);
-if ($("#matchScore > div:nth-of-type(2) > div > img").attr("src") == "./files/kleague40_s.png") {
+if ($("#matchScore > div:nth-of-type(2) > div > img").attr("src") == "https://sefc.info/files/kleague40_s.png") {
     index_ = dataList.indexOf("R" + round);
-} else if ($("#matchScore > div:nth-of-type(2) > div > img").attr("src") == "./files/facup_s.png") {
+} else if ($("#matchScore > div:nth-of-type(2) > div > img").attr("src") == "https://sefc.info/files/facup_s.png") {
     index_ = dataList.indexOf("FAR" + round);
     if (index_ == -1) {
         index_ = dataList.indexOf("FA" + round);
@@ -293,7 +293,7 @@ mfList = playerList.MF;
 fwList = playerList.FW;
 subList = playerList.SUB;
 
-$("#startingXI").html("<img src='./files/field.png'><table><tr id='fw'></tr><tr id='mf'></tr><tr id='df'></tr><tr id='gk'></tr></table>");
+$("#startingXI").html("<img src='https://sefc.info/files/field.png'><table><tr id='fw'></tr><tr id='mf'></tr><tr id='df'></tr><tr id='gk'></tr></table>");
 
 i = 0;
 while(i < gkList.length) {

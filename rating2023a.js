@@ -53,7 +53,7 @@ $("#startingXI td").each(function () {
         rating = "-";
     };    
 
-    $("#" + id).html("<div><img src='./files/" + id + ".png'></div><p><span>" + playerNum + "</span>" + playerName.replace(/[A-Z,0-9]/g, "") + "</p><p>" + rating + "</p>");
+    $("#" + id).html("<div><img src='https://sefc.info/files/" + id + ".png'></div><p><span>" + playerNum + "</span>" + playerName.replace(/[A-Z,0-9]/g, "") + "</p><p>" + rating + "</p>");
 
     if(data[Object.keys(data)[index]][round].match("p")) {
         $("#" + id).find("p:nth-of-type(2)").attr("class", "potm");
@@ -77,7 +77,7 @@ $("#sub td").each(function () {
         rating = "-";
     };    
 
-    $("#" + id).html("<div><img src='./files/" + id + ".png'></div><p><span>" + playerNum + "</span>" + playerName + "</p><p>" + rating + "</p>");
+    $("#" + id).html("<div><img src='https://sefc.info/files/" + id + ".png'></div><p><span>" + playerNum + "</span>" + playerName + "</p><p>" + rating + "</p>");
 
     if(data[Object.keys(data)[index]][round].match("p")) {
         $("#" + id).find("p:nth-of-type(2)").attr("class", "potm");
@@ -102,7 +102,7 @@ for (i = 0; i <= dataList.length; i++) {
             rating = "-";
         };
         
-        $("#potm").html("<p>경기 최고의 선수</p><div><div><img src='./files/" + id + ".png'></div><p><span>" + playerNum + "</span>" + playerName + "</p><p class='potm'>" + rating + "</p></div>");
+        $("#potm").html("<p>경기 최고의 선수</p><div><div><img src='https://sefc.info/files/" + id + ".png'></div><p><span>" + playerNum + "</span>" + playerName + "</p><p class='potm'>" + rating + "</p></div>");
 
         if ($(window).width() < 768) {
             $("#potm").css({"width": "74vw", "padding": "1vw 3vw 2vw 3vw", "margin-left": "10vw", "border-radius": "20px", "box-shadow": "0 0 5px 1px #00083120"})

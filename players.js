@@ -17,7 +17,7 @@ for (i = 0; i < data.numA.length; i++) {
     if(Number(data.numA[i]) < Number(data.numA[i-1])) {
         $("#playerA > div:nth-of-type(2)").append("<p></p>");
     };
-    $("#playerA > div:nth-of-type(2)").append("<a href='./" + data.idA[i] + "'><div><div><img src='./files/" + data.idA[i] +  ".png'></div><p><span>" + data.numA[i] + "</span>" + data.nameA[i].replace(/[A-Z,0-9]/g, "") +"</p></div></a>");
+    $("#playerA > div:nth-of-type(2)").append("<a href='./" + data.idA[i] + "'><div><div><img src='https://sefc.info/files/" + data.idA[i] +  ".png'></div><p><span>" + data.numA[i] + "</span>" + data.nameA[i].replace(/[A-Z,0-9]/g, "") +"</p></div></a>");
 };
 
 $("#playerA > div:nth-of-type(2) > p:nth-of-type(1)").text("골키퍼");
@@ -32,7 +32,7 @@ for (i = 0; i < data.numU18.length; i++) {
     if(Number(data.numU18[i]) < Number(data.numU18[i-1])) {
         $("#playerU18 > div:nth-of-type(2)").append("<p></p>");
     };
-    $("#playerU18 > div:nth-of-type(2)").append("<a><div><div><img src='./files/" + data.idU18[i] +  ".png'></div><p><span>" + data.numU18[i] + "</span>" + data.nameU18[i].replace(/[A-Z]/g, "") +"</p></div></a>");
+    $("#playerU18 > div:nth-of-type(2)").append("<a><div><div><img src='https://sefc.info/files/" + data.idU18[i] +  ".png'></div><p><span>" + data.numU18[i] + "</span>" + data.nameU18[i].replace(/[A-Z]/g, "") +"</p></div></a>");
 };
 
 $("#playerU18 > div:nth-of-type(2) > p:nth-of-type(1)").text("골키퍼");
@@ -47,7 +47,7 @@ for (i = 0; i < data.numU15.length; i++) {
     if(Number(data.numU15[i]) < Number(data.numU15[i-1])) {
         $("#playerU15 > div:nth-of-type(2)").append("<p></p>");
     };
-    $("#playerU15 > div:nth-of-type(2)").append("<a><div><div><img src='./files/" + data.idU15[i] +  ".png'></div><p><span>" + data.numU15[i] + "</span>" + data.nameU15[i].replace(/[A-Z]/g, "") +"</p></div></a>");
+    $("#playerU15 > div:nth-of-type(2)").append("<a><div><div><img src='https://sefc.info/files/" + data.idU15[i] +  ".png'></div><p><span>" + data.numU15[i] + "</span>" + data.nameU15[i].replace(/[A-Z]/g, "") +"</p></div></a>");
 };
 
 $("#playerU15 > div:nth-of-type(2) > p:nth-of-type(1)").text("골키퍼");

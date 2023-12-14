@@ -86,23 +86,23 @@ for (i = i; i < 5; i++) {
         $(".news:nth-of-type(" + (i + 1) + ") > div > img").attr("src", data.imgUrl[i]);
         $(".news:nth-of-type(" + (i + 1) + ") > p").text(data.title1[i].replaceAll("&quot;", '"'));
     } else if (dataList[i] == "rumour") {
-        $("#news").append("<div class='rumour'><div><div><img></div><p></p><p style='opacity: 0.8'>루머</p></div><div><p></p><div><img></div><img src='./files/rightarrow.png'><div><img></div><p></p></div></div>");
+        $("#news").append("<div class='rumour'><div><div><img></div><p></p><p style='opacity: 0.8'>루머</p></div><div><p></p><div><img></div><img src='https://sefc.info/files/rightarrow.png'><div><img></div><p></p></div></div>");
         $(".rumour:nth-of-type(" + (i + 1) + ")").attr("onclick", "location.href='./" + data.imgUrl[i] + "'");
-        $(".rumour:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div > img").attr("src", "./files/" + data.imgUrl[i] + ".png");
+        $(".rumour:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div > img").attr("src", "https://sefc.info/files/" + data.imgUrl[i] + ".png");
         $(".rumour:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > p:nth-of-type(1)").text(data.title1[i]);
         $(".rumour:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p:nth-of-type(1)").text(data.title2[i]);
         $(".rumour:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p:nth-of-type(2)").text(data.title3[i]);
-        $(".rumour:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(1) > img").attr("src", "./files/" + emblem1 + ".png");
-        $(".rumour:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > img").attr("src", "./files/" + emblem2 + ".png");
+        $(".rumour:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(1) > img").attr("src", "https://sefc.info/files/" + emblem1 + ".png");
+        $(".rumour:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > img").attr("src", "https://sefc.info/files/" + emblem2 + ".png");
     } else if (dataList[i] == "official") {
-        $("#news").append("<div class='official'><div><div><img></div><p></p><p>공식 발표</p></div><div><p></p><div><img></div><img src='./files/rightarrow.png'><div><img></div><p></p></div></div>");
+        $("#news").append("<div class='official'><div><div><img></div><p></p><p>공식 발표</p></div><div><p></p><div><img></div><img src='https://sefc.info/files/rightarrow.png'><div><img></div><p></p></div></div>");
         $(".official:nth-of-type(" + (i + 1) + ")").attr("onclick", "location.href='./" + data.imgUrl[i] + "'");
-        $(".official:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div > img").attr("src", "./files/" + data.imgUrl[i] + ".png");
+        $(".official:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div > img").attr("src", "https://sefc.info/files/" + data.imgUrl[i] + ".png");
         $(".official:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > p:nth-of-type(1)").text(data.title1[i]);
         $(".official:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p:nth-of-type(1)").text(data.title2[i]);
         $(".official:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p:nth-of-type(2)").text(data.title3[i]);
-        $(".official:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(1) > img").attr("src", "./files/" + emblem1 + ".png");
-        $(".official:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > img").attr("src", "./files/" + emblem2 + ".png");
+        $(".official:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(1) > img").attr("src", "https://sefc.info/files/" + emblem1 + ".png");
+        $(".official:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > img").attr("src", "https://sefc.info/files/" + emblem2 + ".png");
     };
 };
 

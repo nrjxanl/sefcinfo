@@ -30,7 +30,7 @@ $(window).resize(function() {
 })
 
 // 헤더
-$("header").html("<a href='https://sefc.info'><img src='./files/seouleland_s.png'></a>")
+$("header").html("<a href='https://sefc.info'><img src='https://sefc.info/files/seouleland_s.png'></a>")
 
 if ($("div[id*=ButtonOffset]").length) {
     if ($(".recordsDetail").length) {

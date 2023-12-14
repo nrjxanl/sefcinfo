@@ -51,7 +51,7 @@ $("#startingXI td").each(function () {
     playerNum = data[Object.keys(data)[index]][1];
     playerName = data[Object.keys(data)[index]][0].replace(/[0-9, "."]/g, "");
 
-    $("#" + id).html("<div><img src='./files/" + id + ".png'></div><p><span>" + playerNum + "</span>" + playerName + "</p><p>-</p>");
+    $("#" + id).html("<div><img src='https://sefc.info/files/" + id + ".png'></div><p><span>" + playerNum + "</span>" + playerName + "</p><p>-</p>");
 
 });
 
@@ -61,5 +61,5 @@ $("#sub td").each(function () {
     playerNum = data[Object.keys(data)[index]][1];
     playerName = data[Object.keys(data)[index]][0].replace(/[0-9, "."]/g, "");
 
-    $("#" + id).html("<div><img src='./files/" + id + ".png'></div><p><span>" + playerNum + "</span>" + playerName + "</p><p>-</p>");
+    $("#" + id).html("<div><img src='https://sefc.info/files/" + id + ".png'></div><p><span>" + playerNum + "</span>" + playerName + "</p><p>-</p>");
 });

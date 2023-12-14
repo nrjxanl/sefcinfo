@@ -276,14 +276,14 @@ data = {
 
 round = $("#round").text().replace(/[^0-9]/g, "");
 dataList = Object.keys(data);
-if ($("#matchScore > div:nth-of-type(2) > div > img").attr("src") == "./files/kleague40_s.png") {
+if ($("#matchScore > div:nth-of-type(2) > div > img").attr("src") == "https://sefc.info/files/kleague40_s.png") {
     index_ = dataList.indexOf("R" + round);
-} else if ($("#matchScore > div:nth-of-type(2) > div > img").attr("src") == "./files/kfa_s.png") {
+} else if ($("#matchScore > div:nth-of-type(2) > div > img").attr("src") == "https://sefc.info/files/kfa_s.png") {
     index_ = dataList.indexOf("ydR" + round);
     if (index_ == -1) {
         index_ = dataList.indexOf("yd" + round);
     };
-} else if ($("#matchScore > div:nth-of-type(2) > div > img").attr("src") == "./files/kleagueyouthchampionship_s.png") {
+} else if ($("#matchScore > div:nth-of-type(2) > div > img").attr("src") == "https://sefc.info/files/kleagueyouthchampionship_s.png") {
     index_ = dataList.indexOf("kycR" + round);
     if (index_ == -1) {
         index_ = dataList.indexOf("kyc" + round);
