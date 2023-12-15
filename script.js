@@ -47,7 +47,7 @@ if ($("div[id*=ButtonOffset]").length) {
 $("footer").html("<div></div>")
 
 // 메뉴
-$("body").append("<div id='menu'><div id='hamburger' onclick='menuOpen()'><span></span><span></span><span></span></div><a href='https://sefc.info'>홈</a><a href='./news'>뉴스</a><a href='./players'>선수단</a><a href='./records'>선수 기록</a><a href='./fixtures'>경기 일정</a><a href='./standings'>순위</a></div><div id='menuBg' onclick='menuClose()'></div>")
+$("body").append("<div id='menu'><div id='hamburger' onclick='menuOpen()'><span></span><span></span><span></span></div><a href='https://sefc.info'>홈</a><a href='https://sefc.info/news'>뉴스</a><a href='https://sefc.info/players'>선수단</a><a href='https://sefc.info/records'>선수 기록</a><a href='https://sefc.info/fixtures'>경기 일정</a><a href='https://sefc.info/standings'>순위</a></div><div id='menuBg' onclick='menuClose()'></div>")
 
 if ($(window).width() < 768) {
     function menuOpen() {
@@ -75,17 +75,17 @@ if ($(window).width() < 768) {
 }
 
 if ($("#nextMatch").length) { // 홈
-    $("#menu > a:nth-of-type(1)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
+    $("#menu > a:nth-of-type(1)").css({"color": "#e6b059", "-webkit-text-stroke": ".5px"})
 } else if ($("#news").length) { // 뉴스
-    $("#menu > a:nth-of-type(2)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
+    $("#menu > a:nth-of-type(2)").css({"color": "#e6b059", "-webkit-text-stroke": ".5px"})
 } else if ($(".playerDetail").length || $(".playerButton").length) { // 선수
-    $("#menu > a:nth-of-type(3)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
-} else if ($(".matchDetail").length || $(".recordsButton").length) { // 선수 기록
-    $("#menu > a:nth-of-type(4)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
+    $("#menu > a:nth-of-type(3)").css({"color": "#e6b059", "-webkit-text-stroke": ".5px"})
+} else if ($(".recordsButton").length) { // 선수 기록
+    $("#menu > a:nth-of-type(4)").css({"color": "#e6b059", "-webkit-text-stroke": ".5px"})
 } else if ($(".matchDetail").length || $(".fixturesButton").length) { // 일정
-    $("#menu > a:nth-of-type(5)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
+    $("#menu > a:nth-of-type(5)").css({"color": "#e6b059", "-webkit-text-stroke": ".5px"})
 } else if ($(".standingsButton").length) { // 순위
-    $("#menu > a:nth-of-type(6)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
+    $("#menu > a:nth-of-type(6)").css({"color": "#e6b059", "-webkit-text-stroke": ".5px"})
 }
 
 // 문자별 글꼴 적용

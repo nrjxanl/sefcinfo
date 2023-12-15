@@ -97,7 +97,7 @@ function fixtures2023() {
 
         if (home == "서울E") {
             if (homeScore > awayScore) {
-                $(this).find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#174fff");
+                $(this).find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#e6b059");
                 $(this).find("div:nth-of-type(1) > div:nth-of-type(2) > span").css("color", "#fafafa");
             } else if (homeScore < awayScore) {
                 $(this).find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#f00");
@@ -108,7 +108,7 @@ function fixtures2023() {
             }
         } else {
             if (homeScore < awayScore) {
-                $(this).find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#174fff");
+                $(this).find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#e6b059");
                 $(this).find("div:nth-of-type(1) > div:nth-of-type(2) > span").css("color", "#fafafa");
             } else if (homeScore > awayScore) {
                 $(this).find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#f00");
@@ -218,8 +218,8 @@ function recentMatch2023() {
         if (home == "서울E") {
             
             if (homeScore > awayScore) {
-                $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#174fff");
-                $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > p").css("background", "#174fff");
+                $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#e6b059");
+                $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > p").css("background", "#e6b059");
                 $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > span").css("color", "#fafafa");
             } else if (homeScore < awayScore) {
                 $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#f00");
@@ -232,8 +232,8 @@ function recentMatch2023() {
             }
         } else {
             if (homeScore < awayScore) {
-                $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#174fff");
-                $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > p").css("background", "#174fff");
+                $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#e6b059");
+                $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > p").css("background", "#e6b059");
                 $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > span").css("color", "#fafafa");
             } else if (homeScore > awayScore) {
                 $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#f00");
@@ -403,7 +403,7 @@ if ($("#prevMatch").length) {
         prev1 = awayImg2023[n];
         
         if (f2023.homeScore[n] > f2023.awayScore[n]) {
-            $("#prevMatch > div > div:nth-of-type(5) > p").css({"color": "#fafafa", "background": "#174fff"});
+            $("#prevMatch > div > div:nth-of-type(5) > p").css({"color": "#fafafa", "background": "#e6b059"});
         } else if (f2023.homeScore[n] < f2023.awayScore[n]) {
             $("#prevMatch > div > div:nth-of-type(5) > p").css({"color": "#fafafa", "background": "#f00"});
         } else if (f2023.homeScore[n] == f2023.awayScore[n] && score1 !== "-") {
@@ -418,7 +418,7 @@ if ($("#prevMatch").length) {
         if (f2023.homeScore[n] > f2023.awayScore[n]) {
             $("#prevMatch > div > div:nth-of-type(5) > p").css({"color": "#fafafa", "background": "#f00"});
         } else if (f2023.homeScore[n] < f2023.awayScore[n]) {
-            $("#prevMatch > div > div:nth-of-type(5) > p").css({"color": "#fafafa", "background": "#174fff"});
+            $("#prevMatch > div > div:nth-of-type(5) > p").css({"color": "#fafafa", "background": "#e6b059"});
         } else if (f2023.homeScore[n] == f2023.awayScore[n] && score1 !== "-") {
             $("#prevMatch > div > div:nth-of-type(5) > p").css({"color": "#fafafa", "background": "#aaa"});
         } else {
@@ -430,7 +430,7 @@ if ($("#prevMatch").length) {
         prev2 = awayImg2023[n-1];
         
         if (f2023.homeScore[n-1] > f2023.awayScore[n-1]) {
-            $("#prevMatch > div > div:nth-of-type(4) > p").css({"color": "#fafafa", "background": "#174fff"});
+            $("#prevMatch > div > div:nth-of-type(4) > p").css({"color": "#fafafa", "background": "#e6b059"});
         } else if (f2023.homeScore[n-1] < f2023.awayScore[n-1]) {
             $("#prevMatch > div > div:nth-of-type(4) > p").css({"color": "#fafafa", "background": "#f00"});
         } else if (f2023.homeScore[n-1] == f2023.awayScore[n-1] && score2 !== "-") {
@@ -445,7 +445,7 @@ if ($("#prevMatch").length) {
         if (f2023.homeScore[n-1] > f2023.awayScore[n-1]) {
             $("#prevMatch > div > div:nth-of-type(4) > p").css({"color": "#fafafa", "background": "#f00"});
         } else if (f2023.homeScore[n-1] < f2023.awayScore[n-1]) {
-            $("#prevMatch > div > div:nth-of-type(4) > p").css({"color": "#fafafa", "background": "#174fff"});
+            $("#prevMatch > div > div:nth-of-type(4) > p").css({"color": "#fafafa", "background": "#e6b059"});
         } else if (f2023.homeScore[n-1] == f2023.awayScore[n-1] && score2 !== "-") {
             $("#prevMatch > div > div:nth-of-type(4) > p").css({"color": "#fafafa", "background": "#aaa"});
         } else {
@@ -457,7 +457,7 @@ if ($("#prevMatch").length) {
         prev3 = awayImg2023[n-2];
         
         if (f2023.homeScore[n-2] > f2023.awayScore[n-2]) {
-            $("#prevMatch > div > div:nth-of-type(3) > p").css({"color": "#fafafa", "background": "#174fff"});
+            $("#prevMatch > div > div:nth-of-type(3) > p").css({"color": "#fafafa", "background": "#e6b059"});
         } else if (f2023.homeScore[n-2] < f2023.awayScore[n-2]) {
             $("#prevMatch > div > div:nth-of-type(3) > p").css({"color": "#fafafa", "background": "#f00"});
         } else if (f2023.homeScore[n-2] == f2023.awayScore[n-2] && score3 !== "-") {
@@ -472,7 +472,7 @@ if ($("#prevMatch").length) {
         if (f2023.homeScore[n-2] > f2023.awayScore[n-2]) {
             $("#prevMatch > div > div:nth-of-type(3) > p").css({"color": "#fafafa", "background": "#f00"});
         } else if (f2023.homeScore[n-2] < f2023.awayScore[n-2]) {
-            $("#prevMatch > div > div:nth-of-type(3) > p").css({"color": "#fafafa", "background": "#174fff"});
+            $("#prevMatch > div > div:nth-of-type(3) > p").css({"color": "#fafafa", "background": "#e6b059"});
         } else if (f2023.homeScore[n-2] == f2023.awayScore[n-2] && score3 !== "-") {
             $("#prevMatch > div > div:nth-of-type(3) > p").css({"color": "#fafafa", "background": "#aaa"});
         } else {
@@ -484,7 +484,7 @@ if ($("#prevMatch").length) {
         prev4 = awayImg2023[n-3];
         
         if (f2023.homeScore[n-3] > f2023.awayScore[n-3]) {
-            $("#prevMatch > div > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#174fff"});
+            $("#prevMatch > div > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#e6b059"});
         } else if (f2023.homeScore[n-3] < f2023.awayScore[n-3]) {
             $("#prevMatch > div > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#f00"});
         } else if (f2023.homeScore[n-3] == f2023.awayScore[n-3] && score4 !== "-") {
@@ -499,7 +499,7 @@ if ($("#prevMatch").length) {
         if (f2023.homeScore[n-3] > f2023.awayScore[n-3]) {
             $("#prevMatch > div > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#f00"});
         } else if (f2023.homeScore[n-3] < f2023.awayScore[n-3]) {
-            $("#prevMatch > div > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#174fff"});
+            $("#prevMatch > div > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#e6b059"});
         } else if (f2023.homeScore[n-3] == f2023.awayScore[n-3] && score4 !== "-") {
             $("#prevMatch > div > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#aaa"});
         } else {
@@ -511,7 +511,7 @@ if ($("#prevMatch").length) {
         prev5 = awayImg2023[n-4];
         
         if (f2023.homeScore[n-4] > f2023.awayScore[n-4]) {
-            $("#prevMatch > div > div:nth-of-type(1) > p").css({"color": "#fafafa", "background": "#174fff"});
+            $("#prevMatch > div > div:nth-of-type(1) > p").css({"color": "#fafafa", "background": "#e6b059"});
         } else if (f2023.homeScore[n-4] < f2023.awayScore[n-4]) {
             $("#prevMatch > div > div:nth-of-type(1) > p").css({"color": "#fafafa", "background": "#f00"});
         } else if (f2023.homeScore[n-4] == f2023.awayScore[n-4] && score5 !== "-") {
@@ -526,7 +526,7 @@ if ($("#prevMatch").length) {
         if (f2023.homeScore[n-4] > f2023.awayScore[n-4]) {
             $("#prevMatch > div > div:nth-of-type(1) > p").css({"color": "#fafafa", "background": "#f00"});
         } else if (f2023.homeScore[n-4] < f2023.awayScore[n-4]) {
-            $("#prevMatch > div > div:nth-of-type(1) > p").css({"color": "#fafafa", "background": "#174fff"});
+            $("#prevMatch > div > div:nth-of-type(1) > p").css({"color": "#fafafa", "background": "#e6b059"});
         } else if (f2023.homeScore[n-4] == f2023.awayScore[n-4] && score5 !== "-") {
             $("#prevMatch > div > div:nth-of-type(1) > p").css({"color": "#fafafa", "background": "#aaa"});
         } else {
