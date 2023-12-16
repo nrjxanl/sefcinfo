@@ -325,6 +325,8 @@ function standings2022() {
         if (teamListU18S2022[i] == "서울E") {
             $("#standingsU18S").find("tbody > tr:nth-of-type(" + (i + 1) + ")").attr("class", "sefc")
         }
+
+        $("#standingsU18S").find("tr:nth-of-type(1) > td:nth-of-type(1) > p").css("background", "#174fff")
     }
 
     teamListU152022 = Object.values(U152022.team)
@@ -413,4 +415,5 @@ function standings2022() {
             $("#standingsU15").find("tbody > tr:nth-of-type(" + (i + 1) + ")").attr("class", "sefc")
         }
     }
+    $("#standingsU15").find("tr:nth-of-type(1) > td:nth-of-type(1) > p").css("background", "#174fff")
 }
