@@ -30,7 +30,7 @@ data = {
     "20140322": ["192", "19930610", "r", "cf,cb", "hashsuan29"],
     "20160058": ["174", "19930828", "l", "lw,rw,am", "sw_time19"],
     "20220124": ["174", "20030606", "r", "lw,rw", "pppjjy66"],
-    }
+}
 
 dataList = Object.keys(data)
 id = window.location.href.replace(/[^0-9]/g, "")

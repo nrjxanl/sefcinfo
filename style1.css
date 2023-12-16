@@ -129,41 +129,21 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 #latestNews > a > div {box-shadow: 0px 0px 5px 1px #00083140; border-radius: 5vw; flex-shrink: 0; margin: 0 10px; display: flex; align-items: flex-end;}
 
 /* 뉴스 */
-#news {width: 80vw; margin-left: 10vw;}
-.news {width: 80vw; display: flex; align-items: center; border-radius: 5vw; box-shadow: 0 0 3px 2px #00083120; padding: 3vw 0; margin: 20px 0;}
-.news > div {width: 20vw; height: 20vw; overflow: hidden; border-radius: 5vw; display: flex; align-items: center; justify-content: center; margin-left: 5vw;}
-.news > div > img {height: 20vw;}
-.news > p {width: 45vw; padding-left: 5vw; text-align: left; font-size: 16px; line-height: 1.4;}
-.news:nth-of-type(1) {width: 80vw; height: 60vw; overflow: hidden; border-radius: 5vw; box-shadow: 0 0 3px 2px #00083120; padding: 0; margin: 20px 0; display: flex; align-items: flex-end;}
-.news:nth-of-type(1) > p {width: 70vw; color: #fafafa; padding: 5vw;}
+#news {width: 90vw; margin-left: 5vw;}
+#news > div {width: 90vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 5vw; margin-top: 30px; padding: 20px 0; display: flex; flex-direction: column; align-items: center; justify-content: center;}
+#news > div > div:nth-of-type(1) {display: flex; justify-content: center; align-items: center;}
+#news > div > div:nth-of-type(1) > div:nth-of-type(1) {width: 20vw; height: 20vw; border-radius: 0 0 10vw 10vw; overflow: hidden;}
+#news > div > div:nth-of-type(1) > div:nth-of-type(1) > img {width: 20vw; height: auto;}
+#news > div > div:nth-of-type(1) > div:nth-of-type(2) {width: 60vw; display: flex; align-items: center; justify-content: center;}
+#news > div > div:nth-of-type(1) > div:nth-of-type(2) > div {width: fit-content; height: 20vw; display: flex; align-items: center; justify-content: center;}
+#news > div > div:nth-of-type(1) > div:nth-of-type(2) > div > img {height: 15vw;}
+#news > div > div:nth-of-type(1) > div:nth-of-type(2) > p {font-size: 40px; margin: 0 3vw;}
+#news > div > div:nth-of-type(2) {display: flex; align-items: center; justify-content: center;}
+#news > div > div:nth-of-type(2) > p:nth-of-type(1) {font-size: 20px; font-weight: 500; padding: 2vw;}
+#news > div > div:nth-of-type(2) > p:nth-of-type(2) {font-size: 20px; padding: 2vw;}
+#news > div > p {font-size: 16px; font-weight: 500;}
 
-.rumour {width: 80vw; border-radius: 5vw; box-shadow: 0 0 3px 2px #00083120; padding: 3vw 0; margin: 20px 0;}
-.rumour > div:nth-of-type(1) {width: 70vw; margin-left: 5vw; border-bottom: 1px solid #000831; display: flex; align-items: center; justify-content: flex-start; padding-bottom: 3vw;}
-.rumour > div:nth-of-type(1) > div {width: 10vw; height: 10vw; overflow: hidden; object-fit: cover; border-radius: 50%;}
-.rumour > div:nth-of-type(1) > div > img {width: 10vw;}
-.rumour > div:nth-of-type(1) > p:nth-of-type(1){width: 40vw; font-size: 18px; text-align: left; padding-left: 3vw;}
-.rumour > div:nth-of-type(1) > p:nth-of-type(2){width: 20vw; font-size: 18px; text-align: right;}
-.rumour > div:nth-of-type(2) {display: flex; align-items: center; padding-top: 3vw;}
-.rumour > div:nth-of-type(2) > p:nth-of-type(1) {width: 25vw; text-align: right;}
-.rumour > div:nth-of-type(2) > p:nth-of-type(2) {width: 25vw; text-align: left;}
-.rumour > div:nth-of-type(2) > div {width: 7vw; padding: 0 3vw; display: flex; align-items: center; justify-content: center;}
-.rumour > div:nth-of-type(2) > div > img {height: 30px;}
-.rumour > div:nth-of-type(2) > img {width: 4vw;}
-
-.official {width: 80vw; border-radius: 5vw; box-shadow: 0 0 3px 2px #00083120; padding: 3vw 0; margin: 20px 0;}
-.official > div:nth-of-type(1) {width: 70vw; margin-left: 5vw; border-bottom: 1px solid #000831; display: flex; align-items: center; justify-content: flex-start; padding-bottom: 3vw;}
-.official > div:nth-of-type(1) > div {width: 10vw; height: 10vw; overflow: hidden; object-fit: cover; border-radius: 50%;}
-.official > div:nth-of-type(1) > div > img {width: 10vw;}
-.official > div:nth-of-type(1) > p:nth-of-type(1){width: 40vw; font-size: 18px; text-align: left; padding-left: 3vw;}
-.official > div:nth-of-type(1) > p:nth-of-type(2){width: 20vw; font-size: 18px; text-align: right;}
-.official > div:nth-of-type(2) {display: flex; align-items: center; padding-top: 3vw;}
-.official > div:nth-of-type(2) > p:nth-of-type(1) {width: 25vw; text-align: right;}
-.official > div:nth-of-type(2) > p:nth-of-type(2) {width: 25vw; text-align: left;}
-.official > div:nth-of-type(2) > div {width: 7vw; padding: 0 3vw; display: flex; align-items: center; justify-content: center;}
-.official > div:nth-of-type(2) > div > img {height: 30px;}
-.official > div:nth-of-type(2) > img {width: 4vw;}
-
-#showMore {width: 80vw; height: 30px; margin-left: 10vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 5vw; display: flex; align-items: center; justify-content: center;}
+#showMore {width: 90vw; height: 30px; margin:  30px 0 0 5vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 5vw; display: flex; align-items: center; justify-content: center;}
 
 /* 선수단 */
 .playerButton {width: 100vw; height: 80px; position: fixed; top: 100px; left: 0; background: #fafafa; z-index: 100;}
