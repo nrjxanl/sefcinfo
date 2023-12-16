@@ -56,8 +56,6 @@ function standings2023() {
     goalCListA2023 = Object.values(A2023.goalC)
     diffListA2023 = Object.values(A2023.diff)
 
-    j = teamListA2023.indexOf("서울E")
-
     for (i = 0; i < teamListA2023.length; i++) {
         emblem = 
             teamListA2023[i] == "서울E" ? "seouleland_s" :
@@ -87,21 +85,21 @@ function standings2023() {
             teamListA2023[i] == "안산" ? "ansangreeners_s" :
             "dummy";
 
-            $("#standingsA > div > table > tbody").append("<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>")
+        $("#standingsA > div > table > tbody").append("<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>")
 
-            $("#standingsA").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(1)").html("<p>" + (i + 1) + "</p>")
-            $("#standingsA").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(2)").html("<img src='https://sefc.info/files/" + emblem + ".png'>")
-            $("#standingsA").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(3)").text(teamListA2023[i])
-            $("#standingsA").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(4)").text(ptsListA2023[i])
-            $("#standingsA").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(5)").text(wListA2023[i])
-            $("#standingsA").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(6)").text(dListA2023[i])
-            $("#standingsA").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(7)").text(lListA2023[i])
-            $("#standingsA").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(8)").text(goalSListA2023[i])
-            $("#standingsA").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(9)").text(goalCListA2023[i])
-            $("#standingsA").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(10)").text(diffListA2023[i])
+        $("#standingsA").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(1)").html("<p>" + (i + 1) + "</p>")
+        $("#standingsA").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(2)").html("<img src='https://sefc.info/files/" + emblem + ".png'>")
+        $("#standingsA").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(3)").text(teamListA2023[i])
+        $("#standingsA").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(4)").text(ptsListA2023[i])
+        $("#standingsA").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(5)").text(wListA2023[i])
+        $("#standingsA").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(6)").text(dListA2023[i])
+        $("#standingsA").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(7)").text(lListA2023[i])
+        $("#standingsA").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(8)").text(goalSListA2023[i])
+        $("#standingsA").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(9)").text(goalCListA2023[i])
+        $("#standingsA").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(10)").text(diffListA2023[i])
 
-        if (j == 0) {
-            if (i >= j && i <= (j + 2)) {
+        if (teamListA2023.indexOf("서울E") == 0) { // 1위
+            if (i >= teamListA2023.indexOf("서울E") && i <= (teamListA2023.indexOf("서울E") + 2)) {
                 $("#standingsHome").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(1)").text(i + 1)
                 $("#standingsHome").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(2)").html("<img src='https://sefc.info/files/" + emblem + ".png'>")
                 $("#standingsHome").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(3)").text(teamListA2023[i])
@@ -109,22 +107,22 @@ function standings2023() {
                 $("#standingsHome").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(5)").text(goalSListA2023[i])
                 $("#standingsHome").find("tbody > tr:nth-of-type(1)").attr("class", "sefc")
             }
-        } else if (j == (teamListA2023.length - 1)) {
-            if (i >= (j - 2) && i <= j) {
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 3)) + ") > td:nth-of-type(1)").text(i + 1)
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 3)) + ") > td:nth-of-type(2)").html("<img src='https://sefc.info/files/" + emblem + ".png'>")
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 3)) + ") > td:nth-of-type(3)").text(teamListA2023[i])
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 3)) + ") > td:nth-of-type(4)").text(ptsListA2023[i])
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 3)) + ") > td:nth-of-type(5)").text(goalSListA2023[i])
+        } else if (teamListA2023.indexOf("서울E") == (teamListA2023.length - 1)) { // 최하위
+            if (i >= (teamListA2023.indexOf("서울E") - 2) && i <= teamListA2023.indexOf("서울E")) {
+                $("#standingsHome").find("tr:nth-of-type(" + (i - (teamListA2023.indexOf("서울E") - 3)) + ") > td:nth-of-type(1)").text(i + 1)
+                $("#standingsHome").find("tr:nth-of-type(" + (i - (teamListA2023.indexOf("서울E") - 3)) + ") > td:nth-of-type(2)").html("<img src='https://sefc.info/files/" + emblem + ".png'>")
+                $("#standingsHome").find("tr:nth-of-type(" + (i - (teamListA2023.indexOf("서울E") - 3)) + ") > td:nth-of-type(3)").text(teamListA2023[i])
+                $("#standingsHome").find("tr:nth-of-type(" + (i - (teamListA2023.indexOf("서울E") - 3)) + ") > td:nth-of-type(4)").text(ptsListA2023[i])
+                $("#standingsHome").find("tr:nth-of-type(" + (i - (teamListA2023.indexOf("서울E") - 3)) + ") > td:nth-of-type(5)").text(goalSListA2023[i])
                 $("#standingsHome").find("tbody > tr:nth-of-type(3)").attr("class", "sefc")
             }
-        } else {
-            if (i >= (j - 1) && i <= (j + 1)) {
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 2)) + ") > td:nth-of-type(1)").text(i + 1)
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 2)) + ") > td:nth-of-type(2)").html("<img src='https://sefc.info/files/" + emblem + ".png'>")
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 2)) + ") > td:nth-of-type(3)").text(teamListA2023[i])
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 2)) + ") > td:nth-of-type(4)").text(ptsListA2023[i])
-                $("#standingsHome").find("tr:nth-of-type(" + (i - (j - 2)) + ") > td:nth-of-type(5)").text(goalSListA2023[i])
+        } else { // 나머지
+            if (i >= (teamListA2023.indexOf("서울E") - 1) && i <= (teamListA2023.indexOf("서울E") + 1)) {
+                $("#standingsHome").find("tr:nth-of-type(" + (i - (teamListA2023.indexOf("서울E") - 2)) + ") > td:nth-of-type(1)").text(i + 1)
+                $("#standingsHome").find("tr:nth-of-type(" + (i - (teamListA2023.indexOf("서울E") - 2)) + ") > td:nth-of-type(2)").html("<img src='https://sefc.info/files/" + emblem + ".png'>")
+                $("#standingsHome").find("tr:nth-of-type(" + (i - (teamListA2023.indexOf("서울E") - 2)) + ") > td:nth-of-type(3)").text(teamListA2023[i])
+                $("#standingsHome").find("tr:nth-of-type(" + (i - (teamListA2023.indexOf("서울E") - 2)) + ") > td:nth-of-type(4)").text(ptsListA2023[i])
+                $("#standingsHome").find("tr:nth-of-type(" + (i - (teamListA2023.indexOf("서울E") - 2)) + ") > td:nth-of-type(5)").text(goalSListA2023[i])
                 $("#standingsHome").find("tbody > tr:nth-of-type(2)").attr("class", "sefc")
             }
         }
