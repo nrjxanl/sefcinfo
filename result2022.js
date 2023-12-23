@@ -119,7 +119,7 @@ function fixtures2022() {
             }
         }
 
-        $(this).attr("onclick", "location.href='./" + f2022.id[index] + "'")
+        $(this).attr("onclick", "location.href='./fixtures/" + f2022.id[index] + "'")
 
         $(this).find("div:nth-of-type(1) > div:nth-of-type(1) > div > img").attr("src", "https://sefc.info/files/" + homeImg2022[index] + ".png")
         $(this).find("div:nth-of-type(1) > div:nth-of-type(3) > div > img").attr("src", "https://sefc.info/files/" + awayImg2022[index] + ".png")
@@ -260,16 +260,17 @@ function recentMatch2022() {
         }
     })
 
-    if ($("#recentMatch > div").length < 1) {
-        $("#recentMatch").css("display", "none")
-    }
-
     if (typeof recentMatchLength == "undefined") {
         recentMatchLength = recentMatchIndex.length;
     } else {
         recentMatchLength += recentMatchIndex.length;
     }
 
+}
+
+// 일정 불러오기
+if (($("#matchScore").length && document.URL.substring(document.URL.lastIndexOf("/") + 1, document.URL.lastIndexOf("/") + 5) == 2022)) {
+    fixtures2022()
 }
 
 // 다음 경기

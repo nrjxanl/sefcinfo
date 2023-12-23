@@ -261,10 +261,6 @@ function recentMatch2023() {
         }
     })
 
-    if ($("#recentMatch > div").length < 1) {
-        $("#recentMatch").css("display", "none")
-    }
-
     if (typeof recentMatchLength == "undefined") {
         recentMatchLength = recentMatchIndex.length;
     } else {
