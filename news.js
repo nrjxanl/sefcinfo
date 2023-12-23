@@ -1,12 +1,12 @@
 data = {
-    0: ["공식 발표", "박충균 감독", "서울 이랜드 FC", "계약 해지", "", "https://www.instagram.com/p/C0QtLR0siL-/", "https://i.namu.wiki/i/SCl7SRwla4dO9jY0lpuueIDn_1QBIY6y6ZPV9gj7E_PLVoNGRRc34hA19o4Xg6fjfJ1VkPp4X5EXXZibAyp7IT7z_XKYSn1str-DtKTA3gkrviYivZsgoP76v5HjWj2MOSEmrHRcM45OoRoBTx7qIQ.webp"],
-    1: ["루머", "김도균 감독", "수원 FC", "서울 이랜드 FC", "FM코리아", "https://www.fmkorea.com/6455138597", "https://i.namu.wiki/i/fbb7Nird5DkasBOYYtIOkqwYdLPJVd--Jv2nDyNw8EbddsAWWZZ1ZdaLKPCsHbKV2B1ahHAYVLx8T1mdcpSm0W5_UE8KFLe75WFeoIKthEtNUaXJSy94dpVqCfWXYQmbgGpJSTOnRFVc7ZDc7g1wSw.webp"],
-    2: ["루머", "피터", "충북청주 FC", "서울 이랜드 FC", "FM코리아", "https://www.fmkorea.com/6495339297", "https://i.namu.wiki/i/zmVvDZdG1vFOm1l2GXmaBaLhV_hQsCrzfC2ZSLqj19IBM1NZyNiKLeqc6Rm6ALmmAi1NP5LrVxqyXXoW27NxibJIR82Pm0zZmvG7_JY4CvxHRGplUfVkbEor65fJDofNB3wAeHTKQ6pyK6XeHdGoAg.webp"],
-    3: ["공식 발표", "김도균 감독", "FA", "서울 이랜드 FC", "", "https://www.instagram.com/p/C00nyZ_r-CA/", "https://i.namu.wiki/i/fbb7Nird5DkasBOYYtIOkqwYdLPJVd--Jv2nDyNw8EbddsAWWZZ1ZdaLKPCsHbKV2B1ahHAYVLx8T1mdcpSm0W5_UE8KFLe75WFeoIKthEtNUaXJSy94dpVqCfWXYQmbgGpJSTOnRFVc7ZDc7g1wSw.webp"],
+    0: ["공식 발표", "박충균 감독", "서울 이랜드 FC", "계약 해지", "", "https://www.instagram.com/p/C0QtLR0siL-/", "https://kleague-admin-test.s3.ap-northeast-2.amazonaws.com/v1/player/2023/K31/player_19970055.png"],
+    1: ["루머", "김도균 감독", "수원 FC", "서울 이랜드 FC", "FM코리아", "https://www.fmkorea.com/6455138597", "https://kleague-admin-test.s3.ap-northeast-2.amazonaws.com/v1/player/2023/K29/player_19990058.png"],
+    2: ["루머", "피터", "충북청주 FC", "서울 이랜드 FC", "FM코리아", "https://www.fmkorea.com/6495339297", "https://kleague-admin-test.s3.ap-northeast-2.amazonaws.com/v1/player/2023/K37/player_20230211.png"],
+    3: ["공식 발표", "김도균 감독", "FA", "서울 이랜드 FC", "", "https://www.instagram.com/p/C00nyZ_r-CA/", "https://kleague-admin-test.s3.ap-northeast-2.amazonaws.com/v1/player/2023/K29/player_19990058.png"],
     4: ["루머", "이재익", "서울 이랜드 FC", "전북 현대 모터스", "스포츠동아", "https://sports.donga.com/article/all/20231214/122622539/2", "./files/20180105.png"],
-    5: ["루머", "이승우", "수원 FC", "서울 이랜드 FC", "KBS", "https://news.kbs.co.kr/news/pc/view/view.do?ncd=7842496&ref=A", "https://i.namu.wiki/i/V9ZQkA5JxUEW3NniszIrp4uXKuGr8G9G_A6eqT1blqdVdEBSfriUBHsyHYlabQ0HJqQy6fH-STmhbIOIrgTpYUxhuMJ_fK4uuAZaBfFNmeD8OaazM8pC1ERq-U2792FLHlrBAS3cBrHMNCeF5BIEOQ.webp"],
-    6: ["루머", "피터", "충북청주 FC", "서울 이랜드 FC", "썰호정", "https://www.youtube.com/watch?v=vJ04kDJTvfw", "https://i.namu.wiki/i/zmVvDZdG1vFOm1l2GXmaBaLhV_hQsCrzfC2ZSLqj19IBM1NZyNiKLeqc6Rm6ALmmAi1NP5LrVxqyXXoW27NxibJIR82Pm0zZmvG7_JY4CvxHRGplUfVkbEor65fJDofNB3wAeHTKQ6pyK6XeHdGoAg.webp"],
-    7: ["루머", "박민서", "경남 FC", "서울 이랜드 FC", "썰호정", "https://www.youtube.com/watch?v=vJ04kDJTvfw", "https://i.namu.wiki/i/Gs76g2IIZs3LhqUUTXDpVyOSFUtYQJ-VLLs5ChQ7dav5LUxE80mJNp2ptTNnYB9yNxYthHGE1EeGejq1xPAWk0a7QTPSDT6hbmvzhiaNXlOGPiL6P3s-tz5fWL1wN8gbP4ciTd9_arayY4YlJBcX0Q.webp"],
+    5: ["루머", "이승우", "수원 FC", "서울 이랜드 FC", "KBS", "https://news.kbs.co.kr/news/pc/view/view.do?ncd=7842496&ref=A", "https://kleague-admin-test.s3.ap-northeast-2.amazonaws.com/v1/player/2023/K29/player_20220042.png"],
+    6: ["루머", "피터", "충북청주 FC", "서울 이랜드 FC", "썰호정", "https://www.youtube.com/watch?v=vJ04kDJTvfw", "https://kleague-admin-test.s3.ap-northeast-2.amazonaws.com/v1/player/2023/K37/player_20230211.png"],
+    7: ["루머", "박민서", "경남 FC", "서울 이랜드 FC", "썰호정", "https://www.youtube.com/watch?v=vJ04kDJTvfw", "https://kleague-admin-test.s3.ap-northeast-2.amazonaws.com/v1/player/2023/K20/player_20190022.png"],
 }
 
 function news() {
