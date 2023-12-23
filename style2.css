@@ -435,6 +435,8 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 #standingsA > div > table > tbody > tr > td:nth-of-type(2) {width: 40px;}
 #standingsA > div > table > tbody > tr > td:nth-of-type(3) {width: 80px; text-align: left;}
 #standingsA > div > table > tbody > tr > td:nth-of-type(n+4) {width: 50px;}
+#standingsA > div > p {text-align: left; font-weight: 500; margin-top: 20px; line-height: 1.6;}
+#standingsA > div > p > span {margin: 0 10px;}
 
 tr.sefc {background: #000831;}
 tr.sefc > td {color: #fafafa;}
@@ -457,6 +459,10 @@ tr.sefc > td > p {background: #fafafa !important; color: #000831 !important;}
 #standingsU18 > div > table > tbody > tr > td:nth-of-type(2) {width: 40px;}
 #standingsU18 > div > table > tbody > tr > td:nth-of-type(3) {width: 80px; text-align: left;}
 #standingsU18 > div > table > tbody > tr > td:nth-of-type(n+4) {width: 50px;}
+#standingsU18F > p {text-align: left; font-weight: 500; margin-top: 20px; line-height: 1.6;}
+#standingsU18F > p > span {margin: 0 10px;}
+#standingsU18S > p {text-align: left; font-weight: 500; margin-top: 20px; line-height: 1.6;}
+#standingsU18S > p > span {margin: 0 10px;}
 
 #standingsU15 {display: none; padding-top: 65px;}
 #standingsU15 > div {width: 360px; margin-left: 20px;}
@@ -473,3 +479,5 @@ tr.sefc > td > p {background: #fafafa !important; color: #000831 !important;}
 #standingsU15 > div > table > tbody > tr > td:nth-of-type(2) {width: 40px;}
 #standingsU15 > div > table > tbody > tr > td:nth-of-type(3) {width: 80px; text-align: left;}
 #standingsU15 > div > table > tbody > tr > td:nth-of-type(n+4) {width: 50px;}
+#standingsU15 > div > p {text-align: left; font-weight: 500; margin-top: 20px; line-height: 1.6;}
+#standingsU15 > div > p > span {margin: 0 10px;}

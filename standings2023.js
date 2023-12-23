@@ -130,13 +130,19 @@ function standings2023() {
         if (teamListA2023[i] == "서울E") {
             $("#standingsA").find("tbody > tr:nth-of-type(" + (i + 1) + ")").attr("class", "sefc")
         }
-
-        $("#standingsA").find("tr:nth-of-type(1) > td:nth-of-type(1) > p").css("background", "#174fff")
-        $("#standingsA").find("tr:nth-of-type(2) > td:nth-of-type(1) > p").css("background", "#0d2fa1")
-        for (j = 3; j <= 5; j++) {
-            $("#standingsA").find("tr:nth-of-type(" + j + ") > td:nth-of-type(1) > p").css("background", "#061b69")
-        }
     }
+    
+    $("#standingsA > div > p").html("<span>1위</span>리그 우승, K리그1 승격<br><span>2위</span>K리그 승강 플레이오프 진출<br><span>3~5위</span>K리그2 승격 플레이오프 진출")
+
+    $("#standingsA").find("tr:nth-of-type(1) > td:nth-of-type(1) > p").css("background", "#174fff")
+    $("#standingsA").find("tr:nth-of-type(2) > td:nth-of-type(1) > p").css("background", "#0d2fa1")
+    for (j = 3; j <= 5; j++) {
+        $("#standingsA").find("tr:nth-of-type(" + j + ") > td:nth-of-type(1) > p").css("background", "#061b69")
+    }
+
+    $("#standingsA > div > p > span:nth-of-type(1)").css("color", "#174fff")
+    $("#standingsA > div > p > span:nth-of-type(2)").css("color", "#0d2fa1")
+    $("#standingsA > div > p > span:nth-of-type(3)").css("color", "#061b69")
 
     teamListU18F2023 = Object.values(U18F2023.team)
     ptsListU18F2023 = Object.values(U18F2023.pts)
@@ -195,19 +201,37 @@ function standings2023() {
             $("#standingsU18F").find("tbody > tr:nth-of-type(" + (i + 1) + ")").attr("class", "sefc")
         }
 
-        $("#standingsU18F").find("tr:nth-of-type(1) > td:nth-of-type(1) > p").css("background", "#174fff")
-        for (j = 2; j <= 4; j++) {
-            $("#standingsU18F").find("tr:nth-of-type(" + j + ") > td:nth-of-type(1) > p").css("background", "#0d2fa1")
-        }
-        for (j = 5; j <= 6; j++) {
-            $("#standingsU18F").find("tr:nth-of-type(" + j + ") > td:nth-of-type(1) > p").css("background", "#061b69")
-        }
-        for (j = 7; j <= 12; j++) {
-            $("#standingsU18F").find("tr:nth-of-type(" + j + ") > td:nth-of-type(1) > p").css("background", "#f00")
-        }
     }
 
-    $("#standingsU18F").css("display", "none")
+    $("#standingsU18F > p").html("<span>1위</span>리그 우승, 후반기 A조 · 왕중왕전 진출<br><span>2~4위</span>후반기 A조 · 왕중왕전 진출<br><span>5~6위</span>후반기 A조 진출<br><span>7~12위</span>후반기 B조 진출")
+
+    $("#standingsU18F").find("tr:nth-of-type(1) > td:nth-of-type(1) > p").css("background", "#174fff")
+    for (j = 2; j <= 4; j++) {
+        $("#standingsU18F").find("tr:nth-of-type(" + j + ") > td:nth-of-type(1) > p").css("background", "#0d2fa1")
+    }
+    for (j = 5; j <= 6; j++) {
+        $("#standingsU18F").find("tr:nth-of-type(" + j + ") > td:nth-of-type(1) > p").css("background", "#061b69")
+    }
+    for (j = 7; j <= 12; j++) {
+        $("#standingsU18F").find("tr:nth-of-type(" + j + ") > td:nth-of-type(1) > p").css("background", "#f00")
+    }
+
+    $("#standingsU18F > p > span:nth-of-type(1)").css("color", "#174fff")
+    $("#standingsU18F > p > span:nth-of-type(2)").css("color", "#0d2fa1")
+    $("#standingsU18F > p > span:nth-of-type(3)").css("color", "#061b69")
+    $("#standingsU18F > p > span:nth-of-type(4)").css("color", "#f00")
+
+    if (U18S2023.team.length !== 1) {
+        document.getElementById("standingsU18F").style.display = "none"
+        document.getElementById("standingsU18S").style.display = "block"
+        $(".standingsDetail button:nth-child(1)").css("font-weight", 500)
+        $(".standingsDetail button:nth-child(2)").css("font-weight", 900)
+    } else {
+        document.getElementById("standingsU18F").style.display = "block"
+        document.getElementById("standingsU18S").style.display = "none"
+        $(".standingsDetail button:nth-child(1)").css("font-weight", 900)
+        $(".standingsDetail button:nth-child(2)").css("font-weight", 500).attr("disabled", "o")
+    }
 
     teamListU18S2023 = Object.values(U18S2023.team)
     ptsListU18S2023 = Object.values(U18S2023.pts)
@@ -266,8 +290,13 @@ function standings2023() {
             $("#standingsU18S").find("tbody > tr:nth-of-type(" + (i + 1) + ")").attr("class", "sefc")
         }
 
-        $("#standingsU18S").find("tr:nth-of-type(1) > td:nth-of-type(1) > p").css("background", "#174fff")
     }
+
+    $("#standingsU18S > p").html("<span>1위</span>리그 우승")
+    
+    $("#standingsU18S").find("tr:nth-of-type(1) > td:nth-of-type(1) > p").css("background", "#174fff")
+
+    $("#standingsU18S > p > span:nth-of-type(1)").css("color", "#174fff")
 
     teamListU152023 = Object.values(U152023.team)
     ptsListU152023 = Object.values(U152023.pts)
@@ -326,8 +355,14 @@ function standings2023() {
             $("#standingsU15").find("tbody > tr:nth-of-type(" + (i + 1) + ")").attr("class", "sefc")
         }
 
-        $("#standingsU15").find("tr:nth-of-type(1) > td:nth-of-type(1) > p").css("background", "#174fff")
     }
+
+    $("#standingsU15 > div > p").html("<span>1위</span>리그 우승")
+
+    $("#standingsU15").find("tr:nth-of-type(1) > td:nth-of-type(1) > p").css("background", "#174fff")
+
+    $("#standingsU15 > div > p > span:nth-of-type(1)").css("color", "#174fff")
+
 }
 
 // 순위 불러오기
