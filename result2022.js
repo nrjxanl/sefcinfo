@@ -22,7 +22,7 @@ awayImg2022 = awayImg2022.replaceAll("서울E", "seouleland_s").replaceAll("울�
 awayImg2022 = awayImg2022.split(",")
 
 compImg2022 = f2022.comp.join()
-compImg2022 = compImg2022.replaceAll("k2", "kleague40_s").replaceAll("fa", "facup_s").replaceAll("kj8f", "kleague40_s").replaceAll("kj8s", "kleague40_s").replaceAll("kj5", "kleague40_s").replaceAll("mcst", "mcst_s").replaceAll("kf8", "kfa_s").replaceAll("kyc8", "kleagueyouthchampionship_s").replaceAll("kyc5", "kleagueyouthchampionship_s").replaceAll("uj", "kfa_s")
+compImg2022 = compImg2022.replaceAll("k2", "kleague_s").replaceAll("fa", "facup_s").replaceAll("kj8f", "kleague_s").replaceAll("kj8s", "kleague_s").replaceAll("kj5", "kleague_s").replaceAll("mcst", "mcst_s").replaceAll("kf8", "kfa_s").replaceAll("kyc8", "kleagueyouthchampionship_s").replaceAll("kyc5", "kleagueyouthchampionship_s").replaceAll("uj", "kfa_s")
 compImg2022 = compImg2022.split(",")
 
 function fixtures2022() {
