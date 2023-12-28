@@ -153,7 +153,7 @@ function fixtures2023() {
 
 // 클릭 시 데이터 전달
 $(".fixtures_").click(function() {
-    window.localStorage.setItem($(this).attr("class"))
+    localStorage.setItem($(this).attr("class"))
 })
 
 // 최근 경기 전적
