@@ -1,7 +1,8 @@
 f2023 = {
     "id": ["202303010", "202303050", "202303110", "202303290", "202304020", "202304090", "202304120", "202304150", "202304180", "202304220", "202304300", "202305030", "202305060", "202305130", "202305200", "202305240", "202305280", "202306040", "202306110", "202306250", "202307030", "202307080", "202307180", "202307230", "202307310", "202308060", "202308150", "202308200", "202308260", "202308300", "202309030", "202309160", "202309190", "202309240", "202309300", "202310070", "202310280", "202311110", "202311260", "202302138", "202302158", "202302178", "202302208", "202302228", "202302248", "202303048", "202303118", "202303188", "202304018", "202304088", "202304158", "202304228", "202304268", "202305068", "202305088", "202305208", "202306028", "202306108", "202306248", "202307158", "202307178", "202307198", "202308268", "202309098", "202309168", "202309228", "202310078", "202310148", "202310218", "202310288", "202311048", "202311118", "202302075", "202302095", "202302115", "202302135", "202302165", "202303045", "202303185", "202303255", "202304015", "202304085", "202304155", "202304225", "202304295", "202305205", "202306025", "202306105", "202306175", "202306245", "202307015", "202308095", "202308115", "202308135", "202308265", "202309025", "202309095", "202309165", "202310145", "202310215", "202310285", "202311045"],
+    "highlight": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
     "comp": ["k2", "k2", "k2", "fa", "k2", "k2", "fa", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "fa", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "mcst", "mcst", "mcst", "mcst", "mcst", "mcst", "kj8f", "kj8f", "kj8f", "kj8f", "kj8f", "kj8f", "kj8f", "kj8f", "kf8", "kf8", "kj8f", "kj8f", "kj8f", "kj8s", "kyc8", "kyc8", "kyc8", "kj8s", "kj8s", "kj8s", "kj8s", "kj8s", "kj8s", "kj8s", "kj8s", "kj8s", "kj8s", "yd", "yd", "yd", "yd", "yd", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kyc5", "kyc5", "kyc5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5"],
-    "round": ["1", "2", "3", "2", "5", "6", "3", "7", "8", "9", "10", "11", "12", "13", "14", "16", "15", "16", "17", "18", "19", "20", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "37", "38", "39", , ],
+    "round": ["1라운드", "2라운드", "3라운드", "2라운드", "5라운드", "6라운드", "3라운드", "7라운드", "8라운드", "9라운드", "10라운드", "11라운드", "12라운드", "13라운드", "14라운드", "16강전", "15라운드", "16라운드", "17라운드", "18라운드", "19라운드", "20라운드", "22라운드", "23라운드", "24라운드", "25라운드", "26라운드", "27라운드", "28라운드", "29라운드", "30라운드", "31라운드", "32라운드", "33라운드", "34라운드", "35라운드", "37라운드", "38라운드", "39라운드", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
     "home": ["서울E", "안양", "서울E", "서울E", "부산", "서울E", "서울E", "충남아산", "부천", "서울E", "서울E", "경남", "김포", "서울E", "서울E", "서울E", "안산", "서울E", "성남", "서울E", "전남", "천안", "서울E", "충북청주", "서울E", "서울E", "김천", "서울E", "부천", "서울E", "김포", "서울E", "충북청주", "서울E", "충남아산", "서울E", "안양", "서울E", "김천", "파주고려", "홍천FC", "서울E", "숭실고", "안산", "서울E", "안양", "서울E", "FC서울", "부천", "서울E", "서울E", "안산", "서울E", "부천", "서울E", "수원삼성", "서울E", "서울E", "서울E", "전북", "서울E", "대구", "서울E", "서울E", "천안", "안양", "서울E", "안산", "김천", "서울E", "김포", "제주", "김포", "서울E", "충남아산", "제주", "포항", "서울E", "서울E", "안양", "서울E", "부천", "강원", "서울E", "수원삼성", "서울E", "수원FC", "안산", "서울E", "성남", "서울E", "전남", "서울E", "성남", "김포", "서울E", "제주", "서울E", "인천", "서울E", "FC서울", "서울E"],
     "homeScore": ["2", "1", "0", "6", "1", "4", "2", "2", "0", "0", "1", "1", "0", "3", "2", "0", "1", "1", "1", "1", "3", "0", "0", "2", "0", "1", "4", "2", "1", "1", "2", "0", "0", "3", "1", "1", "3", "0", "1", "1", "1", "1", "1", "2", "1", "2", "4", "2", "1", "1", "3", "2", "0", "2", "3", "4", "2", "4", "3", "5", "4", "2", "3", "0", "2", "2", "1", "0", "1", "1", "3", "1", "0", "0", "1", "2", "4", "1", "0", "3", "0", "2", "0", "1", "6", "0", "3", "3", "1", "4", "1", "4", "0", "2", "6", "1", "6", "0", "1", "0", "7", "1"],
     "homeScorer": ["70' 브루노<br>75' 츠바사", "", "", "24', 30', 34' 이시헌<br>28', 68' 브루노<br>56' 유정완", "", "23' 이시헌<br>31' 이동률<br>45' 유정완<br>87' 브루노", "50' 곽성욱<br>85' 브루노", "", "", "", "71' 유정완", "", "", "47', 90' 호난<br>90+2' 차승현", "71', 86' 호난", "", "", "46' 이시헌", "", "9' 유정완", "", "", "", "", "", "87' 이강희(OG)", "", "35' 브루노<br>70' 이시헌", "", "90+1' 차승현", "", "", "", "32' 유정완<br>60' 변경준<br>90+4' 호난", "", "17' 송시우", "", "", "", "", "", "65' 오현택", "", "", "13' 장석훈", "", "10' 김성연<br>29' 김서준<br>40' 김범규<br>74' 현정인", "", "", "58' 김서준", "54', 90+5' 김범규<br>90+3' 문종보", "", "", "", "23', 47' 문종보<br>37' 김성연", "", "45+1' 장석훈<br>72' 이재훈(OG)", "2' 김서준<br>69', 90+2' 문종보<br>79' 장석훈", "45+1' 문종보<br>47' 김성연<br>75' 장석훈", "", "2' 김범규<br>21' 문종보<br>54' 노규민<br>68' 장석훈", "", "44' 정주현(OG)<br>50' 김지완<br>68' 문종보", "", "", "", "45' 황윤우", "", "", "83' 김지완", "", "", "", "", "", "", "", "13' 이태현", "", "", "", "", "", "71' 김명종", "", "", "", "", "80+1' 김태호", "", "48' 오우진", "57', 65' 권용현<br>70+4' 이태현<br>70+5' 김태호", "", "", "", "7' 김태호", "80' 오우진", "", "", "", "", "71' 권용현"],
@@ -35,43 +36,45 @@ function fixtures2023() {
     $("#fixturesU15 > .fixtures").empty()
 
     // 경기 세부 정보
-    id = document.URL.substring(document.URL.lastIndexOf("/") + 1, document.URL.lastIndexOf("/") + 10)
-    n = f2023.id.indexOf(id)
-    date = document.URL.substring(document.URL.lastIndexOf("/") + 1, document.URL.lastIndexOf("/") + 5) + ". " + document.URL.substring(document.URL.lastIndexOf("/") + 5, document.URL.lastIndexOf("/") + 7) + ". " + document.URL.substring(document.URL.lastIndexOf("/") + 7, document.URL.lastIndexOf("/") + 9) + ".";
-
-    $("#homeScore").html(f2023.homeScore[n])
-    $("#homeScorer").html(f2023.homeScorer[n])
-    $("#awayScore").html(f2023.awayScore[n])
-    $("#awayScorer").html(f2023.awayScorer[n])
-    $("#date").html(date)
-
-    $("#matchScore > div:nth-of-type(1) > p:nth-of-type(1)").text(f2023.home[n])
-    $("#matchScore > div:nth-of-type(3) > p:nth-of-type(1)").text(f2023.away[n])
-
-    $("#matchScore > div:nth-of-type(1) > img").attr("src", "https://sefc.info/files/" + homeImg2023[n] + ".png")
-    $("#matchScore > div:nth-of-type(2) > div > img").attr("src", "https://sefc.info/files/" + compImg2023[n] + ".png")
-    $("#matchScore > div:nth-of-type(3) > img").attr("src", "https://sefc.info/files/" + awayImg2023[n] + ".png")
-
-    if (f2023.homeScore[n] > f2023.awayScore[n]) {
-        $("#awayScore").css("opacity", "0.7")
-    } else if (f2023.homeScore[n] < f2023.awayScore[n]) {
-        $("#homeScore").css("opacity", "0.7")
-    }
-
-    if (f2023.homeScore[n] == "") {
-        $(".matchDetail > button[onclick='matchInfo()']").css("display", "none")
-        matchH2H()
-    }
+    if ($("#matchScore").length) {
+        id = match.id
+        n = f2023.id.indexOf(id)
+        date = match.id.substr(0, 4) + "." + match.id.substr(4, 2) + "." + match.id.substr(6, 2) + "."
+    
+        $("#homeScore").html(f2023.homeScore[n])
+        $("#homeScorer").html(f2023.homeScorer[n])
+        $("#awayScore").html(f2023.awayScore[n])
+        $("#awayScorer").html(f2023.awayScorer[n])
+        $("#date").html(date)
+    
+        $("#matchScore > div:nth-of-type(1) > p:nth-of-type(1)").text(f2023.home[n])
+        $("#matchScore > div:nth-of-type(3) > p:nth-of-type(1)").text(f2023.away[n])
+    
+        $("#matchScore > div:nth-of-type(1) > img").attr("src", "https://sefc.info/files/" + homeImg2023[n] + ".png")
+        $("#matchScore > div:nth-of-type(2) > div > img").attr("src", "https://sefc.info/files/" + compImg2023[n] + ".png")
+        $("#matchScore > div:nth-of-type(3) > img").attr("src", "https://sefc.info/files/" + awayImg2023[n] + ".png")
+    
+        if (f2023.homeScore[n] > f2023.awayScore[n]) {
+            $("#awayScore").css("opacity", "0.7")
+        } else if (f2023.homeScore[n] < f2023.awayScore[n]) {
+            $("#homeScore").css("opacity", "0.7")
+        }
+    
+        if (f2023.homeScore[n] == "") {
+            $(".matchDetail > button[onclick='matchInfo()']").css("display", "none")
+            matchH2H()
+        }
+        }
 
     // 경기 일정
     for (i = 0; i < aMatch2023.length; i++) {
-        $("#fixturesA > .fixtures").append("<div class='fixtures_ " + f2023.id[i] + " " + f2023.round[i] + "'></div>")
+        $("#fixturesA > .fixtures").append("<div class='fixtures_'></div>")
     }
     for (i = 0; i < u18Match2023.length; i++) {
-        $("#fixturesU18 > .fixtures").append("<div class='fixtures_ " + f2023.id[aMatch2023.length + i] + " " + f2023.round[aMatch2023.length + i] + "'></div>")
+        $("#fixturesU18 > .fixtures").append("<div class='fixtures_'></div>")
     }
     for (i = 0; i < u15Match2023.length; i++) {
-        $("#fixturesU15 > .fixtures").append("<div class='fixtures_ " + f2023.id[aMatch2023.length + u18Match2023.length + i] + " " + f2023.round[aMatch2023.length + u18Match2023.length + i] + "'></div>")
+        $("#fixturesU15 > .fixtures").append("<div class='fixtures_'></div>")
     }
 
     $(".fixtures_").each(function(index) {
@@ -120,11 +123,24 @@ function fixtures2023() {
             }
         }
 
-        $(this).attr("onclick", "location.href='./fixtures/" + f2023.id[index] + "'")
+        $(this).attr("onclick", "location.href='./matchinfo2023.html'")
 
         $(this).find("div:nth-of-type(1) > div:nth-of-type(1) > div > img").attr("src", "https://sefc.info/files/" + homeImg2023[index] + ".png")
         $(this).find("div:nth-of-type(1) > div:nth-of-type(3) > div > img").attr("src", "https://sefc.info/files/" + awayImg2023[index] + ".png")
         $(this).find("div:nth-of-type(2) > div:nth-of-type(1) > img").attr("src", "https://sefc.info/files/" + compImg2023[index] + ".png")
+        
+
+        // 클릭 시 데이터 저장
+        $(this).click(function() {
+            match = {
+                "id": f2023.id[index],
+                "round": f2023.round[index],
+                "highlight": f2023.highlight[index],
+            }
+
+            localStorage.setItem("match", JSON.stringify(match))
+        })
+    
     })
 
     // 일정 목록 화면 다음 일정 찾기
@@ -148,13 +164,15 @@ function fixtures2023() {
         $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (indexA + 1) + ")").attr("id", "nextMatchA")
         $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (indexA + 1) + ")").attr("id", "nextMatchA")
     }
-    
 }
 
-// 클릭 시 데이터 전달
-$(".fixtures_").click(function() {
-    localStorage.setItem($(this).attr("class"))
-})
+// 경기 세부 정보 불러오기
+if ($("#matchScore").length) {
+    match = JSON.parse(localStorage.getItem("match"))
+    $("#round").text(match.round)
+    fixtures2023()
+    recentMatch2023()
+}
 
 // 최근 경기 전적
 function recentMatch2023() {
@@ -163,7 +181,7 @@ function recentMatch2023() {
         recentMatchLength = 0;
     }
 
-    id = document.URL.substring(document.URL.lastIndexOf("/") + 1, document.URL.lastIndexOf("/") + 10)
+    id = match.id
     n = f2023.id.indexOf(id)
 
     if (f2023.home[n] == "서울E") {
@@ -277,7 +295,7 @@ function recentMatch2023() {
 }
 
 // 일정 불러오기
-if ($("#fixturesA").length || ($("#matchScore").length && document.URL.substring(document.URL.lastIndexOf("/") + 1, document.URL.lastIndexOf("/") + 5) == 2023)) {
+if ($("#fixturesA").length) {
     fixtures2023()
 }
 

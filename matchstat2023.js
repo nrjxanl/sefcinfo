@@ -44,7 +44,7 @@ index = dataList.indexOf("R" + round)
 homeColor = $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(1) > p").css("background-color")
 awayColor = $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(3) > p").css("background-color")
 
-if ((document.URL.substring(document.URL.lastIndexOf("/") + 9, document.URL.lastIndexOf("/") + 10)) == 0) {
+if (match.id.substr(8, 1) == 0) {
 
     posH = (data[Object.keys(data)[index]][0])
     posA = (data[Object.keys(data)[index]][1])

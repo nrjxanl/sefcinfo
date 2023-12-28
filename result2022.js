@@ -1,6 +1,8 @@
 f2022 = {
     "id": ["202202200", "202203050", "202203090", "202203120", "202203160", "202203190", "202203270", "202204020", "202204050", "202204090", "202204170", "202204230", "202205070", "202205170", "202205220", "202205280", "202206040", "202206080", "202206120", "202206190", "202206220", "202206250", "202207030", "202207110", "202207180", "202208010", "202208060", "202208130", "202208160", "202208200", "202208310", "202209050", "202209100", "202209140", "202209170", "202209210", "202209250", "202210010", "202210050", "202210080", "202210150", "202202178", "202202198", "202202218", "202202228", "202203198", "202203268", "202204028", "202204098", "202204168", "202204198", "202204238", "202204308", "202205078", "202205148", "202205288", "202206028", "202206068", "202206088", "202206108", "202206258", "202207028", "202207168", "202207188", "202207208", "202207228", "202208278", "202209038", "202209178", "202209248", "202210158", "202210228", "202210298", "202211128", "202202075", "202202095", "202202135", "202202155", "202204155", "202204235", "202204305", "202205055", "202205145", "202205215", "202205285", "202206035", "202206115", "202206255", "202207095", "202208135", "202208155", "202208175", "202208195", "202208275", "202209035", "202209245", "202210015", "202210085", "202210155", "202210195", "202210225", "202210295"],
+    "highlight": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
     "comp": ["k2", "k2", "fa", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "k2", "mcst", "mcst", "mcst", "mcst", "kj8f", "kj8f", "kj8f", "kj8f", "kj8f", "kj8f", "kj8f", "kj8f", "kj8f", "kj8f", "kj8f", "kf8", "kf8", "kf8", "kf8", "kj8s", "kj8s", "kyc8", "kyc8", "kyc8", "kyc8", "kj8s", "kj8s", "kj8s", "kj8s", "kj8s", "kj8s", "kj8s", "kj8s", "uj", "uj", "uj", "uj", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kyc5", "kyc5", "kyc5", "kyc5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5", "kj5"],
+    "round": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
     "home": ["경남", "안산", "창원", "김포", "광주", "서울E", "서울E", "전남", "부천", "대전", "부산", "경남", "광주", "서울E", "안양", "서울E", "서울E", "서울E", "서울E", "충남아산", "서울E", "안양", "서울E", "서울E", "대전", "서울E", "서울E", "부천", "부산", "서울E", "서울E", "서울E", "김포", "서울E", "안산", "서울E", "서울E", "서울E", "충남아산", "전남", "서울E", "서울E", "제주", "서울E", "인천", "김포", "서울E", "부천", "서울E", "서울E", "서울E", "안산", "안양", "서울E", "제주", "서울E", "서울E", "안양", "부산", "광주", "경남", "서울E", "강원", "서울E", "김포", "전북", "인천", "서울E", "서울E", "성남", "서울E", "김천", "부산", "서울E", "김천", "서울E", "충남아산", "서울E", "서울E", "안양", "수원삼성", "서울E", "서울E", "부천", "서울E", "수원FC", "안산", "서울E", "FC서울", "경남", "서울E", "수원삼성", "서울E", "서울E", "서울E", "서울E", "서울E", "제주", "강원", "성남", "서울E", "인천"],
     "homeScore": ["0", "0", "1", "2", "2", "0", "0", "1", "0", "2", "1", "3", "1", "3", "0", "0", "1", "1", "2", "0", "2", "1", "1", "2", "3", "3", "2", "0", "1", "0", "2", "2", "0", "3", "1", "0", "3", "3", "2", "3", "0", "5", "3", "2", "0", "1", "5", "1", "1", "2", "1", "4", "1", "1", "1", "1", "0", "0", "1", "3", "2", "0", "3", "0", "0", "2", "2", "1", "2", "0", "1", "0", "5", "3", "0", "0", "2", "0", "1", "0", "3", "2", "0", "0", "2", "1", "0", "2", "1", "0", "1", "1", "1", "3", "1", "1", "5", "2", "0", "2", "2", "1"],
     "homeScorer": ["", "", "", "", "", "", "", "", "", "", "", "", "", "16' 까데나시<br>73' 김인성<br>90+2' 김선민", "", "", "58' 츠바사", "23' 이후권(OG)", "40' 김정환<br>73' 김인성", "", "25' 츠바사<br>72' 까데나시", "", "22' 츠바사", "25', 33' 까데나시", "", "9' 이동률<br>79' 김정환<br>90+2' 박준영(FW)", "29' 이동률<br>38' 아센호", "", "", "", "22' 까데나시<br>26' 이동률", "17' 김선민<br>39' 까데나시", "", "32', 74' 김인성<br>64' 황태현", "", "", "6' 황태현<br>56' 김정환<br>62' 이동률", "15' 츠바사<br>17', 25' 김정환", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
@@ -14,15 +16,15 @@ u18Match2022 = f2022.id.filter((a) => a.substr(-1) == "8")
 u15Match2022 = f2022.id.filter((a) => a.substr(-1) == "5")
 
 homeImg2022 = f2022.home.join()
-homeImg2022 = homeImg2022.replaceAll("서울E", "seouleland_s").replaceAll("울산", "ulsanhyundai2016_s").replaceAll("수원삼성", "suwonsamsung_s").replaceAll("수원FC", "suwonfc2016_s").replaceAll("성남", "seongnamfc2014_s").replaceAll("포항", "pohangsteelers_s").replaceAll("전남", "jeonnamdragons2022_s").replaceAll("전북", "jeonbukhyundai2018_s").replaceAll("제주", "jejuutd_s").replaceAll("인천", "incheonutd_s").replaceAll("경남", "gyeongnamfc2010_s").replaceAll("광주", "gwangjufc2020_s").replaceAll("김포", "gimpofc2022_s").replaceAll("김천", "gimcheonsangmu_s").replaceAll("강원", "gangwonfc_s").replaceAll("FC서울", "fcseoul_s").replaceAll("안양", "fcanyang_s").replaceAll("대전", "daejeonhana2020_s").replaceAll("대구", "daegufc2013_s").replaceAll("충남아산", "chungnamasan_s").replaceAll("충북청주", "chungbukcheongju_s").replaceAll("천안", "cheonancity2022_s").replaceAll("부산", "busanipark2012_s").replaceAll("부천", "bucheonfc_s").replaceAll("안산", "ansangreeners_s").replaceAll("창원", "changwonfc_s").replaceAll("파주고려", "pajukorea_s").replaceAll("홍천FC", "hongcheonfc_s").replaceAll("초지고", "chojihs_s").replaceAll("숭실고", "soongsilhs_s")
+homeImg2022 = homeImg2022.replaceAll("서울E", "seouleland_s").replaceAll("울산", "ulsanhyundai2016_s").replaceAll("수원삼성", "suwonsamsung_s").replaceAll("수원FC", "suwonfc2016_s").replaceAll("성남", "seongnamfc2014_s").replaceAll("포항", "pohangsteelers_s").replaceAll("전남", "jeonnamdragons2022_s").replaceAll("전북", "jeonbukhyundai2018_s").replaceAll("제주", "jejuutd_s").replaceAll("인천", "incheonutd_s").replaceAll("경남", "gyeongnamfc2010_s").replaceAll("광주", "gwangjufc2020_s").replaceAll("김포", "gimpofc2022_s").replaceAll("김천", "gimcheonsangmu_s").replaceAll("강원", "gangwonfc_s").replaceAll("FC서울", "fcseoul_s").replaceAll("안양", "fcanyang_s").replaceAll("대전", "daejeonhana2020_s").replaceAll("대구", "daegufc2013_s").replaceAll("충남아산", "chungnamasan_s").replaceAll("충북청주", "chungbukcheongju_s").replaceAll("천안", "cheonancity2022_s").replaceAll("부산", "busanipark2012_s").replaceAll("부천", "bucheonfc_s").replaceAll("안산", "ansangreeners_s").replaceAll("파주고려", "pajukorea_s").replaceAll("홍천FC", "hongcheonfc_s").replaceAll("초지고", "chojihs_s").replaceAll("숭실고", "soongsilhs_s")
 homeImg2022 = homeImg2022.split(",")
 
 awayImg2022 = f2022.away.join()
-awayImg2022 = awayImg2022.replaceAll("서울E", "seouleland_s").replaceAll("울산", "ulsanhyundai2016_s").replaceAll("수원삼성", "suwonsamsung_s").replaceAll("수원FC", "suwonfc2016_s").replaceAll("성남", "seongnamfc2014_s").replaceAll("포항", "pohangsteelers_s").replaceAll("전남", "jeonnamdragons2022_s").replaceAll("전북", "jeonbukhyundai2018_s").replaceAll("제주", "jejuutd_s").replaceAll("인천", "incheonutd_s").replaceAll("경남", "gyeongnamfc2010_s").replaceAll("광주", "gwangjufc2020_s").replaceAll("김포", "gimpofc2022_s").replaceAll("김천", "gimcheonsangmu_s").replaceAll("강원", "gangwonfc_s").replaceAll("FC서울", "fcseoul_s").replaceAll("안양", "fcanyang_s").replaceAll("대전", "daejeonhana2020_s").replaceAll("대구", "daegufc2013_s").replaceAll("충남아산", "chungnamasan_s").replaceAll("충북청주", "chungbukcheongju_s").replaceAll("천안", "cheonancity2022_s").replaceAll("부산", "busanipark2012_s").replaceAll("부천", "bucheonfc_s").replaceAll("안산", "ansangreeners_s").replaceAll("창원", "changwonfc_s").replaceAll("파주고려", "pajukorea_s").replaceAll("홍천FC", "hongcheonfc_s").replaceAll("초지고", "chojihs_s").replaceAll("숭실고", "soongsilhs_s")
+awayImg2022 = awayImg2022.replaceAll("서울E", "seouleland_s").replaceAll("울산", "ulsanhyundai2016_s").replaceAll("수원삼성", "suwonsamsung_s").replaceAll("수원FC", "suwonfc2016_s").replaceAll("성남", "seongnamfc2014_s").replaceAll("포항", "pohangsteelers_s").replaceAll("전남", "jeonnamdragons2022_s").replaceAll("전북", "jeonbukhyundai2018_s").replaceAll("제주", "jejuutd_s").replaceAll("인천", "incheonutd_s").replaceAll("경남", "gyeongnamfc2010_s").replaceAll("광주", "gwangjufc2020_s").replaceAll("김포", "gimpofc2022_s").replaceAll("김천", "gimcheonsangmu_s").replaceAll("강원", "gangwonfc_s").replaceAll("FC서울", "fcseoul_s").replaceAll("안양", "fcanyang_s").replaceAll("대전", "daejeonhana2020_s").replaceAll("대구", "daegufc2013_s").replaceAll("충남아산", "chungnamasan_s").replaceAll("충북청주", "chungbukcheongju_s").replaceAll("천안", "cheonancity2022_s").replaceAll("부산", "busanipark2012_s").replaceAll("부천", "bucheonfc_s").replaceAll("안산", "ansangreeners_s").replaceAll("파주고려", "pajukorea_s").replaceAll("홍천FC", "hongcheonfc_s").replaceAll("초지고", "chojihs_s").replaceAll("숭실고", "soongsilhs_s")
 awayImg2022 = awayImg2022.split(",")
 
 compImg2022 = f2022.comp.join()
-compImg2022 = compImg2022.replaceAll("k2", "kleague_s").replaceAll("fa", "facup_s").replaceAll("kj8f", "kleague_s").replaceAll("kj8s", "kleague_s").replaceAll("kj5", "kleague_s").replaceAll("mcst", "mcst_s").replaceAll("kf8", "kfa_s").replaceAll("kyc8", "kleagueyouthchampionship_s").replaceAll("kyc5", "kleagueyouthchampionship_s").replaceAll("uj", "kfa_s")
+compImg2022 = compImg2022.replaceAll("k2", "kleague_s").replaceAll("fa", "facup_s").replaceAll("kj8f", "kleague_s").replaceAll("kj8s", "kleague_s").replaceAll("kj5", "kleague_s").replaceAll("mcst", "mcst_s").replaceAll("kf8", "kfa_s").replaceAll("kyc8", "kleagueyouthchampionship_s").replaceAll("kyc5", "kleagueyouthchampionship_s").replaceAll("yd", "kfa_s")
 compImg2022 = compImg2022.split(",")
 
 function fixtures2022() {
@@ -34,33 +36,35 @@ function fixtures2022() {
     $("#fixturesU15 > .fixtures").empty()
 
     // 경기 세부 정보
-    id = document.URL.substring(document.URL.lastIndexOf("/") + 1, document.URL.lastIndexOf("/") + 10)
-    n = f2022.id.indexOf(id)
-    date = document.URL.substring(document.URL.lastIndexOf("/") + 1, document.URL.lastIndexOf("/") + 5) + ". " + document.URL.substring(document.URL.lastIndexOf("/") + 5, document.URL.lastIndexOf("/") + 7) + ". " + document.URL.substring(document.URL.lastIndexOf("/") + 7, document.URL.lastIndexOf("/") + 9) + ".";
-
-    $("#homeScore").html(f2022.homeScore[n])
-    $("#homeScorer").html(f2022.homeScorer[n])
-    $("#awayScore").html(f2022.awayScore[n])
-    $("#awayScorer").html(f2022.awayScorer[n])
-    $("#date").html(date)
-
-    $("#matchScore > div:nth-of-type(1) > p:nth-of-type(1)").text(f2022.home[n])
-    $("#matchScore > div:nth-of-type(3) > p:nth-of-type(1)").text(f2022.away[n])
-
-    $("#matchScore > div:nth-of-type(1) > img").attr("src", "https://sefc.info/files/" + homeImg2022[n] + ".png")
-    $("#matchScore > div:nth-of-type(2) > div > img").attr("src", "https://sefc.info/files/" + compImg2022[n] + ".png")
-    $("#matchScore > div:nth-of-type(3) > img").attr("src", "https://sefc.info/files/" + awayImg2022[n] + ".png")
-
-    if (f2022.homeScore[n] > f2022.awayScore[n]) {
-        $("#awayScore").css("opacity", "0.7")
-    } else if (f2022.homeScore[n] < f2022.awayScore[n]) {
-        $("#homeScore").css("opacity", "0.7")
-    }
-
-    if (f2022.homeScore[n] == "") {
-        $(".matchDetail > button[onclick='matchInfo()']").css("display", "none")
-        matchH2H()
-    }
+    if ($("#matchScore").length) {
+        id = match.id
+        n = f2022.id.indexOf(id)
+        date = match.id.substr(0, 4) + "." + match.id.substr(4, 2) + "." + match.id.substr(6, 2) + "."
+    
+        $("#homeScore").html(f2022.homeScore[n])
+        $("#homeScorer").html(f2022.homeScorer[n])
+        $("#awayScore").html(f2022.awayScore[n])
+        $("#awayScorer").html(f2022.awayScorer[n])
+        $("#date").html(date)
+    
+        $("#matchScore > div:nth-of-type(1) > p:nth-of-type(1)").text(f2022.home[n])
+        $("#matchScore > div:nth-of-type(3) > p:nth-of-type(1)").text(f2022.away[n])
+    
+        $("#matchScore > div:nth-of-type(1) > img").attr("src", "https://sefc.info/files/" + homeImg2022[n] + ".png")
+        $("#matchScore > div:nth-of-type(2) > div > img").attr("src", "https://sefc.info/files/" + compImg2022[n] + ".png")
+        $("#matchScore > div:nth-of-type(3) > img").attr("src", "https://sefc.info/files/" + awayImg2022[n] + ".png")
+    
+        if (f2022.homeScore[n] > f2022.awayScore[n]) {
+            $("#awayScore").css("opacity", "0.7")
+        } else if (f2022.homeScore[n] < f2022.awayScore[n]) {
+            $("#homeScore").css("opacity", "0.7")
+        }
+    
+        if (f2022.homeScore[n] == "") {
+            $(".matchDetail > button[onclick='matchInfo()']").css("display", "none")
+            matchH2H()
+        }
+        }
 
     // 경기 일정
     for (i = 0; i < aMatch2022.length; i++) {
@@ -80,7 +84,7 @@ function fixtures2022() {
         homeScore = f2022.homeScore[index]
         away = f2022.away[index]
         awayScore = f2022.awayScore[index]
-        comp = f2022.comp[index].replaceAll("k2", "하나원큐 K리그2 2022").replaceAll("fa", "2022 하나원큐 FA CUP").replaceAll("kj8f", "2022 K리그 주니어 U18 전반기").replaceAll("kj8s", "2022 K리그 주니어 U18 후반기").replaceAll("kj5", "2022 K리그 주니어 U15").replaceAll("mcst", "제44회 문체부장관배 전국고교 축구대회").replaceAll("kf8", "제43회 대한축구협회장배 전국고교 축구대회").replaceAll("kyc8", "2022 GROUND.N K리그 U18 챔피언십").replaceAll("kyc5", "2022 GROUND.N K리그 U15 챔피언십").replaceAll("uj", "2022 춘계 전국 중등 축구대회").toUpperCase()
+        comp = f2022.comp[index].replaceAll("k2", "하나원큐 K리그2 2022").replaceAll("fa", "2022 하나원큐 FA CUP").replaceAll("kj8f", "2022 K리그 주니어 U18 전반기").replaceAll("kj8s", "2022 K리그 주니어 U18 후반기").replaceAll("kj5", "2022 K리그 주니어 U15").replaceAll("mcst", "제45회 문체부장관배 전국고교 축구대회").replaceAll("kf8", "제44회 대한축구협회장배 전국고교 축구대회").replaceAll("kyc8", "2022 GROUND.N K리그 U18 챔피언십").replaceAll("kyc5", "2022 GROUND.N K리그 U15 챔피언십").replaceAll("yd", "2022 STAY 영덕 춘계 U15 축구대회").toUpperCase()
         date = f2022.id[index].substr(0, 4) + "." + f2022.id[index].substr(4, 2) + "." + f2022.id[index].substr(6, 2) + ".";
 
         $(this).find("div:nth-of-type(1) > div:nth-of-type(1) > p").text(home)
@@ -119,11 +123,24 @@ function fixtures2022() {
             }
         }
 
-        $(this).attr("onclick", "location.href='./fixtures/" + f2022.id[index] + "'")
+        $(this).attr("onclick", "location.href='./matchinfo2022.html'")
 
         $(this).find("div:nth-of-type(1) > div:nth-of-type(1) > div > img").attr("src", "https://sefc.info/files/" + homeImg2022[index] + ".png")
         $(this).find("div:nth-of-type(1) > div:nth-of-type(3) > div > img").attr("src", "https://sefc.info/files/" + awayImg2022[index] + ".png")
         $(this).find("div:nth-of-type(2) > div:nth-of-type(1) > img").attr("src", "https://sefc.info/files/" + compImg2022[index] + ".png")
+        
+
+        // 클릭 시 데이터 저장
+        $(this).click(function() {
+            match = {
+                "id": f2022.id[index],
+                "round": f2022.round[index],
+                "highlight": f2022.highlight[index],
+            }
+
+            localStorage.setItem("match", JSON.stringify(match))
+        })
+    
     })
 
     // 일정 목록 화면 다음 일정 찾기
@@ -147,16 +164,23 @@ function fixtures2022() {
         $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (indexA + 1) + ")").attr("id", "nextMatchA")
         $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (indexA + 1) + ")").attr("id", "nextMatchA")
     }
-    
 }
 
+// 경기 세부 정보 불러오기
+if ($("#matchScore").length) {
+    match = JSON.parse(localStorage.getItem("match"))
+    $("#round").text(match.round)
+    recentMatch2022()
+}
+
+// 최근 경기 전적
 function recentMatch2022() {
 
     if (typeof recentMatchLength == "undefined") {
         recentMatchLength = 0;
     }
 
-    id = document.URL.substring(document.URL.lastIndexOf("/") + 1, document.URL.lastIndexOf("/") + 10)
+    id = match.id
     n = f2022.id.indexOf(id)
 
     if (f2022.home[n] == "서울E") {
@@ -216,6 +240,7 @@ function recentMatch2022() {
         }
 
         if (home == "서울E") {
+            
             if (homeScore > awayScore) {
                 $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#174fff")
                 $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(2) > p").css("background", "#174fff")
@@ -245,7 +270,7 @@ function recentMatch2022() {
             }
         }
 
-        $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").attr("onclick", "location.href='./" + f2022.id[recentMatchIndex[j]] + "'")
+        $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").attr("onclick", "location.href='./fixtures/" + f2022.id[recentMatchIndex[j]] + "'")
 
         $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(1) > div > img").attr("src", "https://sefc.info/files/" + homeImg2022[recentMatchIndex[j]] + ".png")
         $("#recentMatch > div:nth-of-type(" + (recentMatchLength + j + 1) + ")").find("div:nth-of-type(1) > div:nth-of-type(3) > div > img").attr("src", "https://sefc.info/files/" + awayImg2022[recentMatchIndex[j]] + ".png")
@@ -266,11 +291,6 @@ function recentMatch2022() {
         recentMatchLength += recentMatchIndex.length;
     }
 
-}
-
-// 일정 불러오기
-if (($("#matchScore").length && document.URL.substring(document.URL.lastIndexOf("/") + 1, document.URL.lastIndexOf("/") + 5) == 2022)) {
-    fixtures2022()
 }
 
 // 다음 경기
@@ -341,7 +361,7 @@ if ($("#nextMatch").length) {
             $("#nextMatch").find("div:nth-of-type(1) > div:nth-of-type(2) > span").css({"font-size": "20px", "letter-spacing": "0"})
         }
     
-        $("#nextMatch").attr("onclick", "location.href='./" + f2022.id[n] + "'")
+        $("#nextMatch").attr("onclick", "location.href='./fixtures/" + f2022.id[n] + "'")
     
         $("#nextMatch").find("div:nth-of-type(1) > div:nth-of-type(1) > div > img").attr("src", "https://sefc.info/files/" + homeImg2022[n] + ".png")
         $("#nextMatch").find("div:nth-of-type(1) > div:nth-of-type(3) > div > img").attr("src", "https://sefc.info/files/" + awayImg2022[n] + ".png")
