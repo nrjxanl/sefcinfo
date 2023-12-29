@@ -333,7 +333,7 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 #startingXI {width: 80vw; margin: 30px 0 0 10vw;}
 #startingXI > img {width: 80vw; border-radius: 2vw; position: relative; opacity: 0.5;}
 #startingXI > table {width: 70vw; height: 110vw; margin: -115vw 0 0 5vw; z-index: 98; position: absolute;}
-#startingXI > table > tbody > tr {display: flex;}
+#startingXI > table > tbody > tr {display: flex; justify-content: center;}
 #startingXI > table > tbody > tr > td {height: 27.5vw; display: flex; flex-direction: column; justify-content: center; align-items: center;}
 #startingXI > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: 3px solid #fafafa;}
 #startingXI > table > tbody > tr > td > div > img {width: 10vw;}
