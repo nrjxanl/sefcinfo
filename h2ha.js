@@ -1,4 +1,4 @@
-data = {
+h2h = {
     "gangwonfc": ["dd5828", "ffffff", "0", "3", "6", "10", "19"],
     "gyeongnamfc": ["e83827", "f5cd21", "10", "8", "8", "30", "31"],
     "goyanghifc": ["171c61", "b31d23", "4", "3", "1", "15", "7"],
@@ -49,14 +49,14 @@ if (hrefH == "seouleland") {
     opp = hrefH;
 };
 
-dataList = Object.keys(data);
-index = dataList.indexOf(opp, 0);
+h2hList = Object.keys(h2h);
+index = h2hList.indexOf(opp, 0);
 
-w = Number(data[Object.keys(data)[index]][2]);
-d = Number(data[Object.keys(data)[index]][3]);
-l = Number(data[Object.keys(data)[index]][4]);
-goalS = Number(data[Object.keys(data)[index]][5]);
-goalC = Number(data[Object.keys(data)[index]][6]);
+w = Number(h2h[Object.keys(h2h)[index]][2]);
+d = Number(h2h[Object.keys(h2h)[index]][3]);
+l = Number(h2h[Object.keys(h2h)[index]][4]);
+goalS = Number(h2h[Object.keys(h2h)[index]][5]);
+goalC = Number(h2h[Object.keys(h2h)[index]][6]);
 
 wPct = (100 * w / (w + d + l)).toFixed(1) + "%";
 dPct = (100 * d / (w + d + l)).toFixed(1) + "%";
@@ -64,8 +64,8 @@ lPct = (100 * l / (w + d + l)).toFixed(1) + "%";
 goalSpG = "경기당 " + (goalS / (w + d + l)).toFixed(1);
 goalCpG = "경기당 " + (goalC / (w + d + l)).toFixed(1);
 
-oppBg = "#" + (data[Object.keys(data)[index]][0]);
-oppText = "#" + (data[Object.keys(data)[index]][1]);
+oppBg = "#" + (h2h[Object.keys(h2h)[index]][0]);
+oppText = "#" + (h2h[Object.keys(h2h)[index]][1]);
 
 if ($("#matchScore > div:nth-of-type(1)").find("img").attr("src").replace("https://sefc.info/files/", "").replace("_s.png", "") == "seouleland") {
     grd1 = ((100 * w / (w + d + l))) + "%";

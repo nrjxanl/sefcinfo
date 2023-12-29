@@ -123,7 +123,7 @@ function fixtures2023() {
             }
         }
 
-        $(this).attr("onclick", "location.href='./matchinfo2023.html'")
+        $(this).attr("onclick", "location.href='./matchinfo'")
 
         $(this).find("div:nth-of-type(1) > div:nth-of-type(1) > div > img").attr("src", "https://sefc.info/files/" + homeImg2023[index] + ".png")
         $(this).find("div:nth-of-type(1) > div:nth-of-type(3) > div > img").attr("src", "https://sefc.info/files/" + awayImg2023[index] + ".png")
