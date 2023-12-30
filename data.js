@@ -365,3 +365,8 @@ function redirect() {
         })
     })
 }
+
+window.onbeforeunload = function() {
+    localStorage.removeItem("id")
+    localStorage.setItem("id", id)
+}
