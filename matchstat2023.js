@@ -1,4 +1,4 @@
-data = {
+stat = {
     "R1": ["62.25", "37.75", "16", "9", "7", "9", "9", "15", "0", "2", "0", "0", "0", "0", "6", "1", "9", "17", "0", "2"],
     "R2": ["48.64", "51.36", "7", "4", "5", "1", "19", "11", "1", "2", "0", "0", "0", "0", "3", "2", "22", "12", "3", "1"],
     "R3": ["46.44", "53.56", "11", "12", "4", "9", "11", "14", "0", "1", "0", "0", "0", "0", "3", "4", "12", "16", "1", "2"],
@@ -38,34 +38,38 @@ data = {
 }
 
 round = $("#round").text().replace(/[^0-9]/g, "")
-dataList = Object.keys(data)
-index = dataList.indexOf("R" + round)
+index = Object.keys(stat).indexOf("R" + round)
 
-homeColor = $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(1) > p").css("background-color")
-awayColor = $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(3) > p").css("background-color")
+if (dataList["home"] == "서울E") {
+    homeColor = "#000831"
+    awayColor = "#" + h2h[awayImg.replace("_s", "").replace(/[0-9]/g, "")][0]
+} else {
+    homeColor = "#" + h2h[homeImg.replace("_s", "").replace(/[0-9]/g, "")][0]
+    awayColor = "#000831"
+}
 
-if (match.id.substr(8, 1) == 0) {
+if (id.substr(8, 1) == 0) {
 
-    posH = (data[Object.keys(data)[index]][0])
-    posA = (data[Object.keys(data)[index]][1])
-    shotH = (data[Object.keys(data)[index]][2])
-    shotA = (data[Object.keys(data)[index]][3])
-    sotH = (data[Object.keys(data)[index]][4])
-    sotA = (data[Object.keys(data)[index]][5])
-    foulH = (data[Object.keys(data)[index]][6])
-    foulA = (data[Object.keys(data)[index]][7])
-    ycH = (data[Object.keys(data)[index]][8])
-    ycA = (data[Object.keys(data)[index]][9])
-    rcH = (data[Object.keys(data)[index]][10])
-    rcA = (data[Object.keys(data)[index]][11])
-    yc2ndH = (data[Object.keys(data)[index]][12])
-    yc2ndA = (data[Object.keys(data)[index]][13])
-    ckH = (data[Object.keys(data)[index]][14])
-    ckA = (data[Object.keys(data)[index]][15])
-    fkH = (data[Object.keys(data)[index]][16])
-    fkA = (data[Object.keys(data)[index]][17])
-    offsideH = (data[Object.keys(data)[index]][18])
-    offsideA = (data[Object.keys(data)[index]][19])
+    posH = (stat[Object.keys(stat)[index]][0])
+    posA = (stat[Object.keys(stat)[index]][1])
+    shotH = (stat[Object.keys(stat)[index]][2])
+    shotA = (stat[Object.keys(stat)[index]][3])
+    sotH = (stat[Object.keys(stat)[index]][4])
+    sotA = (stat[Object.keys(stat)[index]][5])
+    foulH = (stat[Object.keys(stat)[index]][6])
+    foulA = (stat[Object.keys(stat)[index]][7])
+    ycH = (stat[Object.keys(stat)[index]][8])
+    ycA = (stat[Object.keys(stat)[index]][9])
+    rcH = (stat[Object.keys(stat)[index]][10])
+    rcA = (stat[Object.keys(stat)[index]][11])
+    yc2ndH = (stat[Object.keys(stat)[index]][12])
+    yc2ndA = (stat[Object.keys(stat)[index]][13])
+    ckH = (stat[Object.keys(stat)[index]][14])
+    ckA = (stat[Object.keys(stat)[index]][15])
+    fkH = (stat[Object.keys(stat)[index]][16])
+    fkA = (stat[Object.keys(stat)[index]][17])
+    offsideH = (stat[Object.keys(stat)[index]][18])
+    offsideA = (stat[Object.keys(stat)[index]][19])
 
     if ($(window).width() < 768) {
         posHGauge = "calc(15.5vw * " + posH / 100 + ")";
