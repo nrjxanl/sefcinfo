@@ -40,11 +40,11 @@ stat = {
 round = $("#round").text().replace(/[^0-9]/g, "")
 index = Object.keys(stat).indexOf("R" + round)
 
-if (dataList["home"] == "서울E") {
+if (dataList["home"][0] == "서울E") {
     homeColor = "#000831"
-    awayColor = "#" + h2h[awayImg.replace("_s", "").replace(/[0-9]/g, "")][0]
+    awayColor = "#" + h2h[dataList["away"][1].replace(/[0-9]/g, "")][0]
 } else {
-    homeColor = "#" + h2h[homeImg.replace("_s", "").replace(/[0-9]/g, "")][0]
+    homeColor = "#" + h2h[dataList["home"][1].replace(/[0-9]/g, "")][0]
     awayColor = "#000831"
 }
 
