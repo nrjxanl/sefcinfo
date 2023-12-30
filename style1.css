@@ -382,24 +382,18 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 #matchH2H > div:nth-of-type(3) {width: 80vw; display: flex; border-radius: 10px; overflow: hidden; margin-top: 10vw;}
 #matchH2H > div:nth-of-type(3) > p {font-size: 16px; font-weight: 500; color: #fafafa; display: flex; align-items: center; justify-content: center;}
 
-#recentMatch > div {height: 120px; margin-top: 30px; box-shadow: 0 0 3px 2px #00083120; border-radius: 20px;}
-#recentMatch > div:nth-of-type(1) {margin-top: 80px;}
-#recentMatch > div > div:nth-of-type(1) {width: 90vw; height: 90px; border-bottom: 3px solid #00083110; border-radius: 20px 20px 0 0; display: flex; align-items: center; justify-content: center;}
-#recentMatch > div > div:nth-of-type(1) > div:nth-of-type(1) {display: flex; align-items: center; position: absolute; left: 10vw;}
-#recentMatch > div > div:nth-of-type(1) > div:nth-of-type(1) > div {width: 10vw;}
-#recentMatch > div > div:nth-of-type(1) > div:nth-of-type(1) > p {text-align: left; font-size: 20px; margin-left: 5px;}
-#recentMatch > div > div:nth-of-type(1) > div:nth-of-type(2) {padding: 5px 3vw; box-shadow: 0px 0px 5px 1px #00083140; border-radius: 20px;}
-#recentMatch > div > div:nth-of-type(1) > div:nth-of-type(2) > span {font-size: 20px;}
-#recentMatch > div > div:nth-of-type(1) > div:nth-of-type(3) {display: flex; align-items: center; position: absolute; right: 10vw;}
-#recentMatch > div > div:nth-of-type(1) > div:nth-of-type(3) > div {width: 10vw;}
-#recentMatch > div > div:nth-of-type(1) > div:nth-of-type(3) > p {text-align: right; font-size: 20px; margin-right: 5px;}
-#recentMatch > div > div:nth-of-type(1) > div:nth-of-type(2n+1) > div > img {width: auto; height: 30px; vertical-align: middle;}
-#recentMatch > div > div:nth-of-type(2) {width: 90vw; display: flex; align-items: center; margin-top: -2px;}
-#recentMatch > div > div:nth-of-type(2) > div:nth-of-type(1) {height: 30px; display: flex; align-items: center; justify-content: left;}
-#recentMatch > div > div:nth-of-type(2) > div:nth-of-type(1) > img {width: auto; height: 10px; margin: 0 5px 0 30px;}
-#recentMatch > div > div:nth-of-type(2) > div:nth-of-type(1) > p {font-weight: 500; text-align: left;}
-#recentMatch > div > div:nth-of-type(2) > div:nth-of-type(2) {height: 30px; display: flex; align-items: center; justify-content: right; position: absolute; right: 5vw;}
-#recentMatch > div > div:nth-of-type(2) > div:nth-of-type(2) > p {font-weight: 500; text-align: right; margin-right: 30px;}
+#recentMatch {width: 80vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 20px; margin-top: 30px;}
+#recentMatch > div {width: 80vw; height: 60px; border-bottom: 2px solid #00083120; padding: 5px 0;}
+#recentMatch > div > div:nth-of-type(1) {width: 80vw; height: 40px; display: flex; align-items: center;}
+#recentMatch > div > div:nth-of-type(1) > div:nth-of-type(1) {width: 30vw; display: flex; align-items: center; justify-content: flex-end;}
+#recentMatch > div > div:nth-of-type(1) > div:nth-of-type(1) > img {height: 20px;}
+#recentMatch > div > div:nth-of-type(1) > div:nth-of-type(2) {width: 15vw; height: 24px; display: flex; align-items: center; justify-content: center; margin: 0 2.5vw; border-radius: 15vw;}
+#recentMatch > div > div:nth-of-type(1) > div:nth-of-type(2) > p {font-size: 16px; color: #fafafa;}
+#recentMatch > div > div:nth-of-type(1) > div:nth-of-type(2) > img {height: 10px; padding: 0 4px; filter: invert(85%) sepia(100%) saturate(0%) hue-rotate(19deg) brightness(108%) contrast(96%);}
+#recentMatch > div > div:nth-of-type(1) > div:nth-of-type(3) {width: 30vw; display: flex; align-items: center; justify-content: flex-start;}
+#recentMatch > div > div:nth-of-type(1) > div:nth-of-type(3) > img {height: 20px;}
+#recentMatch > div > div:nth-of-type(2) {width: 80vw; height: 20px;}
+#recentMatch > div > div:nth-of-type(2) > p {font-weight: 500;}
 
 /* 순위 */
 .standingsButton {width: 100vw; height: 40px; position: fixed; top: 100px; left: 0; background: #fafafa; z-index: 100;}

@@ -266,17 +266,6 @@ function matchStat() {
     $(".matchDetail button:nth-child(4)").css("font-weight", 500)
 }
 
-function matchH2H() {
-    document.getElementById("matchInfo").style.display = "none"
-    document.getElementById("matchLineup").style.display = "none"
-    document.getElementById("matchStat").style.display = "none"
-    document.getElementById("matchH2H").style.display = "flex"
-    $(".matchDetail button:nth-child(1)").css("font-weight", 500)
-    $(".matchDetail button:nth-child(2)").css("font-weight", 500)
-    $(".matchDetail button:nth-child(3)").css("font-weight", 500)
-    $(".matchDetail button:nth-child(4)").css("font-weight", 900)
-}
-
 if ($("#matchScore").length && !$("#highlight").length) {
     document.getElementById("matchLineup").style.display = "block"
     $(".matchDetail button:nth-child(1)").css("display", "none")
@@ -510,10 +499,4 @@ if ($(window).width() < 768) {
 } else {
     $("div[loan='o']").css({"padding-left": "12px", "opacity": "0.8"})
     $("div[loan='o'] > p:nth-of-type(1)").css("width", "128px")
-}
-
-if ($("#highlight > a").attr("href") == "https://youtu.be/") {
-    $("#highlight").css("display", "none")
-} else {
-    $("#highlight").css("display", "block")
 }

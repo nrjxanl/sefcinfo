@@ -132,13 +132,9 @@ function fixtures2023() {
 
         // 클릭 시 데이터 저장
         $(this).click(function() {
-            match = {
-                "id": f2023.id[index],
-                "round": f2023.round[index],
-                "highlight": f2023.highlight[index],
-            }
+            match = f2023.id[index]
 
-            localStorage.setItem("match", JSON.stringify(match))
+            localStorage.setItem("id", match)
         })
     
     })
