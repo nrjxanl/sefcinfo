@@ -123,8 +123,6 @@ function fixtures2023() {
             }
         }
 
-        $(this).attr("onclick", "location.href='./matchinfo'")
-
         $(this).find("div:nth-of-type(1) > div:nth-of-type(1) > div > img").attr("src", "https://sefc.info/files/" + homeImg2023[index] + ".png")
         $(this).find("div:nth-of-type(1) > div:nth-of-type(3) > div > img").attr("src", "https://sefc.info/files/" + awayImg2023[index] + ".png")
         $(this).find("div:nth-of-type(2) > div:nth-of-type(1) > img").attr("src", "https://sefc.info/files/" + compImg2023[index] + ".png")
@@ -132,7 +130,8 @@ function fixtures2023() {
 
         // 클릭 시 데이터 저장
         $(this).click(function() {
-            localStorage.setItem("id", "[" + f2023.id[index] + "]")
+            localStorage.setItem("id", f2023.id[index])
+            window.open("./matchinfo")
         })
     
     })
