@@ -37,18 +37,17 @@ stat = {
     "R39": ["48.68", "51.32", "11", "5", "2", "2", "16", "5", "2", "2", "0", "0", "0", "0", "5", "2", "17", "7", "1", "2"],
 }
 
-round = $("#round").text().replace(/[^0-9]/g, "")
-index = Object.keys(stat).indexOf("R" + round)
+if (id.substr(-1) == 0) {
+    round = $("#round").text().replace(/[^0-9]/g, "")
+    index = Object.keys(stat).indexOf("R" + round)
 
-if (dataList["home"][0] == "서울E") {
-    homeColor = "#000831"
-    awayColor = "#" + h2h[dataList["away"][1].replace(/[0-9]/g, "")][0]
-} else {
-    homeColor = "#" + h2h[dataList["home"][1].replace(/[0-9]/g, "")][0]
-    awayColor = "#000831"
-}
-
-if (id.substr(8, 1) == 0) {
+    if (dataListA["home"][0] == "서울E") {
+        homeColor = "#000831"
+        awayColor = "#" + h2hA[dataListA["away"][1].replace(/[0-9]/g, "")][0]
+    } else {
+        homeColor = "#" + h2hA[dataListA["home"][1].replace(/[0-9]/g, "")][0]
+        awayColor = "#000831"
+    }
 
     posH = (stat[Object.keys(stat)[index]][0])
     posA = (stat[Object.keys(stat)[index]][1])
@@ -112,7 +111,7 @@ if (id.substr(8, 1) == 0) {
         fkHGauge = "calc(62px * " + fkH / 30 + ")";
         fkAGauge = "calc(62px * " + fkA / 30 + ")";
         offsideHGauge = "calc(62px * " + offsideH / 10 + ")";
-        offsideAGauge = "calc(62px * " + offsideA / 10 + ")";    
+        offsideAGauge = "calc(62px * " + offsideA / 10 + ")";
     }
 
     pos = $("#matchStat > table > tbody > tr:nth-of-type(1)")
@@ -147,26 +146,26 @@ if (id.substr(8, 1) == 0) {
     offside.find("td:nth-child(2)").text(offsideH)
     offside.find("td:nth-child(4)").text(offsideA)
 
-    pos.find("td:nth-child(1) > p").css({"width": posHGauge, "background": homeColor})
-    pos.find("td:nth-child(5) > p").css({"width": posAGauge, "background": awayColor})
-    shot.find("td:nth-child(1) > p").css({"width": shotHGauge, "background": homeColor})
-    shot.find("td:nth-child(5) > p").css({"width": shotAGauge, "background": awayColor})
-    sot.find("td:nth-child(1) > p").css({"width": sotHGauge, "background": homeColor})
-    sot.find("td:nth-child(5) > p").css({"width": sotAGauge, "background": awayColor})
-    foul.find("td:nth-child(1) > p").css({"width": foulHGauge, "background": homeColor})
-    foul.find("td:nth-child(5) > p").css({"width": foulAGauge, "background": awayColor})
-    yc.find("td:nth-child(1) > p").css({"width": ycHGauge, "background": homeColor})
-    yc.find("td:nth-child(5) > p").css({"width": ycAGauge, "background": awayColor})
-    rc.find("td:nth-child(1) > p").css({"width": rcHGauge, "background": homeColor})
-    rc.find("td:nth-child(5) > p").css({"width": rcAGauge, "background": awayColor})
-    yc2nd.find("td:nth-child(1) > p").css({"width": yc2ndHGauge, "background": homeColor})
-    yc2nd.find("td:nth-child(5) > p").css({"width": yc2ndAGauge, "background": awayColor})
-    ck.find("td:nth-child(1) > p").css({"width": ckHGauge, "background": homeColor})
-    ck.find("td:nth-child(5) > p").css({"width": ckAGauge, "background": awayColor})
-    fk.find("td:nth-child(1) > p").css({"width": fkHGauge, "background": homeColor})
-    fk.find("td:nth-child(5) > p").css({"width": fkAGauge, "background": awayColor})
-    offside.find("td:nth-child(1) > p").css({"width": offsideHGauge, "background": homeColor})
-    offside.find("td:nth-child(5) > p").css({"width": offsideAGauge, "background": awayColor})
+    pos.find("td:nth-child(1) > p").css({ "width": posHGauge, "background": homeColor })
+    pos.find("td:nth-child(5) > p").css({ "width": posAGauge, "background": awayColor })
+    shot.find("td:nth-child(1) > p").css({ "width": shotHGauge, "background": homeColor })
+    shot.find("td:nth-child(5) > p").css({ "width": shotAGauge, "background": awayColor })
+    sot.find("td:nth-child(1) > p").css({ "width": sotHGauge, "background": homeColor })
+    sot.find("td:nth-child(5) > p").css({ "width": sotAGauge, "background": awayColor })
+    foul.find("td:nth-child(1) > p").css({ "width": foulHGauge, "background": homeColor })
+    foul.find("td:nth-child(5) > p").css({ "width": foulAGauge, "background": awayColor })
+    yc.find("td:nth-child(1) > p").css({ "width": ycHGauge, "background": homeColor })
+    yc.find("td:nth-child(5) > p").css({ "width": ycAGauge, "background": awayColor })
+    rc.find("td:nth-child(1) > p").css({ "width": rcHGauge, "background": homeColor })
+    rc.find("td:nth-child(5) > p").css({ "width": rcAGauge, "background": awayColor })
+    yc2nd.find("td:nth-child(1) > p").css({ "width": yc2ndHGauge, "background": homeColor })
+    yc2nd.find("td:nth-child(5) > p").css({ "width": yc2ndAGauge, "background": awayColor })
+    ck.find("td:nth-child(1) > p").css({ "width": ckHGauge, "background": homeColor })
+    ck.find("td:nth-child(5) > p").css({ "width": ckAGauge, "background": awayColor })
+    fk.find("td:nth-child(1) > p").css({ "width": fkHGauge, "background": homeColor })
+    fk.find("td:nth-child(5) > p").css({ "width": fkAGauge, "background": awayColor })
+    offside.find("td:nth-child(1) > p").css({ "width": offsideHGauge, "background": homeColor })
+    offside.find("td:nth-child(5) > p").css({ "width": offsideAGauge, "background": awayColor })
 
     $("#matchStat > table > tbody > tr").each(function () {
         if ($(window).width() < 768) {
@@ -193,5 +192,5 @@ if (id.substr(8, 1) == 0) {
     })
 
 } else {
-    $("button[onclick='matchStat()']").css("display", "none")
+    $("#button[onclick='matchStat()']").css("display", "none")
 }
