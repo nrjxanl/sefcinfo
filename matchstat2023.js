@@ -192,5 +192,5 @@ if (id.substr(-1) == 0) {
     })
 
 } else {
-    $("#button[onclick='matchStat()']").css("display", "none")
+    $("button[onclick='matchStat()']").css("display", "none")
 }
