@@ -407,7 +407,7 @@ function matchH2H() {
                 $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)").text(data[h2hList[i]]["homeScore"])
                 $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)").text(data[h2hList[i]]["awayScore"])
                 $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > img").attr("src", "./files/" + data[h2hList[i]]["comp"][1] + "_s.png")
-                $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").text(h2hList[i].substring(0, 4) + "." + h2hList[i].substring(4, 6) + "." + h2hList[i].substring(6, 2) + ".")
+                $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").text(h2hList[i].substring(0, 4) + "." + h2hList[i].substring(4, 6) + "." + h2hList[i].substring(6, 8) + ".")
             }
         } else {
             for (i = 0; i < 5; i++) {
@@ -485,7 +485,7 @@ function fixtures() {
             $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)").text(dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"])
             $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)").text(dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["awayScore"])
             $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > img").attr("src", "./files/" + dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["comp"][1] + "_s.png")
-            $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").text(dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["round"] + " | " + Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i].substring(0, 4) + "." + Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i].substring(4, 6) + "." + Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i].substring(6, 2) + ".")
+            $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").text(dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["round"] + " | " + Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i].substring(0, 4) + "." + Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i].substring(4, 6) + "." + Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i].substring(6, 8) + ".")
         }
 
         $("#fixturesA > .fixtures > .fixtures_").each(function () {
@@ -548,7 +548,7 @@ function fixtures() {
             $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)").text(dataU18[Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"])
             $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)").text(dataU18[Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i]]["awayScore"])
             $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > img").attr("src", "./files/" + dataU18[Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i]]["comp"][1] + "_s.png")
-            $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").text(dataU18[Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i]]["round"] + " | " + Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i].substring(0, 4) + "." + Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i].substring(4, 6) + "." + Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i].substring(6, 2) + ".")
+            $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").text(dataU18[Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i]]["round"] + " | " + Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i].substring(0, 4) + "." + Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i].substring(4, 6) + "." + Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i].substring(6, 8) + ".")
         }
 
         $("#fixturesU18 > .fixtures > .fixtures_").each(function () {
@@ -611,7 +611,7 @@ function fixtures() {
             $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)").text(dataU15[Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"])
             $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)").text(dataU15[Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i]]["awayScore"])
             $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > img").attr("src", "./files/" + dataU15[Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i]]["comp"][1] + "_s.png")
-            $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").text(dataU15[Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i]]["round"] + " | " + Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i].substring(0, 4) + "." + Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i].substring(4, 6) + "." + Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i].substring(6, 2) + ".")
+            $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").text(dataU15[Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i]]["round"] + " | " + Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i].substring(0, 4) + "." + Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i].substring(4, 6) + "." + Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i].substring(6, 8) + ".")
         }
 
         $("#fixturesU15 > .fixtures > .fixtures_").each(function () {
@@ -669,15 +669,15 @@ if ($("#standingsHome").length) {
         $("#nextMatch > div:nth-of-type(1) > div:nth-of-type(1) > img").attr("src", "./files/" + next["home"][1] + "_s.png")
         $("#nextMatch > div:nth-of-type(1) > div:nth-of-type(3) > img").attr("src", "./files/" + next["away"][1] + "_s.png")
 
-        $("#nextMatch > div:nth-of-type(2) > p").text(next["comp"][0] + " " + next["round"] + " | " + Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(0, 4) + "." + Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(4, 6) + "." + Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(6, 2) + ".")
+        $("#nextMatch > div:nth-of-type(2) > p").text(next["comp"][0] + " " + next["round"] + " | " + Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(0, 4) + "." + Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(4, 6) + "." + Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(6, 8) + ".")
 
         yearNow = new Date().getFullYear()
         monthNow = new Date().getMonth() + 1
         dateNow = new Date().getDate()
 
-        year = new Date(Number(Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(0, 4)), Number((Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(4, 6) - 1)), Number(Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(6, 2))).getFullYear()
-        month = new Date(Number(Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(0, 4)), Number((Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(4, 6) - 1)), Number(Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(6, 2))).getMonth() + 1
-        date = new Date(Number(Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(0, 4)), Number((Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(4, 6) - 1)), Number(Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(6, 2))).getDate()
+        year = new Date(Number(Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(0, 4)), Number((Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(4, 6) - 1)), Number(Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(6, 8))).getFullYear()
+        month = new Date(Number(Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(0, 4)), Number((Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(4, 6) - 1)), Number(Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(6, 8))).getMonth() + 1
+        date = new Date(Number(Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(0, 4)), Number((Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(4, 6) - 1)), Number(Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(6, 8))).getDate()
 
         now = '"' + yearNow + "-" + monthNow + "-" + dateNow + '"'
         matchday = '"' + year + "-" + month + "-" + date + '"'
