@@ -45,30 +45,24 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 #playerSortButtonOffset {width: 100vw; height: 50px; visibility: hidden; display: none;}
 
 /* 홈 화면 */
-#nextMatch {width: 90vw; height: 120px; margin: 30px 0 0 5vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 5vw;}
-#nextMatch > div:nth-of-type(1) {width: 90vw; height: 90px; border-bottom: 3px solid #00083110; border-radius: 20px 20px 0 0; display: flex; align-items: center; justify-content: center;}
-#nextMatch > div:nth-of-type(1) > div:nth-of-type(1) {display: flex; align-items: center; position: absolute; left: 10vw;}
-#nextMatch > div:nth-of-type(1) > div:nth-of-type(1) > div {width: 10vw;}
-#nextMatch > div:nth-of-type(1) > div:nth-of-type(1) > p {text-align: left; font-size: 20px; margin-left: 5px;}
-#nextMatch > div:nth-of-type(1) > div:nth-of-type(2) {padding: 5px 3vw; box-shadow: 0px 0px 5px 1px #00083140; border-radius: 20px;}
-#nextMatch > div:nth-of-type(1) > div:nth-of-type(2) > span {font-size: 20px;}
-#nextMatch > div:nth-of-type(1) > div:nth-of-type(3) {display: flex; align-items: center; position: absolute; right: 10vw;}
-#nextMatch > div:nth-of-type(1) > div:nth-of-type(3) > div {width: 10vw;}
-#nextMatch > div:nth-of-type(1) > div:nth-of-type(3) > p {text-align: right; font-size: 20px; margin-right: 5px;}
-#nextMatch > div:nth-of-type(1) > div:nth-of-type(2n+1) > div > img {width: auto; height: 30px; vertical-align: middle;}
-#nextMatch > div:nth-of-type(2) {width: 90vw; display: flex; align-items: center; margin-top: -2px;}
-#nextMatch > div:nth-of-type(2) > div:nth-of-type(1) {height: 30px; display: flex; align-items: center; justify-content: left;}
-#nextMatch > div:nth-of-type(2) > div:nth-of-type(1) > img {width: auto; height: 10px; margin: 0 5px 0 30px;}
-#nextMatch > div:nth-of-type(2) > div:nth-of-type(1) > p {font-weight: 500; text-align: left;}
-#nextMatch > div:nth-of-type(2) > div:nth-of-type(2) {height: 30px; display: flex; align-items: center; justify-content: right; position: absolute; right: 5vw;}
-#nextMatch > div:nth-of-type(2) > div:nth-of-type(2) > p {font-weight: 500; text-align: right; margin-right: 30px;}
+#nextMatch {width: 90vw; height: 60px; padding: 10px 0; box-shadow: 0 0 3px 2px #00083120; border-radius: 20px; margin: 40px 0 0 5vw;}
+#nextMatch > div:nth-of-type(1) {width: 90vw; height: 40px; display: flex; align-items: center;}
+#nextMatch > div:nth-of-type(1) > p:nth-of-type(1) {width: 22.5vw; padding: 0 2.5vw; font-size: 18px; text-align: right;}
+#nextMatch > div:nth-of-type(1) > p:nth-of-type(2) {width: 22.5vw; padding: 0 2.5vw; font-size: 18px; text-align: left;}
+#nextMatch > div:nth-of-type(1) > div:nth-of-type(1) {width: 7.5vw; display: flex; align-items: center; justify-content: center;}
+#nextMatch > div:nth-of-type(1) > div:nth-of-type(1) > img {height: 20px;}
+#nextMatch > div:nth-of-type(1) > div:nth-of-type(2) {width: 15vw; height: 24px; font-size: 18px; display: flex; align-items: center; justify-content: center; margin: 0 2.5vw; border-radius: 15vw;}
+#nextMatch > div:nth-of-type(1) > div:nth-of-type(3) {width: 7.5vw; display: flex; align-items: center; justify-content: center;}
+#nextMatch > div:nth-of-type(1) > div:nth-of-type(3) > img {height: 20px;}
+#nextMatch > div:nth-of-type(2) {width: 90vw; height: 20px;}
+#nextMatch > div:nth-of-type(2) > p {font-weight: 500;}
 
 #prevMatch {width: 90vw; margin: 30px 0 0 5vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 5vw; display: flex; align-items: center; justify-content: center; flex-direction: column;}
 #prevMatch > div {display: flex; align-items: center; justify-content: center; margin-top: 20px;}
 #prevMatch > div > div {width: 16vw; height: 85px;}
 #prevMatch > div > div > div {width: 14vw; height: 40px; margin: 0 2vw 10px 2vw;}
 #prevMatch > div > div > div > img {width: auto; height: 40px;}
-#prevMatch > div > div > p:nth-of-type(1) {width: 12vw; height: 25px; box-shadow: 0 0 3px 2px #00083120; margin: 0 3vw; font-size: 16px; line-height: 25px; border-radius: 10vw;}
+#prevMatch > div > div > p:nth-of-type(1) {width: 12vw; height: 25px; color: #fafafa; box-shadow: 0 0 3px 2px #00083120; margin: 0 3vw; font-size: 16px; line-height: 25px; border-radius: 10vw;}
 #prevMatch > div > div > p:nth-of-type(2) {width: 8vw; height: 3px; margin: 3px 5vw 0 5vw; font-size: 16px; border-radius: 10vw;}
 #prevMatch > a > p {font-weight: 500; padding: 10px 0 20px 0;}
 

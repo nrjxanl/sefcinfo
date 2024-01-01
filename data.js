@@ -649,3 +649,98 @@ $("#fixturesSeason_ > button").each(function() {
         fixtures()
     })
 })
+
+////////// 홈 화면 /////////
+
+if ($("#standingsHome").length) {
+
+    // 다음 경기
+    for (i = 0; i < Object.keys(dataA).length; i++) {
+        if (dataA[Object.keys(data)[i]]["homeScore"] == "") {
+            next = dataA[Object.keys(data)[i]]
+            break
+        }
+    }
+
+    if (typeof next !== "undefined") {
+        $("#nextMatch > div:nth-of-type(1) > p:nth-of-type(1)").text(next["home"][0])
+        $("#nextMatch > div:nth-of-type(1) > p:nth-of-type(2)").text(next["away"][0])
+
+        $("#nextMatch > div:nth-of-type(1) > div:nth-of-type(1) > img").attr("src", "./files/" + next["home"][1] + "_s.png")
+        $("#nextMatch > div:nth-of-type(1) > div:nth-of-type(3) > img").attr("src", "./files/" + next["away"][1] + "_s.png")
+
+        $("#nextMatch > div:nth-of-type(2) > p").text(next["comp"][0] + " " + next["round"] + " | " + Object.keys(dataA)[Object.values(dataA).indexOf(next)].substr(0, 4) + "." + Object.keys(dataA)[Object.values(dataA).indexOf(next)].substr(4, 2) + "." + Object.keys(dataA)[Object.values(dataA).indexOf(next)].substr(6, 2) + ".")
+
+        yearNow = new Date().getFullYear()
+        monthNow = new Date().getMonth() + 1
+        dateNow = new Date().getDate()
+
+        year = new Date(Number(Object.keys(dataA)[Object.values(dataA).indexOf(next)].substr(0, 4)), Number((Object.keys(dataA)[Object.values(dataA).indexOf(next)].substr(4, 2) - 1)), Number(Object.keys(dataA)[Object.values(dataA).indexOf(next)].substr(6, 2))).getFullYear()
+        month = new Date(Number(Object.keys(dataA)[Object.values(dataA).indexOf(next)].substr(0, 4)), Number((Object.keys(dataA)[Object.values(dataA).indexOf(next)].substr(4, 2) - 1)), Number(Object.keys(dataA)[Object.values(dataA).indexOf(next)].substr(6, 2))).getMonth() + 1
+        date = new Date(Number(Object.keys(dataA)[Object.values(dataA).indexOf(next)].substr(0, 4)), Number((Object.keys(dataA)[Object.values(dataA).indexOf(next)].substr(4, 2) - 1)), Number(Object.keys(dataA)[Object.values(dataA).indexOf(next)].substr(6, 2))).getDate()
+
+        now = '"' + yearNow + "-" + monthNow + "-" + dateNow + '"'
+        matchday = '"' + year + "-" + month + "-" + date + '"'
+        diff = (new Date(matchday) - new Date(now)) / (1000 * 60 * 60 * 24)
+
+        if (diff > 0) {
+            $("#nextMatch > div:nth-of-type(1) > div:nth-of-type(2)").text("D-" + diff)
+        } else if (diff == 0) {
+            $("#nextMatch > div:nth-of-type(1) > div:nth-of-type(2)").text("D-DAY")
+        } else {
+            $("#nextMatch > div:nth-of-type(1) > div:nth-of-type(2)").text("D+" + diff.toString().replace("-", ""))
+        }
+
+        $("#nextMatch").click(function () {
+            localStorage.setItem("id", Object.keys(dataA)[Object.values(dataA).indexOf(next)])
+            // window.open("./matchinfo")
+            console.log(Object.keys(dataA)[Object.values(dataA).indexOf(next)])
+        })
+    } else {
+        $("#nextMatch").css("display", "none")
+    }
+
+    // 이전 경기
+    prev = []
+
+    for (i = (Object.keys(dataA).length) - 1; i >= 0; i--) {
+        if (dataA[Object.keys(dataA)[i]]["homeScore"] !== "" && prev.length < 5) {
+            prev.push(Object.keys(dataA)[i])
+        }
+    }
+
+    prev.reverse()
+
+    for (i = 0; i < 5; i++) {
+        $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").text(dataA[prev[i]]["homeScore"] + ":" + dataA[prev[i]]["awayScore"])
+
+        if (dataA[prev[i]]["home"][0] == "서울E") {
+            $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > div > img").attr("src", "./files/" + dataA[prev[i]]["away"][1] + "_s.png")
+
+            if (dataA[prev[i]]["homeScore"] > dataA[prev[i]]["awayScore"]) {
+                $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#174fff")
+            } else if (dataA[prev[i]]["homeScore"] == dataA[prev[i]]["awayScore"]) {
+                $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#808080")
+            } else {
+                $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#f00")
+            }
+        } else {
+            $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > div > img").attr("src", "./files/" + dataA[prev[i]]["home"][1] + "_s.png")
+        
+            if (dataA[prev[i]]["homeScore"] < dataA[prev[i]]["awayScore"]) {
+                $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#174fff")
+            } else if (dataA[prev[i]]["homeScore"] == dataA[prev[i]]["awayScore"]) {
+                $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#808080")
+            } else {
+                $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#f00")
+            }
+        }
+    }
+
+    $("#prevMatch > div > div").each(function () {
+        $(this).click(function () {
+            localStorage.setItem("id", prev[$(this).index()])
+            window.open("./matchinfo")
+        })
+    })
+}
