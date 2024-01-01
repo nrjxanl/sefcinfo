@@ -438,115 +438,214 @@ window.onbeforeunload = function() {
 
 ////////// 경기 일정 목록 화면 //////////
 
-// A팀
-if ($("#fixturesA").length) {
-    for (i = 0; i < Object.keys(dataA).filter((b) => b.substr(0, 4) == 2023).length; i++) {
-        $("#fixturesA > .fixtures").append("<div class='fixtures_'><div><p></p><div><img></div><div><p></p><img><p></p></div><div><img></div><p></p></div><div><p></p></div></div>")
+if ($(".fixtures").length) {
+    year = 2023
+    $("#fixturesSeason_ > button:contains('2023')").css({"color": "#fafafa", "background": "#000831"})
 
-        $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > p:nth-of-type(1)").text(dataA[Object.keys(dataA).filter((b) => b.substr(0, 4) == 2023)[i]]["home"][0])
-        $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > p:nth-of-type(2)").text(dataA[Object.keys(dataA).filter((b) => b.substr(0, 4) == 2023)[i]]["away"][0])
-
-        $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(1) > img").attr("src", "./files/" + dataA[Object.keys(dataA).filter((b) => b.substr(0, 4) == 2023)[i]]["home"][1] + "_s.png")
-        $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(3) > img").attr("src", "./files/" + dataA[Object.keys(dataA).filter((b) => b.substr(0, 4) == 2023)[i]]["away"][1] + "_s.png")
-
-        if (dataA[Object.keys(dataA).filter((b) => b.substr(0, 4) == 2023)[i]]["home"][0] == "서울E") {
-            if (dataA[Object.keys(dataA).filter((b) => b.substr(0, 4) == 2023)[i]]["homeScore"] > dataA[Object.keys(dataA).filter((b) => b.substr(0, 4) == 2023)[i]]["awayScore"]) {
-                $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#174fff")
-            } else if ((dataA[Object.keys(dataA).filter((b) => b.substr(0, 4) == 2023)[i]]["homeScore"] == dataA[Object.keys(dataA).filter((b) => b.substr(0, 4) == 2023)[i]]["awayScore"]) && dataA[Object.keys(dataA).filter((b) => b.substr(0, 4) == 2023)[i]]["homeScore"] !== "") {
-                $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#808080")
-            } else if (dataA[Object.keys(dataA).filter((b) => b.substr(0, 4) == 2023)[i]]["homeScore"] < dataA[Object.keys(dataA).filter((b) => b.substr(0, 4) == 2023)[i]]["awayScore"]) {
-                $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#f00")
-            } else {
-                $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "none")
-                $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p").css("color", "#000831")
-                $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > img").css("filter", "none")
-            }
-        } else {
-            if (dataA[Object.keys(dataA).filter((b) => b.substr(0, 4) == 2023)[i]]["homeScore"] < dataA[Object.keys(dataA).filter((b) => b.substr(0, 4) == 2023)[i]]["awayScore"]) {
-                $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#174fff")
-            } else if ((dataA[Object.keys(dataA).filter((b) => b.substr(0, 4) == 2023)[i]]["homeScore"] == dataA[Object.keys(dataA).filter((b) => b.substr(0, 4) == 2023)[i]]["awayScore"]) && dataA[Object.keys(dataA).filter((b) => b.substr(0, 4) == 2023)[i]]["homeScore"] !== "") {
-                $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#808080")
-            } else if (dataA[Object.keys(dataA).filter((b) => b.substr(0, 4) == 2023)[i]]["homeScore"] > dataA[Object.keys(dataA).filter((b) => b.substr(0, 4) == 2023)[i]]["awayScore"]) {
-                $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#f00")
-            } else {
-                $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "none")
-                $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p").css("color", "#000831")
-                $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > img").css("filter", "none")
-            }
-        }
-
-        if ($("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background") == "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box" && !$("#nextMatchA").length) {
-            $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").attr("id", "nextMatchA")
-        }
-
-        $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)").text(dataA[Object.keys(dataA).filter((b) => b.substr(0, 4) == 2023)[i]]["homeScore"])
-        $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)").text(dataA[Object.keys(dataA).filter((b) => b.substr(0, 4) == 2023)[i]]["awayScore"])
-        $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > img").attr("src", "./files/" + dataA[Object.keys(dataA).filter((b) => b.substr(0, 4) == 2023)[i]]["comp"][1] + "_s.png")
-        $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").text(Object.keys(dataA).filter((b) => b.substr(0, 4) == 2023)[i].substr(0, 4) + "." + Object.keys(dataA).filter((b) => b.substr(0, 4) == 2023)[i].substr(4, 2) + "." + Object.keys(dataA).filter((b) => b.substr(0, 4) == 2023)[i].substr(6, 2) + ".")
-    }
-
-    $("#fixturesA > .fixtures > .fixtures_").each(function () {
-        $(this).click(function () {
-            localStorage.setItem("id", Object.keys(dataA).filter((b) => b.substr(0, 4) == 2023)[$(this).index()])
-            window.open("./matchinfo")
-        })
-    })
-
-    $("#fixturesA > .fixtures > .fixtures_:nth-last-of-type(1)").css("border", "none")
+    fixtures()
 }
 
-if (!$("#fixturesU18 > .fixtures > .fixtures_").length) {
-    for (i = 0; i < Object.keys(dataU18).filter((b) => b.substr(0, 4) == 2023).length; i++) {
-        $("#fixturesU18 > .fixtures").append("<div class='fixtures_'><div><p></p><div><img></div><div><p></p><img><p></p></div><div><img></div><p></p></div><div><p></p></div></div>")
+$("#fixturesSeason_ > button").each(function() {
+    $(this).click(function() {
+        year = $(this).text()
+        $("#fixturesSeason_ > button").css({"color": "#000831", "background": "#fafafa"})
+        $(this).css({"color": "#fafafa", "background": "#000831"})
 
-        $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > p:nth-of-type(1)").text(dataU18[Object.keys(dataU18).filter((b) => b.substr(0, 4) == 2023)[i]]["home"][0])
-        $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > p:nth-of-type(2)").text(dataU18[Object.keys(dataU18).filter((b) => b.substr(0, 4) == 2023)[i]]["away"][0])
+        $(".fixtures").empty()
+        fixtures()
+    })
+})
 
-        $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(1) > img").attr("src", "./files/" + dataU18[Object.keys(dataU18).filter((b) => b.substr(0, 4) == 2023)[i]]["home"][1] + "_s.png")
-        $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(3) > img").attr("src", "./files/" + dataU18[Object.keys(dataU18).filter((b) => b.substr(0, 4) == 2023)[i]]["away"][1] + "_s.png")
+// A팀
+function fixtures() {
 
-        if (dataU18[Object.keys(dataU18).filter((b) => b.substr(0, 4) == 2023)[i]]["home"][0] == "서울E") {
-            if (dataU18[Object.keys(dataU18).filter((b) => b.substr(0, 4) == 2023)[i]]["homeScore"] > dataU18[Object.keys(dataU18).filter((b) => b.substr(0, 4) == 2023)[i]]["awayScore"]) {
-                $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#174fff")
-            } else if ((dataU18[Object.keys(dataU18).filter((b) => b.substr(0, 4) == 2023)[i]]["homeScore"] == dataU18[Object.keys(dataU18).filter((b) => b.substr(0, 4) == 2023)[i]]["awayScore"]) && dataU18[Object.keys(dataU18).filter((b) => b.substr(0, 4) == 2023)[i]]["homeScore"] !== "") {
-                $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#808080")
-            } else if (dataU18[Object.keys(dataU18).filter((b) => b.substr(0, 4) == 2023)[i]]["homeScore"] < dataU18[Object.keys(dataU18).filter((b) => b.substr(0, 4) == 2023)[i]]["awayScore"]) {
-                $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#f00")
+    // A팀
+    if ($("#fixturesA").length) {
+
+        for (i = 0; i < Object.keys(dataA).filter((a) => a.substr(0, 4) == year).length; i++) {
+            $("#fixturesA > .fixtures").append("<div class='fixtures_'><div><p></p><div><img></div><div><p></p><img><p></p></div><div><img></div><p></p></div><div><p></p></div></div>")
+
+            $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > p:nth-of-type(1)").text(dataA[Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i]]["home"][0])
+            $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > p:nth-of-type(2)").text(dataA[Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i]]["away"][0])
+
+            $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(1) > img").attr("src", "./files/" + dataA[Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i]]["home"][1] + "_s.png")
+            $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(3) > img").attr("src", "./files/" + dataA[Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i]]["away"][1] + "_s.png")
+
+            if (dataA[Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i]]["home"][0] == "서울E") {
+                if (dataA[Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i]]["homeScore"] > dataA[Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i]]["awayScore"]) {
+                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#174fff")
+                } else if ((dataA[Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i]]["homeScore"] == dataA[Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i]]["awayScore"]) && dataA[Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i]]["homeScore"] !== "") {
+                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#808080")
+                } else if (dataA[Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i]]["homeScore"] < dataA[Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i]]["awayScore"]) {
+                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#f00")
+                } else {
+                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "none")
+                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p").css("color", "#000831")
+                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > img").css("filter", "none")
+                }
             } else {
-                $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "none")
-                $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p").css("color", "#000831")
-                $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > img").css("filter", "none")
+                if (dataA[Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i]]["homeScore"] < dataA[Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i]]["awayScore"]) {
+                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#174fff")
+                } else if ((dataA[Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i]]["homeScore"] == dataA[Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i]]["awayScore"]) && dataA[Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i]]["homeScore"] !== "") {
+                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#808080")
+                } else if (dataA[Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i]]["homeScore"] > dataA[Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i]]["awayScore"]) {
+                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#f00")
+                } else {
+                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "none")
+                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p").css("color", "#000831")
+                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > img").css("filter", "none")
+                }
             }
-        } else {
-            if (dataU18[Object.keys(dataU18).filter((b) => b.substr(0, 4) == 2023)[i]]["homeScore"] < dataU18[Object.keys(dataU18).filter((b) => b.substr(0, 4) == 2023)[i]]["awayScore"]) {
-                $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#174fff")
-            } else if ((dataU18[Object.keys(dataU18).filter((b) => b.substr(0, 4) == 2023)[i]]["homeScore"] == dataU18[Object.keys(dataU18).filter((b) => b.substr(0, 4) == 2023)[i]]["awayScore"]) && dataU18[Object.keys(dataU18).filter((b) => b.substr(0, 4) == 2023)[i]]["homeScore"] !== "") {
-                $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#808080")
-            } else if (dataU18[Object.keys(dataU18).filter((b) => b.substr(0, 4) == 2023)[i]]["homeScore"] > dataU18[Object.keys(dataU18).filter((b) => b.substr(0, 4) == 2023)[i]]["awayScore"]) {
-                $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#f00")
-            } else {
-                $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "none")
-                $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p").css("color", "#000831")
-                $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > img").css("filter", "none")
+
+            if ($("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background") == "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box" && !$("#nextMatchA").length) {
+                $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").attr("id", "nextMatchA")
             }
+
+            $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)").text(dataA[Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i]]["homeScore"])
+            $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)").text(dataA[Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i]]["awayScore"])
+            $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > img").attr("src", "./files/" + dataA[Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i]]["comp"][1] + "_s.png")
+            $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").text(Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i].substr(0, 4) + "." + Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i].substr(4, 2) + "." + Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i].substr(6, 2) + ".")
         }
 
-        if ($("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background") == "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box" && !$("#nextMatchA").length) {
-            $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").attr("id", "nextMatchA")
-        }
+        $("#fixturesA > .fixtures > .fixtures_").each(function () {
+            $(this).click(function () {
+                localStorage.setItem("id", Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[$(this).index()])
+                window.open("./matchinfo")
+            })
+        })
 
-        $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)").text(dataU18[Object.keys(dataU18).filter((b) => b.substr(0, 4) == 2023)[i]]["homeScore"])
-        $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)").text(dataU18[Object.keys(dataU18).filter((b) => b.substr(0, 4) == 2023)[i]]["awayScore"])
-        $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > img").attr("src", "./files/" + dataU18[Object.keys(dataU18).filter((b) => b.substr(0, 4) == 2023)[i]]["comp"][1] + "_s.png")
-        $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").text(Object.keys(dataU18).filter((b) => b.substr(0, 4) == 2023)[i].substr(0, 4) + "." + Object.keys(dataU18).filter((b) => b.substr(0, 4) == 2023)[i].substr(4, 2) + "." + Object.keys(dataU18).filter((b) => b.substr(0, 4) == 2023)[i].substr(6, 2) + ".")
+        $("#fixturesA > .fixtures > .fixtures_:nth-last-of-type(1)").css("border", "none")
+
+        if ($("#nextMatchA").length) {
+            document.getElementById("nextMatchA").scrollIntoView({block: "center"})
+        } else if (!$("#nextMatchA").length && $("#fixturesButtonOffset").length) {
+            window.scroll({top: document.body.scrollHeight, left: 0})
+        }
     }
 
-    $("#fixturesU18 > .fixtures > .fixtures_").each(function () {
-        $(this).click(function () {
-            localStorage.setItem("id", Object.keys(dataU18).filter((b) => b.substr(0, 4) == 2023)[$(this).index()])
-            window.open("./matchinfo")
-        })
-    })
+    // U18
+    if (!$("#fixturesU18 > .fixtures > .fixtures_").length) {
+        for (i = 0; i < Object.keys(dataU18).filter((a) => a.substr(0, 4) == year).length; i++) {
+            $("#fixturesU18 > .fixtures").append("<div class='fixtures_'><div><p></p><div><img></div><div><p></p><img><p></p></div><div><img></div><p></p></div><div><p></p></div></div>")
 
-    $("#fixturesU18 > .fixtures > .fixtures_:nth-last-of-type(1)").css("border", "none")
+            $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > p:nth-of-type(1)").text(dataU18[Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i]]["home"][0])
+            $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > p:nth-of-type(2)").text(dataU18[Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i]]["away"][0])
+
+            $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(1) > img").attr("src", "./files/" + dataU18[Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i]]["home"][1] + "_s.png")
+            $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(3) > img").attr("src", "./files/" + dataU18[Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i]]["away"][1] + "_s.png")
+
+            if (dataU18[Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i]]["home"][0] == "서울E") {
+                if (dataU18[Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i]]["homeScore"] > dataU18[Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i]]["awayScore"]) {
+                    $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#174fff")
+                } else if ((dataU18[Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i]]["homeScore"] == dataU18[Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i]]["awayScore"]) && dataU18[Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i]]["homeScore"] !== "") {
+                    $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#808080")
+                } else if (dataU18[Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i]]["homeScore"] < dataU18[Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i]]["awayScore"]) {
+                    $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#f00")
+                } else {
+                    $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "none")
+                    $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p").css("color", "#000831")
+                    $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > img").css("filter", "none")
+                }
+            } else {
+                if (dataU18[Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i]]["homeScore"] < dataU18[Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i]]["awayScore"]) {
+                    $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#174fff")
+                } else if ((dataU18[Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i]]["homeScore"] == dataU18[Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i]]["awayScore"]) && dataU18[Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i]]["homeScore"] !== "") {
+                    $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#808080")
+                } else if (dataU18[Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i]]["homeScore"] > dataU18[Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i]]["awayScore"]) {
+                    $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#f00")
+                } else {
+                    $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "none")
+                    $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p").css("color", "#000831")
+                    $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > img").css("filter", "none")
+                }
+            }
+
+            if ($("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background") == "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box" && !$("#nextMatchA").length) {
+                $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").attr("id", "nextMatchA")
+            }
+
+            $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)").text(dataU18[Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i]]["homeScore"])
+            $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)").text(dataU18[Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i]]["awayScore"])
+            $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > img").attr("src", "./files/" + dataU18[Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i]]["comp"][1] + "_s.png")
+            $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").text(Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i].substr(0, 4) + "." + Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i].substr(4, 2) + "." + Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i].substr(6, 2) + ".")
+        }
+
+        $("#fixturesU18 > .fixtures > .fixtures_").each(function () {
+            $(this).click(function () {
+                localStorage.setItem("id", Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[$(this).index()])
+                window.open("./matchinfo")
+            })
+        })
+
+        $("#fixturesU18 > .fixtures > .fixtures_:nth-last-of-type(1)").css("border", "none")
+        
+        if ($("#nextMatchU18").length) {
+            document.getElementById("nextMatchU18").scrollIntoView({block: "center"})
+        } else if (!$("#nextMatchU18").length && $("#fixturesButtonOffset").length) {
+            window.scroll({top: document.body.scrollHeight, left: 0})
+        }
+    }
+
+    // U15
+    if (!$("#fixturesU15 > .fixtures > .fixtures_").length) {
+        for (i = 0; i < Object.keys(dataU15).filter((a) => a.substr(0, 4) == year).length; i++) {
+            $("#fixturesU15 > .fixtures").append("<div class='fixtures_'><div><p></p><div><img></div><div><p></p><img><p></p></div><div><img></div><p></p></div><div><p></p></div></div>")
+
+            $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > p:nth-of-type(1)").text(dataU15[Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i]]["home"][0])
+            $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > p:nth-of-type(2)").text(dataU15[Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i]]["away"][0])
+
+            $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(1) > img").attr("src", "./files/" + dataU15[Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i]]["home"][1] + "_s.png")
+            $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(3) > img").attr("src", "./files/" + dataU15[Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i]]["away"][1] + "_s.png")
+
+            if (dataU15[Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i]]["home"][0] == "서울E") {
+                if (dataU15[Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i]]["homeScore"] > dataU15[Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i]]["awayScore"]) {
+                    $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#174fff")
+                } else if ((dataU15[Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i]]["homeScore"] == dataU15[Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i]]["awayScore"]) && dataU15[Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i]]["homeScore"] !== "") {
+                    $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#808080")
+                } else if (dataU15[Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i]]["homeScore"] < dataU15[Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i]]["awayScore"]) {
+                    $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#f00")
+                } else {
+                    $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "none")
+                    $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p").css("color", "#000831")
+                    $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > img").css("filter", "none")
+                }
+            } else {
+                if (dataU15[Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i]]["homeScore"] < dataU15[Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i]]["awayScore"]) {
+                    $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#174fff")
+                } else if ((dataU15[Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i]]["homeScore"] == dataU15[Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i]]["awayScore"]) && dataU15[Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i]]["homeScore"] !== "") {
+                    $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#808080")
+                } else if (dataU15[Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i]]["homeScore"] > dataU15[Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i]]["awayScore"]) {
+                    $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#f00")
+                } else {
+                    $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "none")
+                    $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p").css("color", "#000831")
+                    $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > img").css("filter", "none")
+                }
+            }
+
+            if ($("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background") == "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box" && !$("#nextMatchA").length) {
+                $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").attr("id", "nextMatchA")
+            }
+
+            $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)").text(dataU15[Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i]]["homeScore"])
+            $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)").text(dataU15[Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i]]["awayScore"])
+            $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > img").attr("src", "./files/" + dataU15[Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i]]["comp"][1] + "_s.png")
+            $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").text(Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i].substr(0, 4) + "." + Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i].substr(4, 2) + "." + Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i].substr(6, 2) + ".")
+        }
+
+        $("#fixturesU15 > .fixtures > .fixtures_").each(function () {
+            $(this).click(function () {
+                localStorage.setItem("id", Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[$(this).index()])
+                window.open("./matchinfo")
+            })
+        })
+
+        $("#fixturesU15 > .fixtures > .fixtures_:nth-last-of-type(1)").css("border", "none")
+        
+        if ($("#nextMatchU15").length) {
+            document.getElementById("nextMatchU15").scrollIntoView({block: "center"})
+        } else if (!$("#nextMatchU15").length && $("#fixturesButtonOffset").length) {
+            window.scroll({top: document.body.scrollHeight, left: 0})
+        }
+    }
 }
