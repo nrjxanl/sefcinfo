@@ -323,7 +323,7 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 .matchDetail {width: 400px; height: 50px; margin-top: 20px; position: relative; z-index: 98;}
 .matchDetail > button {height: 25px; padding: 0 8px; font-size: 16px; background: none; border: none;}
 
-#startingXI {width: 320px; margin: 30px 0 0 40px;}
+#startingXI {width: 320px; margin-left: 40px;}
 #startingXI > img {width: 320px; border-radius: 8px; position: relative; opacity: 0.5;}
 #startingXI > table {width: 280px; height: 140px; margin: -460px 0 0 20px; z-index: 98; position: absolute;}
 #startingXI > table > tbody > tr {display: flex; justify-content: center;}
@@ -359,17 +359,19 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 .potm {background: #174fff !important;}
 
 #matchStat {display: none;}
-#matchStat > table {width: 320px; margin: 30px 0 0 40px;}
+#matchStat > table {width: 320px; margin-left: 40px;}
 #matchStat > table > tbody > tr {height: 50px; display: flex; align-items: center;}
 #matchStat > table > tbody > tr > td {font-size: 14px;}
-#matchStat > table > tbody > tr > td:nth-of-type(1) {width: 62px; padding-right: 8px; display: flex; justify-content: flex-end; background: #c8c8c880; border-radius: 20px; background-clip: content-box;}
-#matchStat > table > tbody > tr > td:nth-of-type(3) {width: 60px;}
-#matchStat > table > tbody > tr > td:nth-of-type(5) {width: 62px; padding-left: 8px; display: flex; justify-content: flex-start; background: #c8c8c880; border-radius: 20px; background-clip: content-box;}
-#matchStat > table > tbody > tr > td:nth-of-type(2n+2) {font-weight: 500; width: 60px;}
-#matchStat > table > tbody > tr > td:nth-of-type(1) > p {height: 8px; border-radius: 30px 0 0 20px;}
-#matchStat > table > tbody > tr > td:nth-of-type(5) > p {height: 8px; border-radius: 0 20px 30px 0;}
+#matchStat > table > tbody > tr > td:nth-of-type(2) {width: 100px;}
+#matchStat > table > tbody > tr > td:nth-of-type(2n+1) {width: 110px; display: flex; align-items: center; justify-content: center;}
+#matchStat > table > tbody > tr > td:nth-of-type(2n+1) > p {width: 30px; height: 30px; border-radius: 30px; font-weight: 500; display: flex; align-items: center; justify-content: center;}
+#matchStat > table > tbody > tr:nth-of-type(1) {height: fit-content; display: flex; flex-direction: column; align-items: center; justify-content: center;}
+#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) {width: 280px; font-weight: 900; padding-bottom: 20px;}
+#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) {width: 280px; height: 40px; display: flex;}
+#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(1) {height: 30px; border-radius: 30px 0 0 30px; display: flex; align-items: center; justify-content: flex-start;}
+#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(2) {height: 30px; border-radius: 0 30px 30px 0; display: flex; align-items: center; justify-content: flex-end;}
 
-#matchH2H {display: none; margin-top: 30px; flex-direction: column; align-items: center;}
+#matchH2H {display: none; flex-direction: column; align-items: center;}
 #matchH2H > div:nth-of-type(1) {width: 320px; display: flex; border-radius: 10px; overflow: hidden;}
 #matchH2H > div:nth-of-type(1) > p {font-size: 16px; font-weight: 500; color: #fafafa; display: flex; align-items: center; justify-content: center;}
 #matchH2H > div:nth-of-type(3) {width: 320px; display: flex; border-radius: 10px; overflow: hidden; margin-top: 40px;}
