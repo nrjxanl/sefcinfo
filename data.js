@@ -632,7 +632,7 @@ function fixtures() {
 }
 
 // 함수 실행
-if ($(".fixtures").length) {
+if ($("#fixturesSeason_").length) {
     year = 2023
     $("#fixturesSeason_ > button:contains('2023')").css({"color": "#fafafa", "background": "#000831"})
 
