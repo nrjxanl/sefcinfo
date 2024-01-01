@@ -504,7 +504,7 @@ function fixtures() {
             $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)").text(dataA[Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i]]["homeScore"])
             $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)").text(dataA[Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i]]["awayScore"])
             $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > img").attr("src", "./files/" + dataA[Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i]]["comp"][1] + "_s.png")
-            $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").text(Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i].substr(0, 4) + "." + Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i].substr(4, 2) + "." + Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i].substr(6, 2) + ".")
+            $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").text(dataA[Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i]]["comp"][0] + " " + dataA[Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i]]["round"] + " | " + Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i].substr(0, 4) + "." + Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i].substr(4, 2) + "." + Object.keys(dataA).filter((a) => a.substr(0, 4) == year)[i].substr(6, 2) + ".")
         }
 
         $("#fixturesA > .fixtures > .fixtures_").each(function () {
@@ -567,7 +567,7 @@ function fixtures() {
             $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)").text(dataU18[Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i]]["homeScore"])
             $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)").text(dataU18[Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i]]["awayScore"])
             $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > img").attr("src", "./files/" + dataU18[Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i]]["comp"][1] + "_s.png")
-            $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").text(Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i].substr(0, 4) + "." + Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i].substr(4, 2) + "." + Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i].substr(6, 2) + ".")
+            $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").text(dataU18[Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i]]["comp"][0] + " " + dataU18[Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i]]["round"] + " | " + Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i].substr(0, 4) + "." + Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i].substr(4, 2) + "." + Object.keys(dataU18).filter((a) => a.substr(0, 4) == year)[i].substr(6, 2) + ".")
         }
 
         $("#fixturesU18 > .fixtures > .fixtures_").each(function () {
@@ -630,7 +630,7 @@ function fixtures() {
             $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)").text(dataU15[Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i]]["homeScore"])
             $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)").text(dataU15[Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i]]["awayScore"])
             $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > img").attr("src", "./files/" + dataU15[Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i]]["comp"][1] + "_s.png")
-            $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").text(Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i].substr(0, 4) + "." + Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i].substr(4, 2) + "." + Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i].substr(6, 2) + ".")
+            $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").text(dataU15[Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i]]["comp"][0] + " " + dataU15[Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i]]["round"] + " | " + Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i].substr(0, 4) + "." + Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i].substr(4, 2) + "." + Object.keys(dataU15).filter((a) => a.substr(0, 4) == year)[i].substr(6, 2) + ".")
         }
 
         $("#fixturesU15 > .fixtures > .fixtures_").each(function () {
