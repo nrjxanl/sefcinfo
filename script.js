@@ -180,9 +180,10 @@ function playerU15() {
 
 // 일정 창 전환
 function fixturesA() {
-    document.getElementById("fixturesA").style.display = "block"
-    document.getElementById("fixturesU18").style.display = "none"
-    document.getElementById("fixturesU15").style.display = "none"
+    $("#fixturesA").css("display", "block")
+    $("#fixturesU18").css("display", "none")
+    $("#fixturesU15").css("display", "none")
+
     if ($("#nextMatchA").length) {
         document.getElementById("nextMatchA").scrollIntoView({block: "center"})
     } else {
@@ -191,9 +192,10 @@ function fixturesA() {
 }
 
 function fixturesU18() {
-    document.getElementById("fixturesA").style.display = "none"
-    document.getElementById("fixturesU18").style.display = "block"
-    document.getElementById("fixturesU15").style.display = "none"
+    $("#fixturesA").css("display", "none")
+    $("#fixturesU18").css("display", "block")
+    $("#fixturesU15").css("display", "none")
+
     if ($("#nextMatchU18").length) {
         document.getElementById("nextMatchU18").scrollIntoView({block: "center"})
     } else {
@@ -202,9 +204,10 @@ function fixturesU18() {
 }
 
 function fixturesU15() {
-    document.getElementById("fixturesA").style.display = "none"
-    document.getElementById("fixturesU18").style.display = "none"
-    document.getElementById("fixturesU15").style.display = "block"
+    $("#fixturesA").css("display", "none")
+    $("#fixturesU18").css("display", "none")
+    $("#fixturesU15").css("display", "block")
+
     if ($("#nextMatchU15").length) {
         document.getElementById("nextMatchU15").scrollIntoView({block: "center"})
     } else {

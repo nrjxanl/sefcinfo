@@ -41,11 +41,11 @@ if (id.substr(-1) == 0) {
     round = $("#round").text().replace(/[^0-9]/g, "")
     index = Object.keys(stat).indexOf("R" + round)
 
-    if (dataListA["home"][0] == "서울E") {
+    if (dataList["home"][0] == "서울E") {
         homeColor = "#000831"
-        awayColor = "#" + h2hA[dataListA["away"][1].replace(/[0-9]/g, "")][0]
+        awayColor = "#" + h2h[dataList["away"][1].replace(/[0-9]/g, "")][0]
     } else {
-        homeColor = "#" + h2hA[dataListA["home"][1].replace(/[0-9]/g, "")][0]
+        homeColor = "#" + h2h[dataList["home"][1].replace(/[0-9]/g, "")][0]
         awayColor = "#000831"
     }
 
