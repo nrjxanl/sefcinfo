@@ -42,8 +42,8 @@ U152023 = {
 function standings2023() {
 
     if ($("#standingsSeason_").length) {
-        $("#standingsSeason_ > button").css({"color": "#000831", "background": "#fafafa"})
-        $("#standingsSeason_ > button:contains(2023)").css({"color": "#fafafa", "background": "#000831"})
+        $("#standingsSeason_ > button").css({"color": "#000831", "background": "#f3f3f3"})
+        $("#standingsSeason_ > button:contains(2023)").css({"color": "#f3f3f3", "background": "#000831"})
         $("#standingsA > div > table > tbody").empty()
         $("#standingsU18F > table > tbody").empty()
         $("#standingsU18S > table > tbody").empty()
