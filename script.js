@@ -237,10 +237,10 @@ $("div[id*='fixtures'] > div > a > div > table > tbody > tr:has(.ssb5) > td:nth-
 
 // 경기 세부 정보 창 전환
 function matchInfo() {
-    document.getElementById("matchInfo").style.display = "block"
-    document.getElementById("matchLineup").style.display = "none"
-    document.getElementById("matchStat").style.display = "none"
-    document.getElementById("matchH2H").style.display = "none"
+    $("#matchInfo").css("display", "block")
+    $("#matchLineup").css("display", "none")
+    $("#matchStat").css("display", "none")
+    $("#matchH2H").css("display", "none")
     $(".matchDetail button:nth-child(1)").css("font-weight", 900)
     $(".matchDetail button:nth-child(2)").css("font-weight", 500)
     $(".matchDetail button:nth-child(3)").css("font-weight", 500)
@@ -248,10 +248,10 @@ function matchInfo() {
 }
 
 function matchLineup() {
-    document.getElementById("matchInfo").style.display = "none"
-    document.getElementById("matchLineup").style.display = "block"
-    document.getElementById("matchStat").style.display = "none"
-    document.getElementById("matchH2H").style.display = "none"
+    $("#matchInfo").css("display", "none")
+    $("#matchLineup").css("display", "block")
+    $("#matchStat").css("display", "none")
+    $("#matchH2H").css("display", "none")
     $(".matchDetail button:nth-child(1)").css("font-weight", 500)
     $(".matchDetail button:nth-child(2)").css("font-weight", 900)
     $(".matchDetail button:nth-child(3)").css("font-weight", 500)
@@ -259,10 +259,10 @@ function matchLineup() {
 }
 
 function matchStat() {
-    document.getElementById("matchInfo").style.display = "none"
-    document.getElementById("matchLineup").style.display = "none"
-    document.getElementById("matchStat").style.display = "block"
-    document.getElementById("matchH2H").style.display = "none"
+    $("#matchInfo").css("display", "none")
+    $("#matchLineup").css("display", "none")
+    $("#matchStat").css("display", "block")
+    $("#matchH2H").css("display", "none")
     $(".matchDetail button:nth-child(1)").css("font-weight", 500)
     $(".matchDetail button:nth-child(2)").css("font-weight", 500)
     $(".matchDetail button:nth-child(3)").css("font-weight", 900)
@@ -270,7 +270,7 @@ function matchStat() {
 }
 
 if ($("#matchScore").length && !$("#highlight").length) {
-    document.getElementById("matchLineup").style.display = "block"
+    $("#matchLineup").css("display", "block")
     $(".matchDetail button:nth-child(1)").css("display", "none")
     $(".matchDetail button:nth-child(2)").css("font-weight", 900)
 }
