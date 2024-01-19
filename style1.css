@@ -6,19 +6,19 @@
 * {color: #000831; margin: 0; padding: 0; text-align: center; font-family: "Dia Gothic"; font-weight: 900; font-size: 12px; list-style: none; text-decoration-line: none; border-collapse: collapse; border-spacing: 0; word-break: keep-all; -webkit-tap-highlight-color: transparent;}
 *::-webkit-scrollbar {display: none;}
 
-body {position: absolute; background: #f3f3f3;}
+body {position: absolute; background: #fafafa;}
 
 /* 헤더 */
-header {width: 100vw; height: 100px; position: fixed; top: 0; left: 0; background: #f3f3f3; z-index: 99; display: flex; justify-content: center;}
+header {width: 100vw; height: 100px; position: fixed; top: 0; left: 0; background: #fafafa; z-index: 99; display: flex; justify-content: center;}
 header > a {width: 50px; height: 40px; display: block; margin-top: 30px;}
 header > a > img {height: 40px;}
 
 /* 푸터 */
-footer {width: 100vw; height: 51px; position: fixed; bottom: 19px; left: 0; z-index: 99; background: linear-gradient(to top, #f3f3f3, #f3f3f3 10%, transparent);}
-footer > div {width: 100vw; height: 21px; background: #f3f3f3; position: fixed; bottom: -1px;}
+footer {width: 100vw; height: 51px; position: fixed; bottom: 19px; left: 0; z-index: 99; background: linear-gradient(to top, #fafafa, #fafafa 10%, transparent);}
+footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; bottom: -1px;}
 
 /* 메뉴 */
-#menu {width: 80vw; height: 100vh; background: #fafafa; position: fixed; top: 0; left: -80vw; z-index: 301; display: flex; flex-direction: column;}
+#menu {width: 80vw; height: 100vh; position: fixed; top: 0; left: -80vw; background: #fafafa; z-index: 301; display: flex; flex-direction: column;}
 #menu > a {width: fit-content; overflow: hidden; font-size: 32px; text-align: left; margin-left: 70px; padding: 10px 0; white-space: nowrap;}
 #menu > a:nth-of-type(1) {margin-top: 150px;}
 
@@ -57,16 +57,16 @@ footer > div {width: 100vw; height: 21px; background: #f3f3f3; position: fixed; 
 #nextMatch > div:nth-of-type(2) {width: 90vw; height: 20px;}
 #nextMatch > div:nth-of-type(2) > p {font-weight: 500;}
 
-#prevMatch {width: 90vw; background: #fafafa; margin: 30px 0 0 5vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 5vw; display: flex; align-items: center; justify-content: center; flex-direction: column;}
+#prevMatch {width: 90vw; margin: 30px 0 0 5vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 5vw; display: flex; align-items: center; justify-content: center; flex-direction: column;}
 #prevMatch > div {display: flex; align-items: center; justify-content: center; margin-top: 20px;}
 #prevMatch > div > div {width: 16vw; height: 85px;}
 #prevMatch > div > div > div {width: 14vw; height: 40px; margin: 0 2vw 10px 2vw;}
 #prevMatch > div > div > div > img {width: auto; height: 40px;}
-#prevMatch > div > div > p:nth-of-type(1) {width: 12vw; height: 25px; color: #f3f3f3; box-shadow: 0 0 3px 2px #00083120; margin: 0 3vw; font-size: 16px; line-height: 25px; border-radius: 10vw;}
+#prevMatch > div > div > p:nth-of-type(1) {width: 12vw; height: 25px; color: #fafafa; box-shadow: 0 0 3px 2px #00083120; margin: 0 3vw; font-size: 16px; line-height: 25px; border-radius: 10vw;}
 #prevMatch > div > div > p:nth-of-type(2) {width: 8vw; height: 3px; margin: 3px 5vw 0 5vw; font-size: 16px; border-radius: 10vw;}
 #prevMatch > a > p {font-weight: 500; padding: 10px 0 20px 0;}
 
-#standingsHome {width: 90vw; height: calc(160px + 10vw); background: #fafafa; margin-left: 5vw; margin-top: 30px; box-shadow: 0 0 3px 2px #00083120; border-radius: 5vw; display: flex; justify-content: center; align-items: center; flex-direction: column;}
+#standingsHome {width: 90vw; height: calc(160px + 10vw); margin-left: 5vw; margin-top: 30px; box-shadow: 0 0 3px 2px #00083120; border-radius: 5vw; display: flex; justify-content: center; align-items: center; flex-direction: column;}
 #standingsHome > table {width: 80vw; height: 160px; vertical-align: middle;}
 #standingsHome > table > thead > tr {height: 40px;}
 #standingsHome > table > thead > tr > th {font-weight: 500; font-size: 12px;}
@@ -79,7 +79,7 @@ footer > div {width: 100vw; height: 21px; background: #f3f3f3; position: fixed; 
 #standingsHome > table > tbody > tr > td:nth-of-type(n+4) {width: 15vw;}
 #standingsHome > a > p {font-weight: 500; padding: 10px 0 20px 0;}
 
-#homeRanking {width: 90vw; height: inherit; background: #fafafa; margin: 30px 0 0 5vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 5vw; display: flex; align-items: center; justify-content: center; flex-direction: column;}
+#homeRanking {width: 90vw; height: inherit; margin: 30px 0 0 5vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 5vw; display: flex; align-items: center; justify-content: center; flex-direction: column;}
 #homeRanking > div:nth-of-type(1) {display: flex; flex-direction: column;}
 #homeRanking > div:nth-of-type(1) > a > div {display: flex; align-items: center; padding: 10px 0;}
 #homeRanking > div:nth-of-type(1) > a:nth-of-type(1) > div {padding-top: 20px;}
@@ -94,7 +94,7 @@ footer > div {width: 100vw; height: 21px; background: #f3f3f3; position: fixed; 
 #latestNews {width: 90vw; height: 300px; margin-left: 5vw; overflow: scroll; display: flex; align-items: center;}
 #latestNews > div {width: 60vw; height: 200px; box-shadow: 0px 0px 5px 1px #00083140; border-radius: 5vw; flex-shrink: 0; margin: 0 10px; display: flex; align-items: flex-end;}
 #latestNews > div:nth-of-type(1) {margin: 0 10px 0 0;}
-#latestNews > div > p {color: #f3f3f3; padding: 5vw; text-align: left; font-size: 14px; line-height: 1.4;}
+#latestNews > div > p {color: #fafafa; padding: 5vw; text-align: left; font-size: 14px; line-height: 1.4;}
 
 #latestNews > a > div {box-shadow: 0px 0px 5px 1px #00083140; border-radius: 5vw; flex-shrink: 0; margin: 0 10px; display: flex; align-items: flex-end;}
 
@@ -116,8 +116,8 @@ footer > div {width: 100vw; height: 21px; background: #f3f3f3; position: fixed; 
 #showMore {width: 90vw; height: 30px; margin:  30px 0 0 5vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 5vw; display: flex; align-items: center; justify-content: center;}
 
 /* 선수단 */
-.playerButton {width: 100vw; height: 80px; position: fixed; top: 100px; left: 0; background: #f3f3f3; z-index: 100;}
-.playerButton > button {width: 70px; height: 25px; background: #f3f3f3; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
+.playerButton {width: 100vw; height: 80px; position: fixed; top: 100px; left: 0; background: #fafafa; z-index: 100;}
+.playerButton > button {width: 70px; height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
 .playerButton > button:nth-of-type(4) {width: 260px;}
 
 #playerA > div {width: 90vw; margin-left: 5vw; overflow: scroll; text-align: center;}
@@ -146,8 +146,8 @@ footer > div {width: 100vw; height: 21px; background: #f3f3f3; position: fixed; 
 #playerU15 > div > a > div > p {width: 40vw; font-size: 30px; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center; font-style: italic;}
 #playerU15 > div > a > div > p > span {font-family: "Kaushan Script"; margin-right: 3vw; color: #174fff; font-size: inherit; -webkit-text-stroke: 1px; font-style: normal;}
 
-.playerSortButton {width: 100vw; position: fixed; top: 180px; left: 0; background: #f3f3f3; z-index: 100;}
-.playerSortButton > button {height: 25px; background: #f3f3f3; color: #000831; margin: 7.5px 10px; border: none; font-weight: 500;}
+.playerSortButton {width: 100vw; position: fixed; top: 180px; left: 0; background: #fafafa; z-index: 100;}
+.playerSortButton > button {height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: none; font-weight: 500;}
 
 #playerAllTime {display: none; width: 90vw; margin: 50px 0 0 5vw;}
 #playerAllTime > div > div {width: 25vw; height: 150px; float: left; padding: 10px 0; margin: 20px 2.5vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 10px;}
@@ -161,13 +161,13 @@ footer > div {width: 100vw; height: 21px; background: #f3f3f3; position: fixed; 
 .playerDetail {width: 100vw; height: 50px; margin-top: 25px; position: relative; z-index: 98;}
 .playerDetail > button {width: 70px; height: 25px; font-size: 16px; background: none; border: none;}
 
-#playerMain {width: 100vw; display: flex; position: fixed; top: 100px; left: 0; z-index: -100;}
+#playerMain {width: 100vw; display: flex; height: 40px; position: fixed; top: 100px; left: 0; z-index: -100;}
 
 #playerName {position: absolute; top: 30px; left: 20vw;}
 #playerName > div {display: flex; align-items: center;}
 #playerName > div > img {height: 50px;}
 #playerName > div > img:nth-child(2) {height: 35px; margin-top: 5px; border-radius: 100%; border: 3px solid #000831; margin-left: -15px; z-index: -100;}
-#playerName > p {text-shadow: 1px 0 #f3f3f3, -1px 0 #f3f3f3, 0 1px #f3f3f3, 0 -1px #f3f3f3, 0.5px 0.5px #f3f3f3, -0.5px -0.5px #f3f3f3, -0.5px 0.5px #f3f3f3, 0.5px -0.5px #f3f3f3;}
+#playerName > p {text-shadow: 1px 0 #fafafa, -1px 0 #fafafa, 0 1px #fafafa, 0 -1px #fafafa, 0.5px 0.5px #fafafa, -0.5px -0.5px #fafafa, -0.5px 0.5px #fafafa, 0.5px -0.5px #fafafa;}
 #playerName > p:nth-child(2) {font-size: 30px; text-align: left; display: flex; flex-direction: column; align-items: flex-start;}
 #playerName > p:nth-child(2) > span {font-weight: 500;}
 #playerName > p:nth-child(2) > span:nth-child(2) {margin-bottom: 1px;}
@@ -184,12 +184,12 @@ footer > div {width: 100vw; height: 21px; background: #f3f3f3; position: fixed; 
 #playerPers > div > p:nth-child(1) {font-size: 18px;}
 #playerPers > div > p:nth-child(2) {font-size: 10px; margin-top: 5px; font-weight: 500;}
 
-#playerSNS {width: 200px;box-shadow: 0 0 3px 2px #00083120; border-radius: 50px; padding: 5px 0; margin: 20px 0 0 calc((100vw - 200px) / 2); display: flex; justify-content: center; align-items: center;}
+#playerSNS {width: 200px; border: 1px solid #000831; border-radius: 50px; padding: 5px 0; margin: 20px 0 0 calc((100vw - 200px) / 2); display: flex; justify-content: center; align-items: center;}
 #playerSNS > img:nth-child(1) {height: 20px; margin-right: 5px;}
 #playerSNS > img:nth-child(2) {height: 30px;}
 
-#playerPos {width: 50vw; margin: 30px 0 0 15vw;}
-#playerPos > img {width: 70vw; border-radius: 2vw; opacity: 50%;}
+#playerPos {width: 50vw; margin: 30px 0 0 25vw;}
+#playerPos > img {width: 50vw; border-radius: 2vw; opacity: 50%;}
 
 #playerStat {width: 70vw; margin-left: 15vw; display: none; align-items: center; flex-direction: row; flex-wrap: wrap;}
 #playerStat > div {width: 35vw;}
@@ -206,7 +206,7 @@ footer > div {width: 100vw; height: 21px; background: #f3f3f3; position: fixed; 
 #playerStat > div > canvas {display: none;}
 
 #playerCareer {width: 70vw; margin-left: 15vw; display: none;}
-#playerCareer > div {width: 70vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 20px; margin: 30px 0;}
+#playerCareer > div {width: 70vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 10px; margin: 30px 0;}
 #playerCareer > div > p {width: 65vw; height: 30px; font-weight: 500; font-size: 16px; padding: 4vw 0 0 5vw; text-align: left;}
 #playerCareer > div > div {width: 70vw; height: 60px; display: flex;}
 #playerCareer > div > div > div {width: 15vw; height: 40px; margin-top: 10px;}
@@ -217,11 +217,11 @@ footer > div {width: 100vw; height: 21px; background: #f3f3f3; position: fixed; 
 #playerCareer > div > div > p > span {display: block; text-align: left; font-weight: 500;}
 
 /* 선수 기록 */
-.recordsDetail {width: 100vw; height: 25px; margin-top: 64px; background: #f3f3f3;}
+.recordsDetail {width: 100vw; height: 25px; margin-top: 64px; background: #fafafa;}
 .recordsDetail > button {width: 20vw; height: 25px; background: none; border: none; font-size: 16px;}
 
-.recordsButton {width: 100vw; height: 40px; position: fixed; top: 100px; left: 0; background: #f3f3f3; z-index: 100;}
-.recordsButton > button {width: 70px; height: 25px; background: #f3f3f3; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
+.recordsButton {width: 100vw; height: 40px; position: fixed; top: 100px; left: 0; background: #fafafa; z-index: 100;}
+.recordsButton > button {width: 70px; height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
 
 .recordsSeason {width: 90vw; height: 25px; padding: 20px 5vw; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; align-content: flex-start; position: fixed; z-index: 100; margin-top: -1px;}
 .recordsSeason > button {width: 17vw; height: 25px; background: none; border: 1px solid #000831; border-radius: 50px;}
@@ -230,7 +230,7 @@ footer > div {width: 100vw; height: 21px; background: #f3f3f3; position: fixed; 
 
 #recordsU18, #recordsU15 {display: none;}
 
-.appRecord {width: 90vw; height: inherit; background: #fafafa; margin: 30px 0 0 5vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 5vw; display: flex; align-items: flex-start; justify-content: center; flex-direction: column;}
+.appRecord {width: 90vw; height: inherit; margin: 30px 0 0 5vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 5vw; display: flex; align-items: flex-start; justify-content: center; flex-direction: column;}
 .appRecord > div {display: flex; flex-direction: column;}
 .appRecord > div > a > div {display: flex; align-items: center; padding: 10px 0;}
 .appRecord > div > a:nth-of-type(1) > div {padding-top: 20px;}
@@ -241,7 +241,7 @@ footer > div {width: 100vw; height: 21px; background: #f3f3f3; position: fixed; 
 .appRecord > div > a > div > p:nth-of-type(2) {font-size: 20px; text-align: left;}
 .appRecord > div > a > div > p:nth-of-type(2) > span {font-size: 20px; font-weight: 500;}
 
-.goalRecord {width: 90vw; height: inherit; background: #fafafa; margin: 30px 0 0 5vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 5vw; display: none; align-items: flex-start; justify-content: center; flex-direction: column;}
+.goalRecord {width: 90vw; height: inherit; margin: 30px 0 0 5vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 5vw; display: none; align-items: flex-start; justify-content: center; flex-direction: column;}
 .goalRecord > div {display: flex; flex-direction: column;}
 .goalRecord > div > a > div {display: flex; align-items: center; padding: 10px 0;}
 .goalRecord > div > a:nth-of-type(1) > div {padding-top: 20px;}
@@ -252,7 +252,7 @@ footer > div {width: 100vw; height: 21px; background: #f3f3f3; position: fixed; 
 .goalRecord > div > a > div > p:nth-of-type(2) {font-size: 20px; text-align: left;}
 .goalRecord > div > a > div > p:nth-of-type(2) > span {font-size: 20px; font-weight: 500;}
 
-.assistRecord {width: 90vw; height: inherit; background: #fafafa; margin: 30px 0 0 5vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 5vw; display: none; align-items: flex-start; justify-content: center; flex-direction: column;}
+.assistRecord {width: 90vw; height: inherit; margin: 30px 0 0 5vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 5vw; display: none; align-items: flex-start; justify-content: center; flex-direction: column;}
 .assistRecord > div {display: flex; flex-direction: column;}
 .assistRecord > div > a > div {display: flex; align-items: center; padding: 10px 0;}
 .assistRecord > div > a:nth-of-type(1) > div {padding-top: 20px;}
@@ -264,15 +264,15 @@ footer > div {width: 100vw; height: 21px; background: #f3f3f3; position: fixed; 
 .assistRecord > div > a > div > p:nth-of-type(2) > span {font-size: 20px; font-weight: 500;}
 
 /* 일정 */
-.fixturesButton {width: 100vw; height: 40px; position: fixed; top: 100px; left: 0; background: #f3f3f3; z-index: 100;}
-.fixturesButton > button {width: 70px; height: 25px; background: #f3f3f3; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
+.fixturesButton {width: 100vw; height: 40px; position: fixed; top: 100px; left: 0; background: #fafafa; z-index: 100;}
+.fixturesButton > button {width: 70px; height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
 
 .fixturesSeason {width: 90vw; height: 25px; padding: 20px 5vw; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; align-content: flex-start; position: fixed; z-index: 100; margin-top: -1px;}
 .fixturesSeason > button {width: 17vw; height: 25px; background: none; border: 1px solid #000831; border-radius: 50px;}
 .fixturesSeason > div {width: 73vw; height: 25px; overflow: scroll; display: none;}
 .fixturesSeason > div > button {height: 25px; padding: 0 2vw; background: none; border: 1px solid #000831; border-radius: 50px; margin-left: 2vw;}
 
-.fixtures {width: 90vw; background: #fafafa; box-shadow: 0 0 3px 2px #00083120; border-radius: 20px; margin: 70px 0 0 5vw;}
+.fixtures {width: 90vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 20px; margin: 70px 0 0 5vw;}
 
 .fixtures_ {width: 90vw; height: 60px; border-bottom: 2px solid #00083120; padding: 5px 0;}
 .fixtures_ > div:nth-of-type(1) {width: 90vw; height: 40px; display: flex; align-items: center;}
@@ -281,7 +281,7 @@ footer > div {width: 100vw; height: 21px; background: #f3f3f3; position: fixed; 
 .fixtures_ > div:nth-of-type(1) > div:nth-of-type(1) {width: 7.5vw; display: flex; align-items: center; justify-content: center;}
 .fixtures_ > div:nth-of-type(1) > div:nth-of-type(1) > img {height: 20px;}
 .fixtures_ > div:nth-of-type(1) > div:nth-of-type(2) {width: 15vw; height: 24px; display: flex; align-items: center; justify-content: center; margin: 0 2.5vw; border-radius: 15vw;}
-.fixtures_ > div:nth-of-type(1) > div:nth-of-type(2) > p {font-size: 16px; color: #f3f3f3;}
+.fixtures_ > div:nth-of-type(1) > div:nth-of-type(2) > p {font-size: 16px; color: #fafafa;}
 .fixtures_ > div:nth-of-type(1) > div:nth-of-type(2) > img {height: 10px; padding: 0 4px; filter: invert(85%) sepia(100%) saturate(0%) hue-rotate(19deg) brightness(108%) contrast(96%);}
 .fixtures_ > div:nth-of-type(1) > div:nth-of-type(3) {width: 7.5vw; display: flex; align-items: center; justify-content: center;}
 .fixtures_ > div:nth-of-type(1) > div:nth-of-type(3) > img {height: 20px;}
@@ -305,11 +305,11 @@ footer > div {width: 100vw; height: 21px; background: #f3f3f3; position: fixed; 
 
 #potm > p {padding: 2vw; text-align: left;}
 #potm > a > div {display: flex; align-items: center;}
-#potm > a > div > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #f3f3f3; border: 3px solid #f3f3f3;}
+#potm > a > div > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: 3px solid #fafafa;}
 #potm > a > div > div > img {width: 10vw;}
 #potm > a > div > p:nth-of-type(1) {font-size: 16px; font-weight: 500; margin-top: 5px;}
 #potm > a > div > p:nth-of-type(1) > span {font-size: 16px; color: #174fff; margin: 0 1.5vw 0 3vw; font-family: "Kaushan Script";}
-#potm > a > div > p:nth-of-type(2) {width: 10vw; padding: 3px 0; font-size: 14px; border-radius: 50vw; color: #f3f3f3; background: #000831; position: absolute; right: 15vw;}
+#potm > a > div > p:nth-of-type(2) {width: 10vw; padding: 3px 0; font-size: 14px; border-radius: 50vw; color: #fafafa; background: #000831; position: absolute; right: 15vw;}
 
 #highlight {width: 80vw; height: auto; padding: 30px 0 0 10vw;}
 #highlight > a > img:nth-of-type(1) {width: 80vw; height: calc(80vw * 9 / 16); border-radius: 20px; filter: saturate(0.8);}
@@ -325,33 +325,33 @@ footer > div {width: 100vw; height: 21px; background: #f3f3f3; position: fixed; 
 #startingXI > table {width: 70vw; height: 110vw; margin: -115vw 0 0 5vw; z-index: 98; position: absolute;}
 #startingXI > table > tbody > tr {display: flex; justify-content: center;}
 #startingXI > table > tbody > tr > td {height: 27.5vw; display: flex; flex-direction: column; justify-content: center; align-items: center;}
-#startingXI > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #f3f3f3; border: 3px solid #f3f3f3;}
+#startingXI > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: 3px solid #fafafa;}
 #startingXI > table > tbody > tr > td > div > img {width: 10vw;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(1) {font-weight: 500; margin-top: 5px;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(1) {color: #174fff; margin-right: 5px; font-family: "Kaushan Script";}
 #startingXI > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) {color: #174fff; margin-left: 3px; font-family: "Kaushan Script";}
-#startingXI > table > tbody > tr > td > p:nth-of-type(2) {width: 8vw; padding: 3px 0; margin-top: 5px; border-radius: 50vw; color: #f3f3f3; background: #000831;}
+#startingXI > table > tbody > tr > td > p:nth-of-type(2) {width: 8vw; padding: 3px 0; margin-top: 5px; border-radius: 50vw; color: #fafafa; background: #000831;}
 
 #startingXI > div {width: 70vw; margin-left: 5vw;}
 #startingXI > div > table {width: 70vw;}
 #startingXI > div > table > tbody > tr {display: flex; width: 70vw;}
 #startingXI > div > table > tbody > tr > td {height: 60px; display: flex; flex-direction: row; align-items: center;}
-#startingXI > div > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #f3f3f3; border: 3px solid #f3f3f3;}
+#startingXI > div > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: 3px solid #fafafa;}
 #startingXI > div > table > tbody > tr > td > div > img {width: 10vw;}
 #startingXI > div > table > tbody > tr > td > p:nth-of-type(1) {font-size: 16px; font-weight: 500; margin-top: 5px;}
 #startingXI > div > table > tbody > tr > td > p:nth-of-type(1) > span {font-size: 16px; color: #174fff; margin: 0 1.5vw 0 3vw; font-family: "Kaushan Script";}
-#startingXI > div > table > tbody > tr > td > p:nth-of-type(2) {width: 10vw; padding: 3px 0; font-size: 14px; border-radius: 50vw; color: #f3f3f3; background: #000831; position: absolute; right: 15vw;}
+#startingXI > div > table > tbody > tr > td > p:nth-of-type(2) {width: 10vw; padding: 3px 0; font-size: 14px; border-radius: 50vw; color: #fafafa; background: #000831; position: absolute; right: 15vw;}
 
 #sub {width: 70vw; margin: 30px 0 0 15vw;}
 #sub > table {width: 70vw; height: 110vw;}
 #sub > table > thead > tr > th {width: 70vw; height: 30px; font-size: 18px;}
 #sub > table > tbody > tr {display: flex; width: 70vw;}
 #sub > table > tbody > tr > td {height: 60px; display: flex; flex-direction: row; align-items: center;}
-#sub > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #f3f3f3; border: 3px solid #f3f3f3;}
+#sub > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: 3px solid #fafafa;}
 #sub > table > tbody > tr > td > div > img {width: 10vw;}
 #sub > table > tbody > tr > td > p:nth-of-type(1) {font-size: 16px; font-weight: 500; margin-top: 5px;}
 #sub > table > tbody > tr > td > p:nth-of-type(1) > span {font-size: 16px; color: #174fff; margin: 0 1.5vw 0 3vw; font-family: "Kaushan Script";}
-#sub > table > tbody > tr > td > p:nth-of-type(2) {width: 10vw; padding: 3px 0; font-size: 14px; border-radius: 50vw; color: #f3f3f3; background: #000831; position: absolute; right: 15vw;}
+#sub > table > tbody > tr > td > p:nth-of-type(2) {width: 10vw; padding: 3px 0; font-size: 14px; border-radius: 50vw; color: #fafafa; background: #000831; position: absolute; right: 15vw;}
 
 .potm {background: #174fff !important;}
 
@@ -370,9 +370,9 @@ footer > div {width: 100vw; height: 21px; background: #f3f3f3; position: fixed; 
 
 #matchH2H {display: none; flex-direction: column; align-items: center;}
 #matchH2H > div:nth-of-type(1) {width: 80vw; display: flex; border-radius: 10px; overflow: hidden;}
-#matchH2H > div:nth-of-type(1) > p {font-size: 16px; font-weight: 500; color: #f3f3f3; display: flex; align-items: center; justify-content: center;}
+#matchH2H > div:nth-of-type(1) > p {font-size: 16px; font-weight: 500; color: #fafafa; display: flex; align-items: center; justify-content: center;}
 #matchH2H > div:nth-of-type(3) {width: 80vw; display: flex; border-radius: 10px; overflow: hidden; margin-top: 10vw;}
-#matchH2H > div:nth-of-type(3) > p {font-size: 16px; font-weight: 500; color: #f3f3f3; display: flex; align-items: center; justify-content: center;}
+#matchH2H > div:nth-of-type(3) > p {font-size: 16px; font-weight: 500; color: #fafafa; display: flex; align-items: center; justify-content: center;}
 
 #recentMatch {width: 80vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 20px; margin-top: 30px;}
 #recentMatch > div {width: 80vw; height: 60px; border-bottom: 2px solid #00083120; padding: 5px 0;}
@@ -380,7 +380,7 @@ footer > div {width: 100vw; height: 21px; background: #f3f3f3; position: fixed; 
 #recentMatch > div > div:nth-of-type(1) > div:nth-of-type(1) {width: 30vw; display: flex; align-items: center; justify-content: flex-end;}
 #recentMatch > div > div:nth-of-type(1) > div:nth-of-type(1) > img {height: 20px;}
 #recentMatch > div > div:nth-of-type(1) > div:nth-of-type(2) {width: 15vw; height: 24px; display: flex; align-items: center; justify-content: center; margin: 0 2.5vw; border-radius: 15vw;}
-#recentMatch > div > div:nth-of-type(1) > div:nth-of-type(2) > p {font-size: 16px; color: #f3f3f3;}
+#recentMatch > div > div:nth-of-type(1) > div:nth-of-type(2) > p {font-size: 16px; color: #fafafa;}
 #recentMatch > div > div:nth-of-type(1) > div:nth-of-type(2) > img {height: 10px; padding: 0 4px; filter: invert(85%) sepia(100%) saturate(0%) hue-rotate(19deg) brightness(108%) contrast(96%);}
 #recentMatch > div > div:nth-of-type(1) > div:nth-of-type(3) {width: 30vw; display: flex; align-items: center; justify-content: flex-start;}
 #recentMatch > div > div:nth-of-type(1) > div:nth-of-type(3) > img {height: 20px;}
@@ -388,8 +388,8 @@ footer > div {width: 100vw; height: 21px; background: #f3f3f3; position: fixed; 
 #recentMatch > div > div:nth-of-type(2) > p {font-weight: 500;}
 
 /* 순위 */
-.standingsButton {width: 100vw; height: 40px; position: fixed; top: 100px; left: 0; background: #f3f3f3; z-index: 100;}
-.standingsButton > button {width: 70px; height: 25px; background: #f3f3f3; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
+.standingsButton {width: 100vw; height: 40px; position: fixed; top: 100px; left: 0; background: #fafafa; z-index: 100;}
+.standingsButton > button {width: 70px; height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
 
 .standingsSeason {width: 90vw; height: 25px; padding: 20px 0 0 5vw; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; align-content: flex-start; position: fixed; margin-top: -1px;}
 .standingsSeason > button {width: 17vw; height: 25px; background: none; border: 1px solid #000831; border-radius: 50px;}
@@ -404,14 +404,13 @@ footer > div {width: 100vw; height: 21px; background: #f3f3f3; position: fixed; 
 
 #standingsA {padding-top: 65px;}
 #standingsA > div {width: 90vw; margin-left: 5vw;}
-#standingsA > div:nth-of-type(2) {margin-top: 20px; background: #fafafa; border-radius: 20px; box-shadow: 0 0 3px 2px #00083120; padding-bottom: 20px;}
 #standingsA > div > table {width: 90vw; vertical-align: middle;}
 #standingsA > div > table > thead > tr {height: 40px;}
 #standingsA > div > table > thead > tr > th {font-weight: 500; font-size: 12px;}
 #standingsA > div > table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+6) {display: none;}
 #standingsA > div > table > tbody > tr {height: 40px;}
 #standingsA > div > table > tbody > tr > td {font-size: 14px;}
-#standingsA > div > table > tbody > tr > td > p {width: 25px; height: 25px; border-radius: 50%; background: #000831; color: #f3f3f3; margin: 7.5px; line-height: 25px;}
+#standingsA > div > table > tbody > tr > td > p {width: 25px; height: 25px; border-radius: 50%; background: #000831; color: #fafafa; margin: 7.5px; line-height: 25px;}
 #standingsA > div > table > tbody > tr > td > img {height: 20px; vertical-align: middle;}
 #standingsA > div > table > tbody > tr > td:nth-of-type(n+5):nth-of-type(-n+7) {display: none;}
 #standingsA > div > table > tbody > tr > td:nth-of-type(1) {width: 10vw;}
@@ -422,43 +421,40 @@ footer > div {width: 100vw; height: 21px; background: #f3f3f3; position: fixed; 
 #standingsA > div > p > span {margin: 0 2vw;}
 
 tr.sefc {background: #000831;}
-tr.sefc > td {color: #f3f3f3;}
-tr.sefc > td:nth-of-type(1) {border-radius: 50px 0 0 50px;}
-tr.sefc > td:nth-last-of-type(1) {border-radius: 0 50px 50px 0;}
-tr.sefc > td > p {background: #f3f3f3 !important; color: #000831 !important;}
+tr.sefc > td {color: #fafafa;}
+tr.sefc > td:nth-of-type(1) {border-radius: 15px 0 0 15px;}
+tr.sefc > td:nth-last-of-type(1) {border-radius: 0 15px 15px 0;}
+tr.sefc > td > p {background: #fafafa !important; color: #000831 !important;}
 
 #standingsU18 {display: none; padding-top: 65px;}
-#standingsU18 > div {width: 90vw; margin: 20px 0 0 5vw;}
+#standingsU18 > div {width: 90vw; margin-left: 5vw;}
 #standingsU18 > div > table {width: 90vw; vertical-align: middle;}
 #standingsU18 > div > table > thead > tr {height: 40px;}
 #standingsU18 > div > table > thead > tr > th {font-weight: 500; font-size: 12px;}
 #standingsU18 > div > table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+6) {display: none;}
 #standingsU18 > div > table > tbody > tr {height: 40px;}
 #standingsU18 > div > table > tbody > tr > td {font-size: 14px;}
-#standingsU18 > div > table > tbody > tr > td > p {width: 25px; height: 25px; border-radius: 50%; background: #000831; color: #f3f3f3; margin: 7.5px; line-height: 25px;}
+#standingsU18 > div > table > tbody > tr > td > p {width: 25px; height: 25px; border-radius: 50%; background: #000831; color: #fafafa; margin: 7.5px; line-height: 25px;}
 #standingsU18 > div > table > tbody > tr > td > img {height: 20px; vertical-align: middle;}
 #standingsU18 > div > table > tbody > tr > td:nth-of-type(n+5):nth-of-type(-n+7) {display: none;}
 #standingsU18 > div > table > tbody > tr > td:nth-of-type(1) {width: 10vw;}
 #standingsU18 > div > table > tbody > tr > td:nth-of-type(2) {width: 10vw;}
 #standingsU18 > div > table > tbody > tr > td:nth-of-type(3) {width: 20vw; text-align: left;}
 #standingsU18 > div > table > tbody > tr > td:nth-of-type(n+4) {width: 12.5vw;}
-#standingsU18F {margin-top: 20px; background: #fafafa; border-radius: 20px; box-shadow: 0 0 3px 2px #00083120; padding-bottom: 20px;}
 #standingsU18F > p {text-align: left; font-weight: 500; margin-top: 5vw; line-height: 1.6;}
 #standingsU18F > p > span {margin: 0 2vw;}
-#standingsU18S {margin-top: 20px; background: #fafafa; border-radius: 20px; box-shadow: 0 0 3px 2px #00083120; padding-bottom: 20px;}
 #standingsU18S > p {text-align: left; font-weight: 500; margin-top: 5vw; line-height: 1.6;}
 #standingsU18S > p > span {margin: 0 2vw;}
 
 #standingsU15 {display: none; padding-top: 65px;}
 #standingsU15 > div {width: 90vw; margin-left: 5vw;}
-#standingsU15 > div:nth-of-type(2) {margin-top: 20px; background: #fafafa; border-radius: 20px; box-shadow: 0 0 3px 2px #00083120; padding-bottom: 20px;}
 #standingsU15 > div > table {width: 90vw; vertical-align: middle;}
 #standingsU15 > div > table > thead > tr {height: 40px;}
 #standingsU15 > div > table > thead > tr > th {font-weight: 500; font-size: 12px;}
 #standingsU15 > div > table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+6) {display: none;}
 #standingsU15 > div > table > tbody > tr {height: 40px;}
 #standingsU15 > div > table > tbody > tr > td {font-size: 14px;}
-#standingsU15 > div > table > tbody > tr > td > p {width: 25px; height: 25px; border-radius: 50%; background: #000831; color: #f3f3f3; margin: 7.5px; line-height: 25px;}
+#standingsU15 > div > table > tbody > tr > td > p {width: 25px; height: 25px; border-radius: 50%; background: #000831; color: #fafafa; margin: 7.5px; line-height: 25px;}
 #standingsU15 > div > table > tbody > tr > td > img {height: 20px; vertical-align: middle;}
 #standingsU15 > div > table > tbody > tr > td:nth-of-type(n+5):nth-of-type(-n+7) {display: none;}
 #standingsU15 > div > table > tbody > tr > td:nth-of-type(1) {width: 10vw;}
