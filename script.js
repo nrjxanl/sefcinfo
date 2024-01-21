@@ -44,48 +44,25 @@ if ($("div[id*=ButtonOffset]").length) {
 }
 
 // 푸터
-$("footer").html("<div><img src='https://sefc.info/files/home.svg'></div>")
+$("footer").html("<div><img src='https://sefc.info/files/home.svg'><p>홈</p></div><div><img src='https://sefc.info/files/players.svg'><p>선수단</p></div><div><img src='https://sefc.info/files/fixtures.svg'><p>일정</p></div><div><img src='https://sefc.info/files/standings.svg'><p>순위</p></div>")
 
-// 메뉴
-$("body").append("<div id='menu'><div id='hamburger' onclick='menuOpen()'><span></span><span></span><span></span></div><a href='https://sefc.info'>홈</a><a href='https://sefc.info/news'>뉴스</a><a href='https://sefc.info/players'>선수단</a><a href='https://sefc.info/records'>선수 기록</a><a href='https://sefc.info/fixtures'>경기 일정</a><a href='https://sefc.info/standings'>순위</a></div><div id='menuBg' onclick='menuClose()'></div>")
+$("footer > div:nth-of-type(1)").attr("onclick", "location.href='https://sefc.info'")
+$("footer > div:nth-of-type(2)").attr("onclick", "location.href='https://sefc.info/players'")
+$("footer > div:nth-of-type(3)").attr("onclick", "location.href='https://sefc.info/fixtures'")
+$("footer > div:nth-of-type(4)").attr("onclick", "location.href='https://sefc.info/standings'")
 
-if ($(window).width() < 768) {
-    function menuOpen() {
-        $("#hamburger").attr("onclick", "menuClose()")
-        $("#hamburger > span:nth-of-type(1)").animate({marginLeft: "10px"}, 200)
-        $("#hamburger > span:nth-of-type(3)").animate({marginLeft: "5px"}, 200)
-        $("#menu").animate({left: 0}, 200)
-        $("#menuBg").delay(100).animate({opacity: 0.2}, 200)
-        $("#menuBg").css("pointer-events", "auto")
-    }
-    
-    function menuClose() {
-        $("#hamburger").attr("onclick", "menuOpen()")
-        $("#hamburger > span:nth-of-type(1)").animate({marginLeft: "0"}, 200)
-        $("#hamburger > span:nth-of-type(3)").animate({marginLeft: "0"}, 200)
-        $("#menuBg").animate({opacity: 0}, 200)
-        $("#menu").delay(100).animate({left: "-80vw"}, 200)
-        $("#menuBg").css("pointer-events", "none")
-    }
-
-    $("#menu > a").click(function() {
-        $("#hamburger > span:nth-of-type(1)").animate({marginLeft: "0"}, 200)
-        $("#hamburger > span:nth-of-type(3)").animate({marginLeft: "0"}, 200)
-    })
-}
-
-if ($("#nextMatch").length) { // 홈
-    $("#menu > a:nth-of-type(1)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
-} else if ($("#news").length) { // 뉴스
-    $("#menu > a:nth-of-type(2)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
-} else if ($(".playerDetail").length || $(".playerButton").length) { // 선수
-    $("#menu > a:nth-of-type(3)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
-} else if ($(".recordsButton").length) { // 선수 기록
-    $("#menu > a:nth-of-type(4)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
-} else if ($(".matchDetail").length || $(".fixturesButton").length) { // 일정
-    $("#menu > a:nth-of-type(5)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
-} else if ($(".standingsButton").length) { // 순위
-    $("#menu > a:nth-of-type(6)").css({"color": "#174fff", "-webkit-text-stroke": ".5px"})
+if ($("#nextMatch").length) {
+    $("footer > div:nth-of-type(1) > img").css("filter", "invert(19%) sepia(72%) saturate(4441%) hue-rotate(228deg) brightness(103%) contrast(103%)")
+    $("footer > div:nth-of-type(1) > p").css("color", "#174fff")
+} else if ($(".playerButton").length || $("#playerMain").length) {
+    $("footer > div:nth-of-type(2) > img").css("filter", "invert(19%) sepia(72%) saturate(4441%) hue-rotate(228deg) brightness(103%) contrast(103%)")
+    $("footer > div:nth-of-type(2) > p").css("color", "#174fff")
+} else if ($(".fixturesButton").length || $("#matchScore").length) {
+    $("footer > div:nth-of-type(3) > img").css("filter", "invert(19%) sepia(72%) saturate(4441%) hue-rotate(228deg) brightness(103%) contrast(103%)")
+    $("footer > div:nth-of-type(3) > p").css("color", "#174fff")
+} else if ($(".standingsButton").length) {
+    $("footer > div:nth-of-type(4) > img").css("filter", "invert(19%) sepia(72%) saturate(4441%) hue-rotate(228deg) brightness(103%) contrast(103%)")
+    $("footer > div:nth-of-type(4) > p").css("color", "#174fff")
 }
 
 // 문자별 글꼴 적용

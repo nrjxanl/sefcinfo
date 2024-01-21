@@ -15,18 +15,6 @@ header > a > img {height: 40px;}
 
 /* 푸터 */
 
-/* 메뉴 */
-#menu {width: calc(50vw - 200px); height: 100vh; position: fixed; top: 0; left: 0; background: #fafafa; z-index: 301; display: flex; flex-direction: column;}
-#menu > a {width: fit-content; overflow: hidden; font-size: 32px; text-align: left; margin-left: 70px; padding: 10px 0; white-space: nowrap;}
-#menu > a:nth-of-type(1) {margin-top: 150px;}
-
-#hamburger {width: 40px; height: 25px; position: fixed; top: 37.5px; left: 37.5px;}
-#hamburger > span {width: 30px; height: 5px; background: #000831; border-radius: 25px; display: block;}
-#hamburger > span:nth-of-type(1) {margin-left: 10px;}
-#hamburger > span:nth-of-type(2) {margin: 5px 0;}
-#hamburger > span:nth-of-type(3) {margin-left: 5px;}
-
-#menuBg {width: 400px; height: 100vh; position: fixed; top: 0; left: 0; background: #000; opacity: 0; z-index: 300; pointer-events: none;}
 
 /* 404 */
 #page404 {height: calc(100vh - 250px); display: flex; align-items: center; justify-content: center; flex-direction: column;}
