@@ -14,8 +14,6 @@ header > a {width: 50px; height: 40px; display: block; margin-top: 30px;}
 header > a > img {height: 40px;}
 
 /* 푸터 */
-footer {width: 100vw; height: 51px; position: fixed; bottom: 19px; left: 0; z-index: 99; background: linear-gradient(to top, #fafafa, #fafafa 10%, transparent);}
-footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; bottom: -1px;}
 
 /* 메뉴 */
 #menu {width: calc(50vw - 200px); height: 100vh; position: fixed; top: 0; left: 0; background: #fafafa; z-index: 301; display: flex; flex-direction: column;}
@@ -64,7 +62,7 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 #prevMatch > div > div {width: 64px; height: 85px;}
 #prevMatch > div > div > div {width: 56px; height: 40px; margin: 0 8px 10px 8px;}
 #prevMatch > div > div > div > img {width: auto; height: 40px;}
-#prevMatch > div > div > p:nth-of-type(1) {width: 48px; height: 25px; color: #fafafa; box-shadow: 0 0 3px 2px #00083120; margin: 0 12px; font-size: 16px; line-height: 25px; border-radius: 40px;}
+#prevMatch > div > div > p:nth-of-type(1) {width: 48px; height: 25px; color: #fafafa; margin: 0 12px; font-size: 16px; line-height: 25px; border-radius: 40px;}
 #prevMatch > div > div > p:nth-of-type(2) {width: 32px; height: 3px; margin: 3px 20px 0 20px; font-size: 16px; border-radius: 40px;}
 #prevMatch > a > p {font-weight: 500; padding: 10px 0 20px 0;}
 
@@ -284,8 +282,8 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 .fixtures_ > div:nth-of-type(1) > div:nth-of-type(1) {width: 30px; display: flex; align-items: center; justify-content: center;}
 .fixtures_ > div:nth-of-type(1) > div:nth-of-type(1) > img {height: 20px;}
 .fixtures_ > div:nth-of-type(1) > div:nth-of-type(2) {width: 60px; height: 24px; display: flex; align-items: center; justify-content: center; margin: 0 10px; border-radius: 60px;}
-.fixtures_ > div:nth-of-type(1) > div:nth-of-type(2) > p {font-size: 16px; color: #fafafa;}
-.fixtures_ > div:nth-of-type(1) > div:nth-of-type(2) > img {height: 10px; padding: 0 4px; filter: invert(85%) sepia(100%) saturate(0%) hue-rotate(19deg) brightness(108%) contrast(96%);}
+.fixtures_ > div:nth-of-type(1) > div:nth-of-type(2) > p {font-size: 16px;}
+.fixtures_ > div:nth-of-type(1) > div:nth-of-type(2) > img {height: 10px; padding: 0 4px;}
 .fixtures_ > div:nth-of-type(1) > div:nth-of-type(3) {width: 30px; display: flex; align-items: center; justify-content: center;}
 .fixtures_ > div:nth-of-type(1) > div:nth-of-type(3) > img {height: 20px;}
 .fixtures_ > div:nth-of-type(2) {width: 360px; height: 20px;}
@@ -306,17 +304,19 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 #matchScore > div:nth-of-type(2) > div > img {width: 24px;}
 #date {width: 120px; font-size: 10px; margin-top: 2px; font-weight: 500;}
 
-#potm > p {padding: 8px; text-align: left;}
+#highlight {width: 296px; padding: 4px 12px; margin-left: 40px; border-radius: 20px; box-shadow: #00083120 0px 0px 3px 2px;}
+#highlight > a {display: flex; align-items: center; justify-content: center;}
+#highlight > a > p {width: 248px; margin-left: 8px; text-align: left; font-size: 16px;}
+#highlight > a > p > span {margin-left: 8px; font-weight: 500;}
+#highlight > a > img {width: 32px; padding: 4px; margin-right: 8px; border-radius: 50%;}
+
+#potm > p {font-size: 16px; padding: 8px; text-align: left;}
 #potm > a > div {display: flex; align-items: center;}
 #potm > a > div > div {width: 40px; height: 40px; overflow: hidden; border-radius: 200px; background: #fafafa; border: 3px solid #fafafa;}
 #potm > a > div > div > img {width: 40px;}
 #potm > a > div > p:nth-of-type(1) {font-size: 16px; font-weight: 500; margin-top: 5px;}
 #potm > a > div > p:nth-of-type(1) > span {font-size: 16px; color: #174fff; margin: 0 6px 0 12px; font-family: "Kaushan Script";}
 #potm > a > div > p:nth-of-type(2) {width: 40px; padding: 3px 0; font-size: 14px; border-radius: 200px; color: #fafafa; background: #000831; position: absolute; right: 60px;}
-
-#highlight {width: 320px; height: auto; padding: 30px 0 0 40px;}
-#highlight > a > img:nth-of-type(1) {width: 320px; height: calc(320px * 9 / 16); border-radius: 20px; filter: saturate(0.8);}
-#highlight > a > img:nth-of-type(2) {width: 60px; position: absolute; margin: calc((180px - 42px) / 2) 0 0 calc((-320px - 60px) / 2); z-index: 90;}
 
 #matchLineup {display: none;}
 

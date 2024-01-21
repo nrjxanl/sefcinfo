@@ -48,7 +48,7 @@ if ($("#matchScore").length) {
     
     // 하이라이트
     if (id.substring(8, 9) == 0 && dataList["hl"] !== "") {
-        $("#highlight").html("<a href='https://youtu.be/" + dataList["hl"] + "' target='_blank'><img src='http://img.youtube.com/vi/" + dataList["hl"] + "/mqdefault.jpg'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/640px-YouTube_full-color_icon_%282017%29.svg.png'></a>")
+        $("#highlight").html("<a href='https://youtu.be/" + dataList["hl"] + "' target='_blank'><p>하이라이트<span>youtu.be/" + dataList["hl"] + "</span></p><img src='./files/youtube.png'></a>")
     } else {
         $("#highlight").remove()
     }
@@ -172,9 +172,9 @@ if ($("#matchScore").length) {
         })
 
         if ($(window).width() < 768) {
-            $("#potm").css({ "width": "74vw", "padding": "1vw 3vw 2vw 3vw", "margin-left": "10vw", "border-radius": "20px", "box-shadow": "0 0 3px 2px #00083120" })
+            $("#potm").css({ "width": "74vw", "padding": "1vw 3vw 2vw 3vw", "margin": "20px 0 0 10vw", "border-radius": "20px", "box-shadow": "0 0 3px 2px #00083120" })
         } else {
-            $("#potm").css({ "width": "296px", "padding": "4px 12px 8px 12px", "margin-left": "40px", "border-radius": "20px", "box-shadow": "0 0 3px 2px #00083120" })
+            $("#potm").css({ "width": "296px", "padding": "4px 12px 8px 12px", "margin": "20px 0 0 40px", "border-radius": "20px", "box-shadow": "0 0 3px 2px #00083120" })
         }
     } else {
         $("button[onclick='matchLineup()']").css("display", "none")
@@ -533,27 +533,23 @@ function fixtures() {
 
             if (dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["home"][0] == "서울E") {
                 if (dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] > dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["awayScore"]) {
-                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#174fff")
+                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "2px solid #174fff")
                 } else if ((dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] == dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["awayScore"]) && dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] !== "") {
-                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#808080")
+                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "2px solid #808080")
                 } else if (dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] < dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["awayScore"]) {
-                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#f00")
+                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "2px solid #ff0000")
                 } else {
-                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "none")
-                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p").css("color", "#000831")
-                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > img").css("filter", "none")
+                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "none")
                 }
             } else {
                 if (dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] < dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["awayScore"]) {
-                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#174fff")
+                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "2px solid #174fff")
                 } else if ((dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] == dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["awayScore"]) && dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] !== "") {
-                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#808080")
+                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "2px solid #808080")
                 } else if (dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] > dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["awayScore"]) {
-                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "#f00")
+                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "2px solid #ff0000")
                 } else {
-                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("background", "none")
-                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p").css("color", "#000831")
-                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > img").css("filter", "none")
+                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "none")
                 }
             }
 

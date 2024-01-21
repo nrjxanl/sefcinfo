@@ -14,8 +14,6 @@ header > a {width: 50px; height: 40px; display: block; margin-top: 30px;}
 header > a > img {height: 40px;}
 
 /* 푸터 */
-footer {width: 100vw; height: 51px; position: fixed; bottom: 19px; left: 0; z-index: 99; background: linear-gradient(to top, #fafafa, #fafafa 10%, transparent);}
-footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; bottom: -1px;}
 
 /* 메뉴 */
 #menu {width: 80vw; height: 100vh; position: fixed; top: 0; left: -80vw; background: #fafafa; z-index: 301; display: flex; flex-direction: column;}
@@ -62,7 +60,7 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 #prevMatch > div > div {width: 16vw; height: 85px;}
 #prevMatch > div > div > div {width: 14vw; height: 40px; margin: 0 2vw 10px 2vw;}
 #prevMatch > div > div > div > img {width: auto; height: 40px;}
-#prevMatch > div > div > p:nth-of-type(1) {width: 12vw; height: 25px; color: #fafafa; box-shadow: 0 0 3px 2px #00083120; margin: 0 3vw; font-size: 16px; line-height: 25px; border-radius: 10vw;}
+#prevMatch > div > div > p:nth-of-type(1) {width: 12vw; height: 25px; color: #fafafa; margin: 0 3vw; font-size: 16px; line-height: 25px; border-radius: 10vw;}
 #prevMatch > div > div > p:nth-of-type(2) {width: 8vw; height: 3px; margin: 3px 5vw 0 5vw; font-size: 16px; border-radius: 10vw;}
 #prevMatch > a > p {font-weight: 500; padding: 10px 0 20px 0;}
 
@@ -281,8 +279,8 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 .fixtures_ > div:nth-of-type(1) > div:nth-of-type(1) {width: 7.5vw; display: flex; align-items: center; justify-content: center;}
 .fixtures_ > div:nth-of-type(1) > div:nth-of-type(1) > img {height: 20px;}
 .fixtures_ > div:nth-of-type(1) > div:nth-of-type(2) {width: 15vw; height: 24px; display: flex; align-items: center; justify-content: center; margin: 0 2.5vw; border-radius: 15vw;}
-.fixtures_ > div:nth-of-type(1) > div:nth-of-type(2) > p {font-size: 16px; color: #fafafa;}
-.fixtures_ > div:nth-of-type(1) > div:nth-of-type(2) > img {height: 10px; padding: 0 4px; filter: invert(85%) sepia(100%) saturate(0%) hue-rotate(19deg) brightness(108%) contrast(96%);}
+.fixtures_ > div:nth-of-type(1) > div:nth-of-type(2) > p {font-size: 16px;}
+.fixtures_ > div:nth-of-type(1) > div:nth-of-type(2) > img {height: 10px; padding: 0 4px;}
 .fixtures_ > div:nth-of-type(1) > div:nth-of-type(3) {width: 7.5vw; display: flex; align-items: center; justify-content: center;}
 .fixtures_ > div:nth-of-type(1) > div:nth-of-type(3) > img {height: 20px;}
 .fixtures_ > div:nth-of-type(2) {width: 90vw; height: 20px;}
@@ -303,17 +301,19 @@ footer > div {width: 100vw; height: 21px; background: #fafafa; position: fixed; 
 #matchScore > div:nth-of-type(2) > div > img {width: 6vw;}
 #date {width: 30vw; font-size: 10px; margin-top: 2px; font-weight: 500;}
 
-#potm > p {padding: 2vw; text-align: left;}
+#highlight {width: 74vw; padding: 1vw 3vw; margin-left: 10vw; border-radius: 20px; box-shadow: #00083120 0px 0px 3px 2px;}
+#highlight > a {display: flex; align-items: center; justify-content: center;}
+#highlight > a > p {width: 62vw; margin-left: 2vw; text-align: left; font-size: 16px;}
+#highlight > a > p > span {margin-left: 2vw; font-weight: 500;}
+#highlight > a > img {width: 8vw; padding: 1vw; margin-right: 2vw; border-radius: 50%;}
+
+#potm > p {font-size: 16px; padding: 2vw; text-align: left;}
 #potm > a > div {display: flex; align-items: center;}
 #potm > a > div > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: 3px solid #fafafa;}
 #potm > a > div > div > img {width: 10vw;}
 #potm > a > div > p:nth-of-type(1) {font-size: 16px; font-weight: 500; margin-top: 5px;}
 #potm > a > div > p:nth-of-type(1) > span {font-size: 16px; color: #174fff; margin: 0 1.5vw 0 3vw; font-family: "Kaushan Script";}
 #potm > a > div > p:nth-of-type(2) {width: 10vw; padding: 3px 0; font-size: 14px; border-radius: 50vw; color: #fafafa; background: #000831; position: absolute; right: 15vw;}
-
-#highlight {width: 80vw; height: auto; padding: 30px 0 0 10vw;}
-#highlight > a > img:nth-of-type(1) {width: 80vw; height: calc(80vw * 9 / 16); border-radius: 20px; filter: saturate(0.8);}
-#highlight > a > img:nth-of-type(2) {width: 60px; position: absolute; margin: calc((45vw - 42px) / 2) 0 0 calc((-80vw - 60px) / 2); z-index: 90;}
 
 #matchLineup {display: none;}
 
