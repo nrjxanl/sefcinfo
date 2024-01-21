@@ -44,7 +44,7 @@ if ($("div[id*=ButtonOffset]").length) {
 }
 
 // 푸터
-$("footer").html("<div></div>")
+$("footer").html("<div><img src='https://sefc.info/files/home.svg'></div>")
 
 // 메뉴
 $("body").append("<div id='menu'><div id='hamburger' onclick='menuOpen()'><span></span><span></span><span></span></div><a href='https://sefc.info'>홈</a><a href='https://sefc.info/news'>뉴스</a><a href='https://sefc.info/players'>선수단</a><a href='https://sefc.info/records'>선수 기록</a><a href='https://sefc.info/fixtures'>경기 일정</a><a href='https://sefc.info/standings'>순위</a></div><div id='menuBg' onclick='menuClose()'></div>")
