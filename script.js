@@ -363,7 +363,7 @@ function standingsSeason() {
 }
 
 // 순위 자세히/간략히 보기
-function standings() {
+function viewAll() {
     if($("div[id*='standings']").find("th:nth-of-type(6)").css("display") == "none") {
         $("div[id*='standings'] > div > table > thead > tr > th:nth-of-type(n+3)").css({"display": "table-cell", "width": "calc(50vw/7)"})
         $("div[id*='standings'] > div > table > tbody > tr > td:nth-of-type(n+4)").css({"display": "table-cell", "width": "calc(50vw/7)", "font-size": "12px"})
