@@ -308,7 +308,7 @@ footer > div > p {font-size: 12px; font-weight: 500; margin-top: 5px;}
 #potm > a > div > p:nth-of-type(1) > span {font-size: 16px; color: #174fff; margin: 0 1.5vw 0 3vw; font-family: "Kaushan Script";}
 #potm > a > div > p:nth-of-type(2) {width: 10vw; padding: 3px 0; font-size: 14px; border-radius: 50vw; color: #fafafa; background: #000831; position: absolute; right: 15vw;}
 
-#matchLineup {display: none;}
+#matchLineup {display: none; margin-top: -3px;}
 
 .matchDetail {width: 100vw; height: 50px; margin-top: 5vw; position: relative; z-index: 98;}
 .matchDetail > button {height: 25px; padding: 0 2vw; font-size: 16px; background: none; border: none;}
@@ -350,12 +350,12 @@ footer > div > p {font-size: 12px; font-weight: 500; margin-top: 5px;}
 
 #matchStat {display: none;}
 #matchStat > table {width: 80vw; margin-left: 10vw;}
-#matchStat > table > tbody > tr {height: 50px; display: flex; align-items: center;}
+#matchStat > table > tbody > tr {height: 50px; display: flex; align-items: center; box-shadow: 0 0 3px 2px #00083120; border-radius: 20px; margin-top: 20px;}
 #matchStat > table > tbody > tr > td {font-size: 14px;}
 #matchStat > table > tbody > tr > td:nth-of-type(2) {width: 25vw;}
 #matchStat > table > tbody > tr > td:nth-of-type(2n+1) {width: 27.5vw; display: flex; align-items: center; justify-content: center;}
 #matchStat > table > tbody > tr > td:nth-of-type(2n+1) > p {width: 7.5vw; height: 7.5vw; border-radius: 30px; font-weight: 500; display: flex; align-items: center; justify-content: center;}
-#matchStat > table > tbody > tr:nth-of-type(1) {height: fit-content; display: flex; flex-direction: column; align-items: center; justify-content: center;}
+#matchStat > table > tbody > tr:nth-of-type(1) {height: fit-content; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 15px 0 10px 0; margin-top: 0;}
 #matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) {width: 70vw; font-weight: 900; padding-bottom: 20px;}
 #matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) {width: 70vw; height: 40px; display: flex;}
 #matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(1) {height: 30px; border-radius: 30px 0 0 30px; display: flex; align-items: center; justify-content: flex-start;}
@@ -379,6 +379,8 @@ footer > div > p {font-size: 12px; font-weight: 500; margin-top: 5px;}
 #recentMatch > div > div:nth-of-type(1) > div:nth-of-type(3) > img {height: 20px;}
 #recentMatch > div > div:nth-of-type(2) {width: 80vw; height: 20px;}
 #recentMatch > div > div:nth-of-type(2) > p {font-weight: 500;}
+
+#viewAll {height: 20px !important; display: flex; justify-content: center; align-items: center;}
 
 /* 순위 */
 .standingsButton {width: 100vw; height: 40px; position: fixed; top: 100px; left: 0; background: #fafafa; z-index: 100;}
