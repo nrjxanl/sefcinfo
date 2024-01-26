@@ -458,7 +458,7 @@ function matchH2H() {
                 opp = dataList["home"][1]
             }
 
-            if (h2hList.length <= 5) {
+            if (h2hList.length <= 3) {
                 for (i = 0; i < h2hList.length; i++) {
                     $("#recentMatch").append("<div><div><div><img></div><div><p></p><img><p></p></div><div><img></div></div><div><p></p></div></div>")
 
@@ -496,7 +496,7 @@ function matchH2H() {
                     $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").text(h2hList[i].substring(0, 4) + "." + h2hList[i].substring(4, 6) + "." + h2hList[i].substring(6, 8) + ".")
                 }
             } else {
-                for (i = 0; i < 5; i++) {
+                for (i = 0; i < 3; i++) {
                     $("#recentMatch").append("<div><div><div><img></div><div><p></p><img><p></p></div><div><img></div></div><div><p></p></div></div>")
 
                     if (data[h2hList[i]]["home"][0] == "서울E") {
@@ -536,7 +536,7 @@ function matchH2H() {
                 $("#recentMatch").append("<div id='viewAll'>모두 보기</div>")
 
                 $("#viewAll").click(function() {
-                    for (i = 5; i < h2hList.length; i++) {
+                    for (i = 3; i < h2hList.length; i++) {
                         $("#recentMatch").append("<div><div><div><img></div><div><p></p><img><p></p></div><div><img></div></div><div><p></p></div></div>")
 
                         if (data[h2hList[i]]["home"][0] == "서울E") {
