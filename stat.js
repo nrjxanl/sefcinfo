@@ -23,16 +23,16 @@ if (player[id]["sns"] !== "") {
 }
 
 // 스크롤 시 페이지 넘김
-evnt = 0
-$("body").css("overflow", "hidden")
+// evnt = 0
+// $("body").css("overflow", "hidden")
 
-window.addEventListener("wheel", function(e) {
-    if (e.deltaY > 0 && evnt == 0) {
-        window.scroll({top: $(window).outerHeight(true) - 150, left: 0, behavior: "smooth"})
-        evnt ++
-        $("body").css("overflow", "scroll")
-    } else if (e.deltaY < 0 && evnt == 1 && $(window).scrollTop() < 50) {
-        evnt = 0
-        $("body").css("overflow", "hidden")
-    }
-})
+// window.addEventListener("wheel", function(e) {
+//     if (e.deltaY > 0 && evnt == 0) {
+//         window.scroll({top: $(window).outerHeight(true) - 150, left: 0, behavior: "smooth"})
+//         evnt ++
+//         $("body").css("overflow", "scroll")
+//     } else if (e.deltaY < 0 && evnt == 1 && $(window).scrollTop() < 50) {
+//         evnt = 0
+//         $("body").css("overflow", "hidden")
+//     }
+// })
