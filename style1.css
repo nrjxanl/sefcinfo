@@ -160,7 +160,7 @@ footer > div > p {font-size: 12px; font-weight: 500; margin-top: 5px;}
 #playerProfile > div:nth-of-type(2) > div > p:nth-of-type(2) {font-size: 30px;}
 #playerProfile > div:nth-of-type(3) {width: 100vw; height: fit-content; margin-top: 100px; overflow: hidden; display: flex; justify-content: center;}
 
-#playerSNS {width: 200px; height: 200vh;/*지우기*/ border: 1px solid #000831; border-radius: 50px; padding: 5px 0; margin: 20px 0 0 calc((100vw - 200px) / 2); display: flex; justify-content: center; align-items: center;}
+#playerSNS {width: 200px; border: 1px solid #000831; border-radius: 50px; padding: 5px 0; margin: 20px 0 0 calc((100vw - 200px) / 2); display: flex; justify-content: center; align-items: center;}
 #playerSNS > img:nth-child(1) {height: 20px; margin-right: 5px;}
 #playerSNS > img:nth-child(2) {height: 30px;}
 
