@@ -8,6 +8,11 @@ $(document).ready(function() {
         window.scroll({top: document.body.scrollHeight, left: 0, behavior: "smooth"})
     }
 
+    // 선수 프로필 창에서 맨 위로 이동
+    if ($("#playerProfile").length) {
+        history.scrollRestoration = "manual"
+    }
+
     // 화면 너비 300px 이하일 때 경고
     if ($(window).width() < 300) {
         $("body").append("<div style='width: 80vw; height: 65px; padding: 0 10vw; background: #fafafa; position: fixed; bottom: 0; left: 0; font-size: 14px; font-weight: 500; z-index: 300; display: flex; align-items: center; justify-content: center;'>기기의 화면 크기가 작아 페이지가 정상적으로 보이지 않을 수 있습니다.</div>")
@@ -378,53 +383,6 @@ $("div[id*='standings'] > div > table > tbody > tr:has(.sefc8) > td:nth-last-chi
 $("div[id*='standings'] > div > table > tbody > tr:has(.sefc5) > td").css({"background": "#000831", "color": "#fafafa"})
 $("div[id*='standings'] > div > table > tbody > tr:has(.sefc5) > td:nth-child(1)").css("border-radius", "50px 0 0 50px")
 $("div[id*='standings'] > div > table > tbody > tr:has(.sefc5) > td:nth-last-child(3)").css("border-radius", "0 50px 50px 0")
-
-// 인스타그램 링크
-$("#playerInfo").find("a[href='#']").attr({"onclick": "return false", "style": "opacity: 0.5"})
-
-// 포지션
-$("#playerPos > #cf").text("CF")
-$("#playerPos > #lw").text("LW")
-$("#playerPos > #rw").text("RW")
-$("#playerPos > #am").text("AM")
-$("#playerPos > #lm").text("LM")
-$("#playerPos > #cm").text("CM")
-$("#playerPos > #rm").text("RM")
-$("#playerPos > #dm").text("DM")
-$("#playerPos > #lb").text("LB")
-$("#playerPos > #rb").text("RB")
-$("#playerPos > #cb").text("CB")
-$("#playerPos > #gk").text("GK")
-
-if ($(window).width() < 768) {
-    $("#playerPos > #cf").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-70vw", "margin-left": "20vw"})
-    $("#playerPos > #lw").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-63.8vw", "margin-left": "5vw"})
-    $("#playerPos > #rw").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-63.8vw", "margin-left": "35vw"})
-    $("#playerPos > #am").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-57.6vw", "margin-left": "20vw"})
-    $("#playerPos > #lm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-46.4vw", "margin-left": "5vw"})
-    $("#playerPos > #cm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-46.4vw", "margin-left": "20vw"})
-    $("#playerPos > #rm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-46.4vw", "margin-left": "35vw"})
-    $("#playerPos > #dm").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-35.2vw", "margin-left": "20vw"})
-    $("#playerPos > #lb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-29.4vw", "margin-left": "5vw"})
-    $("#playerPos > #rb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-29.4vw", "margin-left": "35vw"})
-    $("#playerPos > #cb").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-23.6vw", "margin-left": "20vw"})
-    $("#playerPos > #gk").css({"width": "10vw", "padding": "1vw 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-12vw", "margin-left": "20vw"})
-} else {
-    $("#playerPos > #cf").css({"width": "40px", "padding": "4px 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-280px", "margin-left": "80px"})
-    $("#playerPos > #lw").css({"width": "40px", "padding": "4px 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-255.2px", "margin-left": "20px"})
-    $("#playerPos > #rw").css({"width": "40px", "padding": "4px 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-255.2px", "margin-left": "140px"})
-    $("#playerPos > #am").css({"width": "40px", "padding": "4px 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-230.4px", "margin-left": "80px"})
-    $("#playerPos > #lm").css({"width": "40px", "padding": "4px 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-185.6px", "margin-left": "20px"})
-    $("#playerPos > #cm").css({"width": "40px", "padding": "4px 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-185.6px", "margin-left": "80px"})
-    $("#playerPos > #rm").css({"width": "40px", "padding": "4px 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-185.6px", "margin-left": "140px"})
-    $("#playerPos > #dm").css({"width": "40px", "padding": "4px 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-140.8px", "margin-left": "80px"})
-    $("#playerPos > #lb").css({"width": "40px", "padding": "4px 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-117.6px", "margin-left": "20px"})
-    $("#playerPos > #rb").css({"width": "40px", "padding": "4px 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-117.6px", "margin-left": "140px"})
-    $("#playerPos > #cb").css({"width": "40px", "padding": "4px 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-94.4px", "margin-left": "80px"})
-    $("#playerPos > #gk").css({"width": "40px", "padding": "4px 0", "font-size": "14px", "border-radius": "50px", "color": "#fafafa", "background": "#dcdcdc", "position": "absolute", "margin-top": "-48px", "margin-left": "80px"})
-}
-
-$("p[pos=o]").css({"color": "#fafafa", "background": "#000831", "opacity": "1"})
 
 // 선수 정보 창 전환
 function playerInfo() {
