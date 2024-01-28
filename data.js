@@ -536,6 +536,7 @@ function matchH2H() {
                 $("#recentMatch").append("<div id='viewAll'>모두 보기</div>")
 
                 $("#viewAll").click(function() {
+                    $("#viewAll").remove()
                     for (i = 3; i < h2hList.length; i++) {
                         $("#recentMatch").append("<div><div><div><img></div><div><p></p><img><p></p></div><div><img></div></div><div><p></p></div></div>")
 
