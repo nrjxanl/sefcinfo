@@ -2,37 +2,34 @@ player = {"20150036": {"natl": "대한민국", "pos": "", "height": "", "bd": ""
 
 id = $(location).attr("href").replace(/[^0-9]/g, "")
 
-$("#playerProfile > div:nth-of-type(1) > p:nth-of-type(1)").text(playerNumber[2023][id][1])
-$("#playerProfile > div:nth-of-type(1) > p:nth-of-type(2)").text(playerNumber[2023][id][0])
+// 나이 계산
+today = new Date()
+bd = new Date(player[id]["bd"].substr(0, 4), (player[id]["bd"].substr(4, 2) - 1), player[id]["bd"].substr(6, 2))
 
-$("#playerProfile > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(2)").text(player[id]["app"])
-$("#playerProfile > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").text(player[id]["goal"])
-$("#playerProfile > div:nth-of-type(2) > div:nth-of-type(3) > p:nth-of-type(2)").text(player[id]["assist"])
-
-$("#playerProfile > div:nth-of-type(3) > img").attr("src", "../files/" + id + ".png")
-
-$("#playerPers > div:nth-of-type(1) > p:nth-of-type(1)").text(player[id]["height"] + "cm")
-$("#playerPers > div:nth-of-type(2) > p:nth-of-type(2)").text(player[id]["bd"].substr(0, 4) + "-" + player[id]["bd"].substr(4, 2) + "-" + player[id]["bd"].substr(6, 2))
-
-$("#playerProfile > div:nth-of-type(3) > img").css("height", $(window).outerHeight(true) - $("header").outerHeight(true) - $("#playerProfile > div:nth-of-type(1)").outerHeight(true) - $("#playerProfile > div:nth-of-type(2)").outerHeight(true) - $("footer").outerHeight(true) - 125)
-
-if (player[id]["sns"] !== "") {
-    $("#playerInfo > a").attr("href", "https://instagram.com/" + player[id]["sns"])
-} else {
-    $("#playerInfo > a").attr({"href": "#", "onclick": "return false", "style": "opacity: .5"})
+age = today.getFullYear() - bd.getFullYear();
+if ((today.getMonth() - bd.getMonth()) < 0 || ((today.getMonth() - bd.getMonth()) === 0 && today.getDate() < bd.getDate())) {
+    age--;
 }
 
-// 스크롤 시 페이지 넘김
-// evnt = 0
-// $("body").css("overflow", "hidden")
+$("#playerProfile > div:nth-of-type(1) > p").html(player[id]["natl"])
 
-// window.addEventListener("wheel", function(e) {
-//     if (e.deltaY > 0 && evnt == 0) {
-//         window.scroll({top: $(window).outerHeight(true) - 150, left: 0, behavior: "smooth"})
-//         evnt ++
-//         $("body").css("overflow", "scroll")
-//     } else if (e.deltaY < 0 && evnt == 1 && $(window).scrollTop() < 50) {
-//         evnt = 0
-//         $("body").css("overflow", "hidden")
-//     }
-// })
+$("#playerProfile > div:nth-of-type(2) > p").html("<span>" + playerNumber[2023][id][1] + "</span>" + playerNumber[2023][id][0])
+
+$("#playerProfile > div:nth-of-type(4) > div:nth-of-type(1) > p:nth-of-type(2)").text(player[id]["app"])
+$("#playerProfile > div:nth-of-type(4) > div:nth-of-type(2) > p:nth-of-type(2)").text(player[id]["goal"])
+$("#playerProfile > div:nth-of-type(4) > div:nth-of-type(3) > p:nth-of-type(2)").text(player[id]["assist"])
+
+// $("#playerImg > img").attr("src", "../files/" + id + ".png").css("height", $(window).outerHeight(true) - $("header").outerHeight(true) - $("#playerProfile > div:nth-of-type(1)").outerHeight(true) - $("#playerProfile > div:nth-of-type(2)").outerHeight(true) - $("footer").outerHeight(true) - 125)
+$("#playerImg").css({"background": "linear-gradient(to bottom, #fafafa00 10%, #fafafa40 55%, #fafafa80 70%, #fafafacc 85%, #fafafa 100%), url('../files/" + id + ".png')", "background-size": "cover"})
+$("#playerInfo > div:nth-of-type(1) > p:nth-of-type(2)").text(player[id]["natl"])
+$("#playerInfo > div:nth-of-type(1) > p:nth-of-type(4)").text(player[id]["bd"].substr(0, 4) + ". " + player[id]["bd"].substr(4, 2) + ". " + player[id]["bd"].substr(6, 2) + ". ")
+
+$("#playerInfo > div:nth-of-type(2) > p:nth-of-type(2)").text(player[id]["height"] + "cm")
+$("#playerInfo > div:nth-of-type(2) > p:nth-of-type(4)").text(age + "세")
+
+// 인스타그램 링크
+if (player[id]["sns"] !== "") {
+    $("#playerSNS").attr("href", "https://instagram.com/" + player[id]["sns"])
+} else {
+    $("#playerSNS").attr({"href": "#", "onclick": "return false", "style": "opacity: .5"})
+}
