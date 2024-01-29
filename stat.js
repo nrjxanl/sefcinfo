@@ -19,13 +19,13 @@ $("#playerProfile > div:nth-of-type(4) > div:nth-of-type(1) > p:nth-of-type(2)")
 $("#playerProfile > div:nth-of-type(4) > div:nth-of-type(2) > p:nth-of-type(2)").text(player[id]["goal"])
 $("#playerProfile > div:nth-of-type(4) > div:nth-of-type(3) > p:nth-of-type(2)").text(player[id]["assist"])
 
-// $("#playerImg > img").attr("src", "../files/" + id + ".png").css("height", $(window).outerHeight(true) - $("header").outerHeight(true) - $("#playerProfile > div:nth-of-type(1)").outerHeight(true) - $("#playerProfile > div:nth-of-type(2)").outerHeight(true) - $("footer").outerHeight(true) - 125)
 $("#playerImg").css({"background": "linear-gradient(to bottom, #fafafa00 10%, #fafafa40 55%, #fafafa80 70%, #fafafacc 85%, #fafafa 100%), url('../files/" + id + ".png')", "background-size": "cover"})
-$("#playerInfo > div:nth-of-type(1) > p:nth-of-type(2)").text(player[id]["natl"])
-$("#playerInfo > div:nth-of-type(1) > p:nth-of-type(4)").text(player[id]["bd"].substr(0, 4) + ". " + player[id]["bd"].substr(4, 2) + ". " + player[id]["bd"].substr(6, 2) + ". ")
 
-$("#playerInfo > div:nth-of-type(2) > p:nth-of-type(2)").text(player[id]["height"] + "cm")
-$("#playerInfo > div:nth-of-type(2) > p:nth-of-type(4)").text(age + "세")
+$("#playerInfo > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)").text(player[id]["natl"])
+$("#playerInfo > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)").text(player[id]["height"] + "cm")
+
+$("#playerInfo > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(2)").text(player[id]["bd"].substr(0, 4) + ". " + player[id]["bd"].substr(4, 2) + ". " + player[id]["bd"].substr(6, 2) + ". ")
+$("#playerInfo > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").text(age + "세")
 
 // 인스타그램 링크
 if (player[id]["sns"] !== "") {
