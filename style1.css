@@ -162,23 +162,27 @@ footer > div > p {font-size: 12px; font-weight: 500; margin-top: 5px;}
 #playerProfile > div:nth-of-type(4) > div > p:nth-of-type(1) {font-size: 16px; opacity: .8;}
 #playerProfile > div:nth-of-type(4) > div > p:nth-of-type(2) {font-size: 30px;}
 
-#playerImg {width: 80vw; height: 500px; margin: 100px 0 0 10vw; overflow: hidden; display: flex; justify-content: center;}
+#playerImg {width: 100vw; height: 500px; margin-top: 100px; overflow: hidden; display: flex; justify-content: center;}
+#playerImg > div {width: 100vw; height: 500px; z-index: -100; opacity: .2;}
 
-#playerSNS > div {width: 80vw; border-radius: 20px; box-shadow: 0 0 3px 2px #00083120; padding: 5px 0; margin: 50px 0 0 10vw; display: flex; justify-content: center; align-items: center;}
+#playerSNS > div {width: 80vw; border-radius: 20px; box-shadow: 0 0 3px 2px #00083120; padding: 5px 0; margin: 30px 0 0 10vw; display: flex; justify-content: center; align-items: center;}
 #playerSNS > div > img:nth-of-type(1) {height: 20px; margin-right: 5px;}
 #playerSNS > div > img:nth-of-type(2) {height: 30px;}
-#playerSNS > div > p {margin-left: 5px; font-size: 20px; font-weight: 500;}
 
-#playerInfo {width: 80vw; margin-left: 10vw; display: flex; align-items: center; flex-direction: column; justify-content: center;}
-#playerInfo > div {display: flex; align-items: center; justify-content: center;}
-#playerInfo > div:nth-of-type(1) {width: 80vw; margin-top: 20px;}
-#playerInfo > div:nth-of-type(2) {width: 70vw; margin-top: 20px; padding: 20px 5vw; border-radius: 20px; box-shadow: 0 0 3px 2px #00083120;}
-#playerInfo > div:nth-of-type(1) > div {width: 37.5vw; padding: 20px 0; border-radius: 20px; box-shadow: 0 0 3px 2px #00083120;}
-#playerInfo > div:nth-of-type(1) > div:nth-of-type(1) {margin-right: 2.5vw;}
-#playerInfo > div:nth-of-type(1) > div:nth-of-type(2) {margin-left: 2.5vw;}
-#playerInfo > div:nth-of-type(2) > div {width: 35vw;}
-#playerInfo > div > div > p:nth-of-type(2n+1) {font-size: 16px; opacity: .8;}
-#playerInfo > div > div > p:nth-of-type(2n) {font-size: 20px; margin-top: 5px;}
+#playerInfo {width: 80vw; margin: 20px 0 0 10vw; border-radius: 20px; box-shadow: 0 0 3px 2px #00083120; display: flex; align-items: center; justify-content: center;}
+#playerInfo > div {width: calc(70vw / 3); padding: 20px 0;}
+#playerInfo > div:nth-of-type(1) {margin-left: 5vw;}
+#playerInfo > div:nth-of-type(3) {margin-right: 5vw;}
+#playerInfo > div > p:nth-of-type(1) {opacity: .8; margin-bottom: 3px;}
+#playerInfo > div > p:nth-of-type(2) {font-size: 18px; line-height: 18px;}
+
+#playerSEFC {width: 80vw; margin: 20px 0 0 10vw; padding: 20px 0; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 20px; box-shadow: 0 0 3px 2px #00083120;}
+#playerSEFC > p:nth-of-type(1) {font-size: 18px; margin-bottom: 20px;}
+#playerSEFC > p:nth-of-type(2) {font-size: 14px; margin-top: 15px; opacity: .8;}
+#playerSEFC > div {width: 80vw; display: flex; justify-content: center; align-items: center;}
+#playerSEFC > div > div {width: calc(70vw / 3);}
+#playerSEFC > div > div > p:nth-of-type(1) {font-size: 16px; opacity: .8;}
+#playerSEFC > div > div > p:nth-of-type(2) {font-size: 30px;}
 
 /* 선수 기록 */
 .recordsDetail {width: 100vw; height: 25px; margin-top: 64px; background: #fafafa;}

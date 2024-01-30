@@ -11,21 +11,35 @@ if ((today.getMonth() - bd.getMonth()) < 0 || ((today.getMonth() - bd.getMonth()
     age--;
 }
 
-$("#playerProfile > div:nth-of-type(1) > p").html(player[id]["natl"])
+$("#playerProfile > div:nth-of-type(1) > p").html(player[id]["pos"])
 
 $("#playerProfile > div:nth-of-type(2) > p").html("<span>" + playerNumber[2023][id][1] + "</span>" + playerNumber[2023][id][0])
 
-$("#playerProfile > div:nth-of-type(4) > div:nth-of-type(1) > p:nth-of-type(2)").text(player[id]["app"])
-$("#playerProfile > div:nth-of-type(4) > div:nth-of-type(2) > p:nth-of-type(2)").text(player[id]["goal"])
-$("#playerProfile > div:nth-of-type(4) > div:nth-of-type(3) > p:nth-of-type(2)").text(player[id]["assist"])
+$("#playerProfile > div:nth-of-type(4) > div:nth-of-type(1) > p:nth-of-type(2), #playerSEFC > div > div:nth-of-type(1) > p:nth-of-type(2)").text(player[id]["app"])
+$("#playerProfile > div:nth-of-type(4) > div:nth-of-type(2) > p:nth-of-type(2), #playerSEFC > div > div:nth-of-type(2) > p:nth-of-type(2)").text(player[id]["goal"])
+$("#playerProfile > div:nth-of-type(4) > div:nth-of-type(3) > p:nth-of-type(2), #playerSEFC > div > div:nth-of-type(3) > p:nth-of-type(2)").text(player[id]["assist"])
 
 $("#playerImg").css({"background": "linear-gradient(to bottom, #fafafa00 10%, #fafafa40 55%, #fafafa80 70%, #fafafacc 85%, #fafafa 100%), url('../files/" + id + ".png')", "background-size": "cover"})
+$("#playerImg > div").css({"background": "linear-gradient(to top, #fafafa00 10%, #fafafa40 55%, #fafafa80 70%, #fafafacc 85%, #fafafa 100%), url('../files/" + player[id]["natl"] + ".svg')", "background-size": "auto 500px", "background-position": "center", "background-repeat": "no-repeat"})
 
-$("#playerInfo > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)").text(player[id]["natl"])
-$("#playerInfo > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)").text(player[id]["height"] + "cm")
+$("#playerInfo > div:nth-of-type(1) > p:nth-of-type(2)").text(player[id]["natl"])
+$("#playerInfo > div:nth-of-type(2) > p:nth-of-type(2)").text(player[id]["height"] + "cm")
+$("#playerInfo > div:nth-of-type(3) > p:nth-of-type(2)").text(age + "세")
 
-$("#playerInfo > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(2)").text(player[id]["bd"].substr(0, 4) + ". " + player[id]["bd"].substr(4, 2) + ". " + player[id]["bd"].substr(6, 2) + ". ")
-$("#playerInfo > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").text(age + "세")
+// 생년월일, 나이 번갈아가며 표시
+cnt = 0
+
+bd = setInterval(function() {
+    if (cnt % 2 == 1) {
+        $("#playerInfo > div:nth-of-type(3) > p:nth-of-type(1)").text("나이")
+        $("#playerInfo > div:nth-of-type(3) > p:nth-of-type(2)").text(age + "세").css("font-size", "18px")
+        cnt ++
+    } else if (cnt % 2 == 0) {
+        $("#playerInfo > div:nth-of-type(3) > p:nth-of-type(1)").text("생년월일")
+        $("#playerInfo > div:nth-of-type(3) > p:nth-of-type(2)").text(player[id]["bd"].substr(0, 4) + ". " + player[id]["bd"].substr(4, 2) + ". " + player[id]["bd"].substr(6, 2) + ". ").css("font-size", "14px")
+        cnt ++
+    }
+}, 3000)
 
 // 인스타그램 링크
 if (player[id]["sns"] !== "") {
@@ -33,3 +47,42 @@ if (player[id]["sns"] !== "") {
 } else {
     $("#playerSNS").attr({"href": "#", "onclick": "return false", "style": "opacity: .5"})
 }
+
+// 모든 출전 경기 검색
+$("#playerSEFC > p:nth-of-type(2)").click(function() {
+    for (i = 0; i < Object.keys(dataA).length; i++) {
+        // 골키퍼로 출전한 경기
+        for (j = 0; j < Object.keys(dataA[Object.keys(dataA)[i]]["GK"]).slice(-1); j++) {
+            if (dataA[Object.keys(dataA)[i]]["GK"][j][0].includes(id)) {
+                $("#playedMatch").append("<div><p>" + dataA[Object.keys(dataA)[i]]["home"][0] + "vs" + dataA[Object.keys(dataA)[i]]["away"][0] + "</p><p>" + Object.keys(dataA)[i].substring(0, 4) + "." + Object.keys(dataA)[i].substring(4, 6) + "." + Object.keys(dataA)[i].substring(6, 8) + "." + "</p></div>")
+            }
+        }
+        
+        // 수비수로 출전한 경기
+        for (j = 0; j < Object.keys(dataA[Object.keys(dataA)[i]]["DF"]).slice(-1); j++) {
+            if (dataA[Object.keys(dataA)[i]]["DF"][j][0].includes(id)) {
+                $("#playedMatch").append("<div><p>" + dataA[Object.keys(dataA)[i]]["home"][0] + "vs" + dataA[Object.keys(dataA)[i]]["away"][0] + "</p><p>" + Object.keys(dataA)[i].substring(0, 4) + "." + Object.keys(dataA)[i].substring(4, 6) + "." + Object.keys(dataA)[i].substring(6, 8) + "." + "</p></div>")
+            }
+        }
+        
+        // 미드필더로 출전한 경기
+        for (j = 0; j < Object.keys(dataA[Object.keys(dataA)[i]]["MF"]).slice(-1); j++) {
+            if (dataA[Object.keys(dataA)[i]]["MF"][j][0].includes(id)) {
+                $("#playedMatch").append("<div><p>" + dataA[Object.keys(dataA)[i]]["home"][0] + "vs" + dataA[Object.keys(dataA)[i]]["away"][0] + "</p><p>" + Object.keys(dataA)[i].substring(0, 4) + "." + Object.keys(dataA)[i].substring(4, 6) + "." + Object.keys(dataA)[i].substring(6, 8) + "." + "</p></div>")
+            }
+        }
+        
+        // 공격수로 출전한 경기
+        for (j = 0; j < Object.keys(dataA[Object.keys(dataA)[i]]["FW"]).slice(-1); j++) {
+            if (dataA[Object.keys(dataA)[i]]["FW"][j][0].includes(id)) {
+                $("#playedMatch").append("<div><p>" + dataA[Object.keys(dataA)[i]]["home"][0] + "vs" + dataA[Object.keys(dataA)[i]]["away"][0] + "</p><p>" + Object.keys(dataA)[i].substring(0, 4) + "." + Object.keys(dataA)[i].substring(4, 6) + "." + Object.keys(dataA)[i].substring(6, 8) + "." + "</p></div>")
+            }
+        }
+        
+        for (j = 0; j < Object.keys(dataA[Object.keys(dataA)[i]]["GK"]).slice(-1); j++) {
+            if (dataA[Object.keys(dataA)[i]]["GK"][j][0].includes(id)) {
+                $("#playedMatch").append("<div><p>" + dataA[Object.keys(dataA)[i]]["home"][0] + "vs" + dataA[Object.keys(dataA)[i]]["away"][0] + "</p><p>" + Object.keys(dataA)[i].substring(0, 4) + "." + Object.keys(dataA)[i].substring(4, 6) + "." + Object.keys(dataA)[i].substring(6, 8) + "." + "</p></div>")
+            }
+        }
+    }
+})

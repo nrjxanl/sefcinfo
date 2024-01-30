@@ -820,8 +820,8 @@ if ($("#standingsHome").length) {
 
     // 다음 경기
     for (i = 0; i < Object.keys(dataA).length; i++) {
-        if (dataA[Object.keys(data)[i]]["homeScore"] == "") {
-            next = dataA[Object.keys(data)[i]]
+        if (dataA[Object.keys(dataA)[i]]["homeScore"] == "") {
+            next = dataA[Object.keys(dataA)[i]]
             break
         }
     }
