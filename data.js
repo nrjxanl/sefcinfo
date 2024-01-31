@@ -602,7 +602,7 @@ function redirect() {
         if ($(this).attr("id") !== "viewAll") {
             $(this).click(function () {
                 localStorage.setItem("id", h2hList[index])
-                window.open("./matchinfo")
+                window.location.href = "./matchinfo"
             })
         }
     })
@@ -663,7 +663,7 @@ function fixtures() {
         $("#fixturesA > .fixtures > .fixtures_").each(function () {
             $(this).click(function () {
                 localStorage.setItem("id", Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[$(this).index()])
-                window.open("./matchinfo")
+                window.location.href = "./matchinfo"
             })
         })
 
@@ -722,7 +722,7 @@ function fixtures() {
         $("#fixturesU18 > .fixtures > .fixtures_").each(function () {
             $(this).click(function () {
                 localStorage.setItem("id", Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[$(this).index()])
-                window.open("./matchinfo")
+                window.location.href = "./matchinfo"
             })
         })
 
@@ -781,7 +781,7 @@ function fixtures() {
         $("#fixturesU15 > .fixtures > .fixtures_").each(function () {
             $(this).click(function () {
                 localStorage.setItem("id", Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[$(this).index()])
-                window.open("./matchinfo")
+                window.location.href = "./matchinfo"
             })
         })
 
@@ -857,7 +857,7 @@ if ($("#standingsHome").length) {
 
         $("#nextMatch").click(function () {
             localStorage.setItem("id", Object.keys(dataA)[Object.values(dataA).indexOf(next)])
-            window.open("./matchinfo")
+            window.location.href = "./matchinfo"
         })
     } else {
         $("#nextMatch").css("display", "none")
@@ -903,7 +903,7 @@ if ($("#standingsHome").length) {
     $("#prevMatch > div > div").each(function () {
         $(this).click(function () {
             localStorage.setItem("id", prev[$(this).index()])
-            window.open("./matchinfo")
+            window.location.href = "./matchinfo"
         })
     })
 }

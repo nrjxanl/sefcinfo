@@ -49,40 +49,87 @@ if (player[id]["sns"] !== "") {
 }
 
 // 모든 출전 경기 검색
-$("#playerSEFC > p:nth-of-type(2)").click(function() {
-    for (i = 0; i < Object.keys(dataA).length; i++) {
-        // 골키퍼로 출전한 경기
-        for (j = 0; j < Object.keys(dataA[Object.keys(dataA)[i]]["GK"]).slice(-1); j++) {
-            if (dataA[Object.keys(dataA)[i]]["GK"][j][0].includes(id)) {
-                $("#playedMatch").append("<div><p>" + dataA[Object.keys(dataA)[i]]["home"][0] + "vs" + dataA[Object.keys(dataA)[i]]["away"][0] + "</p><p>" + Object.keys(dataA)[i].substring(0, 4) + "." + Object.keys(dataA)[i].substring(4, 6) + "." + Object.keys(dataA)[i].substring(6, 8) + "." + "</p></div>")
-            }
-        }
+click = 0
+
+$("#playerSEFC > p:nth-of-type(2)").click(function () {
+    if (click == 0) {
         
-        // 수비수로 출전한 경기
-        for (j = 0; j < Object.keys(dataA[Object.keys(dataA)[i]]["DF"]).slice(-1); j++) {
-            if (dataA[Object.keys(dataA)[i]]["DF"][j][0].includes(id)) {
-                $("#playedMatch").append("<div><p>" + dataA[Object.keys(dataA)[i]]["home"][0] + "vs" + dataA[Object.keys(dataA)[i]]["away"][0] + "</p><p>" + Object.keys(dataA)[i].substring(0, 4) + "." + Object.keys(dataA)[i].substring(4, 6) + "." + Object.keys(dataA)[i].substring(6, 8) + "." + "</p></div>")
+        // 창 띄우기
+        $("#playedMatchBG").css("display", "block").animate({opacity: "1"}, 300)
+        $("#playedMatch").animate({bottom: "0"}, 300, function () {
+            $("#playedMatch > p").animate({opacity: ".8"}, 300)
+        })
+
+        $("body").css({"overflow": "hidden"})
+
+        for (i = 0; i < Object.keys(dataA).length; i++) {
+
+            // 상대팀명
+            if (dataA[Object.keys(dataA)[i]]["home"][0] == "서울E") {
+                opp = dataA[Object.keys(dataA)[i]]["away"][0]
+            } else {
+                opp = dataA[Object.keys(dataA)[i]]["home"][0]
             }
-        }
-        
-        // 미드필더로 출전한 경기
-        for (j = 0; j < Object.keys(dataA[Object.keys(dataA)[i]]["MF"]).slice(-1); j++) {
-            if (dataA[Object.keys(dataA)[i]]["MF"][j][0].includes(id)) {
-                $("#playedMatch").append("<div><p>" + dataA[Object.keys(dataA)[i]]["home"][0] + "vs" + dataA[Object.keys(dataA)[i]]["away"][0] + "</p><p>" + Object.keys(dataA)[i].substring(0, 4) + "." + Object.keys(dataA)[i].substring(4, 6) + "." + Object.keys(dataA)[i].substring(6, 8) + "." + "</p></div>")
+
+            // 골키퍼로 출전한 경기
+            for (j = 0; j < Object.keys(dataA[Object.keys(dataA)[i]]["GK"]).slice(-1); j++) {
+                if (dataA[Object.keys(dataA)[i]]["GK"][j][0].includes(id)) {
+                    $("#playedMatch > div").prepend("<div class='" + Object.keys(dataA)[i] + "'><p>vs. " + opp + "</p><p>" + Object.keys(dataA)[i].substring(0, 4) + "." + Object.keys(dataA)[i].substring(4, 6) + "." + Object.keys(dataA)[i].substring(6, 8) + "." + "</p><p>GK</p></div>")
+                }
             }
-        }
-        
-        // 공격수로 출전한 경기
-        for (j = 0; j < Object.keys(dataA[Object.keys(dataA)[i]]["FW"]).slice(-1); j++) {
-            if (dataA[Object.keys(dataA)[i]]["FW"][j][0].includes(id)) {
-                $("#playedMatch").append("<div><p>" + dataA[Object.keys(dataA)[i]]["home"][0] + "vs" + dataA[Object.keys(dataA)[i]]["away"][0] + "</p><p>" + Object.keys(dataA)[i].substring(0, 4) + "." + Object.keys(dataA)[i].substring(4, 6) + "." + Object.keys(dataA)[i].substring(6, 8) + "." + "</p></div>")
+
+            // 수비수로 출전한 경기
+            for (j = 0; j < Object.keys(dataA[Object.keys(dataA)[i]]["DF"]).slice(-1); j++) {
+                if (dataA[Object.keys(dataA)[i]]["DF"][j][0].includes(id)) {
+                    $("#playedMatch > div").prepend("<div class='" + Object.keys(dataA)[i] + "'><p>vs. " + opp + "</p><p>" + Object.keys(dataA)[i].substring(0, 4) + "." + Object.keys(dataA)[i].substring(4, 6) + "." + Object.keys(dataA)[i].substring(6, 8) + "." + "</p><p>DF</p></div>")
+                }
             }
-        }
-        
-        for (j = 0; j < Object.keys(dataA[Object.keys(dataA)[i]]["GK"]).slice(-1); j++) {
-            if (dataA[Object.keys(dataA)[i]]["GK"][j][0].includes(id)) {
-                $("#playedMatch").append("<div><p>" + dataA[Object.keys(dataA)[i]]["home"][0] + "vs" + dataA[Object.keys(dataA)[i]]["away"][0] + "</p><p>" + Object.keys(dataA)[i].substring(0, 4) + "." + Object.keys(dataA)[i].substring(4, 6) + "." + Object.keys(dataA)[i].substring(6, 8) + "." + "</p></div>")
+
+            // 미드필더로 출전한 경기
+            for (j = 0; j < Object.keys(dataA[Object.keys(dataA)[i]]["MF"]).slice(-1); j++) {
+                if (dataA[Object.keys(dataA)[i]]["MF"][j][0].includes(id)) {
+                    $("#playedMatch > div").prepend("<div class='" + Object.keys(dataA)[i] + "'><p>vs. " + opp + "</p><p>" + Object.keys(dataA)[i].substring(0, 4) + "." + Object.keys(dataA)[i].substring(4, 6) + "." + Object.keys(dataA)[i].substring(6, 8) + "." + "</p><p>MF</p></div>")
+                }
             }
+
+            // 공격수로 출전한 경기
+            for (j = 0; j < Object.keys(dataA[Object.keys(dataA)[i]]["FW"]).slice(-1); j++) {
+                if (dataA[Object.keys(dataA)[i]]["FW"][j][0].includes(id)) {
+                    $("#playedMatch > div").prepend("<div class='" + Object.keys(dataA)[i] + "'><p>vs. " + opp + "</p><p>" + Object.keys(dataA)[i].substring(0, 4) + "." + Object.keys(dataA)[i].substring(4, 6) + "." + Object.keys(dataA)[i].substring(6, 8) + "." + "</p><p>FW</p></div>")
+                }
+            }
+
+            for (j = 0; j < Object.keys(dataA[Object.keys(dataA)[i]]["GK"]).slice(-1); j++) {
+                if (dataA[Object.keys(dataA)[i]]["GK"][j][0].includes(id)) {
+                    $("#playedMatch > div").prepend("<div class='" + Object.keys(dataA)[i] + "'><p>vs. " + opp + "</p><p>" + Object.keys(dataA)[i].substring(0, 4) + "." + Object.keys(dataA)[i].substring(4, 6) + "." + Object.keys(dataA)[i].substring(6, 8) + "." + "</p><p>교체 출전</p></div>")
+                }
+            }
+
+            click = 1
         }
     }
+})
+
+// 창 닫기
+$("#playedMatchBG").click(function () {
+    if (click == 1) {
+        $("#playedMatchBG").animate({opacity: "0"}, 300, function () {
+            $("#playedMatchBG").css("display", "none")
+        })
+
+        $("#playedMatch > p").animate({opacity: "1"}), 300, function () {
+            $("#playedMatch").animate({bottom: "-70vh"}, 300)
+        }
+
+        $("body").css({"overflow": "scroll"})
+    }
+
+    click = 0
+})
+
+// 클릭 시 경기 세부 정보 창 열기
+$("#playedMatch > div > div").each(function () {
+    $(document).on("click", this, function () {
+        console.log("hi")
+    })
 })
