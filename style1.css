@@ -112,31 +112,7 @@ footer > div > p {font-size: 12px; font-weight: 500; margin-top: 5px;}
 .playerButton > button {width: 70px; height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
 .playerButton > button:nth-of-type(4) {width: 260px;}
 
-#playerA > div {width: 90vw; margin-left: 5vw; overflow: scroll; text-align: center;}
-#playerA > div > p {width: 90vw; height: 25px; font-size: 18px; margin-top: 50px;}
-#playerA > div > a > div {width: 85vw; height: 30vw; display: flex; justify-content: center; flex-direction: row; align-items: center; border-radius: 10px; background: #fafafa; box-shadow: 0 0 3px 2px #00083120; margin: 20px 2.5vw;}
-#playerA > div > a > div > div {width: 30vw; height: 30vw; overflow: hidden; box-shadow: none;}
-#playerA > div > a > div > div > img {width: 30vw; margin-top: 2vw;}
-#playerA > div > a > div > p {width: 40vw; font-size: 30px; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center; font-style: italic;}
-#playerA > div > a > div > p > span {font-family: "Kaushan Script"; margin-right: 3vw; color: #174fff; font-size: inherit; -webkit-text-stroke: 1px; font-style: normal;}
 
-#playerU18 {display: none;}
-#playerU18 > div {width: 90vw; margin-left: 5vw; overflow: scroll; text-align: center;}
-#playerU18 > div > p {width: 90vw; height: 25px; font-size: 18px; margin-top: 50px;}
-#playerU18 > div > a > div {width: 85vw; height: 30vw; display: flex; justify-content: center; flex-direction: row; align-items: center; border-radius: 10px; background: #fafafa; box-shadow: 0 0 3px 2px #00083120; margin: 20px 2.5vw;}
-#playerU18 > div > a > div > div {width: 26vw; height: 26vw; margin-right: 4vw; overflow: hidden; box-shadow: none; border-radius: 50%;}
-#playerU18 > div > a > div > div > img {width: 26vw; margin-top: -10px;}
-#playerU18 > div > a > div > p {width: 40vw; font-size: 30px; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center; font-style: italic;}
-#playerU18 > div > a > div > p > span {font-family: "Kaushan Script"; margin-right: 3vw; color: #174fff; font-size: inherit; -webkit-text-stroke: 1px; font-style: normal;}
-
-#playerU15 {display: none;}
-#playerU15 > div {width: 90vw; margin-left: 5vw; overflow: scroll; text-align: center;}
-#playerU15 > div > p {width: 90vw; height: 25px; font-size: 18px; margin-top: 50px;}
-#playerU15 > div > a > div {width: 85vw; height: 30vw; display: flex; justify-content: center; flex-direction: row; align-items: center; border-radius: 10px; background: #fafafa; box-shadow: 0 0 3px 2px #00083120; margin: 20px 2.5vw;}
-#playerU15 > div > a > div > div {width: 26vw; height: 26vw; margin-right: 4vw; overflow: hidden; box-shadow: none; border-radius: 50%;}
-#playerU15 > div > a > div > div > img {width: 26vw; margin-top: -10px;}
-#playerU15 > div > a > div > p {width: 40vw; font-size: 30px; border-radius: 0 0 10px 10px; display: flex; justify-content: center; align-items: center; font-style: italic;}
-#playerU15 > div > a > div > p > span {font-family: "Kaushan Script"; margin-right: 3vw; color: #174fff; font-size: inherit; -webkit-text-stroke: 1px; font-style: normal;}
 
 .playerSortButton {width: 100vw; position: fixed; top: 180px; left: 0; background: #fafafa; z-index: 100;}
 .playerSortButton > button {height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: none; font-weight: 500;}
@@ -163,7 +139,7 @@ footer > div > p {font-size: 12px; font-weight: 500; margin-top: 5px;}
 #playerProfile > div:nth-of-type(4) > div > p:nth-of-type(2) {font-size: 30px;}
 
 #playerImg {width: 100vw; height: 500px; margin-top: 100px; overflow: hidden; display: flex; justify-content: center;}
-#playerImg > div {width: 100vw; height: 500px; z-index: -100; opacity: .2;}
+#playerImg > div {width: 100vw; height: 500px; z-index: -100; opacity: .5;}
 
 #playerSNS > div {width: 80vw; border-radius: 20px; box-shadow: 0 0 3px 2px #00083120; padding: 5px 0; margin: 30px 0 0 10vw; display: flex; justify-content: center; align-items: center;}
 #playerSNS > div > img:nth-of-type(1) {height: 20px; margin-right: 5px;}
@@ -176,7 +152,7 @@ footer > div > p {font-size: 12px; font-weight: 500; margin-top: 5px;}
 #playerInfo > div > p:nth-of-type(1) {opacity: .8; margin-bottom: 3px;}
 #playerInfo > div > p:nth-of-type(2) {font-size: 18px; line-height: 18px;}
 
-#playerSEFC {width: 80vw; margin: 20px 0 0 10vw; padding: 20px 0; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 20px; box-shadow: 0 0 3px 2px #00083120;}
+#playerSEFC {width: 80vw; margin: 20px 0 30px 10vw; padding: 20px 0; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 20px; box-shadow: 0 0 3px 2px #00083120;}
 #playerSEFC > p:nth-of-type(1) {font-size: 18px; margin-bottom: 20px;}
 #playerSEFC > p:nth-of-type(2) {font-size: 14px; margin-top: 15px; opacity: .8;}
 #playerSEFC > div {width: 80vw; display: flex; justify-content: center; align-items: center;}
@@ -184,14 +160,15 @@ footer > div > p {font-size: 12px; font-weight: 500; margin-top: 5px;}
 #playerSEFC > div > div > p:nth-of-type(1) {font-size: 16px; opacity: .8;}
 #playerSEFC > div > div > p:nth-of-type(2) {font-size: 30px;}
 
-#playedMatch {width: 100vw; height: 70vh; margin-top: 30vh; background: #fafafa; border-radius: 10vw 10vw 0 0; box-shadow: 0 0 3px 2px #00083120; position: fixed; bottom: -100vh; z-index: 400;}
-#playedMatch > div {width: 100vw; height: calc(70vh - 160px); margin: 50px 0 110px 0; overflow: scroll;}
+#playedMatch {width: 100vw; height: 70vh; margin-top: 30vh; background: #fafafa; border-radius: 10vw 10vw 0 0; box-shadow: 0 0 3px 2px #00083120; display: flex; flex-direction: column; position: fixed; bottom: -100vh; z-index: 400;}
+#playedMatch > div {width: 100vw; height: calc(70vh - 160px); margin: 50px 0 20px 0; overflow: scroll;}
 #playedMatch > div > div {width: 80vw; margin-left: 10vw; padding: 10px 0; display: flex; justify-content: center; align-items: center; border-bottom: 2px solid #00083120;}
 #playedMatch > div > div:nth-of-type(1) {border-top: 2px solid #00083120;}
-#playedMatch > div > div > p:nth-of-type(1) {width: 30vw; font-size: 18px;}
-#playedMatch > div > div > p:nth-of-type(2) {width: 30vw; font-size: 18px;}
-#playedMatch > div > div > p:nth-of-type(3) {width: 20vw; font-size: 18px;}
-#playedMatch > p {width: 100vw; position: fixed; bottom: 80px; opacity: 0;}
+#playedMatch > div > div > p:nth-of-type(1) {width: 20vw; font-size: 16px;}
+#playedMatch > div > div > p:nth-of-type(2) {width: 30vw; font-size: 16px;}
+#playedMatch > div > div > p:nth-of-type(3) {width: 15vw; font-size: 16px;}
+#playedMatch > div > div > p:nth-of-type(4) {width: 10vw; padding: 3px 0; margin: 0 2.5vw; font-size: 16px; border-radius: 20px; color: #fafafa;}
+#playedMatch > p {width: 100vw; margin-bottom: 80px; opacity: .5;}
 
 #playedMatchBG {width: 100vw; height: 100vh; background: #00000010; border-radius: 20px 20px 0 0; box-shadow: 0 0 3px 2px #00083120; position: fixed; top: 0; display: none; opacity: 0; z-index: 300;}
 
