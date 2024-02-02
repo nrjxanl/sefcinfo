@@ -22,30 +22,42 @@ if ($("#playerButtonOffset").length) {
 playerA_GK = playerAList.filter((item) => {
     return item[3] == "골키퍼"
 })
+playerA_GK = playerA_GK.sort((a, b) => a[2] - b[2])
 for (i = 0; i < playerA_GK.length; i++) {
-    $("#gkList").append("<div><img src='./files/" + playerA_GK[i][0] + ".png'><p>"+ playerA_GK[i][1] + "</p><p>"+ playerA_GK[i][2] + "</p></div>")
+    $("#gkList").append("<div class='" + playerA_GK[i][0] + "'><img src='./files/" + playerA_GK[i][0] + ".png'><p>"+ playerA_GK[i][1].replace(/[0-9]/g, "") + "</p><p>"+ playerA_GK[i][2] + "</p></div>")
 }
 
 playerA_DF = playerAList.filter((item) => {
     return item[3] == "수비수"
 })
+playerA_DF = playerA_DF.sort((a, b) => a[2] - b[2])
 for (i = 0; i < playerA_DF.length; i++) {
-    $("#dfList").append("<div><img src='./files/" + playerA_DF[i][0] + ".png'><p>"+ playerA_DF[i][1] + "</p><p>"+ playerA_DF[i][2] + "</p></div>")
+    $("#dfList").append("<div class='" + playerA_DF[i][0] + "'><img src='./files/" + playerA_DF[i][0] + ".png'><p>"+ playerA_DF[i][1].replace(/[0-9]/g, "") + "</p><p>"+ playerA_DF[i][2] + "</p></div>")
 }
 
 playerA_MF = playerAList.filter((item) => {
     return item[3] == "미드필더"
 })
+playerA_MF = playerA_MF.sort((a, b) => a[2] - b[2])
 for (i = 0; i < playerA_MF.length; i++) {
-    $("#mfList").append("<div><img src='./files/" + playerA_MF[i][0] + ".png'><p>"+ playerA_MF[i][1] + "</p><p>"+ playerA_MF[i][2] + "</p></div>")
+    $("#mfList").append("<div class='" + playerA_MF[i][0] + "'><img src='./files/" + playerA_MF[i][0] + ".png'><p>"+ playerA_MF[i][1].replace(/[0-9]/g, "") + "</p><p>"+ playerA_MF[i][2] + "</p></div>")
 }
 
 playerA_FW = playerAList.filter((item) => {
     return item[3] == "공격수"
 })
+playerA_FW = playerA_FW.sort((a, b) => a[2] - b[2])
 for (i = 0; i < playerA_FW.length; i++) {
-    $("#fwList").append("<div><img src='./files/" + playerA_FW[i][0] + ".png'><p>"+ playerA_FW[i][1] + "</p><p>"+ playerA_FW[i][2] + "</p></div>")
+    $("#fwList").append("<div class='" + playerA_FW[i][0] + "'><img src='./files/" + playerA_FW[i][0] + ".png'><p>"+ playerA_FW[i][1].replace(/[0-9]/g, "") + "</p><p>"+ playerA_FW[i][2] + "</p></div>")
 }
+
+// 클릭 시 선수 세부 정보 창으로 이동
+$("#playerA > div > div > div").each(function () {
+    $(this).click(function() {
+        localStorage.setItem("player", $(this).attr("class"))
+        window.location.href = "./playerinfo.html"
+    })
+})
 
 ////////// 선수 세부 정보 창 //////////
 
