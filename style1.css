@@ -170,10 +170,11 @@ footer > div > p {font-size: 12px; font-weight: 500; margin-top: 5px;}
 #playedMatch > div {width: 100vw; height: calc(70vh - 160px); margin: 50px 0 20px 0; overflow: scroll;}
 #playedMatch > div > div {width: 80vw; margin-left: 10vw; padding: 10px 0; display: flex; justify-content: center; align-items: center; border-bottom: 2px solid #00083120;}
 #playedMatch > div > div:nth-of-type(1) {border-top: 2px solid #00083120;}
-#playedMatch > div > div > p:nth-of-type(1) {width: 20vw; font-size: 16px;}
-#playedMatch > div > div > p:nth-of-type(2) {width: 30vw; font-size: 16px;}
-#playedMatch > div > div > p:nth-of-type(3) {width: 15vw; font-size: 16px;}
-#playedMatch > div > div > p:nth-of-type(4) {width: 10vw; padding: 3px 0; margin: 0 2.5vw; font-size: 16px; border-radius: 20px; color: #fafafa;}
+#playedMatch > div > div > p:nth-of-type(1) {width: 10vw; font-size: 16px;}
+#playedMatch > div > div > p:nth-of-type(2) {width: 20vw; font-size: 16px;}
+#playedMatch > div > div > p:nth-of-type(3) {width: 25vw; font-size: 14px;}
+#playedMatch > div > div > p:nth-of-type(4) {width: 10vw; font-size: 16px;}
+#playedMatch > div > div > p:nth-of-type(5) {width: 10vw; padding: 3px 0; margin: 0 2.5vw; font-size: 16px; border-radius: 20px; color: #fafafa;}
 #playedMatch > p {width: 100vw; margin-bottom: 80px; opacity: .5;}
 
 #playedMatchBG {width: 100vw; height: 100vh; background: #00000010; border-radius: 20px 20px 0 0; box-shadow: 0 0 3px 2px #00083120; position: fixed; top: 0; display: none; opacity: 0; z-index: 300;}
