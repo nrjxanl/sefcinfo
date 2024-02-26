@@ -341,7 +341,7 @@ footer > div > p {font-size: 12px; font-weight: 500; margin-top: 5px;}
 #matchH2H > div:nth-of-type(3) {width: 80vw; display: flex; border-radius: 10px; overflow: hidden; margin-top: 10vw;}
 #matchH2H > div:nth-of-type(3) > p {font-size: 16px; font-weight: 500; color: #fafafa; display: flex; align-items: center; justify-content: center;}
 
-#recentMatch {width: 80vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 20px; margin-top: 30px;}
+#recentMatch {width: 80vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 20px; margin-top: 40px;}
 #recentMatch > div {width: 80vw; height: 60px; border-bottom: 2px solid #00083120; padding: 5px 0;}
 #recentMatch > div > div:nth-of-type(1) {width: 80vw; height: 40px; display: flex; align-items: center;}
 #recentMatch > div > div:nth-of-type(1) > div:nth-of-type(1) {width: 30vw; display: flex; align-items: center; justify-content: flex-end;}
