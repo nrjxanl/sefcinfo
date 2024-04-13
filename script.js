@@ -49,7 +49,7 @@ if ($("div[id*=ButtonOffset]").length) {
 }
 
 // 푸터
-$("footer").html("<div><img src='https://sefc.info/files/home.svg'><p>홈</p></div><div><img src='https://sefc.info/files/players.svg'><p>선수단</p></div><div><img src='https://sefc.info/files/fixtures.svg'><p>일정</p></div><div><img src='https://sefc.info/files/standings.svg'><p>순위</p></div>")
+$("footer").html("<div><img src='./files/home.svg'><p>홈</p></div><div><img src='./files/players.svg'><p>선수단</p></div><div><img src='./files/fixtures.svg'><p>일정</p></div><div><img src='./files/standings.svg'><p>순위</p></div>")
 
 $("footer > div:nth-of-type(1)").attr("onclick", "location.href='https://sefc.info'")
 $("footer > div:nth-of-type(2)").attr("onclick", "location.href='https://sefc.info/players'")
