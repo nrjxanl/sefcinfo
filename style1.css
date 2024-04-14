@@ -174,9 +174,10 @@ footer > div > p {font-size: 12px; font-weight: 500; margin-top: 5px;}
 #playedMatch > div > div:nth-of-type(1) {border-top: 2px solid #00083120;}
 #playedMatch > div > div > p:nth-of-type(1) {width: 10vw; font-size: 16px;}
 #playedMatch > div > div > p:nth-of-type(2) {width: 20vw; font-size: 16px;}
-#playedMatch > div > div > p:nth-of-type(3) {width: 25vw; font-size: 14px;}
+#playedMatch > div > div > p:nth-of-type(3) {width: 15vw; font-size: 16px;}
 #playedMatch > div > div > p:nth-of-type(4) {width: 10vw; font-size: 16px;}
-#playedMatch > div > div > p:nth-of-type(5) {width: 10vw; padding: 3px 0; margin: 0 2.5vw; font-size: 16px; border-radius: 20px; color: #fafafa;}
+#playedMatch > div > div > p:nth-of-type(5) {width: 10vw; font-size: 16px;}
+#playedMatch > div > div > p:nth-of-type(6) {width: 10vw; padding: 3px 0; margin: 0 2.5vw; font-size: 16px; border-radius: 20px; color: #fafafa;}
 #playedMatch > p {width: 100vw; margin-bottom: 80px; opacity: .5;}
 
 #playedMatchBG {width: 100vw; height: 100vh; background: #00000010; border-radius: 20px 20px 0 0; box-shadow: 0 0 3px 2px #00083120; position: fixed; top: 0; display: none; opacity: 0; z-index: 300;}
@@ -279,7 +280,7 @@ footer > div > p {font-size: 12px; font-weight: 500; margin-top: 5px;}
 #potm > div > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: 3px solid #fafafa;}
 #potm > div > div > img {width: 10vw;}
 #potm > div > p:nth-of-type(1) {font-size: 16px; font-weight: 500; margin-top: 5px;}
-#potm > div > p:nth-of-type(1) > span {font-size: 16px; color: #174fff; margin: 0 1.5vw 0 3vw; font-family: "Kaushan Script";}
+#potm > div > p:nth-of-type(1) > span {font-size: 16px; color: #d4a73f; margin: 0 1.5vw 0 3vw; font-family: "Kaushan Script";}
 #potm > div > p:nth-of-type(2) {width: 10vw; padding: 3px 0; font-size: 14px; border-radius: 50vw; color: #fafafa; background: #000831; position: absolute; right: 15vw;}
 
 #matchLineup {display: none; margin-top: -3px; padding-bottom: 30px;}
@@ -294,9 +295,9 @@ footer > div > p {font-size: 12px; font-weight: 500; margin-top: 5px;}
 #startingXI > table > tbody > tr > td {height: 27.5vw; display: flex; flex-direction: column; justify-content: center; align-items: center;}
 #startingXI > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: 3px solid #fafafa;}
 #startingXI > table > tbody > tr > td > div > img {width: 10vw;}
-#startingXI > table > tbody > tr > td > p:nth-of-type(1) {font-weight: 500; margin-top: 5px; display: flex; align-items: center;}
-#startingXI > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(1) {color: #174fff; margin-right: 5px; font-family: "Kaushan Script";}
-#startingXI > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) {color: #174fff; margin-left: 3px; font-family: "Kaushan Script";}
+#startingXI > table > tbody > tr > td > p:nth-of-type(1) {font-weight: 500; margin-top: 5px;}
+#startingXI > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(1) {color: #d4a73f; margin-right: 5px; font-family: "Kaushan Script";}
+#startingXI > table > tbody > tr > td > p:nth-of-type(1) > img {height: 16px; vertical-align: middle; margin: 0 0 2px 2px;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(2) {width: 8vw; padding: 3px 0; margin-top: 5px; border-radius: 50vw; color: #fafafa; background: #000831;}
 
 #startingXI > div {width: 70vw; margin-left: 5vw;}
@@ -317,10 +318,11 @@ footer > div > p {font-size: 12px; font-weight: 500; margin-top: 5px;}
 #sub > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: 3px solid #fafafa;}
 #sub > table > tbody > tr > td > div > img {width: 10vw;}
 #sub > table > tbody > tr > td > p:nth-of-type(1) {font-size: 16px; font-weight: 500; margin-top: 5px;}
-#sub > table > tbody > tr > td > p:nth-of-type(1) > span {font-size: 16px; color: #174fff; margin: 0 1.5vw 0 3vw; font-family: "Kaushan Script";}
+#sub > table > tbody > tr > td > p:nth-of-type(1) > span {font-size: 16px; color: #d4a73f; margin: 0 1.5vw 0 3vw; font-family: "Kaushan Script";}
+#sub > table > tbody > tr > td > p:nth-of-type(1) > img {height: 16px; vertical-align: middle; margin: 0 0 2px 2px;}
 #sub > table > tbody > tr > td > p:nth-of-type(2) {width: 10vw; padding: 3px 0; font-size: 14px; border-radius: 50vw; color: #fafafa; background: #000831; position: absolute; right: 15vw;}
 
-.potm {background: #174fff !important;}
+.potm {background: #d4a73f !important;}
 
 #matchStat {display: none; padding-bottom: 50px;}
 #matchStat > table {width: 80vw; margin-left: 10vw;}

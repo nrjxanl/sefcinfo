@@ -57,17 +57,17 @@ $("footer > div:nth-of-type(3)").attr("onclick", "location.href='https://sefc.in
 $("footer > div:nth-of-type(4)").attr("onclick", "location.href='https://sefc.info/standings'")
 
 if ($("#nextMatch").length) {
-    $("footer > div:nth-of-type(1) > img").css("filter", "invert(19%) sepia(72%) saturate(4441%) hue-rotate(228deg) brightness(103%) contrast(103%)")
-    $("footer > div:nth-of-type(1) > p").css("color", "#174fff")
+    $("footer > div:nth-of-type(1) > img").css("filter", "invert(70%) sepia(58%) saturate(439%) hue-rotate(2deg) brightness(86%) contrast(98%)")
+    $("footer > div:nth-of-type(1) > p").css("color", "#d4a73f")
 } else if ($(".playerButton").length || $("#playerMain").length) {
-    $("footer > div:nth-of-type(2) > img").css("filter", "invert(19%) sepia(72%) saturate(4441%) hue-rotate(228deg) brightness(103%) contrast(103%)")
-    $("footer > div:nth-of-type(2) > p").css("color", "#174fff")
+    $("footer > div:nth-of-type(2) > img").css("filter", "invert(70%) sepia(58%) saturate(439%) hue-rotate(2deg) brightness(86%) contrast(98%)")
+    $("footer > div:nth-of-type(2) > p").css("color", "#d4a73f")
 } else if ($(".fixturesButton").length || $("#matchScore").length) {
-    $("footer > div:nth-of-type(3) > img").css("filter", "invert(19%) sepia(72%) saturate(4441%) hue-rotate(228deg) brightness(103%) contrast(103%)")
-    $("footer > div:nth-of-type(3) > p").css("color", "#174fff")
+    $("footer > div:nth-of-type(3) > img").css("filter", "invert(70%) sepia(58%) saturate(439%) hue-rotate(2deg) brightness(86%) contrast(98%)")
+    $("footer > div:nth-of-type(3) > p").css("color", "#d4a73f")
 } else if ($(".standingsButton").length) {
-    $("footer > div:nth-of-type(4) > img").css("filter", "invert(19%) sepia(72%) saturate(4441%) hue-rotate(228deg) brightness(103%) contrast(103%)")
-    $("footer > div:nth-of-type(4) > p").css("color", "#174fff")
+    $("footer > div:nth-of-type(4) > img").css("filter", "invert(70%) sepia(58%) saturate(439%) hue-rotate(2deg) brightness(86%) contrast(98%)")
+    $("footer > div:nth-of-type(4) > p").css("color", "#d4a73f")
 }
 
 // 문자별 글꼴 적용
