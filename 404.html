@@ -24,12 +24,6 @@ permalink: /404.html
 
     <div id="headerOffset"></div>
 
-    <div id="page404">
-        <p>404</p>
-        <p>페이지가 삭제되었거나 주소가 잘못되어<br>페이지를 찾을 수 없습니다.</p>
-        <p><a href="https://sefc.info">홈 화면으로</a></p>
-    </div>
-
     <div id="footerOffset"></div>
 
     <script src="script.js"></script>
@@ -38,11 +32,10 @@ permalink: /404.html
 
     <script>
         url = window.location.href
+        id = url.replace(/[^0-9]/g, "")
 
         // 경기 정보
-        if (url.replace(/[^0-9]/g, "").length == 9) {
-            id = url.replace(/[^0-9]/g, "")
-
+        if (id.length == 9) {
             if (id.substring(8, 9) == 0) {
                 data = dataA
             } else if (id.substring(8, 9) == 8) {
@@ -54,7 +47,18 @@ permalink: /404.html
             if (data[id] !== undefined) {
                 localStorage.setItem("id", id)
                 window.location.href = "./matchinfo"
+            } else {
+                $("body").html("<div id='page404'><p>404</p><p>페이지가 삭제되었거나 주소가 잘못되어<br>페이지를 찾을 수 없습니다.</p><p><a href='https://sefc.info'>홈 화면으로</a></p></div>")
             }
+        } else if (id.length == 8) {
+            if (player[id] !== undefined) {
+                localStorage.setItem("player", id)
+                window.location.href = "./playerinfo"
+            } else {
+                $("body").html("<div id='page404'><p>404</p><p>페이지가 삭제되었거나 주소가 잘못되어<br>페이지를 찾을 수 없습니다.</p><p><a href='https://sefc.info'>홈 화면으로</a></p></div>")
+            }
+        } else {
+            $("body").html("<div id='page404'><p>404</p><p>페이지가 삭제되었거나 주소가 잘못되어<br>페이지를 찾을 수 없습니다.</p><p><a href='https://sefc.info'>홈 화면으로</a></p></div>")
         }
     </script>
 
