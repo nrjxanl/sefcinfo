@@ -44,14 +44,14 @@ permalink: /404.html
 
             if (data[id] !== undefined) {
                 localStorage.setItem("id", id)
-                window.location.href = "./matchinfo"
+                window.location.href = "./match"
             } else {
                 url404()
             }
         } else if (id.length == 8) {
             if (player[id] !== undefined) {
                 localStorage.setItem("player", id)
-                window.location.href = "./playerinfo"
+                window.location.href = "./player"
             } else {
                 url404()
             }

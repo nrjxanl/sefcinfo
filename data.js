@@ -52,7 +52,7 @@ if ($("#matchScore").length) {
     $("#date").text(id.substring(0, 4) + "." + id.substring(4, 6) + "." + id.substring(6, 8) + ".")
 
     if (id.substring(8, 9) == 8 || id.substring(8, 9) == 5) {
-        $("button[onclick='matchInfo()']").css("display", "none")
+        $("button[onclick='match()']").css("display", "none")
         matchLineup()
     }
 
@@ -299,18 +299,18 @@ if ($("#matchScore").length) {
 
         $("#startingXI > table > tbody > tr > td").each(function() {
             $(this).click(function() {
-                window.location.href = "./playerinfo?" + $(this).attr("id")
+                window.location.href = "./player?" + $(this).attr("id")
             })
         })
 
         $("#sub > table > tbody > tr").each(function() {
             $(this).click(function() {
-                window.location.href = "./playerinfo?" + $(this).find("td").attr("id")
+                window.location.href = "./player?" + $(this).find("td").attr("id")
             })
         })
 
         $("#potm").click(function() {
-            window.location.href = "./playerinfo?" + href
+            window.location.href = "./player?" + href
         })
 
     } else {
@@ -394,7 +394,7 @@ if ($("#matchScore").length) {
 }
 
 if ($("#matchScore").length && !$("#potm").length && !$("#highlight").length) {
-    $("button[onclick='matchInfo()']").css("display", "none")
+    $("button[onclick='match()']").css("display", "none")
     if ($("button[onclick='matchLineup()']").css("display") == "none") {
         matchH2H()
     } else {
@@ -405,7 +405,7 @@ if ($("#matchScore").length && !$("#potm").length && !$("#highlight").length) {
 // 전적
 function matchH2H() {
 
-    document.getElementById("matchInfo").style.display = "none"
+    document.getElementById("match").style.display = "none"
     document.getElementById("matchLineup").style.display = "none"
     document.getElementById("matchStat").style.display = "none"
     document.getElementById("matchH2H").style.display = "flex"
@@ -736,7 +736,7 @@ function redirect() {
     $("#recentMatch > div").each(function (index) {
         if ($(this).attr("id") !== "viewAll") {
             $(this).click(function () {
-                window.location.href = "./matchinfo?" + h2hList[index]
+                window.location.href = "./match?" + h2hList[index]
             })
         }
     })
@@ -792,7 +792,7 @@ function fixtures() {
 
         $("#fixturesA > .fixtures > .fixtures_").each(function () {
             $(this).click(function () {
-                window.location.href = "./matchinfo?" + Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[$(this).index()]
+                window.location.href = "./match?" + Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[$(this).index()]
             })
         })
 
@@ -850,7 +850,7 @@ function fixtures() {
 
         $("#fixturesU18 > .fixtures > .fixtures_").each(function () {
             $(this).click(function () {
-                window.location.href = "./matchinfo?" + Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[$(this).index()]
+                window.location.href = "./match?" + Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[$(this).index()]
             })
         })
 
@@ -908,7 +908,7 @@ function fixtures() {
 
         $("#fixturesU15 > .fixtures > .fixtures_").each(function () {
             $(this).click(function () {
-                window.location.href = "./matchinfo?" + Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[$(this).index()]
+                window.location.href = "./match?" + Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[$(this).index()]
             })
         })
 
@@ -983,7 +983,7 @@ if ($("#standingsHome").length) {
         }
 
         $("#nextMatch").click(function () {
-            window.location.href = "./matchinfo?" + Object.keys(dataA)[Object.values(dataA).indexOf(next)]
+            window.location.href = "./match?" + Object.keys(dataA)[Object.values(dataA).indexOf(next)]
         })
     } else {
         $("#nextMatch").css("display", "none")
@@ -1028,7 +1028,7 @@ if ($("#standingsHome").length) {
 
     $("#prevMatch > div > div").each(function () {
         $(this).click(function () {
-            window.location.href = "./matchinfo?" + prev[$(this).index()]
+            window.location.href = "./match?" + prev[$(this).index()]
         })
     })
 }
@@ -1088,7 +1088,7 @@ playerU15List = []
     // 클릭 시 선수 세부 정보 창으로 이동
     $("#playerA > div > div > div").each(function () {
         $(this).click(function () {
-            window.location.href = "./playerinfo?" + $(this).attr("class")
+            window.location.href = "./player?" + $(this).attr("class")
         })
     })
 }
@@ -1204,7 +1204,7 @@ if ($("#playerProfile").length) {
     // 클릭 시 경기 세부 정보 창 열기
     $("#playedMatch > div > div").each(function () {
         $(this).click(function () {
-            window.location.href = "./matchinfo?" + $(this).attr("class")
+            window.location.href = "./match?" + $(this).attr("class")
         })
     })
 
