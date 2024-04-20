@@ -34,6 +34,22 @@ permalink: /404.html
 
     <script src="script.js"></script>
 
+    <script src="data.js"></script>
+
+    <script>
+        url = window.location.href
+
+        // 경기 정보
+        if (url.replace(/[^0-9]/g, "").length == 9) {
+            id = url.replace(/[^0-9]/g, "")
+
+            if (data[id] !== undefined) {
+                localStorage.setItem("id", id)
+                window.location.href = "./matchinfo"
+            }
+        }
+    </script>
+
 </body>
 
 </html>
