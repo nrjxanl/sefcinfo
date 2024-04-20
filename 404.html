@@ -43,15 +43,13 @@ permalink: /404.html
             }
 
             if (data[id] !== undefined) {
-                localStorage.setItem("id", id)
-                window.location.href = "./match"
+                window.location.href = "./match?" + id
             } else {
                 url404()
             }
         } else if (id.length == 8) {
             if (player[id] !== undefined) {
-                localStorage.setItem("player", id)
-                window.location.href = "./player"
+                window.location.href = "./player?" + id
             } else {
                 url404()
             }
