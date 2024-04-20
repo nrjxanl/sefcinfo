@@ -405,7 +405,7 @@ if ($("#matchScore").length && !$("#potm").length && !$("#highlight").length) {
 // 전적
 function matchH2H() {
 
-    document.getElementById("match").style.display = "none"
+    document.getElementById("matchinfo").style.display = "none"
     document.getElementById("matchLineup").style.display = "none"
     document.getElementById("matchStat").style.display = "none"
     document.getElementById("matchH2H").style.display = "flex"
