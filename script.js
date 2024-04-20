@@ -64,14 +64,14 @@ if ($("#nextMatch").length) {
     $("footer > div:nth-of-type(2) > img").css("filter", "invert(70%) sepia(58%) saturate(439%) hue-rotate(2deg) brightness(86%) contrast(98%)")
     $("footer > div:nth-of-type(2) > p").css("color", "#d4a73f")
 } else if ($(".playerButton").length || $("#playerMain").length) {
-    $("footer > div:nth-of-type(2) > img").css("filter", "invert(70%) sepia(58%) saturate(439%) hue-rotate(2deg) brightness(86%) contrast(98%)")
-    $("footer > div:nth-of-type(2) > p").css("color", "#d4a73f")
-} else if ($(".fixturesButton").length || $("#matchScore").length) {
     $("footer > div:nth-of-type(3) > img").css("filter", "invert(70%) sepia(58%) saturate(439%) hue-rotate(2deg) brightness(86%) contrast(98%)")
     $("footer > div:nth-of-type(3) > p").css("color", "#d4a73f")
-} else if ($(".standingsButton").length) {
+} else if ($(".fixturesButton").length || $("#matchScore").length) {
     $("footer > div:nth-of-type(4) > img").css("filter", "invert(70%) sepia(58%) saturate(439%) hue-rotate(2deg) brightness(86%) contrast(98%)")
     $("footer > div:nth-of-type(4) > p").css("color", "#d4a73f")
+} else if ($(".standingsButton").length) {
+    $("footer > div:nth-of-type(5) > img").css("filter", "invert(70%) sepia(58%) saturate(439%) hue-rotate(2deg) brightness(86%) contrast(98%)")
+    $("footer > div:nth-of-type(5) > p").css("color", "#d4a73f")
 }
 
 // 문자별 글꼴 적용

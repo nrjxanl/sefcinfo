@@ -797,35 +797,33 @@ function stats() {
 
     }
 
-    $("#statsA > .stats").append("<table><thead><tr><th></th><th>선수</th><th>출전</th><th>득점</th><th>도움</th><th>경고</th><th>퇴장</th></tr></thead><tbody></tbody></table>")
-
     // 표에 데이터 삽입
     for (i = 0; i < Object.keys(app).length; i++) {
-        $("#statsA > .stats > table > tbody").append("<tr><td><div></div></td><td></td><td></td><td></td><td></td><td></td><td></td></div>")
+        $("#statsA > .stats > table > tbody").append("<tr><td><div></div></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>")
 
         $("#statsA > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(1) > div").append("<img src='./files/" + Object.keys(app)[i] + ".png'>")
         $("#statsA > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(2)").text(playerNumber[year][Object.keys(app)[i]][0].replace(/[0-9]/g, ""))
         $("#statsA > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(3)").text(Object.values(app)[i])
 
-        if (goal[Object.keys(app)[i]] == undefined) {
+        if (goal[Object.keys(app)[i]] === undefined) {
             $("#statsA > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(4)").text("0")
         } else {
             $("#statsA > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(4)").text(goal[Object.keys(app)[i]])
         }
 
-        if (assist[Object.keys(app)[i]] == undefined) {
+        if (assist[Object.keys(app)[i]] === undefined) {
             $("#statsA > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(5)").text("0")
         } else {
             $("#statsA > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(5)").text(assist[Object.keys(app)[i]])
         }
 
-        if (yc[Object.keys(app)[i]] == undefined) {
+        if (yc[Object.keys(app)[i]] === undefined) {
             $("#statsA > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(6)").text("0")
         } else {
             $("#statsA > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(6)").text(yc[Object.keys(app)[i]])
         }
 
-        if (rc[Object.keys(app)[i]] == undefined) {
+        if (rc[Object.keys(app)[i]] === undefined) {
             $("#statsA > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(7)").text("0")
         } else {
             $("#statsA > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(7)").text(rc[Object.keys(app)[i]])
@@ -847,7 +845,7 @@ $("#statsSeason_ > button").each(function () {
         $("#statsSeason_ > button").css({ "color": "#000831", "background": "#fafafa" })
         $(this).css({ "color": "#fafafa", "background": "#000831" })
 
-        $(".stats").empty()
+        $(".stats > table > tbody").empty()
         app = {}
         goal = {}
         assist = {}
