@@ -23,6 +23,7 @@ footer > div > p {font-size: 12px; font-weight: 500; margin-top: 5px;}
 /* 오프셋 */
 #headerOffset {width: 100vw; height: 100px; display: block; visibility: hidden;}
 #footerOffset {width: 100vw; height: 70px; display: block; visibility: hidden;}
+#statsButtonOffset {width: 100vw; height: 40px; visibility: hidden;}
 #playerButtonOffset {width: 100vw; height: 80px; visibility: hidden;}
 #fixturesButtonOffset {width: 100vw; height: 40px; visibility: hidden;}
 #recordsButtonOffset {width: 100vw; height: 40px; visibility: hidden;}
@@ -176,51 +177,24 @@ footer > div > p {font-size: 12px; font-weight: 500; margin-top: 5px;}
 #playedMatchBG {width: 100vw; height: 100vh; background: #00000010; border-radius: 20px 20px 0 0; box-shadow: 0 0 3px 2px #00083120; position: fixed; top: 0; display: none; opacity: 0; z-index: 300;}
 
 /* 선수 기록 */
-.recordsDetail {width: 100vw; height: 25px; margin-top: 64px; background: #fafafa;}
-.recordsDetail > button {width: 20vw; height: 25px; background: none; border: none; font-size: 16px;}
+.statsButton {width: 100vw; height: 40px; position: fixed; top: 100px; left: 0; background: #fafafa; z-index: 100;}
+.statsButton > button {width: 70px; height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
 
-.recordsButton {width: 100vw; height: 40px; position: fixed; top: 100px; left: 0; background: #fafafa; z-index: 100;}
-.recordsButton > button {width: 70px; height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
+.statsSeason {width: 90vw; height: 25px; padding: 20px 5vw; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; align-content: flex-start; position: fixed; z-index: 100; margin-top: -1px;}
+.statsSeason > button {width: 17vw; height: 25px; background: none; border: 1px solid #000831; border-radius: 50px;}
+.statsSeason > div {width: 73vw; height: 25px; overflow: scroll; display: none;}
+.statsSeason > div > button {height: 25px; padding: 0 2vw; background: none; border: 1px solid #000831; border-radius: 50px; margin-left: 2vw;}
 
-.recordsSeason {width: 90vw; height: 25px; padding: 20px 5vw; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; align-content: flex-start; position: fixed; z-index: 100; margin-top: -1px;}
-.recordsSeason > button {width: 17vw; height: 25px; background: none; border: 1px solid #000831; border-radius: 50px;}
-.recordsSeason > div {width: 73vw; height: 25px; overflow: scroll; display: none;}
-.recordsSeason > div > button {height: 25px; padding: 0 2vw; background: none; border: 1px solid #000831; border-radius: 50px; margin-left: 2vw;}
-
-#recordsU18, #recordsU15 {display: none;}
-
-.appRecord {width: 90vw; height: inherit; margin: 30px 0 0 5vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 5vw; display: flex; align-items: flex-start; justify-content: center; flex-direction: column;}
-.appRecord > div {display: flex; flex-direction: column;}
-.appRecord > div > a > div {display: flex; align-items: center; padding: 10px 0;}
-.appRecord > div > a:nth-of-type(1) > div {padding-top: 20px;}
-.appRecord > div > a:nth-of-type(3) > div {padding-bottom: 20px;}
-.appRecord > div > a > div > div {width: 15vw; height: 15vw; overflow: hidden; border-radius: 0 0 50% 50%; margin: 0 3vw;}
-.appRecord > div > a > div > div > img {width: 15vw;}
-.appRecord > div > a > div > p:nth-of-type(1) {font-size: 24px; padding-right: 3vw;}
-.appRecord > div > a > div > p:nth-of-type(2) {font-size: 20px; text-align: left;}
-.appRecord > div > a > div > p:nth-of-type(2) > span {font-size: 20px; font-weight: 500;}
-
-.goalRecord {width: 90vw; height: inherit; margin: 30px 0 0 5vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 5vw; display: none; align-items: flex-start; justify-content: center; flex-direction: column;}
-.goalRecord > div {display: flex; flex-direction: column;}
-.goalRecord > div > a > div {display: flex; align-items: center; padding: 10px 0;}
-.goalRecord > div > a:nth-of-type(1) > div {padding-top: 20px;}
-.goalRecord > div > a:nth-of-type(3) > div {padding-bottom: 20px;}
-.goalRecord > div > a > div > div {width: 15vw; height: 15vw; overflow: hidden; border-radius: 0 0 50% 50%; margin: 0 3vw;}
-.goalRecord > div > a > div > div > img {width: 15vw;}
-.goalRecord > div > a > div > p:nth-of-type(1) {font-size: 24px; padding-right: 3vw;}
-.goalRecord > div > a > div > p:nth-of-type(2) {font-size: 20px; text-align: left;}
-.goalRecord > div > a > div > p:nth-of-type(2) > span {font-size: 20px; font-weight: 500;}
-
-.assistRecord {width: 90vw; height: inherit; margin: 30px 0 0 5vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 5vw; display: none; align-items: flex-start; justify-content: center; flex-direction: column;}
-.assistRecord > div {display: flex; flex-direction: column;}
-.assistRecord > div > a > div {display: flex; align-items: center; padding: 10px 0;}
-.assistRecord > div > a:nth-of-type(1) > div {padding-top: 20px;}
-.assistRecord > div > a:nth-of-type(3) > div {padding-bottom: 20px;}
-.assistRecord > div > a > div > div {width: 15vw; height: 15vw; overflow: hidden; border-radius: 0 0 50% 50%; margin: 0 3vw;}
-.assistRecord > div > a > div > div > img {width: 15vw;}
-.assistRecord > div > a > div > p:nth-of-type(1) {font-size: 24px; padding-right: 3vw;}
-.assistRecord > div > a > div > p:nth-of-type(2) {font-size: 20px; text-align: left;}
-.assistRecord > div > a > div > p:nth-of-type(2) > span {font-size: 20px; font-weight: 500;}
+#statsA > .stats > table {width: 90vw; margin: 100px 0 0 5vw;}
+#statsA > .stats > table > thead > tr > th {font-size: 18px;}
+#statsA > .stats > table > tbody > tr {height: 80px; display: flex; align-items: center; justify-content: center;}
+#statsA > .stats > table > tbody > tr > td:nth-of-type(1) {width: 50px; display: flex; justify-content: center;}
+#statsA > .stats > table > tbody > tr > td:nth-of-type(1) > div {width: 50px; height: 50px; overflow: hidden; border-radius: 50%;}
+#statsA > .stats > table > tbody > tr > td:nth-of-type(1) > div > img {width: 50px;}
+#statsA > .stats > table > tbody > tr > td:nth-of-type(2) {width: 30vw; padding-left: 30px; font-size: 24px; text-align: left;}
+#statsA > .stats > table > tbody > tr > td:nth-of-type(n+3) {width: calc((60vw - 80px)/5); font-size: 18px;}
+#statsU18 {display: none;}
+#statsU15 {display: none;}
 
 /* 일정 */
 .fixturesButton {width: 100vw; height: 40px; position: fixed; top: 100px; left: 0; background: #fafafa; z-index: 100;}

@@ -49,16 +49,20 @@ if ($("div[id*=ButtonOffset]").length) {
 }
 
 // 푸터
-$("footer").html("<div><img src='./files/home.svg'><p>홈</p></div><div><img src='./files/players.svg'><p>선수단</p></div><div><img src='./files/fixtures.svg'><p>일정</p></div><div><img src='./files/standings.svg'><p>순위</p></div>")
+$("footer").html("<div><img src='./files/home.svg'><p>홈</p></div><div><img src='./files/stats.svg'><p>기록</p></div><div><img src='./files/players.svg'><p>선수단</p></div><div><img src='./files/fixtures.svg'><p>일정</p></div><div><img src='./files/standings.svg'><p>순위</p></div>")
 
 $("footer > div:nth-of-type(1)").attr("onclick", "location.href='https://sefc.info'")
-$("footer > div:nth-of-type(2)").attr("onclick", "location.href='https://sefc.info/players'")
-$("footer > div:nth-of-type(3)").attr("onclick", "location.href='https://sefc.info/fixtures'")
-$("footer > div:nth-of-type(4)").attr("onclick", "location.href='https://sefc.info/standings'")
+$("footer > div:nth-of-type(2)").attr("onclick", "location.href='./stats'")
+$("footer > div:nth-of-type(3)").attr("onclick", "location.href='./players'")
+$("footer > div:nth-of-type(4)").attr("onclick", "location.href='./fixtures'")
+$("footer > div:nth-of-type(5)").attr("onclick", "location.href='./standings'")
 
 if ($("#nextMatch").length) {
     $("footer > div:nth-of-type(1) > img").css("filter", "invert(70%) sepia(58%) saturate(439%) hue-rotate(2deg) brightness(86%) contrast(98%)")
     $("footer > div:nth-of-type(1) > p").css("color", "#d4a73f")
+} else if ($(".statsButton").length) {
+    $("footer > div:nth-of-type(2) > img").css("filter", "invert(70%) sepia(58%) saturate(439%) hue-rotate(2deg) brightness(86%) contrast(98%)")
+    $("footer > div:nth-of-type(2) > p").css("color", "#d4a73f")
 } else if ($(".playerButton").length || $("#playerMain").length) {
     $("footer > div:nth-of-type(2) > img").css("filter", "invert(70%) sepia(58%) saturate(439%) hue-rotate(2deg) brightness(86%) contrast(98%)")
     $("footer > div:nth-of-type(2) > p").css("color", "#d4a73f")
@@ -138,26 +142,53 @@ if (intersection.length != 0) {
     _playerName.css({"font-family": "'Noto Sans', 'Noto Sans KR'", "font-weight": "500"})
 }
 
+// 선수 기록 창 전환
+function statsA() {
+    $("#statsA").css("display", "block")
+    $("#statsU18").css("display", "none")
+    $("#statsU15").css("display", "none")
+}
+
+function statsU18() {
+    $("#statsA").css("display", "none")
+    $("#statsU18").css("display", "block")
+    $("#statsU15").css("display", "none")
+}
+
+function statsU15() {
+    $("#statsA").css("display", "none")
+    $("#statsU18").css("display", "none")
+    $("#statsU15").css("display", "block")
+}
+
+function statsSeason() {
+    season = $("#statsSeason_").css("display")
+
+    if(season == "none") {
+        document.getElementById("statsSeason_").style.display = "flex"
+    } else {
+        document.getElementById("statsSeason_").style.display = "none"
+    }
+
+}
+
 // 선수단 창 전환
 function playerA() {
     document.getElementById("playerA").style.display = "block"
     document.getElementById("playerU18").style.display = "none"
     document.getElementById("playerU15").style.display = "none"
-    document.getElementById("playerAllTime").style.display = "none"
 }
 
 function playerU18() {
     document.getElementById("playerA").style.display = "none"
     document.getElementById("playerU18").style.display = "block"
     document.getElementById("playerU15").style.display = "none"
-    document.getElementById("playerAllTime").style.display = "none"
 }
 
 function playerU15() {
     document.getElementById("playerA").style.display = "none"
     document.getElementById("playerU18").style.display = "none"
     document.getElementById("playerU15").style.display = "block"
-    document.getElementById("playerAllTime").style.display = "none"
 }
 
 // 일정 창 전환
@@ -205,7 +236,7 @@ function fixturesSeason() {
     } else {
         document.getElementById("fixturesSeason_").style.display = "none"
     }
-    
+
 }
 
 // 일정 SEFC tr 투명도 변경

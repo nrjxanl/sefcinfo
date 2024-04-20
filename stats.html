@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style1.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="./style2.css" media="screen and (min-width: 768px)">
+    <title>SEFCiNFO</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="./files/favicon.png">
+</head>
+
+<header></header>
+<footer></footer>
+
+<body oncontextmenu="return false">
+
+    <div id="headerOffset"></div>
+
+    <div id="statsButtonOffset"></div>
+
+    <div class="statsSeason">
+        <button onclick="statsSeason()">시즌 선택</button>
+        <div id="statsSeason_">
+            <button>2024</button>
+            <button>2023</button>
+            <button>2022</button>
+            <button>2021</button>
+            <button>2020</button>
+            <button>2019</button>
+            <button>2018</button>
+            <button>2017</button>
+            <button>2016</button>
+            <button>2015</button>
+        </div>
+    </div>
+
+    <div id="statsA">
+
+        <div class="statsButton" style="margin-top: 0;">
+            <button onclick="statsA()" style="background: #000831; color: #fafafa;">A팀</button>
+            <button onclick="statsU18()">U-18</button>
+            <button onclick="statsU15()">U-15</button>
+        </div>
+
+        <div class="stats"></div>
+
+    </div>
+
+    <div id="statsU18">
+
+        <div class="statsButton" style="margin-top: 0;">
+            <button onclick="statsA()">A팀</button>
+            <button onclick="statsU18()" style="background: #000831; color: #fafafa;">U-18</button>
+            <button onclick="statsU15()">U-15</button>
+        </div>
+
+        <div class="stats"></div>
+
+    </div>
+
+    <div id="statsU15">
+
+        <div class="statsButton" style="margin-top: 0;">
+            <button onclick="statsA()">A팀</button>
+            <button onclick="statsU18()">U-18</button>
+            <button onclick="statsU15()" style="background: #000831; color: #fafafa;">U-15</button>
+        </div>
+
+        <div class="stats"></div>
+
+    </div>
+
+    <div id="footerOffset"></div>
+
+    <script src="./script.js"></script>
+
+    <script src="./data.js"></script>
+
+</body>
+
+</html>
