@@ -298,21 +298,18 @@ if ($("#matchScore").length) {
 
         $("#startingXI > table > tbody > tr > td").each(function() {
             $(this).click(function() {
-                localStorage.setItem("player", $(this).attr("id"))
-                window.location.href = "./playerinfo"
+                window.location.href = "./" + $(this).attr("id")
             })
         })
 
         $("#sub > table > tbody > tr").each(function() {
             $(this).click(function() {
-                localStorage.setItem("player", $(this).find("td").attr("id"))
-                window.location.href = "./playerinfo"
+                window.location.href = "./" + $(this).find("td").attr("id")
             })
         })
 
         $("#potm").click(function() {
-            localStorage.setItem("player", href)
-            window.location.href = "./playerinfo"
+            window.location.href = "./" + href
         })
 
     } else {
@@ -738,8 +735,7 @@ function redirect() {
     $("#recentMatch > div").each(function (index) {
         if ($(this).attr("id") !== "viewAll") {
             $(this).click(function () {
-                localStorage.setItem("id", h2hList[index])
-                window.location.href = "./matchinfo"
+                window.location.href = "./" + h2hList[index]
             })
         }
     })
@@ -802,8 +798,7 @@ function fixtures() {
 
         $("#fixturesA > .fixtures > .fixtures_").each(function () {
             $(this).click(function () {
-                localStorage.setItem("id", Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[$(this).index()])
-                window.location.href = "./matchinfo"
+                window.location.href = "./" + Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[$(this).index()]
             })
         })
 
@@ -861,8 +856,7 @@ function fixtures() {
 
         $("#fixturesU18 > .fixtures > .fixtures_").each(function () {
             $(this).click(function () {
-                localStorage.setItem("id", Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[$(this).index()])
-                window.location.href = "./matchinfo"
+                window.location.href = "./" + Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[$(this).index()]
             })
         })
 
@@ -920,8 +914,7 @@ function fixtures() {
 
         $("#fixturesU15 > .fixtures > .fixtures_").each(function () {
             $(this).click(function () {
-                localStorage.setItem("id", Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[$(this).index()])
-                window.location.href = "./matchinfo"
+                window.location.href = "./" + Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[$(this).index()]
             })
         })
 
@@ -996,8 +989,7 @@ if ($("#standingsHome").length) {
         }
 
         $("#nextMatch").click(function () {
-            localStorage.setItem("id", Object.keys(dataA)[Object.values(dataA).indexOf(next)])
-            window.location.href = "./matchinfo"
+            window.location.href = "./matchinfo" + Object.keys(dataA)[Object.values(dataA).indexOf(next)]
         })
     } else {
         $("#nextMatch").css("display", "none")
@@ -1042,8 +1034,7 @@ if ($("#standingsHome").length) {
 
     $("#prevMatch > div > div").each(function () {
         $(this).click(function () {
-            localStorage.setItem("id", prev[$(this).index()])
-            window.location.href = "./matchinfo"
+            window.location.href = "./" + prev[$(this).index()]
         })
     })
 }
@@ -1103,8 +1094,7 @@ playerU15List = []
     // 클릭 시 선수 세부 정보 창으로 이동
     $("#playerA > div > div > div").each(function () {
         $(this).click(function () {
-            localStorage.setItem("player", $(this).attr("class"))
-            window.location.href = "./playerinfo"
+            window.location.href = "./" + $(this).attr("class")
         })
     })
 }
@@ -1219,8 +1209,7 @@ if ($("#playerProfile").length) {
     // 클릭 시 경기 세부 정보 창 열기
     $("#playedMatch > div > div").each(function () {
         $(this).click(function () {
-            localStorage.setItem("id", $(this).attr("class"))
-            window.location.href = "./matchinfo"
+            window.location.href = "./" + $(this).attr("class")
         })
     })
 
