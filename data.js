@@ -680,19 +680,27 @@ rc = {}
 
 function stats() {
 
-    // A팀
-    if (!$("#statsA > .stats > .goalscorers").length) {
+    if (data = "A") {
+        data = dataA
+    } else if (data = "U18") {
+        data = dataU18
+    } else if (data = "U15") {
+        data = dataU15
+    }
 
-        matchArray = Object.keys(dataA).filter((a) => a.substring(0, 4) == year)
+    // A팀
+    if (!$("#stats > .stats > table > tbody > tr > td").length) {
+
+        matchArray = Object.keys(data).filter((a) => a.substring(0, 4) == year)
 
         function appData() {
             for (i = 0; i < matchArray.length; i++) {
-                for (j = 0; j < Object.keys(dataA[matchArray[i]][pos]).length; j++) {
-                    if (dataA[matchArray[i]][pos][j][1].length !== 0) {
-                        if (Object.keys(app).includes(dataA[matchArray[i]][pos][j][0]) == true) { // 목록에 ID 있을 때
-                            app[dataA[matchArray[i]][pos][j][0]] += 1
+                for (j = 0; j < Object.keys(data[matchArray[i]][pos]).length; j++) {
+                    if (data[matchArray[i]][pos][j][1].length !== 0) {
+                        if (Object.keys(app).includes(data[matchArray[i]][pos][j][0]) == true) { // 목록에 ID 있을 때
+                            app[data[matchArray[i]][pos][j][0]] += 1
                         } else { // 목록에 ID 없을 때
-                            app[dataA[matchArray[i]][pos][j][0]] = 1
+                            app[data[matchArray[i]][pos][j][0]] = 1
                         }
                     }
                 }
@@ -701,12 +709,12 @@ function stats() {
 
         function goalData() {
             for (i = 0; i < matchArray.length; i++) {
-                for (j = 0; j < Object.keys(dataA[matchArray[i]][pos]).length; j++) {
-                    if (dataA[matchArray[i]][pos][j][1].replace(/[^g]/g, "").length !== 0) {
-                        if (Object.keys(goal).includes(dataA[matchArray[i]][pos][j][0]) == true) { // 목록에 ID 있을 때
-                            goal[dataA[matchArray[i]][pos][j][0]] += dataA[matchArray[i]][pos][j][1].replace(/[^g]/g, "").length
+                for (j = 0; j < Object.keys(data[matchArray[i]][pos]).length; j++) {
+                    if (data[matchArray[i]][pos][j][1].replace(/[^g]/g, "").length !== 0) {
+                        if (Object.keys(goal).includes(data[matchArray[i]][pos][j][0]) == true) { // 목록에 ID 있을 때
+                            goal[data[matchArray[i]][pos][j][0]] += data[matchArray[i]][pos][j][1].replace(/[^g]/g, "").length
                         } else { // 목록에 ID 없을 때
-                            goal[dataA[matchArray[i]][pos][j][0]] = dataA[matchArray[i]][pos][j][1].replace(/[^g]/g, "").length
+                            goal[data[matchArray[i]][pos][j][0]] = data[matchArray[i]][pos][j][1].replace(/[^g]/g, "").length
                         }
                     }
                 }
@@ -715,12 +723,12 @@ function stats() {
 
         function assistData() {
             for (i = 0; i < matchArray.length; i++) {
-                for (j = 0; j < Object.keys(dataA[matchArray[i]][pos]).length; j++) {
-                    if (dataA[matchArray[i]][pos][j][1].replace(/[^a]/g, "").length !== 0) {
-                        if (Object.keys(assist).includes(dataA[matchArray[i]][pos][j][0]) == true) { // 목록에 ID 있을 때
-                            assist[dataA[matchArray[i]][pos][j][0]] += dataA[matchArray[i]][pos][j][1].replace(/[^a]/g, "").length
+                for (j = 0; j < Object.keys(data[matchArray[i]][pos]).length; j++) {
+                    if (data[matchArray[i]][pos][j][1].replace(/[^a]/g, "").length !== 0) {
+                        if (Object.keys(assist).includes(data[matchArray[i]][pos][j][0]) == true) { // 목록에 ID 있을 때
+                            assist[data[matchArray[i]][pos][j][0]] += data[matchArray[i]][pos][j][1].replace(/[^a]/g, "").length
                         } else { // 목록에 ID 없을 때
-                            assist[dataA[matchArray[i]][pos][j][0]] = dataA[matchArray[i]][pos][j][1].replace(/[^a]/g, "").length
+                            assist[data[matchArray[i]][pos][j][0]] = data[matchArray[i]][pos][j][1].replace(/[^a]/g, "").length
                         }
                     }
                 }
@@ -729,12 +737,12 @@ function stats() {
 
         function ycData() {
             for (i = 0; i < matchArray.length; i++) {
-                for (j = 0; j < Object.keys(dataA[matchArray[i]][pos]).length; j++) {
-                    if (dataA[matchArray[i]][pos][j][1].replace(/[^y]/g, "").length !== 0) {
-                        if (Object.keys(yc).includes(dataA[matchArray[i]][pos][j][0]) == true) { // 목록에 ID 있을 때
-                            yc[dataA[matchArray[i]][pos][j][0]] += dataA[matchArray[i]][pos][j][1].replace(/[^y]/g, "").length
+                for (j = 0; j < Object.keys(data[matchArray[i]][pos]).length; j++) {
+                    if (data[matchArray[i]][pos][j][1].replace(/[^y]/g, "").length !== 0) {
+                        if (Object.keys(yc).includes(data[matchArray[i]][pos][j][0]) == true) { // 목록에 ID 있을 때
+                            yc[data[matchArray[i]][pos][j][0]] += data[matchArray[i]][pos][j][1].replace(/[^y]/g, "").length
                         } else { // 목록에 ID 없을 때
-                            yc[dataA[matchArray[i]][pos][j][0]] = dataA[matchArray[i]][pos][j][1].replace(/[^y]/g, "").length
+                            yc[data[matchArray[i]][pos][j][0]] = data[matchArray[i]][pos][j][1].replace(/[^y]/g, "").length
                         }
                     }
                 }
@@ -743,12 +751,12 @@ function stats() {
 
         function rcData() {
             for (i = 0; i < matchArray.length; i++) {
-                for (j = 0; j < Object.keys(dataA[matchArray[i]][pos]).length; j++) {
-                    if (dataA[matchArray[i]][pos][j][1].replace(/[^r]/g, "").length !== 0) {
-                        if (Object.keys(rc).includes(dataA[matchArray[i]][pos][j][0]) == true) { // 목록에 ID 있을 때
-                            rc[dataA[matchArray[i]][pos][j][0]] += dataA[matchArray[i]][pos][j][1].replace(/[^r]/g, "").length
+                for (j = 0; j < Object.keys(data[matchArray[i]][pos]).length; j++) {
+                    if (data[matchArray[i]][pos][j][1].replace(/[^r]/g, "").length !== 0) {
+                        if (Object.keys(rc).includes(data[matchArray[i]][pos][j][0]) == true) { // 목록에 ID 있을 때
+                            rc[data[matchArray[i]][pos][j][0]] += data[matchArray[i]][pos][j][1].replace(/[^r]/g, "").length
                         } else { // 목록에 ID 없을 때
-                            rc[dataA[matchArray[i]][pos][j][0]] = dataA[matchArray[i]][pos][j][1].replace(/[^r]/g, "").length
+                            rc[data[matchArray[i]][pos][j][0]] = data[matchArray[i]][pos][j][1].replace(/[^r]/g, "").length
                         }
                     }
                 }
@@ -799,44 +807,84 @@ function stats() {
 
     // 표에 데이터 삽입
     for (i = 0; i < Object.keys(app).length; i++) {
-        $("#statsA > .stats > table > tbody").append("<tr><td><div></div></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>")
+        $("#stats > .stats > table > tbody").append("<tr><td><div></div></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>")
 
-        $("#statsA > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(1) > div").append("<img src='./files/" + Object.keys(app)[i] + ".png'>")
-        $("#statsA > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(2)").text(playerNumber[year][Object.keys(app)[i]][0].replace(/[0-9]/g, ""))
-        $("#statsA > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(3)").text(Object.values(app)[i])
+        $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(1) > div").append("<img src='./files/" + Object.keys(app)[i] + ".png'>")
+        $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(2)").text(playerNumber[year][Object.keys(app)[i]][0].replace(/[0-9]/g, ""))
+        $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(3)").text(Object.values(app)[i])
 
         if (goal[Object.keys(app)[i]] === undefined) {
-            $("#statsA > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(4)").text("0")
+            $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(4)").text("0")
         } else {
-            $("#statsA > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(4)").text(goal[Object.keys(app)[i]])
+            $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(4)").text(goal[Object.keys(app)[i]])
         }
 
         if (assist[Object.keys(app)[i]] === undefined) {
-            $("#statsA > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(5)").text("0")
+            $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(5)").text("0")
         } else {
-            $("#statsA > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(5)").text(assist[Object.keys(app)[i]])
+            $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(5)").text(assist[Object.keys(app)[i]])
         }
 
         if (yc[Object.keys(app)[i]] === undefined) {
-            $("#statsA > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(6)").text("0")
+            $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(6)").text("0")
         } else {
-            $("#statsA > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(6)").text(yc[Object.keys(app)[i]])
+            $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(6)").text(yc[Object.keys(app)[i]])
         }
 
         if (rc[Object.keys(app)[i]] === undefined) {
-            $("#statsA > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(7)").text("0")
+            $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(7)").text("0")
         } else {
-            $("#statsA > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(7)").text(rc[Object.keys(app)[i]])
+            $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(7)").text(rc[Object.keys(app)[i]])
         }
     }
 
 }
 
+// 정렬 기능
+$("#stats > .stats > table > thead > tr > th").click(function() {
+    table = $(this).parents("table").eq(0)
+    rows = table.find("tbody > tr").get()
+    columnIndex = $(this).index() + 1
+
+    rows.sort(function(a, b) {
+        A = $(a).children("td").eq(columnIndex).text()
+        B = $(b).children("td").eq(columnIndex).text()
+
+        numA = columnIndex === 1 ? A.toUpperCase() : parseInt(A)
+        numB = columnIndex === 1 ? B.toUpperCase() : parseInt(B)
+
+        comparison = columnIndex === 1 ? numA.localeCompare(numB) : numB - numA
+
+        if (comparison === 0 && columnIndex !== 1) {
+            firstA = $(a).children("td").eq(1).text().toUpperCase()
+            firstB = $(b).children("td").eq(1).text().toUpperCase()
+            return firstA.localeCompare(firstB)
+        }
+
+        return comparison
+    })
+
+    $.each(rows, function(_, row) {
+        table.children("tbody").append(row)
+    })
+
+    // 스타일 초기화 및 강조
+    $("#stats > .stats > table > thead > tr > th").css("font-weight", "500")
+    $("#stats > .stats > table > tbody > tr > td:nth-of-type(n+3)").css("font-weight", "500")
+    $("#stats > .stats > table > thead > tr > th:nth-of-type(" + columnIndex + ")").css("font-weight", "900")
+    $("#stats > .stats > table > tbody > tr > td:nth-of-type(" + (columnIndex + 1) + ")").css("font-weight", "900")
+})
+
+
 if ($("#statsSeason_").length) {
     year = new Date().getFullYear()
     $("#statsSeason_ > button:contains(" + year + ")").css({ "color": "#fafafa", "background": "#000831" })
 
+    data = "A"
+
     stats()
+    $("#stats > .stats > table > thead > tr > th:nth-of-type(3)").click().css("font-weight", "900")
+    $("#stats > .stats > table > tbody > tr > td:nth-of-type(4)").css("font-weight", "900")
 }
 
 $("#statsSeason_ > button").each(function () {
@@ -852,6 +900,8 @@ $("#statsSeason_ > button").each(function () {
         yc = {}
         rc = {}
         stats()
+        $("#stats > .stats > table > thead > tr > th:nth-of-type(3)").click().css("font-weight", "900")
+        $("#stats > .stats > table > tbody > tr > td:nth-of-type(4)").css("font-weight", "900")    
     })
 })
 

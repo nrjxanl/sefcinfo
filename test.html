@@ -1,0 +1,69 @@
+<style>
+    table {
+        width: 100%;
+        border: 1px solid #444444;
+    }
+
+    th,
+    td {
+        border: 1px solid #444444;
+        text-align: center;
+    }
+</style>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<button type="button"
+    onclick="sort();"
+    style="border-style:solid;">정렬하기</button>
+<table id="sort_table">
+    <thead>
+        <tr>
+            <th>순번</th>
+            <th>이름</th>
+            <th>시군구</th>
+            <th>읍면동</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>홍길동</td>
+            <td>서울특별시</td>
+            <td>서초구</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>심봉사</td>
+            <td>겅기도</td>
+            <td>부천시</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>심청이</td>
+            <td>경기도</td>
+            <td>부천시</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>이순신</td>
+            <td>서울특별시</td>
+            <td>강남구</td>
+        </tr>
+    </tbody>
+</table>
+<script>
+
+    function sortTable(table_id, sortColumn) {
+        var tableData = document.getElementById(table_id).getElementsByTagName('tbody').item(0);
+        var rowData = tableData.getElementsByTagName('tr');
+        for (var i = 0; i < rowData.length - 1; i++) {
+            for (var j = 0; j < rowData.length - (i + 1); j++) {
+                if (Number(rowData.item(j).getElementsByTagName('td').item(sortColumn).innerHTML.replace(/[^0-9\.]+/g, "")) > Number(rowData.item(j + 1).getElementsByTagName('td').item(sortColumn).innerHTML.replace(/[^0-9\.]+/g, ""))) {
+                    tableData.insertBefore(rowData.item(j + 1), rowData.item(j));
+                }
+            }
+        }
+    }
+    function sort() {
+        sortTable("sort_table", 0);
+    }
+</script>

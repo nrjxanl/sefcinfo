@@ -144,21 +144,15 @@ if (intersection.length != 0) {
 
 // 선수 기록 창 전환
 function statsA() {
-    $("#statsA").css("display", "block")
-    $("#statsU18").css("display", "none")
-    $("#statsU15").css("display", "none")
+    data = "A"
 }
 
 function statsU18() {
-    $("#statsA").css("display", "none")
-    $("#statsU18").css("display", "block")
-    $("#statsU15").css("display", "none")
+    data = "U18"
 }
 
 function statsU15() {
-    $("#statsA").css("display", "none")
-    $("#statsU18").css("display", "none")
-    $("#statsU15").css("display", "block")
+    data = "U15"
 }
 
 function statsSeason() {
