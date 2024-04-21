@@ -142,19 +142,6 @@ if (intersection.length != 0) {
     _playerName.css({"font-family": "'Noto Sans', 'Noto Sans KR'", "font-weight": "500"})
 }
 
-// 선수 기록 창 전환
-function statsA() {
-    data = "A"
-}
-
-function statsU18() {
-    data = "U18"
-}
-
-function statsU15() {
-    data = "U15"
-}
-
 function statsSeason() {
     season = $("#statsSeason_").css("display")
 
