@@ -35,18 +35,7 @@ $(window).resize(function() {
 })
 
 // 헤더
-$("header").html("<a href='https://sefc.info'><img src='https://sefc.info/files/seouleland_s.png'></a>")
-
-if ($("div[id*=ButtonOffset]").length) {
-    if ($(".recordsDetail").length) {
-        $(".recordsSeason").css({"background": "#fafafa"})
-        $(".recordsDetail").css({"background": "linear-gradient(0deg, transparent 0%, #fafafa 20%)", "padding-bottom": "20px"})
-    } else {
-        $("div[class*=Season]").css({"background": "linear-gradient(0deg, transparent 0%, #fafafa 20%)", "padding-bottom": "20px"})
-    }
-} else {
-    $("header").css({"background": "linear-gradient(0deg, transparent 0%, #fafafa 20%)", "padding-bottom": "20px"})
-}
+$("header").html("<div><img src='./files/menu.svg'></div><p>SEFCiNFO</p><div><img src='./files/seouleland_s.png'></div>")
 
 // 푸터
 $("footer").html("<div><img src='./files/home.svg'><p>홈</p></div><div><img src='./files/stats.svg'><p>기록</p></div><div><img src='./files/players.svg'><p>선수단</p></div><div><img src='./files/fixtures.svg'><p>일정</p></div><div><img src='./files/standings.svg'><p>순위</p></div>")

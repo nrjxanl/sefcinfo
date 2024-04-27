@@ -10,9 +10,10 @@
 body {position: absolute; background: #fafafa;}
 
 /* 헤더 */
-header {width: 100vw; height: 100px; position: fixed; top: 0; left: 0; background: #fafafa; z-index: 99; display: flex; justify-content: center;}
-header > a {width: 50px; height: 40px; display: block; margin-top: 30px;}
-header > a > img {height: 40px;}
+header {width: 100vw; height: 80px; position: fixed; top: 0; left: 0; background: #fafafa; z-index: 99; display: flex; justify-content: center;}
+header > div {width: 20vw;}
+header > div > img {width: auto; height: 40px; padding: 5vw 0;}
+header > p {width: 70vw; text-align: left; font-size: 24px; line-height: 20vw;}
 
 /* 푸터 */
 footer {width: 90vw; height: 60px; padding: 0 5vw; background: #fafafa; border-top: 2px solid #00083120; position: fixed; bottom: 0; left: 0; display: flex; align-items: center; justify-content: center; z-index: 1000;}
