@@ -6,34 +6,6 @@ data = {
 
 data.name[data.name.indexOf("코바야시")] = "유키";
 
-function playerAllTime() {
-
-    if ($("#playerAllTime").css("display") == "none") {
-        $("#playerA").css("display", "none");
-        $("#playerAllTime").css("display", "block");
-        $("#playerSortButtonOffset").css("display", "block");
-    } else {
-        $("#playerA").css("display", "block");
-        $("#playerAllTime").css("display", "none");
-        $("#playerSortButtonOffset").css("display", "none");
-    };
-
-    if (!$("#playerAllTime > div:nth-of-type(3) > div").length) {
-        for (i = 0; i < data.name.length; i++) {
-            $("#playerAllTime > div:nth-of-type(3)").append("<div><div><img src='https://sefc.info/files/" + data.id[i] + ".png'></div><p><span>" + data.legacy[i] + "</span>" + data.name[i].replace(/[0-9]/g,"") + "</p></div>");
-            $("#playerAllTime > div:nth-of-type(3) > div:nth-of-type(" + (i + 1) + ")").attr("onclick", "location.href='./" + data.id[i] + "'");
-        };
-    };
-};
-
-function sortByName() {
-    $("#playerAllTime > div:nth-of-type(3)").empty();
-    playerAllTime();
-    $("#playerA").css("display", "none");
-    $("#playerAllTime").css("display", "block");
-    $("#playerSortButtonOffset").css("display", "block");
-};
-
 function sortByLegacyNum() {
     $("#playerAllTime > div:nth-of-type(3)").empty();
     

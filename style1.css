@@ -19,12 +19,12 @@ header > p {width: 70vw; text-align: left; font-size: 24px; line-height: 20vw;}
 #menu {width: 60vw; height: 200vh; position: fixed; top: 0; left: -60vw; background-color: #fafafa; z-index: 1000;}
 #menuBg {width: 100vw; height: 200vh; position: fixed; top: 0; left: 0; background: #00083120; opacity: 0; display: none; z-index: 999;}
 #menu > div {width: 50vw; height: 30px; padding: 10px 0; margin: 10px 0 10px 5vw; border-radius: 25px; text-align: left; font-size: 24px; display: flex; align-items: center;}
-#menu > div:hover {background: #174fff08;}
+#menu > div:hover {background: #174fff12;}
 #menu > div:nth-of-type(1) {margin-top: 100px;}
 #menu > div > img {width: auto; height: 24px; margin: 0 10px;}
 
 /* 홈 화면 */
-#nextMatch {width: 90vw; height: 60px; padding: 10px 0; box-shadow: 0 0 3px 2px #00083120; border-radius: 20px; margin: 40px 0 0 5vw;}
+#nextMatch {width: 90vw; height: 60px; padding: 10px 0; box-shadow: 0 0 3px 2px #00083120; border-radius: 20px; margin: 100px 0 0 5vw;}
 #nextMatch > div:nth-of-type(1) {width: 90vw; height: 40px; display: flex; align-items: center;}
 #nextMatch > div:nth-of-type(1) > p:nth-of-type(1) {width: 22.5vw; padding: 0 2.5vw; font-size: 18px; text-align: right;}
 #nextMatch > div:nth-of-type(1) > p:nth-of-type(2) {width: 22.5vw; padding: 0 2.5vw; font-size: 18px; text-align: left;}
@@ -57,25 +57,6 @@ header > p {width: 70vw; text-align: left; font-size: 24px; line-height: 20vw;}
 #standingsHome > table > tbody > tr > td:nth-of-type(3) {width: 30vw; text-align: left;}
 #standingsHome > table > tbody > tr > td:nth-of-type(n+4) {width: 15vw;}
 #standingsHome > a > p {font-weight: 500; padding: 10px 0 20px 0;}
-
-#homeRanking {width: 90vw; height: inherit; margin: 30px 0 0 5vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 5vw; display: flex; align-items: center; justify-content: center; flex-direction: column;}
-#homeRanking > div:nth-of-type(1) {display: flex; flex-direction: column;}
-#homeRanking > div:nth-of-type(1) > a > div {display: flex; align-items: center; padding: 10px 0;}
-#homeRanking > div:nth-of-type(1) > a:nth-of-type(1) > div {padding-top: 20px;}
-#homeRanking > div:nth-of-type(1) > a:nth-of-type(3) > div {padding-bottom: 20px;}
-#homeRanking > div:nth-of-type(1) > a > div > div {width: 15vw; height: 15vw; overflow: hidden; border-radius: 0 0 50% 50%; margin: 0 3vw;}
-#homeRanking > div:nth-of-type(1) > a > div > div > img {width: 15vw;}
-#homeRanking > div:nth-of-type(1) > a > div > p:nth-of-type(1) {font-size: 20px; padding-right: 3vw;}
-#homeRanking > div:nth-of-type(1) > a > div > p:nth-of-type(2) {font-size: 20px; text-align: left;}
-#homeRanking > div:nth-of-type(1) > a > div > p:nth-of-type(2) > span {font-size: 20px; font-weight: 500;}
-#homeRanking > div:nth-of-type(2) {width: 90vw; font-weight: 500; padding-bottom: 20px;}
-
-#latestNews {width: 90vw; height: 300px; margin-left: 5vw; overflow: scroll; display: flex; align-items: center;}
-#latestNews > div {width: 60vw; height: 200px; box-shadow: 0px 0px 5px 1px #00083140; border-radius: 5vw; flex-shrink: 0; margin: 0 10px; display: flex; align-items: flex-end;}
-#latestNews > div:nth-of-type(1) {margin: 0 10px 0 0;}
-#latestNews > div > p {color: #fafafa; padding: 5vw; text-align: left; font-size: 14px; line-height: 1.4;}
-
-#latestNews > a > div {box-shadow: 0px 0px 5px 1px #00083140; border-radius: 5vw; flex-shrink: 0; margin: 0 10px; display: flex; align-items: flex-end;}
 
 /* 뉴스 */
 #news {width: 90vw; margin-left: 5vw;}
@@ -121,10 +102,10 @@ header > p {width: 70vw; text-align: left; font-size: 24px; line-height: 20vw;}
 #playerAllTime > div > div > p > span {font-size: 16px; font-family: "Kaushan Script"; color: #174fff;}
 
 /* 선수 정보 */
-#playerProfile {width: 100vw; margin-top: 110px;}
-#playerProfile > div:nth-of-type(1) {width: 90vw; height: 20px; margin-left: 5vw; opacity: .5; display: flex; justify-content: center; align-items: center; position: fixed; top: 120px; z-index: 99;}
+#playerProfile {width: 100vw; margin-top: 210px;}
+#playerProfile > div:nth-of-type(1) {width: 100vw; height: 20px; padding-top: 40px; background: #fafafa; display: flex; justify-content: center; align-items: center; position: fixed; top: 79px; z-index: 99;}
 #playerProfile > div:nth-of-type(1) > p {font-size: 16px;}
-#playerProfile > div:nth-of-type(2) {width: 90vw; height: 50px; margin-left: 5vw; display: flex; justify-content: center; align-items: center; position: fixed; top: 140px; z-index: 99;}
+#playerProfile > div:nth-of-type(2) {width: 100vw; height: 50px; padding-bottom: 20px; background: #fafafa; display: flex; justify-content: center; align-items: center; position: fixed; top: 139px; z-index: 99;}
 #playerProfile > div:nth-of-type(2) > p {font-size: 40px;}
 #playerProfile > div:nth-of-type(2) > p > span {color: #174fff; font-size: 40px; margin-right: 2vw;}
 #playerProfile > div:nth-of-type(3) {width: 90vw; height: 3px; display: block; background: linear-gradient(90deg, #ffffff00 0%, #00083120 20%, #00083120 80%, #ffffff00 100%); margin: 10px 0 20px 5vw;}
@@ -165,7 +146,7 @@ header > p {width: 70vw; text-align: left; font-size: 24px; line-height: 20vw;}
 #playedMatch > div > div > p:nth-of-type(4) {width: 10vw; font-size: 16px;}
 #playedMatch > div > div > p:nth-of-type(5) {width: 10vw; font-size: 16px;}
 #playedMatch > div > div > p:nth-of-type(6) {width: 10vw; padding: 3px 0; margin: 0 2.5vw; font-size: 16px; border-radius: 20px; color: #fafafa;}
-#playedMatch > p {width: 100vw; margin-bottom: 80px; opacity: .5;}
+#playedMatch > p {width: 100vw; margin-top: 50px; opacity: .5;}
 
 #playedMatchBG {width: 100vw; height: 100vh; background: #00000010; border-radius: 20px 20px 0 0; box-shadow: 0 0 3px 2px #00083120; position: fixed; top: 0; display: none; opacity: 0; z-index: 300;}
 
@@ -189,44 +170,52 @@ header > p {width: 70vw; text-align: left; font-size: 24px; line-height: 20vw;}
 #stats > .stats > table > tbody > tr > td:nth-of-type(n+3) {width: calc((55vw - 60px)/5); font-size: 18px; font-weight: 500;}
 
 /* 일정 */
-.fixturesButton {width: 100vw; height: 40px; position: fixed; top: 100px; left: 0; background: #fafafa; z-index: 100;}
-.fixturesButton > button {width: 70px; height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: 1px solid #000831; border-radius: 50px;}
+.fixturesButton {width: 100vw; height: 50px; position: fixed; top: 79px; left: 0; background: #fafafa; z-index: 100;}
+.fixturesButton > button {width: 30vw; height: 50px; background: #fafafa; border: none; margin: 0; font-size: 18px;}
+.fixturesButton > button:hover {color: #174fff; border-bottom: 3px solid #174fff;}
 
-.fixturesSeason {width: 90vw; height: 25px; padding: 20px 5vw; overflow: hidden; display: flex; flex-direction: column; flex-wrap: wrap; align-content: flex-start; position: fixed; z-index: 100; margin-top: -1px;}
-.fixturesSeason > button {width: 17vw; height: 25px; background: none; border: 1px solid #000831; border-radius: 50px;}
-.fixturesSeason > div {width: 73vw; height: 25px; overflow: scroll; display: none;}
-.fixturesSeason > div > button {height: 25px; padding: 0 2vw; background: none; border: 1px solid #000831; border-radius: 50px; margin-left: 2vw;}
+.fixturesSeason {width: 80vw; padding: 0 10vw; margin-top: 150px; display: flex; justify-content: center; align-items: baseline;}
+.fixturesSeason > p:nth-of-type(1) {font-size: 48px; width: 60vw; text-align: left; font-family: "Kaushan Script"; -webkit-text-stroke: 1px;}
+.fixturesSeason > p:nth-of-type(1) > span {font-size: 18px; margin-left: 15px; font-weight: 500;}
+.fixturesSeason > p:nth-of-type(n+2) {width: 10vw; font-size: 18px;}
 
-.fixtures {width: 90vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 20px; margin: 70px 0 0 5vw;}
+.fixtures {width: 90vw; margin-left: 5vw;}
 
-.fixtures_ {width: 90vw; height: 60px; border-bottom: 2px solid #00083120; padding: 5px 0;}
-.fixtures_ > div:nth-of-type(1) {width: 90vw; height: 40px; display: flex; align-items: center;}
-.fixtures_ > div:nth-of-type(1) > p:nth-of-type(1) {width: 22.5vw; padding: 0 2.5vw; font-size: 18px; text-align: right;}
-.fixtures_ > div:nth-of-type(1) > p:nth-of-type(2) {width: 22.5vw; padding: 0 2.5vw; font-size: 18px; text-align: left;}
-.fixtures_ > div:nth-of-type(1) > div:nth-of-type(1) {width: 7.5vw; display: flex; align-items: center; justify-content: center;}
-.fixtures_ > div:nth-of-type(1) > div:nth-of-type(1) > img {height: 20px;}
-.fixtures_ > div:nth-of-type(1) > div:nth-of-type(2) {width: 15vw; height: 24px; display: flex; align-items: center; justify-content: center; margin: 0 2.5vw; border-radius: 15vw;}
-.fixtures_ > div:nth-of-type(1) > div:nth-of-type(2) > p {font-size: 16px;}
-.fixtures_ > div:nth-of-type(1) > div:nth-of-type(2) > img {height: 10px; padding: 0 4px;}
-.fixtures_ > div:nth-of-type(1) > div:nth-of-type(3) {width: 7.5vw; display: flex; align-items: center; justify-content: center;}
-.fixtures_ > div:nth-of-type(1) > div:nth-of-type(3) > img {height: 20px;}
-.fixtures_ > div:nth-of-type(2) {width: 90vw; height: 20px;}
-.fixtures_ > div:nth-of-type(2) > p {font-weight: 500;}
+.fixtures_ {width: 90vw; border-radius: 20px; box-shadow: 0 0 3px 2px #00083120; margin: 30px 0;}
+.fixtures_ > div:nth-of-type(1) {width: 80vw; height: 30px; padding: 5vw; display: flex; align-items: center;}
+.fixtures_ > div:nth-of-type(1) > img {height: 32px;}
+.fixtures_ > div:nth-of-type(1) > p {font-size: 16px; margin-left: 10px; text-align: left; line-height: 1;}
+.fixtures_ > div:nth-of-type(1) > p > span {font-weight: 500;}
+.fixtures_ > div:nth-of-type(2) {display: flex; justify-content: center; align-items: top; padding-bottom: 30px;}
+.fixtures_ > div:nth-of-type(2) > div {width: 27.5vw;}
+.fixtures_ > div:nth-of-type(2) > div > img {height: 64px;}
+.fixtures_ > div:nth-of-type(2) > div > p {font-size: 16px; padding-top: 5px;}
+.fixtures_ > div:nth-of-type(2) > p:nth-of-type(2n+1) {width: 15vw; font-size: 32px; padding-top: 20px;}
+.fixtures_ > div:nth-of-type(2) > p:nth-of-type(2n+1) > span {font-weight: 500; display: block; line-height: 1.2; margin-top: 10px; white-space: nowrap;}
+.fixtures_ > div:nth-of-type(2) > p:nth-of-type(1) > span {text-align: right; direction: rtl;}
+.fixtures_ > div:nth-of-type(2) > p:nth-of-type(3) > span {text-align: left;}
+.fixtures_ > div:nth-of-type(2) > p:nth-of-type(2) {width: 5vw; font-size: 48px; font-weight: 100; padding-top: 10px;}
+.fixtures_ > div:nth-of-type(2) > p:nth-of-type(2) >span {display: block;}
 
 #fixturesU18 {display: none;}
 #fixturesU15 {display: none;}
 
 /* 경기 세부 정보 */
-#matchScore {width: 70vw; margin: 20px 0 0 10vw; padding: 7vw 5vw; display: flex; border-radius: 20px; box-shadow: 0 0 3px 2px #00083120;}
-#matchScore > div:nth-of-type(2n+1) {width: 20vw; display: flex; flex-direction: column; align-items: center;}
-#matchScore > div:nth-of-type(2n+1) > img {height: 50px;}
-#matchScore > div:nth-of-type(2n+1) > p:nth-of-type(1) {width: 25vw; font-size: 14px; margin-top: 10px; font-weight: 500;}
-#matchScore > div:nth-of-type(2n+1) > p:nth-of-type(2) {font-size: 10px; font-weight: 500; line-height: 1.6; text-align: left; margin-top: 10px;}
-#matchScore > div:nth-of-type(2) > div {width: 30vw; height: 50px; display: flex; align-items: center;}
-#matchScore > div:nth-of-type(2) > div > p {width: 12vw; font-size: 30px;}
-#matchScore > div:nth-of-type(2) > p:nth-of-type(1) {font-weight: 500;}
-#matchScore > div:nth-of-type(2) > div > img {width: 6vw;}
-#date {width: 30vw; font-size: 10px; margin-top: 2px; font-weight: 500;}
+#matchScore {width: 90vw; border-radius: 20px; box-shadow: 0 0 3px 2px #00083120; margin: 100px 0 30px 5vw;}
+#matchScore > div:nth-of-type(1) {width: 80vw; height: 30px; padding: 5vw; display: flex; align-items: center;}
+#matchScore > div:nth-of-type(1) > img {height: 32px;}
+#matchScore > div:nth-of-type(1) > p {font-size: 16px; margin-left: 10px; text-align: left; line-height: 1;}
+#matchScore > div:nth-of-type(1) > p > span {font-weight: 500;}
+#matchScore > div:nth-of-type(2) {display: flex; justify-content: center; align-items: top; padding-bottom: 30px;}
+#matchScore > div:nth-of-type(2) > div {width: 27.5vw;}
+#matchScore > div:nth-of-type(2) > div > img {height: 64px;}
+#matchScore > div:nth-of-type(2) > div > p {font-size: 16px; padding-top: 5px;}
+#matchScore > div:nth-of-type(2) > p:nth-of-type(2n+1) {width: 15vw; font-size: 32px; padding-top: 20px;}
+#matchScore > div:nth-of-type(2) > p:nth-of-type(2n+1) > span {font-weight: 500; display: block; line-height: 1.2; margin-top: 10px; white-space: nowrap;}
+#matchScore > div:nth-of-type(2) > p:nth-of-type(1) > span {text-align: right; direction: rtl;}
+#matchScore > div:nth-of-type(2) > p:nth-of-type(3) > span {text-align: left;}
+#matchScore > div:nth-of-type(2) > p:nth-of-type(2) {width: 5vw; font-size: 48px; font-weight: 100; padding-top: 10px;}
+#matchScore > div:nth-of-type(2) > p:nth-of-type(2) >span {display: block;}
 
 #highlight {width: 74vw; padding: 1vw 3vw; margin-left: 10vw; border-radius: 20px; box-shadow: #00083120 0px 0px 3px 2px;}
 #highlight > a {display: flex; align-items: center; justify-content: center;}

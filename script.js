@@ -1,17 +1,8 @@
 // 새로고침 시
 $(document).ready(function() {
 
-    // 다음 경기로 이동
-    if ($("#nextMatchA").length) {
-        document.getElementById("nextMatchA").scrollIntoView({behavior: "smooth", block: "center"})
-    } else if (!$("#nextMatchA").length && $("#fixturesButtonOffset").length) {
-        window.scroll({top: document.body.scrollHeight, left: 0, behavior: "smooth"})
-    }
-
-    // 선수 프로필 창에서 맨 위로 이동
-    if ($("#playerProfile").length) {
-        history.scrollRestoration = "manual"
-    }
+    // 새로고침 시 맨 위로 이동
+    history.scrollRestoration = "manual"
 
     // 화면 너비 300px 이하일 때 경고
     if ($(window).width() < 300) {
@@ -25,6 +16,9 @@ $(document).ready(function() {
 
     // A팀 선수단 불러오기
     playerA()
+
+    // A팀 일정 불러오기
+    fixturesA()
 
 })
 
@@ -55,10 +49,24 @@ $("#menuBg").click(function() {
     $("#menu").animate({left: "-60vw"}, 200)
 })
 
+// 메뉴 버튼 클릭 시 페이지 이동
+$("#menu > div:nth-of-type(1)").click(function() {
+    window.location = "./players"
+})
+$("#menu > div:nth-of-type(2)").click(function() {
+    window.location = "./fixtures"
+})
+$("#menu > div:nth-of-type(3)").click(function() {
+    window.location = "./stats"
+})
+$("#menu > div:nth-of-type(4)").click(function() {
+    window.location = "./standings"
+})
+
 // 메뉴 내 현재 페이지 이름 강조
-if ($("#playerA").length) {
-    $("#menu > div:nth-of-type(1)").css("background", "#174fff08")
-} 
+if ($("#playerA".length || $("#playerInfo")).length) {
+    $("#menu > div:nth-of-type(1)").css("background", "#174fff10")
+}
 
 // 문자별 글꼴 적용
 characterList = []
@@ -173,11 +181,11 @@ function fixturesA() {
     $("#fixturesU18").css("display", "none")
     $("#fixturesU15").css("display", "none")
 
-    if ($("#nextMatchA").length) {
-        document.getElementById("nextMatchA").scrollIntoView({block: "center"})
-    } else {
-        window.scroll({top: document.body.scrollHeight, left: 0})
-    }
+    $(".fixturesButton > button").css({"color": "#000831", "border-bottom": "none"})
+    $(".fixturesButton > button:nth-of-type(1)").css({"color": "#174fff", "border-bottom": "3px solid #174fff"})
+
+    status_ = "A"
+    fixtures()
 }
 
 function fixturesU18() {
@@ -185,11 +193,11 @@ function fixturesU18() {
     $("#fixturesU18").css("display", "block")
     $("#fixturesU15").css("display", "none")
 
-    if ($("#nextMatchU18").length) {
-        document.getElementById("nextMatchU18").scrollIntoView({block: "center"})
-    } else {
-        window.scroll({top: document.body.scrollHeight, left: 0})
-    }
+    $(".fixturesButton > button").css({"color": "#000831", "border-bottom": "none"})
+    $(".fixturesButton > button:nth-of-type(2)").css({"color": "#174fff", "border-bottom": "3px solid #174fff"})
+
+    status_ = "U18"
+    fixtures()
 }
 
 function fixturesU15() {
@@ -197,22 +205,11 @@ function fixturesU15() {
     $("#fixturesU18").css("display", "none")
     $("#fixturesU15").css("display", "block")
 
-    if ($("#nextMatchU15").length) {
-        document.getElementById("nextMatchU15").scrollIntoView({block: "center"})
-    } else {
-        window.scroll({top: document.body.scrollHeight, left: 0})
-    }
-}
+    $(".fixturesButton > button").css({"color": "#000831", "border-bottom": "none"})
+    $(".fixturesButton > button:nth-of-type(3)").css({"color": "#174fff", "border-bottom": "3px solid #174fff"})
 
-function fixturesSeason() {
-    season = $("#fixturesSeason_").css("display")
-
-    if(season == "none") {
-        document.getElementById("fixturesSeason_").style.display = "flex"
-    } else {
-        document.getElementById("fixturesSeason_").style.display = "none"
-    }
-
+    status_ = "U15"
+    fixtures()
 }
 
 // 일정 SEFC tr 투명도 변경

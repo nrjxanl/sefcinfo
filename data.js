@@ -42,9 +42,17 @@ if ($("#matchScore").length) {
     }
 
     // 점수
-    $("#matchScore > div:nth-child(1)").html("<img src='./files/" + dataList["home"][1] + "_s.png'><p>" + dataList["home"][0] + "</p><p>" + dataList["homeScorer"] + "</p>")
-    $("#matchScore > div:nth-child(2) > div > img").attr("src", "./files/" + dataList["comp"][1] + "_s.png")
-    $("#matchScore > div:nth-child(3)").html("<img src='./files/" + dataList["away"][1] + "_s.png'><p>" + dataList["away"][0] + "</p><p>" + dataList["awayScorer"] + "</p>")
+    $("#matchScore").append("<div></div><div><div><img><p></p></div><p></p><p>|<br><span>⚽︎</span></p><p></p><div><img><p></p></div>")
+
+    $("#matchScore > div:nth-of-type(1)").html("<img src='./files/" + dataList["comp"][1] + "_s.png'><p>" + dataList["comp"][0] + " " + dataList["round"] + "<br><span>" + id.substring(0, 4) + "." + id.substring(4, 6) + "." + id.substring(6, 8) + ".</span></p>")
+
+    $("#matchScore > div:nth-of-type(2) > div:nth-of-type(1) > p").text(dataList["home"][0])
+    $("#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p").text(dataList["away"][0])
+    $("#matchScore > div:nth-of-type(2) > div:nth-of-type(1) > img").attr("src", "./files/" + dataList["home"][1] + "_s.png")
+    $("#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > img").attr("src", "./files/" + dataList["away"][1] + "_s.png")
+
+    $("#matchScore > div:nth-of-type(2) > p:nth-of-type(1)").html(dataList["homeScore"] + "<br><span>" + dataList["homeScorer"] + "</span>")
+    $("#matchScore > div:nth-of-type(2) > p:nth-of-type(3)").html(dataList["awayScore"] + "<br><span>" + dataList["awayScorer"] + "</span>")
 
     $("#homeScore").text(dataList["homeScore"])
     $("#awayScore").text(dataList["awayScore"])
@@ -891,7 +899,7 @@ $("#stats > .stats > table > thead > tr > th").click(function() {
     $("#stats > .stats > table > tbody > tr > td:nth-of-type(" + (columnIndex + 1) + ")").css("font-weight", "900")
 })
 
-// 처음 페이지 진입 시 금년 A팀 데이터 표시
+// 처음 페이지 진입 시 금년 금월 A팀 데이터 표시
 if ($("#statsSeason_").length) {
     year = new Date().getFullYear()
     $("#statsSeason_ > button:contains(" + year + ")").css({ "color": "#fafafa", "background": "#000831" })
@@ -944,199 +952,89 @@ $(".statsButton > button").click(function() {
 
 function fixtures() {
 
-    // A팀
-    if (!$("#fixturesA > .fixtures > .fixtures_").length) {
+    $("#fixturesA > .fixtures").empty()
+    $("#fixturesU18 > .fixtures").empty()
+    $("#fixturesU15 > .fixtures").empty()
 
-        for (i = 0; i < Object.keys(dataA).filter((a) => a.substring(0, 4) == year).length; i++) {
-            $("#fixturesA > .fixtures").append("<div class='fixtures_'><div><p></p><div><img></div><div><p></p><img><p></p></div><div><img></div><p></p></div><div><p></p></div></div>")
+    data = status_ == "A" ? dataA :
+        status_ == "U18" ? dataU18 :
+            status_ == "U15" ? dataU15 : ""
 
-            $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > p:nth-of-type(1)").text(dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["home"][0])
-            $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > p:nth-of-type(2)").text(dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["away"][0])
+    if (Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month).length) {
+        for (i = 0; i < Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month).length; i++) {
+            $("#fixtures" + status_ + " > .fixtures").append("<div class='fixtures_'><div></div><div><div><img><p></p></div><p></p><p>|<br><span>⚽︎</span></p><p></p><div><img><p></p></div></div>")
 
-            $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(1) > img").attr("src", "./files/" + dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["home"][1] + "_s.png")
-            $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(3) > img").attr("src", "./files/" + dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["away"][1] + "_s.png")
+            $("#fixtures" + status_ + " > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1)").html("<img src='./files/" + data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["comp"][1] + "_s.png'><p>" + data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["comp"][0] + " " + data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["round"] + "<br><span>" + Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i].substring(0, 4) + "." + Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i].substring(4, 6) + "." + Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i].substring(6, 8) + ".</span></p>")
+    
+            $("#fixtures" + status_ + " > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(1) > p").text(data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["home"][0])
+            $("#fixtures" + status_ + " > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p").text(data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["away"][0])
+            $("#fixtures" + status_ + " > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(1) > img").attr("src", "./files/" + data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["home"][1] + "_s.png")
+            $("#fixtures" + status_ + " > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > img").attr("src", "./files/" + data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["away"][1] + "_s.png")
 
-            if (dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["home"][0] == "서울E") {
-                if (dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] > dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["awayScore"]) {
-                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "2px solid #d4a73f")
-                } else if ((dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] == dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["awayScore"]) && dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] !== "") {
-                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "2px solid #808080")
-                } else if (dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] < dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["awayScore"]) {
-                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "2px solid #ff0000")
-                } else {
-                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "none")
-                }
-            } else {
-                if (dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] < dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["awayScore"]) {
-                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "2px solid #d4a73f")
-                } else if ((dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] == dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["awayScore"]) && dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] !== "") {
-                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "2px solid #808080")
-                } else if (dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] > dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["awayScore"]) {
-                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "2px solid #ff0000")
-                } else {
-                    $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "none")
-                }
+            $("#fixtures" + status_ + " > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p:nth-of-type(1)").html(data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"] + "<br><span>" + data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScorer"] + "</span>")
+            $("#fixtures" + status_ + " > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p:nth-of-type(3)").html(data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScore"] + "<br><span>" + data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScorer"] + "</span>")
+
+            // 점수 없을 때
+            if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"] == "") {
+                $("#fixtures" + status_ + " > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p:nth-of-type(2n+1)").css("display", "none")
+                $("#fixtures" + status_ + " > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p:nth-of-type(2)").text("vs").css({"width": "35vw", "font-weight": "100"})
             }
-
-            if (Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i] > new Date().getFullYear().toString() + ("0" + (1 + new Date().getMonth())).slice(-2) + ("0" + new Date().getDate()).slice(-2) + "0" && !$("#nextMatchA").length) {
-                $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ")").attr("id", "nextMatchA")
-            }
-
-            $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)").text(dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"])
-            $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)").text(dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["awayScore"])
-            $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > img").attr("src", "./files/" + dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["comp"][1] + "_s.png")
-            $("#fixturesA > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").text(dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["comp"][0] + " " + dataA[Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i]]["round"] + " | " + Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i].substring(0, 4) + "." + Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i].substring(4, 6) + "." + Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[i].substring(6, 8) + ".")
         }
-
-        $("#fixturesA > .fixtures > .fixtures_").each(function () {
+    
+        $("#fixtures" + status_ + " > .fixtures > .fixtures_").each(function () {
             $(this).click(function () {
-                window.location.href = "./match?" + Object.keys(dataA).filter((a) => a.substring(0, 4) == year)[$(this).index()]
+                window.location.href = "./match?" + Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[$(this).index()]
             })
         })
 
-        $("#fixturesA > .fixtures > .fixtures_:nth-last-of-type(1)").css("border", "none")
+    } else {
+        $("#fixtures" + status_ + " > .fixtures").append("<p>일정이 없습니다.</p>")
 
-        if ($("#nextMatchA").length) {
-            document.getElementById("nextMatchA").scrollIntoView({ block: "center" })
-        } else if (!$("#nextMatchA").length && $("#fixturesButtonOffset").length) {
-            window.scroll({ top: document.body.scrollHeight, left: 0 })
-        }
-    }
-
-    // U18
-    if (!$("#fixturesU18 > .fixtures > .fixtures_").length) {
-        for (i = 0; i < Object.keys(dataU18).filter((a) => a.substring(0, 4) == year).length; i++) {
-            $("#fixturesU18 > .fixtures").append("<div class='fixtures_'><div><p></p><div><img></div><div><p></p><img><p></p></div><div><img></div><p></p></div><div><p></p></div></div>")
-
-            $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > p:nth-of-type(1)").text(dataU18[Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i]]["home"][0])
-            $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > p:nth-of-type(2)").text(dataU18[Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i]]["away"][0])
-
-            $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(1) > img").attr("src", "./files/" + dataU18[Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i]]["home"][1] + "_s.png")
-            $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(3) > img").attr("src", "./files/" + dataU18[Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i]]["away"][1] + "_s.png")
-
-            if (dataU18[Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i]]["home"][0] == "서울E") {
-                if (dataU18[Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] > dataU18[Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i]]["awayScore"]) {
-                    $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "2px solid #d4a73f")
-                } else if ((dataU18[Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] == dataU18[Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i]]["awayScore"]) && dataU18[Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] !== "") {
-                    $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "2px solid #808080")
-                } else if (dataU18[Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] < dataU18[Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i]]["awayScore"]) {
-                    $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "2px solid #ff0000")
-                } else {
-                    $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "none")
-                }
-            } else {
-                if (dataU18[Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] < dataU18[Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i]]["awayScore"]) {
-                    $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "2px solid #d4a73f")
-                } else if ((dataU18[Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] == dataU18[Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i]]["awayScore"]) && dataU18[Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] !== "") {
-                    $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "2px solid #808080")
-                } else if (dataU18[Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] > dataU18[Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i]]["awayScore"]) {
-                    $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "2px solid #ff0000")
-                } else {
-                    $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "none")
-                }
-            }
-
-            if (Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i] > new Date().getFullYear().toString() + ("0" + (1 + new Date().getMonth())).slice(-2) + ("0" + new Date().getDate()).slice(-2) + "8" && !$("#nextMatchU18").length) {
-                $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ")").attr("id", "nextMatchU18")
-            }
-
-            $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)").text(dataU18[Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"])
-            $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)").text(dataU18[Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i]]["awayScore"])
-            $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > img").attr("src", "./files/" + dataU18[Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i]]["comp"][1] + "_s.png")
-            $("#fixturesU18 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").text(dataU18[Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i]]["comp"][0] + " " + dataU18[Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i]]["round"] + " | " + Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i].substring(0, 4) + "." + Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i].substring(4, 6) + "." + Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[i].substring(6, 8) + ".")
-        }
-
-        $("#fixturesU18 > .fixtures > .fixtures_").each(function () {
-            $(this).click(function () {
-                window.location.href = "./match?" + Object.keys(dataU18).filter((a) => a.substring(0, 4) == year)[$(this).index()]
-            })
-        })
-
-        $("#fixturesU18 > .fixtures > .fixtures_:nth-last-of-type(1)").css("border", "none")
-
-        if ($("#nextMatchU18").length) {
-            document.getElementById("nextMatchU18").scrollIntoView({ block: "center" })
-        } else if (!$("#nextMatchU18").length && $("#fixturesButtonOffset").length) {
-            window.scroll({ top: document.body.scrollHeight, left: 0 })
-        }
-    }
-
-    // U15
-    if (!$("#fixturesU15 > .fixtures > .fixtures_").length) {
-        for (i = 0; i < Object.keys(dataU15).filter((a) => a.substring(0, 4) == year).length; i++) {
-            $("#fixturesU15 > .fixtures").append("<div class='fixtures_'><div><p></p><div><img></div><div><p></p><img><p></p></div><div><img></div><p></p></div><div><p></p></div></div>")
-
-            $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > p:nth-of-type(1)").text(dataU15[Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i]]["home"][0])
-            $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > p:nth-of-type(2)").text(dataU15[Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i]]["away"][0])
-
-            $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(1) > img").attr("src", "./files/" + dataU15[Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i]]["home"][1] + "_s.png")
-            $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(3) > img").attr("src", "./files/" + dataU15[Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i]]["away"][1] + "_s.png")
-
-            if (dataU15[Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i]]["home"][0] == "서울E") {
-                if (dataU15[Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] > dataU15[Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i]]["awayScore"]) {
-                    $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "2px solid #d4a73f")
-                } else if ((dataU15[Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] == dataU15[Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i]]["awayScore"]) && dataU15[Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] !== "") {
-                    $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "2px solid #808080")
-                } else if (dataU15[Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] < dataU15[Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i]]["awayScore"]) {
-                    $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "2px solid #ff0000")
-                } else {
-                    $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "none")
-                }
-            } else {
-                if (dataU15[Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] < dataU15[Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i]]["awayScore"]) {
-                    $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "2px solid #d4a73f")
-                } else if ((dataU15[Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] == dataU15[Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i]]["awayScore"]) && dataU15[Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] !== "") {
-                    $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "2px solid #808080")
-                } else if (dataU15[Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"] > dataU15[Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i]]["awayScore"]) {
-                    $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "2px solid #ff0000")
-                } else {
-                    $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2)").css("border", "none")
-                }
-            }
-
-            if (Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i] > new Date().getFullYear().toString() + ("0" + (1 + new Date().getMonth())).slice(-2) + ("0" + new Date().getDate()).slice(-2) + "0" && !$("#nextMatchU15").length) {
-                $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ")").attr("id", "nextMatchU15")
-            }
-
-            $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)").text(dataU15[Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i]]["homeScore"])
-            $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)").text(dataU15[Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i]]["awayScore"])
-            $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(2) > img").attr("src", "./files/" + dataU15[Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i]]["comp"][1] + "_s.png")
-            $("#fixturesU15 > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").text(dataU15[Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i]]["comp"][0] + " " + dataU15[Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i]]["round"] + " | " + Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i].substring(0, 4) + "." + Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i].substring(4, 6) + "." + Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[i].substring(6, 8) + ".")
-        }
-
-        $("#fixturesU15 > .fixtures > .fixtures_").each(function () {
-            $(this).click(function () {
-                window.location.href = "./match?" + Object.keys(dataU15).filter((a) => a.substring(0, 4) == year)[$(this).index()]
-            })
-        })
-
-        $("#fixturesU15 > .fixtures > .fixtures_:nth-last-of-type(1)").css("border", "none")
-
-        if ($("#nextMatchU15").length) {
-            document.getElementById("nextMatchU15").scrollIntoView({ block: "center" })
-        } else if (!$("#nextMatchU15").length && $("#fixturesButtonOffset").length) {
-            window.scroll({ top: document.body.scrollHeight, left: 0 })
-        }
+        $("#fixtures" + status_ + " > .fixtures > p").css({"font-size": "16px", "margin-top": "calc(27px + 5vw)", "font-weight" : "500"})
     }
 }
 
 // 함수 실행
-if ($("#fixturesSeason_").length) {
+if ($(".fixturesSeason").length) {
     year = new Date().getFullYear()
-    $("#fixturesSeason_ > button:contains(" + year + ")").css({ "color": "#fafafa", "background": "#000831" })
+    month = (new Date().getMonth() < 10) ? "0" + (new Date().getMonth() + 1) : "" + new Date().getMonth() + 1
+
+    $(".fixturesSeason").html("<p>" + month + "<span>" + year + "</span></p><p>◀</p><p>▶</p>")
+
+    status_ = "A"
 
     fixtures()
 }
 
-$("#fixturesSeason_ > button").each(function () {
-    $(this).click(function () {
-        year = $(this).text()
-        $("#fixturesSeason_ > button").css({ "color": "#000831", "background": "#fafafa" })
-        $(this).css({ "color": "#fafafa", "background": "#000831" })
+// 달력 컨트롤
+$(".fixturesSeason > p:nth-of-type(1)").click(function() {
+    // 연월 선택 기능
+})
 
-        $(".fixtures").empty()
-        fixtures()
-    })
+$(".fixturesSeason > p:nth-of-type(2)").click(function() {
+    if (month == "01") {
+        year --
+        month = "12"
+    } else {
+        month = (Number(month) <= 10) ? ("0" + (Number(month) - 1)) : ("" + (Number(month) - 1))
+    }
+
+    $(".fixturesSeason > p:nth-of-type(1)").html(month + "<span>" + year + "</span>")
+
+    fixtures()
+})
+
+$(".fixturesSeason > p:nth-of-type(3)").click(function() {
+    if (month == "12") {
+        year ++
+        month = "01"
+    } else {
+        month = (Number(month) < 9) ? ("0" + (Number(month) + 1)) : ("" + (Number(month) + 1))
+    }
+
+    $(".fixturesSeason > p:nth-of-type(1)").html(month + "<span>" + year + "</span>")
+
+    fixtures()
 })
 
 ////////// 홈 화면 /////////
