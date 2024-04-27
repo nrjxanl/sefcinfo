@@ -17,34 +17,19 @@
 
     <body oncontextmenu="return false">
 
-        <div class="standingsSeason">
-            <button onclick="standingsSeason()">시즌 선택</button>
-            <div id="standingsSeason_">
-                <button>2024</button>
-                <button>2023</button>
-                <button>2022</button>
-                <button>2021</button>
-                <button>2020</button>
-                <button>2019</button>
-                <button>2018</button>
-                <button>2017</button>
-                <button>2016</button>
-                <button>2015</button>
-            </div>
+        <div class="standingsButton">
+            <button onclick="standingsA()">A팀</button>
+            <button onclick="standingsU18()">U-18</button>
+            <button onclick="standingsU15()">U-15</button>
         </div>
+
+        <div class="standingsSeason"></div>
         
         <div class="standings">
             <button onclick="viewAll()">자세히 보기</button>
         </div>
 
         <div id="standingsA">
-
-            <div class="standingsButton">
-                <button onclick="standingsA()" style="background: #000831; color: #fafafa;">A팀</button>
-                <button onclick="standingsU18()">U-18</button>
-                <button onclick="standingsU15()">U-15</button>
-            </div>
-
             <div>
                 <table>
                     <thead>
@@ -68,12 +53,6 @@
         </div>
 
         <div id="standingsU18">
-
-            <div class="standingsButton" style="margin-top: 0;">
-                <button onclick="standingsA()">A팀</button>
-                <button onclick="standingsU18()" style="background: #000831; color: #fafafa;">U-18</button>
-                <button onclick="standingsU15()">U-15</button>
-            </div>
 
             <div class="standingsDetail">
                 <button onclick="standingsU18F()" style="font-weight: 500;">전반기</button>
@@ -124,12 +103,6 @@
 
         <div id="standingsU15">
 
-            <div class="standingsButton" style="margin-top: 0;">
-                <button onclick="standingsA()">A팀</button>
-                <button onclick="standingsU18()">U-18</button>
-                <button onclick="standingsU15()" style="background: #000831; color: #fafafa;">U-15</button>
-            </div>
-
             <div>
                 <table>
                     <thead>
@@ -152,9 +125,8 @@
 
         </div>
 
-        <script src="standings.js"></script>
-
         <script src="script.js"></script>
+        <script src="data.js"></script>
 
     </body>
 

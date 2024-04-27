@@ -15,10 +15,19 @@ $(document).ready(function() {
     }
 
     // A팀 선수단 불러오기
-    playerA()
+    if ($(".playerButton").length) {
+        playerA()
+    }
 
     // A팀 일정 불러오기
-    fixturesA()
+    if ($(".fixturesButton").length) {
+        fixturesA()
+    }
+
+    // A팀 순위 불러오기
+    if ($(".standingsButton").length) {
+        standingsA()
+    }
 
 })
 
@@ -64,78 +73,13 @@ $("#menu > div:nth-of-type(4)").click(function() {
 })
 
 // 메뉴 내 현재 페이지 이름 강조
-if ($("#playerA".length || $("#playerInfo")).length) {
+if ($("#playerButton").length || $("#playerInfo").length) {
     $("#menu > div:nth-of-type(1)").css("background", "#174fff10")
+} else if ($("#fixturesButton").length || $("#matchScore").length) {
+    $("#menu > div:nth-of-type(2)").css("background", "#174fff10")
 }
 
-// 문자별 글꼴 적용
-characterList = []
-
-i = 0x00c0 // Latin-1 Supplement
-while(i <= 0x00ff) {
-    characterList.push(i)
-    i++
-}
-i = 0x0100 // Latin Extended-A, B
-while(i <= 0x024f) {
-    characterList.push(i)
-    i++
-}
-i = 0x0370 // Greek, Coptic, Cyrillic
-while(i <= 0x052f) {
-    characterList.push(i)
-    i++
-}
-i = 0x1ea0 // Vietnamese
-while(i <= 0x1ef9) {
-    characterList.push(i)
-    i++
-}
-i = 0x2e80 // CJK Hanja 1
-while(i <= 0x2ef3) {
-    characterList.push(i)
-    i++
-}
-i = 0x2f00 // CJK Hanja 2
-while(i <= 0x2fd5) {
-    characterList.push(i)
-    i++
-}
-i = 0x3500 // CJK Hanja 3
-while(i <= 0x4dbf) {
-    characterList.push(i)
-    i++
-}
-i = 0x4e00 // CJK Hanja 4
-while(i <= 0x9fff) {
-    characterList.push(i)
-    i++
-}
-i = 0xf900 // CJK Hanja 5
-while(i <= 0xfaff) {
-    characterList.push(i)
-    i++
-}
-i = 0x20000 // CJK Hanja 6
-while(i <= 0x2fa1f) {
-    characterList.push(i)
-    i++
-}
-
-_playerName = $("#playerName").find("span:nth-of-type(2)")
-playerName = []
-
-i = 0
-while ( i < _playerName.text().length) {
-    playerName.push(_playerName.text().charCodeAt(i))
-    i++
-}
-
-intersection = playerName.filter(value => characterList.includes(value))
-if (intersection.length != 0) {
-    _playerName.css({"font-family": "'Noto Sans', 'Noto Sans KR'", "font-weight": "500"})
-}
-
+// 선수 기록 창 전환
 function statsSeason() {
     season = $("#statsSeason_").css("display")
 
@@ -261,80 +205,41 @@ if ($("#matchScore").length && !$("#highlight").length) {
     $(".matchDetail button:nth-child(2)").css("font-weight", 900)
 }
 
-// 선수 기록 창 전환
-function recordsA() {
-    document.getElementById("recordsA").style.display = "block"
-    document.getElementById("recordsU18").style.display = "none"
-    document.getElementById("recordsU15").style.display = "none"
-}
-
-function recordsU18() {
-    document.getElementById("recordsA").style.display = "none"
-    document.getElementById("recordsU18").style.display = "block"
-    document.getElementById("recordsU15").style.display = "none"
-}
-
-function recordsU15() {
-    document.getElementById("recordsA").style.display = "none"
-    document.getElementById("recordsU18").style.display = "none"
-    document.getElementById("recordsU15").style.display = "block"
-}
-
-function recordsSeason() {
-    season = $("#recordsSeason_").css("display")
-
-    if(season == "none") {
-        document.getElementById("recordsSeason_").style.display = "flex"
-    } else {
-        document.getElementById("recordsSeason_").style.display = "none"
-    }
-
-}
-
-function recordsApp() {
-    $(".appRecord").css("display", "flex")
-    $(".goalRecord").css("display", "none")
-    $(".assistRecord").css("display", "none")
-    $(".recordsDetail button:nth-child(1)").css("font-weight", 900)
-    $(".recordsDetail button:nth-child(2)").css("font-weight", 500)
-    $(".recordsDetail button:nth-child(3)").css("font-weight", 500)
-}
-
-function recordsGoal() {
-    $(".appRecord").css("display", "none")
-    $(".goalRecord").css("display", "flex")
-    $(".assistRecord").css("display", "none")
-    $(".recordsDetail button:nth-child(1)").css("font-weight", 500)
-    $(".recordsDetail button:nth-child(2)").css("font-weight", 900)
-    $(".recordsDetail button:nth-child(3)").css("font-weight", 500)
-}
-
-function recordsAssist() {
-    $(".appRecord").css("display", "none")
-    $(".goalRecord").css("display", "none")
-    $(".assistRecord").css("display", "flex")
-    $(".recordsDetail button:nth-child(1)").css("font-weight", 500)
-    $(".recordsDetail button:nth-child(2)").css("font-weight", 500)
-    $(".recordsDetail button:nth-child(3)").css("font-weight", 900)
-}
-
 // 순위 창 전환
 function standingsA() {
-    document.getElementById("standingsA").style.display = "block"
-    document.getElementById("standingsU18").style.display = "none"
-    document.getElementById("standingsU15").style.display = "none"
+    $("#standingsA").css("display", "block")
+    $("#standingsU18").css("display", "none")
+    $("#standingsU15").css("display", "none")
+
+    $(".standingsButton > button").css({"color": "#000831", "border-bottom": "none"})
+    $(".standingsButton > button:nth-of-type(1)").css({"color": "#174fff", "border-bottom": "3px solid #174fff"})
+
+    status_ = "A"
+    standings()
 }
 
 function standingsU18() {
-    document.getElementById("standingsA").style.display = "none"
-    document.getElementById("standingsU18").style.display = "block"
-    document.getElementById("standingsU15").style.display = "none"
+    $("#standingsA").css("display", "none")
+    $("#standingsU18").css("display", "block")
+    $("#standingsU15").css("display", "none")
+
+    $(".standingsButton > button").css({"color": "#000831", "border-bottom": "none"})
+    $(".standingsButton > button:nth-of-type(2)").css({"color": "#174fff", "border-bottom": "3px solid #174fff"})
+
+    status_ = "U18"
+    standings()
 }
 
 function standingsU15() {
-    document.getElementById("standingsA").style.display = "none"
-    document.getElementById("standingsU18").style.display = "none"
-    document.getElementById("standingsU15").style.display = "block"
+    $("#standingsA").css("display", "none")
+    $("#standingsU18").css("display", "none")
+    $("#standingsU15").css("display", "block")
+
+    $(".standingsButton > button").css({"color": "#000831", "border-bottom": "none"})
+    $(".standingsButton > button:nth-of-type(3)").css({"color": "#174fff", "border-bottom": "3px solid #174fff"})
+
+    status_ = "U15"
+    standings()
 }
 
 function standingsSeason() {

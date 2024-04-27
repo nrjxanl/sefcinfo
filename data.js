@@ -12,6 +12,9 @@ playerNumber = {
     [2023]: {"20180211": ["강정묵", "1"], "20170029": ["문정인", "23"], "20210142": ["주현성", "31"], "20160074": ["윤보상", "77"], "20180186": ["황태현", "2"], "20170153": ["김민규2", "3"], "20120007": ["한용수", "4"], "20230193": ["차승현", "13"], "20180105": ["이재익", "14"], "20220184": ["황인택", "18"], "20220117": ["박준영1", "20"], "20220118": ["조동재", "27"], "20190062": ["황정욱", "28"], "20180156": ["박경민", "33"], "20190199": ["이정문", "42"], "20170208": ["이인재", "92"], "20170011": ["이상민2", "6"], "20140126": ["서보민", "7"], "20160059": ["곽성욱", "8"], "20120052": ["김원식", "15"], "20180207": ["유정완", "17"], "20190015": ["이시헌", "21"], "20210138": ["박창환", "30"], "20230195": ["브루노", "40"], "20180293": ["츠바사", "44"], "20230196": ["반토안", "9"], "20190131": ["이동률", "10"], "20160151": ["김정환", "11"], "20190048": ["박정인", "11"], "20210175": ["변경준", "16"], "": ["헤난", "19"], "20230194": ["호난", "22"], "20140322": ["김수안", "29"], "20160058": ["송시우", "82"], "20220124": ["박준영2", "90"], "19854635": ["김규연", "15"], "23039651": ["김지완1", "21"], "23851555": ["김태훈", "22"], "24054761": ["류예찬", "89"], "24378612": ["문우주", "25"], "26259287": ["문현서", ""], "25553641": ["신정우", "36"], "26332684": ["윤진서", "27"], "26079882": ["음재식", "88"], "27982921": ["황윤우", "24"], "28244192": ["황준우", "23"], "22710326": ["권재윤", "66"], "22052925": ["김서준", "9"], "22052927": ["김서진", "13"], "24654370": ["성승훈", "70"], "25853421": ["양재민", "5"], "27791200": ["오현택", "77"], "25267306": ["장석훈", "30"], "24650117": ["정민찬", ""], "28063476": ["정현준", ""], "28029013": ["황인서", "17"], "21535403": ["김범규", "10"], "22062285": ["김성연", "7"], "22614994": ["김예찬", "1"], "22689961": ["김우현", "20"], "20221356": ["노규민", "38"], "23704260": ["문성욱", "6"], "24603364": ["문종보", "19"], "23827380": ["백성민", "4"], "25981855": ["오정주", ""], "25103050": ["최명근", "11"], "28063472": ["현정인", "2"], "27936840": ["황원태", ""], "23803454": ["박서준", "26"], "26772702": ["정찬유", "26"]},
 }
 
+// 순위
+rank = {"2024": {"A": {1: ["1", "수원삼성", "8", "18", "6", "0", "2", "15", "7", "8"], 2: ["2", "안양", "7", "16", "5", "1", "1", "14", "8", "6"], 3: ["3", "부산", "8", "12", "4", "0", "4", "15", "13", "2"], 4: ["4", "충북청주", "8", "12", "3", "3", "2", "8", "9", "-1"], 5: ["5", "전남", "7", "11", "3", "2", "2", "9", "8", "1"], 6: ["6", "충남아산", "8", "10", "2", "4", "2", "12", "10", "2"], 7: ["7", "서울E", "7", "8", "2", "2", "3", "10", "9", "1"], 8: ["8", "경남", "7", "8", "2", "2", "3", "9", "13", "-4"], 9: ["9", "부천", "7", "8", "2", "2", "3", "7", "11", "-4"], 10: ["10", "김포", "7", "8", "2", "2", "3", "6", "10", "-4"], 11: ["11", "성남", "8", "7", "1", "4", "3", "8", "12", "-4"], 12: ["12", "안산", "7", "7", "2", "1", "4", "7", "8", "-1"], 13: ["13", "천안", "7", "6", "1", "3", "3", "10", "12", "-2"]}, "U18F": {1: ["1", "충남아산", "12", "0", "4", "4", "0", "0", "13", "3"], 2: ["2", "FC서울", "11", "0", "5", "3", "2", "0", "16", "6"], 3: ["3", "인천", "7", "0", "4", "2", "1", "1", "11", "7"], 4: ["4", "성남", "6", "0", "4", "2", "0", "2", "9", "9"], 5: ["5", "제주", "4", "0", "4", "1", "1", "2", "6", "5"], 6: ["6", "서울E", "4", "0", "5", "1", "1", "3", "5", "12"], 7: ["7", "안양", "2", "0", "5", "0", "2", "3", "3", "15"], 8: ["8", "천안", "1", "0", "3", "0", "1", "2", "0", "6"]}, "U18S": {}, "U15": {1: ["1", "성남", "12", "0", "4", "4", "0", "0", "29", "2"], 2: ["2", "FC서울", "9", "0", "4", "3", "0", "1", "19", "3"], 3: ["3", "안양", "9", "0", "6", "2", "3", "1", "17", "6"], 4: ["4", "서울E", "9", "0", "6", "3", "0", "3", "10", "12"], 5: ["5", "제주", "7", "0", "3", "2", "1", "0", "13", "2"], 6: ["6", "인천", "7", "0", "5", "2", "1", "2", "12", "9"], 7: ["7", "충남아산", "4", "0", "6", "1", "1", "4", "6", "9"], 8: ["8", "천안", "0", "0", "6", "0", "0", "6", "0", "63"]}}}
+
 ////////// 경기 세부 정보 화면 //////////
 
 if ($("#matchScore").length) {
@@ -1133,9 +1136,9 @@ if ($("#standingsHome").length) {
 
 if ($("#playerA").length) {
 
-playerAList = []
-playerU18List = []
-playerU15List = []
+    playerAList = []
+    playerU18List = []
+    playerU15List = []
 
     for (i = 0; i < Object.keys(player).length; i++) {
         if (player[Object.keys(player)[i]]["sefc"] == "O") {
@@ -1361,3 +1364,360 @@ if ($("#playerProfile").length) {
         $("#playerSNS").attr({ "href": "#", "onclick": "return false", "style": "opacity: .5" })
     }
 }
+
+////////// 순위 화면 //////////
+
+function standings() {
+
+    $("#standingsA > .standings").empty()
+    $("#standingsU18 > .standings").empty()
+    $("#standingsU15 > .standings").empty()
+
+}
+
+// 함수 실행
+if ($(".standingsSeason").length) {
+    year = new Date().getFullYear()
+
+    $(".standingsSeason").html("<p>" + year + "</p><p>◀</p><p>▶</p>")
+
+    status_ = "A"
+
+    standings()
+}
+
+// 달력 컨트롤
+$(".standingsSeason > p:nth-of-type(1)").click(function() {
+    // 연월 선택 기능
+})
+
+$(".standingsSeason > p:nth-of-type(2)").click(function() {
+    year --
+
+    $(".standingsSeason > p:nth-of-type(1)").text(year)
+
+    standings()
+})
+
+$(".standingsSeason > p:nth-of-type(3)").click(function() {
+    year ++
+
+    $(".standingsSeason > p:nth-of-type(1)").text(year)
+
+    standings()
+})
+
+// function standings() {
+// console.log(rank)
+//     for (i = 0; i < Object.keys(rank[year][status_]).length; i++) {
+//         ("#standings" + status_ + " > div > table > tbody").append("<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>")
+
+//         $("#standings" + status_ + " > div > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(1)").html("<p>" + (i + 1) + "</p>")
+//         $("#standings" + status_ + " > div > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(2)").html("<img src='https://sefc.info/files/" + emblem + ".png'>")
+//         $("#standings" + status_ + " > div > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(3)").text(teamListA[i])
+//         $("#standings" + status_ + " > div > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(4)").text(ptsListA[i])
+//         $("#standings" + status_ + " > div > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(5)").text(wListA[i])
+//         $("#standings" + status_ + " > div > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(6)").text(dListA[i])
+//         $("#standings" + status_ + " > div > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(7)").text(lListA[i])
+//         $("#standings" + status_ + " > div > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(8)").text(goalSListA[i])
+//         $("#standings" + status_ + " > div > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(9)").text(goalCListA[i])
+//         $("#standings" + status_ + " > div > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(10)").text(diffListA[i])
+
+//         if (teamListA[i] == "서울E") {
+//             $("#standings" + status_).find("tbody > tr:nth-of-type(" + (i + 1) + ")").attr("class", "sefc")
+//         }
+//     }
+
+//     // 홈 화면
+//     if ($("#standingsHome").length) {
+//         if (teamListA.indexOf("서울E") == 0) { // 1위
+//             if (i >= teamListA.indexOf("서울E") && i <= (teamListA.indexOf("서울E") + 2)) {
+//                 $("#standingsHome").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(1)").text(i + 1)
+//                 $("#standingsHome").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(2)").html("<img src='https://sefc.info/files/" + emblem + ".png'>")
+//                 $("#standingsHome").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(3)").text(teamListA[i])
+//                 $("#standingsHome").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(4)").text(ptsListA[i])
+//                 $("#standingsHome").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(5)").text(goalSListA[i])
+//                 $("#standingsHome").find("tbody > tr:nth-of-type(1)").attr("class", "sefc")
+//             }
+//         } else if (teamListA.indexOf("서울E") == (teamListA.length - 1)) { // 최하위
+//             if (i >= (teamListA.indexOf("서울E") - 2) && i <= teamListA.indexOf("서울E")) {
+//                 $("#standingsHome").find("tr:nth-of-type(" + (i - (teamListA.indexOf("서울E") - 3)) + ") > td:nth-of-type(1)").text(i + 1)
+//                 $("#standingsHome").find("tr:nth-of-type(" + (i - (teamListA.indexOf("서울E") - 3)) + ") > td:nth-of-type(2)").html("<img src='https://sefc.info/files/" + emblem + ".png'>")
+//                 $("#standingsHome").find("tr:nth-of-type(" + (i - (teamListA.indexOf("서울E") - 3)) + ") > td:nth-of-type(3)").text(teamListA[i])
+//                 $("#standingsHome").find("tr:nth-of-type(" + (i - (teamListA.indexOf("서울E") - 3)) + ") > td:nth-of-type(4)").text(ptsListA[i])
+//                 $("#standingsHome").find("tr:nth-of-type(" + (i - (teamListA.indexOf("서울E") - 3)) + ") > td:nth-of-type(5)").text(goalSListA[i])
+//                 $("#standingsHome").find("tbody > tr:nth-of-type(3)").attr("class", "sefc")
+//             }
+//         } else { // 나머지
+//             if (i >= (teamListA.indexOf("서울E") - 1) && i <= (teamListA.indexOf("서울E") + 1)) {
+//                 $("#standingsHome").find("tr:nth-of-type(" + (i - (teamListA.indexOf("서울E") - 2)) + ") > td:nth-of-type(1)").text(i + 1)
+//                 $("#standingsHome").find("tr:nth-of-type(" + (i - (teamListA.indexOf("서울E") - 2)) + ") > td:nth-of-type(2)").html("<img src='https://sefc.info/files/" + emblem + ".png'>")
+//                 $("#standingsHome").find("tr:nth-of-type(" + (i - (teamListA.indexOf("서울E") - 2)) + ") > td:nth-of-type(3)").text(teamListA[i])
+//                 $("#standingsHome").find("tr:nth-of-type(" + (i - (teamListA.indexOf("서울E") - 2)) + ") > td:nth-of-type(4)").text(ptsListA[i])
+//                 $("#standingsHome").find("tr:nth-of-type(" + (i - (teamListA.indexOf("서울E") - 2)) + ") > td:nth-of-type(5)").text(goalSListA[i])
+//                 $("#standingsHome").find("tbody > tr:nth-of-type(2)").attr("class", "sefc")
+//             }
+//         }
+//     }
+// }
+
+//     if ($(".standingsSeason").length) {
+//         teamListU18F = Object.values(U18F.team)
+//         ptsListU18F = Object.values(U18F.pts)
+//         wListU18F = Object.values(U18F.w)
+//         dListU18F = Object.values(U18F.d)
+//         lListU18F = Object.values(U18F.l)
+//         goalSListU18F = Object.values(U18F.goalS)
+//         goalCListU18F = Object.values(U18F.goalC)
+//         diffListU18F = Object.values(U18F.diff)
+
+//         j = teamListU18F.indexOf("서울E")
+
+//         for (i = 0; i < teamListU18F.length; i++) {
+//             emblem =
+//                 teamListU18F[i] == "서울E" ? "seouleland_s" :
+//                     teamListU18F[i] == "울산" ? "ulsanhyundai2016_s" :
+//                         teamListU18F[i] == "수원삼성" ? "suwonsamsung_s" :
+//                             teamListU18F[i] == "수원FC" ? "suwonfc2016_s" :
+//                                 teamListU18F[i] == "성남" ? "seongnamfc2014_s" :
+//                                     teamListU18F[i] == "포항" ? "pohangsteelers_s" :
+//                                         teamListU18F[i] == "전남" ? "jeonnamdragons2022_s" :
+//                                             teamListU18F[i] == "전북" ? "jeonbukhyundai2018_s" :
+//                                                 teamListU18F[i] == "제주" ? "jejuutd_s" :
+//                                                     teamListU18F[i] == "인천" ? "incheonutd_s" :
+//                                                         teamListU18F[i] == "경남" ? "gyeongnamfc2010_s" :
+//                                                             teamListU18F[i] == "광주" ? "gwangjufc2020_s" :
+//                                                                 teamListU18F[i] == "김포" ? "gimpofc2022_s" :
+//                                                                     teamListU18F[i] == "김천" ? "gimcheonsangmu_s" :
+//                                                                         teamListU18F[i] == "강원" ? "gangwonfc_s" :
+//                                                                             teamListU18F[i] == "FC서울" ? "fcseoul_s" :
+//                                                                                 teamListU18F[i] == "안양" ? "fcanyang_s" :
+//                                                                                     teamListU18F[i] == "대전" ? "daejeonhana2020_s" :
+//                                                                                         teamListU18F[i] == "대구" ? "daegufc2013_s" :
+//                                                                                             teamListU18F[i] == "충남아산" ? "chungnamasan_s" :
+//                                                                                                 teamListU18F[i] == "충북청주" ? "chungbukcheongju_s" :
+//                                                                                                     teamListU18F[i] == "천안" ? "cheonancity2023_s" :
+//                                                                                                         teamListU18F[i] == "부산" ? "busanipark2012_s" :
+//                                                                                                             teamListU18F[i] == "부천" ? "bucheonfc_s" :
+//                                                                                                                 teamListU18F[i] == "안산" ? "ansangreeners_s" :
+//                                                                                                                     "dummy";
+
+//             $("#standingsU18F > table > tbody").append("<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>")
+
+//             $("#standingsU18F").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(1)").html("<p>" + (i + 1) + "</p>")
+//             $("#standingsU18F").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(2)").html("<img src='https://sefc.info/files/" + emblem + ".png'>")
+//             $("#standingsU18F").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(3)").text(teamListU18F[i])
+//             $("#standingsU18F").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(4)").text(ptsListU18F[i])
+//             $("#standingsU18F").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(5)").text(wListU18F[i])
+//             $("#standingsU18F").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(6)").text(dListU18F[i])
+//             $("#standingsU18F").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(7)").text(lListU18F[i])
+//             $("#standingsU18F").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(8)").text(goalSListU18F[i])
+//             $("#standingsU18F").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(9)").text(goalCListU18F[i])
+//             $("#standingsU18F").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(10)").text(diffListU18F[i])
+
+//             if (teamListU18F[i] == "서울E") {
+//                 $("#standingsU18F").find("tbody > tr:nth-of-type(" + (i + 1) + ")").attr("class", "sefc")
+//             }
+
+//         }
+//     }
+
+//     if (U18S.team.length !== 1) {
+//         document.getElementById("standingsU18F").style.display = "none"
+//         document.getElementById("standingsU18S").style.display = "block"
+//         $(".standingsDetail button:nth-child(1)").css("font-weight", 500)
+//         $(".standingsDetail button:nth-child(2)").css("display", "inline-block")
+//     } else {
+//         document.getElementById("standingsU18F").style.display = "block"
+//         document.getElementById("standingsU18S").style.display = "none"
+//         $(".standingsDetail button:nth-child(1)").css("font-weight", 900)
+//         $(".standingsDetail button:nth-child(2)").css("display", "none")
+//     }
+
+//     teamListU18S = Object.values(U18S.team)
+//     ptsListU18S = Object.values(U18S.pts)
+//     wListU18S = Object.values(U18S.w)
+//     dListU18S = Object.values(U18S.d)
+//     lListU18S = Object.values(U18S.l)
+//     goalSListU18S = Object.values(U18S.goalS)
+//     goalCListU18S = Object.values(U18S.goalC)
+//     diffListU18S = Object.values(U18S.diff)
+
+//     j = teamListU18S.indexOf("서울E")
+
+//     for (i = 0; i < teamListU18S.length; i++) {
+//         emblem =
+//             teamListU18S[i] == "서울E" ? "seouleland_s" :
+//                 teamListU18S[i] == "울산" ? "ulsanhyundai2016_s" :
+//                     teamListU18S[i] == "수원삼성" ? "suwonsamsung_s" :
+//                         teamListU18S[i] == "수원FC" ? "suwonfc2016_s" :
+//                             teamListU18S[i] == "성남" ? "seongnamfc2014_s" :
+//                                 teamListU18S[i] == "포항" ? "pohangsteelers_s" :
+//                                     teamListU18S[i] == "전남" ? "jeonnamdragons2022_s" :
+//                                         teamListU18S[i] == "전북" ? "jeonbukhyundai2018_s" :
+//                                             teamListU18S[i] == "제주" ? "jejuutd_s" :
+//                                                 teamListU18S[i] == "인천" ? "incheonutd_s" :
+//                                                     teamListU18S[i] == "경남" ? "gyeongnamfc2010_s" :
+//                                                         teamListU18S[i] == "광주" ? "gwangjufc2020_s" :
+//                                                             teamListU18S[i] == "김포" ? "gimpofc2022_s" :
+//                                                                 teamListU18S[i] == "김천" ? "gimcheonsangmu_s" :
+//                                                                     teamListU18S[i] == "강원" ? "gangwonfc_s" :
+//                                                                         teamListU18S[i] == "FC서울" ? "fcseoul_s" :
+//                                                                             teamListU18S[i] == "안양" ? "fcanyang_s" :
+//                                                                                 teamListU18S[i] == "대전" ? "daejeonhana2020_s" :
+//                                                                                     teamListU18S[i] == "대구" ? "daegufc2013_s" :
+//                                                                                         teamListU18S[i] == "충남아산" ? "chungnamasan_s" :
+//                                                                                             teamListU18S[i] == "충북청주" ? "chungbukcheongju_s" :
+//                                                                                                 teamListU18S[i] == "천안" ? "cheonancity2023_s" :
+//                                                                                                     teamListU18S[i] == "부산" ? "busanipark2012_s" :
+//                                                                                                         teamListU18S[i] == "부천" ? "bucheonfc_s" :
+//                                                                                                             teamListU18S[i] == "안산" ? "ansangreeners_s" :
+//                                                                                                                 "dummy";
+
+//         $("#standingsU18S > table > tbody").append("<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>")
+
+//         $("#standingsU18S").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(1)").html("<p>" + (i + 1) + "</p>")
+//         $("#standingsU18S").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(2)").html("<img src='https://sefc.info/files/" + emblem + ".png'>")
+//         $("#standingsU18S").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(3)").text(teamListU18S[i])
+//         $("#standingsU18S").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(4)").text(ptsListU18S[i])
+//         $("#standingsU18S").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(5)").text(wListU18S[i])
+//         $("#standingsU18S").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(6)").text(dListU18S[i])
+//         $("#standingsU18S").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(7)").text(lListU18S[i])
+//         $("#standingsU18S").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(8)").text(goalSListU18S[i])
+//         $("#standingsU18S").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(9)").text(goalCListU18S[i])
+//         $("#standingsU18S").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(10)").text(diffListU18S[i])
+
+//         if (teamListU18S[i] == "서울E") {
+//             $("#standingsU18S").find("tbody > tr:nth-of-type(" + (i + 1) + ")").attr("class", "sefc")
+//         }
+
+//     }
+
+//     teamListU15 = Object.values(U15.team)
+//     ptsListU15 = Object.values(U15.pts)
+//     wListU15 = Object.values(U15.w)
+//     dListU15 = Object.values(U15.d)
+//     lListU15 = Object.values(U15.l)
+//     goalSListU15 = Object.values(U15.goalS)
+//     goalCListU15 = Object.values(U15.goalC)
+//     diffListU15 = Object.values(U15.diff)
+
+//     j = teamListU15.indexOf("서울E")
+
+//     for (i = 0; i < teamListU15.length; i++) {
+//         emblem =
+//             teamListU15[i] == "서울E" ? "seouleland_s" :
+//                 teamListU15[i] == "울산" ? "ulsanhyundai2016_s" :
+//                     teamListU15[i] == "수원삼성" ? "suwonsamsung_s" :
+//                         teamListU15[i] == "수원FC" ? "suwonfc2016_s" :
+//                             teamListU15[i] == "성남" ? "seongnamfc2014_s" :
+//                                 teamListU15[i] == "포항" ? "pohangsteelers_s" :
+//                                     teamListU15[i] == "전남" ? "jeonnamdragons2022_s" :
+//                                         teamListU15[i] == "전북" ? "jeonbukhyundai2018_s" :
+//                                             teamListU15[i] == "제주" ? "jejuutd_s" :
+//                                                 teamListU15[i] == "인천" ? "incheonutd_s" :
+//                                                     teamListU15[i] == "경남" ? "gyeongnamfc2010_s" :
+//                                                         teamListU15[i] == "광주" ? "gwangjufc2020_s" :
+//                                                             teamListU15[i] == "김포" ? "gimpofc2022_s" :
+//                                                                 teamListU15[i] == "김천" ? "gimcheonsangmu_s" :
+//                                                                     teamListU15[i] == "강원" ? "gangwonfc_s" :
+//                                                                         teamListU15[i] == "FC서울" ? "fcseoul_s" :
+//                                                                             teamListU15[i] == "안양" ? "fcanyang_s" :
+//                                                                                 teamListU15[i] == "대전" ? "daejeonhana2020_s" :
+//                                                                                     teamListU15[i] == "대구" ? "daegufc2013_s" :
+//                                                                                         teamListU15[i] == "충남아산" ? "chungnamasan_s" :
+//                                                                                             teamListU15[i] == "충북청주" ? "chungbukcheongju_s" :
+//                                                                                                 teamListU15[i] == "천안" ? "cheonancity2023_s" :
+//                                                                                                     teamListU15[i] == "부산" ? "busanipark2012_s" :
+//                                                                                                         teamListU15[i] == "부천" ? "bucheonfc_s" :
+//                                                                                                             teamListU15[i] == "안산" ? "ansangreeners_s" :
+//                                                                                                                 "dummy";
+
+//     for (i = 0; i < teamListU15.length; i++) {
+//         if ($(".standingsSeason").length) {
+//             $("#standingsU15 > div > table > tbody").append("<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>")
+
+//             $("#standingsU15").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(1)").html("<p>" + (i + 1) + "</p>")
+//             $("#standingsU15").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(2)").html("<img src='https://sefc.info/files/" + emblem + ".png'>")
+//             $("#standingsU15").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(3)").text(teamListU15[i])
+//             $("#standingsU15").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(4)").text(ptsListU15[i])
+//             $("#standingsU15").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(5)").text(wListU15[i])
+//             $("#standingsU15").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(6)").text(dListU15[i])
+//             $("#standingsU15").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(7)").text(lListU15[i])
+//             $("#standingsU15").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(8)").text(goalSListU15[i])
+//             $("#standingsU15").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(9)").text(goalCListU15[i])
+//             $("#standingsU15").find("tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(10)").text(diffListU15[i])
+
+//             if (teamListU15[i] == "서울E") {
+//                 $("#standingsU15").find("tbody > tr:nth-of-type(" + (i + 1) + ")").attr("class", "sefc")
+//             }
+//         }
+
+//         descr()
+
+//     }
+// }
+
+// // 함수 실행
+// if ($(".standingsSeason").length) {
+//     year = new Date().getFullYear()
+
+//     $(".standingsSeason").html("<p>" + month + "</p><p>◀</p><p>▶</p>")
+
+//     status_ = "A"
+//     standings()
+// }
+
+// // 순위 하단 설명
+// function descr() {
+
+//     if (year >= 2022) {
+//         $("#standingsA > div > p").html("<span>1위</span>K리그2 우승, K리그1 승격<br><span>2위</span>K리그 승강 플레이오프 진출<br><span>3~5위</span>K리그2 승격 플레이오프 진출")
+//         $("#standingsA").find("tr:nth-of-type(1) > td:nth-of-type(1) > p").css("background", "#174fff")
+//         $("#standingsA").find("tr:nth-of-type(2) > td:nth-of-type(1) > p").css("background", "#0d2fa1")
+//         for (i = 3; i <= 5; i++) { $("#standingsA").find("tr:nth-of-type(" + i + ") > td:nth-of-type(1) > p").css("background", "#061b69") }
+//         $("#standingsA > div > p > span:nth-of-type(1)").css("color", "#174fff")
+//         $("#standingsA > div > p > span:nth-of-type(2)").css("color", "#0d2fa1")
+//         $("#standingsA > div > p > span:nth-of-type(3)").css("color", "#061b69")
+
+//         $("#standingsU18F > p").html("<span>1위</span>전반기 우승, 후반기 A조 · 왕중왕전 진출<br><span>2~4위</span>후반기 A조 · 왕중왕전 진출<br><span>5~6위</span>후반기 A조 진출<br><span>7~12위</span>후반기 B조 진출")
+//         $("#standingsU18F").find("tr:nth-of-type(1) > td:nth-of-type(1) > p").css("background", "#174fff")
+//         for (i = 2; i <= 4; i++) { $("#standingsU18F").find("tr:nth-of-type(" + i + ") > td:nth-of-type(1) > p").css("background", "#0d2fa1") }
+//         for (i = 5; i <= 6; i++) { $("#standingsU18F").find("tr:nth-of-type(" + i + ") > td:nth-of-type(1) > p").css("background", "#061b69") }
+//         for (i = 7; i <= 12; i++) { $("#standingsU18F").find("tr:nth-of-type(" + i + ") > td:nth-of-type(1) > p").css("background", "#f00") }
+
+//         $("#standingsU18F > p > span:nth-of-type(1)").css("color", "#174fff")
+//         $("#standingsU18F > p > span:nth-of-type(2)").css("color", "#0d2fa1")
+//         $("#standingsU18F > p > span:nth-of-type(3)").css("color", "#061b69")
+//         $("#standingsU18F > p > span:nth-of-type(4)").css("color", "#f00")
+
+//         $("#standingsU18S > p").html("<span>1위</span>후반기 우승")
+//         $("#standingsU18S").find("tr:nth-of-type(1) > td:nth-of-type(1) > p").css("background", "#174fff")
+//         $("#standingsU18S > p > span:nth-of-type(1)").css("color", "#174fff")
+
+//         $("#standingsU15 > div > p").html("<span>1위</span>리그 우승")
+//         $("#standingsU15").find("tr:nth-of-type(1) > td:nth-of-type(1) > p").css("background", "#174fff")
+//         $("#standingsU15 > div > p > span:nth-of-type(1)").css("color", "#174fff")
+
+//     }
+// }
+
+// // 버튼 누르면 순위 불러오기
+// $("#standingsSeason_ > button").click(function () {
+//     year = $(this).text()
+//     eval("A = A" + year)
+//     eval("U18F = U18F" + year)
+//     eval("U18S = U18S" + year)
+//     eval("U15 = U15" + year)
+//     standings()
+// })
+
+// // 새로고침 시 올해 순위 불러오기
+// if ($(".standingsSeason").length || $("#standingsHome").length) {
+//     year = new Date().getFullYear()
+//     eval("A = A" + year)
+//     eval("U18F = U18F" + year)
+//     eval("U18S = U18S" + year)
+//     eval("U15 = U15" + year)
+//     standings()
+// }
