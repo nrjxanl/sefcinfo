@@ -1233,7 +1233,7 @@ if ($("#standingsHome").length) {
 
 ////////// 선수 목록 창 //////////
 
-if ($("#playerButtonOffset").length) {
+if ($("#playerA").length) {
 
 playerAList = []
 playerU18List = []

@@ -23,6 +23,9 @@ $(document).ready(function() {
         $("body").append("<div style='width: 80vw; height: 65px; padding: 0 10vw; background: #fafafa; position: fixed; bottom: 0; left: 0; font-size: 14px; font-weight: 500; z-index: 300; display: flex; align-items: center; justify-content: center;'>페이지가 아직 이 기기를 완벽히 지원하지 않아 페이지가 정상적으로 보이지 않을 수 있습니다.</div>")
     }
 
+    // A팀 선수단 불러오기
+    playerA()
+
 })
 
 // 화면 크기 변경 시
@@ -35,33 +38,27 @@ $(window).resize(function() {
 })
 
 // 헤더
-$("header").html("<div><img src='./files/menu.svg'></div><p>SEFCiNFO</p><div><img src='./files/seouleland_s.png'></div>")
+$("header").html("<div><img src='./files/menu.svg' onclick='menu()'></div><p>SEFCiNFO</p><div><img src='./files/seouleland_s.png'></div>")
+$("body").append("<div id='menu'><div><img src='./files/players.svg'>선수단</div><div><img src='./files/fixtures.svg'>일정</div><div><img src='./files/stats.svg'>기록</div><div><img src='./files/standings.svg'>순위</div></div><div id='menuBg'></div>")
 
-// 푸터
-$("footer").html("<div><img src='./files/home.svg'><p>홈</p></div><div><img src='./files/stats.svg'><p>기록</p></div><div><img src='./files/players.svg'><p>선수단</p></div><div><img src='./files/fixtures.svg'><p>일정</p></div><div><img src='./files/standings.svg'><p>순위</p></div>")
-
-$("footer > div:nth-of-type(1)").attr("onclick", "location.href='https://sefc.info'")
-$("footer > div:nth-of-type(2)").attr("onclick", "location.href='./stats'")
-$("footer > div:nth-of-type(3)").attr("onclick", "location.href='./players'")
-$("footer > div:nth-of-type(4)").attr("onclick", "location.href='./fixtures'")
-$("footer > div:nth-of-type(5)").attr("onclick", "location.href='./standings'")
-
-if ($("#nextMatch").length) {
-    $("footer > div:nth-of-type(1) > img").css("filter", "invert(70%) sepia(58%) saturate(439%) hue-rotate(2deg) brightness(86%) contrast(98%)")
-    $("footer > div:nth-of-type(1) > p").css("color", "#d4a73f")
-} else if ($(".statsButton").length) {
-    $("footer > div:nth-of-type(2) > img").css("filter", "invert(70%) sepia(58%) saturate(439%) hue-rotate(2deg) brightness(86%) contrast(98%)")
-    $("footer > div:nth-of-type(2) > p").css("color", "#d4a73f")
-} else if ($(".playerButton").length || $("#playerMain").length) {
-    $("footer > div:nth-of-type(3) > img").css("filter", "invert(70%) sepia(58%) saturate(439%) hue-rotate(2deg) brightness(86%) contrast(98%)")
-    $("footer > div:nth-of-type(3) > p").css("color", "#d4a73f")
-} else if ($(".fixturesButton").length || $("#matchScore").length) {
-    $("footer > div:nth-of-type(4) > img").css("filter", "invert(70%) sepia(58%) saturate(439%) hue-rotate(2deg) brightness(86%) contrast(98%)")
-    $("footer > div:nth-of-type(4) > p").css("color", "#d4a73f")
-} else if ($(".standingsButton").length) {
-    $("footer > div:nth-of-type(5) > img").css("filter", "invert(70%) sepia(58%) saturate(439%) hue-rotate(2deg) brightness(86%) contrast(98%)")
-    $("footer > div:nth-of-type(5) > p").css("color", "#d4a73f")
+// 메뉴 열기
+function menu() {
+    $("#menuBg").css("display", "block").animate({opacity: "1"}, 200)
+    $("#menu").animate({left: "0"}, 200)
 }
+
+// 메뉴 닫기
+$("#menuBg").click(function() {
+    $("#menuBg").animate({opacity: "0"}, 200, function() {
+        $("#menuBg").css("display", "none")
+    })
+    $("#menu").animate({left: "-60vw"}, 200)
+})
+
+// 메뉴 내 현재 페이지 이름 강조
+if ($("#playerA").length) {
+    $("#menu > div:nth-of-type(1)").css("background", "#174fff08")
+} 
 
 // 문자별 글꼴 적용
 characterList = []
@@ -144,21 +141,30 @@ function statsSeason() {
 
 // 선수단 창 전환
 function playerA() {
-    document.getElementById("playerA").style.display = "block"
-    document.getElementById("playerU18").style.display = "none"
-    document.getElementById("playerU15").style.display = "none"
+    $("#playerA").css("display", "block")
+    $("#playerU18").css("display", "none")
+    $("#playerU15").css("display", "none")
+
+    $(".playerButton > button").css({"color": "#000831", "border-bottom": "none"})
+    $(".playerButton > button:nth-of-type(1)").css({"color": "#174fff", "border-bottom": "3px solid #174fff"})
 }
 
 function playerU18() {
-    document.getElementById("playerA").style.display = "none"
-    document.getElementById("playerU18").style.display = "block"
-    document.getElementById("playerU15").style.display = "none"
+    $("#playerA").css("display", "none")
+    $("#playerU18").css("display", "block")
+    $("#playerU15").css("display", "none")
+
+    $(".playerButton > button").css({"color": "#000831", "border-bottom": "none"})
+    $(".playerButton > button:nth-of-type(2)").css({"color": "#174fff", "border-bottom": "3px solid #174fff"})
 }
 
 function playerU15() {
-    document.getElementById("playerA").style.display = "none"
-    document.getElementById("playerU18").style.display = "none"
-    document.getElementById("playerU15").style.display = "block"
+    $("#playerA").css("display", "none")
+    $("#playerU18").css("display", "none")
+    $("#playerU15").css("display", "block")
+
+    $(".playerButton > button").css({"color": "#000831", "border-bottom": "none"})
+    $(".playerButton > button:nth-of-type(3)").css({"color": "#174fff", "border-bottom": "3px solid #174fff"})
 }
 
 // 일정 창 전환
