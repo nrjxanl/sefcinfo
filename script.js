@@ -73,10 +73,14 @@ $("#menu > div:nth-of-type(4)").click(function() {
 })
 
 // 메뉴 내 현재 페이지 이름 강조
-if ($("#playerButton").length || $("#playerInfo").length) {
+if ($(".playerButton").length || $("#playerInfo").length) {
     $("#menu > div:nth-of-type(1)").css("background", "#174fff10")
-} else if ($("#fixturesButton").length || $("#matchScore").length) {
+} else if ($(".fixturesButton").length || $("#matchScore").length) {
     $("#menu > div:nth-of-type(2)").css("background", "#174fff10")
+} else if ($(".statsButton").length) {
+    $("#menu > div:nth-of-type(3)").css("background", "#174fff10")
+} else if ($(".standingsButton").length) {
+    $("#menu > div:nth-of-type(4)").css("background", "#174fff10")
 }
 
 // 선수 기록 창 전환
