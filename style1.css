@@ -191,7 +191,7 @@ header > p {width: 70vw; text-align: left; font-size: 24px; line-height: 20vw;}
 .fixtures_ > div:nth-of-type(2) > div > img {height: 64px;}
 .fixtures_ > div:nth-of-type(2) > div > p {font-size: 16px; padding-top: 5px;}
 .fixtures_ > div:nth-of-type(2) > p:nth-of-type(2n+1) {width: 15vw; font-size: 32px; padding-top: 20px;}
-.fixtures_ > div:nth-of-type(2) > p:nth-of-type(2n+1) > span {font-weight: 500; display: block; line-height: 1.2; margin-top: 10px; white-space: nowrap;}
+.fixtures_ > div:nth-of-type(2) > p:nth-of-type(2n+1) > span {font-weight: 500; display: block; font-size: 10px; line-height: 1.2; margin-top: 12px; white-space: nowrap;}
 .fixtures_ > div:nth-of-type(2) > p:nth-of-type(1) > span {text-align: right; direction: rtl; padding-right: 5px;}
 .fixtures_ > div:nth-of-type(2) > p:nth-of-type(3) > span {text-align: left; padding-left: 5px;}
 .fixtures_ > div:nth-of-type(2) > p:nth-of-type(2) {width: 5vw; font-size: 48px; font-weight: 100; padding-top: 10px;}
@@ -211,7 +211,7 @@ header > p {width: 70vw; text-align: left; font-size: 24px; line-height: 20vw;}
 #matchScore > div:nth-of-type(2) > div > img {height: 64px;}
 #matchScore > div:nth-of-type(2) > div > p {font-size: 16px; padding-top: 5px;}
 #matchScore > div:nth-of-type(2) > p:nth-of-type(2n+1) {width: 15vw; font-size: 32px; padding-top: 20px;}
-#matchScore > div:nth-of-type(2) > p:nth-of-type(2n+1) > span {font-weight: 500; display: block; line-height: 1.2; margin-top: 10px; white-space: nowrap;}
+#matchScore > div:nth-of-type(2) > p:nth-of-type(2n+1) > span {font-weight: 500; display: block; font-size: 10px; line-height: 1.2; margin-top: 12px; white-space: nowrap;}
 #matchScore > div:nth-of-type(2) > p:nth-of-type(1) > span {text-align: right; direction: rtl; padding-right: 5px;}
 #matchScore > div:nth-of-type(2) > p:nth-of-type(3) > span {text-align: left; padding-left: 5px;}
 #matchScore > div:nth-of-type(2) > p:nth-of-type(2) {width: 5vw; font-size: 48px; font-weight: 100; padding-top: 10px;}

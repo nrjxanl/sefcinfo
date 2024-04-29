@@ -44,6 +44,11 @@ $(window).resize(function() {
 $("header").html("<div><img src='./files/menu.svg' onclick='menu()'></div><p>SEFCiNFO</p><div><img src='./files/seouleland_s.png'></div>")
 $("body").append("<div id='menu'><div><img src='./files/players.svg'>선수단</div><div><img src='./files/fixtures.svg'>일정</div><div><img src='./files/stats.svg'>기록</div><div><img src='./files/standings.svg'>순위</div></div><div id='menuBg'></div>")
 
+// 상단 클릭 시 홈으로 이동
+$("header > p").click(function() {
+    window.location = "https://sefc.info"
+})
+
 // 메뉴 열기
 function menu() {
     $("#menuBg").css("display", "block").animate({opacity: "1"}, 200)
