@@ -45,16 +45,16 @@ header > p {width: 70vw; text-align: left; font-size: 24px; line-height: 20vw;}
 #prevMatch > div > div > p:nth-of-type(2) {width: 8vw; height: 3px; margin: 3px 5vw 0 5vw; font-size: 16px; border-radius: 10vw;}
 #prevMatch > a > p {font-weight: 500; padding: 10px 0 20px 0;}
 
-#standingsHome {width: 90vw; height: calc(160px + 10vw); margin-left: 5vw; margin-top: 30px; box-shadow: 0 0 3px 2px #00083120; border-radius: 5vw; display: flex; justify-content: center; align-items: center; flex-direction: column;}
-#standingsHome > table {width: 80vw; height: 160px; vertical-align: middle;}
+#standingsHome {width: 90vw; height: calc(280px + 10vw); margin-left: 5vw; margin-top: 30px; box-shadow: 0 0 3px 2px #00083120; border-radius: 5vw; display: flex; justify-content: center; align-items: center; flex-direction: column;}
+#standingsHome > table {width: 80vw; height: 280px; margin-top: 10px; vertical-align: middle;}
 #standingsHome > table > thead > tr {height: 40px;}
 #standingsHome > table > thead > tr > th {font-weight: 500; font-size: 12px;}
 #standingsHome > table > tbody > tr {height: 40px;}
 #standingsHome > table > tbody > tr > td {font-size: 14px;}
 #standingsHome > table > tbody > tr > td > img {height: 20px; vertical-align: middle;}
-#standingsHome > table > tbody > tr > td:nth-of-type(1) {width: 10vw;}
+#standingsHome > table > tbody > tr > td:nth-of-type(1) {width: 10vw; font-family: "Kaushan Script";}
 #standingsHome > table > tbody > tr > td:nth-of-type(2) {width: 10vw;}
-#standingsHome > table > tbody > tr > td:nth-of-type(3) {width: 30vw; text-align: left;}
+#standingsHome > table > tbody > tr > td:nth-of-type(3) {width: 25vw; padding-left: 5vw; text-align: left;}
 #standingsHome > table > tbody > tr > td:nth-of-type(n+4) {width: 15vw;}
 #standingsHome > a > p {font-weight: 500; padding: 10px 0 20px 0;}
 
