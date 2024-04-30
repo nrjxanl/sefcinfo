@@ -848,6 +848,8 @@ function stats() {
         } else {
             $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(7)").text(rc[Object.keys(app)[i]])
         }
+
+        $(".stats > table > tbody > tr:nth-of-type(" + (i + 1) + ")").attr("onclick", "location.href = './player?" + Object.keys(app)[i] + "'")
     }
 
     // A팀 제외 프로필 사진란 삭제
