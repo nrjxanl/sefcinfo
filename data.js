@@ -169,7 +169,7 @@ if ($("#matchScore").length) {
 
                 // 도움 여부
                 if (dataList["SUB"][i][1].replace(/[^a]/g, "").length !== 0) {
-                    for (j = 0; j < dataList["SUB"][i][1].replace(/[^g]/g, "").length; j++) {
+                    for (j = 0; j < dataList["SUB"][i][1].replace(/[^a]/g, "").length; j++) {
                         $("#" + dataList["SUB"][i][0] + " > p:nth-of-type(1) > span:nth-of-type(2)").append("<img src='./files/assist.svg'>")
                     }
                 }
@@ -683,21 +683,21 @@ function matchH2H() {
 
 ////////// 선수 기록 화면 //////////
 
-app = {}
-goal = {}
-assist = {}
-yc = {}
-rc = {}
-
 function stats() {
 
     $("#stats > .stats > table > tbody").empty()
 
-    if (team == "A") {
+    app = {}
+    goal = {}
+    assist = {}
+    yc = {}
+    rc = {}
+
+    if (status_ == "A") {
         data = dataA
-    } else if (team == "U18") {
+    } else if (status_ == "U18") {
         data = dataU18
-    } else if (team == "U15") {
+    } else if (status_ == "U15") {
         data = dataU15
     }
 
@@ -851,7 +851,7 @@ function stats() {
     }
 
     // A팀 제외 프로필 사진란 삭제
-    if (team !== "A") {
+    if (status_ !== "A") {
         $("#stats > .stats > table > thead > tr > th:nth-of-type(1)").attr("colspan", "1")
         $("#stats > .stats > table > tbody > tr > td:nth-of-type(1)").css("display", "none")
         $("#stats > .stats > table > tbody > tr > td:nth-of-type(2)").css("width", "calc(35vw + 50px)")
@@ -860,6 +860,10 @@ function stats() {
         $("#stats > .stats > table > tbody > tr > td:nth-of-type(1)").css("display", "flex")
         $("#stats > .stats > table > tbody > tr > td:nth-of-type(2)").css("width", "35vw")
     }
+
+    // 득점 기준 정렬
+    $("#stats > .stats > table > thead > tr > th:nth-of-type(3)").click().css("font-weight", "900")
+    $("#stats > .stats > table > tbody > tr > td:nth-of-type(4)").css("font-weight", "900")
 
 }
 
@@ -902,53 +906,45 @@ $("#stats > .stats > table > thead > tr > th").click(function() {
     $("#stats > .stats > table > tbody > tr > td:nth-of-type(" + (columnIndex + 1) + ")").css("font-weight", "900")
 })
 
-// 처음 페이지 진입 시 금년 금월 A팀 데이터 표시
-if ($("#statsSeason_").length) {
+// 함수 실행
+if ($(".statsSeason").length) {
     year = new Date().getFullYear()
-    $("#statsSeason_ > button:contains(" + year + ")").css({ "color": "#fafafa", "background": "#000831" })
 
-    team = "A"
+    $(".statsSeason").html("<p>" + year + "</p><p>◀</p><p>▶</p>")
+
+    status_ = "A"
 
     stats()
-    $("#stats > .stats > table > thead > tr > th:nth-of-type(3)").click().css("font-weight", "900")
-    $("#stats > .stats > table > tbody > tr > td:nth-of-type(4)").css("font-weight", "900")
 }
 
-// 시즌 변경 시 데이터 초기화
-$("#statsSeason_ > button").each(function () {
-    $(this).click(function () {
-        year = $(this).text()
-        $("#statsSeason_ > button").css({ "color": "#000831", "background": "#fafafa" })
-        $(this).css({ "color": "#fafafa", "background": "#000831" })
+// 달력 컨트롤
+$(".statsSeason > p:nth-of-type(1)").click(function() {
+    // 연도 선택 기능
+})
 
-        $(".stats > table > tbody").empty()
-        app = {}
-        goal = {}
-        assist = {}
-        yc = {}
-        rc = {}
-        stats()
-        $("#stats > .stats > table > thead > tr > th:nth-of-type(3)").click().css("font-weight", "900")
-        $("#stats > .stats > table > tbody > tr > td:nth-of-type(4)").css("font-weight", "900")    
-    })
+$(".statsSeason > p:nth-of-type(2)").click(function() {
+    year --
+
+    $(".statsSeason > p:nth-of-type(1)").text(year)
+
+    stats()
+})
+
+$(".statsSeason > p:nth-of-type(3)").click(function() {
+    year ++
+
+    $(".statsSeason > p:nth-of-type(1)").text(year)
+
+    stats()
 })
 
 // 팀 변경 시 데이터 초기화
 $(".statsButton > button").click(function() {
-    $(".statsButton > button").css({"color": "#000831", "background": "#fafafa"})
-    $(this).css({"color": "#fafafa", "background": "#000831"})
     
-    team = $(this).text().replace(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣|-]/g, "")
+    status_ = $(this).text().replace(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣|-]/g, "")
     $(".stats > table > tbody").empty()
 
-    app = {}
-    goal = {}
-    assist = {}
-    yc = {}
-    rc = {}
     stats()
-    $("#stats > .stats > table > thead > tr > th:nth-of-type(3)").click().css("font-weight", "900")
-    $("#stats > .stats > table > tbody > tr > td:nth-of-type(4)").css("font-weight", "900")
 })
 
 ////////// 경기 일정 목록 화면 //////////
@@ -1481,7 +1477,7 @@ $(".standingsSeason > p:nth-of-type(2)").click(function() {
 
 // 달력 컨트롤
 $(".standingsSeason > p:nth-of-type(1)").click(function() {
-    // 연월 선택 기능
+    // 연도 선택 기능
 })
 
 $(".standingsSeason > p:nth-of-type(3)").click(function() {

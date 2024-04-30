@@ -29,6 +29,11 @@ $(document).ready(function() {
         standingsA()
     }
 
+    // A팀 기록 불러오기
+    if ($(".statsButton").length) {
+        statsA()
+    }
+
 })
 
 // 화면 크기 변경 시
@@ -86,18 +91,6 @@ if ($(".playerButton").length || $("#playerInfo").length) {
     $("#menu > div:nth-of-type(3)").css("background", "#174fff10")
 } else if ($(".standingsButton").length) {
     $("#menu > div:nth-of-type(4)").css("background", "#174fff10")
-}
-
-// 선수 기록 창 전환
-function statsSeason() {
-    season = $("#statsSeason_").css("display")
-
-    if(season == "none") {
-        document.getElementById("statsSeason_").style.display = "flex"
-    } else {
-        document.getElementById("statsSeason_").style.display = "none"
-    }
-
 }
 
 // 선수단 창 전환
@@ -251,32 +244,6 @@ function standingsU15() {
     standings()
 }
 
-function standingsSeason() {
-    season = $("#standingsSeason_").css("display")
-
-    if(season == "none") {
-        document.getElementById("standingsSeason_").style.display = "flex"
-    } else {
-        document.getElementById("standingsSeason_").style.display = "none"
-    }
-    
-}
-
-// 순위 자세히/간략히 보기
-function viewAll() {
-    if($("div[id*='standings']").find("th:nth-of-type(6)").css("display") == "none") {
-        $("div[id*='standings'] > div > table > thead > tr > th:nth-of-type(n+3)").css({"display": "table-cell", "width": "calc(50vw/7)"})
-        $("div[id*='standings'] > div > table > tbody > tr > td:nth-of-type(n+4)").css({"display": "table-cell", "width": "calc(50vw/7)", "font-size": "12px"})
-        $(".standings button").text("간략히 보기")
-    } else {
-        $("div[id*='standings'] > div > table > thead > tr > th:nth-of-type(n+3)").css({"width": "12.5vw"})
-        $("div[id*='standings'] > div > table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+6)").css({"display": "none"})
-        $("div[id*='standings'] > div > table > tbody > tr > td:nth-of-type(n+4)").css({"width": "12.5vw", "font-size": "14px"})
-        $("div[id*='standings'] > div > table > tbody > tr > td:nth-of-type(n+5):nth-of-type(-n+7)").css({"display": "none"})
-        $(".standings button").text("자세히 보기")
-    }
-}
-
 function standingsU18F() {
     document.getElementById("standingsU18F").style.display = "block"
     document.getElementById("standingsU18S").style.display = "none"
@@ -291,43 +258,41 @@ function standingsU18S() {
     $(".standingsDetail button:nth-child(2)").css("font-weight", 900)
 }
 
-// 순위표 SEFC tr 속성 변경
-$("div[id*='standings'] > div > table > tbody > tr:has(.sefc) > td").css({"background": "#000831", "color": "#fafafa"})
-$("div[id*='standings'] > div > table > tbody > tr:has(.sefc) > td:nth-child(1)").css("border-radius", "50px 0 0 50px")
-$("div[id*='standings'] > div > table > tbody > tr:has(.sefc) > td:nth-last-child(3)").css("border-radius", "0 50px 50px 0")
-$("div[id*='standings'] > div > table > tbody > tr:has(.sefc8) > td").css({"background": "#000831", "color": "#fafafa"})
-$("div[id*='standings'] > div > table > tbody > tr:has(.sefc8) > td:nth-child(1)").css("border-radius", "50px 0 0 50px")
-$("div[id*='standings'] > div > table > tbody > tr:has(.sefc8) > td:nth-last-child(3)").css("border-radius", "0 50px 50px 0")
-$("div[id*='standings'] > div > table > tbody > tr:has(.sefc5) > td").css({"background": "#000831", "color": "#fafafa"})
-$("div[id*='standings'] > div > table > tbody > tr:has(.sefc5) > td:nth-child(1)").css("border-radius", "50px 0 0 50px")
-$("div[id*='standings'] > div > table > tbody > tr:has(.sefc5) > td:nth-last-child(3)").css("border-radius", "0 50px 50px 0")
+// 기록 창 전환
+function statsA() {
+    $("#statsA").css("display", "block")
+    $("#statsU18").css("display", "none")
+    $("#statsU15").css("display", "none")
 
-// 선수 정보 창 전환
-function playerInfo() {
-    document.getElementById("playerPos").style.display = "block"
-    document.getElementById("playerStat").style.display = "none"
-    document.getElementById("playerCareer").style.display = "none"
-    $(".playerDetail button:nth-child(1)").css("font-weight", 900)
-    $(".playerDetail button:nth-child(2)").css("font-weight", 500)
-    $(".playerDetail button:nth-child(3)").css("font-weight", 500)
+    $(".statsButton > button").css({"color": "#000831", "border-bottom": "none"})
+    $(".statsButton > button:nth-of-type(1)").css({"color": "#174fff", "border-bottom": "3px solid #174fff"})
+
+    status_ = "A"
+    stats()
 }
 
-function playerStat() {
-    document.getElementById("playerPos").style.display = "none"
-    document.getElementById("playerStat").style.display = "flex"
-    document.getElementById("playerCareer").style.display = "none"
-    $(".playerDetail button:nth-child(1)").css("font-weight", 500)
-    $(".playerDetail button:nth-child(2)").css("font-weight", 900)
-    $(".playerDetail button:nth-child(3)").css("font-weight", 500)
+function statsU18() {
+    $("#statsA").css("display", "none")
+    $("#statsU18").css("display", "block")
+    $("#statsU15").css("display", "none")
+
+    $(".statsButton > button").css({"color": "#000831", "border-bottom": "none"})
+    $(".statsButton > button:nth-of-type(2)").css({"color": "#174fff", "border-bottom": "3px solid #174fff"})
+
+    status_ = "U18"
+    stats()
 }
 
-function playerCareer() {
-    document.getElementById("playerPos").style.display = "none"
-    document.getElementById("playerStat").style.display = "none"
-    document.getElementById("playerCareer").style.display = "block"
-    $(".playerDetail button:nth-child(1)").css("font-weight", 500)
-    $(".playerDetail button:nth-child(2)").css("font-weight", 500)
-    $(".playerDetail button:nth-child(3)").css("font-weight", 900)
+function statsU15() {
+    $("#statsA").css("display", "none")
+    $("#statsU18").css("display", "none")
+    $("#statsU15").css("display", "block")
+
+    $(".statsButton > button").css({"color": "#000831", "border-bottom": "none"})
+    $(".statsButton > button:nth-of-type(3)").css({"color": "#174fff", "border-bottom": "3px solid #174fff"})
+
+    status_ = "U15"
+    stats()
 }
 
 // 나이 계산
@@ -347,12 +312,3 @@ birthday.setFullYear(today.getFullYear())
 if (today < birthday) {years--}
 
 $("#age").text(years + "세")
-
-// 선수 경력 임대 div 들여쓰기
-if ($(window).width() < 768) {
-    $("div[loan='o']").css({"padding-left": "3vw", "opacity": "0.8"})
-    $("div[loan='o'] > p:nth-of-type(1)").css("width", "32vw")
-} else {
-    $("div[loan='o']").css({"padding-left": "12px", "opacity": "0.8"})
-    $("div[loan='o'] > p:nth-of-type(1)").css("width", "128px")
-}
