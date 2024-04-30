@@ -340,9 +340,13 @@ header > p {width: 70vw; text-align: left; font-size: 24px; line-height: 20vw;}
 #standingsU18 > div > table {width: 90vw; vertical-align: middle;}
 #standingsU18 > div > table > thead > tr {height: 40px;}
 #standingsU18 > div > table > thead > tr > th {font-weight: 500; font-size: 12px;}
+#standingsU18 > div > table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+6) {display: none;}
+#standingsU18 > div > table > thead > tr > th:nth-of-type(n+8) {display: none;}
 #standingsU18 > div > table > tbody > tr > td {width: 10vw; font-size: 16px; height: 40px;}
 #standingsU18 > div > table > tbody > tr > td:nth-of-type(1) {font-family: "Kaushan Script";}
-#standingsU18 > div > table > tbody > tr > td:nth-of-type(3) {width: 35vw; padding-left: 5vw; text-align: left;}
+#standingsU18 > div > table > tbody > tr > td:nth-of-type(3) {width: 45vw; padding-left: 5vw; text-align: left; display: table-cell;}
+#standingsU18 > div > table > tbody > tr > td:nth-of-type(n+5):nth-of-type(-n+7) {display: none;}
+#standingsU18 > div > table > tbody > tr > td:nth-of-type(n+9) {display: none;}
 #standingsU18 > div > table > tbody > tr > td > img {height: 24px;}
 
 #standingsU15 {margin-top: 20px;}
@@ -350,9 +354,13 @@ header > p {width: 70vw; text-align: left; font-size: 24px; line-height: 20vw;}
 #standingsU15 > div > table {width: 90vw; vertical-align: middle;}
 #standingsU15 > div > table > thead > tr {height: 40px;}
 #standingsU15 > div > table > thead > tr > th {font-weight: 500; font-size: 12px;}
+#standingsU15 > div > table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+6) {display: none;}
+#standingsU15 > div > table > thead > tr > th:nth-of-type(n+8) {display: none;}
 #standingsU15 > div > table > tbody > tr > td {width: 10vw; font-size: 16px; height: 40px;}
 #standingsU15 > div > table > tbody > tr > td:nth-of-type(1) {font-family: "Kaushan Script";}
-#standingsU15 > div > table > tbody > tr > td:nth-of-type(3) {width: 35vw; padding-left: 5vw; text-align: left;}
+#standingsU15 > div > table > tbody > tr > td:nth-of-type(3) {width: 45vw; padding-left: 5vw; text-align: left; display: table-cell;}
+#standingsU15 > div > table > tbody > tr > td:nth-of-type(n+5):nth-of-type(-n+7) {display: none;}
+#standingsU15 > div > table > tbody > tr > td:nth-of-type(n+9) {display: none;}
 #standingsU15 > div > table > tbody > tr > td > img {height: 24px;}
 
 tr.sefc {background: #000831;}
