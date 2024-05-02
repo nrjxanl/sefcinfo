@@ -1,10 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Noto+Sans+KR:wght@200;500;800&family=Noto+Sans:wght@200;500;800&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
-@font-face {font-family: "Dia Gothic"; font-weight: 100; src: url(./files/Pretendard-Thin.woff2);}
-@font-face {font-family: "Dia Gothic"; font-weight: 500; src: url(./files/Pretendard-Medium.woff2);}
-@font-face {font-family: "Dia Gothic"; font-weight: 900; src: url(./files/Pretendard-Black.woff2);}
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@font-face {font-family: "Freesentation"; font-weight: 100; src: url(./files/Freesentation-1Thin.ttf);}
+@font-face {font-family: "Freesentation"; font-weight: 500; src: url(./files/Freesentation-5Medium.ttf);}
+@font-face {font-family: "Freesentation"; font-weight: 900; src: url(./files/Freesentation-9Black.ttf);}
 
-* {color: #000831; margin: 0; padding: 0; text-align: center; font-family: "Dia Gothic"; font-weight: 900; font-size: 12px; list-style: none; text-decoration-line: none; border-collapse: collapse; border-spacing: 0; word-break: keep-all; -webkit-tap-highlight-color: transparent;}
+* {color: #000831; margin: 0; padding: 0; text-align: center; font-family: "Freesentation"; font-weight: 900; font-size: 12px; list-style: none; text-decoration-line: none; border-collapse: collapse; border-spacing: 0; word-break: keep-all; -webkit-tap-highlight-color: transparent;}
 *::-webkit-scrollbar {display: none;}
 
 body {position: absolute; background: #fafafa;}
@@ -13,7 +12,7 @@ body {position: absolute; background: #fafafa;}
 header {width: 100vw; height: 80px; position: fixed; top: 0; left: 0; background: #fafafa; z-index: 99; display: flex; justify-content: center;}
 header > div {width: 20vw;}
 header > div > img {width: auto; height: 40px; padding: 5vw 0;}
-header > p {width: 70vw; text-align: left; font-size: 24px; line-height: 20vw;}
+header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 
 /* 메뉴 */
 #menu {width: 60vw; height: 200vh; position: fixed; top: 0; left: -60vw; background-color: #fafafa; z-index: 1000;}
@@ -52,7 +51,7 @@ header > p {width: 70vw; text-align: left; font-size: 24px; line-height: 20vw;}
 #standingsHome > table > tbody > tr {height: 40px;}
 #standingsHome > table > tbody > tr > td {font-size: 14px;}
 #standingsHome > table > tbody > tr > td > img {height: 20px; vertical-align: middle;}
-#standingsHome > table > tbody > tr > td:nth-of-type(1) {width: 10vw; font-family: "Kaushan Script";}
+#standingsHome > table > tbody > tr > td:nth-of-type(1) {width: 10vw; font-family: "Lobster Two"; font-weight: 700; font-style: italic;}
 #standingsHome > table > tbody > tr > td:nth-of-type(2) {width: 10vw;}
 #standingsHome > table > tbody > tr > td:nth-of-type(3) {width: 25vw; padding-left: 5vw; text-align: left;}
 #standingsHome > table > tbody > tr > td:nth-of-type(n+4) {width: 15vw;}
@@ -89,17 +88,6 @@ header > p {width: 70vw; text-align: left; font-size: 24px; line-height: 20vw;}
 #playerA > div > div > div > p:nth-of-type(2) {margin: 5px 10px 0 0; font-size: 40px; text-align: right; line-height: 1; font-family: "Oswald"; opacity: .2; position: absolute;}
 
 #playerU18, #playerU15 {margin-top: 150px; display: none;}
-
-.playerSortButton {width: 100vw; position: fixed; top: 180px; left: 0; background: #fafafa; z-index: 100;}
-.playerSortButton > button {height: 25px; background: #fafafa; color: #000831; margin: 7.5px 10px; border: none; font-weight: 500;}
-
-#playerAllTime {display: none; width: 90vw; margin: 50px 0 0 5vw;}
-#playerAllTime > div > div {width: 25vw; height: 150px; float: left; padding: 10px 0; margin: 20px 2.5vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 10px;}
-#playerAllTime > div > div:nth-last-of-type(1) {margin-bottom: 100px;}
-#playerAllTime > div > div > div {width: 25vw; height: 100px; overflow: hidden; border-radius: 0 0 20vw 20vw;}
-#playerAllTime > div > div > div > img {width: 25vw;}
-#playerAllTime > div > div > p {width: 25vw; height: 40px; margin-top: 10px; font-size: 20px; line-height: 1.2; display: flex; justify-content: center; align-items: center; flex-direction: column;}
-#playerAllTime > div > div > p > span {font-size: 16px; font-family: "Kaushan Script"; color: #174fff;}
 
 /* 선수 정보 */
 #playerProfile {width: 100vw; margin-top: 210px;}
@@ -165,8 +153,8 @@ header > p {width: 70vw; text-align: left; font-size: 24px; line-height: 20vw;}
 .statsButton > button {width: 30vw; height: 50px; background: #fafafa; border: none; margin: 0; font-size: 18px;}
 .statsButton > button:hover {color: #174fff; border-bottom: 3px solid #174fff;}
 
-.statsSeason {width: 50vw; padding-left: 10vw; margin-top: 150px; display: flex; justify-content: center; align-items: baseline;}
-.statsSeason > p:nth-of-type(1) {font-size: 48px; width: 40vw; text-align: left;}
+.statsSeason {width: 50vw; padding-left: 10vw; margin-top: 150px; display: flex; align-items: baseline;}
+.statsSeason > p:nth-of-type(1) {font-size: 48px; padding-right: 20px; text-align: left;}
 .statsSeason > p:nth-of-type(n+2) {width: 10vw; font-size: 18px;}
 
 #stats > .stats > table {width: 90vw; margin: 30px 0 0 5vw;}
@@ -176,7 +164,7 @@ header > p {width: 70vw; text-align: left; font-size: 24px; line-height: 20vw;}
 #stats > .stats > table > tbody > tr > td:nth-of-type(1) > div {width: 50px; height: 50px; margin-top: 15px; overflow: hidden; border-radius: 50%;}
 #stats > .stats > table > tbody > tr > td:nth-of-type(1) > div > img {width: 50px;}
 #stats > .stats > table > tbody > tr > td:nth-of-type(2) {width: 35vw; padding-left: 10px; font-size: 20px; text-align: left;}
-#stats > .stats > table > tbody > tr > td:nth-of-type(2) > span {color: #174fff; font-family: "Kaushan Script"; margin-right: 10px; font-size: 20px; text-align: left;}
+#stats > .stats > table > tbody > tr > td:nth-of-type(2) > span {color: #174fff; font-family: "Lobster Two"; font-weight: 700; font-style: italic; margin-right: 10px; font-size: 20px; text-align: left;}
 #stats > .stats > table > tbody > tr > td:nth-of-type(n+3) {width: calc((55vw - 60px)/5); font-size: 18px; font-weight: 500;}
 
 /* 일정 */
@@ -184,48 +172,43 @@ header > p {width: 70vw; text-align: left; font-size: 24px; line-height: 20vw;}
 .fixturesButton > button {width: 30vw; height: 50px; background: #fafafa; border: none; margin: 0; font-size: 18px;}
 .fixturesButton > button:hover {color: #174fff; border-bottom: 3px solid #174fff;}
 
-.fixturesSeason {width: 80vw; padding: 0 10vw; margin-top: 150px; display: flex; justify-content: center; align-items: baseline;}
-.fixturesSeason > p:nth-of-type(1) {font-size: 48px; width: 60vw; text-align: left;}
+.fixturesSeason {width: 80vw; padding: 0 10vw; margin-top: 150px; display: flex; align-items: baseline;}
+.fixturesSeason > p:nth-of-type(1) {font-size: 48px; padding-right: 20px; text-align: left;}
 .fixturesSeason > p:nth-of-type(1) > span {font-size: 18px; margin-left: 10px; font-weight: 500;}
 .fixturesSeason > p:nth-of-type(n+2) {width: 10vw; font-size: 18px;}
 
 .fixtures {width: 90vw; margin-left: 5vw;}
 
-.fixtures_ {width: 90vw; border-radius: 20px; box-shadow: 0 0 3px 2px #00083120; margin: 30px 0;}
-.fixtures_ > div:nth-of-type(1) {width: 80vw; height: 30px; padding: 5vw; display: flex; align-items: center;}
-.fixtures_ > div:nth-of-type(1) > img {height: 32px;}
-.fixtures_ > div:nth-of-type(1) > p {font-size: 16px; margin-left: 10px; text-align: left; line-height: 1;}
-.fixtures_ > div:nth-of-type(1) > p > span {font-weight: 500;}
-.fixtures_ > div:nth-of-type(2) {display: flex; justify-content: center; align-items: top; padding-bottom: 30px;}
-.fixtures_ > div:nth-of-type(2) > div {width: 27.5vw;}
-.fixtures_ > div:nth-of-type(2) > div > img {height: 64px;}
-.fixtures_ > div:nth-of-type(2) > div > p {font-size: 16px; padding-top: 5px;}
-.fixtures_ > div:nth-of-type(2) > p:nth-of-type(2n+1) {width: 15vw; font-size: 32px; padding-top: 20px;}
-.fixtures_ > div:nth-of-type(2) > p:nth-of-type(2n+1) > span {font-weight: 500; display: block; font-size: 10px; line-height: 1.2; margin-top: 12px; white-space: nowrap;}
-.fixtures_ > div:nth-of-type(2) > p:nth-of-type(1) > span {text-align: right; direction: rtl; padding-right: 5px;}
-.fixtures_ > div:nth-of-type(2) > p:nth-of-type(3) > span {text-align: left; padding-left: 5px;}
-.fixtures_ > div:nth-of-type(2) > p:nth-of-type(2) {width: 5vw; font-size: 48px; font-weight: 100; padding-top: 10px;}
-.fixtures_ > div:nth-of-type(2) > p:nth-of-type(2) >span {display: block;}
+.fixtures_ {width: 70vw; padding: 20px 10vw; margin: 32px 0; border-radius: 20px; box-shadow: 0 0 3px 2px #00083120;}
+.fixtures_ > div:nth-of-type(1) {width: 70vw; display: flex; justify-content: center; align-items: center; margin-bottom: 16px;}
+.fixtures_ > div:nth-of-type(1) > img {height: 16px;}
+.fixtures_ > div:nth-of-type(1) > p {font-size: 12px; padding-left: 4px;}
+.fixtures_ > div:nth-of-type(2) {width: 70vw; display: flex; justify-content: center; align-items: center;}
+.fixtures_ > div:nth-of-type(2) > div:nth-of-type(2n+1) {width: 20vw;}
+.fixtures_ > div:nth-of-type(2) > div:nth-of-type(2n+1) > div {width: 20vw;}
+.fixtures_ > div:nth-of-type(2) > div:nth-of-type(2n+1) > div > img {height: 64px;}
+.fixtures_ > div:nth-of-type(2) > div:nth-of-type(2n+1) > p {font-size: 16px; margin-top: 4px;}
+.fixtures_ > div:nth-of-type(2) > div:nth-of-type(2) {width: 30vw;}
+.fixtures_ > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1) {font-size: 32px; margin: -8px 0 8px 0;}
+.fixtures_ > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2) {width: fit-content; height: fit-content; padding: 2px 8px; margin: auto; font-size: 12px; font-weight: 500; border: 1px solid #000831; border-radius: 10px;}
 
 #fixturesU18 {display: none;}
 #fixturesU15 {display: none;}
 
 /* 경기 세부 정보 */
-#matchScore {width: 90vw; border-radius: 20px; box-shadow: 0 0 3px 2px #00083120; margin: 100px 0 30px 5vw;}
-#matchScore > div:nth-of-type(1) {width: 80vw; height: 30px; padding: 5vw; display: flex; align-items: center;}
-#matchScore > div:nth-of-type(1) > img {height: 32px;}
-#matchScore > div:nth-of-type(1) > p {font-size: 16px; margin-left: 10px; text-align: left; line-height: 1;}
-#matchScore > div:nth-of-type(1) > p > span {font-weight: 500;}
-#matchScore > div:nth-of-type(2) {display: flex; justify-content: center; align-items: top; padding-bottom: 30px;}
-#matchScore > div:nth-of-type(2) > div {width: 27.5vw;}
-#matchScore > div:nth-of-type(2) > div > img {height: 64px;}
-#matchScore > div:nth-of-type(2) > div > p {font-size: 16px; padding-top: 5px;}
-#matchScore > div:nth-of-type(2) > p:nth-of-type(2n+1) {width: 15vw; font-size: 32px; padding-top: 20px;}
-#matchScore > div:nth-of-type(2) > p:nth-of-type(2n+1) > span {font-weight: 500; display: block; font-size: 10px; line-height: 1.2; margin-top: 12px; white-space: nowrap;}
-#matchScore > div:nth-of-type(2) > p:nth-of-type(1) > span {text-align: right; direction: rtl; padding-right: 5px;}
-#matchScore > div:nth-of-type(2) > p:nth-of-type(3) > span {text-align: left; padding-left: 5px;}
-#matchScore > div:nth-of-type(2) > p:nth-of-type(2) {width: 5vw; font-size: 48px; font-weight: 100; padding-top: 10px;}
-#matchScore > div:nth-of-type(2) > p:nth-of-type(2) >span {display: block;}
+
+#matchScore {width: 70vw; padding: 20px 10vw; margin: 100px 5vw 0 5vw; border-radius: 20px; box-shadow: 0 0 3px 2px #00083120;}
+#matchScore > div:nth-of-type(1) {width: 70vw; display: flex; justify-content: center; align-items: center; margin-bottom: 16px;}
+#matchScore > div:nth-of-type(1) > img {height: 16px;}
+#matchScore > div:nth-of-type(1) > p {font-size: 12px; padding-left: 4px;}
+#matchScore > div:nth-of-type(2) {width: 70vw; display: flex; justify-content: center; align-items: center;}
+#matchScore > div:nth-of-type(2) > div:nth-of-type(2n+1) {width: 20vw;}
+#matchScore > div:nth-of-type(2) > div:nth-of-type(2n+1) > div {width: 20vw;}
+#matchScore > div:nth-of-type(2) > div:nth-of-type(2n+1) > div > img {height: 64px;}
+#matchScore > div:nth-of-type(2) > div:nth-of-type(2n+1) > p {font-size: 16px; margin-top: 4px;}
+#matchScore > div:nth-of-type(2) > div:nth-of-type(2) {width: 30vw;}
+#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1) {font-size: 32px; margin: -8px 0 8px 0;}
+#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2) {width: fit-content; height: fit-content; padding: 2px 8px; margin: auto; font-size: 12px; font-weight: 500; border: 1px solid #000831; border-radius: 10px;}
 
 #highlight {width: 74vw; padding: 1vw 3vw; margin-left: 10vw; border-radius: 20px; box-shadow: #00083120 0px 0px 3px 2px;}
 #highlight > a {display: flex; align-items: center; justify-content: center;}
@@ -238,7 +221,7 @@ header > p {width: 70vw; text-align: left; font-size: 24px; line-height: 20vw;}
 #potm > div > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: 3px solid #fafafa;}
 #potm > div > div > img {width: 10vw;}
 #potm > div > p:nth-of-type(1) {font-size: 16px; font-weight: 500; margin-top: 5px;}
-#potm > div > p:nth-of-type(1) > span {font-size: 16px; color: #174fff; margin: 0 1.5vw 0 3vw; font-family: "Kaushan Script";}
+#potm > div > p:nth-of-type(1) > span {font-size: 16px; color: #174fff; margin: 0 1.5vw 0 3vw; font-family: "Lobster Two"; font-weight: 700; font-style: italic;}
 #potm > div > p:nth-of-type(2) {width: 10vw; padding: 3px 0; font-size: 14px; border-radius: 50vw; color: #fafafa; background: #000831; position: absolute; right: 15vw;}
 
 #matchLineup {display: none; margin-top: -3px; padding-bottom: 30px;}
@@ -254,7 +237,7 @@ header > p {width: 70vw; text-align: left; font-size: 24px; line-height: 20vw;}
 #startingXI > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: 3px solid #fafafa;}
 #startingXI > table > tbody > tr > td > div > img {width: 10vw;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(1) {font-weight: 500; margin-top: 5px;}
-#startingXI > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(1) {color: #174fff; margin-right: 5px; font-family: "Kaushan Script";}
+#startingXI > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(1) {color: #174fff; margin-right: 5px; font-family: "Lobster Two"; font-weight: 700; font-style: italic;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) {display: inline-block;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) > img {height: 16px; vertical-align: middle; margin: 0 0 2px -10px;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1) {margin-left: 2px;}
@@ -267,7 +250,7 @@ header > p {width: 70vw; text-align: left; font-size: 24px; line-height: 20vw;}
 #startingXI > div > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: 3px solid #fafafa;}
 #startingXI > div > table > tbody > tr > td > div > img {width: 10vw;}
 #startingXI > div > table > tbody > tr > td > p:nth-of-type(1) {font-size: 16px; font-weight: 500; margin-top: 5px;}
-#startingXI > div > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(1) {font-size: 16px; color: #174fff; margin: 0 1.5vw 0 3vw; font-family: "Kaushan Script";}
+#startingXI > div > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(1) {font-size: 16px; color: #174fff; margin: 0 1.5vw 0 3vw; font-family: "Lobster Two"; font-weight: 700; font-style: italic;}
 #startingXI > div > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) > img {height: 16px; vertical-align: middle; margin: 0 0 2px -10px;}
 #startingXI > div > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1) {margin-left: 2px;}
 #startingXI > div > table > tbody > tr > td > p:nth-of-type(2) {width: 10vw; padding: 3px 0; font-size: 14px; border-radius: 50vw; color: #fafafa; background: #000831; position: absolute; right: 15vw;}
@@ -280,7 +263,7 @@ header > p {width: 70vw; text-align: left; font-size: 24px; line-height: 20vw;}
 #sub > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: 3px solid #fafafa;}
 #sub > table > tbody > tr > td > div > img {width: 10vw;}
 #sub > table > tbody > tr > td > p:nth-of-type(1) {font-size: 16px; font-weight: 500; margin-top: 5px;}
-#sub > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(1) {font-size: 16px; color: #174fff; margin: 0 1.5vw 0 3vw; font-family: "Kaushan Script";}
+#sub > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(1) {font-size: 16px; color: #174fff; margin: 0 1.5vw 0 3vw; font-family: "Lobster Two"; font-weight: 700; font-style: italic;}
 #sub > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) > img {height: 16px; vertical-align: middle; margin: 0 0 2px -10px;}
 #sub > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1) {margin-left: 2px;}
 #sub > table > tbody > tr > td > p:nth-of-type(2) {width: 10vw; padding: 3px 0; font-size: 14px; border-radius: 50vw; color: #fafafa; background: #000831; position: absolute; right: 15vw;}
@@ -326,8 +309,8 @@ header > p {width: 70vw; text-align: left; font-size: 24px; line-height: 20vw;}
 .standingsButton > button {width: 30vw; height: 50px; background: #fafafa; border: none; margin: 0; font-size: 18px;}
 .standingsButton > button:hover {color: #174fff; border-bottom: 3px solid #174fff;}
 
-.standingsSeason {width: 80vw; padding: 0 10vw; margin-top: 150px; display: flex; justify-content: center; align-items: baseline;}
-.standingsSeason > p:nth-of-type(1) {font-size: 48px; width: 40vw; text-align: left;}
+.standingsSeason {width: 80vw; padding: 0 10vw; margin-top: 150px; display: flex; align-items: baseline;}
+.standingsSeason > p:nth-of-type(1) {font-size: 48px; padding-right: 20px; text-align: left;}
 .standingsSeason > p:nth-of-type(2) {width: 20vw; font-size: 14px; font-weight: 500;}
 .standingsSeason > p:nth-of-type(n+3) {width: 10vw; font-size: 18px;}
 
@@ -339,7 +322,7 @@ header > p {width: 70vw; text-align: left; font-size: 24px; line-height: 20vw;}
 #standingsA > div > table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+6) {display: none;}
 #standingsA > div > table > thead > tr > th:nth-of-type(n+8) {display: none;}
 #standingsA > div > table > tbody > tr > td {width: 10vw; font-size: 16px; height: 40px;}
-#standingsA > div > table > tbody > tr > td:nth-of-type(1) {font-family: "Kaushan Script";}
+#standingsA > div > table > tbody > tr > td:nth-of-type(1) {font-family: "Lobster Two"; font-weight: 700; font-style: italic;}
 #standingsA > div > table > tbody > tr > td:nth-of-type(3) {width: 45vw; padding-left: 5vw; text-align: left; display: table-cell;}
 #standingsA > div > table > tbody > tr > td:nth-of-type(n+5):nth-of-type(-n+7) {display: none;}
 #standingsA > div > table > tbody > tr > td:nth-of-type(n+9) {display: none;}
@@ -353,7 +336,7 @@ header > p {width: 70vw; text-align: left; font-size: 24px; line-height: 20vw;}
 #standingsU18 > div > table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+6) {display: none;}
 #standingsU18 > div > table > thead > tr > th:nth-of-type(n+8) {display: none;}
 #standingsU18 > div > table > tbody > tr > td {width: 10vw; font-size: 16px; height: 40px;}
-#standingsU18 > div > table > tbody > tr > td:nth-of-type(1) {font-family: "Kaushan Script";}
+#standingsU18 > div > table > tbody > tr > td:nth-of-type(1) {font-family: "Lobster Two"; font-weight: 700; font-style: italic;}
 #standingsU18 > div > table > tbody > tr > td:nth-of-type(3) {width: 45vw; padding-left: 5vw; text-align: left; display: table-cell;}
 #standingsU18 > div > table > tbody > tr > td:nth-of-type(n+5):nth-of-type(-n+7) {display: none;}
 #standingsU18 > div > table > tbody > tr > td:nth-of-type(n+9) {display: none;}
@@ -367,7 +350,7 @@ header > p {width: 70vw; text-align: left; font-size: 24px; line-height: 20vw;}
 #standingsU15 > div > table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+6) {display: none;}
 #standingsU15 > div > table > thead > tr > th:nth-of-type(n+8) {display: none;}
 #standingsU15 > div > table > tbody > tr > td {width: 10vw; font-size: 16px; height: 40px;}
-#standingsU15 > div > table > tbody > tr > td:nth-of-type(1) {font-family: "Kaushan Script";}
+#standingsU15 > div > table > tbody > tr > td:nth-of-type(1) {font-family: "Lobster Two"; font-weight: 700; font-style: italic;}
 #standingsU15 > div > table > tbody > tr > td:nth-of-type(3) {width: 45vw; padding-left: 5vw; text-align: left; display: table-cell;}
 #standingsU15 > div > table > tbody > tr > td:nth-of-type(n+5):nth-of-type(-n+7) {display: none;}
 #standingsU15 > div > table > tbody > tr > td:nth-of-type(n+9) {display: none;}
