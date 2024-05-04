@@ -123,9 +123,12 @@ function playerU15() {
 
 // 일정 창 전환
 function fixturesA() {
-    $("#fixturesA").css("display", "block")
-    $("#fixturesU18").css("display", "none")
-    $("#fixturesU15").css("display", "none")
+
+    if ($("#calendar").css("display") == "none") {
+        $("#fixturesA").css("display", "block")
+        $("#fixturesU18").css("display", "none")
+        $("#fixturesU15").css("display", "none")
+    }
 
     $(".fixturesButton > button").css({"color": "#000831", "border-bottom": "none"})
     $(".fixturesButton > button:nth-of-type(1)").css({"color": "#174fff", "border-bottom": "3px solid #174fff"})
@@ -135,9 +138,12 @@ function fixturesA() {
 }
 
 function fixturesU18() {
-    $("#fixturesA").css("display", "none")
-    $("#fixturesU18").css("display", "block")
-    $("#fixturesU15").css("display", "none")
+
+    if ($("#calendar").css("display") == "none") {
+        $("#fixturesA").css("display", "none")
+        $("#fixturesU18").css("display", "block")
+        $("#fixturesU15").css("display", "none")
+    }
 
     $(".fixturesButton > button").css({"color": "#000831", "border-bottom": "none"})
     $(".fixturesButton > button:nth-of-type(2)").css({"color": "#174fff", "border-bottom": "3px solid #174fff"})
@@ -147,9 +153,12 @@ function fixturesU18() {
 }
 
 function fixturesU15() {
-    $("#fixturesA").css("display", "none")
-    $("#fixturesU18").css("display", "none")
-    $("#fixturesU15").css("display", "block")
+
+    if ($("#calendar").css("display") == "none") {
+        $("#fixturesA").css("display", "none")
+        $("#fixturesU18").css("display", "none")
+        $("#fixturesU15").css("display", "block")
+    }
 
     $(".fixturesButton > button").css({"color": "#000831", "border-bottom": "none"})
     $(".fixturesButton > button:nth-of-type(3)").css({"color": "#174fff", "border-bottom": "3px solid #174fff"})

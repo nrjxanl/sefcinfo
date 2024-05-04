@@ -486,7 +486,7 @@ function matchH2H() {
                 $("#matchH2H").prepend("<div><p></p></div><div><div><p></p><div><p>승리</p><p></p></div></div><div><p></p><div><p>무승부</p><p></p></div></div><div><p></p><div><p>패배</p><p></p></div></div></div><div><p></p></div><div><div><p></p><div><p>득점</p><p></p></div></div><div><p></p><div><p>실점</p><p></p></div></div></div>")
 
                 $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)").text(w)
-                $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)").text(d)
+                $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)").text(Number(d))
                 $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(3) > p:nth-of-type(1)").text(l)
                 $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(1) > div > p:nth-of-type(2)").text(wPct)
                 $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(2) > div > p:nth-of-type(2)").text(dPct)
@@ -528,7 +528,7 @@ function matchH2H() {
                 $("#matchH2H").append("<div><p></p></div><div><div><p></p><div><p>패배</p><p></p></div></div><div><p></p><div><p>무승부</p><p></p></div></div><div><p></p><div><p>승리</p><p></p></div></div></div><div><p></p></div><div><div><p></p><div><p>실점</p><p></p></div></div><div><p></p><div><p>득점</p><p></p></div></div></div>")
 
                 $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)").text(l)
-                $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)").text(d)
+                $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)").text(Number(d))
                 $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(3) > p:nth-of-type(1)").text(w)
                 $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(1) > div > p:nth-of-type(2)").text(lPct)
                 $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(2) > div > p:nth-of-type(2)").text(dPct)
@@ -967,6 +967,58 @@ $(".statsButton > button").click(function() {
 
 function fixtures() {
 
+    if (clndr == -1) { // 달력 이전 버튼
+        if (date < 7) { // 지난달로 이동할 때
+            if (month == 1) { // 지난해로 이동할 때
+                year --
+                month = 12
+            } else {
+                month --
+            }
+            date += prevMonthLastDate - 7
+        } else {
+            date -= 7
+        }
+    } else if (clndr == 1) { // 달력 다음 버튼
+        if (date + 7 > lastDate) { // 다음달로 이동할 때
+            if (month == 12) { // 다음해로 이동할 때
+                year ++
+                month = 1
+            } else {
+                month ++
+            }
+            date = date + 7 - lastDate
+        } else {
+            date += 7
+        }
+    } else if (clndr == -2) { // 일정 이전 버튼
+        if (month == 1) {
+            year --
+            month = 12
+        } else {
+            month --
+        }
+        date = 1
+    } else if (clndr == 2) { // 일정 다음 버튼
+        if (month == 12) {
+            year ++
+            month = 1
+        } else {
+            month ++
+        }
+        date = 1
+    }
+
+    mm = (Number(month) < 10) ? "0" + month : month
+    lastDate = new Date(year, month, 0).getDate()
+    prevMonthLastDate = new Date(year, month - 1, 0).getDate()
+
+    $("#calendar > div:nth-of-type(2) > div:nth-of-type(n+2) > div, #calendar > div:nth-of-type(1) > p:nth-of-type(1)").empty()
+    $("#calendar > div:nth-of-type(1) > p:nth-of-type(1)").html(mm + "<span>" + year + "</span>")
+    $(".fixturesSeason > p:nth-of-type(1)").html(mm + "<span>" + year + "</span>")
+
+    clndr = 0
+
     $("#fixturesA > .fixtures").empty()
     $("#fixturesU18 > .fixtures").empty()
     $("#fixturesU15 > .fixtures").empty()
@@ -1007,47 +1059,172 @@ function fixtures() {
 
         $("#fixtures" + status_ + " > .fixtures > p").css({"font-size": "16px", "margin-top": "calc(27px + 5vw)", "font-weight" : "500"})
     }
+
+    for (i = 0; i < 7; i++) {
+        y = year
+        if (month == 12 && date - day > 25) { // 다음해와 겹칠 때
+            if (date - day + i > 25) { // 올해
+                m = month < 10 ? "0" + month : "" + month
+                d = (date - day + i) < 10 ? "0" + (date - day + i) : "" + (date - day + i)
+                $("#calendar > div > div:nth-of-type(" + (i + 2) + ") > p").text(Number(d)).attr("class", "d" + y + m + d)
+            } else { // 다음해
+                y = year + 1
+                m = (month - 11) < 10 ? "0" + (month - 11) : "" + (month - 11)
+                d = (date - day + i - lastDate) < 10 ? "0" + (date - day + i - lastDate) : "" + (date - day + i - lastDate)
+                $("#calendar > div > div:nth-of-type(" + (i + 2) + ") > p").text(Number(d)).attr("class", "d" + y + m + d)
+            }
+        } else if (month == 1 && date - day <= 0) { // 지난해와 겹칠 때
+            if (date - day + i > 0) { // 올해
+                m = month < 10 ? "0" + month : "" + month
+                d = (date - day + i) < 10 ? "0" + (date - day + i) : "" + (date - day + i)
+                $("#calendar > div > div:nth-of-type(" + (i + 2) + ") > p").text(Number(d)).attr("class", "d" + y + m + d)
+            } else { // 지난해
+                y = year - 1
+                m = (month + 11) < 10 ? "0" + (month + 11) : "" + (month + 11)
+                d = (date - day + i + prevMonthLastDate) < 10 ? "0" + (date - day + i + prevMonthLastDate) : "" + (date - day + i + prevMonthLastDate)
+                $("#calendar > div > div:nth-of-type(" + (i + 2) + ") > p").text(Number(d)).attr("class", "d" + y + m + d)
+        }
+        } else {
+            if (lastDate - date < 7) { // 다음달과 겹칠 때
+                if (date - day + i <= lastDate) { // 이번달
+                    m = month < 10 ? "0" + month : "" + month
+                    d = (date - day + i) < 10 ? "0" + (date - day + i) : "" + (date - day + i)
+                    $("#calendar > div > div:nth-of-type(" + (i + 2) + ") > p").text(Number(d)).attr("class", "d" + y + m + d)
+                } else { // 다음달
+                    m = (month + 1) < 10 ? "0" + (month + 1) : "" + (month + 1)
+                    d = (date - day + i - lastDate) < 10 ? "0" + (date - day + i - lastDate) : "" + (date - day + i - lastDate)
+                    $("#calendar > div > div:nth-of-type(" + (i + 2) + ") > p").text(Number(d)).attr("class", "d" + y + m + d)
+                }
+            } else if (date < 7) { // 지난달과 겹칠 때
+                if (date - day + i <= 0) { // 지난달
+                    m = (month - 1) < 10 ? "0" + (month - 1) : "" + (month - 1)
+                    d = (date - day + i + prevMonthLastDate) < 10 ? "0" + (date - day + i + prevMonthLastDate) : "" + (date - day + i + prevMonthLastDate)
+                    $("#calendar > div > div:nth-of-type(" + (i + 2) + ") > p").text(Number(d)).attr("class", "d" + y + m + d)
+                    $("#calendar > div > div:nth-of-type(2) > p").text(Number(d))
+                } else { // 이번달
+                    m = month < 10 ? "0" + month : "" + month
+                    d = (date - day + i) < 10 ? "0" + (date - day + i) : "" + (date - day + i)
+                    $("#calendar > div > div:nth-of-type(" + (i + 2) + ") > p").text(Number(d)).attr("class", "d" + y + m + d)
+                    $("#calendar > div > div:nth-of-type(" + (i + 2) + ") > p").text(Number(d)).attr("class", "d" + y + m + d)
+                }
+            } else {
+                m = month < 10 ? "0" + month : "" + month
+                d = (date - day + i) < 10 ? "0" + (date - day + i) : "" + (date - day + i)
+                $("#calendar > div > div:nth-of-type(" + (i + 2) + ") > p").text(Number(d)).attr("class", "d" + y + m + d)
+            }
+        }
+
+        // 경기 일정 추가
+        idA = $("#calendar > div > div:nth-of-type(" + (i + 2) + ") > p").attr("class").replace("d", "") + "0"
+        idU18 = $("#calendar > div > div:nth-of-type(" + (i + 2) + ") > p").attr("class").replace("d", "") + "8"
+        idU15 = $("#calendar > div > div:nth-of-type(" + (i + 2) + ") > p").attr("class").replace("d", "") + "5"
+
+        // A팀
+        for (j = 0; j < Object.keys(dataA).length; j++) {
+            if (Object.keys(dataA)[j] == idA) {
+                $("#calendar > div > div:nth-of-type(" + (i + 2) + ") > div:nth-of-type(1)").append("<img src='./files/" + dataA[idA]["home"][1] + "_s.png'><img src='./files/" + dataA[idA]["away"][1] + "_s.png'>").attr("onclick", "window.location.href = './match?" + idA + "'")
+                break
+            }
+        }
+
+        // U-18
+        for (j = 0; j < Object.keys(dataU18).length; j++) {
+            if (Object.keys(dataU18)[j] == idU18) {
+                $("#calendar > div > div:nth-of-type(" + (i + 2) + ") > div:nth-of-type(2)").append("<img src='./files/" + dataU18[idU18]["home"][1] + "_s.png'><img src='./files/" + dataU18[idU18]["away"][1] + "_s.png'>").attr("onclick", "window.location.href = './match?" + idU18 + "'")
+                break
+            }
+        }
+
+        // U-15
+        for (j = 0; j < Object.keys(dataU15).length; j++) {
+            if (Object.keys(dataU15)[j] == idU15) {
+                $("#calendar > div > div:nth-of-type(" + (i + 2) + ") > div:nth-of-type(3)").append("<img src='./files/" + dataU15[idU15]["home"][1] + "_s.png'><img src='./files/" + dataU15[idU15]["away"][1] + "_s.png'>").attr("onclick", "window.location.href = './match?" + idU15 + "'")
+                break
+            }
+        }
+    }
+
+    if (status_ == "A") {
+        $("#calendar > div > div:nth-of-type(1) > div").css("color", "#000831")
+        $("#calendar > div > div:nth-of-type(1) > div:nth-of-type(2)").css("color", "#174fff")
+    } else if (status_ == "U18") {
+        $("#calendar > div > div:nth-of-type(1) > div").css("color", "#000831")
+        $("#calendar > div > div:nth-of-type(1) > div:nth-of-type(3)").css("color", "#174fff")
+    } else if (status_ == "U15") {
+        $("#calendar > div > div:nth-of-type(1) > div").css("color", "#000831")
+        $("#calendar > div > div:nth-of-type(1) > div:nth-of-type(4)").css("color", "#174fff")
+    }
 }
 
 // 함수 실행
-if ($(".fixturesSeason").length) {
+if ($(".fixturesSeason").length || $("#calendar").length) {
     year = new Date().getFullYear()
     month = (new Date().getMonth() < 10) ? "0" + (new Date().getMonth() + 1) : "" + new Date().getMonth() + 1
 
-    $(".fixturesSeason").html("<p>" + month + "<span>" + year + "</span></p><p>◀</p><p>▶</p>")
+    $(".fixturesSeason").html("<p>" + month + "<span>" + year + "</span></p><p>◀</p><p>▶</p><p>달력 보기</p>")
 
     status_ = "A"
+    clndr = 0
+
+    year = new Date().getFullYear()
+    month = new Date().getMonth() + 1
+    date = new Date().getDate()
+    day = new Date().getDay()
+    lastDate = new Date(year, month, 0).getDate()
+    prevMonthLastDate = new Date(year, month - 1, 0).getDate()
 
     fixtures()
 }
 
-// 달력 컨트롤
+// 일정 컨트롤
 $(".fixturesSeason > p:nth-of-type(1)").click(function() {
     // 연월 선택 기능
 })
 
+// 일정 컨트롤
 $(".fixturesSeason > p:nth-of-type(2)").click(function() {
-    if (month == "01") {
-        year --
-        month = "12"
-    } else {
-        month = (Number(month) <= 10) ? ("0" + (Number(month) - 1)) : ("" + (Number(month) - 1))
-    }
-
-    $(".fixturesSeason > p:nth-of-type(1)").html(month + "<span>" + year + "</span>")
+    clndr -= 2
 
     fixtures()
 })
 
 $(".fixturesSeason > p:nth-of-type(3)").click(function() {
-    if (month == "12") {
-        year ++
-        month = "01"
-    } else {
-        month = (Number(month) < 9) ? ("0" + (Number(month) + 1)) : ("" + (Number(month) + 1))
-    }
+    clndr += 2
 
-    $(".fixturesSeason > p:nth-of-type(1)").html(month + "<span>" + year + "</span>")
+    fixtures()
+})
+
+// 달력 컨트롤
+$("#calendar > div:nth-of-type(1) > p:nth-of-type(2)").click(function() {
+    clndr --
+
+    fixtures()
+})
+
+$("#calendar > div:nth-of-type(1) > p:nth-of-type(3)").click(function() {
+    clndr ++
+
+    fixtures()
+})
+
+// 일정, 달력 전환
+$(".fixturesSeason > p:nth-of-type(4)").click(function () {
+    $(".fixturesSeason").css("display", "none")
+    $("#fixturesA").css("display", "none")
+    $("#fixturesU18").css("display", "none")
+    $("#fixturesU15").css("display", "none")
+    $("#calendar").css("display", "block")
+
+    fixtures()
+})
+
+$("#calendar > div:nth-of-type(1) > p:nth-of-type(4)").click(function () {
+    $(".fixturesSeason").css("display", "flex")
+    $("#fixturesA").css("display", "none")
+    $("#fixturesU18").css("display", "none")
+    $("#fixturesU15").css("display", "none")
+    $("#calendar").css("display", "none")
+    $("#fixtures" + status_).css("display", "block")
 
     fixtures()
 })
@@ -1107,6 +1284,9 @@ if ($("#standingsHome").length) {
         if (dataA[Object.keys(dataA)[i]]["homeScore"] !== "" && prev.length < 5) {
             prev.push(Object.keys(dataA)[i])
         }
+        if (prev.length == 5) {
+            break
+        }
     }
 
     prev.reverse()
@@ -1160,7 +1340,7 @@ if ($("#playerA").length) {
                 num = playerNumber[new Date().getFullYear()][Object.keys(player)[i]][1]
                 pos = player[Object.keys(player)[i]]["pos"]
                 playerAList.push([id, name_, num, pos])
-            } catch (err) { }
+            } catch (err) {}
         }
     }
 
