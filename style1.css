@@ -6,16 +6,16 @@
 * {color: #000831; margin: 0; padding: 0; text-align: center; font-family: "Freesentation"; font-weight: 900; font-size: 12px; list-style: none; text-decoration-line: none; border-collapse: collapse; border-spacing: 0; word-break: keep-all; -webkit-tap-highlight-color: transparent;}
 *::-webkit-scrollbar {display: none;}
 
-body {position: absolute; background: #f6f6f6;}
+body {position: absolute; background: #fafafa;}
 
 /* 헤더 */
-header {width: 100vw; height: 80px; position: fixed; top: 0; left: 0; background: #f6f6f6; z-index: 99; display: flex; justify-content: center; z-index: 100;}
+header {width: 100vw; height: 80px; position: fixed; top: 0; left: 0; background: #fafafa; z-index: 99; display: flex; justify-content: center; z-index: 100;}
 header > div {width: 20vw;}
 header > div > img {width: auto; height: 40px; padding: 5vw 0;}
 header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 
 /* 메뉴 */
-#menu {width: 60vw; height: 200vh; position: fixed; top: 0; left: -60vw; background-color: #f6f6f6; z-index: 1000;}
+#menu {width: 60vw; height: 200vh; position: fixed; top: 0; left: -60vw; background-color: #fafafa; z-index: 1000;}
 #menuBg {width: 100vw; height: 200vh; position: fixed; top: 0; left: 0; background: #00083120; opacity: 0; display: none; z-index: 999;}
 #menu > div {width: 50vw; height: 30px; padding: 10px 0; margin: 10px 0 10px 5vw; border-radius: 25px; text-align: left; font-size: 24px; display: flex; align-items: center;}
 #menu > div:hover {background: #174fff12;}
@@ -23,7 +23,7 @@ header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 #menu > div > img {width: auto; height: 24px; margin: 0 10px;}
 
 /* 로딩 */
-#loading {width: 100vw; height: 200vh; position: fixed; top: 0; left: 0; background: #f6f6f6; z-index: 99;}
+#loading {width: 100vw; height: 200vh; position: fixed; top: 0; left: 0; background: #fafafa; z-index: 99;}
 /* 홈 화면 */
 #nextMatch {width: 90vw; height: 60px; padding: 10px 0; box-shadow: 0 0 3px 2px #00083120; border-radius: 20px; margin: 100px 0 0 5vw;}
 #nextMatch > div:nth-of-type(1) {width: 90vw; height: 40px; display: flex; align-items: center;}
@@ -42,7 +42,7 @@ header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 #prevMatch > div > div {width: 16vw; height: 85px;}
 #prevMatch > div > div > div {width: 14vw; height: 40px; margin: 0 2vw 10px 2vw;}
 #prevMatch > div > div > div > img {width: auto; height: 40px;}
-#prevMatch > div > div > p:nth-of-type(1) {width: 12vw; height: 25px; color: #f6f6f6; margin: 0 3vw; font-size: 16px; line-height: 25px; border-radius: 10vw;}
+#prevMatch > div > div > p:nth-of-type(1) {width: 12vw; height: 25px; color: #fafafa; margin: 0 3vw; font-size: 16px; line-height: 25px; border-radius: 10vw;}
 #prevMatch > div > div > p:nth-of-type(2) {width: 8vw; height: 3px; margin: 3px 5vw 0 5vw; font-size: 16px; border-radius: 10vw;}
 #prevMatch > a > p {font-weight: 500; padding: 10px 0 20px 0;}
 
@@ -77,8 +77,8 @@ header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 #showMore {width: 90vw; height: 30px; margin:  30px 0 0 5vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 5vw; display: flex; align-items: center; justify-content: center;}
 
 /* 선수단 */
-.playerButton {width: 100vw; height: 50px; position: fixed; top: 79px; left: 0; background: #f6f6f6; z-index: 98;}
-.playerButton > button {width: 30vw; height: 50px; background: #f6f6f6; border: none; margin: 0; font-size: 18px;}
+.playerButton {width: 100vw; height: 50px; position: fixed; top: 79px; left: 0; background: #fafafa; z-index: 98;}
+.playerButton > button {width: 30vw; height: 50px; background: #fafafa; border: none; margin: 0; font-size: 18px;}
 .playerButton > button:hover {color: #174fff; border-bottom: 3px solid #174fff;}
 
 #playerA {margin-top: 150px;}
@@ -86,16 +86,16 @@ header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 #playerA > div > div {width: 80vw; margin-left: 10vw; display: flex; flex-wrap: wrap; justify-content: center;}
 #playerA > div > div > div {width: 22vw; height: 140px; margin: 10px 2vw; border-radius: 20px; box-shadow: 0 0 3px 2px #00083120; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-end; overflow: hidden;}
 #playerA > div > div > div > img {height: 110px; margin: 10px 25px 0 0; z-index: 90;}
-#playerA > div > div > div > p:nth-of-type(1) {width: 22vw; height: 30px; position: absolute; margin-top: 110px; border-radius: 0 0 20px 20px; color: #f6f6f6; background: #000831; font-size: 16px; line-height: 30px; z-index: 91;}
+#playerA > div > div > div > p:nth-of-type(1) {width: 22vw; height: 30px; position: absolute; margin-top: 110px; border-radius: 0 0 20px 20px; color: #fafafa; background: #000831; font-size: 16px; line-height: 30px; z-index: 91;}
 #playerA > div > div > div > p:nth-of-type(2) {margin: 5px 10px 0 0; font-size: 40px; text-align: right; line-height: 1; font-family: "Oswald"; opacity: .2; position: absolute;}
 
 #playerU18, #playerU15 {margin-top: 150px; display: none;}
 
 /* 선수 정보 */
 #playerProfile {width: 100vw; margin-top: 210px;}
-#playerProfile > div:nth-of-type(1) {width: 100vw; height: 20px; padding-top: 40px; background: #f6f6f6; display: flex; justify-content: center; align-items: center; position: fixed; top: 79px; z-index: 99;}
+#playerProfile > div:nth-of-type(1) {width: 100vw; height: 20px; padding-top: 40px; background: #fafafa; display: flex; justify-content: center; align-items: center; position: fixed; top: 79px; z-index: 99;}
 #playerProfile > div:nth-of-type(1) > p {font-size: 16px;}
-#playerProfile > div:nth-of-type(2) {width: 100vw; height: 50px; padding-bottom: 20px; background: #f6f6f6; display: flex; justify-content: center; align-items: center; position: fixed; top: 139px; z-index: 99;}
+#playerProfile > div:nth-of-type(2) {width: 100vw; height: 50px; padding-bottom: 20px; background: #fafafa; display: flex; justify-content: center; align-items: center; position: fixed; top: 139px; z-index: 99;}
 #playerProfile > div:nth-of-type(2) > p {font-size: 40px;}
 #playerProfile > div:nth-of-type(2) > p > span {color: #174fff; font-size: 40px; margin-right: 2vw;}
 #playerProfile > div:nth-of-type(3) {width: 90vw; height: 3px; display: block; background: linear-gradient(90deg, #ffffff00 0%, #00083120 20%, #00083120 80%, #ffffff00 100%); margin: 10px 0 20px 5vw;}
@@ -135,7 +135,7 @@ header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 #statsBySeason > div > p {width: 12vw; font-size: 18px;}
 #statsBySeason > div > p:nth-of-type(1) {width: 15vw;}
 
-#playedMatch {width: 100vw; height: 70vh; margin-top: 30vh; background: #f6f6f6; border-radius: 10vw 10vw 0 0; box-shadow: 0 0 3px 2px #00083120; display: flex; flex-direction: column; position: fixed; bottom: -100vh; z-index: 400;}
+#playedMatch {width: 100vw; height: 70vh; margin-top: 30vh; background: #fafafa; border-radius: 10vw 10vw 0 0; box-shadow: 0 0 3px 2px #00083120; display: flex; flex-direction: column; position: fixed; bottom: -100vh; z-index: 400;}
 #playedMatch > div {width: 100vw; height: calc(70vh - 160px); margin: 50px 0 20px 0; overflow: scroll;}
 #playedMatch > div > div {width: 80vw; margin-left: 10vw; padding: 10px 0; display: flex; justify-content: center; align-items: center; border-bottom: 2px solid #00083120;}
 #playedMatch > div > div:nth-of-type(1) {border-top: 2px solid #00083120;}
@@ -145,14 +145,14 @@ header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 #playedMatch > div > div > p:nth-of-type(4) {width: 10vw; font-size: 16px;}
 #playedMatch > div > div > p:nth-of-type(5) {width: 10vw; font-size: 16px;}
 #playedMatch > div > div > p:nth-of-type(5) > img:nth-of-type(n+2) {margin-left: -10px;}
-#playedMatch > div > div > p:nth-of-type(6) {width: 10vw; padding: 3px 0; margin: 0 2.5vw; font-size: 16px; border-radius: 20px; color: #f6f6f6;}
+#playedMatch > div > div > p:nth-of-type(6) {width: 10vw; padding: 3px 0; margin: 0 2.5vw; font-size: 16px; border-radius: 20px; color: #fafafa;}
 #playedMatch > p {width: 100vw; margin-top: 50px; opacity: .5;}
 
 #playedMatchBG {width: 100vw; height: 100vh; background: #00000010; border-radius: 20px 20px 0 0; box-shadow: 0 0 3px 2px #00083120; position: fixed; top: 0; display: none; opacity: 0; z-index: 300;}
 
 /* 선수 기록 */
-.statsButton {width: 100vw; height: 50px; position: fixed; top: 79px; left: 0; background: #f6f6f6; z-index: 98;}
-.statsButton > button {width: 30vw; height: 50px; background: #f6f6f6; border: none; margin: 0; font-size: 18px;}
+.statsButton {width: 100vw; height: 50px; position: fixed; top: 79px; left: 0; background: #fafafa; z-index: 98;}
+.statsButton > button {width: 30vw; height: 50px; background: #fafafa; border: none; margin: 0; font-size: 18px;}
 .statsButton > button:hover {color: #174fff; border-bottom: 3px solid #174fff;}
 
 .statsSeason {width: 50vw; padding-left: 10vw; margin-top: 150px; display: flex; align-items: baseline;}
@@ -170,8 +170,8 @@ header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 #stats > .stats > table > tbody > tr > td:nth-of-type(n+3) {width: calc((55vw - 60px)/5); font-size: 18px; font-weight: 500;}
 
 /* 일정 */
-.fixturesButton {width: 100vw; height: 50px; position: fixed; top: 79px; left: 0; background: #f6f6f6; z-index: 98;}
-.fixturesButton > button {width: 30vw; height: 50px; background: #f6f6f6; border: none; margin: 0; font-size: 18px;}
+.fixturesButton {width: 100vw; height: 50px; position: fixed; top: 79px; left: 0; background: #fafafa; z-index: 98;}
+.fixturesButton > button {width: 30vw; height: 50px; background: #fafafa; border: none; margin: 0; font-size: 18px;}
 .fixturesButton > button:hover {color: #174fff; border-bottom: 3px solid #174fff;}
 
 .fixturesSeason {width: 80vw; padding: 0 10vw; margin-top: 150px; display: flex; align-items: baseline;}
@@ -200,17 +200,17 @@ header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 #fixturesU15 {display: none;}
 
 #calendar {width: 90vw; margin-left: 5vw; display: none;}
-#calendar > table {width: 90vw; border-collapse: separate; border-spacing: 8px; table-layout: fixed;}
+#calendar > table {width: 90vw; border-collapse: separate; border-spacing: 8px; table-layout: fixed; margin-top: 32px;}
 #calendar > table > thead > tr > th {font-size: 20px; font-weight: 500;}
 #calendar > table > thead > tr > th:nth-of-type(1) {color: #f00;}
 #calendar > table > thead > tr > th:nth-of-type(7) {color: #174fff;}
 #calendar > table > tbody > tr > td {width: calc(90vw / 7); height: 100px; background: #fafafa; border-radius: 8px; vertical-align: top;}
-#calendar > table > tbody > tr > td > p {font-size: 16px; font-weight: 500; padding: 8px 0;}
+#calendar > table > tbody > tr > td > p {font-size: 16px; padding: 4px 0;}
+#calendar > table > tbody > tr > td > p:nth-of-type(1) {padding: 8px 0; font-weight: 500;}
 #calendar > table > tbody > tr > td:nth-of-type(1) > p {color: #f00;}
 #calendar > table > tbody > tr > td:nth-of-type(7) > p {color: #174fff;}
 #calendar > table > tbody > tr > td > div {height: 20px;}
-#calendar > table > tbody > tr > td > div > div > img {height: 16px; margin: 0 2px;}
-#calendar > table > tbody > tr > td > div > p {font-size: 16px; color: #f6f6f6; font-weight: 500;}
+#calendar > table > tbody > tr > td > div > img {height: 16px; margin: 0 2px;}
 
 /* 경기 세부 정보 */
 #matchScore {width: 70vw; padding: 20px 10vw; margin: 100px 5vw 0 5vw; border-radius: 20px; box-shadow: 0 0 3px 2px #00083120;}
@@ -234,11 +234,11 @@ header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 
 #potm > p {font-size: 16px; padding: 2vw; text-align: left;}
 #potm > div {display: flex; align-items: center;}
-#potm > div > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #f6f6f6; border: 3px solid #f6f6f6;}
+#potm > div > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: 3px solid #fafafa;}
 #potm > div > div > img {width: 10vw;}
 #potm > div > p:nth-of-type(1) {font-size: 16px; font-weight: 500; margin-top: 5px;}
 #potm > div > p:nth-of-type(1) > span {font-size: 16px; color: #174fff; margin: 0 1.5vw 0 3vw; font-family: "Lobster Two"; font-weight: 700; font-style: italic;}
-#potm > div > p:nth-of-type(2) {width: 10vw; padding: 3px 0; font-size: 14px; border-radius: 50vw; color: #f6f6f6; background: #000831; position: absolute; right: 15vw;}
+#potm > div > p:nth-of-type(2) {width: 10vw; padding: 3px 0; font-size: 14px; border-radius: 50vw; color: #fafafa; background: #000831; position: absolute; right: 15vw;}
 
 #matchLineup {display: none; margin-top: -3px; padding-bottom: 30px;}
 
@@ -250,39 +250,39 @@ header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 #startingXI > table {width: 70vw; height: 110vw; margin: -115vw 0 0 5vw; z-index: 98; position: absolute;}
 #startingXI > table > tbody > tr {display: flex; justify-content: center;}
 #startingXI > table > tbody > tr > td {height: 27.5vw; display: flex; flex-direction: column; justify-content: center; align-items: center;}
-#startingXI > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #f6f6f6; border: 3px solid #f6f6f6;}
+#startingXI > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: 3px solid #fafafa;}
 #startingXI > table > tbody > tr > td > div > img {width: 10vw;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(1) {font-weight: 500; margin-top: 5px;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(1) {color: #174fff; margin-right: 5px; font-family: "Lobster Two"; font-weight: 700; font-style: italic;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) {display: inline-block;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) > img {height: 16px; vertical-align: middle; margin: 0 0 2px -10px;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1) {margin-left: 2px;}
-#startingXI > table > tbody > tr > td > p:nth-of-type(2) {width: 8vw; padding: 3px 0; margin-top: 5px; border-radius: 50vw; color: #f6f6f6; background: #000831;}
+#startingXI > table > tbody > tr > td > p:nth-of-type(2) {width: 8vw; padding: 3px 0; margin-top: 5px; border-radius: 50vw; color: #fafafa; background: #000831;}
 
 #startingXI > div {width: 70vw; margin-left: 5vw;}
 #startingXI > div > table {width: 70vw;}
 #startingXI > div > table > tbody > tr {display: flex; width: 70vw;}
 #startingXI > div > table > tbody > tr > td {height: 60px; display: flex; flex-direction: row; align-items: center;}
-#startingXI > div > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #f6f6f6; border: 3px solid #f6f6f6;}
+#startingXI > div > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: 3px solid #fafafa;}
 #startingXI > div > table > tbody > tr > td > div > img {width: 10vw;}
 #startingXI > div > table > tbody > tr > td > p:nth-of-type(1) {font-size: 16px; font-weight: 500; margin-top: 5px;}
 #startingXI > div > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(1) {font-size: 16px; color: #174fff; margin: 0 1.5vw 0 3vw; font-family: "Lobster Two"; font-weight: 700; font-style: italic;}
 #startingXI > div > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) > img {height: 16px; vertical-align: middle; margin: 0 0 2px -10px;}
 #startingXI > div > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1) {margin-left: 2px;}
-#startingXI > div > table > tbody > tr > td > p:nth-of-type(2) {width: 10vw; padding: 3px 0; font-size: 14px; border-radius: 50vw; color: #f6f6f6; background: #000831; position: absolute; right: 15vw;}
+#startingXI > div > table > tbody > tr > td > p:nth-of-type(2) {width: 10vw; padding: 3px 0; font-size: 14px; border-radius: 50vw; color: #fafafa; background: #000831; position: absolute; right: 15vw;}
 
 #sub {width: 70vw; margin: 30px 0 0 15vw;}
 #sub > table {width: 70vw; height: 110vw;}
 #sub > table > thead > tr > th {width: 70vw; height: 30px; font-size: 18px;}
 #sub > table > tbody > tr {display: flex; width: 70vw;}
 #sub > table > tbody > tr > td {height: 60px; display: flex; flex-direction: row; align-items: center;}
-#sub > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #f6f6f6; border: 3px solid #f6f6f6;}
+#sub > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: 3px solid #fafafa;}
 #sub > table > tbody > tr > td > div > img {width: 10vw;}
 #sub > table > tbody > tr > td > p:nth-of-type(1) {font-size: 16px; font-weight: 500; margin-top: 5px;}
 #sub > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(1) {font-size: 16px; color: #174fff; margin: 0 1.5vw 0 3vw; font-family: "Lobster Two"; font-weight: 700; font-style: italic;}
 #sub > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) > img {height: 16px; vertical-align: middle; margin: 0 0 2px -10px;}
 #sub > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1) {margin-left: 2px;}
-#sub > table > tbody > tr > td > p:nth-of-type(2) {width: 10vw; padding: 3px 0; font-size: 14px; border-radius: 50vw; color: #f6f6f6; background: #000831; position: absolute; right: 15vw;}
+#sub > table > tbody > tr > td > p:nth-of-type(2) {width: 10vw; padding: 3px 0; font-size: 14px; border-radius: 50vw; color: #fafafa; background: #000831; position: absolute; right: 15vw;}
 
 .potm {background: #174fff !important;}
 
@@ -301,9 +301,9 @@ header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 
 #matchH2H {display: none; flex-direction: column; align-items: center; padding-bottom: 50px;}
 #matchH2H > div:nth-of-type(1) {width: 80vw; display: flex; border-radius: 10px; overflow: hidden;}
-#matchH2H > div:nth-of-type(1) > p {font-size: 16px; font-weight: 500; color: #f6f6f6; display: flex; align-items: center; justify-content: center;}
+#matchH2H > div:nth-of-type(1) > p {font-size: 16px; font-weight: 500; color: #fafafa; display: flex; align-items: center; justify-content: center;}
 #matchH2H > div:nth-of-type(3) {width: 80vw; display: flex; border-radius: 10px; overflow: hidden; margin-top: 10vw;}
-#matchH2H > div:nth-of-type(3) > p {font-size: 16px; font-weight: 500; color: #f6f6f6; display: flex; align-items: center; justify-content: center;}
+#matchH2H > div:nth-of-type(3) > p {font-size: 16px; font-weight: 500; color: #fafafa; display: flex; align-items: center; justify-content: center;}
 
 #recentMatch {width: 80vw; box-shadow: 0 0 3px 2px #00083120; border-radius: 20px; margin-top: 40px;}
 #recentMatch > div {width: 80vw; height: 60px; border-bottom: 2px solid #00083120; padding: 5px 0;}
@@ -311,7 +311,7 @@ header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 #recentMatch > div > div:nth-of-type(1) > div:nth-of-type(1) {width: 30vw; display: flex; align-items: center; justify-content: flex-end;}
 #recentMatch > div > div:nth-of-type(1) > div:nth-of-type(1) > img {height: 20px;}
 #recentMatch > div > div:nth-of-type(1) > div:nth-of-type(2) {width: 15vw; height: 24px; display: flex; align-items: center; justify-content: center; margin: 0 2.5vw; border-radius: 15vw;}
-#recentMatch > div > div:nth-of-type(1) > div:nth-of-type(2) > p {font-size: 16px; color: #f6f6f6;}
+#recentMatch > div > div:nth-of-type(1) > div:nth-of-type(2) > p {font-size: 16px; color: #fafafa;}
 #recentMatch > div > div:nth-of-type(1) > div:nth-of-type(2) > img {height: 10px; padding: 0 4px; filter: invert(85%) sepia(100%) saturate(0%) hue-rotate(19deg) brightness(108%) contrast(96%);}
 #recentMatch > div > div:nth-of-type(1) > div:nth-of-type(3) {width: 30vw; display: flex; align-items: center; justify-content: flex-start;}
 #recentMatch > div > div:nth-of-type(1) > div:nth-of-type(3) > img {height: 20px;}
@@ -321,8 +321,8 @@ header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 #viewAll {height: 20px !important; display: flex; justify-content: center; align-items: center;}
 
 /* 순위 */
-.standingsButton {width: 100vw; height: 50px; position: fixed; top: 79px; left: 0; background: #f6f6f6; z-index: 98;}
-.standingsButton > button {width: 30vw; height: 50px; background: #f6f6f6; border: none; margin: 0; font-size: 18px;}
+.standingsButton {width: 100vw; height: 50px; position: fixed; top: 79px; left: 0; background: #fafafa; z-index: 98;}
+.standingsButton > button {width: 30vw; height: 50px; background: #fafafa; border: none; margin: 0; font-size: 18px;}
 .standingsButton > button:hover {color: #174fff; border-bottom: 3px solid #174fff;}
 
 .standingsSeason {width: 80vw; padding: 0 10vw; margin-top: 150px; display: flex; align-items: baseline;}
@@ -373,8 +373,8 @@ header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 #standingsU15 > div > table > tbody > tr > td > img {height: 24px;}
 
 tr.sefc {background: #000831;}
-tr.sefc > td {color: #f6f6f6;}
+tr.sefc > td {color: #fafafa;}
 tr.sefc > td:nth-of-type(1) {border-radius: 20px 0 0 20px;}
 tr.sefc > td:nth-of-type(8) {border-radius: 0 20px 20px 0;}
 tr.sefc > td:nth-last-of-type(1) {border-radius: 0 20px 20px 0;}
-tr.sefc > td > p {background: #f6f6f6 !important; color: #000831 !important;}
+tr.sefc > td > p {background: #fafafa !important; color: #000831 !important;}

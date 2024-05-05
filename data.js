@@ -378,14 +378,14 @@ $(document).ready(function () {
 
             if (dataList["home"][0] == "서울E") {
                 homeBg = "#000831"
-                homeColor = "#f6f6f6"
+                homeColor = "#fafafa"
                 awayBg = "#" + h2h[dataList["away"][1].replace(/[0-9]/g, "")][0]
                 awayColor = "#" + h2h[dataList["away"][1].replace(/[0-9]/g, "")][1]
             } else {
                 homeBg = "#" + h2h[dataList["home"][1].replace(/[0-9]/g, "")][0]
                 homeColor = "#" + h2h[dataList["home"][1].replace(/[0-9]/g, "")][1]
                 awayBg = "#000831"
-                awayColor = "#f6f6f6"
+                awayColor = "#fafafa"
             }
 
             if ($(window).width() < 768) {
@@ -905,8 +905,8 @@ $(document).ready(function () {
         $("#playerSEFC > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(2)").text(Object.values(yc).reduce(function (a, b) { return a + b }, 0))
         $("#playerSEFC > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").text(Object.values(rc).reduce(function (a, b) { return a + b }, 0))
 
-        $("#playerImg").css({ "background": "linear-gradient(to bottom, #f6f6f600 10%, #f6f6f640 55%, #f6f6f680 70%, #f6f6f6cc 85%, #f6f6f6 100%), url('./files/" + id + ".png')", "background-size": "cover" })
-        $("#playerImg > div").css({ "background": "linear-gradient(to top, #f6f6f600 10%, #f6f6f640 55%, #f6f6f680 70%, #f6f6f6cc 85%, #f6f6f6 100%), url('./files/" + player[id]["natl"] + ".svg')", "background-size": "auto 500px", "background-position": "center", "background-repeat": "no-repeat" })
+        $("#playerImg").css({ "background": "linear-gradient(to bottom, #fafafa00 10%, #fafafa40 55%, #fafafa80 70%, #fafafacc 85%, #fafafa 100%), url('./files/" + id + ".png')", "background-size": "cover" })
+        $("#playerImg > div").css({ "background": "linear-gradient(to top, #fafafa00 10%, #fafafa40 55%, #fafafa80 70%, #fafafacc 85%, #fafafa 100%), url('./files/" + player[id]["natl"] + ".svg')", "background-size": "auto 500px", "background-position": "center", "background-repeat": "no-repeat" })
 
         $("#playerInfo > div:nth-of-type(1) > p:nth-of-type(2)").text(player[id]["natl"])
         $("#playerInfo > div:nth-of-type(2) > p:nth-of-type(2)").text(player[id]["height"] + "cm")
@@ -1125,7 +1125,7 @@ function fixtures() {
     }
 
     // 달력
-    if ($(".fixturesSeason > p:nth-of-type(4)").text("목록 보기")) {
+    if ($(".fixturesSeason > p:nth-of-type(4)").text() == "목록 보기") {
         for (i = 0; i < 42; i++) {
             if (i + 1 - firstDateDay <= 0) { // 지난달
                 if (month == 1) { // 지난해
@@ -1159,32 +1159,38 @@ function fixtures() {
             // 달력에 일정 삽입
             if (status_ == "A" && Object.keys(Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")).length !== 0) { // A팀
                 if (dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["homeScore"].length !== 0) {
-                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><div><img src='./files/" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["home"][1] + "_s.png'><img src='./files/" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["away"][1] + "_s.png'></div><p>" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["homeScore"] + ":" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["awayScore"] + "</p></div>").css("background", "#174fff")
+                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["home"][1] + "_s.png'><img src='./files/" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["away"][1] + "_s.png'></div><p>" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["homeScore"] + ":" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["awayScore"] + "</p>").css("background", "#174fff")
                 } else {
-                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><div><img src='./files/" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["home"][1] + "_s.png'><img src='./files/" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["away"][1] + "_s.png'></div></div>").css("background", "#174fff")
+                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["home"][1] + "_s.png'><img src='./files/" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["away"][1] + "_s.png'></div>").css("background", "#174fff")
                 }
     
-                $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ") > p").css("color", "#f6f6f6")
+                $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ") > p").css("color", "#fafafa")
+
+                $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ") > p").attr("onclick", "location.href = './match?" + yy + mm + dd + "0'")
             }
     
             if (status_ == "U18" && Object.keys(Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")).length !== 0) { // U18
                 if (dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["homeScore"].length !== 0) {
-                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><div><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["home"][1] + "_s.png'><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["away"][1] + "_s.png'></div><p>" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["homeScore"] + ":" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["awayScore"] + "</p></div>").css("background", "#174fff")
+                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["home"][1] + "_s.png'><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["away"][1] + "_s.png'></div><p>" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["homeScore"] + ":" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["awayScore"] + "</p>").css("background", "#174fff")
                 } else {
-                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><div><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["home"][1] + "_s.png'><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["away"][1] + "_s.png'></div></div>").css("background", "#174fff")
+                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["home"][1] + "_s.png'><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["away"][1] + "_s.png'></div>").css("background", "#174fff")
                 }
     
-                $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ") > p").css("color", "#f6f6f6")
+                $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ") > p").css("color", "#fafafa")
+            
+                $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ") > p").attr("onclick", "location.href = './match?" + yy + mm + dd + "8'")
             }
     
             if (status_ == "U15" && Object.keys(Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")).length !== 0) { // U15
                 if (dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["homeScore"].length !== 0) {
-                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><div><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["home"][1] + "_s.png'><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["away"][1] + "_s.png'></div><p>" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["homeScore"] + ":" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["awayScore"] + "</p></div>").css("background", "#174fff")
+                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["home"][1] + "_s.png'><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["away"][1] + "_s.png'></div><p>" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["homeScore"] + ":" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["awayScore"] + "</p>").css("background", "#174fff")
                 } else {
-                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><div><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["home"][1] + "_s.png'><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["away"][1] + "_s.png'></div></div>").css("background", "#174fff")
+                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["home"][1] + "_s.png'><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["away"][1] + "_s.png'></div>").css("background", "#174fff")
                 }
     
-                $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ") > p").css("color", "#f6f6f6")
+                $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ") > p").css("color", "#fafafa")
+            
+                $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ") > p").attr("onclick", "location.href = './match?" + yy + mm + dd + "5'")
             }
     
             if (i == 34 && i + 1 - firstDateDay > lastDate) {
@@ -1522,16 +1528,16 @@ function matchH2H() {
                 $("#matchH2H > div:nth-of-type(4) > div:nth-of-type(2) > div > p:nth-of-type(2)").text(goalCpG)
 
                 if ($(window).width() < 768) {
-                    $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#000831", "color": "#f6f6f6", "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#c8c8c8", "color": "#f6f6f6", "display": "flex", "align-items": "center", "justify-content": "center" })
+                    $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#000831", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
+                    $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#c8c8c8", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
                     $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(3) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(4) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#000831", "color": "#f6f6f6", "display": "flex", "align-items": "center", "justify-content": "center" })
+                    $("#matchH2H > div:nth-of-type(4) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#000831", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
                     $("#matchH2H > div:nth-of-type(4) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
                 } else {
-                    $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#000831", "color": "#f6f6f6", "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#c8c8c8", "color": "#f6f6f6", "display": "flex", "align-items": "center", "justify-content": "center" })
+                    $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#000831", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
+                    $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#c8c8c8", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
                     $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(3) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(4) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#000831", "color": "#f6f6f6", "display": "flex", "align-items": "center", "justify-content": "center" })
+                    $("#matchH2H > div:nth-of-type(4) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#000831", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
                     $("#matchH2H > div:nth-of-type(4) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
                 }
             } else {
@@ -1565,16 +1571,16 @@ function matchH2H() {
 
                 if ($(window).width() < 768) {
                     $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#c8c8c8", "color": "#f6f6f6", "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(3) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#000831", "color": "#f6f6f6", "display": "flex", "align-items": "center", "justify-content": "center" })
+                    $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#c8c8c8", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
+                    $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(3) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#000831", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
                     $("#matchH2H > div:nth-of-type(4) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(4) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#000831", "color": "#f6f6f6", "display": "flex", "align-items": "center", "justify-content": "center" })
+                    $("#matchH2H > div:nth-of-type(4) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#000831", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
                 } else {
                     $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#c8c8c8", "color": "#f6f6f6", "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(3) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#000831", "color": "#f6f6f6", "display": "flex", "align-items": "center", "justify-content": "center" })
+                    $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#c8c8c8", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
+                    $("#matchH2H > div:nth-of-type(2) > div:nth-of-type(3) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#000831", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
                     $("#matchH2H > div:nth-of-type(4) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(4) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#000831", "color": "#f6f6f6", "display": "flex", "align-items": "center", "justify-content": "center" })
+                    $("#matchH2H > div:nth-of-type(4) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#000831", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
                 }
             }
         }
