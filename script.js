@@ -6,32 +6,17 @@ $(document).ready(function() {
 
     // 화면 너비 300px 이하일 때 경고
     if ($(window).width() < 300) {
-        $("body").append("<div style='width: 80vw; height: 65px; padding: 0 10vw; background: #fafafa; position: fixed; bottom: 0; left: 0; font-size: 14px; font-weight: 500; z-index: 300; display: flex; align-items: center; justify-content: center;'>기기의 화면 크기가 작아 페이지가 정상적으로 보이지 않을 수 있습니다.</div>")
+        $("body").append("<div style='width: 80vw; height: 65px; padding: 0 10vw; background: #f6f6f6; position: fixed; bottom: 0; left: 0; font-size: 14px; font-weight: 500; z-index: 300; display: flex; align-items: center; justify-content: center;'>기기의 화면 크기가 작아 페이지가 정상적으로 보이지 않을 수 있습니다.</div>")
     }
 
     // 화면 너비 768px~1023px일 때 경고
     if ($(window).width() >= 768 && $(window).width() < 1023) {
-        $("body").append("<div style='width: 80vw; height: 65px; padding: 0 10vw; background: #fafafa; position: fixed; bottom: 0; left: 0; font-size: 14px; font-weight: 500; z-index: 300; display: flex; align-items: center; justify-content: center;'>페이지가 아직 이 기기를 완벽히 지원하지 않아 페이지가 정상적으로 보이지 않을 수 있습니다.</div>")
+        $("body").append("<div style='width: 80vw; height: 65px; padding: 0 10vw; background: #f6f6f6; position: fixed; bottom: 0; left: 0; font-size: 14px; font-weight: 500; z-index: 300; display: flex; align-items: center; justify-content: center;'>페이지가 아직 이 기기를 완벽히 지원하지 않아 페이지가 정상적으로 보이지 않을 수 있습니다.</div>")
     }
 
     // A팀 선수단 불러오기
     if ($(".playerButton").length) {
         playerA()
-    }
-
-    // A팀 일정 불러오기
-    if ($(".fixturesButton").length) {
-        fixturesA()
-    }
-
-    // A팀 순위 불러오기
-    if ($(".standingsButton").length) {
-        standingsA()
-    }
-
-    // A팀 기록 불러오기
-    if ($(".statsButton").length) {
-        statsA()
     }
 
 })
@@ -45,8 +30,7 @@ $(window).resize(function() {
     }
 })
 
-// 헤더
-$("header").html("<div><img src='./files/menu.svg' onclick='menu()'></div><p>SEFCiNFO</p><div><img src='./files/seouleland_s.png'></div>")
+// 메뉴
 $("body").append("<div id='menu'><div><img src='./files/players.svg'>선수단</div><div><img src='./files/fixtures.svg'>일정</div><div><img src='./files/stats.svg'>기록</div><div><img src='./files/standings.svg'>순위</div></div><div id='menuBg'></div>")
 
 // 상단 클릭 시 홈으로 이동

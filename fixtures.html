@@ -12,8 +12,12 @@
     <link rel="icon" type="image/x-icon" href="./files/favicon.png">
 </head>
 
-<header></header>
-<footer></footer>
+<header>
+    <div><img src='./files/menu.svg'
+            onclick='menu()'></div>
+    <p>SEFCiNFO</p>
+    <div><img src='./files/seouleland_s.png'></div>
+</header>
 
 <body oncontextmenu="return false">
 
@@ -44,60 +48,24 @@
     </div>
     
     <div id="calendar">
-        <div>
-            <p></p><p>◀</p><p>▶</p><p>목록 보기</p>
-        </div>
-        <div>
-            <div>
-                <div></div>
-                <div>A팀</div>
-                <div>U-18</div>
-                <div>U-15</div>
-            </div>
-            <div>
-                <p></p>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div>
-                <p></p>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div>
-                <p></p>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div>
-                <p></p>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div>
-                <p></p>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div>
-                <p></p>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div>
-                <p></p>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>일</th>
+                    <th>월</th>
+                    <th>화</th>
+                    <th>수</th>
+                    <th>목</th>
+                    <th>금</th>
+                    <th>토</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
     </div>
+
+    <div id="loading"></div>
 
     <script src="script.js"></script>
 
