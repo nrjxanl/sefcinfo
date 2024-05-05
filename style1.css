@@ -204,7 +204,7 @@ header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 #calendar > table > thead > tr > th {font-size: 20px; font-weight: 500;}
 #calendar > table > thead > tr > th:nth-of-type(1) {color: #f00;}
 #calendar > table > thead > tr > th:nth-of-type(7) {color: #174fff;}
-#calendar > table > tbody > tr > td {width: calc(90vw / 7); height: 100px; background: #fafafa; border-radius: 8px; vertical-align: top;}
+#calendar > table > tbody > tr > td {width: calc(90vw / 7); height: 80px; background: #fafafa; border-radius: 8px; vertical-align: top;}
 #calendar > table > tbody > tr > td > p {font-size: 16px; padding: 4px 0;}
 #calendar > table > tbody > tr > td > p:nth-of-type(1) {padding: 8px 0; font-weight: 500;}
 #calendar > table > tbody > tr > td:nth-of-type(1) > p {color: #f00;}

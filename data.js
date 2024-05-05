@@ -1166,7 +1166,7 @@ function fixtures() {
     
                 $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ") > p").css("color", "#fafafa")
 
-                $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ") > p").attr("onclick", "location.href = './match?" + yy + mm + dd + "0'")
+                $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").attr("onclick", "location.href = './match?" + yy + mm + dd + "0'")
             }
     
             if (status_ == "U18" && Object.keys(Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")).length !== 0) { // U18
@@ -1178,7 +1178,7 @@ function fixtures() {
     
                 $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ") > p").css("color", "#fafafa")
             
-                $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ") > p").attr("onclick", "location.href = './match?" + yy + mm + dd + "8'")
+                $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").attr("onclick", "location.href = './match?" + yy + mm + dd + "8'")
             }
     
             if (status_ == "U15" && Object.keys(Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")).length !== 0) { // U15
@@ -1190,7 +1190,7 @@ function fixtures() {
     
                 $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ") > p").css("color", "#fafafa")
             
-                $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ") > p").attr("onclick", "location.href = './match?" + yy + mm + dd + "5'")
+                $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").attr("onclick", "location.href = './match?" + yy + mm + dd + "5'")
             }
     
             if (i == 34 && i + 1 - firstDateDay > lastDate) {
