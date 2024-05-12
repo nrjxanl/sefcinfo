@@ -1,6 +1,9 @@
 // 새로고침 시
 $(document).ready(function() {
 
+    // url 불러오기
+    url = window.location.href
+
     // 새로고침 시 맨 위로 이동
     history.scrollRestoration = "manual"
 
