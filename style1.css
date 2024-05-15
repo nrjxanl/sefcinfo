@@ -139,15 +139,15 @@ header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 .statsButton > button {width: 30vw; height: 40px; background: #fafafa; border: none; margin: 0; font-size: 16px;}
 .statsButton > button:hover {color: #174fff; border-bottom: 4px solid #174fff;}
 
-.statsSeason {width: 50vw; padding-left: 10vw; margin-top: 180px; display: flex; align-items: baseline;}
-.statsSeason > p:nth-of-type(1) {font-size: 48px; padding-right: 20px; text-align: left;}
+.statsSeason {width: 50vw; padding-left: 10vw; margin-top: 160px; display: flex; align-items: baseline;}
+.statsSeason > p:nth-of-type(1) {font-size: 32px; padding-right: 20px; text-align: left;}
 .statsSeason > p:nth-of-type(n+2) {width: 10vw; font-size: 16px;}
 
 #stats > .stats > table {width: 90vw; margin: 20px 0 0 5vw;}
 #stats > .stats > table > thead > tr > th {height: 40px; font-size: 16px; font-weight: 500;}
-#stats > .stats > table > tbody > tr {height: 80px;}
+#stats > .stats > table > tbody > tr {height: 60px;}
 #stats > .stats > table > tbody > tr > td:nth-of-type(1) {width: 40px; display: flex; justify-content: center;}
-#stats > .stats > table > tbody > tr > td:nth-of-type(1) > div {width: 40px; height: 40px; margin-top: 14px; overflow: hidden; border-radius: 50%;}
+#stats > .stats > table > tbody > tr > td:nth-of-type(1) > div {width: 40px; height: 40px; margin-top: 10px; overflow: hidden; border-radius: 50%;}
 #stats > .stats > table > tbody > tr > td:nth-of-type(1) > div > img {width: 40px;}
 #stats > .stats > table > tbody > tr > td:nth-of-type(2) {width: 35vw; padding-left: 8px; font-size: 20px; text-align: left;}
 #stats > .stats > table > tbody > tr > td:nth-of-type(2) > span {color: #174fff; font-family: "Lobster Two"; font-weight: 700; font-style: italic; margin-right: 8px; font-size: 20px; text-align: left;}
@@ -158,8 +158,8 @@ header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 .fixturesButton > button {width: 30vw; height: 40px; background: #fafafa; border: none; margin: 0; font-size: 16px;}
 .fixturesButton > button:hover {color: #174fff; border-bottom: 4px solid #174fff;}
 
-.fixturesSeason {width: 80vw; padding: 0 10vw; margin-top: 180px; display: flex; align-items: baseline;}
-.fixturesSeason > p:nth-of-type(1) {font-size: 48px; padding-right: 20px; text-align: left;}
+.fixturesSeason {width: 80vw; padding: 0 10vw; margin-top: 160px; display: flex; align-items: baseline;}
+.fixturesSeason > p:nth-of-type(1) {font-size: 32px; padding-right: 20px; text-align: left;}
 .fixturesSeason > p:nth-of-type(1) > span {font-size: 16px; margin-left: 8px; font-weight: 500;}
 .fixturesSeason > p:nth-of-type(2) {width: 10vw; font-size: 16px;}
 .fixturesSeason > p:nth-of-type(3) {width: 10vw; font-size: 16px;}
@@ -167,15 +167,15 @@ header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 
 .fixtures {width: 90vw; margin-left: 5vw;}
 
-.fixtures_ {width: 70vw; padding: 20px 10vw; margin: 32px 0; border-radius: 20px; box-shadow: 0 0 4px 2px #00083120;}
+.fixtures_ {width: 70vw; padding: 16px 10vw; margin: 20px 0; border-radius: 20px; box-shadow: 0 0 4px 2px #00083120;}
 .fixtures_ > div:nth-of-type(1) {width: 70vw; display: flex; justify-content: center; align-items: center; margin-bottom: 16px;}
 .fixtures_ > div:nth-of-type(1) > img {height: 16px;}
 .fixtures_ > div:nth-of-type(1) > p {font-size: 12px; padding-left: 4px;}
 .fixtures_ > div:nth-of-type(2) {width: 70vw; display: flex; justify-content: center; align-items: center;}
 .fixtures_ > div:nth-of-type(2) > div:nth-of-type(2n+1) {width: 20vw;}
 .fixtures_ > div:nth-of-type(2) > div:nth-of-type(2n+1) > div {width: 20vw;}
-.fixtures_ > div:nth-of-type(2) > div:nth-of-type(2n+1) > div > img {height: 64px;}
-.fixtures_ > div:nth-of-type(2) > div:nth-of-type(2n+1) > p {font-size: 16px; margin-top: 4px;}
+.fixtures_ > div:nth-of-type(2) > div:nth-of-type(2n+1) > div > img {height: 32px;}
+.fixtures_ > div:nth-of-type(2) > div:nth-of-type(2n+1) > p {font-size: 16px; margin-top: 8px;}
 .fixtures_ > div:nth-of-type(2) > div:nth-of-type(2) {width: 30vw;}
 .fixtures_ > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1) {font-size: 32px; margin: -8px 0 8px 0;}
 .fixtures_ > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2) {width: fit-content; height: fit-content; padding: 2px 8px; margin: auto; font-size: 12px; font-weight: 500; border: 1px solid #000831; border-radius: 8px;}
@@ -197,18 +197,24 @@ header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 #calendar > table > tbody > tr > td > div > img {height: 16px; margin: 0 2px;}
 
 /* 경기 세부 정보 */
-#matchScore {width: 70vw; padding: 20px 10vw; margin: 100px 5vw 0 5vw; border-radius: 20px; box-shadow: 0 0 4px 2px #00083120;}
+#matchScore {width: 70vw; padding: 16px 5vw; margin: 100px 10vw 0 10vw; border-radius: 20px; box-shadow: 0 0 4px 2px #00083120;}
 #matchScore > div:nth-of-type(1) {width: 70vw; display: flex; justify-content: center; align-items: center; margin-bottom: 16px;}
 #matchScore > div:nth-of-type(1) > img {height: 16px;}
 #matchScore > div:nth-of-type(1) > p {font-size: 12px; padding-left: 4px;}
 #matchScore > div:nth-of-type(2) {width: 70vw; display: flex; justify-content: center; align-items: center;}
 #matchScore > div:nth-of-type(2) > div:nth-of-type(2n+1) {width: 20vw;}
 #matchScore > div:nth-of-type(2) > div:nth-of-type(2n+1) > div {width: 20vw;}
-#matchScore > div:nth-of-type(2) > div:nth-of-type(2n+1) > div > img {height: 64px;}
+#matchScore > div:nth-of-type(2) > div:nth-of-type(2n+1) > div > img {height: 32px;}
 #matchScore > div:nth-of-type(2) > div:nth-of-type(2n+1) > p {font-size: 16px; margin-top: 4px;}
 #matchScore > div:nth-of-type(2) > div:nth-of-type(2) {width: 30vw;}
 #matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1) {font-size: 32px; margin: -8px 0 8px 0;}
 #matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2) {width: fit-content; height: fit-content; padding: 2px 8px; margin: auto; font-size: 12px; font-weight: 500; border: 1px solid #000831; border-radius: 8px;}
+#matchScore > div:nth-of-type(3) {width: 70vw; display: flex; justify-content: center; align-items: flex-start;}
+#matchScore > div:nth-of-type(3) > p {width: 20vw; height: fit-content; font-weight: 500; margin-top: 8px; line-height: 1.4;}
+#matchScore > div:nth-of-type(3) > p:nth-of-type(1) {margin-right: 15vw;}
+#matchScore > div:nth-of-type(3) > p:nth-of-type(2) {margin-left: 15vw;}
+
+#match {width: 80vw; margin-left: 10vw;}
 
 #highlight {width: 74vw; padding: 1vw 3vw; margin-left: 10vw; border-radius: 20px; box-shadow: #00083120 0px 0px 4px 2px;}
 #highlight > a {display: flex; align-items: center; justify-content: center;}
@@ -226,11 +232,11 @@ header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 
 #matchLineup {display: none; margin-top: -4px; padding-bottom: 20px;}
 
-.matchDetail {width: 100vw; height: 40px; margin-top: 5vw; position: relative; z-index: 98;}
+.matchDetail {width: 100vw; height: fit-content; margin: 20px 0; position: relative; z-index: 98;}
 .matchDetail > button {height: 24px; padding: 0 2vw; font-size: 16px; background: none; border: none;}
 
 #startingXI {width: 80vw; margin-left: 10vw;}
-#startingXI > img {width: 80vw; border-radius: 2vw; position: relative; opacity: 0.5;}
+#startingXI > img {width: 80vw; border-radius: 20px; position: relative; opacity: .3;}
 #startingXI > table {width: 70vw; height: 110vw; margin: -115vw 0 0 5vw; z-index: 98; position: absolute;}
 #startingXI > table > tbody > tr {display: flex; justify-content: center;}
 #startingXI > table > tbody > tr > td {height: 27.5vw; display: flex; flex-direction: column; justify-content: center; align-items: center;}
@@ -272,16 +278,15 @@ header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 
 #matchStat {display: none; padding-bottom: 40px;}
 #matchStat > table {width: 80vw; margin-left: 10vw;}
-#matchStat > table > tbody > tr {height: 40px; display: flex; align-items: center; box-shadow: 0 0 4px 2px #00083120; border-radius: 20px; margin-top: 20px;}
-#matchStat > table > tbody > tr > td {font-size: 12px;}
+#matchStat > table > tbody > tr {height: 48px; display: flex; align-items: center; box-shadow: 0 0 4px 2px #00083120; border-radius: 20px; margin-top: 20px;}
 #matchStat > table > tbody > tr > td:nth-of-type(2) {width: 25vw;}
 #matchStat > table > tbody > tr > td:nth-of-type(2n+1) {width: 27.5vw; display: flex; align-items: center; justify-content: center;}
 #matchStat > table > tbody > tr > td:nth-of-type(2n+1) > p {width: 7.5vw; height: 7.5vw; border-radius: 20px; font-weight: 500; display: flex; align-items: center; justify-content: center;}
-#matchStat > table > tbody > tr:nth-of-type(1) {height: fit-content; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 14px 0 8px 0; margin-top: 0;}
+#matchStat > table > tbody > tr:nth-of-type(1) {height: fit-content; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 16px 0; margin-top: 0;}
 #matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) {width: 70vw; font-weight: 900; padding-bottom: 20px;}
-#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) {width: 70vw; height: 40px; display: flex;}
-#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(1) {height: 20px; border-radius: 20px 0 0 20px; display: flex; align-items: center; justify-content: flex-start;}
-#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(2) {height: 20px; border-radius: 0 20px 20px 0; display: flex; align-items: center; justify-content: flex-end;}
+#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) {width: 70vw; display: flex;}
+#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(1) {height: 32px; border-radius: 20px 0 0 20px; display: flex; align-items: center; justify-content: flex-start;}
+#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(2) {height: 32px; border-radius: 0 20px 20px 0; display: flex; align-items: center; justify-content: flex-end;}
 
 #matchH2H {display: none; flex-direction: column; align-items: center; padding-bottom: 40px;}
 #matchH2H > div:nth-of-type(1) {width: 80vw; display: flex; border-radius: 8px; overflow: hidden;}
