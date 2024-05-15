@@ -660,6 +660,10 @@ $(document).ready(function () {
                     $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#f00")
                 }
             }
+
+            if (i == 4) {
+                $("#prevMatch > div > div:nth-of-type(5) > p:nth-of-type(2)").css("background", $("#prevMatch > div > div:nth-of-type(5) > p:nth-of-type(1)").css("background"))
+            }
         }
 
         $("#prevMatch > div > div").each(function () {
