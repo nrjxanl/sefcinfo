@@ -902,12 +902,12 @@ $(document).ready(function () {
 
         $("#playerProfile > div:nth-of-type(2) > p").html("<span>" + playerNumber[year][id][1] + "</span>" + playerNumber[year][id][0].replace(/[0-9]/g, ""))
 
-        $("#playerProfile > div:nth-of-type(4) > div:nth-of-type(1) > p:nth-of-type(2), #playerSEFC > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)").text(Object.values(played).reduce(function (a, b) { return a + b }, 0))
-        $("#playerProfile > div:nth-of-type(4) > div:nth-of-type(2) > p:nth-of-type(2), #playerSEFC > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)").text(Object.values(goal).reduce(function (a, b) { return a + b }, 0))
-        $("#playerProfile > div:nth-of-type(4) > div:nth-of-type(3) > p:nth-of-type(2), #playerSEFC > div:nth-of-type(1) > div:nth-of-type(3) > p:nth-of-type(2)").text(Object.values(assist).reduce(function (a, b) { return a + b }, 0))
+        $("#playerProfile > div:nth-of-type(4) > div:nth-of-type(1) > p:nth-of-type(2), #playerSEFC > div > div:nth-of-type(1) > p:nth-of-type(2)").text(Object.values(played).reduce(function (a, b) { return a + b }, 0))
+        $("#playerProfile > div:nth-of-type(4) > div:nth-of-type(2) > p:nth-of-type(2), #playerSEFC > div > div:nth-of-type(2) > p:nth-of-type(2)").text(Object.values(goal).reduce(function (a, b) { return a + b }, 0))
+        $("#playerProfile > div:nth-of-type(4) > div:nth-of-type(3) > p:nth-of-type(2), #playerSEFC > div > div:nth-of-type(3) > p:nth-of-type(2)").text(Object.values(assist).reduce(function (a, b) { return a + b }, 0))
 
-        $("#playerSEFC > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(2)").text(Object.values(yc).reduce(function (a, b) { return a + b }, 0))
-        $("#playerSEFC > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").text(Object.values(rc).reduce(function (a, b) { return a + b }, 0))
+        $("#playerSEFC > div > div:nth-of-type(4) > p:nth-of-type(2)").text(Object.values(yc).reduce(function (a, b) { return a + b }, 0))
+        $("#playerSEFC > div > div:nth-of-type(5) > p:nth-of-type(2)").text(Object.values(rc).reduce(function (a, b) { return a + b }, 0))
 
         $("#playerImg").css({ "background": "linear-gradient(to bottom, #fafafa00 10%, #fafafa40 55%, #fafafa80 70%, #fafafacc 85%, #fafafa 100%), url('./files/" + id + ".png')", "background-size": "cover" })
         $("#playerImg > div").css({ "background": "linear-gradient(to top, #fafafa00 10%, #fafafa40 55%, #fafafa80 70%, #fafafacc 85%, #fafafa 100%), url('./files/" + player[id]["natl"] + ".svg')", "background-size": "auto 500px", "background-position": "center", "background-repeat": "no-repeat" })
@@ -927,7 +927,8 @@ $(document).ready(function () {
         if (player[id]["sns"] !== "") {
             $("#playerSNS").attr("href", "https://instagram.com/" + player[id]["sns"])
         } else {
-            $("#playerSNS").attr({ "href": "#", "onclick": "return false", "style": "opacity: .5" })
+            $("#playerSNS").attr("onclick", "return false")
+            $("#playerSNS > div > img").css("opacity", ".5")
         }
     }
 
