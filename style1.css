@@ -210,7 +210,7 @@ header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 #matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1) {font-size: 32px; margin: -8px 0 8px 0;}
 #matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2) {width: fit-content; height: fit-content; padding: 2px 8px; margin: auto; font-size: 12px; font-weight: 500; border: 1px solid #000831; border-radius: 8px;}
 #matchScore > div:nth-of-type(3) {width: 70vw; display: flex; justify-content: center; align-items: flex-start;}
-#matchScore > div:nth-of-type(3) > p {width: 20vw; height: fit-content; font-weight: 500; margin-top: 8px; line-height: 1.4;}
+#matchScore > div:nth-of-type(3) > p {width: 20vw; height: fit-content; font-weight: 500; margin-top: 8px; line-height: 1.4; white-space: nowrap;}
 #matchScore > div:nth-of-type(3) > p:nth-of-type(1) {margin-right: 15vw;}
 #matchScore > div:nth-of-type(3) > p:nth-of-type(2) {margin-left: 15vw;}
 
