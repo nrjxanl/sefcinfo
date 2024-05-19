@@ -24,6 +24,7 @@ header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 
 /* 로딩 */
 #loading {width: 100vw; height: 200vh; position: fixed; top: 0; left: 0; background: #fafafa; z-index: 99;}
+
 /* 홈 화면 */
 #nextMatch {width: 90vw; height: 60px; padding: 8px 0; box-shadow: 0 0 4px 2px #00083120; border-radius: 20px; margin: 100px 0 0 5vw;}
 #nextMatch > div:nth-of-type(1) {width: 90vw; height: 40px; display: flex; align-items: center;}
@@ -314,13 +315,13 @@ header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 .standingsButton > button {width: 30vw; height: 40px; background: #fafafa; border: none; margin: 0; font-size: 16px;}
 .standingsButton > button:hover {color: #174fff; border-bottom: 4px solid #174fff;}
 
-.standingsSeason {width: 80vw; padding: 0 10vw; margin-top: 180px; display: flex; align-items: baseline;}
-.standingsSeason > p:nth-of-type(1) {font-size: 48px; padding-right: 20px; text-align: left;}
-.standingsSeason > p:nth-of-type(2) {width: 20vw; font-size: 12px; font-weight: 500;}
+.standingsSeason {width: 80vw; padding: 0 10vw; margin-top: 160px; display: flex; align-items: baseline;}
+.standingsSeason > p:nth-of-type(1) {font-size: 32px; padding-right: 20px; text-align: left;}
+.standingsSeason > p:nth-of-type(2) {width: 20vw; font-size: 16px; font-weight: 500;}
 .standingsSeason > p:nth-of-type(n+3) {width: 10vw; font-size: 16px;}
 
 #standingsA {margin-top: 20px;}
-#standingsA > div {width: 90vw; margin-left: 5vw;}
+#standingsA > div {width: 90vw; margin: 0 0 40px 5vw;}
 #standingsA > div > table {width: 90vw; vertical-align: middle;}
 #standingsA > div > table > thead > tr {height: 40px;}
 #standingsA > div > table > thead > tr > th {font-weight: 500; font-size: 12px;}
@@ -334,7 +335,8 @@ header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 #standingsA > div > table > tbody > tr > td > img {height: 24px;}
 
 #standingsU18 {margin-top: 20px;}
-#standingsU18 > div {width: 90vw; margin-left: 5vw;}
+#standingsU18 > div {width: 90vw; margin: 0 0 40px 5vw;}
+#standingsU18 > div > p {font-size: 16px; font-weight: 500; margin: 32px 0 8px 0;}
 #standingsU18 > div > table {width: 90vw; vertical-align: middle;}
 #standingsU18 > div > table > thead > tr {height: 40px;}
 #standingsU18 > div > table > thead > tr > th {font-weight: 500; font-size: 12px;}
@@ -348,7 +350,7 @@ header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 #standingsU18 > div > table > tbody > tr > td > img {height: 24px;}
 
 #standingsU15 {margin-top: 20px;}
-#standingsU15 > div {width: 90vw; margin-left: 5vw;}
+#standingsU15 > div {width: 90vw; margin: 0 0 40px 5vw;}
 #standingsU15 > div > table {width: 90vw; vertical-align: middle;}
 #standingsU15 > div > table > thead > tr {height: 40px;}
 #standingsU15 > div > table > thead > tr > th {font-weight: 500; font-size: 12px;}

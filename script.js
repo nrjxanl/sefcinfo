@@ -240,20 +240,6 @@ function standingsU15() {
     standings()
 }
 
-function standingsU18F() {
-    document.getElementById("standingsU18F").style.display = "block"
-    document.getElementById("standingsU18S").style.display = "none"
-    $(".standingsDetail button:nth-child(1)").css("font-weight", 900)
-    $(".standingsDetail button:nth-child(2)").css("font-weight", 500)
-}
-
-function standingsU18S() {
-    document.getElementById("standingsU18F").style.display = "none"
-    document.getElementById("standingsU18S").style.display = "block"
-    $(".standingsDetail button:nth-child(1)").css("font-weight", 500)
-    $(".standingsDetail button:nth-child(2)").css("font-weight", 900)
-}
-
 // 기록 창 전환
 function statsA() {
     $("#statsA").css("display", "block")
