@@ -249,6 +249,11 @@ function statsA() {
     $(".statsButton > button").css({"color": "#000831", "border-bottom": "none"})
     $(".statsButton > button:nth-of-type(1)").css({"color": "#174fff", "border-bottom": "3px solid #174fff"})
 
+    // 장석훈 등번호
+    if (year == 2024) {
+        playerNumber[2024][20240155][1] = 70
+    }
+
     status_ = "A"
     stats()
 }
@@ -260,6 +265,11 @@ function statsU18() {
 
     $(".statsButton > button").css({"color": "#000831", "border-bottom": "none"})
     $(".statsButton > button:nth-of-type(2)").css({"color": "#174fff", "border-bottom": "3px solid #174fff"})
+
+    // 장석훈 등번호
+    if (year == 2024) {
+        playerNumber[2024][20240155][1] = 10
+    }
 
     status_ = "U18"
     stats()
