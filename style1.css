@@ -86,12 +86,8 @@ header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 #playerProfile > div:nth-of-type(2) > p {font-size: 28px;}
 #playerProfile > div:nth-of-type(2) > p > span {color: #174fff; font-size: 28px; margin-right: 8px;}
 #playerProfile > div:nth-of-type(3) {width: 90vw; height: 4px; display: block; background: linear-gradient(90deg, #ffffff00 0%, #00083120 20%, #00083120 80%, #ffffff00 100%); margin: 8px 0 20px 5vw;}
-#playerProfile > div:nth-of-type(4) {width: 80vw; margin-left: 10vw;}
-#playerProfile > div:nth-of-type(4) > div {width: calc(80vw / 3); float: left;}
-#playerProfile > div:nth-of-type(4) > div > p:nth-of-type(1) {font-size: 16px; font-weight: 500;}
-#playerProfile > div:nth-of-type(4) > div > p:nth-of-type(2) {font-size: 28px;}
 
-#playerImg {width: 100vw; height: 500px; margin-top: 100px; overflow: hidden; display: flex; justify-content: center;}
+#playerImg {width: 100vw; height: 500px; margin-top: 40px; overflow: hidden; display: flex; justify-content: center;}
 #playerImg > div {width: 100vw; height: 500px; z-index: -100; opacity: .5;}
 
 #playerSNS > div {width: 80vw; border-radius: 20px; box-shadow: 0 0 4px 2px #00083120; padding: 8px 0; margin: 20px 0 0 10vw; display: flex; justify-content: center; align-items: center;}
@@ -105,20 +101,39 @@ header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 #playerInfo > div > p:nth-of-type(1) {font-weight: 500; margin-bottom: 4px;}
 #playerInfo > div > p:nth-of-type(2) {font-size: 16px;}
 
-#playerSEFC {width: 80vw; margin: 20px 0 20px 10vw; padding: 16px 0; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 20px; box-shadow: 0 0 4px 2px #00083120;}
-#playerSEFC > p:nth-of-type(1) {font-size: 16px;}
-#playerSEFC > p:nth-of-type(2) {font-weight: 500; margin-top: 14px;}
-#playerSEFC > div {width: 80vw; display: flex; justify-content: center; align-items: center;}
-#playerSEFC > div:nth-of-type(1) {margin: 16px 0 8px 0;}
-#playerSEFC > div > div {width: calc(70vw / 5);}
-#playerSEFC > div > div > p:nth-of-type(1) {font-weight: 500; margin-bottom: 4px;}
-#playerSEFC > div > div > p:nth-of-type(2) {font-size: 24px;}
+#playedSEFC {width: 80vw; margin: 20px 0 20px 10vw; padding: 16px 0; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 20px; box-shadow: 0 0 4px 2px #00083120;}
+#playedSEFC > p:nth-of-type(1) {font-size: 16px;}
+#playedSEFC > p:nth-of-type(2) {font-weight: 500; margin-top: 14px;}
+#playedSEFC > div {width: 80vw; display: flex; justify-content: center; align-items: center;}
+#playedSEFC > div:nth-of-type(1) {margin: 16px 0 8px 0;}
+#playedSEFC > div > div {width: calc(70vw / 5);}
+#playedSEFC > div > div > p:nth-of-type(1) {font-weight: 500; margin-bottom: 4px;}
+#playedSEFC > div > div > p:nth-of-type(2) {font-size: 24px;}
+
+#playedSEFCU18 {width: 80vw; margin: 20px 0 20px 10vw; padding: 16px 0; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 20px; box-shadow: 0 0 4px 2px #00083120;}
+#playedSEFCU18 > p:nth-of-type(1) {font-size: 16px;}
+#playedSEFCU18 > p:nth-of-type(2) {font-weight: 500; margin-top: 14px;}
+#playedSEFCU18 > div {width: 80vw; display: flex; justify-content: center; align-items: center;}
+#playedSEFCU18 > div:nth-of-type(1) {margin: 16px 0 8px 0;}
+#playedSEFCU18 > div > div {width: calc(70vw / 4);}
+#playedSEFCU18 > div > div > p:nth-of-type(1) {font-weight: 500; margin-bottom: 4px;}
+#playedSEFCU18 > div > div > p:nth-of-type(2) {font-size: 24px;}
+
+#playedSEFCU15 {width: 80vw; margin: 20px 0 20px 10vw; padding: 16px 0; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 20px; box-shadow: 0 0 4px 2px #00083120;}
+#playedSEFCU15 > p:nth-of-type(1) {font-size: 16px;}
+#playedSEFCU15 > p:nth-of-type(2) {font-weight: 500; margin-top: 14px;}
+#playedSEFCU15 > div {width: 80vw; display: flex; justify-content: center; align-items: center;}
+#playedSEFCU15 > div:nth-of-type(1) {margin: 16px 0 8px 0;}
+#playedSEFCU15 > div > div {width: calc(70vw / 4);}
+#playedSEFCU15 > div > div > p:nth-of-type(1) {font-weight: 500; margin-bottom: 4px;}
+#playedSEFCU15 > div > div > p:nth-of-type(2) {font-size: 24px;}
 
 #statsBySeason {width: 80vw; margin: 20px 0 20px 10vw; padding: 16px 0; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 20px; box-shadow: 0 0 4px 2px #00083120;}
 #statsBySeason > p {font-size: 16px; margin-bottom: 16px;}
 #statsBySeason > div {width: 80vw; height: fit-content; display: flex; justify-content: center; align-items: center;}
-#statsBySeason > div:nth-of-type(1) > p {width: 12vw; font-weight: 500; margin-bottom: 8px;}
-#statsBySeason > div:nth-of-type(2) > p {width: 12vw; font-size: 16px;}
+#statsBySeason > div:nth-of-type(1) > p {width: 10vw; font-weight: 500; margin-bottom: 8px;}
+#statsBySeason > div:nth-of-type(n+2) > p {width: 10vw; font-size: 16px;}
+#statsBySeason > div:nth-of-type(n+3) {padding-top: 8px;}
 
 #playedMatch {width: 100vw; height: 70vh; margin-top: 30vh; background: #fafafa; border-radius: 10vw 10vw 0 0; box-shadow: 0 0 4px 2px #00083120; display: flex; flex-direction: column; position: fixed; bottom: -100vh; z-index: 400;}
 #playedMatch > div {width: 100vw; height: calc(70vh - 160px); margin: 40px 0 20px 0; overflow: scroll;}
@@ -132,6 +147,32 @@ header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 #playedMatch > div > div > p:nth-of-type(5) > img:nth-of-type(n+2) {margin-left: -12px;}
 #playedMatch > div > div > p:nth-of-type(6) {width: 10vw; padding: 4px 0; margin: 0 2.5vw; font-size: 16px; border-radius: 20px; color: #fafafa;}
 #playedMatch > p {width: 100vw; margin-top: 40px; opacity: .5;}
+
+#playedMatchU18 {width: 100vw; height: 70vh; margin-top: 30vh; background: #fafafa; border-radius: 10vw 10vw 0 0; box-shadow: 0 0 4px 2px #00083120; display: flex; flex-direction: column; position: fixed; bottom: -100vh; z-index: 400;}
+#playedMatchU18 > div {width: 100vw; height: calc(70vh - 160px); margin: 40px 0 20px 0; overflow: scroll;}
+#playedMatchU18 > div > div {width: 80vw; margin-left: 10vw; padding: 8px 0; display: flex; justify-content: center; align-items: center; border-bottom: 2px solid #00083120;}
+#playedMatchU18 > div > div:nth-of-type(1) {border-top: 2px solid #00083120;}
+#playedMatchU18 > div > div > p:nth-of-type(1) {width: 10vw; font-size: 16px;}
+#playedMatchU18 > div > div > p:nth-of-type(2) {width: 20vw; font-size: 16px;}
+#playedMatchU18 > div > div > p:nth-of-type(3) {width: 15vw; font-size: 16px;}
+#playedMatchU18 > div > div > p:nth-of-type(4) {width: 10vw; font-size: 16px;}
+#playedMatchU18 > div > div > p:nth-of-type(5) {width: 10vw; font-size: 16px;}
+#playedMatchU18 > div > div > p:nth-of-type(5) > img:nth-of-type(n+2) {margin-left: -12px;}
+#playedMatchU18 > div > div > p:nth-of-type(6) {width: 10vw; padding: 4px 0; margin: 0 2.5vw; font-size: 16px; border-radius: 20px; color: #fafafa;}
+#playedMatchU18 > p {width: 100vw; margin-top: 40px; opacity: .5;}
+
+#playedMatchU15 {width: 100vw; height: 70vh; margin-top: 30vh; background: #fafafa; border-radius: 10vw 10vw 0 0; box-shadow: 0 0 4px 2px #00083120; display: flex; flex-direction: column; position: fixed; bottom: -100vh; z-index: 400;}
+#playedMatchU15 > div {width: 100vw; height: calc(70vh - 160px); margin: 40px 0 20px 0; overflow: scroll;}
+#playedMatchU15 > div > div {width: 80vw; margin-left: 10vw; padding: 8px 0; display: flex; justify-content: center; align-items: center; border-bottom: 2px solid #00083120;}
+#playedMatchU15 > div > div:nth-of-type(1) {border-top: 2px solid #00083120;}
+#playedMatchU15 > div > div > p:nth-of-type(1) {width: 10vw; font-size: 16px;}
+#playedMatchU15 > div > div > p:nth-of-type(2) {width: 20vw; font-size: 16px;}
+#playedMatchU15 > div > div > p:nth-of-type(3) {width: 15vw; font-size: 16px;}
+#playedMatchU15 > div > div > p:nth-of-type(4) {width: 10vw; font-size: 16px;}
+#playedMatchU15 > div > div > p:nth-of-type(5) {width: 10vw; font-size: 16px;}
+#playedMatchU15 > div > div > p:nth-of-type(5) > img:nth-of-type(n+2) {margin-left: -12px;}
+#playedMatchU15 > div > div > p:nth-of-type(6) {width: 10vw; padding: 4px 0; margin: 0 2.5vw; font-size: 16px; border-radius: 20px; color: #fafafa;}
+#playedMatchU15 > p {width: 100vw; margin-top: 40px; opacity: .5;}
 
 #playedMatchBG {width: 100vw; height: 100vh; background: #00000010; border-radius: 20px 20px 0 0; box-shadow: 0 0 4px 2px #00083120; position: fixed; top: 0; display: none; opacity: 0; z-index: 300;}
 

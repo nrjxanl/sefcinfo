@@ -82,7 +82,7 @@ $(document).ready(function () {
         if (Object.keys(dataList["GK"]).length !== 0) {
             year = id.substring(0, 4)
             if (id.substring(8, 9) == "0") {
-                
+            
                 // 장석훈 등번호
                 if (year == 2024) {
                     playerNumber[2024][20240155][1] = 70
@@ -215,7 +215,7 @@ $(document).ready(function () {
                 })
 
             } else if (id.substring(8, 9) == "8" || id.substring(8, 9) == "5") {
-                
+            
                 // 장석훈 등번호
                 if (year == 2024) {
                     playerNumber[2024][20240155][1] = 10
@@ -775,85 +775,140 @@ $(document).ready(function () {
         }
 
         function playedMatch() {
-            played[year]++
+            played[year] ++
             goal[year] += stat.replace(/[^g]/g, "").length
             assist[year] += stat.replace(/[^a]/g, "").length
             yc[year] += stat.replace(/[^y]/g, "").length
             rc[year] += stat.replace(/[^r]/g, "").length
 
-            $("#playedMatch > div").prepend("<div class='" + Object.keys(dataA)[i] + "'><p>" + Object.values(played).reduce(function (a, b) { return a + b }, 0) + "</p><p>" + opp + "</p><p>" + Object.keys(dataA)[i].substring(4, 6) + "." + Object.keys(dataA)[i].substring(6, 8) + "." + "</p><p>" + pos + "</p><p></p><p>" + dataA[Object.keys(dataA)[i]][pos][j][1].replace(/[g|a|y|c]/g, "") + "</p></div>")
+            if (status_ == "A") {
+                $("#playedMatch > div").prepend("<div class='" + Object.keys(data)[i] + "'><p>" + Object.values(played).reduce(function (a, b) { return a + b }, 0) + "</p><p>" + opp + "</p><p>" + Object.keys(data)[i].substring(4, 6) + "." + Object.keys(data)[i].substring(6, 8) + "." + "</p><p>" + pos + "</p><p></p><p>" + data[Object.keys(data)[i]][pos][j][1].replace(/[g|a|y|c]/g, "") + "</p></div>")
+
+                $("#playedSEFC > div > div:nth-of-type(1) > p:nth-of-type(2)").text(Object.values(played).reduce(function (a, b) { return a + b }, 0))
+                $("#playedSEFC > div > div:nth-of-type(2) > p:nth-of-type(2)").text(Object.values(goal).reduce(function (a, b) { return a + b }, 0))
+                $("#playedSEFC > div > div:nth-of-type(3) > p:nth-of-type(2)").text(Object.values(assist).reduce(function (a, b) { return a + b }, 0))
+                $("#playedSEFC > div > div:nth-of-type(4) > p:nth-of-type(2)").text(Object.values(yc).reduce(function (a, b) { return a + b }, 0))
+                $("#playedSEFC > div > div:nth-of-type(5) > p:nth-of-type(2)").text(Object.values(rc).reduce(function (a, b) { return a + b }, 0))
+
+            } else if (status_ == "U18") {
+                $("#playedMatchU18 > div").prepend("<div class='" + Object.keys(data)[i] + "'><p>" + Object.values(played).reduce(function (a, b) { return a + b }, 0) + "</p><p>" + opp + "</p><p>" + Object.keys(data)[i].substring(4, 6) + "." + Object.keys(data)[i].substring(6, 8) + "." + "</p><p>" + pos + "</p><p></p><p>" + data[Object.keys(data)[i]][pos][j][1].replace(/[g|a|y|c]/g, "") + "</p></div>")
+
+                $("#playedSEFCU18 > div > div:nth-of-type(1) > p:nth-of-type(2)").text(Object.values(played).reduce(function (a, b) { return a + b }, 0))
+                $("#playedSEFCU18 > div > div:nth-of-type(2) > p:nth-of-type(2)").text(Object.values(goal).reduce(function (a, b) { return a + b }, 0))
+                $("#playedSEFCU18 > div > div:nth-of-type(3) > p:nth-of-type(2)").text(Object.values(assist).reduce(function (a, b) { return a + b }, 0))
+                $("#playedSEFCU18 > div > div:nth-of-type(4) > p:nth-of-type(2)").text(Object.values(yc).reduce(function (a, b) { return a + b }, 0))
+                $("#playedSEFCU18 > div > div:nth-of-type(5) > p:nth-of-type(2)").text(Object.values(rc).reduce(function (a, b) { return a + b }, 0))
+
+            } else if (status_ == "U15") {
+                $("#playedMatchU15 > div").prepend("<div class='" + Object.keys(data)[i] + "'><p>" + Object.values(played).reduce(function (a, b) { return a + b }, 0) + "</p><p>" + opp + "</p><p>" + Object.keys(data)[i].substring(4, 6) + "." + Object.keys(data)[i].substring(6, 8) + "." + "</p><p>" + pos + "</p><p></p><p>" + data[Object.keys(data)[i]][pos][j][1].replace(/[g|a|y|c]/g, "") + "</p></div>")
+
+                $("#playedSEFCU15 > div > div:nth-of-type(1) > p:nth-of-type(2)").text(Object.values(played).reduce(function (a, b) { return a + b }, 0))
+                $("#playedSEFCU15 > div > div:nth-of-type(2) > p:nth-of-type(2)").text(Object.values(goal).reduce(function (a, b) { return a + b }, 0))
+                $("#playedSEFCU15 > div > div:nth-of-type(3) > p:nth-of-type(2)").text(Object.values(assist).reduce(function (a, b) { return a + b }, 0))
+                $("#playedSEFCU15 > div > div:nth-of-type(4) > p:nth-of-type(2)").text(Object.values(yc).reduce(function (a, b) { return a + b }, 0))
+                $("#playedSEFCU15 > div > div:nth-of-type(5) > p:nth-of-type(2)").text(Object.values(rc).reduce(function (a, b) { return a + b }, 0))
+
+            }
 
             for (k = 0; k < stat.replace(/[^g]/g, "").length; k++) {
-                $("." + Object.keys(dataA)[i] + " > p:nth-of-type(5)").append("<img src='./files/goal.svg'>")
+                $("." + Object.keys(data)[i] + " > p:nth-of-type(5)").append("<img src='./files/goal.svg'>")
             }
             for (k = 0; k < stat.replace(/[^a]/g, "").length; k++) {
-                $("." + Object.keys(dataA)[i] + " > p:nth-of-type(5)").append("<img src='./files/assist.svg'>")
+                $("." + Object.keys(data)[i] + " > p:nth-of-type(5)").append("<img src='./files/assist.svg'>")
             }
             for (k = 0; k < stat.replace(/[^y]/g, "").length; k++) {
-                $("." + Object.keys(dataA)[i] + " > p:nth-of-type(5)").append("<img src='./files/yc.svg'>")
+                $("." + Object.keys(data)[i] + " > p:nth-of-type(5)").append("<img src='./files/yc.svg'>")
             }
             for (k = 0; k < stat.replace(/[^r]/g, "").length; k++) {
-                $("." + Object.keys(dataA)[i] + " > p:nth-of-type(5)").append("<img src='./files/rc.svg'>")
+                $("." + Object.keys(data)[i] + " > p:nth-of-type(5)").append("<img src='./files/rc.svg'>")
             }
         }
 
         if (!$("#playedMatch > div > div").length) {
-            for (i = 0; i < Object.keys(dataA).length; i++) {
+            function loadStat() {
 
-                year = Object.keys(dataA)[i].substring(0, 4)
-
-                // 상대팀명
-                if (dataA[Object.keys(dataA)[i]]["home"][0] == "서울E") {
-                    opp = dataA[Object.keys(dataA)[i]]["away"][0]
-                } else {
-                    opp = dataA[Object.keys(dataA)[i]]["home"][0]
+                for (x = 2015; x <= new Date().getFullYear(); x++) {
+                    played[x] = 0
+                    goal[x] = 0
+                    assist[x] = 0
+                    yc[x] = 0
+                    rc[x] = 0
                 }
 
-                // 골키퍼로 출전한 경기
-                for (j = 0; j < Object.keys(dataA[Object.keys(dataA)[i]]["GK"]).length; j++) {
-                    if (dataA[Object.keys(dataA)[i]]["GK"][j][0].includes(id)) {
-                        pos = "GK"
-                        stat = dataA[Object.keys(dataA)[i]][pos][j][1]
-                        playedMatch()
+                data = status_ == "A" ? dataA :
+                    status_ == "U18" ? dataU18 :
+                        status_ == "U15" ? dataU15 : ""
+
+                for (i = 0; i < Object.keys(data).length; i++) {
+
+                    year = Object.keys(data)[i].substring(0, 4)
+
+                    // 상대팀명
+                    if (data[Object.keys(data)[i]]["home"][0] == "서울E") {
+                        opp = data[Object.keys(data)[i]]["away"][0]
+                    } else {
+                        opp = data[Object.keys(data)[i]]["home"][0]
                     }
+
+                    // 골키퍼로 출전한 경기
+                    for (j = 0; j < Object.keys(data[Object.keys(data)[i]]["GK"]).length; j++) {
+                        if (data[Object.keys(data)[i]]["GK"][j][0].includes(id)) {
+                            pos = "GK"
+                            stat = data[Object.keys(data)[i]][pos][j][1]
+                            playedMatch()
+                        }
+                    }
+
+                    // 수비수로 출전한 경기
+                    for (j = 0; j < Object.keys(data[Object.keys(data)[i]]["DF"]).length; j++) {
+                        if (data[Object.keys(data)[i]]["DF"][j][0].includes(id)) {
+                            pos = "DF"
+                            stat = data[Object.keys(data)[i]][pos][j][1]
+                            playedMatch()
+                        }
+                    }
+
+                    // 미드필더로 출전한 경기
+                    for (j = 0; j < Object.keys(data[Object.keys(data)[i]]["MF"]).length; j++) {
+                        if (data[Object.keys(data)[i]]["MF"][j][0].includes(id)) {
+                            pos = "MF"
+                            stat = data[Object.keys(data)[i]][pos][j][1]
+                            playedMatch()
+                        }
+                    }
+
+                    // 공격수로 출전한 경기
+                    for (j = 0; j < Object.keys(data[Object.keys(data)[i]]["FW"]).length; j++) {
+                        if (data[Object.keys(data)[i]]["FW"][j][0].includes(id)) {
+                            pos = "FW"
+                            stat = data[Object.keys(data)[i]][pos][j][1]
+                            playedMatch()
+                        }
+                    }
+
+                    // 교체 출전한 경기
+                    for (j = 0; j < Object.keys(data[Object.keys(data)[i]]["SUB"]).length; j++) {
+                        if (data[Object.keys(data)[i]]["SUB"][j][0].includes(id) && data[Object.keys(data)[i]]["SUB"][j][1] !== "") {
+                            pos = "SUB"
+                            stat = data[Object.keys(data)[i]][pos][j][1]
+                            playedMatch()
+                        }
+                    }    
                 }
 
-                // 수비수로 출전한 경기
-                for (j = 0; j < Object.keys(dataA[Object.keys(dataA)[i]]["DF"]).length; j++) {
-                    if (dataA[Object.keys(dataA)[i]]["DF"][j][0].includes(id)) {
-                        pos = "DF"
-                        stat = dataA[Object.keys(dataA)[i]][pos][j][1]
-                        playedMatch()
-                    }
-                }
-
-                // 미드필더로 출전한 경기
-                for (j = 0; j < Object.keys(dataA[Object.keys(dataA)[i]]["MF"]).length; j++) {
-                    if (dataA[Object.keys(dataA)[i]]["MF"][j][0].includes(id)) {
-                        pos = "MF"
-                        stat = dataA[Object.keys(dataA)[i]][pos][j][1]
-                        playedMatch()
-                    }
-                }
-
-                // 공격수로 출전한 경기
-                for (j = 0; j < Object.keys(dataA[Object.keys(dataA)[i]]["FW"]).length; j++) {
-                    if (dataA[Object.keys(dataA)[i]]["FW"][j][0].includes(id)) {
-                        pos = "FW"
-                        stat = dataA[Object.keys(dataA)[i]][pos][j][1]
-                        playedMatch()
-                    }
-                }
-
-                // 교체 출전한 경기
-                for (j = 0; j < Object.keys(dataA[Object.keys(dataA)[i]]["SUB"]).length; j++) {
-                    if (dataA[Object.keys(dataA)[i]]["SUB"][j][0].includes(id) && dataA[Object.keys(dataA)[i]]["SUB"][j][1] !== "") {
-                        pos = "SUB"
-                        stat = dataA[Object.keys(dataA)[i]][pos][j][1]
-                        playedMatch()
-                    }
+                if (played[year] > 0) {
+                    $("#statsBySeason").append("<div><p>" + status_.replace("A", "A팀") + "</p><p>" + year.substring(2, 4) + "'</p><p>" + played[year] + "</p><p>" + goal[year] + "</p><p>" + assist[year] + "</p><p>" + yc[year] + "</p><p>" + rc[year] + "</p></div>")
                 }
             }
+
+            status_ = "A"
+            loadStat()
+
+            status_ = "U18"
+            loadStat()
+
+            status_ = "U15"
+            loadStat()
         }
 
         // 선수 평점 칸 배색
@@ -871,6 +926,14 @@ $(document).ready(function () {
             }
         })
 
+        $("#playedMatchU18 > div > div > p:nth-of-type(6)").each(function () {
+            $(this).css("background", "#00083140")
+        })
+
+        $("#playedMatchU15 > div > div > p:nth-of-type(6)").each(function () {
+            $(this).css("background", "#00083140")
+        })
+
         // 클릭 시 경기 세부 정보 창 열기
         $("#playedMatch > div > div").each(function () {
             $(this).click(function () {
@@ -879,9 +942,25 @@ $(document).ready(function () {
         })
 
         // 창 띄우기
-        $("#playerSEFC > p:nth-of-type(2)").click(function () {
+        $("#playedSEFC > p:nth-of-type(2)").click(function () {
             $("#playedMatchBG").css("display", "block").animate({ opacity: "1" }, 300)
             $("#playedMatch").animate({ bottom: "0" }, 300)
+
+            $("body").css({ "overflow": "hidden" })
+
+            click = 1
+        })
+        $("#playedSEFCU18 > p:nth-of-type(2)").click(function () {
+            $("#playedMatchBG").css("display", "block").animate({ opacity: "1" }, 300)
+            $("#playedMatchU18").animate({ bottom: "0" }, 300)
+
+            $("body").css({ "overflow": "hidden" })
+
+            click = 1
+        })
+        $("#playedSEFCU15 > p:nth-of-type(2)").click(function () {
+            $("#playedMatchBG").css("display", "block").animate({ opacity: "1" }, 300)
+            $("#playedMatchU15").animate({ bottom: "0" }, 300)
 
             $("body").css({ "overflow": "hidden" })
 
@@ -896,6 +975,8 @@ $(document).ready(function () {
                 })
 
                 $("#playedMatch").animate({ bottom: "-70vh" }, 300)
+                $("#playedMatchU18").animate({ bottom: "-70vh" }, 300)
+                $("#playedMatchU15").animate({ bottom: "-70vh" }, 300)
 
                 $("body").css({ "overflow": "scroll" })
 
@@ -903,48 +984,70 @@ $(document).ready(function () {
             }
         })
 
-        // 나이 계산
+        // 선수 정보
         today = new Date()
-        bd = new Date(player[id]["bd"].substr(0, 4), (player[id]["bd"].substr(4, 2) - 1), player[id]["bd"].substr(6, 2))
         year = today.getFullYear()
+        
+        try {
+            playerNum = playerNumber[year][id][1]
+            playerName = playerNumber[year][id][0]
+            pos = player[id]["pos"]
+            natl = player[id]["natl"]
+            height = player[id]["height"]
+            sns = player[id]["sns"]
+        
+            bd = new Date(player[id]["bd"].substr(0, 4), (player[id]["bd"].substr(4, 2) - 1), player[id]["bd"].substr(6, 2))
+            age = year - bd.getFullYear()
+        
+            if ((today.getMonth() - bd.getMonth()) < 0 || ((today.getMonth() - bd.getMonth()) === 0 && today.getDate() < bd.getDate())) {
+                age--
+            }
+        } catch (error) {
+            playerNum = "--"
+            playerName = "--"
+            pos = "--"
+            natl = "--"
+            height = "--"
+            sns = ""
+            age = "--"
+        }        
 
-        age = year - bd.getFullYear()
-        if ((today.getMonth() - bd.getMonth()) < 0 || ((today.getMonth() - bd.getMonth()) === 0 && today.getDate() < bd.getDate())) {
-            age--
-        }
-
-        // 합산 스탯 삽입
-        $("#playerProfile > div:nth-of-type(1) > p").html(player[id]["pos"])
-
-        $("#playerProfile > div:nth-of-type(2) > p").html("<span>" + playerNumber[year][id][1] + "</span>" + playerNumber[year][id][0].replace(/[0-9]/g, ""))
-
-        $("#playerProfile > div:nth-of-type(4) > div:nth-of-type(1) > p:nth-of-type(2), #playerSEFC > div > div:nth-of-type(1) > p:nth-of-type(2)").text(Object.values(played).reduce(function (a, b) { return a + b }, 0))
-        $("#playerProfile > div:nth-of-type(4) > div:nth-of-type(2) > p:nth-of-type(2), #playerSEFC > div > div:nth-of-type(2) > p:nth-of-type(2)").text(Object.values(goal).reduce(function (a, b) { return a + b }, 0))
-        $("#playerProfile > div:nth-of-type(4) > div:nth-of-type(3) > p:nth-of-type(2), #playerSEFC > div > div:nth-of-type(3) > p:nth-of-type(2)").text(Object.values(assist).reduce(function (a, b) { return a + b }, 0))
-
-        $("#playerSEFC > div > div:nth-of-type(4) > p:nth-of-type(2)").text(Object.values(yc).reduce(function (a, b) { return a + b }, 0))
-        $("#playerSEFC > div > div:nth-of-type(5) > p:nth-of-type(2)").text(Object.values(rc).reduce(function (a, b) { return a + b }, 0))
+        // 선수 정보 삽입
+        $("#playerProfile > div:nth-of-type(1) > p").html(pos)
+        $("#playerProfile > div:nth-of-type(2) > p").html("<span>" + playerNum + "</span>" + playerName.replace(/[0-9]/g, ""))
 
         $("#playerImg").css({ "background": "linear-gradient(to bottom, #fafafa00 10%, #fafafa40 55%, #fafafa80 70%, #fafafacc 85%, #fafafa 100%), url('./files/" + id + ".png')", "background-size": "cover" })
-        $("#playerImg > div").css({ "background": "linear-gradient(to top, #fafafa00 10%, #fafafa40 55%, #fafafa80 70%, #fafafacc 85%, #fafafa 100%), url('./files/" + player[id]["natl"] + ".svg')", "background-size": "auto 500px", "background-position": "center", "background-repeat": "no-repeat" })
+        $("#playerImg > div").css({ "background": "linear-gradient(to top, #fafafa00 10%, #fafafa40 55%, #fafafa80 70%, #fafafacc 85%, #fafafa 100%), url('./files/" + natl + ".svg')", "background-size": "auto 500px", "background-position": "center", "background-repeat": "no-repeat" })
 
-        $("#playerInfo > div:nth-of-type(1) > p:nth-of-type(2)").text(player[id]["natl"])
-        $("#playerInfo > div:nth-of-type(2) > p:nth-of-type(2)").text(player[id]["height"] + "cm")
+        $("#playerInfo > div:nth-of-type(1) > p:nth-of-type(2)").text(natl)
+        $("#playerInfo > div:nth-of-type(2) > p:nth-of-type(2)").text(height + "cm")
         $("#playerInfo > div:nth-of-type(3) > p:nth-of-type(2)").text(age + "세")
 
-        // 시즌별 스탯 삽입
-        for (i = 0; i < Object.keys(played).length; i++) {
-            if (played[Object.keys(played)[i]] > 0) {
-                $("#statsBySeason").append("<div><p>" + Object.keys(played)[i] + "</p><p>" + played[Object.keys(played)[i]] + "</p><p>" + goal[Object.keys(played)[i]] + "</p><p>" + assist[Object.keys(played)[i]] + "</p><p>" + yc[Object.keys(played)[i]] + "</p><p>" + rc[Object.keys(played)[i]] + "</p></div>")
-            }
-        }
-
         // 인스타그램 링크
-        if (player[id]["sns"] !== "") {
-            $("#playerSNS").attr("href", "https://instagram.com/" + player[id]["sns"])
+        if (sns !== "") {
+            $("#playerSNS").attr("href", "https://instagram.com/" + sns)
         } else {
             $("#playerSNS").attr("onclick", "return false")
             $("#playerSNS > div > img").css("opacity", ".5")
+        }
+
+        // A팀, U18, U15 출전 기록 없으면 삭제
+        if ($("#playedSEFC > div > div:nth-of-type(1) > p:nth-of-type(2)").text() == "0") {
+            if ($("#playedSEFCU18 > div > div:nth-of-type(1) > p:nth-of-type(2)").text() !== "0" || $("#playedSEFCU15 > div > div:nth-of-type(1) > p:nth-of-type(2)").text() !== "0") {
+                $("#playedSEFC").css("display", "none")
+            }
+        }
+
+        if ($("#playedSEFCU18 > div > div:nth-of-type(1) > p:nth-of-type(2)").text() == "0") {
+            $("#playedSEFCU18").css("display", "none")
+        }
+
+        if ($("#playedSEFCU15 > div > div:nth-of-type(1) > p:nth-of-type(2)").text() == "0") {
+            $("#playedSEFCU15").css("display", "none")
+        }
+
+        if ($("#playedSEFC > div > div:nth-of-type(1) > p:nth-of-type(2)").text() !== "0" && ($("#playedSEFCU18 > div > div:nth-of-type(1) > p:nth-of-type(2)").text() !== "0" || $("#playedSEFCU18 > div > div:nth-of-type(1) > p:nth-of-type(2)").text() !== "0")) {
+            $("#playedSEFC > p:nth-of-type(1)").text("A팀 통산 기록")
         }
     }
 
@@ -1174,10 +1277,10 @@ function fixtures() {
                 mm = month
                 dd = (i + 1 - firstDateDay < 10) ? "0" + (i + 1 - firstDateDay) : "" + (i + 1 - firstDateDay)
             }
-    
+
             $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").attr("class", "d" + yy + mm + dd)
             $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ") > p").text(Number(dd))
-    
+
             // 달력에 일정 삽입
             if (status_ == "A" && Object.keys(Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")).length !== 0) { // A팀
                 if (dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["homeScore"].length !== 0) {
@@ -1185,36 +1288,36 @@ function fixtures() {
                 } else {
                     $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["home"][1] + "_s.png'><img src='./files/" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["away"][1] + "_s.png'></div>").css("background", "#174fff")
                 }
-    
+
                 $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ") > p").css("color", "#fafafa")
 
                 $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").attr("onclick", "location.href = './match?" + yy + mm + dd + "0'")
             }
-    
+
             if (status_ == "U18" && Object.keys(Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")).length !== 0) { // U18
                 if (dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["homeScore"].length !== 0) {
                     $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["home"][1] + "_s.png'><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["away"][1] + "_s.png'></div><p>" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["homeScore"] + ":" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["awayScore"] + "</p>").css("background", "#174fff")
                 } else {
                     $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["home"][1] + "_s.png'><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["away"][1] + "_s.png'></div>").css("background", "#174fff")
                 }
-    
+
                 $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ") > p").css("color", "#fafafa")
-            
+        
                 $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").attr("onclick", "location.href = './match?" + yy + mm + dd + "8'")
             }
-    
+
             if (status_ == "U15" && Object.keys(Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")).length !== 0) { // U15
                 if (dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["homeScore"].length !== 0) {
                     $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["home"][1] + "_s.png'><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["away"][1] + "_s.png'></div><p>" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["homeScore"] + ":" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["awayScore"] + "</p>").css("background", "#174fff")
                 } else {
                     $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["home"][1] + "_s.png'><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["away"][1] + "_s.png'></div>").css("background", "#174fff")
                 }
-    
+
                 $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ") > p").css("color", "#fafafa")
-            
+        
                 $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").attr("onclick", "location.href = './match?" + yy + mm + dd + "5'")
             }
-    
+
             if (i == 34 && i + 1 - firstDateDay > lastDate) {
                 $("#calendar > table > tbody > tr:nth-of-type(6)").remove()
                 break
