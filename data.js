@@ -1983,12 +1983,12 @@ function matchH2H() {
     
                 if (data[id]["home"][0] == "서울E") {
                     $("#expectedResult > div:nth-of-type(2) > p").text(Math.floor(nextMatchPrediction[0]) + " : " + Math.floor(nextMatchPrediction[1]))
-                    $("#expectedResult > div:nth-of-type(3) > p:nth-of-type(1)").text(nextMatchPrediction[0].toFixed(2))
-                    $("#expectedResult > div:nth-of-type(3) > p:nth-of-type(3)").text(nextMatchPrediction[1].toFixed(2))
+                    $("#expectedResult > div:nth-of-type(3) > p:nth-of-type(1)").text(Math.floor(nextMatchPrediction[0] * 100) / 100)
+                    $("#expectedResult > div:nth-of-type(3) > p:nth-of-type(3)").text(Math.floor(nextMatchPrediction[1] * 100) / 100)
                 } else if (data[id]["away"][0] == "서울E") {
                     $("#expectedResult > div:nth-of-type(2) > p").text(Math.floor(nextMatchPrediction[1]) + " : " + Math.floor(nextMatchPrediction[0]))
-                    $("#expectedResult > div:nth-of-type(3) > p:nth-of-type(1)").text(nextMatchPrediction[1].toFixed(2))
-                    $("#expectedResult > div:nth-of-type(3) > p:nth-of-type(3)").text(nextMatchPrediction[0].toFixed(2))
+                    $("#expectedResult > div:nth-of-type(3) > p:nth-of-type(1)").text(Math.floor(nextMatchPrediction[1] * 100) / 100)
+                    $("#expectedResult > div:nth-of-type(3) > p:nth-of-type(3)").text(Math.floor(nextMatchPrediction[0] * 100) / 100)
                 }
             }
         }
