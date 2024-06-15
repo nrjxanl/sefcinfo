@@ -12,7 +12,7 @@ body {position: absolute; background: #fafafa;}
 header {width: 100vw; height: 80px; position: fixed; top: 0; left: 0; background: #fafafa; z-index: 99; display: flex; justify-content: center; z-index: 100;}
 header > div {width: 20vw;}
 header > div > img {width: auto; height: 40px; padding: 5vw 0;}
-header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
+header > p {width: 70vw; text-align: left; font-size: 24px; line-height: calc(40px + 10vw);}
 
 /* 메뉴 */
 #menu {width: 60vw; height: 200vh; position: fixed; top: 0; left: -60vw; background-color: #fafafa; z-index: 1000;}
@@ -349,7 +349,7 @@ header > p {width: 70vw; text-align: left; font-size: 24px; margin: auto;}
 #expectedResult > div:nth-of-type(3) > p:nth-of-type(1) {margin-right: 5vw;}
 #expectedResult > div:nth-of-type(3) > p:nth-of-type(3) {margin-left: 5vw;}
 
-#help {opacity: 0; width: calc(90vw - 16px); color: #fafafa; background: #000831aa; padding: 8px; line-height: 1.3; font-weight: 500; border-radius: 3vw; position: fixed; left: 5vw; bottom: 5vw; pointer-events: none;}
+#help {opacity: 0; width: calc(90vw - 16px); color: #fafafa; background: #000831aa; padding: 12px 8px; line-height: 1.3; font-weight: 500; border-radius: 3vw; position: fixed; left: 5vw; bottom: 5vw; pointer-events: none;}
 #recentMatch {width: 80vw; box-shadow: 0 0 4px 2px #00083120; border-radius: 20px; margin-top: 40px;}
 #recentMatch > div {width: 80vw; height: 60px; border-bottom: 2px solid #00083120; padding: 4px 0;}
 #recentMatch > div > div:nth-of-type(1) {width: 80vw; height: 40px; display: flex; align-items: center;}
