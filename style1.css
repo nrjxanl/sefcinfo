@@ -10,9 +10,11 @@ body {position: absolute; background: #fafafa;}
 
 /* 헤더 */
 header {width: 100vw; height: 80px; position: fixed; top: 0; left: 0; background: #fafafa; z-index: 99; display: flex; justify-content: center; z-index: 100;}
-header > div {width: 20vw;}
+header > div {width: 20vw; position: absolute;}
+header > div:nth-of-type(1) {left: 0;}
+header > div:nth-of-type(2) {right: 0;}
 header > div > img {width: auto; height: 40px; padding: 5vw 0;}
-header > p {width: 70vw; text-align: left; font-size: 24px; line-height: calc(40px + 10vw);}
+header > p {width: fit-content; position: absolute; left: 20vw; text-align: left; font-size: 24px; line-height: 24px; margin: calc(8px + 5vw) 0;}
 
 /* 메뉴 */
 #menu {width: 60vw; height: 200vh; position: fixed; top: 0; left: -60vw; background-color: #fafafa; z-index: 1000;}
