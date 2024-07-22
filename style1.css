@@ -146,6 +146,7 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #playedMatch > div > div > p:nth-of-type(3) {width: 15vw; font-size: 16px;}
 #playedMatch > div > div > p:nth-of-type(4) {width: 10vw; font-size: 16px;}
 #playedMatch > div > div > p:nth-of-type(5) {width: 10vw; font-size: 16px;}
+#playedMatch > div > div > p:nth-of-type(5) > img {width: 20px;}
 #playedMatch > div > div > p:nth-of-type(5) > img:nth-of-type(n+2) {margin-left: -12px;}
 #playedMatch > div > div > p:nth-of-type(6) {width: 10vw; padding: 4px 0; margin: 0 2.5vw; font-size: 16px; border-radius: 20px; color: #fafafa;}
 #playedMatch > p {width: 100vw; margin-top: 40px; opacity: .5;}
@@ -272,7 +273,7 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #potm > div > div > img {width: 10vw;}
 #potm > div > p:nth-of-type(1) {font-size: 16px; font-weight: 500; margin-top: 4px;}
 #potm > div > p:nth-of-type(1) > span {font-size: 16px; color: #174fff; margin: 0 1.5vw 0 3vw; font-family: "Lobster Two"; font-weight: 700; font-style: italic;}
-#potm > div > p:nth-of-type(2) {width: 10vw; padding: 4px 0; font-size: 12px; border-radius: 50vw; color: #fafafa; background: #000831; position: absolute; right: 15vw;}
+#potm > div > p:nth-of-type(2) {width: 10vw; padding: 4px 0; font-size: 12px; border-radius: 50vw; color: #fafafa; position: absolute; right: 15vw;}
 
 #matchLineup {display: none; margin-top: -4px; padding-bottom: 20px;}
 
@@ -317,8 +318,6 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #sub > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) > img {height: 16px; vertical-align: middle; margin: 0 0 2px -8px;}
 #sub > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1) {margin-left: 2px;}
 #sub > table > tbody > tr > td > p:nth-of-type(2) {width: 10vw; padding: 4px 0; font-size: 12px; border-radius: 50vw; color: #fafafa; background: #000831; position: absolute; right: 15vw;}
-
-.potm {background: #174fff !important;}
 
 #matchStat {display: none; padding-bottom: 40px;}
 #matchStat > table {width: 80vw; margin-left: 10vw;}
