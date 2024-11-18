@@ -100,7 +100,7 @@ $(document).ready(function () {
 
                     // POTM 여부
                     if (dataList[pos][i][1].replace(/[^p]/g, "") == "p") {
-                        $("#" + dataList[pos][i][0] + " > p:nth-of-type(2)").css("background", "#174fff")
+                        $("#" + dataList[pos][i][0] + " > p:nth-of-type(2)").css("background", "#1512A9")
                         $("#potm").html("<p>경기 최고의 선수</p><div><div><img src='./files/" + dataList[pos][i][0] + ".png'></div><p><span>" + playerNumber[year][dataList[pos][i][0]][1] + "</span>" + playerNumber[year][dataList[pos][i][0]][0].replace(/[A-Z,0-9]/g, "") + "</p><p class='potm'>" + dataList[pos][i][1].replace(/[a-z]/g, "") + "</p></div>")
                         href = dataList[pos][i][0]
                     }
@@ -173,7 +173,7 @@ $(document).ready(function () {
 
                     // POTM 여부
                     if (dataList["SUB"][i][1].replace(/[^p]/g, "") == "p") {
-                        $("#" + dataList["SUB"][i][0] + " > p:nth-of-type(2)").css("background", "#174fff")
+                        $("#" + dataList["SUB"][i][0] + " > p:nth-of-type(2)").css("background", "#1512A9")
                         $("#potm").html("<p>경기 최고의 선수</p><div><div><img src='./files/" + dataList["SUB"][i][0] + ".png'></div><p><span>" + playerNumber[year][dataList["SUB"][i][0]][1] + "</span>" + playerNumber[year][dataList["SUB"][i][0]][0].replace(/[A-Z,0-9]/g, "") + "</p><p class='potm'>" + dataList["SUB"][i][1].replace(/[a-z]/g, "") + "</p></div>")
                         href = dataList["SUB"][i][0]
                     }
@@ -229,7 +229,7 @@ $(document).ready(function () {
                     } else if (Number($(this).text().replace(/[a-z]/g, "")) < 5) {
                         $(this).css("background", "#dc0c00")
                     } else if ($(this).text() == "-") {
-                        $(this).css("background", "#00083140")
+                        $(this).css("background", "#00000040")
                     }
                 })
 
@@ -311,7 +311,7 @@ $(document).ready(function () {
 
                     // POTM 여부
                     if (dataList["SUB"][i][1].replace(/[^p]/g, "") == "p") {
-                        $("#" + dataList["SUB"][i][0] + " > p:nth-of-type(2)").css("background", "#174fff")
+                        $("#" + dataList["SUB"][i][0] + " > p:nth-of-type(2)").css("background", "#1512A9")
                         $("#potm").html("<p>경기 최고의 선수</p><div><div><img src='./files/" + dataList["SUB"][i][0] + ".png'></div><p><span>" + playerNumber[year][dataList["SUB"][i][0]][1] + "</span>" + playerNumber[year][dataList["SUB"][i][0]][0].replace(/[A-Z,0-9]/g, "") + "</p><p class='potm'>" + dataList["SUB"][i][1].replace(/[a-z]/g, "") + "</p></div>")
                         href = dataList["SUB"][i][0]
                     }
@@ -366,9 +366,9 @@ $(document).ready(function () {
             })
 
             if ($(window).width() < 768) {
-                $("#potm").css({ "width": "74vw", "padding": "1vw 3vw 2vw 3vw", "margin": "20px 0 0 10vw", "border-radius": "20px", "box-shadow": "0 0 3px 2px #00083120" })
+                $("#potm").css({ "width": "74vw", "padding": "1vw 3vw 2vw 3vw", "margin": "20px 0 0 10vw", "border-radius": "20px", "box-shadow": "0 0 3px 2px #00000020" })
             } else {
-                $("#potm").css({ "width": "296px", "padding": "4px 12px 8px 12px", "margin": "20px 0 0 40px", "border-radius": "20px", "box-shadow": "0 0 3px 2px #00083120" })
+                $("#potm").css({ "width": "296px", "padding": "4px 12px 8px 12px", "margin": "20px 0 0 40px", "border-radius": "20px", "box-shadow": "0 0 3px 2px #00000020" })
             }
 
             $("#startingXI > table > tbody > tr > td").each(function () {
@@ -430,14 +430,14 @@ $(document).ready(function () {
             $("#matchStat > table > tbody > tr:nth-of-type(10) > td:nth-of-type(3) > p").text(dataList["matchStat"][19])
 
             if (dataList["home"][0] == "서울E") {
-                homeBg = "#000831"
+                homeBg = "#000000"
                 homeColor = "#fafafa"
                 awayBg = "#" + h2h[dataList["away"][1].replace(/[0-9]/g, "")][0]
                 awayColor = "#" + h2h[dataList["away"][1].replace(/[0-9]/g, "")][1]
             } else {
                 homeBg = "#" + h2h[dataList["home"][1].replace(/[0-9]/g, "")][0]
                 homeColor = "#" + h2h[dataList["home"][1].replace(/[0-9]/g, "")][1]
-                awayBg = "#000831"
+                awayBg = "#000000"
                 awayColor = "#fafafa"
             }
 
@@ -630,6 +630,8 @@ $(document).ready(function () {
 
     if ($("#standingsHome").length) {
 
+        year = new Date().getFullYear()
+
         // 다음 경기
         for (i = 0; i < Object.keys(dataA).length; i++) {
             if (dataA[Object.keys(dataA)[i]]["homeScore"] == "") {
@@ -671,7 +673,7 @@ $(document).ready(function () {
                 window.location.href = "./match?" + Object.keys(dataA)[Object.values(dataA).indexOf(next)]
             })
         } else {
-            $("#nextMatch").css("display", "none")
+            $("#nextMatch").css({"height": "0", "padding": "0", "box-shadow": "none", "margin": "80px 0 0 5vw"})
         }
 
         // 이전 경기
@@ -695,7 +697,7 @@ $(document).ready(function () {
                 $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > div > img").attr("src", "./files/" + dataA[prev[i]]["away"][1] + "_s.png")
 
                 if (dataA[prev[i]]["homeScore"] > dataA[prev[i]]["awayScore"]) {
-                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#174fff")
+                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#1512A9")
                 } else if (dataA[prev[i]]["homeScore"] == dataA[prev[i]]["awayScore"]) {
                     $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#808080")
                 } else {
@@ -705,7 +707,7 @@ $(document).ready(function () {
                 $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > div > img").attr("src", "./files/" + dataA[prev[i]]["home"][1] + "_s.png")
 
                 if (dataA[prev[i]]["homeScore"] < dataA[prev[i]]["awayScore"]) {
-                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#174fff")
+                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#1512A9")
                 } else if (dataA[prev[i]]["homeScore"] == dataA[prev[i]]["awayScore"]) {
                     $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#808080")
                 } else {
@@ -965,16 +967,16 @@ $(document).ready(function () {
             } else if (Number($(this).text().replace(/[a-z]/g, "")) < 5) {
                 $(this).css("background", "#dc0c00")
             } else if ($(this).text() == "-") {
-                $(this).css("background", "#00083140")
+                $(this).css("background", "#00000040")
             }
         })
 
         $("#playedMatchU18 > div > div > p:nth-of-type(6)").each(function () {
-            $(this).css("background", "#00083140")
+            $(this).css("background", "#00000040")
         })
 
         $("#playedMatchU15 > div > div > p:nth-of-type(6)").each(function () {
-            $(this).css("background", "#00083140")
+            $(this).css("background", "#00000040")
         })
 
         // 클릭 시 경기 세부 정보 창 열기
@@ -1278,7 +1280,7 @@ function fixtures() {
             
             if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["home"][0] == "서울E") {
                 if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") > data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
-                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css("border", "1px solid #174fff")
+                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css("border", "1px solid #1512A9")
                 } else if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") == data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "") && data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"] !== "") {
                     $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css("border", "1px solid #808080")
                 } else if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") < data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
@@ -1286,7 +1288,7 @@ function fixtures() {
                 }
             } else if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["away"][0] == "서울E") {
                 if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") < data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
-                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css("border", "1px solid #174fff")
+                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css("border", "1px solid #1512A9")
                 } else if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") == data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "") && data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"] !== "") {
                     $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css("border", "1px solid #808080")
                 } else if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") > data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
@@ -1348,9 +1350,9 @@ function fixtures() {
             // 달력에 일정 삽입
             if (status_ == "A" && Object.keys(Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")).length !== 0) { // A팀
                 if (dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["homeScore"].length !== 0) {
-                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["home"][1] + "_s.png'><img src='./files/" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["away"][1] + "_s.png'></div><p>" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["homeScore"] + ":" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["awayScore"] + "</p>").css("background", "#174fff")
+                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["home"][1] + "_s.png'><img src='./files/" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["away"][1] + "_s.png'></div><p>" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["homeScore"] + ":" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["awayScore"] + "</p>").css("background", "#1512A9")
                 } else {
-                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["home"][1] + "_s.png'><img src='./files/" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["away"][1] + "_s.png'></div>").css("background", "#174fff")
+                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["home"][1] + "_s.png'><img src='./files/" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["away"][1] + "_s.png'></div>").css("background", "#1512A9")
                 }
 
                 $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ") > p").css("color", "#fafafa")
@@ -1360,9 +1362,9 @@ function fixtures() {
 
             if (status_ == "U18" && Object.keys(Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")).length !== 0) { // U18
                 if (dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["homeScore"].length !== 0) {
-                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["home"][1] + "_s.png'><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["away"][1] + "_s.png'></div><p>" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["homeScore"] + ":" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["awayScore"] + "</p>").css("background", "#174fff")
+                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["home"][1] + "_s.png'><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["away"][1] + "_s.png'></div><p>" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["homeScore"] + ":" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["awayScore"] + "</p>").css("background", "#1512A9")
                 } else {
-                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["home"][1] + "_s.png'><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["away"][1] + "_s.png'></div>").css("background", "#174fff")
+                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["home"][1] + "_s.png'><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["away"][1] + "_s.png'></div>").css("background", "#1512A9")
                 }
 
                 $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ") > p").css("color", "#fafafa")
@@ -1372,9 +1374,9 @@ function fixtures() {
 
             if (status_ == "U15" && Object.keys(Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")).length !== 0) { // U15
                 if (dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["homeScore"].length !== 0) {
-                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["home"][1] + "_s.png'><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["away"][1] + "_s.png'></div><p>" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["homeScore"] + ":" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["awayScore"] + "</p>").css("background", "#174fff")
+                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["home"][1] + "_s.png'><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["away"][1] + "_s.png'></div><p>" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["homeScore"] + ":" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["awayScore"] + "</p>").css("background", "#1512A9")
                 } else {
-                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["home"][1] + "_s.png'><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["away"][1] + "_s.png'></div>").css("background", "#174fff")
+                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["home"][1] + "_s.png'><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["away"][1] + "_s.png'></div>").css("background", "#1512A9")
                 }
 
                 $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ") > p").css("color", "#fafafa")
@@ -1787,15 +1789,15 @@ function matchH2H() {
                 grd2 = ((100 * (w + d) / (w + d + l))) + "%"
                 goalGrd = (100 * goalS / (goalS + goalC)) + "%"
 
-                h2hGradient = "linear-gradient(105deg, #000831 " + grd1 + ", #c8c8c8 " + grd1 + ", #c8c8c8 " + grd2 + ", " + oppBg + " " + grd2 + ")"
-                goalGradient = "linear-gradient(105deg, #000831 " + goalGrd + ", " + oppBg + " " + goalGrd + ")"
+                h2hGradient = "linear-gradient(105deg, #000000 " + grd1 + ", #c8c8c8 " + grd1 + ", #c8c8c8 " + grd2 + ", " + oppBg + " " + grd2 + ")"
+                goalGradient = "linear-gradient(105deg, #000000 " + goalGrd + ", " + oppBg + " " + goalGrd + ")"
 
                 if (d == 0) {
-                    h2hGradient = "linear-gradient(105deg, #000831 " + grd1 + ", " + oppBg + " " + grd1 + ")"
+                    h2hGradient = "linear-gradient(105deg, #000000 " + grd1 + ", " + oppBg + " " + grd1 + ")"
                 }
 
                 if (l == 0) {
-                    h2hGradient = "linear-gradient(105deg, #000831 " + grd1 + ", " + "#c8c8c8" + " " + grd1 + ")"
+                    h2hGradient = "linear-gradient(105deg, #000000 " + grd1 + ", " + "#c8c8c8" + " " + grd1 + ")"
                 }
 
                 $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)").text(w)
@@ -1814,16 +1816,16 @@ function matchH2H() {
                 $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(2) > div > p:nth-of-type(1)").text("실점")
 
                 if ($(window).width() < 768) {
-                    $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#000831", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
+                    $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#000000", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
                     $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#c8c8c8", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
                     $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(3) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#000831", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
+                    $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#000000", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
                     $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
                 } else {
-                    $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#000831", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
+                    $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#000000", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
                     $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#c8c8c8", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
                     $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(3) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#000831", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
+                    $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#000000", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
                     $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
                 }
             } else {
@@ -1831,11 +1833,11 @@ function matchH2H() {
                 grd2 = (100 * (d + l) / (w + d + l)) + "%"
                 goalGrd = (100 * goalC / (goalS + goalC)) + "%"
 
-                h2hGradient = "linear-gradient(105deg, " + oppBg + " " + grd1 + ", #c8c8c8 " + grd1 + ", #c8c8c8 " + grd2 + ", #000831 " + grd2 + ")"
-                goalGradient = "linear-gradient(105deg, " + oppBg + " " + goalGrd + ", #000831 " + goalGrd + ")"
+                h2hGradient = "linear-gradient(105deg, " + oppBg + " " + grd1 + ", #c8c8c8 " + grd1 + ", #c8c8c8 " + grd2 + ", #000000 " + grd2 + ")"
+                goalGradient = "linear-gradient(105deg, " + oppBg + " " + goalGrd + ", #000000 " + goalGrd + ")"
 
                 if (d == 0) {
-                    h2hGradient = "linear-gradient(105deg, " + oppBg + " " + grd1 + ", #000831 " + grd1 + ")"
+                    h2hGradient = "linear-gradient(105deg, " + oppBg + " " + grd1 + ", #000000 " + grd1 + ")"
                 }
 
                 if (l == 0) {
@@ -1860,15 +1862,15 @@ function matchH2H() {
                 if ($(window).width() < 768) {
                     $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
                     $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#c8c8c8", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(3) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#000831", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
+                    $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(3) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#000000", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
                     $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#000831", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
+                    $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#000000", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
                 } else {
                     $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
                     $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#c8c8c8", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(3) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#000831", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
+                    $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(3) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#000000", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
                     $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#000831", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
+                    $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#000000", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
                 }
             }
         }
@@ -1955,7 +1957,7 @@ function matchH2H() {
                     $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(3) > img").attr("src", "./files/" + opp + "_s.png")
 
                     if (data[h2hList[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") > data[h2hList[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
-                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css("border", "1px solid #174fff")
+                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css("border", "1px solid #1512A9")
                     } else if (data[h2hList[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") == data[h2hList[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "") && data[h2hList[i]]["homeScore"] !== "") {
                         $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css("border", "1px solid #808080")
                     } else if (data[h2hList[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") < data[h2hList[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
@@ -1970,7 +1972,7 @@ function matchH2H() {
                     $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(3) > img").attr("src", "./files/seouleland_s.png")
 
                     if (data[h2hList[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") < data[h2hList[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
-                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css("border", "1px solid #174fff")
+                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css("border", "1px solid #1512A9")
                     } else if (data[h2hList[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") == data[h2hList[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "") && data[h2hList[i]]["homeScore"] !== "") {
                         $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css("border", "1px solid #808080")
                     } else if (data[h2hList[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") > data[h2hList[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {

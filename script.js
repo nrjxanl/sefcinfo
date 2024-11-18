@@ -71,13 +71,13 @@ $("#menu > div:nth-of-type(4)").click(function() {
 
 // 메뉴 내 현재 페이지 이름 강조
 if ($(".playerButton").length || $("#playerInfo").length) {
-    $("#menu > div:nth-of-type(1)").css("background", "#174fff10")
+    $("#menu > div:nth-of-type(1)").css("background", "#1512A910")
 } else if ($(".fixturesButton").length || $("#matchScore").length) {
-    $("#menu > div:nth-of-type(2)").css("background", "#174fff10")
+    $("#menu > div:nth-of-type(2)").css("background", "#1512A910")
 } else if ($(".statsButton").length) {
-    $("#menu > div:nth-of-type(3)").css("background", "#174fff10")
+    $("#menu > div:nth-of-type(3)").css("background", "#1512A910")
 } else if ($(".standingsButton").length) {
-    $("#menu > div:nth-of-type(4)").css("background", "#174fff10")
+    $("#menu > div:nth-of-type(4)").css("background", "#1512A910")
 }
 
 // 선수단 창 전환
@@ -86,8 +86,8 @@ function playerA() {
     $("#playerU18").css("display", "none")
     $("#playerU15").css("display", "none")
 
-    $(".playerButton > button").css({"color": "#000831", "border-bottom": "none"})
-    $(".playerButton > button:nth-of-type(1)").css({"color": "#174fff", "border-bottom": "3px solid #174fff"})
+    $(".playerButton > button").css({"color": "#000000", "border-bottom": "none"})
+    $(".playerButton > button:nth-of-type(1)").css({"color": "#1512A9", "border-bottom": "3px solid #1512A9"})
 }
 
 function playerU18() {
@@ -95,8 +95,8 @@ function playerU18() {
     $("#playerU18").css("display", "block")
     $("#playerU15").css("display", "none")
 
-    $(".playerButton > button").css({"color": "#000831", "border-bottom": "none"})
-    $(".playerButton > button:nth-of-type(2)").css({"color": "#174fff", "border-bottom": "3px solid #174fff"})
+    $(".playerButton > button").css({"color": "#000000", "border-bottom": "none"})
+    $(".playerButton > button:nth-of-type(2)").css({"color": "#1512A9", "border-bottom": "3px solid #1512A9"})
 }
 
 function playerU15() {
@@ -104,8 +104,8 @@ function playerU15() {
     $("#playerU18").css("display", "none")
     $("#playerU15").css("display", "block")
 
-    $(".playerButton > button").css({"color": "#000831", "border-bottom": "none"})
-    $(".playerButton > button:nth-of-type(3)").css({"color": "#174fff", "border-bottom": "3px solid #174fff"})
+    $(".playerButton > button").css({"color": "#000000", "border-bottom": "none"})
+    $(".playerButton > button:nth-of-type(3)").css({"color": "#1512A9", "border-bottom": "3px solid #1512A9"})
 }
 
 // 일정 창 전환
@@ -117,8 +117,8 @@ function fixturesA() {
         $("#fixturesU15").css("display", "none")
     }
 
-    $(".fixturesButton > button").css({"color": "#000831", "border-bottom": "none"})
-    $(".fixturesButton > button:nth-of-type(1)").css({"color": "#174fff", "border-bottom": "3px solid #174fff"})
+    $(".fixturesButton > button").css({"color": "#000000", "border-bottom": "none"})
+    $(".fixturesButton > button:nth-of-type(1)").css({"color": "#1512A9", "border-bottom": "3px solid #1512A9"})
 
     status_ = "A"
     fixtures()
@@ -132,8 +132,8 @@ function fixturesU18() {
         $("#fixturesU15").css("display", "none")
     }
 
-    $(".fixturesButton > button").css({"color": "#000831", "border-bottom": "none"})
-    $(".fixturesButton > button:nth-of-type(2)").css({"color": "#174fff", "border-bottom": "3px solid #174fff"})
+    $(".fixturesButton > button").css({"color": "#000000", "border-bottom": "none"})
+    $(".fixturesButton > button:nth-of-type(2)").css({"color": "#1512A9", "border-bottom": "3px solid #1512A9"})
 
     status_ = "U18"
     fixtures()
@@ -147,8 +147,8 @@ function fixturesU15() {
         $("#fixturesU15").css("display", "block")
     }
 
-    $(".fixturesButton > button").css({"color": "#000831", "border-bottom": "none"})
-    $(".fixturesButton > button:nth-of-type(3)").css({"color": "#174fff", "border-bottom": "3px solid #174fff"})
+    $(".fixturesButton > button").css({"color": "#000000", "border-bottom": "none"})
+    $(".fixturesButton > button:nth-of-type(3)").css({"color": "#1512A9", "border-bottom": "3px solid #1512A9"})
 
     status_ = "U15"
     fixtures()
@@ -209,8 +209,8 @@ function standingsA() {
     $("#standingsU18").css("display", "none")
     $("#standingsU15").css("display", "none")
 
-    $(".standingsButton > button").css({"color": "#000831", "border-bottom": "none"})
-    $(".standingsButton > button:nth-of-type(1)").css({"color": "#174fff", "border-bottom": "3px solid #174fff"})
+    $(".standingsButton > button").css({"color": "#000000", "border-bottom": "none"})
+    $(".standingsButton > button:nth-of-type(1)").css({"color": "#1512A9", "border-bottom": "3px solid #1512A9"})
 
     status_ = "A"
     standings()
@@ -221,8 +221,8 @@ function standingsU18() {
     $("#standingsU18").css("display", "block")
     $("#standingsU15").css("display", "none")
 
-    $(".standingsButton > button").css({"color": "#000831", "border-bottom": "none"})
-    $(".standingsButton > button:nth-of-type(2)").css({"color": "#174fff", "border-bottom": "3px solid #174fff"})
+    $(".standingsButton > button").css({"color": "#000000", "border-bottom": "none"})
+    $(".standingsButton > button:nth-of-type(2)").css({"color": "#1512A9", "border-bottom": "3px solid #1512A9"})
 
     status_ = "U18"
     standings()
@@ -233,8 +233,8 @@ function standingsU15() {
     $("#standingsU18").css("display", "none")
     $("#standingsU15").css("display", "block")
 
-    $(".standingsButton > button").css({"color": "#000831", "border-bottom": "none"})
-    $(".standingsButton > button:nth-of-type(3)").css({"color": "#174fff", "border-bottom": "3px solid #174fff"})
+    $(".standingsButton > button").css({"color": "#000000", "border-bottom": "none"})
+    $(".standingsButton > button:nth-of-type(3)").css({"color": "#1512A9", "border-bottom": "3px solid #1512A9"})
 
     status_ = "U15"
     standings()
@@ -246,8 +246,8 @@ function statsA() {
     $("#statsU18").css("display", "none")
     $("#statsU15").css("display", "none")
 
-    $(".statsButton > button").css({"color": "#000831", "border-bottom": "none"})
-    $(".statsButton > button:nth-of-type(1)").css({"color": "#174fff", "border-bottom": "3px solid #174fff"})
+    $(".statsButton > button").css({"color": "#000000", "border-bottom": "none"})
+    $(".statsButton > button:nth-of-type(1)").css({"color": "#1512A9", "border-bottom": "3px solid #1512A9"})
 
     // 장석훈 등번호
     if (year == 2024) {
@@ -263,8 +263,8 @@ function statsU18() {
     $("#statsU18").css("display", "block")
     $("#statsU15").css("display", "none")
 
-    $(".statsButton > button").css({"color": "#000831", "border-bottom": "none"})
-    $(".statsButton > button:nth-of-type(2)").css({"color": "#174fff", "border-bottom": "3px solid #174fff"})
+    $(".statsButton > button").css({"color": "#000000", "border-bottom": "none"})
+    $(".statsButton > button:nth-of-type(2)").css({"color": "#1512A9", "border-bottom": "3px solid #1512A9"})
 
     // 장석훈 등번호
     if (year == 2024) {
@@ -280,8 +280,8 @@ function statsU15() {
     $("#statsU18").css("display", "none")
     $("#statsU15").css("display", "block")
 
-    $(".statsButton > button").css({"color": "#000831", "border-bottom": "none"})
-    $(".statsButton > button:nth-of-type(3)").css({"color": "#174fff", "border-bottom": "3px solid #174fff"})
+    $(".statsButton > button").css({"color": "#000000", "border-bottom": "none"})
+    $(".statsButton > button:nth-of-type(3)").css({"color": "#1512A9", "border-bottom": "3px solid #1512A9"})
 
     status_ = "U15"
     stats()

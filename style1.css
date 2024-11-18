@@ -3,7 +3,7 @@
 @font-face {font-family: "Freesentation"; font-weight: 500; src: url(./files/Freesentation-5Medium.ttf);}
 @font-face {font-family: "Freesentation"; font-weight: 900; src: url(./files/Freesentation-9Black.ttf);}
 
-* {color: #000831; margin: 0; padding: 0; text-align: center; font-family: "Freesentation"; font-weight: 900; font-size: 12px; list-style: none; text-decoration-line: none; border-collapse: collapse; border-spacing: 0; word-break: keep-all; -webkit-tap-highlight-color: transparent;}
+* {color: #000000; margin: 0; padding: 0; text-align: center; font-family: "Freesentation"; font-weight: 900; font-size: 12px; list-style: none; text-decoration-line: none; border-collapse: collapse; border-spacing: 0; word-break: keep-all; -webkit-tap-highlight-color: transparent;}
 *::-webkit-scrollbar {display: none;}
 
 body {position: absolute; background: #fafafa;}
@@ -18,9 +18,9 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 
 /* 메뉴 */
 #menu {width: 60vw; height: 200vh; position: fixed; top: 0; left: -60vw; background-color: #fafafa; z-index: 1000;}
-#menuBg {width: 100vw; height: 200vh; position: fixed; top: 0; left: 0; background: #00083120; opacity: 0; display: none; z-index: 999;}
+#menuBg {width: 100vw; height: 200vh; position: fixed; top: 0; left: 0; background: #00000020; opacity: 0; display: none; z-index: 999;}
 #menu > div {width: 50vw; height: 32px; padding: 8px 0; margin: 8px 0 8px 5vw; border-radius: 24px; text-align: left; font-size: 24px; display: flex; align-items: center;}
-#menu > div:hover {background: #174fff12;}
+#menu > div:hover {background: #1512A912;}
 #menu > div:nth-of-type(1) {margin-top: 100px;}
 #menu > div > img {width: auto; height: 24px; margin: 0 8px;}
 
@@ -28,7 +28,7 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #loading {width: 100vw; height: 200vh; position: fixed; top: 0; left: 0; background: #fafafa; z-index: 99;}
 
 /* 홈 화면 */
-#nextMatch {width: 90vw; height: 60px; padding: 8px 0; box-shadow: 0 0 4px 2px #00083120; border-radius: 20px; margin: 100px 0 0 5vw;}
+#nextMatch {width: 90vw; height: 60px; padding: 8px 0; box-shadow: 0 0 4px 2px #00000020; border-radius: 20px; margin: 100px 0 0 5vw;}
 #nextMatch > div:nth-of-type(1) {width: 90vw; height: 40px; display: flex; align-items: center;}
 #nextMatch > div:nth-of-type(1) > p:nth-of-type(1) {width: 22.5vw; padding: 0 2.5vw; font-size: 16px; text-align: right;}
 #nextMatch > div:nth-of-type(1) > p:nth-of-type(2) {width: 22.5vw; padding: 0 2.5vw; font-size: 16px; text-align: left;}
@@ -40,7 +40,7 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #nextMatch > div:nth-of-type(2) {width: 90vw; height: 20px;}
 #nextMatch > div:nth-of-type(2) > p {font-weight: 500;}
 
-#prevMatch {width: 90vw; margin: 20px 0 0 5vw; box-shadow: 0 0 4px 2px #00083120; border-radius: 20px; display: flex; align-items: center; justify-content: center; flex-direction: column;}
+#prevMatch {width: 90vw; margin: 20px 0 0 5vw; box-shadow: 0 0 4px 2px #00000020; border-radius: 20px; display: flex; align-items: center; justify-content: center; flex-direction: column;}
 #prevMatch > div {display: flex; align-items: center; justify-content: center; margin-top: 16px;}
 #prevMatch > div > div {width: 16vw; height: 76px;}
 #prevMatch > div > div > div {width: 16vw; height: 40px; margin-bottom: 8px;}
@@ -49,7 +49,7 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #prevMatch > div > div > p:nth-of-type(2) {width: 8vw; height: 4px; margin: 4px 4vw 0 4vw; font-size: 16px; border-radius: 10vw;}
 #prevMatch > a > p {font-weight: 500; padding: 8px 0 16px 0;}
 
-#standingsHome {width: 90vw; margin-left: 5vw; margin-top: 20px; box-shadow: 0 0 4px 2px #00083120; border-radius: 20px; display: flex; justify-content: center; align-items: center; flex-direction: column;}
+#standingsHome {width: 90vw; margin-left: 5vw; margin-top: 20px; box-shadow: 0 0 4px 2px #00000020; border-radius: 20px; display: flex; justify-content: center; align-items: center; flex-direction: column;}
 #standingsHome > div {width: 90vw; height: fit-content; margin-top: 16px;}
 #standingsHome > div > img {height: 28px;}
 #standingsHome > table {width: 80vw; vertical-align: middle; margin-top: 8px;}
@@ -67,15 +67,15 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 /* 선수단 */
 .playerButton {width: 100vw; height: 40px; position: fixed; top: 79px; left: 0; background: #fafafa; z-index: 98;}
 .playerButton > button {width: 30vw; height: 40px; background: #fafafa; border: none; margin: 0; font-size: 16px;}
-.playerButton > button:hover {color: #174fff; border-bottom: 4px solid #174fff;}
+.playerButton > button:hover {color: #1512A9; border-bottom: 4px solid #1512A9;}
 
 #playerA {margin-top: 180px;}
 #playerA > div > p {width: 100vw; font-size: 16px; margin: 40px 0 8px 0;}
-#playerA > div > p > span {font-size: 16px; margin-left: 8px; color: #174fff;}
+#playerA > div > p > span {font-size: 16px; margin-left: 8px; color: #1512A9;}
 #playerA > div > div {width: 90vw; margin-left: 5vw; display: flex; flex-wrap: wrap; justify-content: center;}
-#playerA > div > div > div {width: 18vw; height: 120px; margin: 8px 2vw; border-radius: 20px; box-shadow: 0 0 4px 2px #00083120; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-end; overflow: hidden;}
+#playerA > div > div > div {width: 18vw; height: 120px; margin: 8px 2vw; border-radius: 20px; box-shadow: 0 0 4px 2px #00000020; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-end; overflow: hidden;}
 #playerA > div > div > div > img {height: 120px; margin: 8px 12px 0 0; z-index: 90;}
-#playerA > div > div > div > p:nth-of-type(1) {width: 18vw; height: 32px; position: absolute; margin-top: 88px; border-radius: 0 0 20px 20px; color: #fafafa; background: #000831; font-size: 16px; line-height: 32px; z-index: 91;}
+#playerA > div > div > div > p:nth-of-type(1) {width: 18vw; height: 32px; position: absolute; margin-top: 88px; border-radius: 0 0 20px 20px; color: #fafafa; background: #000000; font-size: 16px; line-height: 32px; z-index: 91;}
 #playerA > div > div > div > p:nth-of-type(2) {margin: 4px 8px 0 0; font-size: 32px; text-align: right; line-height: 1; letter-spacing: -2px; opacity: .2; position: absolute;}
 
 #playerU18, #playerU15 {margin-top: 180px; display: none;}
@@ -86,24 +86,24 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #playerProfile > div:nth-of-type(1) > p {font-weight: 500;}
 #playerProfile > div:nth-of-type(2) {width: 100vw; height: 40px; padding-bottom: 4px; background: #fafafa; display: flex; justify-content: center; align-items: center;}
 #playerProfile > div:nth-of-type(2) > p {font-size: 28px;}
-#playerProfile > div:nth-of-type(2) > p > span {color: #174fff; font-size: 28px; margin-right: 8px;}
-#playerProfile > div:nth-of-type(3) {width: 90vw; height: 4px; display: block; background: linear-gradient(90deg, #ffffff00 0%, #00083120 20%, #00083120 80%, #ffffff00 100%); margin: 8px 0 20px 5vw;}
+#playerProfile > div:nth-of-type(2) > p > span {color: #1512A9; font-size: 28px; margin-right: 8px;}
+#playerProfile > div:nth-of-type(3) {width: 90vw; height: 4px; display: block; background: linear-gradient(90deg, #ffffff00 0%, #00000020 20%, #00000020 80%, #ffffff00 100%); margin: 8px 0 20px 5vw;}
 
 #playerImg {width: 100vw; height: 500px; margin-top: 40px; overflow: hidden; display: flex; justify-content: center;}
 #playerImg > div {width: 100vw; height: 500px; z-index: -100; opacity: .5;}
 
-#playerSNS > div {width: 80vw; border-radius: 20px; box-shadow: 0 0 4px 2px #00083120; padding: 8px 0; margin: 20px 0 0 10vw; display: flex; justify-content: center; align-items: center;}
+#playerSNS > div {width: 80vw; border-radius: 20px; box-shadow: 0 0 4px 2px #00000020; padding: 8px 0; margin: 20px 0 0 10vw; display: flex; justify-content: center; align-items: center;}
 #playerSNS > div > img:nth-of-type(1) {height: 24px; margin-right: 8px;}
 #playerSNS > div > img:nth-of-type(2) {height: 24px;}
 
-#playerInfo {width: 80vw; margin: 20px 0 0 10vw; border-radius: 20px; box-shadow: 0 0 4px 2px #00083120; display: flex; align-items: center; justify-content: center;}
+#playerInfo {width: 80vw; margin: 20px 0 0 10vw; border-radius: 20px; box-shadow: 0 0 4px 2px #00000020; display: flex; align-items: center; justify-content: center;}
 #playerInfo > div {width: calc(70vw / 3); padding: 16px 0;}
 #playerInfo > div:nth-of-type(1) {margin-left: 5vw;}
 #playerInfo > div:nth-of-type(3) {margin-right: 5vw;}
 #playerInfo > div > p:nth-of-type(1) {font-weight: 500; margin-bottom: 4px;}
 #playerInfo > div > p:nth-of-type(2) {font-size: 16px;}
 
-#playedSEFC {width: 80vw; margin: 20px 0 20px 10vw; padding: 16px 0; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 20px; box-shadow: 0 0 4px 2px #00083120;}
+#playedSEFC {width: 80vw; margin: 20px 0 20px 10vw; padding: 16px 0; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 20px; box-shadow: 0 0 4px 2px #00000020;}
 #playedSEFC > p:nth-of-type(1) {font-size: 16px;}
 #playedSEFC > p:nth-of-type(2) {font-weight: 500; margin-top: 14px;}
 #playedSEFC > div {width: 80vw; display: flex; justify-content: center; align-items: center;}
@@ -112,7 +112,7 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #playedSEFC > div > div > p:nth-of-type(1) {font-weight: 500; margin-bottom: 4px;}
 #playedSEFC > div > div > p:nth-of-type(2) {font-size: 24px;}
 
-#playedSEFCU18 {width: 80vw; margin: 20px 0 20px 10vw; padding: 16px 0; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 20px; box-shadow: 0 0 4px 2px #00083120;}
+#playedSEFCU18 {width: 80vw; margin: 20px 0 20px 10vw; padding: 16px 0; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 20px; box-shadow: 0 0 4px 2px #00000020;}
 #playedSEFCU18 > p:nth-of-type(1) {font-size: 16px;}
 #playedSEFCU18 > p:nth-of-type(2) {font-weight: 500; margin-top: 14px;}
 #playedSEFCU18 > div {width: 80vw; display: flex; justify-content: center; align-items: center;}
@@ -121,7 +121,7 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #playedSEFCU18 > div > div > p:nth-of-type(1) {font-weight: 500; margin-bottom: 4px;}
 #playedSEFCU18 > div > div > p:nth-of-type(2) {font-size: 24px;}
 
-#playedSEFCU15 {width: 80vw; margin: 20px 0 20px 10vw; padding: 16px 0; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 20px; box-shadow: 0 0 4px 2px #00083120;}
+#playedSEFCU15 {width: 80vw; margin: 20px 0 20px 10vw; padding: 16px 0; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 20px; box-shadow: 0 0 4px 2px #00000020;}
 #playedSEFCU15 > p:nth-of-type(1) {font-size: 16px;}
 #playedSEFCU15 > p:nth-of-type(2) {font-weight: 500; margin-top: 14px;}
 #playedSEFCU15 > div {width: 80vw; display: flex; justify-content: center; align-items: center;}
@@ -130,17 +130,17 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #playedSEFCU15 > div > div > p:nth-of-type(1) {font-weight: 500; margin-bottom: 4px;}
 #playedSEFCU15 > div > div > p:nth-of-type(2) {font-size: 24px;}
 
-#statsBySeason {width: 80vw; margin: 20px 0 20px 10vw; padding: 16px 0; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 20px; box-shadow: 0 0 4px 2px #00083120;}
+#statsBySeason {width: 80vw; margin: 20px 0 20px 10vw; padding: 16px 0; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 20px; box-shadow: 0 0 4px 2px #00000020;}
 #statsBySeason > p {font-size: 16px; margin-bottom: 16px;}
 #statsBySeason > div {width: 80vw; height: fit-content; display: flex; justify-content: center; align-items: center;}
 #statsBySeason > div:nth-of-type(1) > p {width: 10vw; font-weight: 500; margin-bottom: 8px;}
 #statsBySeason > div:nth-of-type(n+2) > p {width: 10vw; font-size: 16px;}
 #statsBySeason > div:nth-of-type(n+3) {padding-top: 8px;}
 
-#playedMatch {width: 100vw; height: 70vh; margin-top: 30vh; background: #fafafa; border-radius: 10vw 10vw 0 0; box-shadow: 0 0 4px 2px #00083120; display: flex; flex-direction: column; position: fixed; bottom: -100vh; z-index: 400;}
+#playedMatch {width: 100vw; height: 70vh; margin-top: 30vh; background: #fafafa; border-radius: 10vw 10vw 0 0; box-shadow: 0 0 4px 2px #00000020; display: flex; flex-direction: column; position: fixed; bottom: -100vh; z-index: 400;}
 #playedMatch > div {width: 100vw; height: calc(70vh - 160px); margin: 40px 0 20px 0; overflow: scroll;}
-#playedMatch > div > div {width: 80vw; margin-left: 10vw; padding: 8px 0; display: flex; justify-content: center; align-items: center; border-bottom: 2px solid #00083120;}
-#playedMatch > div > div:nth-of-type(1) {border-top: 2px solid #00083120;}
+#playedMatch > div > div {width: 80vw; margin-left: 10vw; padding: 8px 0; display: flex; justify-content: center; align-items: center; border-bottom: 2px solid #00000020;}
+#playedMatch > div > div:nth-of-type(1) {border-top: 2px solid #00000020;}
 #playedMatch > div > div > p:nth-of-type(1) {width: 10vw; font-size: 16px;}
 #playedMatch > div > div > p:nth-of-type(2) {width: 20vw; font-size: 16px;}
 #playedMatch > div > div > p:nth-of-type(3) {width: 15vw; font-size: 16px;}
@@ -151,10 +151,10 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #playedMatch > div > div > p:nth-of-type(6) {width: 10vw; padding: 4px 0; margin: 0 2.5vw; font-size: 16px; border-radius: 20px; color: #fafafa;}
 #playedMatch > p {width: 100vw; margin-top: 40px; opacity: .5;}
 
-#playedMatchU18 {width: 100vw; height: 70vh; margin-top: 30vh; background: #fafafa; border-radius: 10vw 10vw 0 0; box-shadow: 0 0 4px 2px #00083120; display: flex; flex-direction: column; position: fixed; bottom: -100vh; z-index: 400;}
+#playedMatchU18 {width: 100vw; height: 70vh; margin-top: 30vh; background: #fafafa; border-radius: 10vw 10vw 0 0; box-shadow: 0 0 4px 2px #00000020; display: flex; flex-direction: column; position: fixed; bottom: -100vh; z-index: 400;}
 #playedMatchU18 > div {width: 100vw; height: calc(70vh - 160px); margin: 40px 0 20px 0; overflow: scroll;}
-#playedMatchU18 > div > div {width: 80vw; margin-left: 10vw; padding: 8px 0; display: flex; justify-content: center; align-items: center; border-bottom: 2px solid #00083120;}
-#playedMatchU18 > div > div:nth-of-type(1) {border-top: 2px solid #00083120;}
+#playedMatchU18 > div > div {width: 80vw; margin-left: 10vw; padding: 8px 0; display: flex; justify-content: center; align-items: center; border-bottom: 2px solid #00000020;}
+#playedMatchU18 > div > div:nth-of-type(1) {border-top: 2px solid #00000020;}
 #playedMatchU18 > div > div > p:nth-of-type(1) {width: 10vw; font-size: 16px;}
 #playedMatchU18 > div > div > p:nth-of-type(2) {width: 20vw; font-size: 16px;}
 #playedMatchU18 > div > div > p:nth-of-type(3) {width: 15vw; font-size: 16px;}
@@ -164,10 +164,10 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #playedMatchU18 > div > div > p:nth-of-type(6) {width: 10vw; padding: 4px 0; margin: 0 2.5vw; font-size: 16px; border-radius: 20px; color: #fafafa;}
 #playedMatchU18 > p {width: 100vw; margin-top: 40px; opacity: .5;}
 
-#playedMatchU15 {width: 100vw; height: 70vh; margin-top: 30vh; background: #fafafa; border-radius: 10vw 10vw 0 0; box-shadow: 0 0 4px 2px #00083120; display: flex; flex-direction: column; position: fixed; bottom: -100vh; z-index: 400;}
+#playedMatchU15 {width: 100vw; height: 70vh; margin-top: 30vh; background: #fafafa; border-radius: 10vw 10vw 0 0; box-shadow: 0 0 4px 2px #00000020; display: flex; flex-direction: column; position: fixed; bottom: -100vh; z-index: 400;}
 #playedMatchU15 > div {width: 100vw; height: calc(70vh - 160px); margin: 40px 0 20px 0; overflow: scroll;}
-#playedMatchU15 > div > div {width: 80vw; margin-left: 10vw; padding: 8px 0; display: flex; justify-content: center; align-items: center; border-bottom: 2px solid #00083120;}
-#playedMatchU15 > div > div:nth-of-type(1) {border-top: 2px solid #00083120;}
+#playedMatchU15 > div > div {width: 80vw; margin-left: 10vw; padding: 8px 0; display: flex; justify-content: center; align-items: center; border-bottom: 2px solid #00000020;}
+#playedMatchU15 > div > div:nth-of-type(1) {border-top: 2px solid #00000020;}
 #playedMatchU15 > div > div > p:nth-of-type(1) {width: 10vw; font-size: 16px;}
 #playedMatchU15 > div > div > p:nth-of-type(2) {width: 20vw; font-size: 16px;}
 #playedMatchU15 > div > div > p:nth-of-type(3) {width: 15vw; font-size: 16px;}
@@ -177,12 +177,12 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #playedMatchU15 > div > div > p:nth-of-type(6) {width: 10vw; padding: 4px 0; margin: 0 2.5vw; font-size: 16px; border-radius: 20px; color: #fafafa;}
 #playedMatchU15 > p {width: 100vw; margin-top: 40px; opacity: .5;}
 
-#playedMatchBG {width: 100vw; height: 100vh; background: #00000010; border-radius: 20px 20px 0 0; box-shadow: 0 0 4px 2px #00083120; position: fixed; top: 0; display: none; opacity: 0; z-index: 300;}
+#playedMatchBG {width: 100vw; height: 100vh; background: #00000010; border-radius: 20px 20px 0 0; box-shadow: 0 0 4px 2px #00000020; position: fixed; top: 0; display: none; opacity: 0; z-index: 300;}
 
 /* 선수 기록 */
 .statsButton {width: 100vw; height: 40px; position: fixed; top: 79px; left: 0; background: #fafafa; z-index: 98;}
 .statsButton > button {width: 30vw; height: 40px; background: #fafafa; border: none; margin: 0; font-size: 16px;}
-.statsButton > button:hover {color: #174fff; border-bottom: 4px solid #174fff;}
+.statsButton > button:hover {color: #1512A9; border-bottom: 4px solid #1512A9;}
 
 .statsSeason {width: 50vw; padding-left: 10vw; margin-top: 160px; display: flex; align-items: baseline;}
 .statsSeason > p:nth-of-type(1) {font-size: 32px; padding-right: 20px; text-align: left;}
@@ -195,13 +195,13 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #stats > .stats > table > tbody > tr > td:nth-of-type(1) > div {width: 40px; height: 40px; margin-top: 10px; overflow: hidden; border-radius: 50%;}
 #stats > .stats > table > tbody > tr > td:nth-of-type(1) > div > img {width: 40px;}
 #stats > .stats > table > tbody > tr > td:nth-of-type(2) {width: 35vw; padding-left: 8px; font-size: 20px; text-align: left;}
-#stats > .stats > table > tbody > tr > td:nth-of-type(2) > span {color: #174fff; font-family: "Lobster Two"; font-weight: 700; font-style: italic; margin-right: 8px; font-size: 20px; text-align: left;}
+#stats > .stats > table > tbody > tr > td:nth-of-type(2) > span {color: #1512A9; font-family: "Lobster Two"; font-weight: 700; font-style: italic; margin-right: 8px; font-size: 20px; text-align: left;}
 #stats > .stats > table > tbody > tr > td:nth-of-type(n+3) {width: calc((55vw - 60px)/5); font-size: 16px; font-weight: 500;}
 
 /* 일정 */
 .fixturesButton {width: 100vw; height: 40px; position: fixed; top: 79px; left: 0; background: #fafafa; z-index: 98;}
 .fixturesButton > button {width: 30vw; height: 40px; background: #fafafa; border: none; margin: 0; font-size: 16px;}
-.fixturesButton > button:hover {color: #174fff; border-bottom: 4px solid #174fff;}
+.fixturesButton > button:hover {color: #1512A9; border-bottom: 4px solid #1512A9;}
 
 .fixturesSeason {width: 80vw; padding: 0 10vw; margin-top: 160px; display: flex; align-items: baseline;}
 .fixturesSeason > p:nth-of-type(1) {font-size: 32px; padding-right: 20px; text-align: left;}
@@ -212,7 +212,7 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 
 .fixtures {width: 90vw; margin-left: 5vw;}
 
-.fixtures_ {width: 70vw; padding: 16px 10vw; margin: 20px 0; border-radius: 20px; box-shadow: 0 0 4px 2px #00083120;}
+.fixtures_ {width: 70vw; padding: 16px 10vw; margin: 20px 0; border-radius: 20px; box-shadow: 0 0 4px 2px #00000020;}
 .fixtures_ > div:nth-of-type(1) {width: 70vw; display: flex; justify-content: center; align-items: center; margin-bottom: 16px;}
 .fixtures_ > div:nth-of-type(1) > img {height: 16px;}
 .fixtures_ > div:nth-of-type(1) > p {font-size: 12px; padding-left: 4px;}
@@ -223,7 +223,7 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 .fixtures_ > div:nth-of-type(2) > div:nth-of-type(2n+1) > p {font-size: 16px; margin-top: 8px;}
 .fixtures_ > div:nth-of-type(2) > div:nth-of-type(2) {width: 30vw;}
 .fixtures_ > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1) {font-size: 32px; margin: -8px 0 8px 0;}
-.fixtures_ > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2) {width: fit-content; height: fit-content; padding: 2px 8px; margin: auto; font-size: 12px; font-weight: 500; border: 1px solid #000831; border-radius: 8px;}
+.fixtures_ > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2) {width: fit-content; height: fit-content; padding: 2px 8px; margin: auto; font-size: 12px; font-weight: 500; border: 1px solid #000000; border-radius: 8px;}
 
 #fixturesU18 {display: none;}
 #fixturesU15 {display: none;}
@@ -232,17 +232,17 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #calendar > table {width: 90vw; border-collapse: separate; border-spacing: 8px; table-layout: fixed; margin-top: 32px;}
 #calendar > table > thead > tr > th {font-size: 20px; font-weight: 500;}
 #calendar > table > thead > tr > th:nth-of-type(1) {color: #f00;}
-#calendar > table > thead > tr > th:nth-of-type(7) {color: #174fff;}
+#calendar > table > thead > tr > th:nth-of-type(7) {color: #1512A9;}
 #calendar > table > tbody > tr > td {width: calc(90vw / 7); height: 80px; background: #fafafa; border-radius: 8px; vertical-align: top;}
 #calendar > table > tbody > tr > td > p {font-size: 16px;}
 #calendar > table > tbody > tr > td > p:nth-of-type(1) {padding: 8px 0 4px 0; font-weight: 500;}
 #calendar > table > tbody > tr > td:nth-of-type(1) > p {color: #f00;}
-#calendar > table > tbody > tr > td:nth-of-type(7) > p {color: #174fff;}
+#calendar > table > tbody > tr > td:nth-of-type(7) > p {color: #1512A9;}
 #calendar > table > tbody > tr > td > div {height: 20px;}
 #calendar > table > tbody > tr > td > div > img {height: 16px; margin: 0 2px;}
 
 /* 경기 세부 정보 */
-#matchScore {width: 70vw; padding: 16px 5vw; margin: 100px 10vw 0 10vw; border-radius: 20px; box-shadow: 0 0 4px 2px #00083120;}
+#matchScore {width: 70vw; padding: 16px 5vw; margin: 100px 10vw 0 10vw; border-radius: 20px; box-shadow: 0 0 4px 2px #00000020;}
 #matchScore > div:nth-of-type(1) {width: 70vw; display: flex; justify-content: center; align-items: center; margin-bottom: 16px;}
 #matchScore > div:nth-of-type(1) > img {height: 16px;}
 #matchScore > div:nth-of-type(1) > p {font-size: 12px; padding-left: 4px;}
@@ -253,7 +253,7 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #matchScore > div:nth-of-type(2) > div:nth-of-type(2n+1) > p {font-size: 16px; margin-top: 4px;}
 #matchScore > div:nth-of-type(2) > div:nth-of-type(2) {width: 30vw;}
 #matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1) {font-size: 32px; margin: -8px 0 8px 0;}
-#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2) {width: fit-content; height: fit-content; padding: 2px 8px; margin: auto; font-size: 12px; font-weight: 500; border: 1px solid #000831; border-radius: 8px;}
+#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2) {width: fit-content; height: fit-content; padding: 2px 8px; margin: auto; font-size: 12px; font-weight: 500; border: 1px solid #000000; border-radius: 8px;}
 #matchScore > div:nth-of-type(3) {width: 70vw; display: flex; justify-content: center; align-items: flex-start;}
 #matchScore > div:nth-of-type(3) > p {width: 20vw; height: fit-content; font-weight: 500; margin-top: 8px; line-height: 1.4; white-space: nowrap;}
 #matchScore > div:nth-of-type(3) > p:nth-of-type(1) {margin-right: 15vw;}
@@ -261,7 +261,7 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 
 #match {width: 80vw; margin-left: 10vw;}
 
-#highlight {width: 74vw; padding: 1vw 3vw; margin-left: 10vw; border-radius: 20px; box-shadow: #00083120 0px 0px 4px 2px;}
+#highlight {width: 74vw; padding: 1vw 3vw; margin-left: 10vw; border-radius: 20px; box-shadow: #00000020 0px 0px 4px 2px;}
 #highlight > a {display: flex; align-items: center; justify-content: center;}
 #highlight > a > p {width: 62vw; margin-left: 2vw; text-align: left; font-size: 16px;}
 #highlight > a > p > span {margin-left: 2vw; font-weight: 500;}
@@ -272,7 +272,7 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #potm > div > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: 4px solid #fafafa;}
 #potm > div > div > img {width: 10vw;}
 #potm > div > p:nth-of-type(1) {font-size: 16px; font-weight: 500; margin-top: 4px;}
-#potm > div > p:nth-of-type(1) > span {font-size: 16px; color: #174fff; margin: 0 1.5vw 0 3vw; font-family: "Lobster Two"; font-weight: 700; font-style: italic;}
+#potm > div > p:nth-of-type(1) > span {font-size: 16px; color: #1512A9; margin: 0 1.5vw 0 3vw; font-family: "Lobster Two"; font-weight: 700; font-style: italic;}
 #potm > div > p:nth-of-type(2) {width: 10vw; padding: 4px 0; font-size: 12px; border-radius: 50vw; color: #fafafa; position: absolute; right: 15vw;}
 
 #matchLineup {display: none; margin-top: -4px; padding-bottom: 20px;}
@@ -288,11 +288,11 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #startingXI > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: 4px solid #fafafa;}
 #startingXI > table > tbody > tr > td > div > img {width: 10vw;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(1) {font-weight: 500; margin-top: 4px;}
-#startingXI > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(1) {color: #174fff; margin-right: 4px; font-family: "Lobster Two"; font-weight: 700; font-style: italic;}
+#startingXI > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(1) {color: #1512A9; margin-right: 4px; font-family: "Lobster Two"; font-weight: 700; font-style: italic;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) {display: inline-block;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) > img {height: 16px; vertical-align: middle; margin: 0 0 2px -8px;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1) {margin-left: 2px;}
-#startingXI > table > tbody > tr > td > p:nth-of-type(2) {width: 8vw; padding: 4px 0; margin-top: 4px; border-radius: 50vw; color: #fafafa; background: #000831;}
+#startingXI > table > tbody > tr > td > p:nth-of-type(2) {width: 8vw; padding: 4px 0; margin-top: 4px; border-radius: 50vw; color: #fafafa; background: #000000;}
 
 #startingXI > div {width: 70vw; margin-left: 5vw;}
 #startingXI > div > table {width: 70vw;}
@@ -301,10 +301,10 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #startingXI > div > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: 4px solid #fafafa;}
 #startingXI > div > table > tbody > tr > td > div > img {width: 10vw;}
 #startingXI > div > table > tbody > tr > td > p:nth-of-type(1) {font-size: 16px; font-weight: 500; margin-top: 4px;}
-#startingXI > div > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(1) {font-size: 16px; color: #174fff; margin: 0 1.5vw 0 3vw; font-family: "Lobster Two"; font-weight: 700; font-style: italic;}
+#startingXI > div > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(1) {font-size: 16px; color: #1512A9; margin: 0 1.5vw 0 3vw; font-family: "Lobster Two"; font-weight: 700; font-style: italic;}
 #startingXI > div > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) > img {height: 16px; vertical-align: middle; margin: 0 0 2px -8px;}
 #startingXI > div > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1) {margin-left: 2px;}
-#startingXI > div > table > tbody > tr > td > p:nth-of-type(2) {width: 10vw; padding: 4px 0; font-size: 12px; border-radius: 50vw; color: #fafafa; background: #000831; position: absolute; right: 15vw;}
+#startingXI > div > table > tbody > tr > td > p:nth-of-type(2) {width: 10vw; padding: 4px 0; font-size: 12px; border-radius: 50vw; color: #fafafa; background: #000000; position: absolute; right: 15vw;}
 
 #sub {width: 70vw; margin: 60px 0 0 15vw;}
 #sub > table {width: 70vw; height: 110vw;}
@@ -314,14 +314,14 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #sub > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: 4px solid #fafafa;}
 #sub > table > tbody > tr > td > div > img {width: 10vw;}
 #sub > table > tbody > tr > td > p:nth-of-type(1) {font-size: 16px; font-weight: 500; margin-top: 4px;}
-#sub > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(1) {font-size: 16px; color: #174fff; margin: 0 1.5vw 0 3vw; font-family: "Lobster Two"; font-weight: 700; font-style: italic;}
+#sub > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(1) {font-size: 16px; color: #1512A9; margin: 0 1.5vw 0 3vw; font-family: "Lobster Two"; font-weight: 700; font-style: italic;}
 #sub > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) > img {height: 16px; vertical-align: middle; margin: 0 0 2px -8px;}
 #sub > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1) {margin-left: 2px;}
-#sub > table > tbody > tr > td > p:nth-of-type(2) {width: 10vw; padding: 4px 0; font-size: 12px; border-radius: 50vw; color: #fafafa; background: #000831; position: absolute; right: 15vw;}
+#sub > table > tbody > tr > td > p:nth-of-type(2) {width: 10vw; padding: 4px 0; font-size: 12px; border-radius: 50vw; color: #fafafa; background: #000000; position: absolute; right: 15vw;}
 
 #matchStat {display: none; padding-bottom: 40px;}
 #matchStat > table {width: 80vw; margin-left: 10vw;}
-#matchStat > table > tbody > tr {height: 48px; display: flex; align-items: center; box-shadow: 0 0 4px 2px #00083120; border-radius: 20px; margin-top: 20px;}
+#matchStat > table > tbody > tr {height: 48px; display: flex; align-items: center; box-shadow: 0 0 4px 2px #00000020; border-radius: 20px; margin-top: 20px;}
 #matchStat > table > tbody > tr > td:nth-of-type(2) {width: 25vw;}
 #matchStat > table > tbody > tr > td:nth-of-type(2n+1) {width: 27.5vw; display: flex; align-items: center; justify-content: center;}
 #matchStat > table > tbody > tr > td:nth-of-type(2n+1) > p {width: 7.5vw; height: 7.5vw; border-radius: 20px; font-weight: 500; display: flex; align-items: center; justify-content: center;}
@@ -337,7 +337,7 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #matchH2H > div:nth-of-type(4) {width: 80vw; display: flex; border-radius: 8px; overflow: hidden; margin-top: 10vw;}
 #matchH2H > div:nth-of-type(4) > p {font-size: 16px; font-weight: 500; color: #fafafa; display: flex; align-items: center; justify-content: center;}
 
-#expectedResult {width: 70vw; padding: 16px 5vw; margin: 0 10vw 40px 10vw; border-radius: 20px; box-shadow: 0 0 4px 2px #00083120;}
+#expectedResult {width: 70vw; padding: 16px 5vw; margin: 0 10vw 40px 10vw; border-radius: 20px; box-shadow: 0 0 4px 2px #00000020;}
 #expectedResult > div:nth-of-type(1) {font-size: 14px; margin-bottom: 8px;}
 #expectedResult > div:nth-of-type(1) > img {height: 14px; margin: 0 0 -2px 4px;}
 #expectedResult > div:nth-of-type(2) {width: 70vw; display: flex; justify-content: center; align-items: center;}
@@ -350,9 +350,9 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #expectedResult > div:nth-of-type(3) > p:nth-of-type(1) {margin-right: 5vw;}
 #expectedResult > div:nth-of-type(3) > p:nth-of-type(3) {margin-left: 5vw;}
 
-#help {opacity: 0; width: calc(90vw - 16px); color: #fafafa; background: #000831aa; padding: 12px 8px; line-height: 1.3; font-weight: 500; border-radius: 3vw; position: fixed; left: 5vw; bottom: 5vw; pointer-events: none;}
-#recentMatch {width: 80vw; box-shadow: 0 0 4px 2px #00083120; border-radius: 20px; margin-top: 40px;}
-#recentMatch > div {width: 80vw; height: 60px; border-bottom: 2px solid #00083120; padding: 4px 0 8px 0;}
+#help {opacity: 0; width: calc(90vw - 16px); color: #fafafa; background: #000000aa; padding: 12px 8px; line-height: 1.3; font-weight: 500; border-radius: 3vw; position: fixed; left: 5vw; bottom: 5vw; pointer-events: none;}
+#recentMatch {width: 80vw; box-shadow: 0 0 4px 2px #00000020; border-radius: 20px; margin-top: 40px;}
+#recentMatch > div {width: 80vw; height: 60px; border-bottom: 2px solid #00000020; padding: 4px 0 8px 0;}
 #recentMatch > div > div:nth-of-type(1) {width: 80vw; height: 40px; display: flex; align-items: center;}
 #recentMatch > div > div:nth-of-type(1) > div:nth-of-type(1) {width: 30vw; display: flex; align-items: center; justify-content: flex-end;}
 #recentMatch > div > div:nth-of-type(1) > div:nth-of-type(1) > img {height: 20px;}
@@ -362,14 +362,14 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #recentMatch > div > div:nth-of-type(1) > div:nth-of-type(3) {width: 30vw; display: flex; align-items: center; justify-content: flex-start;}
 #recentMatch > div > div:nth-of-type(1) > div:nth-of-type(3) > img {height: 20px;}
 #recentMatch > div > div:nth-of-type(2) {width: 80vw; height: 20px;}
-#recentMatch > div > div:nth-of-type(2) > p {width: fit-content; height: fit-content; padding: 2px 8px; margin: auto; font-size: 12px; font-weight: 500; border: 1px solid #000831; border-radius: 8px;}
+#recentMatch > div > div:nth-of-type(2) > p {width: fit-content; height: fit-content; padding: 2px 8px; margin: auto; font-size: 12px; font-weight: 500; border: 1px solid #000000; border-radius: 8px;}
 
 #viewAll {height: 20px !important; display: flex; justify-content: center; align-items: center;}
 
 /* 순위 */
 .standingsButton {width: 100vw; height: 40px; position: fixed; top: 79px; left: 0; background: #fafafa; z-index: 98;}
 .standingsButton > button {width: 30vw; height: 40px; background: #fafafa; border: none; margin: 0; font-size: 16px;}
-.standingsButton > button:hover {color: #174fff; border-bottom: 4px solid #174fff;}
+.standingsButton > button:hover {color: #1512A9; border-bottom: 4px solid #1512A9;}
 
 .standingsSeason {width: 80vw; padding: 0 10vw; margin-top: 160px; display: flex; align-items: baseline;}
 .standingsSeason > p:nth-of-type(1) {font-size: 32px; padding-right: 20px; text-align: left;}
@@ -419,9 +419,9 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #standingsU15 > div > table > tbody > tr > td:nth-of-type(n+9) {display: none;}
 #standingsU15 > div > table > tbody > tr > td > img {height: 24px;}
 
-tr.sefc {background: #000831;}
+tr.sefc {background: #000000;}
 tr.sefc > td {color: #fafafa;}
 tr.sefc > td:nth-of-type(1) {border-radius: 20px 0 0 20px;}
 tr.sefc > td:nth-of-type(8) {border-radius: 0 20px 20px 0;}
 tr.sefc > td:nth-last-of-type(1) {border-radius: 0 20px 20px 0;}
-tr.sefc > td > p {background: #fafafa !important; color: #000831 !important;}
+tr.sefc > td > p {background: #fafafa !important; color: #000000 !important;}
