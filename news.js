@@ -68,9 +68,9 @@ function news() {
 
     if (data[i][0] == "공식 발표") {
         if (emblem1 == "dummy" || emblem2 == "dummy") {
-            $("#news").append("<a href='" + data[i][5] + "' target='_blank'><div><div><div><img src='" + data[i][6] + "'></div><div><div><img src='./files/" + emblem2 + ".png'></div></div></div><div><p style='color: #1512A9; font-weight: 900;'>" + data[i][0] + "</p><p>" + data[i][1] + "</p></div><p>" + data[i][2] + " » " + data[i][3] + "</p></div></a>")
+            $("#news").append("<a href='" + data[i][5] + "' target='_blank'><div><div><div><img src='" + data[i][6] + "'></div><div><div><img src='./files/" + emblem2 + ".png'></div></div></div><div><p style='color: #000060; font-weight: 900;'>" + data[i][0] + "</p><p>" + data[i][1] + "</p></div><p>" + data[i][2] + " » " + data[i][3] + "</p></div></a>")
         } else {
-            $("#news").append("<a href='" + data[i][5] + "' target='_blank'><div><div><div><img src='" + data[i][6] + "'></div><div><div><img src='./files/" + emblem1 + ".png'></div><p>»</p><div><img src='./files/" + emblem2 + ".png'></div></div></div><div><p style='color: #1512A9; font-weight: 900;'>" + data[i][0] + "</p><p>" + data[i][1] + "</p></div><p>" + data[i][2] + " » " + data[i][3] + "</p></div></a>")
+            $("#news").append("<a href='" + data[i][5] + "' target='_blank'><div><div><div><img src='" + data[i][6] + "'></div><div><div><img src='./files/" + emblem1 + ".png'></div><p>»</p><div><img src='./files/" + emblem2 + ".png'></div></div></div><div><p style='color: #000060; font-weight: 900;'>" + data[i][0] + "</p><p>" + data[i][1] + "</p></div><p>" + data[i][2] + " » " + data[i][3] + "</p></div></a>")
         }
     } else {
         $("#news").append("<a href='" + data[i][5] + "' target='_blank'><div><div><div><img src='" + data[i][6] + "'></div><div><div><img src='./files/" + emblem1 + ".png'></div><p>»</p><div><img src='./files/" + emblem2 + ".png'></div></div></div><div><p>" + data[i][0] + "</p><p>" + data[i][1] + "</p></div><p>" + data[i][4] + " | " + data[i][2] + " » " + data[i][3] + "</p></div></a>")

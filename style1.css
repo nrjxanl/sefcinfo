@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@font-face {font-family: "Freesentation"; font-weight: 100; src: url(./files/Freesentation-1Thin.ttf);}
-@font-face {font-family: "Freesentation"; font-weight: 500; src: url(./files/Freesentation-5Medium.ttf);}
-@font-face {font-family: "Freesentation"; font-weight: 900; src: url(./files/Freesentation-9Black.ttf);}
+@font-face {font-family: "Paperlogy"; font-weight: 300; src: url(./files/Paperlogy-3Light.ttf);}
+@font-face {font-family: "Paperlogy"; font-weight: 600; src: url(./files/Paperlogy-6SemiBold.ttf);}
+@font-face {font-family: "Paperlogy"; font-weight: 900; src: url(./files/Paperlogy-9Black.ttf);}
 
-* {color: #000000; margin: 0; padding: 0; text-align: center; font-family: "Freesentation"; font-weight: 900; font-size: 12px; list-style: none; text-decoration-line: none; border-collapse: collapse; border-spacing: 0; word-break: keep-all; -webkit-tap-highlight-color: transparent;}
+* {color: #000000; margin: 0; padding: 0; text-align: center; font-family: "Paperlogy"; font-weight: 900; font-size: 12px; list-style: none; text-decoration-line: none; border-collapse: collapse; border-spacing: 0; word-break: keep-all; -webkit-tap-highlight-color: transparent;}
 *::-webkit-scrollbar {display: none;}
 
 body {position: absolute; background: #fafafa;}
@@ -20,9 +19,9 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #menu {width: 60vw; height: 200vh; position: fixed; top: 0; left: -60vw; background-color: #fafafa; z-index: 1000;}
 #menuBg {width: 100vw; height: 200vh; position: fixed; top: 0; left: 0; background: #00000020; opacity: 0; display: none; z-index: 999;}
 #menu > div {width: 50vw; height: 32px; padding: 8px 0; margin: 8px 0 8px 5vw; border-radius: 24px; text-align: left; font-size: 24px; display: flex; align-items: center;}
-#menu > div:hover {background: #1512A912;}
 #menu > div:nth-of-type(1) {margin-top: 100px;}
 #menu > div > img {width: auto; height: 24px; margin: 0 8px;}
+#menu > div:hover {color: #fafafa; background: #000060;}
 
 /* 로딩 */
 #loading {width: 100vw; height: 200vh; position: fixed; top: 0; left: 0; background: #fafafa; z-index: 99;}
@@ -38,55 +37,60 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #nextMatch > div:nth-of-type(1) > div:nth-of-type(3) {width: 7.5vw; display: flex; align-items: center; justify-content: center;}
 #nextMatch > div:nth-of-type(1) > div:nth-of-type(3) > img {height: 20px;}
 #nextMatch > div:nth-of-type(2) {width: 90vw; height: 20px;}
-#nextMatch > div:nth-of-type(2) > p {font-weight: 500;}
+#nextMatch > div:nth-of-type(2) > p {font-weight: 600;}
 
 #prevMatch {width: 90vw; margin: 20px 0 0 5vw; box-shadow: 0 0 4px 2px #00000020; border-radius: 20px; display: flex; align-items: center; justify-content: center; flex-direction: column;}
 #prevMatch > div {display: flex; align-items: center; justify-content: center; margin-top: 16px;}
 #prevMatch > div > div {width: 16vw; height: 76px;}
 #prevMatch > div > div > div {width: 16vw; height: 40px; margin-bottom: 8px;}
 #prevMatch > div > div > div > img {width: auto; height: 40px;}
-#prevMatch > div > div > p:nth-of-type(1) {width: 10vw; height: 20px; color: #fafafa; margin: 0 3vw; line-height: 20px; border-radius: 10px;}
+#prevMatch > div > div > p:nth-of-type(1) {width: 10vw; height: 20px; color: #fafafa; margin: 0 3vw; line-height: 20px; border-radius: 10px; letter-spacing: 1px;}
 #prevMatch > div > div > p:nth-of-type(2) {width: 8vw; height: 4px; margin: 4px 4vw 0 4vw; font-size: 16px; border-radius: 10vw;}
-#prevMatch > a > p {font-weight: 500; padding: 8px 0 16px 0;}
+#prevMatch > a > p {font-weight: 600; padding: 8px 0 16px 0;}
 
 #standingsHome {width: 90vw; margin-left: 5vw; margin-top: 20px; box-shadow: 0 0 4px 2px #00000020; border-radius: 20px; display: flex; justify-content: center; align-items: center; flex-direction: column;}
 #standingsHome > div {width: 90vw; height: fit-content; margin-top: 16px;}
 #standingsHome > div > img {height: 28px;}
 #standingsHome > table {width: 80vw; vertical-align: middle; margin-top: 8px;}
 #standingsHome > table > thead > tr {height: 36px;}
-#standingsHome > table > thead > tr > th {font-weight: 500; font-size: 12px;}
+#standingsHome > table > thead > tr > th {font-weight: 600; font-size: 12px;}
 #standingsHome > table > tbody > tr {height: 36px;}
 #standingsHome > table > tbody > tr > td {font-size: 12px;}
 #standingsHome > table > tbody > tr > td > img {height: 20px; vertical-align: middle;}
-#standingsHome > table > tbody > tr > td:nth-of-type(1) {width: 10vw; font-family: "Lobster Two"; font-weight: 700; font-style: italic;}
+#standingsHome > table > tbody > tr > td:nth-of-type(1) {width: 10vw;}
 #standingsHome > table > tbody > tr > td:nth-of-type(2) {width: 10vw;}
 #standingsHome > table > tbody > tr > td:nth-of-type(3) {width: 25vw; padding-left: 5vw; text-align: left;}
 #standingsHome > table > tbody > tr > td:nth-of-type(n+4) {width: 15vw;}
-#standingsHome > a > p {font-weight: 500; padding: 8px 0 16px 0;}
+#standingsHome > a > p {font-weight: 600; padding: 8px 0 16px 0;}
 
 /* 선수단 */
 .playerButton {width: 100vw; height: 40px; position: fixed; top: 79px; left: 0; background: #fafafa; z-index: 98;}
 .playerButton > button {width: 30vw; height: 40px; background: #fafafa; border: none; margin: 0; font-size: 16px;}
-.playerButton > button:hover {color: #1512A9; border-bottom: 4px solid #1512A9;}
+.playerButton > button:hover {color: #000060; border-bottom: 4px solid #000060;}
 
-#playerA {margin-top: 180px;}
+#playerA {margin-top: 160px;}
 #playerA > div > p {width: 100vw; font-size: 16px; margin: 40px 0 8px 0;}
-#playerA > div > p > span {font-size: 16px; margin-left: 8px; color: #1512A9;}
-#playerA > div > div {width: 90vw; margin-left: 5vw; display: flex; flex-wrap: wrap; justify-content: center;}
-#playerA > div > div > div {width: 18vw; height: 120px; margin: 8px 2vw; border-radius: 20px; box-shadow: 0 0 4px 2px #00000020; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-end; overflow: hidden;}
-#playerA > div > div > div > img {height: 120px; margin: 8px 12px 0 0; z-index: 90;}
-#playerA > div > div > div > p:nth-of-type(1) {width: 18vw; height: 32px; position: absolute; margin-top: 88px; border-radius: 0 0 20px 20px; color: #fafafa; background: #000000; font-size: 16px; line-height: 32px; z-index: 91;}
-#playerA > div > div > div > p:nth-of-type(2) {margin: 4px 8px 0 0; font-size: 32px; text-align: right; line-height: 1; letter-spacing: -2px; opacity: .2; position: absolute;}
+#playerA > div > p > span {font-size: 16px; margin-left: 8px; color: #000060;}
+#playerA > div > div {width: 90vw; margin-left: 5vw;}
+#playerA > div > div:nth-of-type(2n-1) {display: flex; align-items: center; margin-top: 40px;}
+#playerA > div > div:nth-of-type(2n-1) > p:nth-of-type(1) {width: 45vw; text-align: left; font-size: 20px;}
+#playerA > div > div:nth-of-type(2n-1) > p:nth-of-type(1) > span {margin-left: 8px; color: #000060; font-size: 20px;}
+#playerA > div > div:nth-of-type(2n-1) > p:nth-of-type(n+2) {width: calc(45vw / 6); font-weight: 600;}
+#playerA > div > div:nth-of-type(2n) > div {height: 60px; display: flex; align-items: center; border-bottom: 1px solid #00000020;}
+#playerA > div > div:nth-of-type(2n) > div:nth-of-type(1) {border-top: 1px solid #00000020; margin-top: 20px;}
+#playerA > div > div:nth-of-type(2n) > div > p:nth-of-type(1) {width: 15vw; font-size: 24px; text-align: left; color: #000060;}
+#playerA > div > div:nth-of-type(2n) > div > p:nth-of-type(2) {width: 30vw; font-size: 24px; text-align: left;}
+#playerA > div > div:nth-of-type(2n) > div > p:nth-of-type(n+3) {width: calc(45vw / 6); font-size: 16px; font-weight: 600;}
 
-#playerU18, #playerU15 {margin-top: 180px; display: none;}
+#playerU18, #playerU15 {margin-top: 160px; display: none;}
 
 /* 선수 정보 */
 #playerProfile {width: 100vw; margin-top: 60px;}
 #playerProfile > div:nth-of-type(1) {width: 100vw; height: 20px; padding-top: 40px; background: #fafafa; display: flex; justify-content: center; align-items: center;}
-#playerProfile > div:nth-of-type(1) > p {font-weight: 500;}
+#playerProfile > div:nth-of-type(1) > p {font-weight: 600;}
 #playerProfile > div:nth-of-type(2) {width: 100vw; height: 40px; padding-bottom: 4px; background: #fafafa; display: flex; justify-content: center; align-items: center;}
 #playerProfile > div:nth-of-type(2) > p {font-size: 28px;}
-#playerProfile > div:nth-of-type(2) > p > span {color: #1512A9; font-size: 28px; margin-right: 8px;}
+#playerProfile > div:nth-of-type(2) > p > span {color: #000060; font-size: 28px; margin-right: 8px;}
 #playerProfile > div:nth-of-type(3) {width: 90vw; height: 4px; display: block; background: linear-gradient(90deg, #ffffff00 0%, #00000020 20%, #00000020 80%, #ffffff00 100%); margin: 8px 0 20px 5vw;}
 
 #playerImg {width: 100vw; height: 500px; margin-top: 40px; overflow: hidden; display: flex; justify-content: center;}
@@ -100,40 +104,40 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #playerInfo > div {width: calc(70vw / 3); padding: 16px 0;}
 #playerInfo > div:nth-of-type(1) {margin-left: 5vw;}
 #playerInfo > div:nth-of-type(3) {margin-right: 5vw;}
-#playerInfo > div > p:nth-of-type(1) {font-weight: 500; margin-bottom: 4px;}
+#playerInfo > div > p:nth-of-type(1) {font-weight: 600; margin-bottom: 4px;}
 #playerInfo > div > p:nth-of-type(2) {font-size: 16px;}
 
 #playedSEFC {width: 80vw; margin: 20px 0 20px 10vw; padding: 16px 0; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 20px; box-shadow: 0 0 4px 2px #00000020;}
 #playedSEFC > p:nth-of-type(1) {font-size: 16px;}
-#playedSEFC > p:nth-of-type(2) {font-weight: 500; margin-top: 14px;}
+#playedSEFC > p:nth-of-type(2) {font-weight: 600; margin-top: 14px;}
 #playedSEFC > div {width: 80vw; display: flex; justify-content: center; align-items: center;}
 #playedSEFC > div:nth-of-type(1) {margin: 16px 0 8px 0;}
 #playedSEFC > div > div {width: calc(70vw / 5);}
-#playedSEFC > div > div > p:nth-of-type(1) {font-weight: 500; margin-bottom: 4px;}
+#playedSEFC > div > div > p:nth-of-type(1) {font-weight: 600; margin-bottom: 4px;}
 #playedSEFC > div > div > p:nth-of-type(2) {font-size: 24px;}
 
 #playedSEFCU18 {width: 80vw; margin: 20px 0 20px 10vw; padding: 16px 0; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 20px; box-shadow: 0 0 4px 2px #00000020;}
 #playedSEFCU18 > p:nth-of-type(1) {font-size: 16px;}
-#playedSEFCU18 > p:nth-of-type(2) {font-weight: 500; margin-top: 14px;}
+#playedSEFCU18 > p:nth-of-type(2) {font-weight: 600; margin-top: 14px;}
 #playedSEFCU18 > div {width: 80vw; display: flex; justify-content: center; align-items: center;}
 #playedSEFCU18 > div:nth-of-type(1) {margin: 16px 0 8px 0;}
 #playedSEFCU18 > div > div {width: calc(70vw / 4);}
-#playedSEFCU18 > div > div > p:nth-of-type(1) {font-weight: 500; margin-bottom: 4px;}
+#playedSEFCU18 > div > div > p:nth-of-type(1) {font-weight: 600; margin-bottom: 4px;}
 #playedSEFCU18 > div > div > p:nth-of-type(2) {font-size: 24px;}
 
 #playedSEFCU15 {width: 80vw; margin: 20px 0 20px 10vw; padding: 16px 0; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 20px; box-shadow: 0 0 4px 2px #00000020;}
 #playedSEFCU15 > p:nth-of-type(1) {font-size: 16px;}
-#playedSEFCU15 > p:nth-of-type(2) {font-weight: 500; margin-top: 14px;}
+#playedSEFCU15 > p:nth-of-type(2) {font-weight: 600; margin-top: 14px;}
 #playedSEFCU15 > div {width: 80vw; display: flex; justify-content: center; align-items: center;}
 #playedSEFCU15 > div:nth-of-type(1) {margin: 16px 0 8px 0;}
 #playedSEFCU15 > div > div {width: calc(70vw / 4);}
-#playedSEFCU15 > div > div > p:nth-of-type(1) {font-weight: 500; margin-bottom: 4px;}
+#playedSEFCU15 > div > div > p:nth-of-type(1) {font-weight: 600; margin-bottom: 4px;}
 #playedSEFCU15 > div > div > p:nth-of-type(2) {font-size: 24px;}
 
 #statsBySeason {width: 80vw; margin: 20px 0 20px 10vw; padding: 16px 0; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 20px; box-shadow: 0 0 4px 2px #00000020;}
 #statsBySeason > p {font-size: 16px; margin-bottom: 16px;}
 #statsBySeason > div {width: 80vw; height: fit-content; display: flex; justify-content: center; align-items: center;}
-#statsBySeason > div:nth-of-type(1) > p {width: 10vw; font-weight: 500; margin-bottom: 8px;}
+#statsBySeason > div:nth-of-type(1) > p {width: 10vw; font-weight: 600; margin-bottom: 8px;}
 #statsBySeason > div:nth-of-type(n+2) > p {width: 10vw; font-size: 16px;}
 #statsBySeason > div:nth-of-type(n+3) {padding-top: 8px;}
 
@@ -182,33 +186,33 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 /* 선수 기록 */
 .statsButton {width: 100vw; height: 40px; position: fixed; top: 79px; left: 0; background: #fafafa; z-index: 98;}
 .statsButton > button {width: 30vw; height: 40px; background: #fafafa; border: none; margin: 0; font-size: 16px;}
-.statsButton > button:hover {color: #1512A9; border-bottom: 4px solid #1512A9;}
+.statsButton > button:hover {color: #000060; border-bottom: 4px solid #000060;}
 
 .statsSeason {width: 50vw; padding-left: 10vw; margin-top: 160px; display: flex; align-items: baseline;}
 .statsSeason > p:nth-of-type(1) {font-size: 32px; padding-right: 20px; text-align: left;}
 .statsSeason > p:nth-of-type(n+2) {width: 10vw; font-size: 16px;}
 
 #stats > .stats > table {width: 90vw; margin: 20px 0 0 5vw;}
-#stats > .stats > table > thead > tr > th {height: 40px; font-size: 16px; font-weight: 500;}
+#stats > .stats > table > thead > tr > th {height: 40px; font-size: 16px; font-weight: 600;}
 #stats > .stats > table > tbody > tr {height: 60px;}
 #stats > .stats > table > tbody > tr > td:nth-of-type(1) {width: 40px; display: flex; justify-content: center;}
 #stats > .stats > table > tbody > tr > td:nth-of-type(1) > div {width: 40px; height: 40px; margin-top: 10px; overflow: hidden; border-radius: 50%;}
 #stats > .stats > table > tbody > tr > td:nth-of-type(1) > div > img {width: 40px;}
 #stats > .stats > table > tbody > tr > td:nth-of-type(2) {width: 35vw; padding-left: 8px; font-size: 20px; text-align: left;}
-#stats > .stats > table > tbody > tr > td:nth-of-type(2) > span {color: #1512A9; font-family: "Lobster Two"; font-weight: 700; font-style: italic; margin-right: 8px; font-size: 20px; text-align: left;}
-#stats > .stats > table > tbody > tr > td:nth-of-type(n+3) {width: calc((55vw - 60px)/5); font-size: 16px; font-weight: 500;}
+#stats > .stats > table > tbody > tr > td:nth-of-type(2) > span {color: #000060; margin-right: 8px; font-size: 20px; text-align: left;}
+#stats > .stats > table > tbody > tr > td:nth-of-type(n+3) {width: calc((55vw - 60px)/5); font-size: 16px; font-weight: 600;}
 
 /* 일정 */
 .fixturesButton {width: 100vw; height: 40px; position: fixed; top: 79px; left: 0; background: #fafafa; z-index: 98;}
 .fixturesButton > button {width: 30vw; height: 40px; background: #fafafa; border: none; margin: 0; font-size: 16px;}
-.fixturesButton > button:hover {color: #1512A9; border-bottom: 4px solid #1512A9;}
+.fixturesButton > button:hover {color: #000060; border-bottom: 4px solid #000060;}
 
 .fixturesSeason {width: 80vw; padding: 0 10vw; margin-top: 160px; display: flex; align-items: baseline;}
 .fixturesSeason > p:nth-of-type(1) {font-size: 32px; padding-right: 20px; text-align: left;}
-.fixturesSeason > p:nth-of-type(1) > span {font-size: 16px; margin-left: 8px; font-weight: 500;}
+.fixturesSeason > p:nth-of-type(1) > span {font-size: 16px; margin-left: 8px; font-weight: 600;}
 .fixturesSeason > p:nth-of-type(2) {width: 10vw; font-size: 16px;}
 .fixturesSeason > p:nth-of-type(3) {width: 10vw; font-size: 16px;}
-.fixturesSeason > p:nth-of-type(4) {font-size: 16px; font-weight: 500; padding-left: 20px;}
+.fixturesSeason > p:nth-of-type(4) {font-size: 16px; font-weight: 600; padding-left: 20px;}
 
 .fixtures {width: 90vw; margin-left: 5vw;}
 
@@ -223,21 +227,21 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 .fixtures_ > div:nth-of-type(2) > div:nth-of-type(2n+1) > p {font-size: 16px; margin-top: 8px;}
 .fixtures_ > div:nth-of-type(2) > div:nth-of-type(2) {width: 30vw;}
 .fixtures_ > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1) {font-size: 32px; margin: -8px 0 8px 0;}
-.fixtures_ > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2) {width: fit-content; height: fit-content; padding: 2px 8px; margin: auto; font-size: 12px; font-weight: 500; border: 1px solid #000000; border-radius: 8px;}
+.fixtures_ > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2) {width: fit-content; height: fit-content; padding: 2px 8px; margin: auto; font-size: 12px; font-weight: 600; border: 1px solid #000000; border-radius: 8px;}
 
 #fixturesU18 {display: none;}
 #fixturesU15 {display: none;}
 
 #calendar {width: 90vw; margin-left: 5vw; display: none;}
 #calendar > table {width: 90vw; border-collapse: separate; border-spacing: 8px; table-layout: fixed; margin-top: 32px;}
-#calendar > table > thead > tr > th {font-size: 20px; font-weight: 500;}
+#calendar > table > thead > tr > th {font-size: 20px; font-weight: 600;}
 #calendar > table > thead > tr > th:nth-of-type(1) {color: #f00;}
-#calendar > table > thead > tr > th:nth-of-type(7) {color: #1512A9;}
+#calendar > table > thead > tr > th:nth-of-type(7) {color: #000060;}
 #calendar > table > tbody > tr > td {width: calc(90vw / 7); height: 80px; background: #fafafa; border-radius: 8px; vertical-align: top;}
 #calendar > table > tbody > tr > td > p {font-size: 16px;}
-#calendar > table > tbody > tr > td > p:nth-of-type(1) {padding: 8px 0 4px 0; font-weight: 500;}
+#calendar > table > tbody > tr > td > p:nth-of-type(1) {padding: 8px 0 4px 0; font-weight: 600;}
 #calendar > table > tbody > tr > td:nth-of-type(1) > p {color: #f00;}
-#calendar > table > tbody > tr > td:nth-of-type(7) > p {color: #1512A9;}
+#calendar > table > tbody > tr > td:nth-of-type(7) > p {color: #000060;}
 #calendar > table > tbody > tr > td > div {height: 20px;}
 #calendar > table > tbody > tr > td > div > img {height: 16px; margin: 0 2px;}
 
@@ -253,9 +257,9 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #matchScore > div:nth-of-type(2) > div:nth-of-type(2n+1) > p {font-size: 16px; margin-top: 4px;}
 #matchScore > div:nth-of-type(2) > div:nth-of-type(2) {width: 30vw;}
 #matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1) {font-size: 32px; margin: -8px 0 8px 0;}
-#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2) {width: fit-content; height: fit-content; padding: 2px 8px; margin: auto; font-size: 12px; font-weight: 500; border: 1px solid #000000; border-radius: 8px;}
+#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2) {width: fit-content; height: fit-content; padding: 2px 8px; margin: auto; font-size: 12px; font-weight: 600; border: 1px solid #000000; border-radius: 8px;}
 #matchScore > div:nth-of-type(3) {width: 70vw; display: flex; justify-content: center; align-items: flex-start;}
-#matchScore > div:nth-of-type(3) > p {width: 20vw; height: fit-content; font-weight: 500; margin-top: 8px; line-height: 1.4; white-space: nowrap;}
+#matchScore > div:nth-of-type(3) > p {width: 20vw; height: fit-content; font-weight: 600; margin-top: 8px; line-height: 1.4; white-space: nowrap;}
 #matchScore > div:nth-of-type(3) > p:nth-of-type(1) {margin-right: 15vw;}
 #matchScore > div:nth-of-type(3) > p:nth-of-type(2) {margin-left: 15vw;}
 
@@ -264,15 +268,15 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #highlight {width: 74vw; padding: 1vw 3vw; margin-left: 10vw; border-radius: 20px; box-shadow: #00000020 0px 0px 4px 2px;}
 #highlight > a {display: flex; align-items: center; justify-content: center;}
 #highlight > a > p {width: 62vw; margin-left: 2vw; text-align: left; font-size: 16px;}
-#highlight > a > p > span {margin-left: 2vw; font-weight: 500;}
+#highlight > a > p > span {margin-left: 2vw; font-weight: 600;}
 #highlight > a > img {width: 8vw; padding: 1vw; margin-right: 2vw; border-radius: 50%;}
 
 #potm > p {font-size: 16px; padding: 2vw; text-align: left;}
 #potm > div {display: flex; align-items: center;}
 #potm > div > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: 4px solid #fafafa;}
 #potm > div > div > img {width: 10vw;}
-#potm > div > p:nth-of-type(1) {font-size: 16px; font-weight: 500; margin-top: 4px;}
-#potm > div > p:nth-of-type(1) > span {font-size: 16px; color: #1512A9; margin: 0 1.5vw 0 3vw; font-family: "Lobster Two"; font-weight: 700; font-style: italic;}
+#potm > div > p:nth-of-type(1) {font-size: 16px; font-weight: 600; margin-top: 4px;}
+#potm > div > p:nth-of-type(1) > span {font-size: 16px; color: #000060; margin: 0 1.5vw 0 3vw;}
 #potm > div > p:nth-of-type(2) {width: 10vw; padding: 4px 0; font-size: 12px; border-radius: 50vw; color: #fafafa; position: absolute; right: 15vw;}
 
 #matchLineup {display: none; margin-top: -4px; padding-bottom: 20px;}
@@ -287,8 +291,8 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #startingXI > table > tbody > tr > td {height: 27.5vw; display: flex; flex-direction: column; justify-content: center; align-items: center;}
 #startingXI > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: 4px solid #fafafa;}
 #startingXI > table > tbody > tr > td > div > img {width: 10vw;}
-#startingXI > table > tbody > tr > td > p:nth-of-type(1) {font-weight: 500; margin-top: 4px;}
-#startingXI > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(1) {color: #1512A9; margin-right: 4px; font-family: "Lobster Two"; font-weight: 700; font-style: italic;}
+#startingXI > table > tbody > tr > td > p:nth-of-type(1) {font-weight: 600; margin-top: 4px;}
+#startingXI > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(1) {color: #000060; margin-right: 4px;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) {display: inline-block;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) > img {height: 16px; vertical-align: middle; margin: 0 0 2px -8px;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1) {margin-left: 2px;}
@@ -300,8 +304,8 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #startingXI > div > table > tbody > tr > td {height: 60px; display: flex; flex-direction: row; align-items: center;}
 #startingXI > div > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: 4px solid #fafafa;}
 #startingXI > div > table > tbody > tr > td > div > img {width: 10vw;}
-#startingXI > div > table > tbody > tr > td > p:nth-of-type(1) {font-size: 16px; font-weight: 500; margin-top: 4px;}
-#startingXI > div > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(1) {font-size: 16px; color: #1512A9; margin: 0 1.5vw 0 3vw; font-family: "Lobster Two"; font-weight: 700; font-style: italic;}
+#startingXI > div > table > tbody > tr > td > p:nth-of-type(1) {font-size: 16px; font-weight: 600; margin-top: 4px;}
+#startingXI > div > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(1) {font-size: 16px; color: #000060; margin: 0 1.5vw 0 3vw;}
 #startingXI > div > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) > img {height: 16px; vertical-align: middle; margin: 0 0 2px -8px;}
 #startingXI > div > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1) {margin-left: 2px;}
 #startingXI > div > table > tbody > tr > td > p:nth-of-type(2) {width: 10vw; padding: 4px 0; font-size: 12px; border-radius: 50vw; color: #fafafa; background: #000000; position: absolute; right: 15vw;}
@@ -313,8 +317,8 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #sub > table > tbody > tr > td {height: 60px; display: flex; flex-direction: row; align-items: center;}
 #sub > table > tbody > tr > td > div {width: 10vw; height: 10vw; overflow: hidden; border-radius: 50vw; background: #fafafa; border: 4px solid #fafafa;}
 #sub > table > tbody > tr > td > div > img {width: 10vw;}
-#sub > table > tbody > tr > td > p:nth-of-type(1) {font-size: 16px; font-weight: 500; margin-top: 4px;}
-#sub > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(1) {font-size: 16px; color: #1512A9; margin: 0 1.5vw 0 3vw; font-family: "Lobster Two"; font-weight: 700; font-style: italic;}
+#sub > table > tbody > tr > td > p:nth-of-type(1) {font-size: 16px; font-weight: 600; margin-top: 4px;}
+#sub > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(1) {font-size: 16px; color: #000060; margin: 0 1.5vw 0 3vw;}
 #sub > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) > img {height: 16px; vertical-align: middle; margin: 0 0 2px -8px;}
 #sub > table > tbody > tr > td > p:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1) {margin-left: 2px;}
 #sub > table > tbody > tr > td > p:nth-of-type(2) {width: 10vw; padding: 4px 0; font-size: 12px; border-radius: 50vw; color: #fafafa; background: #000000; position: absolute; right: 15vw;}
@@ -324,7 +328,7 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #matchStat > table > tbody > tr {height: 48px; display: flex; align-items: center; box-shadow: 0 0 4px 2px #00000020; border-radius: 20px; margin-top: 20px;}
 #matchStat > table > tbody > tr > td:nth-of-type(2) {width: 25vw;}
 #matchStat > table > tbody > tr > td:nth-of-type(2n+1) {width: 27.5vw; display: flex; align-items: center; justify-content: center;}
-#matchStat > table > tbody > tr > td:nth-of-type(2n+1) > p {width: 7.5vw; height: 7.5vw; border-radius: 20px; font-weight: 500; display: flex; align-items: center; justify-content: center;}
+#matchStat > table > tbody > tr > td:nth-of-type(2n+1) > p {width: 7.5vw; height: 7.5vw; border-radius: 20px; font-weight: 600; display: flex; align-items: center; justify-content: center;}
 #matchStat > table > tbody > tr:nth-of-type(1) {height: fit-content; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 16px 0; margin-top: 0;}
 #matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) {width: 70vw; font-weight: 900; padding-bottom: 20px;}
 #matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) {width: 70vw; display: flex;}
@@ -333,9 +337,9 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 
 #matchH2H {display: none; flex-direction: column; align-items: center; padding-bottom: 40px;}
 #matchH2H > div:nth-of-type(2) {width: 80vw; display: flex; border-radius: 8px; overflow: hidden;}
-#matchH2H > div:nth-of-type(2) > p {font-size: 16px; font-weight: 500; color: #fafafa; display: flex; align-items: center; justify-content: center;}
+#matchH2H > div:nth-of-type(2) > p {font-size: 16px; font-weight: 600; color: #fafafa; display: flex; align-items: center; justify-content: center;}
 #matchH2H > div:nth-of-type(4) {width: 80vw; display: flex; border-radius: 8px; overflow: hidden; margin-top: 10vw;}
-#matchH2H > div:nth-of-type(4) > p {font-size: 16px; font-weight: 500; color: #fafafa; display: flex; align-items: center; justify-content: center;}
+#matchH2H > div:nth-of-type(4) > p {font-size: 16px; font-weight: 600; color: #fafafa; display: flex; align-items: center; justify-content: center;}
 
 #expectedResult {width: 70vw; padding: 16px 5vw; margin: 0 10vw 40px 10vw; border-radius: 20px; box-shadow: 0 0 4px 2px #00000020;}
 #expectedResult > div:nth-of-type(1) {font-size: 14px; margin-bottom: 8px;}
@@ -346,11 +350,11 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #expectedResult > div:nth-of-type(2) > div > div > img {height: 32px;}
 #expectedResult > div:nth-of-type(2) > p {width: 30vw; font-size: 32px;}
 #expectedResult > div:nth-of-type(3) {width: 70vw; display: flex; justify-content: center; align-items: flex-start;}
-#expectedResult > div:nth-of-type(3) > p {width: 20vw; height: fit-content; font-weight: 500; margin-top: 8px; line-height: 1.4; white-space: nowrap;}
+#expectedResult > div:nth-of-type(3) > p {width: 20vw; height: fit-content; font-weight: 600; margin-top: 8px; line-height: 1.4; white-space: nowrap;}
 #expectedResult > div:nth-of-type(3) > p:nth-of-type(1) {margin-right: 5vw;}
 #expectedResult > div:nth-of-type(3) > p:nth-of-type(3) {margin-left: 5vw;}
 
-#help {opacity: 0; width: calc(90vw - 16px); color: #fafafa; background: #000000aa; padding: 12px 8px; line-height: 1.3; font-weight: 500; border-radius: 3vw; position: fixed; left: 5vw; bottom: 5vw; pointer-events: none;}
+#help {opacity: 0; width: calc(90vw - 16px); color: #fafafa; background: #000000aa; padding: 12px 8px; line-height: 1.3; font-weight: 600; border-radius: 3vw; position: fixed; left: 5vw; bottom: 5vw; pointer-events: none;}
 #recentMatch {width: 80vw; box-shadow: 0 0 4px 2px #00000020; border-radius: 20px; margin-top: 40px;}
 #recentMatch > div {width: 80vw; height: 60px; border-bottom: 2px solid #00000020; padding: 4px 0 8px 0;}
 #recentMatch > div > div:nth-of-type(1) {width: 80vw; height: 40px; display: flex; align-items: center;}
@@ -362,29 +366,28 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #recentMatch > div > div:nth-of-type(1) > div:nth-of-type(3) {width: 30vw; display: flex; align-items: center; justify-content: flex-start;}
 #recentMatch > div > div:nth-of-type(1) > div:nth-of-type(3) > img {height: 20px;}
 #recentMatch > div > div:nth-of-type(2) {width: 80vw; height: 20px;}
-#recentMatch > div > div:nth-of-type(2) > p {width: fit-content; height: fit-content; padding: 2px 8px; margin: auto; font-size: 12px; font-weight: 500; border: 1px solid #000000; border-radius: 8px;}
+#recentMatch > div > div:nth-of-type(2) > p {width: fit-content; height: fit-content; padding: 2px 8px; margin: auto; font-size: 12px; font-weight: 600; border: 1px solid #000000; border-radius: 8px;}
 
 #viewAll {height: 20px !important; display: flex; justify-content: center; align-items: center;}
 
 /* 순위 */
 .standingsButton {width: 100vw; height: 40px; position: fixed; top: 79px; left: 0; background: #fafafa; z-index: 98;}
 .standingsButton > button {width: 30vw; height: 40px; background: #fafafa; border: none; margin: 0; font-size: 16px;}
-.standingsButton > button:hover {color: #1512A9; border-bottom: 4px solid #1512A9;}
+.standingsButton > button:hover {color: #000060; border-bottom: 4px solid #000060;}
 
 .standingsSeason {width: 80vw; padding: 0 10vw; margin-top: 160px; display: flex; align-items: baseline;}
 .standingsSeason > p:nth-of-type(1) {font-size: 32px; padding-right: 20px; text-align: left;}
-.standingsSeason > p:nth-of-type(2) {width: 20vw; font-size: 16px; font-weight: 500;}
+.standingsSeason > p:nth-of-type(2) {width: 20vw; font-size: 16px; font-weight: 600;}
 .standingsSeason > p:nth-of-type(n+3) {width: 10vw; font-size: 16px;}
 
 #standingsA {margin-top: 20px;}
 #standingsA > div {width: 90vw; margin: 0 0 40px 5vw;}
 #standingsA > div > table {width: 90vw; vertical-align: middle;}
 #standingsA > div > table > thead > tr {height: 40px;}
-#standingsA > div > table > thead > tr > th {font-weight: 500; font-size: 12px;}
+#standingsA > div > table > thead > tr > th {font-weight: 600; font-size: 12px;}
 #standingsA > div > table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+6) {display: none;}
 #standingsA > div > table > thead > tr > th:nth-of-type(n+8) {display: none;}
 #standingsA > div > table > tbody > tr > td {width: 10vw; font-size: 16px; height: 40px;}
-#standingsA > div > table > tbody > tr > td:nth-of-type(1) {font-family: "Lobster Two"; font-weight: 700; font-style: italic;}
 #standingsA > div > table > tbody > tr > td:nth-of-type(3) {width: 45vw; padding-left: 5vw; text-align: left; display: table-cell;}
 #standingsA > div > table > tbody > tr > td:nth-of-type(n+5):nth-of-type(-n+7) {display: none;}
 #standingsA > div > table > tbody > tr > td:nth-of-type(n+9) {display: none;}
@@ -392,14 +395,13 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 
 #standingsU18 {margin-top: 20px;}
 #standingsU18 > div {width: 90vw; margin: 0 0 40px 5vw;}
-#standingsU18 > div > p {font-size: 16px; font-weight: 500; margin: 32px 0 8px 0;}
+#standingsU18 > div > p {font-size: 16px; font-weight: 600; margin: 32px 0 8px 0;}
 #standingsU18 > div > table {width: 90vw; vertical-align: middle;}
 #standingsU18 > div > table > thead > tr {height: 40px;}
-#standingsU18 > div > table > thead > tr > th {font-weight: 500; font-size: 12px;}
+#standingsU18 > div > table > thead > tr > th {font-weight: 600; font-size: 12px;}
 #standingsU18 > div > table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+6) {display: none;}
 #standingsU18 > div > table > thead > tr > th:nth-of-type(n+8) {display: none;}
 #standingsU18 > div > table > tbody > tr > td {width: 10vw; font-size: 16px; height: 40px;}
-#standingsU18 > div > table > tbody > tr > td:nth-of-type(1) {font-family: "Lobster Two"; font-weight: 700; font-style: italic;}
 #standingsU18 > div > table > tbody > tr > td:nth-of-type(3) {width: 45vw; padding-left: 5vw; text-align: left; display: table-cell;}
 #standingsU18 > div > table > tbody > tr > td:nth-of-type(n+5):nth-of-type(-n+7) {display: none;}
 #standingsU18 > div > table > tbody > tr > td:nth-of-type(n+9) {display: none;}
@@ -409,17 +411,16 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #standingsU15 > div {width: 90vw; margin: 0 0 40px 5vw;}
 #standingsU15 > div > table {width: 90vw; vertical-align: middle;}
 #standingsU15 > div > table > thead > tr {height: 40px;}
-#standingsU15 > div > table > thead > tr > th {font-weight: 500; font-size: 12px;}
+#standingsU15 > div > table > thead > tr > th {font-weight: 600; font-size: 12px;}
 #standingsU15 > div > table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+6) {display: none;}
 #standingsU15 > div > table > thead > tr > th:nth-of-type(n+8) {display: none;}
 #standingsU15 > div > table > tbody > tr > td {width: 10vw; font-size: 16px; height: 40px;}
-#standingsU15 > div > table > tbody > tr > td:nth-of-type(1) {font-family: "Lobster Two"; font-weight: 700; font-style: italic;}
 #standingsU15 > div > table > tbody > tr > td:nth-of-type(3) {width: 45vw; padding-left: 5vw; text-align: left; display: table-cell;}
 #standingsU15 > div > table > tbody > tr > td:nth-of-type(n+5):nth-of-type(-n+7) {display: none;}
 #standingsU15 > div > table > tbody > tr > td:nth-of-type(n+9) {display: none;}
 #standingsU15 > div > table > tbody > tr > td > img {height: 24px;}
 
-tr.sefc {background: #000000;}
+tr.sefc {background: #000060;}
 tr.sefc > td {color: #fafafa;}
 tr.sefc > td:nth-of-type(1) {border-radius: 20px 0 0 20px;}
 tr.sefc > td:nth-of-type(8) {border-radius: 0 20px 20px 0;}

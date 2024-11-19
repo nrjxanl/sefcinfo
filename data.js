@@ -100,7 +100,7 @@ $(document).ready(function () {
 
                     // POTM 여부
                     if (dataList[pos][i][1].replace(/[^p]/g, "") == "p") {
-                        $("#" + dataList[pos][i][0] + " > p:nth-of-type(2)").css("background", "#1512A9")
+                        $("#" + dataList[pos][i][0] + " > p:nth-of-type(2)").css("background", "#000060")
                         $("#potm").html("<p>경기 최고의 선수</p><div><div><img src='./files/" + dataList[pos][i][0] + ".png'></div><p><span>" + playerNumber[year][dataList[pos][i][0]][1] + "</span>" + playerNumber[year][dataList[pos][i][0]][0].replace(/[A-Z,0-9]/g, "") + "</p><p class='potm'>" + dataList[pos][i][1].replace(/[a-z]/g, "") + "</p></div>")
                         href = dataList[pos][i][0]
                     }
@@ -173,7 +173,7 @@ $(document).ready(function () {
 
                     // POTM 여부
                     if (dataList["SUB"][i][1].replace(/[^p]/g, "") == "p") {
-                        $("#" + dataList["SUB"][i][0] + " > p:nth-of-type(2)").css("background", "#1512A9")
+                        $("#" + dataList["SUB"][i][0] + " > p:nth-of-type(2)").css("background", "#000060")
                         $("#potm").html("<p>경기 최고의 선수</p><div><div><img src='./files/" + dataList["SUB"][i][0] + ".png'></div><p><span>" + playerNumber[year][dataList["SUB"][i][0]][1] + "</span>" + playerNumber[year][dataList["SUB"][i][0]][0].replace(/[A-Z,0-9]/g, "") + "</p><p class='potm'>" + dataList["SUB"][i][1].replace(/[a-z]/g, "") + "</p></div>")
                         href = dataList["SUB"][i][0]
                     }
@@ -311,7 +311,7 @@ $(document).ready(function () {
 
                     // POTM 여부
                     if (dataList["SUB"][i][1].replace(/[^p]/g, "") == "p") {
-                        $("#" + dataList["SUB"][i][0] + " > p:nth-of-type(2)").css("background", "#1512A9")
+                        $("#" + dataList["SUB"][i][0] + " > p:nth-of-type(2)").css("background", "#000060")
                         $("#potm").html("<p>경기 최고의 선수</p><div><div><img src='./files/" + dataList["SUB"][i][0] + ".png'></div><p><span>" + playerNumber[year][dataList["SUB"][i][0]][1] + "</span>" + playerNumber[year][dataList["SUB"][i][0]][0].replace(/[A-Z,0-9]/g, "") + "</p><p class='potm'>" + dataList["SUB"][i][1].replace(/[a-z]/g, "") + "</p></div>")
                         href = dataList["SUB"][i][0]
                     }
@@ -697,7 +697,7 @@ $(document).ready(function () {
                 $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > div > img").attr("src", "./files/" + dataA[prev[i]]["away"][1] + "_s.png")
 
                 if (dataA[prev[i]]["homeScore"] > dataA[prev[i]]["awayScore"]) {
-                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#1512A9")
+                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#000060")
                 } else if (dataA[prev[i]]["homeScore"] == dataA[prev[i]]["awayScore"]) {
                     $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#808080")
                 } else {
@@ -707,7 +707,7 @@ $(document).ready(function () {
                 $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > div > img").attr("src", "./files/" + dataA[prev[i]]["home"][1] + "_s.png")
 
                 if (dataA[prev[i]]["homeScore"] < dataA[prev[i]]["awayScore"]) {
-                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#1512A9")
+                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#000060")
                 } else if (dataA[prev[i]]["homeScore"] == dataA[prev[i]]["awayScore"]) {
                     $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#808080")
                 } else {
@@ -752,7 +752,7 @@ $(document).ready(function () {
         })
         playerA_GK = playerA_GK.sort((a, b) => a[2] - b[2])
         for (i = 0; i < playerA_GK.length; i++) {
-            $("#gkList").append("<div class='" + playerA_GK[i][0] + "'><img src='./files/" + playerA_GK[i][0] + ".png'><p>" + playerA_GK[i][1].replace(/[0-9]/g, "") + "</p><p>" + playerA_GK[i][2] + "</p></div>")
+            $("#gkList").append("<div class='" + playerA_GK[i][0] + "'><p>" + playerA_GK[i][2] + "</p><p>" + playerA_GK[i][1].replace(/[0-9]/g, "") + "</p><p>0</p><p>0</p><p>0</p><p>0</p><p>0</p><p>0</p></div>")
         }
 
         playerA_DF = playerAList.filter((item) => {
@@ -760,7 +760,7 @@ $(document).ready(function () {
         })
         playerA_DF = playerA_DF.sort((a, b) => a[2] - b[2])
         for (i = 0; i < playerA_DF.length; i++) {
-            $("#dfList").append("<div class='" + playerA_DF[i][0] + "'><img src='./files/" + playerA_DF[i][0] + ".png'><p>" + playerA_DF[i][1].replace(/[0-9]/g, "") + "</p><p>" + playerA_DF[i][2] + "</p></div>")
+            $("#dfList").append("<div class='" + playerA_DF[i][0] + "'><p>" + playerA_DF[i][2] + "</p><p>" + playerA_DF[i][1].replace(/[0-9]/g, "") + "</p><p>0</p><p>0</p><p>0</p><p>0</p><p>0</p><p>0</p></div>")
         }
 
         playerA_MF = playerAList.filter((item) => {
@@ -768,7 +768,7 @@ $(document).ready(function () {
         })
         playerA_MF = playerA_MF.sort((a, b) => a[2] - b[2])
         for (i = 0; i < playerA_MF.length; i++) {
-            $("#mfList").append("<div class='" + playerA_MF[i][0] + "'><img src='./files/" + playerA_MF[i][0] + ".png'><p>" + playerA_MF[i][1].replace(/[0-9]/g, "") + "</p><p>" + playerA_MF[i][2] + "</p></div>")
+            $("#mfList").append("<div class='" + playerA_MF[i][0] + "'><p>" + playerA_MF[i][2] + "</p><p>" + playerA_MF[i][1].replace(/[0-9]/g, "") + "</p><p>0</p><p>0</p><p>0</p><p>0</p><p>0</p><p>0</p></div>")
         }
 
         playerA_FW = playerAList.filter((item) => {
@@ -776,13 +776,33 @@ $(document).ready(function () {
         })
         playerA_FW = playerA_FW.sort((a, b) => a[2] - b[2])
         for (i = 0; i < playerA_FW.length; i++) {
-            $("#fwList").append("<div class='" + playerA_FW[i][0] + "'><img src='./files/" + playerA_FW[i][0] + ".png'><p>" + playerA_FW[i][1].replace(/[0-9]/g, "") + "</p><p>" + playerA_FW[i][2] + "</p></div>")
+            $("#fwList").append("<div class='" + playerA_FW[i][0] + "'><p>" + playerA_FW[i][2] + "</p><p>" + playerA_FW[i][1].replace(/[0-9]/g, "") + "</p><p>0</p><p>0</p><p>0</p><p>0</p><p>0</p><p>0</p></div>")
         }
 
         // 클릭 시 선수 세부 정보 창으로 이동
         $("#playerA > div > div > div").each(function () {
             $(this).click(function () {
                 window.location.href = "./player?" + $(this).attr("class")
+            })
+        })
+
+        // 선수별 올 시즌 스탯 삽입
+        $(document).ready(function () {
+            pos = ["GK", "DF", "MF", "FW", "SUB"]
+            for (x = 0; x < 5; x++) {
+                for (i = Object.keys(dataA).length - 1; i > Object.keys(dataA).length - Object.keys(dataA).filter(key => key.startsWith(new Date().getFullYear())).length - 1; i--) {
+                    for (j = 0; j < Object.keys(dataA[Object.keys(dataA)[i]][pos[x]]).length; j++) {
+                        $("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(3)").text(Number($("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(3)").text()) + 1)
+                        $("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(4)").text(Number($("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(4)").text()) + dataA[Object.keys(dataA)[i]][pos[x]][j][1].replace(/[^g]/g, "").length)
+                        $("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(5)").text(Number($("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(5)").text()) + dataA[Object.keys(dataA)[i]][pos[x]][j][1].replace(/[^a]/g, "").length)
+                        $("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(7)").text(Number($("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(7)").text()) + dataA[Object.keys(dataA)[i]][pos[x]][j][1].replace(/[^y]/g, "").length)
+                        $("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(8)").text(Number($("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(8)").text()) + dataA[Object.keys(dataA)[i]][pos[x]][j][1].replace(/[^r]/g, "").length)
+                    }
+                }
+            }
+
+            $("#playerA > div > div > div").each(function () {
+                $(this).find("p:nth-of-type(6)").text(Number($(this).find("p:nth-of-type(4)").text()) + Number($(this).find("p:nth-of-type(5)").text()))
             })
         })
     }
@@ -1280,7 +1300,7 @@ function fixtures() {
             
             if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["home"][0] == "서울E") {
                 if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") > data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
-                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css("border", "1px solid #1512A9")
+                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css("border", "1px solid #000060")
                 } else if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") == data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "") && data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"] !== "") {
                     $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css("border", "1px solid #808080")
                 } else if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") < data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
@@ -1288,7 +1308,7 @@ function fixtures() {
                 }
             } else if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["away"][0] == "서울E") {
                 if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") < data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
-                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css("border", "1px solid #1512A9")
+                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css("border", "1px solid #000060")
                 } else if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") == data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "") && data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"] !== "") {
                     $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css("border", "1px solid #808080")
                 } else if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") > data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
@@ -1350,9 +1370,9 @@ function fixtures() {
             // 달력에 일정 삽입
             if (status_ == "A" && Object.keys(Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")).length !== 0) { // A팀
                 if (dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["homeScore"].length !== 0) {
-                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["home"][1] + "_s.png'><img src='./files/" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["away"][1] + "_s.png'></div><p>" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["homeScore"] + ":" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["awayScore"] + "</p>").css("background", "#1512A9")
+                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["home"][1] + "_s.png'><img src='./files/" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["away"][1] + "_s.png'></div><p>" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["homeScore"] + ":" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["awayScore"] + "</p>").css("background", "#000060")
                 } else {
-                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["home"][1] + "_s.png'><img src='./files/" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["away"][1] + "_s.png'></div>").css("background", "#1512A9")
+                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["home"][1] + "_s.png'><img src='./files/" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["away"][1] + "_s.png'></div>").css("background", "#000060")
                 }
 
                 $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ") > p").css("color", "#fafafa")
@@ -1362,9 +1382,9 @@ function fixtures() {
 
             if (status_ == "U18" && Object.keys(Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")).length !== 0) { // U18
                 if (dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["homeScore"].length !== 0) {
-                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["home"][1] + "_s.png'><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["away"][1] + "_s.png'></div><p>" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["homeScore"] + ":" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["awayScore"] + "</p>").css("background", "#1512A9")
+                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["home"][1] + "_s.png'><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["away"][1] + "_s.png'></div><p>" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["homeScore"] + ":" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["awayScore"] + "</p>").css("background", "#000060")
                 } else {
-                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["home"][1] + "_s.png'><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["away"][1] + "_s.png'></div>").css("background", "#1512A9")
+                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["home"][1] + "_s.png'><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["away"][1] + "_s.png'></div>").css("background", "#000060")
                 }
 
                 $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ") > p").css("color", "#fafafa")
@@ -1374,9 +1394,9 @@ function fixtures() {
 
             if (status_ == "U15" && Object.keys(Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")).length !== 0) { // U15
                 if (dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["homeScore"].length !== 0) {
-                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["home"][1] + "_s.png'><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["away"][1] + "_s.png'></div><p>" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["homeScore"] + ":" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["awayScore"] + "</p>").css("background", "#1512A9")
+                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["home"][1] + "_s.png'><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["away"][1] + "_s.png'></div><p>" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["homeScore"] + ":" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["awayScore"] + "</p>").css("background", "#000060")
                 } else {
-                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["home"][1] + "_s.png'><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["away"][1] + "_s.png'></div>").css("background", "#1512A9")
+                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["home"][1] + "_s.png'><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["away"][1] + "_s.png'></div>").css("background", "#000060")
                 }
 
                 $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ") > p").css("color", "#fafafa")
@@ -1957,7 +1977,7 @@ function matchH2H() {
                     $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(3) > img").attr("src", "./files/" + opp + "_s.png")
 
                     if (data[h2hList[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") > data[h2hList[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
-                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css("border", "1px solid #1512A9")
+                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css("border", "1px solid #000060")
                     } else if (data[h2hList[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") == data[h2hList[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "") && data[h2hList[i]]["homeScore"] !== "") {
                         $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css("border", "1px solid #808080")
                     } else if (data[h2hList[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") < data[h2hList[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
@@ -1972,7 +1992,7 @@ function matchH2H() {
                     $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(3) > img").attr("src", "./files/seouleland_s.png")
 
                     if (data[h2hList[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") < data[h2hList[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
-                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css("border", "1px solid #1512A9")
+                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css("border", "1px solid #000060")
                     } else if (data[h2hList[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") == data[h2hList[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "") && data[h2hList[i]]["homeScore"] !== "") {
                         $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css("border", "1px solid #808080")
                     } else if (data[h2hList[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") > data[h2hList[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
@@ -2085,7 +2105,7 @@ function matchH2H() {
 
     } else {
         if (!$("#matchH2H > p").length) {
-            $("#matchH2H").append("<p style='font-size: 16px; font-weight: 500;'>아직 맞대결 기록이 없습니다.</p>")
+            $("#matchH2H").append("<p style='font-size: 16px; font-weight: 600;'>아직 맞대결 기록이 없습니다.</p>")
         }
     }
 }
