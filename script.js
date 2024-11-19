@@ -9,12 +9,12 @@ $(document).ready(function() {
 
     // 화면 너비 300px 이하일 때 경고
     if ($(window).width() < 300) {
-        $("body").append("<div style='width: 80vw; height: 65px; padding: 0 10vw; background: #fafafa; position: fixed; bottom: 0; left: 0; font-size: 14px; font-weight: 600; z-index: 300; display: flex; align-items: center; justify-content: center;'>기기의 화면 크기가 작아 페이지가 정상적으로 보이지 않을 수 있습니다.</div>")
+        $("body").append("<div style='width: 80vw; height: 65px; padding: 0 10vw; background: #fafafa; position: fixed; bottom: 0; left: 0; font-size: 14px; font-weight: 300; z-index: 300; display: flex; align-items: center; justify-content: center;'>기기의 화면 크기가 작아 페이지가 정상적으로 보이지 않을 수 있습니다.</div>")
     }
 
     // 화면 너비 768px~1023px일 때 경고
     if ($(window).width() >= 768 && $(window).width() < 1023) {
-        $("body").append("<div style='width: 80vw; height: 65px; padding: 0 10vw; background: #fafafa; position: fixed; bottom: 0; left: 0; font-size: 14px; font-weight: 600; z-index: 300; display: flex; align-items: center; justify-content: center;'>페이지가 아직 이 기기를 완벽히 지원하지 않아 페이지가 정상적으로 보이지 않을 수 있습니다.</div>")
+        $("body").append("<div style='width: 80vw; height: 65px; padding: 0 10vw; background: #fafafa; position: fixed; bottom: 0; left: 0; font-size: 14px; font-weight: 300; z-index: 300; display: flex; align-items: center; justify-content: center;'>페이지가 아직 이 기기를 완벽히 지원하지 않아 페이지가 정상적으로 보이지 않을 수 있습니다.</div>")
     }
 
     // A팀 선수단 불러오기
@@ -71,13 +71,13 @@ $("#menu > div:nth-of-type(4)").click(function() {
 
 // 메뉴 내 현재 페이지 이름 강조
 if ($(".playerButton").length || $("#playerInfo").length) {
-    $("#menu > div:nth-of-type(1)").css("background", "#00006010")
+    $("#menu > div:nth-of-type(1)").css({"background": "#000060", "color": "#fafafa"})
 } else if ($(".fixturesButton").length || $("#matchScore").length) {
-    $("#menu > div:nth-of-type(2)").css("background", "#00006010")
+    $("#menu > div:nth-of-type(2)").css({"background": "#000060", "color": "#fafafa"})
 } else if ($(".statsButton").length) {
-    $("#menu > div:nth-of-type(3)").css("background", "#00006010")
+    $("#menu > div:nth-of-type(3)").css({"background": "#000060", "color": "#fafafa"})
 } else if ($(".standingsButton").length) {
-    $("#menu > div:nth-of-type(4)").css("background", "#00006010")
+    $("#menu > div:nth-of-type(4)").css({"background": "#000060", "color": "#fafafa"})
 }
 
 // 선수단 창 전환
