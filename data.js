@@ -516,10 +516,10 @@ $(document).ready(function () {
             table.children("tbody").append(row)
         })
 
-        $("#stats > .stats > table > thead > tr > th").css("font-weight", "500")
-        $("#stats > .stats > table > tbody > tr > td:nth-of-type(n+3)").css("font-weight", "500")
+        $("#stats > .stats > table > thead > tr > th").css("font-weight", "300")
+        $("#stats > .stats > table > tbody > tr > td:nth-of-type(n+3)").css("font-weight", "300")
         $("#stats > .stats > table > thead > tr > th:nth-of-type(" + columnIndex + ")").css("font-weight", "900")
-        $("#stats > .stats > table > tbody > tr > td:nth-of-type(" + (columnIndex + 1) + ")").css("font-weight", "900")
+        $("#stats > .stats > table > tbody > tr > td:nth-of-type(" + columnIndex + ")").css("font-weight", "900")
     })
 
     // 함수 실행
@@ -835,6 +835,12 @@ $(document).ready(function () {
         rc = {
             [2024]: 0, [2023]: 0, [2022]: 0, [2021]: 0, [2020]: 0, [2019]: 0, [2018]: 0, [2017]: 0, [2016]: 0, [2015]: 0
         }
+        rate = {
+            [2024]: 0, [2023]: 0, [2022]: 0, [2021]: 0, [2020]: 0, [2019]: 0, [2018]: 0, [2017]: 0, [2016]: 0, [2015]: 0
+        }
+        exc = {
+            [2024]: 0, [2023]: 0, [2022]: 0, [2021]: 0, [2020]: 0, [2019]: 0, [2018]: 0, [2017]: 0, [2016]: 0, [2015]: 0
+        }
 
         function playedMatch() {
             played[year] ++
@@ -842,6 +848,12 @@ $(document).ready(function () {
             assist[year] += stat.replace(/[^a]/g, "").length
             yc[year] += stat.replace(/[^y]/g, "").length
             rc[year] += stat.replace(/[^r]/g, "").length
+
+            if (stat.replace(/[a-z]/g, "") !== "-") {
+                rate[year] = Number((rate[year] + Number(stat.replace(/[a-z]/g, ""))).toFixed(1))
+            } else {
+                exc[year] ++
+            }
 
             if (status_ == "A") {
                 $("#playedMatch > div").prepend("<div class='" + Object.keys(data)[i] + "'><p>" + Object.values(played).reduce(function (a, b) { return a + b }, 0) + "</p><p>" + opp + "</p><p>" + Object.keys(data)[i].substring(4, 6) + "." + Object.keys(data)[i].substring(6, 8) + "." + "</p><p>" + pos + "</p><p></p><p>" + data[Object.keys(data)[i]][pos][j][1].replace(/[g|a|y|r|o|p]/g, "") + "</p></div>")
@@ -851,24 +863,23 @@ $(document).ready(function () {
                 $("#playedSEFC > div > div:nth-of-type(3) > p:nth-of-type(2)").text(Object.values(assist).reduce(function (a, b) { return a + b }, 0))
                 $("#playedSEFC > div > div:nth-of-type(4) > p:nth-of-type(2)").text(Object.values(yc).reduce(function (a, b) { return a + b }, 0))
                 $("#playedSEFC > div > div:nth-of-type(5) > p:nth-of-type(2)").text(Object.values(rc).reduce(function (a, b) { return a + b }, 0))
+                $("#playedSEFC > div > div:nth-of-type(6) > p:nth-of-type(2)").text((Object.values(rate).reduce(function (a, b) { return a + b }, 0) / (Object.values(played).reduce(function (a, b) { return a + b }, 0) - Object.values(exc).reduce(function (a, b) { return a + b }, 0))).toFixed(1))
 
             } else if (status_ == "U18") {
                 $("#playedMatchU18 > div").prepend("<div class='" + Object.keys(data)[i] + "'><p>" + Object.values(played).reduce(function (a, b) { return a + b }, 0) + "</p><p>" + opp + "</p><p>" + Object.keys(data)[i].substring(4, 6) + "." + Object.keys(data)[i].substring(6, 8) + "." + "</p><p>" + pos + "</p><p></p><p>" + data[Object.keys(data)[i]][pos][j][1].replace(/[g|a|y|r|o|p]/g, "") + "</p></div>")
 
                 $("#playedSEFCU18 > div > div:nth-of-type(1) > p:nth-of-type(2)").text(Object.values(played).reduce(function (a, b) { return a + b }, 0))
                 $("#playedSEFCU18 > div > div:nth-of-type(2) > p:nth-of-type(2)").text(Object.values(goal).reduce(function (a, b) { return a + b }, 0))
-                $("#playedSEFCU18 > div > div:nth-of-type(3) > p:nth-of-type(2)").text(Object.values(assist).reduce(function (a, b) { return a + b }, 0))
-                $("#playedSEFCU18 > div > div:nth-of-type(4) > p:nth-of-type(2)").text(Object.values(yc).reduce(function (a, b) { return a + b }, 0))
-                $("#playedSEFCU18 > div > div:nth-of-type(5) > p:nth-of-type(2)").text(Object.values(rc).reduce(function (a, b) { return a + b }, 0))
+                $("#playedSEFCU18 > div > div:nth-of-type(3) > p:nth-of-type(2)").text(Object.values(yc).reduce(function (a, b) { return a + b }, 0))
+                $("#playedSEFCU18 > div > div:nth-of-type(4) > p:nth-of-type(2)").text(Object.values(rc).reduce(function (a, b) { return a + b }, 0))
 
             } else if (status_ == "U15") {
                 $("#playedMatchU15 > div").prepend("<div class='" + Object.keys(data)[i] + "'><p>" + Object.values(played).reduce(function (a, b) { return a + b }, 0) + "</p><p>" + opp + "</p><p>" + Object.keys(data)[i].substring(4, 6) + "." + Object.keys(data)[i].substring(6, 8) + "." + "</p><p>" + pos + "</p><p></p><p>" + data[Object.keys(data)[i]][pos][j][1].replace(/[g|a|y|r|o|p]/g, "") + "</p></div>")
 
                 $("#playedSEFCU15 > div > div:nth-of-type(1) > p:nth-of-type(2)").text(Object.values(played).reduce(function (a, b) { return a + b }, 0))
                 $("#playedSEFCU15 > div > div:nth-of-type(2) > p:nth-of-type(2)").text(Object.values(goal).reduce(function (a, b) { return a + b }, 0))
-                $("#playedSEFCU15 > div > div:nth-of-type(3) > p:nth-of-type(2)").text(Object.values(assist).reduce(function (a, b) { return a + b }, 0))
-                $("#playedSEFCU15 > div > div:nth-of-type(4) > p:nth-of-type(2)").text(Object.values(yc).reduce(function (a, b) { return a + b }, 0))
-                $("#playedSEFCU15 > div > div:nth-of-type(5) > p:nth-of-type(2)").text(Object.values(rc).reduce(function (a, b) { return a + b }, 0))
+                $("#playedSEFCU15 > div > div:nth-of-type(3) > p:nth-of-type(2)").text(Object.values(yc).reduce(function (a, b) { return a + b }, 0))
+                $("#playedSEFCU15 > div > div:nth-of-type(4) > p:nth-of-type(2)").text(Object.values(rc).reduce(function (a, b) { return a + b }, 0))
 
             }
 
@@ -898,6 +909,8 @@ $(document).ready(function () {
                     assist[x] = 0
                     yc[x] = 0
                     rc[x] = 0
+                    rate[x] = 0
+                    exc[x] = 0
                 }
 
                 data = status_ == "A" ? dataA :
@@ -961,8 +974,16 @@ $(document).ready(function () {
                     }    
                 }
 
-                if (played[year] > 0) {
-                    $("#statsBySeason").append("<div><p>" + status_.replace("A", "A팀") + "</p><p>" + year.substring(2, 4) + "'</p><p>" + played[year] + "</p><p>" + goal[year] + "</p><p>" + assist[year] + "</p><p>" + yc[year] + "</p><p>" + rc[year] + "</p></div>")
+                years = Object.keys(played).sort((a, b) => b - a)
+
+                for (const year of years) {
+                    if (played[year] > 0) {
+                        if (status_ == "A") {
+                            $("#statsBySeason").append(`<div><p>A팀</p><p>${year.substring(2, 4)}'</p><p>${played[year]}</p><p>${goal[year]}</p><p>${assist[year]}</p><p>${yc[year]}</p><p>${rc[year]}</p><p>${(rate[year] / (played[year] - exc[year])).toFixed(1)}</p></div>`);
+                        } else {
+                            $("#statsBySeason").append(`<div><p>${status_.replace("U18", "U-18").replace("U15", "U-15")}</p><p>${year.substring(2, 4)}'</p><p>${played[year]}</p><p>${goal[year]}</p><p>-</p><p>${yc[year]}</p><p>${rc[year]}</p><p>-</p></div>`);
+                        }
+                    }
                 }
             }
 
@@ -1084,9 +1105,7 @@ $(document).ready(function () {
         // 선수 정보 삽입
         $("#playerProfile > div:nth-of-type(1) > p").html(pos)
         $("#playerProfile > div:nth-of-type(2) > p").html("<span>" + playerNum + "</span>" + playerName.replace(/[0-9]/g, ""))
-
-        $("#playerImg").css({ "background": "linear-gradient(to bottom, #fafafa00 10%, #fafafa40 55%, #fafafa80 70%, #fafafacc 85%, #fafafa 100%), url('./files/" + id + ".png')", "background-size": "cover" })
-        $("#playerImg > div").css({ "background": "linear-gradient(to top, #fafafa00 10%, #fafafa40 55%, #fafafa80 70%, #fafafacc 85%, #fafafa 100%), url('./files/" + natl + ".svg')", "background-size": "auto 500px", "background-position": "center", "background-repeat": "no-repeat" })
+        $("#playerProfile > div:nth-of-type(2) > div > img").attr("src", "./files/" + natl + ".svg")
 
         $("#playerInfo > div:nth-of-type(1) > p:nth-of-type(2)").text(natl)
         $("#playerInfo > div:nth-of-type(2) > p:nth-of-type(2)").text(height + "cm")
@@ -1118,9 +1137,6 @@ $(document).ready(function () {
         if ($("#playedSEFC > div > div:nth-of-type(1) > p:nth-of-type(2)").text() !== "0" && ($("#playedSEFCU18 > div > div:nth-of-type(1) > p:nth-of-type(2)").text() !== "0" || $("#playedSEFCU18 > div > div:nth-of-type(1) > p:nth-of-type(2)").text() !== "0")) {
             $("#playedSEFC > p:nth-of-type(1)").text("A팀 통산 기록")
         }
-
-        // U18, U15 도움 삭제
-        $("#playedSEFCU18 > div > div:nth-of-type(3), #playedSEFCU15 > div > div:nth-of-type(3)").css("display", "none")
     }
 
     ////////// 순위 화면 //////////
@@ -1718,10 +1734,10 @@ function stats() {
 
     // 표에 데이터 삽입
     for (i = 0; i < Object.keys(app).length; i++) {
-        $("#stats > .stats > table > tbody").append("<tr><td><div></div></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>")
+        $("#stats > .stats > table > tbody").append("<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>")
 
-        $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(1) > div").append("<img src='./files/" + Object.keys(app)[i] + ".png'>")
-        $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(2)").html("<span>" + playerNumber[year][Object.keys(app)[i]][1] + "</span>" + playerNumber[year][Object.keys(app)[i]][0].replace(/[0-9]/g, ""))
+        $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(1)").text(playerNumber[year][Object.keys(app)[i]][1])
+        $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(2)").html(playerNumber[year][Object.keys(app)[i]][0].replace(/[0-9]/g, ""))
         $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(3)").text(Object.values(app)[i])
 
         if (goal[Object.keys(app)[i]] === undefined) {
@@ -1736,30 +1752,32 @@ function stats() {
             $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(5)").text(assist[Object.keys(app)[i]])
         }
 
+        $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(6)").text(Number($("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(4)").text()) + Number($("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(5)").text()))
+
         if (yc[Object.keys(app)[i]] === undefined) {
-            $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(6)").text("0")
+            $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(7)").text("0")
         } else {
-            $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(6)").text(yc[Object.keys(app)[i]])
+            $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(7)").text(yc[Object.keys(app)[i]])
         }
 
         if (rc[Object.keys(app)[i]] === undefined) {
-            $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(7)").text("0")
+            $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(8)").text("0")
         } else {
-            $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(7)").text(rc[Object.keys(app)[i]])
+            $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(8)").text(rc[Object.keys(app)[i]])
         }
 
         $(".stats > table > tbody > tr:nth-of-type(" + (i + 1) + ")").attr("onclick", "location.href = './player?" + Object.keys(app)[i] + "'")
     }
 
-    // A팀 제외 프로필 사진란 삭제
+    // 유스팀 도움, 공격P란 삭제
     if (status_ !== "A") {
-        $("#stats > .stats > table > thead > tr > th:nth-of-type(1)").attr("colspan", "1")
-        $("#stats > .stats > table > tbody > tr > td:nth-of-type(1)").css("display", "none")
-        $("#stats > .stats > table > tbody > tr > td:nth-of-type(2)").css("width", "calc(35vw + 50px)")
+        $("#stats > .stats > table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+5)").css("display", "none")
+        $("#stats > .stats > table > tbody > tr > td:nth-of-type(n+4):nth-of-type(-n+5)").css("display", "none")
+        $("#stats > .stats > table > tbody > tr > td:nth-of-type(n+3)").css("width", "calc(45vw / 4)")
     } else {
-        $("#stats > .stats > table > thead > tr > th:nth-of-type(1)").attr("colspan", "2")
-        $("#stats > .stats > table > tbody > tr > td:nth-of-type(1)").css("display", "flex")
-        $("#stats > .stats > table > tbody > tr > td:nth-of-type(2)").css("width", "35vw")
+        $("#stats > .stats > table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+5)").css("display", "table-cell")
+        $("#stats > .stats > table > tbody > tr > td:nth-of-type(n+4):nth-of-type(-n+5)").css("display", "table-cell")
+        $("#stats > .stats > table > tbody > tr > td:nth-of-type(n+3)").css("width", "calc(45vw / 6)")
     }
 
     // 득점 기준 정렬
