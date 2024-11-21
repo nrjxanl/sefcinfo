@@ -1071,13 +1071,13 @@ $(document).ready(function () {
         try {
             playerNum = playerNumber[year][id][1]
             playerName = playerNumber[year][id][0]
-            pos = player[id]["pos"]
-            natl = player[id]["natl"]
+            pos = playerA_[id]["pos"]
+            natl = playerA_[id]["natl"]
 
-            height = player[id]["height"].length !== 0 ? player[id]["height"] : "--"
+            height = playerA_[id]["height"].length !== 0 ? playerA_[id]["height"] : "--"
 
-            if (player[id]["bd"] !== "") {
-                bd = new Date(player[id]["bd"].substr(0, 4), (player[id]["bd"].substr(4, 2) - 1), player[id]["bd"].substr(6, 2))
+            if (playerA_[id]["bd"] !== "") {
+                bd = new Date(playerA_[id]["bd"].substr(0, 4), (playerA_[id]["bd"].substr(4, 2) - 1), playerA_[id]["bd"].substr(6, 2))
                 age = year - bd.getFullYear()
         
                 if ((today.getMonth() - bd.getMonth()) < 0 || ((today.getMonth() - bd.getMonth()) === 0 && today.getDate() < bd.getDate())) {
@@ -1087,16 +1087,64 @@ $(document).ready(function () {
                 age = "--"
             }
 
-            sns = player[id]["sns"]
+            sns = playerA_[id]["sns"]
 
         } catch (error) {
-            playerNum = "--"
-            playerName = "--"
-            pos = "--"
-            natl = "--"
-            height = "--"
-            age = "--"
-            sns = ""
+            try {
+                
+            playerNum = playerNumber[year][id][1]
+            playerName = playerNumber[year][id][0]
+            pos = playerU18_[id]["pos"]
+            natl = playerU18_[id]["natl"]
+
+            height = playerU18_[id]["height"].length !== 0 ? playerU18_[id]["height"] : "--"
+
+            if (playerU18_[id]["bd"] !== "") {
+                bd = new Date(playerU18_[id]["bd"].substr(0, 4), (playerU18_[id]["bd"].substr(4, 2) - 1), playerU18_[id]["bd"].substr(6, 2))
+                age = year - bd.getFullYear()
+        
+                if ((today.getMonth() - bd.getMonth()) < 0 || ((today.getMonth() - bd.getMonth()) === 0 && today.getDate() < bd.getDate())) {
+                    age--
+                }
+            } else {
+                age = "--"
+            }
+
+            sns = playerU18_[id]["sns"]
+
+            } catch (error) {
+                try {
+
+                    playerNum = playerNumber[year][id][1]
+                    playerName = playerNumber[year][id][0]
+                    pos = playerU15_[id]["pos"]
+                    natl = playerU15_[id]["natl"]
+
+                    height = playerU15_[id]["height"].length !== 0 ? playerU15_[id]["height"] : "--"
+
+                    if (playerU15_[id]["bd"] !== "") {
+                        bd = new Date(playerU15_[id]["bd"].substr(0, 4), (playerU15_[id]["bd"].substr(4, 2) - 1), playerU15_[id]["bd"].substr(6, 2))
+                        age = year - bd.getFullYear()
+                    
+                        if ((today.getMonth() - bd.getMonth()) < 0 || ((today.getMonth() - bd.getMonth()) === 0 && today.getDate() < bd.getDate())) {
+                            age--
+                        }
+                    } else {
+                        age = "--"
+                    }
+                
+                    sns = playerU15_[id]["sns"]
+                
+                } catch (error) {
+                    playerNum = "--"
+                    playerName = "--"
+                    pos = "--"
+                    natl = "--"
+                    height = "--"
+                    age = "--"
+                    sns = ""
+                }
+            }
         }        
 
         // 선수 정보 삽입
@@ -1123,15 +1171,15 @@ $(document).ready(function () {
         }
 
         // A팀, U18, U15 출전 기록 없으면 삭제
-        if ($("#playedSEFC > div > div:nth-of-type(1) > p:nth-of-type(2)").text() == "0" && status_ !== "A") {
+        if ($("#playedSEFC > div > div:nth-of-type(1) > p:nth-of-type(2)").text() == "0") {
             $("#playedSEFC").css("display", "none")
         }
 
-        if ($("#playedSEFCU18 > div > div:nth-of-type(1) > p:nth-of-type(2)").text() == "0" && status_ !== "U18") {
+        if ($("#playedSEFCU18 > div > div:nth-of-type(1) > p:nth-of-type(2)").text() == "0") {
             $("#playedSEFCU18").css("display", "none")
         }
 
-        if ($("#playedSEFCU15 > div > div:nth-of-type(1) > p:nth-of-type(2)").text() == "0" && status_ !== "U15") {
+        if ($("#playedSEFCU15 > div > div:nth-of-type(1) > p:nth-of-type(2)").text() == "0") {
             $("#playedSEFCU15").css("display", "none")
         }
 
