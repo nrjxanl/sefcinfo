@@ -960,9 +960,9 @@ $(document).ready(function () {
                 for (const year of years) {
                     if (played[year] > 0) {
                         if (status_ == "A") {
-                            $("#statsBySeason").append("<div><p>A팀</p><p>" + year.substring(2, 4) + "</p><p>" + played[year] + "</p><p>" + goal[year] + "</p><p>" + assist[year] + "</p><p>" + yc[year] + "</p><p>" + rc[year] + "</p><p>" + (rate[year] / (played[year] - exc[year])).toFixed(1) + "</p></div>")
+                            $("#statsBySeason").append("<div><p>A팀</p><p>" + year.substring(2, 4) + "'</p><p>" + played[year] + "</p><p>" + goal[year] + "</p><p>" + assist[year] + "</p><p>" + yc[year] + "</p><p>" + rc[year] + "</p><p>" + (rate[year] / (played[year] - exc[year])).toFixed(1) + "</p></div>")
                         } else {
-                            $("#statsBySeason").append("<div><p>" + status_.replace("U18", "U-18").replace("U15", "U-15") + "</p><p>" + year.substring(2, 4) + "'</p><p>" + played[year] + "</p><p>" + goal[year] + "</p><p>-</p><p>" + yc[year] + "</p><p>" + rc[year] + "</p><p>-</p></div>")
+                            $("#statsBySeason").append("<div><p>" + status_.replace("U18", "U-18").replace("U15", "U-15") + "'</p><p>" + year.substring(2, 4) + "'</p><p>" + played[year] + "</p><p>" + goal[year] + "</p><p>-</p><p>" + yc[year] + "</p><p>" + rc[year] + "</p><p>-</p></div>")
                         }
                     }
                 }
