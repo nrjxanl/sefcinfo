@@ -82,6 +82,34 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #playerA > div > div:nth-of-type(2n) > div > p:nth-of-type(2) {width: 30vw; font-size: 24px; text-align: left;}
 #playerA > div > div:nth-of-type(2n) > div > p:nth-of-type(n+3) {width: calc(45vw / 6); font-size: 16px; font-weight: 300; color: #fafafa;}
 
+#playerU18 {margin-top: 160px;}
+#playerU18 > div > p {width: 100vw; font-size: 16px; margin: 40px 0 8px 0;}
+#playerU18 > div > p > span {font-size: 16px; margin-left: 8px; color: #000060;}
+#playerU18 > div > div {width: 90vw; margin-left: 5vw;}
+#playerU18 > div > div:nth-of-type(2n-1) {display: flex; align-items: center; margin-top: 40px;}
+#playerU18 > div > div:nth-of-type(2n-1) > p:nth-of-type(1) {width: 45vw; text-align: left; font-size: 20px;}
+#playerU18 > div > div:nth-of-type(2n-1) > p:nth-of-type(1) > span {margin-left: 8px; color: #000060; font-size: 20px;}
+#playerU18 > div > div:nth-of-type(2n-1) > p:nth-of-type(n+2) {width: calc(45vw / 4); font-weight: 300;}
+#playerU18 > div > div:nth-of-type(2n) > div {height: 60px; display: flex; align-items: center; border-bottom: 1px solid #00000020;}
+#playerU18 > div > div:nth-of-type(2n) > div:nth-of-type(1) {border-top: 1px solid #00000020; margin-top: 20px;}
+#playerU18 > div > div:nth-of-type(2n) > div > p:nth-of-type(1) {width: 15vw; font-size: 24px; text-align: left; color: #000060;}
+#playerU18 > div > div:nth-of-type(2n) > div > p:nth-of-type(2) {width: 30vw; font-size: 24px; text-align: left;}
+#playerU18 > div > div:nth-of-type(2n) > div > p:nth-of-type(n+3) {width: calc(45vw / 4); font-size: 16px; font-weight: 300; color: #fafafa;}
+
+#playerU15 {margin-top: 160px;}
+#playerU15 > div > p {width: 100vw; font-size: 16px; margin: 40px 0 8px 0;}
+#playerU15 > div > p > span {font-size: 16px; margin-left: 8px; color: #000060;}
+#playerU15 > div > div {width: 90vw; margin-left: 5vw;}
+#playerU15 > div > div:nth-of-type(2n-1) {display: flex; align-items: center; margin-top: 40px;}
+#playerU15 > div > div:nth-of-type(2n-1) > p:nth-of-type(1) {width: 45vw; text-align: left; font-size: 20px;}
+#playerU15 > div > div:nth-of-type(2n-1) > p:nth-of-type(1) > span {margin-left: 8px; color: #000060; font-size: 20px;}
+#playerU15 > div > div:nth-of-type(2n-1) > p:nth-of-type(n+2) {width: calc(45vw / 4); font-weight: 300;}
+#playerU15 > div > div:nth-of-type(2n) > div {height: 60px; display: flex; align-items: center; border-bottom: 1px solid #00000020;}
+#playerU15 > div > div:nth-of-type(2n) > div:nth-of-type(1) {border-top: 1px solid #00000020; margin-top: 20px;}
+#playerU15 > div > div:nth-of-type(2n) > div > p:nth-of-type(1) {width: 15vw; font-size: 24px; text-align: left; color: #000060;}
+#playerU15 > div > div:nth-of-type(2n) > div > p:nth-of-type(2) {width: 30vw; font-size: 24px; text-align: left;}
+#playerU15 > div > div:nth-of-type(2n) > div > p:nth-of-type(n+3) {width: calc(45vw / 4); font-size: 16px; font-weight: 300; color: #fafafa;}
+
 #playerU18, #playerU15 {margin-top: 160px; display: none;}
 
 /* 선수 정보 */
