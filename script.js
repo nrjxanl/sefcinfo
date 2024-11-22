@@ -97,12 +97,6 @@ function playerU18() {
 
     $(".playerButton > button").css({"color": "#000000", "border-bottom": "none"})
     $(".playerButton > button:nth-of-type(2)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
-
-    if ($("#playerU18 > div > #gkList > div").length == 0) {
-        player = playerU18_
-        status_ = "U18"
-        playerList_()
-    }
 }
 
 function playerU15() {
@@ -112,12 +106,6 @@ function playerU15() {
 
     $(".playerButton > button").css({"color": "#000000", "border-bottom": "none"})
     $(".playerButton > button:nth-of-type(3)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
-
-    if ($("#playerU15 > div > #gkList > div").length == 0) {
-        player = playerU15_
-        status_ = "U15"
-        playerList_()
-    }
 }
 
 // 일정 창 전환

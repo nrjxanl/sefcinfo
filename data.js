@@ -732,10 +732,65 @@ $(document).ready(function () {
     ////////// 선수 목록 창 //////////
 
     if ($("#playerA").length) {
+
         player = playerA_
         status_ = "A"
         playerList_()
-    }
+
+        player = playerU18_
+        status_ = "U18"
+        playerList_()
+
+        player = playerU15_
+        status_ = "U15"
+        playerList_()
+
+        // 선수별 올 시즌 스탯 삽입
+        $(document).ready(function () {
+            pos = ["GK", "DF", "MF", "FW", "SUB"]
+            for (x = 0; x < 5; x++) {
+                for (i = Object.keys(dataA).length - 1; i > Object.keys(dataA).length - Object.keys(dataA).filter(key => key.startsWith(new Date().getFullYear())).length - 1; i--) {
+                    for (j = 0; j < Object.keys(dataA[Object.keys(dataA)[i]][pos[x]]).length; j++) {
+                        if (dataA[Object.keys(dataA)[i]][pos[x]][j][1].length !== 0) {
+                            $("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(3)").text(Number($("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(3)").text()) + 1)
+                        }
+                        $("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(4)").text(Number($("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(4)").text()) + dataA[Object.keys(dataA)[i]][pos[x]][j][1].replace(/[^g]/g, "").length)
+                        $("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(5)").text(Number($("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(5)").text()) + dataA[Object.keys(dataA)[i]][pos[x]][j][1].replace(/[^a]/g, "").length)
+                        $("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(7)").text(Number($("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(7)").text()) + dataA[Object.keys(dataA)[i]][pos[x]][j][1].replace(/[^y]/g, "").length)
+                        $("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(8)").text(Number($("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(8)").text()) + dataA[Object.keys(dataA)[i]][pos[x]][j][1].replace(/[^r]/g, "").length)
+                    }
+                }
+
+                for (i = Object.keys(dataU18).length - 1; i > Object.keys(dataU18).length - Object.keys(dataU18).filter(key => key.startsWith(new Date().getFullYear())).length - 1; i--) {
+                    for (j = 0; j < Object.keys(dataU18[Object.keys(dataU18)[i]][pos[x]]).length; j++) {
+                        if (dataU18[Object.keys(dataU18)[i]][pos[x]][j][1].length !== 0) {
+                            $("#playerU18 > div > div > ." + dataU18[Object.keys(dataU18)[i]][pos[x]][j][0] + " > p:nth-of-type(3)").text(Number($("#playerU18 > div > div > ." + dataU18[Object.keys(dataU18)[i]][pos[x]][j][0] + " > p:nth-of-type(3)").text()) + 1)
+                        }
+                        $("#playerU18 > div > div > ." + dataU18[Object.keys(dataU18)[i]][pos[x]][j][0] + " > p:nth-of-type(4)").text(Number($("#playerU18 > div > div > ." + dataU18[Object.keys(dataU18)[i]][pos[x]][j][0] + " > p:nth-of-type(4)").text()) + dataU18[Object.keys(dataU18)[i]][pos[x]][j][1].replace(/[^g]/g, "").length)
+                        $("#playerU18 > div > div > ." + dataU18[Object.keys(dataU18)[i]][pos[x]][j][0] + " > p:nth-of-type(5)").text(Number($("#playerU18 > div > div > ." + dataU18[Object.keys(dataU18)[i]][pos[x]][j][0] + " > p:nth-of-type(7)").text()) + dataU18[Object.keys(dataU18)[i]][pos[x]][j][1].replace(/[^y]/g, "").length)
+                        $("#playerU18 > div > div > ." + dataU18[Object.keys(dataU18)[i]][pos[x]][j][0] + " > p:nth-of-type(6)").text(Number($("#playerU18 > div > div > ." + dataU18[Object.keys(dataU18)[i]][pos[x]][j][0] + " > p:nth-of-type(8)").text()) + dataU18[Object.keys(dataU18)[i]][pos[x]][j][1].replace(/[^r]/g, "").length)
+                    }
+                }
+
+                for (i = Object.keys(dataU15).length - 1; i > Object.keys(dataU15).length - Object.keys(dataU15).filter(key => key.startsWith(new Date().getFullYear())).length - 1; i--) {
+                    for (j = 0; j < Object.keys(dataU15[Object.keys(dataU15)[i]][pos[x]]).length; j++) {
+                        if (dataU15[Object.keys(dataU15)[i]][pos[x]][j][1].length !== 0) {
+                            $("#playerU15 > div > div > ." + dataU15[Object.keys(dataU15)[i]][pos[x]][j][0] + " > p:nth-of-type(3)").text(Number($("#playerU15 > div > div > ." + dataU15[Object.keys(dataU15)[i]][pos[x]][j][0] + " > p:nth-of-type(3)").text()) + 1)
+                        }
+                        $("#playerU15 > div > div > ." + dataU15[Object.keys(dataU15)[i]][pos[x]][j][0] + " > p:nth-of-type(4)").text(Number($("#playerU15 > div > div > ." + dataU15[Object.keys(dataU15)[i]][pos[x]][j][0] + " > p:nth-of-type(4)").text()) + dataU15[Object.keys(dataU15)[i]][pos[x]][j][1].replace(/[^g]/g, "").length)
+                        $("#playerU15 > div > div > ." + dataU15[Object.keys(dataU15)[i]][pos[x]][j][0] + " > p:nth-of-type(5)").text(Number($("#playerU15 > div > div > ." + dataU15[Object.keys(dataU15)[i]][pos[x]][j][0] + " > p:nth-of-type(7)").text()) + dataU15[Object.keys(dataU15)[i]][pos[x]][j][1].replace(/[^y]/g, "").length)
+                        $("#playerU15 > div > div > ." + dataU15[Object.keys(dataU15)[i]][pos[x]][j][0] + " > p:nth-of-type(6)").text(Number($("#playerU15 > div > div > ." + dataU15[Object.keys(dataU15)[i]][pos[x]][j][0] + " > p:nth-of-type(8)").text()) + dataU15[Object.keys(dataU15)[i]][pos[x]][j][1].replace(/[^r]/g, "").length)
+                    }
+                }
+            }
+    
+            $("#playerA > div > div > div").each(function () {
+                $(this).find("p:nth-of-type(6)").text(Number($(this).find("p:nth-of-type(4)").text()) + Number($(this).find("p:nth-of-type(5)").text()))
+            })
+    
+            $("[id^='player'] > div > div > div > p:nth-of-type(n+3)").css("color", "#000000")
+        })
+        }
 
     ////////// 선수 세부 정보 창 //////////
 
@@ -1350,53 +1405,6 @@ function playerList_ () {
             window.location.href = "./player?" + $(this).attr("class")
         })
     })
-
-    // 선수별 올 시즌 스탯 삽입
-    $(document).ready(function () {
-        pos = ["GK", "DF", "MF", "FW", "SUB"]
-        for (x = 0; x < 5; x++) {
-            for (i = Object.keys(dataA).length - 1; i > Object.keys(dataA).length - Object.keys(dataA).filter(key => key.startsWith(new Date().getFullYear())).length - 1; i--) {
-                for (j = 0; j < Object.keys(dataA[Object.keys(dataA)[i]][pos[x]]).length; j++) {
-                    if (dataA[Object.keys(dataA)[i]][pos[x]][j][1].length !== 0) {
-                        $("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(3)").text(Number($("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(3)").text()) + 1)
-                    }
-                    $("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(4)").text(Number($("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(4)").text()) + dataA[Object.keys(dataA)[i]][pos[x]][j][1].replace(/[^g]/g, "").length)
-                    $("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(5)").text(Number($("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(5)").text()) + dataA[Object.keys(dataA)[i]][pos[x]][j][1].replace(/[^a]/g, "").length)
-                    $("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(7)").text(Number($("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(7)").text()) + dataA[Object.keys(dataA)[i]][pos[x]][j][1].replace(/[^y]/g, "").length)
-                    $("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(8)").text(Number($("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(8)").text()) + dataA[Object.keys(dataA)[i]][pos[x]][j][1].replace(/[^r]/g, "").length)
-                }
-            }
-
-            for (i = Object.keys(dataU18).length - 1; i > Object.keys(dataU18).length - Object.keys(dataU18).filter(key => key.startsWith(new Date().getFullYear())).length - 1; i--) {
-                for (j = 0; j < Object.keys(dataU18[Object.keys(dataU18)[i]][pos[x]]).length; j++) {
-                    if (dataU18[Object.keys(dataU18)[i]][pos[x]][j][1].length !== 0) {
-                        $("#playerU18 > div > div > ." + dataU18[Object.keys(dataU18)[i]][pos[x]][j][0] + " > p:nth-of-type(3)").text(Number($("#playerU18 > div > div > ." + dataU18[Object.keys(dataU18)[i]][pos[x]][j][0] + " > p:nth-of-type(3)").text()) + 1)
-                    }
-                    $("#playerU18 > div > div > ." + dataU18[Object.keys(dataU18)[i]][pos[x]][j][0] + " > p:nth-of-type(4)").text(Number($("#playerU18 > div > div > ." + dataU18[Object.keys(dataU18)[i]][pos[x]][j][0] + " > p:nth-of-type(4)").text()) + dataU18[Object.keys(dataU18)[i]][pos[x]][j][1].replace(/[^g]/g, "").length)
-                    $("#playerU18 > div > div > ." + dataU18[Object.keys(dataU18)[i]][pos[x]][j][0] + " > p:nth-of-type(5)").text(Number($("#playerU18 > div > div > ." + dataU18[Object.keys(dataU18)[i]][pos[x]][j][0] + " > p:nth-of-type(7)").text()) + dataU18[Object.keys(dataU18)[i]][pos[x]][j][1].replace(/[^y]/g, "").length)
-                    $("#playerU18 > div > div > ." + dataU18[Object.keys(dataU18)[i]][pos[x]][j][0] + " > p:nth-of-type(6)").text(Number($("#playerU18 > div > div > ." + dataU18[Object.keys(dataU18)[i]][pos[x]][j][0] + " > p:nth-of-type(8)").text()) + dataU18[Object.keys(dataU18)[i]][pos[x]][j][1].replace(/[^r]/g, "").length)
-                }
-            }
-
-            for (i = Object.keys(dataU15).length - 1; i > Object.keys(dataU15).length - Object.keys(dataU15).filter(key => key.startsWith(new Date().getFullYear())).length - 1; i--) {
-                for (j = 0; j < Object.keys(dataU15[Object.keys(dataU15)[i]][pos[x]]).length; j++) {
-                    if (dataU15[Object.keys(dataU15)[i]][pos[x]][j][1].length !== 0) {
-                        $("#playerU15 > div > div > ." + dataU15[Object.keys(dataU15)[i]][pos[x]][j][0] + " > p:nth-of-type(3)").text(Number($("#playerU15 > div > div > ." + dataU15[Object.keys(dataU15)[i]][pos[x]][j][0] + " > p:nth-of-type(3)").text()) + 1)
-                    }
-                    $("#playerU15 > div > div > ." + dataU15[Object.keys(dataU15)[i]][pos[x]][j][0] + " > p:nth-of-type(4)").text(Number($("#playerU15 > div > div > ." + dataU15[Object.keys(dataU15)[i]][pos[x]][j][0] + " > p:nth-of-type(4)").text()) + dataU15[Object.keys(dataU15)[i]][pos[x]][j][1].replace(/[^g]/g, "").length)
-                    $("#playerU15 > div > div > ." + dataU15[Object.keys(dataU15)[i]][pos[x]][j][0] + " > p:nth-of-type(5)").text(Number($("#playerU15 > div > div > ." + dataU15[Object.keys(dataU15)[i]][pos[x]][j][0] + " > p:nth-of-type(7)").text()) + dataU15[Object.keys(dataU15)[i]][pos[x]][j][1].replace(/[^y]/g, "").length)
-                    $("#playerU15 > div > div > ." + dataU15[Object.keys(dataU15)[i]][pos[x]][j][0] + " > p:nth-of-type(6)").text(Number($("#playerU15 > div > div > ." + dataU15[Object.keys(dataU15)[i]][pos[x]][j][0] + " > p:nth-of-type(8)").text()) + dataU15[Object.keys(dataU15)[i]][pos[x]][j][1].replace(/[^r]/g, "").length)
-                }
-            }
-        }
-
-        $("#playerA > div > div > div").each(function () {
-            $(this).find("p:nth-of-type(6)").text(Number($(this).find("p:nth-of-type(4)").text()) + Number($(this).find("p:nth-of-type(5)").text()))
-        })
-
-        $("[id^='player'] > div > div > div > p:nth-of-type(n+3)").css("color", "#000000")
-    })
-
 }
 
 // 일정
