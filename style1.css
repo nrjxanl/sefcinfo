@@ -2,17 +2,19 @@
 @font-face {font-family: "Paperlogy"; font-weight: 300; src: url(./files/Paperlogy-6SemiBold.ttf);}
 @font-face {font-family: "Paperlogy"; font-weight: 900; src: url(./files/Paperlogy-9Black.ttf);}
 
-* {color: #000000; margin: 0; padding: 0; text-align: center; font-family: "Paperlogy"; font-weight: 900; font-size: 12px; list-style: none; text-decoration-line: none; border-collapse: collapse; border-spacing: 0; word-break: keep-all; -webkit-tap-highlight-color: transparent;}
+* {color: #000000; margin: 0; padding: 0; text-align: center; font-family: "Paperlogy"; font-weight: 900; font-size: 12px; list-style: none; text-decoration-line: none; border-collapse: collapse; border-spacing: 0; word-break: keep-all; -webkit-tap-highlight-color: transparent; user-select: none;}
 *::-webkit-scrollbar {display: none;}
 
 body {position: absolute; background: #fafafa;}
 
 /* 헤더 */
-header {width: 100vw; height: 80px; position: fixed; top: 0; left: 0; background: #fafafa; z-index: 99; display: flex; justify-content: center; z-index: 100;}
+header {width: 100vw; height: 80px; position: fixed; top: 0; left: 0; background: #fafafa; z-index: 99; display: flex; justify-content: center; align-items: center; z-index: 100;}
 header > div {width: 20vw; position: absolute;}
 header > div:nth-of-type(1) {left: 0;}
-header > div:nth-of-type(2) {right: 0;}
-header > div > img {width: auto; height: 40px; padding: 5vw 0;}
+header > div:nth-of-type(2) {left: 20vw;}
+header > div:nth-of-type(3) {right: 0;}
+header > div:nth-of-type(2n+1) > img {width: auto; height: 40px; padding: 5vw 0;}
+header > div:nth-of-type(2) > img {width: auto; height: 20px; padding: 5vw 0;}
 header > p {width: fit-content; position: absolute; left: 20vw; text-align: left; font-size: 24px; color: #000060; line-height: 24px; margin: calc(8px + 5vw) 0;}
 
 /* 메뉴 */

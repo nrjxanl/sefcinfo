@@ -37,7 +37,7 @@ $(window).resize(function() {
 $("body").append("<div id='menu'><div><img src='./files/players.svg'>선수단</div><div><img src='./files/fixtures.svg'>일정</div><div><img src='./files/stats.svg'>기록</div><div><img src='./files/standings.svg'>순위</div></div><div id='menuBg'></div>")
 
 // 상단 클릭 시 홈으로 이동
-$("header > p").click(function() {
+$("header > div:nth-of-type(2)").click(function() {
     window.location = "https://sefc.info"
 })
 
@@ -97,6 +97,12 @@ function playerU18() {
 
     $(".playerButton > button").css({"color": "#000000", "border-bottom": "none"})
     $(".playerButton > button:nth-of-type(2)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
+
+    if ($("#playerU18 > div > #gkList > div").length == 0) {
+        player = playerU18_
+        status_ = "U18"
+        playerList_()
+    }
 }
 
 function playerU15() {
@@ -106,6 +112,12 @@ function playerU15() {
 
     $(".playerButton > button").css({"color": "#000000", "border-bottom": "none"})
     $(".playerButton > button:nth-of-type(3)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
+
+    if ($("#playerU15 > div > #gkList > div").length == 0) {
+        player = playerU15_
+        status_ = "U15"
+        playerList_()
+    }
 }
 
 // 일정 창 전환
