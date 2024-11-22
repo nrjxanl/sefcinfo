@@ -533,7 +533,7 @@ $(document).ready(function () {
 
         status_ = "A"
 
-        stats()
+        statsA()
     }
 
     // 달력 컨트롤
