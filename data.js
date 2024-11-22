@@ -521,7 +521,8 @@ $(document).ready(function () {
         $("#stats > .stats > table > thead > tr > th").css("font-weight", "300")
         $("#stats > .stats > table > tbody > tr > td:nth-of-type(n+3)").css("font-weight", "300")
         $("#stats > .stats > table > thead > tr > th:nth-of-type(" + columnIndex + ")").css("font-weight", "900")
-        $("#stats > .stats > table > tbody > tr > td:nth-of-type(" + columnIndex + ")").css("font-weight", "900")
+        $("#stats > .stats > table > tbody > tr > td:nth-of-type(" + (columnIndex + 1) + ")").css("font-weight", "900")
+
     })
 
     // 함수 실행
