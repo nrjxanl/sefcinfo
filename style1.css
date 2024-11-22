@@ -82,7 +82,7 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #playerA > div > div:nth-of-type(2n) > div:nth-of-type(1) {border-top: 1px solid #00000020; margin-top: 20px;}
 #playerA > div > div:nth-of-type(2n) > div > p:nth-of-type(1) {width: 15vw; font-size: 24px; text-align: left; color: #000060;}
 #playerA > div > div:nth-of-type(2n) > div > p:nth-of-type(2) {width: 30vw; font-size: 24px; text-align: left;}
-#playerA > div > div:nth-of-type(2n) > div > p:nth-of-type(n+3) {width: calc(45vw / 6); font-size: 16px; font-weight: 300; color: #fafafa;}
+#playerA > div > div:nth-of-type(2n) > div > p:nth-of-type(n+3) {width: calc(45vw / 6); font-size: 16px; font-weight: 300;}
 
 #playerU18 {margin-top: 160px;}
 #playerU18 > div > p {width: 100vw; font-size: 16px; margin: 40px 0 8px 0;}
@@ -96,7 +96,7 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #playerU18 > div > div:nth-of-type(2n) > div:nth-of-type(1) {border-top: 1px solid #00000020; margin-top: 20px;}
 #playerU18 > div > div:nth-of-type(2n) > div > p:nth-of-type(1) {width: 15vw; font-size: 24px; text-align: left; color: #000060;}
 #playerU18 > div > div:nth-of-type(2n) > div > p:nth-of-type(2) {width: 30vw; font-size: 24px; text-align: left;}
-#playerU18 > div > div:nth-of-type(2n) > div > p:nth-of-type(n+3) {width: calc(45vw / 4); font-size: 16px; font-weight: 300; color: #fafafa;}
+#playerU18 > div > div:nth-of-type(2n) > div > p:nth-of-type(n+3) {width: calc(45vw / 4); font-size: 16px; font-weight: 300;}
 
 #playerU15 {margin-top: 160px;}
 #playerU15 > div > p {width: 100vw; font-size: 16px; margin: 40px 0 8px 0;}
@@ -110,7 +110,7 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #playerU15 > div > div:nth-of-type(2n) > div:nth-of-type(1) {border-top: 1px solid #00000020; margin-top: 20px;}
 #playerU15 > div > div:nth-of-type(2n) > div > p:nth-of-type(1) {width: 15vw; font-size: 24px; text-align: left; color: #000060;}
 #playerU15 > div > div:nth-of-type(2n) > div > p:nth-of-type(2) {width: 30vw; font-size: 24px; text-align: left;}
-#playerU15 > div > div:nth-of-type(2n) > div > p:nth-of-type(n+3) {width: calc(45vw / 4); font-size: 16px; font-weight: 300; color: #fafafa;}
+#playerU15 > div > div:nth-of-type(2n) > div > p:nth-of-type(n+3) {width: calc(45vw / 4); font-size: 16px; font-weight: 300;}
 
 #playerU18, #playerU15 {margin-top: 160px; display: none;}
 

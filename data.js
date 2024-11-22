@@ -532,7 +532,7 @@ $(document).ready(function () {
 
         status_ = "A"
 
-        statsA()
+        stats()
     }
 
     // 달력 컨트롤
@@ -733,64 +733,24 @@ $(document).ready(function () {
 
     if ($("#playerA").length) {
 
-        player = playerA_
+        year = new Date().getFullYear()
+
         status_ = "A"
-        playerList_()
+        player = playerA_
+        playerList_ ()
+        stats ()
 
-        player = playerU18_
         status_ = "U18"
-        playerList_()
+        player = playerU18_
+        playerList_ ()
+        stats ()
 
-        player = playerU15_
         status_ = "U15"
-        playerList_()
+        player = playerU15_
+        playerList_ ()
+        stats ()
 
-        // 선수별 올 시즌 스탯 삽입
-        $(document).ready(function () {
-            pos = ["GK", "DF", "MF", "FW", "SUB"]
-            for (x = 0; x < 5; x++) {
-                for (i = Object.keys(dataA).length - 1; i > Object.keys(dataA).length - Object.keys(dataA).filter(key => key.startsWith(new Date().getFullYear())).length - 1; i--) {
-                    for (j = 0; j < Object.keys(dataA[Object.keys(dataA)[i]][pos[x]]).length; j++) {
-                        if (dataA[Object.keys(dataA)[i]][pos[x]][j][1].length !== 0) {
-                            $("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(3)").text(Number($("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(3)").text()) + 1)
-                        }
-                        $("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(4)").text(Number($("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(4)").text()) + dataA[Object.keys(dataA)[i]][pos[x]][j][1].replace(/[^g]/g, "").length)
-                        $("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(5)").text(Number($("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(5)").text()) + dataA[Object.keys(dataA)[i]][pos[x]][j][1].replace(/[^a]/g, "").length)
-                        $("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(7)").text(Number($("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(7)").text()) + dataA[Object.keys(dataA)[i]][pos[x]][j][1].replace(/[^y]/g, "").length)
-                        $("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(8)").text(Number($("#playerA > div > div > ." + dataA[Object.keys(dataA)[i]][pos[x]][j][0] + " > p:nth-of-type(8)").text()) + dataA[Object.keys(dataA)[i]][pos[x]][j][1].replace(/[^r]/g, "").length)
-                    }
-                }
-
-                for (i = Object.keys(dataU18).length - 1; i > Object.keys(dataU18).length - Object.keys(dataU18).filter(key => key.startsWith(new Date().getFullYear())).length - 1; i--) {
-                    for (j = 0; j < Object.keys(dataU18[Object.keys(dataU18)[i]][pos[x]]).length; j++) {
-                        if (dataU18[Object.keys(dataU18)[i]][pos[x]][j][1].length !== 0) {
-                            $("#playerU18 > div > div > ." + dataU18[Object.keys(dataU18)[i]][pos[x]][j][0] + " > p:nth-of-type(3)").text(Number($("#playerU18 > div > div > ." + dataU18[Object.keys(dataU18)[i]][pos[x]][j][0] + " > p:nth-of-type(3)").text()) + 1)
-                        }
-                        $("#playerU18 > div > div > ." + dataU18[Object.keys(dataU18)[i]][pos[x]][j][0] + " > p:nth-of-type(4)").text(Number($("#playerU18 > div > div > ." + dataU18[Object.keys(dataU18)[i]][pos[x]][j][0] + " > p:nth-of-type(4)").text()) + dataU18[Object.keys(dataU18)[i]][pos[x]][j][1].replace(/[^g]/g, "").length)
-                        $("#playerU18 > div > div > ." + dataU18[Object.keys(dataU18)[i]][pos[x]][j][0] + " > p:nth-of-type(5)").text(Number($("#playerU18 > div > div > ." + dataU18[Object.keys(dataU18)[i]][pos[x]][j][0] + " > p:nth-of-type(7)").text()) + dataU18[Object.keys(dataU18)[i]][pos[x]][j][1].replace(/[^y]/g, "").length)
-                        $("#playerU18 > div > div > ." + dataU18[Object.keys(dataU18)[i]][pos[x]][j][0] + " > p:nth-of-type(6)").text(Number($("#playerU18 > div > div > ." + dataU18[Object.keys(dataU18)[i]][pos[x]][j][0] + " > p:nth-of-type(8)").text()) + dataU18[Object.keys(dataU18)[i]][pos[x]][j][1].replace(/[^r]/g, "").length)
-                    }
-                }
-
-                for (i = Object.keys(dataU15).length - 1; i > Object.keys(dataU15).length - Object.keys(dataU15).filter(key => key.startsWith(new Date().getFullYear())).length - 1; i--) {
-                    for (j = 0; j < Object.keys(dataU15[Object.keys(dataU15)[i]][pos[x]]).length; j++) {
-                        if (dataU15[Object.keys(dataU15)[i]][pos[x]][j][1].length !== 0) {
-                            $("#playerU15 > div > div > ." + dataU15[Object.keys(dataU15)[i]][pos[x]][j][0] + " > p:nth-of-type(3)").text(Number($("#playerU15 > div > div > ." + dataU15[Object.keys(dataU15)[i]][pos[x]][j][0] + " > p:nth-of-type(3)").text()) + 1)
-                        }
-                        $("#playerU15 > div > div > ." + dataU15[Object.keys(dataU15)[i]][pos[x]][j][0] + " > p:nth-of-type(4)").text(Number($("#playerU15 > div > div > ." + dataU15[Object.keys(dataU15)[i]][pos[x]][j][0] + " > p:nth-of-type(4)").text()) + dataU15[Object.keys(dataU15)[i]][pos[x]][j][1].replace(/[^g]/g, "").length)
-                        $("#playerU15 > div > div > ." + dataU15[Object.keys(dataU15)[i]][pos[x]][j][0] + " > p:nth-of-type(5)").text(Number($("#playerU15 > div > div > ." + dataU15[Object.keys(dataU15)[i]][pos[x]][j][0] + " > p:nth-of-type(7)").text()) + dataU15[Object.keys(dataU15)[i]][pos[x]][j][1].replace(/[^y]/g, "").length)
-                        $("#playerU15 > div > div > ." + dataU15[Object.keys(dataU15)[i]][pos[x]][j][0] + " > p:nth-of-type(6)").text(Number($("#playerU15 > div > div > ." + dataU15[Object.keys(dataU15)[i]][pos[x]][j][0] + " > p:nth-of-type(8)").text()) + dataU15[Object.keys(dataU15)[i]][pos[x]][j][1].replace(/[^r]/g, "").length)
-                    }
-                }
-            }
-    
-            $("#playerA > div > div > div").each(function () {
-                $(this).find("p:nth-of-type(6)").text(Number($(this).find("p:nth-of-type(4)").text()) + Number($(this).find("p:nth-of-type(5)").text()))
-            })
-    
-            $("[id^='player'] > div > div > div > p:nth-of-type(n+3)").css("color", "#000000")
-        })
-        }
+    }
 
     ////////// 선수 세부 정보 창 //////////
 
@@ -1738,7 +1698,7 @@ function stats() {
         data = dataU15
     }
 
-    if (!$("#stats > .stats > table > tbody > tr > td").length) {
+    if (!$("#stats > .stats > table > tbody > tr > td" && !$("#playerA > div > #gkList > div")).length) {
 
         matchArray = Object.keys(data).filter((a) => a.substring(0, 4) == year)
 
@@ -1855,57 +1815,103 @@ function stats() {
     }
 
     // 표에 데이터 삽입
-    for (i = 0; i < Object.keys(app).length; i++) {
-        $("#stats > .stats > table > tbody").append("<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>")
-
-        $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(1)").text(playerNumber[year][Object.keys(app)[i]][1])
-        $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(2)").html(playerNumber[year][Object.keys(app)[i]][0].replace(/[0-9]/g, ""))
-        $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(3)").text(Object.values(app)[i])
-
-        if (goal[Object.keys(app)[i]] === undefined) {
-            $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(4)").text("0")
-        } else {
-            $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(4)").text(goal[Object.keys(app)[i]])
+    if ($("#stats").length) {
+        for (i = 0; i < Object.keys(app).length; i++) {
+            $("#stats > .stats > table > tbody").append("<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>")
+    
+            $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(1)").text(playerNumber[year][Object.keys(app)[i]][1])
+            $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(2)").html(playerNumber[year][Object.keys(app)[i]][0].replace(/[0-9]/g, ""))
+            $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(3)").text(Object.values(app)[i])
+    
+            if (goal[Object.keys(app)[i]] === undefined) {
+                $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(4)").text("0")
+            } else {
+                $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(4)").text(goal[Object.keys(app)[i]])
+            }
+    
+            if (assist[Object.keys(app)[i]] === undefined) {
+                $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(5)").text("0")
+            } else {
+                $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(5)").text(assist[Object.keys(app)[i]])
+            }
+    
+            $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(6)").text(Number($("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(4)").text()) + Number($("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(5)").text()))
+    
+            if (yc[Object.keys(app)[i]] === undefined) {
+                $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(7)").text("0")
+            } else {
+                $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(7)").text(yc[Object.keys(app)[i]])
+            }
+    
+            if (rc[Object.keys(app)[i]] === undefined) {
+                $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(8)").text("0")
+            } else {
+                $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(8)").text(rc[Object.keys(app)[i]])
+            }
+    
+            $(".stats > table > tbody > tr:nth-of-type(" + (i + 1) + ")").attr("onclick", "location.href = './player?" + Object.keys(app)[i] + "'")
         }
 
-        if (assist[Object.keys(app)[i]] === undefined) {
-            $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(5)").text("0")
+        // 유스팀 도움, 공격P란 삭제
+        if (status_ !== "A") {
+            $("#stats > .stats > table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+5)").css("display", "none")
+            $("#stats > .stats > table > tbody > tr > td:nth-of-type(n+4):nth-of-type(-n+5)").css("display", "none")
+            $("#stats > .stats > table > tbody > tr > td:nth-of-type(n+3)").css("width", "calc(45vw / 4)")
         } else {
-            $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(5)").text(assist[Object.keys(app)[i]])
+            $("#stats > .stats > table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+5)").css("display", "table-cell")
+            $("#stats > .stats > table > tbody > tr > td:nth-of-type(n+4):nth-of-type(-n+5)").css("display", "table-cell")
+            $("#stats > .stats > table > tbody > tr > td:nth-of-type(n+3)").css("width", "calc(45vw / 6)")
         }
+    
+        // 득점 기준 정렬
+        $("#stats > .stats > table > thead > tr > th:nth-of-type(3)").click().css("font-weight", "900")
+        $("#stats > .stats > table > tbody > tr > td:nth-of-type(4)").css("font-weight", "900")
 
-        $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(6)").text(Number($("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(4)").text()) + Number($("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(5)").text()))
+    } else if ($("#playerA").length) {
+        $("#player" + status_ + " > div > div > div").each(function() {
+            $(this).find("p:nth-of-type(3)").text(app[$(this).attr("class")])
 
-        if (yc[Object.keys(app)[i]] === undefined) {
-            $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(7)").text("0")
-        } else {
-            $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(7)").text(yc[Object.keys(app)[i]])
-        }
+            if (goal[$(this).attr("class")] === undefined) {
+                $(this).find("p:nth-of-type(4)").text("0")
+            } else {
+                $(this).find("p:nth-of-type(4)").text(goal[$(this).attr("class")])
+            }
 
-        if (rc[Object.keys(app)[i]] === undefined) {
-            $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(8)").text("0")
-        } else {
-            $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(8)").text(rc[Object.keys(app)[i]])
-        }
+            if (status_ == "A") {
+                if (assist[$(this).attr("class")] === undefined) {
+                    $(this).find("p:nth-of-type(5)").text("0")
+                } else {
+                    $(this).find("p:nth-of-type(5)").text(assist[$(this).attr("class")])
+                }
 
-        $(".stats > table > tbody > tr:nth-of-type(" + (i + 1) + ")").attr("onclick", "location.href = './player?" + Object.keys(app)[i] + "'")
+                $(this).find("p:nth-of-type(6)").text(Number($(this).find("p:nth-of-type(4)").text()) + Number($(this).find("p:nth-of-type(5)").text()))
+
+                if (yc[$(this).attr("class")] === undefined) {
+                    $(this).find("p:nth-of-type(7)").text("0")
+                } else {
+                    $(this).find("p:nth-of-type(7)").text(yc[$(this).attr("class")])
+                }
+
+                if (rc[$(this).attr("class")] === undefined) {
+                    $(this).find("p:nth-of-type(8)").text("0")
+                } else {
+                    $(this).find("p:nth-of-type(8)").text(rc[$(this).attr("class")])
+                }
+            } else {
+                if (yc[$(this).attr("class")] === undefined) {
+                    $(this).find("p:nth-of-type(5)").text("0")
+                } else {
+                    $(this).find("p:nth-of-type(5)").text(yc[$(this).attr("class")])
+                }
+
+                if (rc[$(this).attr("class")] === undefined) {
+                    $(this).find("p:nth-of-type(6)").text("0")
+                } else {
+                    $(this).find("p:nth-of-type(6)").text(rc[$(this).attr("class")])
+                }
+            }
+        })
     }
-
-    // 유스팀 도움, 공격P란 삭제
-    if (status_ !== "A") {
-        $("#stats > .stats > table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+5)").css("display", "none")
-        $("#stats > .stats > table > tbody > tr > td:nth-of-type(n+4):nth-of-type(-n+5)").css("display", "none")
-        $("#stats > .stats > table > tbody > tr > td:nth-of-type(n+3)").css("width", "calc(45vw / 4)")
-    } else {
-        $("#stats > .stats > table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+5)").css("display", "table-cell")
-        $("#stats > .stats > table > tbody > tr > td:nth-of-type(n+4):nth-of-type(-n+5)").css("display", "table-cell")
-        $("#stats > .stats > table > tbody > tr > td:nth-of-type(n+3)").css("width", "calc(45vw / 6)")
-    }
-
-    // 득점 기준 정렬
-    $("#stats > .stats > table > thead > tr > th:nth-of-type(3)").click().css("font-weight", "900")
-    $("#stats > .stats > table > tbody > tr > td:nth-of-type(4)").css("font-weight", "900")
-
 }
 
 // 전적
