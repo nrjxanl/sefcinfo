@@ -218,7 +218,8 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 
 .statsSeason {width: 50vw; padding-left: 10vw; margin-top: 160px; display: flex; align-items: baseline;}
 .statsSeason > p:nth-of-type(1) {font-size: 32px; padding-right: 20px; text-align: left;}
-.statsSeason > p:nth-of-type(n+2) {width: 10vw; font-size: 16px;}
+.statsSeason > p:nth-of-type(n+2):nth-of-type(-n+3) {width: 10vw; font-size: 16px;}
+.statsSeason > p:nth-of-type(4) {font-size: 16px; font-weight: 300; padding-left: 20px;}
 
 #stats > .stats > table {width: 90vw; margin: 20px 0 0 5vw;}
 #stats > .stats > table > thead > tr > th {height: 40px; font-weight: 300;}
@@ -403,7 +404,8 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 .standingsSeason {width: 80vw; padding: 0 10vw; margin-top: 160px; display: flex; align-items: baseline;}
 .standingsSeason > p:nth-of-type(1) {font-size: 32px; padding-right: 20px; text-align: left;}
 .standingsSeason > p:nth-of-type(2) {width: 20vw; font-size: 16px; font-weight: 300;}
-.standingsSeason > p:nth-of-type(n+3) {width: 10vw; font-size: 16px;}
+.standingsSeason > p:nth-of-type(n+3):nth-of-type(-n+4) {width: 10vw; font-size: 16px;}
+.standingsSeason > p:nth-of-type(5) {font-size: 16px; font-weight: 300; padding-left: 20px;}
 
 #standingsA {margin-top: 20px;}
 #standingsA > div {width: 90vw; margin: 0 0 40px 5vw;}

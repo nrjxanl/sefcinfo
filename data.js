@@ -544,7 +544,7 @@ $(document).ready(function () {
     if ($(".statsSeason").length) {
         year = new Date().getFullYear()
 
-        $(".statsSeason").html("<p>" + year + "</p><p>◀</p><p>▶</p>")
+        $(".statsSeason").html("<p>" + year + "</p><p>◀</p><p>▶</p><p>현재</p>")
 
         status_ = "A"
 
@@ -566,6 +566,14 @@ $(document).ready(function () {
 
     $(".statsSeason > p:nth-of-type(3)").click(function () {
         year++
+
+        $(".statsSeason > p:nth-of-type(1)").text(year)
+
+        stats()
+    })
+
+    $(".statsSeason > p:nth-of-type(4)").click(function () {
+        year = new Date().getFullYear()
 
         $(".statsSeason > p:nth-of-type(1)").text(year)
 
@@ -1158,7 +1166,7 @@ $(document).ready(function () {
     if ($(".standingsSeason").length) {
         year = new Date().getFullYear()
 
-        $(".standingsSeason").html("<p>" + year + "</p><p>순위 자세히</p><p>◀</p><p>▶</p>")
+        $(".standingsSeason").html("<p>" + year + "</p><p>순위 자세히</p><p>◀</p><p>▶</p><p>현재</p>")
 
         status_ = "A"
 
@@ -1210,6 +1218,14 @@ $(document).ready(function () {
 
     $(".standingsSeason > p:nth-of-type(4)").click(function () {
         year++
+
+        $(".standingsSeason > p:nth-of-type(1)").text(year)
+
+        standings()
+    })
+
+    $(".standingsSeason > p:nth-of-type(5)").click(function () {
+        year = new Date().getFullYear()
 
         $(".standingsSeason > p:nth-of-type(1)").text(year)
 
