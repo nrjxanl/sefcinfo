@@ -25,7 +25,7 @@ $(document).ready(function () {
     if ($("#matchScore").length) {
 
         // 경기 ID
-        url = window.location.href
+        url =  window.location.href
         id = url.split("?")[1]
 
         if (id.substring(8, 9) == 0) {
@@ -2173,64 +2173,64 @@ function matchH2H() {
         }
 
         // 예상 결과
-        if (matches.length !== 0) {
-            homeAdv = 1.05
-            awayDisadv = 0.95
+        // if (matches.length !== 0) {
+        //     homeAdv = 1.05
+        //     awayDisadv = 0.95
     
-            function calculateExponentialWeight(index) {
-                decayRate = 0.9
-                return Math.pow(decayRate, index + 1)
-            }
+        //     function calculateExponentialWeight(index) {
+        //         decayRate = 0.9
+        //         return Math.pow(decayRate, index + 1)
+        //     }
     
-            function predictNextMatch(matches, nextMatchIsHome) {
-                totalMatches = matches.length
-                weightedScoreSum = 0
-                weightedConcededSum = 0
+        //     function predictNextMatch(matches, nextMatchIsHome) {
+        //         totalMatches = matches.length
+        //         weightedScoreSum = 0
+        //         weightedConcededSum = 0
     
-                for (i = 0; i < totalMatches; i++) {
-                    weight = calculateExponentialWeight(i)
-                    score = matches[i][0]
-                    conceded = matches[i][1]
+        //         for (i = 0; i < totalMatches; i++) {
+        //             weight = calculateExponentialWeight(i)
+        //             score = matches[i][0]
+        //             conceded = matches[i][1]
     
-                    weightedScoreSum += score * 1.4 * weight
-                    weightedConcededSum += conceded * 1.4 * weight
-                }
+        //             weightedScoreSum += score * 1.4 * weight
+        //             weightedConcededSum += conceded * 1.4 * weight
+        //         }
     
-                predictedScore = weightedScoreSum / totalMatches
-                predictedConceded = weightedConcededSum / totalMatches
+        //         predictedScore = weightedScoreSum / totalMatches
+        //         predictedConceded = weightedConcededSum / totalMatches
 
-                if (nextMatchIsHome) {
-                    predictedScore = Math.pow(predictedScore, homeAdv)
-                    predictedConceded = Math.pow(predictedConceded, awayDisadv)
-                } else {
-                    predictedScore = Math.pow(predictedScore, awayDisadv)
-                    predictedConceded = Math.pow(predictedConceded, homeAdv)
-                }
+        //         if (nextMatchIsHome) {
+        //             predictedScore = Math.pow(predictedScore, homeAdv)
+        //             predictedConceded = Math.pow(predictedConceded, awayDisadv)
+        //         } else {
+        //             predictedScore = Math.pow(predictedScore, awayDisadv)
+        //             predictedConceded = Math.pow(predictedConceded, homeAdv)
+        //         }
     
-                return [predictedScore, predictedConceded]
-            }
+        //         return [predictedScore, predictedConceded]
+        //     }
     
-            nextMatchIsHome = data[id]["home"][0] == "서울E" ? 1 : 0
+        //     nextMatchIsHome = data[id]["home"][0] == "서울E" ? 1 : 0
     
-            nextMatchPrediction = predictNextMatch(matches, nextMatchIsHome)
+        //     nextMatchPrediction = predictNextMatch(matches, nextMatchIsHome)
 
-            if ($("#expectedResult > div:nth-of-type(2) > p").text() == "") {
-                $("#expectedResult > div:nth-of-type(2) > div:nth-of-type(1) > div > img").attr("src", "./files/" + data[id]["home"][1] + "_s.png")
-                $("#expectedResult > div:nth-of-type(2) > div:nth-of-type(2) > div > img").attr("src", "./files/" + data[id]["away"][1] + "_s.png")
+        //     if ($("#expectedResult > div:nth-of-type(2) > p").text() == "") {
+        //         $("#expectedResult > div:nth-of-type(2) > div:nth-of-type(1) > div > img").attr("src", "./files/" + data[id]["home"][1] + "_s.png")
+        //         $("#expectedResult > div:nth-of-type(2) > div:nth-of-type(2) > div > img").attr("src", "./files/" + data[id]["away"][1] + "_s.png")
     
-                if (data[id]["home"][0] == "서울E") {
-                    $("#expectedResult > div:nth-of-type(2) > p").text(Math.floor(nextMatchPrediction[0]) + " : " + Math.floor(nextMatchPrediction[1]))
-                    $("#expectedResult > div:nth-of-type(3) > p:nth-of-type(1)").text(Math.floor(nextMatchPrediction[0] * 100) / 100)
-                    $("#expectedResult > div:nth-of-type(3) > p:nth-of-type(3)").text(Math.floor(nextMatchPrediction[1] * 100) / 100)
-                } else if (data[id]["away"][0] == "서울E") {
-                    $("#expectedResult > div:nth-of-type(2) > p").text(Math.floor(nextMatchPrediction[1]) + " : " + Math.floor(nextMatchPrediction[0]))
-                    $("#expectedResult > div:nth-of-type(3) > p:nth-of-type(1)").text(Math.floor(nextMatchPrediction[1] * 100) / 100)
-                    $("#expectedResult > div:nth-of-type(3) > p:nth-of-type(3)").text(Math.floor(nextMatchPrediction[0] * 100) / 100)
-                }
-            }
-        } else if ($("#expectedResult > div:nth-of-type(2) > p").text() == "") {
-            $("#expectedResult").css("display", "none")
-        }
+        //         if (data[id]["home"][0] == "서울E") {
+        //             $("#expectedResult > div:nth-of-type(2) > p").text(Math.floor(nextMatchPrediction[0]) + " : " + Math.floor(nextMatchPrediction[1]))
+        //             $("#expectedResult > div:nth-of-type(3) > p:nth-of-type(1)").text(Math.floor(nextMatchPrediction[0] * 100) / 100)
+        //             $("#expectedResult > div:nth-of-type(3) > p:nth-of-type(3)").text(Math.floor(nextMatchPrediction[1] * 100) / 100)
+        //         } else if (data[id]["away"][0] == "서울E") {
+        //             $("#expectedResult > div:nth-of-type(2) > p").text(Math.floor(nextMatchPrediction[1]) + " : " + Math.floor(nextMatchPrediction[0]))
+        //             $("#expectedResult > div:nth-of-type(3) > p:nth-of-type(1)").text(Math.floor(nextMatchPrediction[1] * 100) / 100)
+        //             $("#expectedResult > div:nth-of-type(3) > p:nth-of-type(3)").text(Math.floor(nextMatchPrediction[0] * 100) / 100)
+        //         }
+        //     }
+        // } else if ($("#expectedResult > div:nth-of-type(2) > p").text() == "") {
+        //     $("#expectedResult").css("display", "none")
+        // }
 
         // 최근 맞대결 결과 클릭 시 화면 이동
         $("#recentMatch > div").each(function (index) {
@@ -2256,7 +2256,7 @@ function matchH2H() {
 
     } else {
         if (!$("#matchH2H > p").length) {
-            $("#matchH2H").append("<p style='font-size: 16px; font-weight: 300;'>아직 맞대결 기록이 없습니다.</p>")
+            $("#matchH2H").empty().append("<p style='font-size: 16px; font-weight: 300;'>아직 맞대결 기록이 없습니다.</p>")
         }
     }
 }
