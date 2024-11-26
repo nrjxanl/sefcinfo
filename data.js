@@ -1356,6 +1356,16 @@ function playerList_ () {
     player_MF = playerList.filter((item) => {
         return item[3] == "미드필더"
     })
+
+    // 장석훈 등번호
+    if (status_ == "U18") {
+        $.each(player_MF, function(index, value) {
+            if (value[0] === '20240155') {
+                value[2] = '10'
+            }
+        })
+    }
+
     player_MF = player_MF.sort((a, b) => a[2] - b[2])
     for (i = 0; i < player_MF.length; i++) {
         if (status_ == "A") {
