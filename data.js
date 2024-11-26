@@ -1455,8 +1455,8 @@ function fixtures() {
 
         $("#fixtures" + status_ + " > .fixtures > .fixtures_").each(function () {
             $(this).click(function () {
-                window.open("./match?" + Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[$(this).index()],"_blank")
                 localStorage.setItem("match", "matchInfo")
+                window.location.href = "./match?" + Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[$(this).index()]
             })
         })
 
