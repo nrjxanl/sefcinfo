@@ -588,7 +588,7 @@ $(document).ready(function () {
         year = new Date().getFullYear()
         month = ("0" + (new Date().getMonth() + 1)).slice(-2)
 
-        $(".fixturesSeason").html("<p>" + month + "<span>" + year + "</span></p><p>◀</p><p>▶</p><p>달력 보기</p>")
+        $(".fixturesSeason").html("<p>" + month + "<span>" + year + "</span></p><p>◀</p><p>▶</p><p>현재</p>")
 
         status_ = "A"
         clndr = 0
@@ -622,24 +622,9 @@ $(document).ready(function () {
         fixtures()
     })
 
-    // 일정, 달력 전환
     $(".fixturesSeason > p:nth-of-type(4)").click(function () {
-        if ($(".fixturesSeason > p:nth-of-type(4)").text() == "달력 보기") {
-            $("#fixturesA").css("display", "none")
-            $("#fixturesU18").css("display", "none")
-            $("#fixturesU15").css("display", "none")
-            $("#calendar").css("display", "block")
-
-            $(".fixturesSeason > p:nth-of-type(4)").text("목록 보기")
-        } else {
-            $("#fixturesA").css("display", "none")
-            $("#fixturesU18").css("display", "none")
-            $("#fixturesU15").css("display", "none")
-            $("#calendar").css("display", "none")
-            $("#fixtures" + status_).css("display", "block")
-
-            $(".fixturesSeason > p:nth-of-type(4)").text("달력 보기")
-        }
+        year = new Date().getFullYear()
+        month = (new Date().getMonth() + 1).toString().slice(-2)
 
         fixtures()
     })
@@ -1453,82 +1438,6 @@ function fixtures() {
         $("#fixtures" + status_ + " > .fixtures").append("<p>일정이 없습니다.</p>")
 
         $("#fixtures" + status_ + " > .fixtures > p").css({ "font-size": "16px", "margin-top": "calc(27px + 5vw)", "font-weight": "500" })
-    }
-
-    // 달력
-    if ($(".fixturesSeason > p:nth-of-type(4)").text() == "목록 보기") {
-        for (i = 0; i < 42; i++) {
-            if (i + 1 - firstDateDay <= 0) { // 지난달
-                if (month == 1) { // 지난해
-                    yy = year - 1
-                    mm = "12"
-                    dd = (i + 1 - firstDateDay + prevMonthLastDate < 10) ? "0" + (i + 1 - firstDateDay + prevMonthLastDate) : "" + (i + 1 - firstDateDay + prevMonthLastDate)
-                } else {
-                    yy = year
-                    mm = (month <= 10) ? "0" + (Number(month) - 1) : "" + (Number(month) - 1)
-                    dd = (i + 1 - firstDateDay + prevMonthLastDate < 10) ? "0" + (i + 1 - firstDateDay + prevMonthLastDate) : "" + (i + 1 - firstDateDay + prevMonthLastDate)
-                }
-            } else if (i + 1 - firstDateDay > lastDate) { // 다음달
-                if (month == 12) { // 다음해
-                    yy = year + 1
-                    mm = "01"
-                    dd = (i + 1 - firstDateDay - lastDate < 10) ? "0" + (i + 1 - firstDateDay - lastDate) : "" + (i + 1 - firstDateDay - lastDate)
-                } else {
-                    yy = year
-                    mm = (month < 9) ? "0" + (Number(month) + 1) : "" + (Number(month) + 1)
-                    dd = (i + 1 - firstDateDay - lastDate < 10) ? "0" + (i + 1 - firstDateDay - lastDate) : "" + (i + 1 - firstDateDay - lastDate)
-                }
-            } else {
-                yy = year
-                mm = month
-                dd = (i + 1 - firstDateDay < 10) ? "0" + (i + 1 - firstDateDay) : "" + (i + 1 - firstDateDay)
-            }
-
-            $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").attr("class", "d" + yy + mm + dd)
-            $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ") > p").text(Number(dd))
-
-            // 달력에 일정 삽입
-            if (status_ == "A" && Object.keys(Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")).length !== 0) { // A팀
-                if (dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["homeScore"].length !== 0) {
-                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["home"][1] + "_s.png'><img src='./files/" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["away"][1] + "_s.png'></div><p>" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["homeScore"] + ":" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["awayScore"] + "</p>").css("background", "#000060")
-                } else {
-                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["home"][1] + "_s.png'><img src='./files/" + dataA[Object.keys(dataA).filter((a) => a == "" + yy + mm + dd + "0")]["away"][1] + "_s.png'></div>").css("background", "#000060")
-                }
-
-                $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ") > p").css("color", "#fafafa")
-
-                $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").attr("onclick", "location.href = './match?" + yy + mm + dd + "0'")
-            }
-
-            if (status_ == "U18" && Object.keys(Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")).length !== 0) { // U18
-                if (dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["homeScore"].length !== 0) {
-                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["home"][1] + "_s.png'><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["away"][1] + "_s.png'></div><p>" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["homeScore"] + ":" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["awayScore"] + "</p>").css("background", "#000060")
-                } else {
-                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["home"][1] + "_s.png'><img src='./files/" + dataU18[Object.keys(dataU18).filter((a) => a == "" + yy + mm + dd + "8")]["away"][1] + "_s.png'></div>").css("background", "#000060")
-                }
-
-                $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ") > p").css("color", "#fafafa")
-        
-                $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").attr("onclick", "location.href = './match?" + yy + mm + dd + "8'")
-            }
-
-            if (status_ == "U15" && Object.keys(Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")).length !== 0) { // U15
-                if (dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["homeScore"].length !== 0) {
-                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["home"][1] + "_s.png'><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["away"][1] + "_s.png'></div><p>" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["homeScore"] + ":" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["awayScore"] + "</p>").css("background", "#000060")
-                } else {
-                    $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").append("<div><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["home"][1] + "_s.png'><img src='./files/" + dataU15[Object.keys(dataU15).filter((a) => a == "" + yy + mm + dd + "5")]["away"][1] + "_s.png'></div>").css("background", "#000060")
-                }
-
-                $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ") > p").css("color", "#fafafa")
-        
-                $("#calendar > table > tbody > tr:nth-of-type(" + Number(Math.floor(i / 7) + 1) + ") > td:nth-of-type(" + Number((i % 7) + 1) + ")").attr("onclick", "location.href = './match?" + yy + mm + dd + "5'")
-            }
-
-            if (i == 34 && i + 1 - firstDateDay > lastDate) {
-                $("#calendar > table > tbody > tr:nth-of-type(6)").remove()
-                break
-            }
-        }
     }
 }
 
