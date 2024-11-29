@@ -56,6 +56,9 @@ $("#menuBg").click(function() {
 })
 
 // 메뉴 버튼 클릭 시 페이지 이동
+$("#menu > div:nth-of-type(1)").click(function() {
+    window.location = "https://sefc.info"
+})
 $("#menu > div:nth-of-type(2)").click(function() {
     window.location = "./players"
 })
