@@ -34,7 +34,7 @@ $(window).resize(function() {
 })
 
 // 메뉴
-$("body").append("<div id='menu'><div><img src='./files/players.svg'>선수단</div><div><img src='./files/fixtures.svg'>일정</div><div><img src='./files/stats.svg'>기록</div><div><img src='./files/standings.svg'>순위</div></div><div id='menuBg'></div>")
+$("body").append("<div id='menu'><div><img src='./files/home.svg'>홈</div><div><img src='./files/players.svg'>선수단</div><div><img src='./files/fixtures.svg'>일정</div><div><img src='./files/stats.svg'>기록</div><div><img src='./files/standings.svg'>순위</div></div><div id='menuBg'></div>")
 
 // 상단 클릭 시 홈으로 이동
 $("header > div:nth-of-type(2)").click(function() {
@@ -56,28 +56,35 @@ $("#menuBg").click(function() {
 })
 
 // 메뉴 버튼 클릭 시 페이지 이동
-$("#menu > div:nth-of-type(1)").click(function() {
+$("#menu > div:nth-of-type(2)").click(function() {
     window.location = "./players"
 })
-$("#menu > div:nth-of-type(2)").click(function() {
+$("#menu > div:nth-of-type(3)").click(function() {
     window.location = "./fixtures"
 })
-$("#menu > div:nth-of-type(3)").click(function() {
+$("#menu > div:nth-of-type(4)").click(function() {
     window.location = "./stats"
 })
-$("#menu > div:nth-of-type(4)").click(function() {
+$("#menu > div:nth-of-type(5)").click(function() {
     window.location = "./standings"
 })
 
 // 메뉴 내 현재 페이지 이름 강조
-if ($(".playerButton").length || $("#playerInfo").length) {
+if ($("#prevMatch").length) {
     $("#menu > div:nth-of-type(1)").css({"background": "#000060", "color": "#fafafa"})
+    $("#menu > div:nth-of-type(1) > img").css("filter", "brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(1deg) brightness(103%) contrast(103%)")
+} else if ($(".playerButton").length || $("#playerInfo").length) {
+        $("#menu > div:nth-of-type(2)").css({"background": "#000060", "color": "#fafafa"})
+        $("#menu > div:nth-of-type(2) > img").css("filter", "brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(1deg) brightness(103%) contrast(103%)")
 } else if ($(".fixturesButton").length || $("#matchScore").length) {
-    $("#menu > div:nth-of-type(2)").css({"background": "#000060", "color": "#fafafa"})
-} else if ($(".statsButton").length) {
     $("#menu > div:nth-of-type(3)").css({"background": "#000060", "color": "#fafafa"})
-} else if ($(".standingsButton").length) {
+    $("#menu > div:nth-of-type(3) > img").css("filter", "brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(1deg) brightness(103%) contrast(103%)")
+} else if ($(".statsButton").length) {
     $("#menu > div:nth-of-type(4)").css({"background": "#000060", "color": "#fafafa"})
+    $("#menu > div:nth-of-type(4) > img").css("filter", "brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(1deg) brightness(103%) contrast(103%)")
+} else if ($(".standingsButton").length) {
+    $("#menu > div:nth-of-type(5)").css({"background": "#000060", "color": "#fafafa"})
+    $("#menu > div:nth-of-type(5) > img").css("filter", "brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(1deg) brightness(103%) contrast(103%)")
 }
 
 // 선수단 창 전환
@@ -121,6 +128,8 @@ function fixturesA() {
     $(".fixturesButton > button:nth-of-type(1)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
 
     status_ = "A"
+    year = new Date().getFullYear()
+    month = ("0" + (new Date().getMonth() + 1)).slice(-2)
     fixtures()
 }
 
@@ -136,6 +145,8 @@ function fixturesU18() {
     $(".fixturesButton > button:nth-of-type(2)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
 
     status_ = "U18"
+    year = new Date().getFullYear()
+    month = ("0" + (new Date().getMonth() + 1)).slice(-2)
     fixtures()
 }
 
@@ -151,6 +162,8 @@ function fixturesU15() {
     $(".fixturesButton > button:nth-of-type(3)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
 
     status_ = "U15"
+    year = new Date().getFullYear()
+    month = ("0" + (new Date().getMonth() + 1)).slice(-2)
     fixtures()
 }
 
@@ -216,6 +229,8 @@ function standingsA() {
     $(".standingsButton > button:nth-of-type(1)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
 
     status_ = "A"
+    year = new Date().getFullYear()
+    $(".standingsSeason > p:nth-of-type(1)").text(year)
     standings()
 }
 
@@ -228,6 +243,8 @@ function standingsU18() {
     $(".standingsButton > button:nth-of-type(2)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
 
     status_ = "U18"
+    year = new Date().getFullYear()
+    $(".standingsSeason > p:nth-of-type(1)").text(year)
     standings()
 }
 
@@ -240,6 +257,8 @@ function standingsU15() {
     $(".standingsButton > button:nth-of-type(3)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
 
     status_ = "U15"
+    year = new Date().getFullYear()
+    $(".standingsSeason > p:nth-of-type(1)").text(year)
     standings()
 }
 
@@ -258,6 +277,8 @@ function statsA() {
     }
 
     status_ = "A"
+    year = new Date().getFullYear()
+    $(".statsSeason > p:nth-of-type(1)").text(year)
     stats()
 }
 
@@ -275,6 +296,8 @@ function statsU18() {
     }
 
     status_ = "U18"
+    year = new Date().getFullYear()
+    $(".statsSeason > p:nth-of-type(1)").text(year)
     stats()
 }
 
@@ -287,6 +310,8 @@ function statsU15() {
     $(".statsButton > button:nth-of-type(3)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
 
     status_ = "U15"
+    year = new Date().getFullYear()
+    $(".statsSeason > p:nth-of-type(1)").text(year)
     stats()
 }
 
