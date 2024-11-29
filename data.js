@@ -557,19 +557,19 @@ $(document).ready(function () {
     })
 
     $(".statsSeason > p:nth-of-type(2)").click(function () {
-        year--
-
-        $(".statsSeason > p:nth-of-type(1)").text(year)
-
-        stats()
+        if (year > 2015) {
+            year --
+            $(".statsSeason > p:nth-of-type(1)").text(year)
+            stats()
+        }
     })
 
     $(".statsSeason > p:nth-of-type(3)").click(function () {
-        year++
-
-        $(".statsSeason > p:nth-of-type(1)").text(year)
-
-        stats()
+        if (year < new Date().getFullYear()) {
+            year ++
+            $(".statsSeason > p:nth-of-type(1)").text(year)
+            stats()
+        }
     })
 
     $(".statsSeason > p:nth-of-type(4)").click(function () {
@@ -610,22 +610,25 @@ $(document).ready(function () {
     })
 
     $(".fixturesSeason > p:nth-of-type(2)").click(function () {
-        if (month == "01") {
-            year --
-            month = "12"
-        } else {
-            month = ("0" + (Number(month) - 1)).slice(-2)
+        if (year !== 2015 || month !== "01") {
+            if (month == "01") {
+                year --
+                month = "12"
+            } else {
+                month = ("0" + (Number(month) - 1)).slice(-2)
+            }        
         }
-
         fixtures()
     })
 
     $(".fixturesSeason > p:nth-of-type(3)").click(function () {
-        if (month == "12") {
-            year ++
-            month = "01"
-        } else {
-            month = ("0" + (Number(month) + 1)).slice(-2)
+        if (year !== new Date().getFullYear() || month !== "12") {
+            if (month == "12") {
+                year ++
+                month = "01"
+            } else {
+                month = ("0" + (Number(month) + 1)).slice(-2)
+            }
         }
         fixtures()
     })
@@ -1209,19 +1212,19 @@ $(document).ready(function () {
     })
 
     $(".standingsSeason > p:nth-of-type(3)").click(function () {
-        year--
-
-        $(".standingsSeason > p:nth-of-type(1)").text(year)
-
-        standings()
+        if (year > 2015) {
+            year --
+            $(".standingsSeason > p:nth-of-type(1)").text(year)
+            standings()
+        }
     })
 
     $(".standingsSeason > p:nth-of-type(4)").click(function () {
-        year++
-
-        $(".standingsSeason > p:nth-of-type(1)").text(year)
-
-        standings()
+        if (year < new Date().getFullYear()) {
+            year ++
+            $(".standingsSeason > p:nth-of-type(1)").text(year)
+            standings()
+        }
     })
 
     $(".standingsSeason > p:nth-of-type(5)").click(function () {
