@@ -42,7 +42,7 @@ $(document).ready(function () {
 
         // 상대 전적
         if (id.substring(8, 9) == 0) { // A팀
-            h2h = {"gangwonfc": ["dd5828", "ffffff", "0", "3", "6", "10", "19"], "gyeongnamfc": ["e83827", "f5cd21", "12", "8", "9", "36", "34"], "goyanghifc": ["171c61", "b31d23", "4", "3", "1", "15", "7"], "goyangzaicro": ["171c61", "b31d23", "4", "3", "1", "15", "7"], "gwangjufc": ["ffd24f", "c41230", "0", "3", "9", "8", "28"], "gimcheonsangmu": ["002649", "c5a775", "1", "1", "5", "5", "11"], "gimpofc": ["203d41", "cdb161", "4", "3", "3", "18", "11"], "daegufc": ["59b8f6", "000000", "1", "4", "3", "6", "10"], "daejeoncitizen": ["9b2743", "041e42", "9", "7", "11", "29", "30"], "daejeonhana": ["007e6e", "9b2743", "9", "7", "11", "29", "30"], "busanipark": ["ff0d00", "ffffff", "8", "7", "15", "39", "53"], "bucheonfc": ["ac2424", "ffffff", "19", "8", "12", "66", "36"], "sangjusangmu": ["ed1a2e", "ffffff", "1", "1", "2", "6", "7"], "seongnamfc": ["000000", "ffffff", "5", "6", "3", "19", "16"], "suwonfc": ["00396f", "eb0028", "5", "6", "9", "23", "30"], "asanmugunghwa": ["ffe806", "0a2a3b", "1", "3", "8", "9", "25"], "ansangreeners": ["00979c", "0a2a3b", "13", "9", "7", "42", "31"], "ansanmugunghwa": ["161270", "fcd715", "2", "4", "2", "8", "8"], "ansanpolice": ["f0c018", "183090", "2", "4", "2", "8", "8"], "jeonnamdragons": ["ffde00", "000000", "3", "11", "7", "19", "30"], "jejuutd": ["f58026", "ffffff", "0", "1", "3", "6", "9"], "cheonancity": ["5dacd8", "ffffff", "3", "1", "2", "13", "9"], "chungnamasan": ["f4cd1c", "093c91", "3", "4", "10", "14", "18"], "chungbukcheongju": ["1c235a", "e8343d", "3", "1", "2", "10", "9"], "chungjuhummel": ["0f6b39", "ffffff", "6", "1", "1", "17", "7"], "fcanyang": ["4f1b87", "cda55f", "8", "9", "20", "37", "55"], "sunmoonuniv": ["006a79", "d31945", "1", "0", "0", "2", "0"], "ulsanhyundai": ["003f98", "f9be00", "0", "1", "0", "1", "1"], "hwaseongfc": ["ff5f00", "00205b", "1", "0", "0", "2", "0"], "sungkyunkwanuniv": ["2e4e3f", "ffffff", "0", "1", "0", "2", "2"], "pocheoncitizen": ["FF4500", "15063c", "0", "0", "1", "0", "1"], "koreauniv": ["8b0029", "d6cabc", "0", "1", "0", "0", "0"], "honamuniv": ["00505a", "dcbe19", "1", "0", "0", "1", "0"], "daejeonkorail": ["0b60ad", "93c4ed", "0", "1", "1", "1", "3"], "changwonfc": ["013690", "00a54f", "1", "1", "0", "2", "1"], "songwolfc": ["263266", "38b7b7", "1", "0", "0", "5", "0"], "fcseoul": ["b5191a", "000000", "1", "0", "1", "1", "1"], "suwonsamsung": ["194996", "ffffff", "3", "0", "0", "7", "2"],}
+            h2h = {"gangwonfc": ["dd5828", "ffffff", "0", "3", "6", "10", "19"], "gyeongnamfc": ["e83827", "f5cd21", "12", "8", "9", "36", "34"], "goyanghifc": ["171c61", "b31d23", "4", "3", "1", "15", "7"], "goyangzaicro": ["171c61", "b31d23", "4", "3", "1", "15", "7"], "gwangjufc": ["ffd24f", "c41230", "0", "3", "9", "8", "28"], "gimcheonsangmu": ["002649", "c5a775", "1", "1", "5", "5", "11"], "gimpofc": ["203d41", "cdb161", "4", "3", "3", "18", "11"], "daegufc": ["59b8f6", "000000", "1", "4", "3", "6", "10"], "daejeoncitizen": ["9b2743", "041e42", "9", "7", "11", "29", "30"], "daejeonhana": ["007e6e", "9b2743", "9", "7", "11", "29", "30"], "busanipark": ["ff0d00", "ffffff", "8", "7", "15", "39", "53"], "bucheonfc": ["ac2424", "ffffff", "19", "8", "12", "66", "36"], "sangjusangmu": ["ed1a2e", "ffffff", "1", "1", "2", "6", "7"], "seongnamfc": ["000000", "ffffff", "5", "6", "3", "19", "16"], "suwonfc": ["00396f", "eb0028", "5", "6", "9", "23", "30"], "asanmugunghwa": ["ffe806", "0a2a3b", "1", "3", "8", "9", "25"], "ansangreeners": ["00979c", "0a2a3b", "13", "9", "7", "42", "31"], "ansanmugunghwa": ["161270", "fcd715", "2", "4", "2", "8", "8"], "ansanpolice": ["f0c018", "183090", "2", "4", "2", "8", "8"], "jeonnamdragons": ["ffde00", "000000", "3", "11", "7", "19", "30"], "jejuutd": ["f58026", "ffffff", "0", "1", "3", "6", "9"], "cheonancity": ["5dacd8", "ffffff", "3", "1", "2", "13", "9"], "chungnamasan": ["f4cd1c", "093c91", "3", "4", "10", "14", "18"], "chungbukcheongju": ["1c235a", "e8343d", "3", "1", "2", "10", "9"], "chungjuhummel": ["0f6b39", "ffffff", "6", "1", "1", "17", "7"], "fcanyang": ["4f1b87", "cda55f", "8", "9", "20", "37", "55"], "sunmoonuniv": ["006a79", "d31945", "1", "0", "0", "2", "0"], "ulsanhyundai": ["003f98", "f9be00", "0", "1", "0", "1", "1"], "hwaseongfc": ["ff5e00000", "00205b", "1", "0", "0", "2", "0"], "sungkyunkwanuniv": ["2e4e3f", "ffffff", "0", "1", "0", "2", "2"], "pocheoncitizen": ["FF4500", "15063c", "0", "0", "1", "0", "1"], "koreauniv": ["8b0029", "d6cabc", "0", "1", "0", "0", "0"], "honamuniv": ["00505a", "dcbe19", "1", "0", "0", "1", "0"], "daejeonkorail": ["0b60ad", "93c4ed", "0", "1", "1", "1", "3"], "changwonfc": ["013690", "00a54f", "1", "1", "0", "2", "1"], "songwolfc": ["263266", "38b7b7", "1", "0", "0", "5", "0"], "fcseoul": ["b5191a", "000000", "1", "0", "1", "1", "1"], "suwonsamsung": ["194996", "ffffff", "3", "0", "0", "7", "2"],}
         } else if (id.substring(8, 9) == 8) { // U-18
             h2h = {"gangwonfc": ["dd5828", "ffffff", "2", "3", "11", "18", "32"], "gyeongnamfc": ["e83827", "f5cd21", "0", "1", "4", "2", "14"], "goyanghifc": ["171c61", "b31d23", "0", "0", "0", "0", "0"], "goyangzaicro": ["171c61", "b31d23", "1", "0", "1", "2", "2"], "gwangjufc": ["ffd24f", "c41230", "0", "0", "5", "0", "23"], "gimcheonsangmu": ["002649", "c5a775", "2", "1", "2", "12", "7"], "gimpofc": ["203d41", "cdb161", "5", "1", "0", "24", "9"], "daegufc": ["59b8f6", "000000", "1", "0", "7", "4", "23"], "daejeoncitizen": ["9b2743", "041e42", "2", "2", "1", "9", "10"], "daejeonhana": ["007e6e", "9b2743", "2", "2", "1", "9", "10"], "busanipark": ["ff0d00", "ffffff", "0", "2", "3", "5", "10"], "bucheonfc": ["ac2424", "ffffff", "4", "2", "11", "21", "42"], "sangjusangmu": ["ed1a2e", "ffffff", "0", "0", "0", "0", "0"], "seongnamfc": ["000000", "ffffff", "4", "2", "10", "13", "40"], "suwonfc": ["00396f", "eb0028", "3", "2", "9", "18", "31"], "asanmugunghwa": ["ffe806", "0a2a3b", "0", "1", "0", "1", "1"], "ansangreeners": ["00979c", "0a2a3b", "5", "5", "5", "19", "19"], "ansanmugunghwa": ["161270", "fcd715", "2", "1", "0", "9", "3"], "ansanpolice": ["f0c018", "183090", "0", "0", "0", "0", "0"], "jeonnamdragons": ["ffde00", "000000", "0", "1", "3", "2", "10"], "jejuutd": ["f58026", "ffffff", "5", "3", "11", "21", "41"], "cheonancity": ["5dacd8", "ffffff", "0", "2", "1", "3", "5"], "chungnamasan": ["f4cd1c", "093c91", "3", "0", "1", "8", "5"], "chungbukcheongju": ["1c235a", "e8343d", "0", "1", "0", "1", "1"], "chungjuhummel": ["0f6b39", "ffffff", "0", "0", "0", "0", "0"], "fcanyang": ["4f1b87", "cda55f", "5", "1", "14", "21", "39"], "ulsanhyundai": ["003f98", "f9be00", "1", "0", "1", "3", "3"], "pocheoncitizen": ["FF4500", "15063c", "0", "0", "0", "0", "0"], "daejeonkorail": ["0b60ad", "93c4ed", "0", "0", "0", "0", "0"], "fcseoul": ["b5191a", "000000", "0", "2", "11", "7", "37"], "incheonutd": ["004f9e", "231815", "1", "4", "10", "18", "39"], "suwonsamsung": ["194996", "ffffff", "0", "0", "12", "8", "47"], "irihs": ["ffffff", "f1ab12", "1", "0", "0", "4", "2"], "ganggyeongchs": ["757473", "fefc2d", "1", "0", "0", "3", "1"], "dongducheonfc": ["cf261f", "ffffff", "1", "0", "0", "2", "1"], "pohangsteelers": ["e70012", "000000", "0", "0", "2", "2", "6"], "hwaseongfootballcentre": ["f11914", "ffffff", "1", "0", "0", "2", "1"], "acewayfc": ["000000", "ffffff", "1", "0", "0", "1", "0"], "bugyeonghs": ["e98a1c", "ffffff", "0", "0", "1", "0", "3"], "suwonhs": ["013087", "ffffff", "1", "0", "0", "2", "0"], "gwacheonhs": ["243251", "fce404", "0", "1", "0", "2", "2"], "youngunhs": ["773523", "ffffff", "0", "0", "1", "1", "2"], "boinhs": ["a52a2a", "ebb767", "0", "0", "1", "2", "5"], "gyeonggiahs": ["2481bb", "ffffff", "0", "0", "1", "1", "2"], "seoulgwangjin": ["054393", "dcbc5a", "2", "0", "0", "15", "0"], "pajukorea": ["8b0029", "d6cabc", "2", "0", "0", "7", "1"], "unhohs": ["1e90ff", "ffffff", "1", "0", "0", "7", "0"], "jeonbukhyundai": ["034f36", "ffdd00", "1", "0", "2", "4", "8"], "hongcheonfc": ["efda9c", "ffffff", "1", "0", "0", "2", "1"], "chojihs": ["019241", "fff500", "1", "0", "0", "1", "0"], "soongsilhs": ["122a4a", "ffffff", "1", "0", "0", "5", "1"], "daeryunhs": ["29166f", "ffffff", "0", "0", "1", "0", "1"], "gyeongnamths": ["80600f", "ffffff", "1", "0", "0", "3", "0"], "kwaihs": ["1b498a", "ffffff", "0", "0", "1", "0", "1"],}
         } else { // U-15
@@ -713,9 +713,9 @@ $(document).ready(function () {
                 if (dataA[prev[i]]["homeScore"] > dataA[prev[i]]["awayScore"]) {
                     $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#000060")
                 } else if (dataA[prev[i]]["homeScore"] == dataA[prev[i]]["awayScore"]) {
-                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#808080")
+                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#acacac")
                 } else {
-                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#f00")
+                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#e00000")
                 }
             } else {
                 $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > div > img").attr("src", "./files/" + dataA[prev[i]]["home"][1] + "_s.png")
@@ -723,9 +723,9 @@ $(document).ready(function () {
                 if (dataA[prev[i]]["homeScore"] < dataA[prev[i]]["awayScore"]) {
                     $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#000060")
                 } else if (dataA[prev[i]]["homeScore"] == dataA[prev[i]]["awayScore"]) {
-                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#808080")
+                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#acacac")
                 } else {
-                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#f00")
+                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#e00000")
                 }
             }
 
@@ -1433,19 +1433,19 @@ function fixtures() {
             
             if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["home"][0] == "서울E") {
                 if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") > data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
-                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css("border", "2px solid #000060")
+                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css({"color": "#fafafa", "background": "#374df5", "border": "2px solid #374df5"})
                 } else if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") == data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "") && data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"] !== "") {
-                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css("border", "2px solid #808080")
+                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css({"color": "#fafafa", "background": "#acacac", "border": "2px solid #acacac"})
                 } else if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") < data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
-                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css("border", "2px solid #f00")
+                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css({"color": "#fafafa", "background": "#e00000", "border": "2px solid #e00000"})
                 }
             } else if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["away"][0] == "서울E") {
                 if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") < data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
-                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css("border", "2px solid #000060")
+                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css({"color": "#fafafa", "background": "#374df5", "border": "2px solid #374df5"})
                 } else if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") == data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "") && data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"] !== "") {
-                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css("border", "2px solid #808080")
+                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css({"color": "#fafafa", "background": "#acacac", "border": "2px solid #acacac"})
                 } else if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") > data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
-                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css("border", "2px solid #f00")
+                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css({"color": "#fafafa", "background": "#e00000", "border": "2px solid #e00000"})
                 }
             }
 
@@ -1915,7 +1915,7 @@ function matchH2H() {
                 grd2 = ((100 * (w + d) / (w + d + l))) + "%"
                 goalGrd = (100 * goalS / (goalS + goalC)) + "%"
 
-                h2hGradient = "linear-gradient(105deg, #000060 " + grd1 + ", #c8c8c8 " + grd1 + ", #c8c8c8 " + grd2 + ", " + oppBg + " " + grd2 + ")"
+                h2hGradient = "linear-gradient(105deg, #000060 " + grd1 + ", #acacac " + grd1 + ", #acacac " + grd2 + ", " + oppBg + " " + grd2 + ")"
                 goalGradient = "linear-gradient(105deg, #000060 " + goalGrd + ", " + oppBg + " " + goalGrd + ")"
 
                 if (d == 0) {
@@ -1923,7 +1923,7 @@ function matchH2H() {
                 }
 
                 if (l == 0) {
-                    h2hGradient = "linear-gradient(105deg, #000060 " + grd1 + ", " + "#c8c8c8" + " " + grd1 + ")"
+                    h2hGradient = "linear-gradient(105deg, #000060 " + grd1 + ", " + "#acacac" + " " + grd1 + ")"
                 }
 
                 $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)").text(w)
@@ -1943,13 +1943,13 @@ function matchH2H() {
 
                 if ($(window).width() < 768) {
                     $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#000060", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#c8c8c8", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
+                    $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#acacac", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
                     $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(3) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
                     $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#000060", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
                     $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
                 } else {
                     $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#000060", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#c8c8c8", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
+                    $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#acacac", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
                     $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(3) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
                     $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#000060", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
                     $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
@@ -1959,7 +1959,7 @@ function matchH2H() {
                 grd2 = (100 * (d + l) / (w + d + l)) + "%"
                 goalGrd = (100 * goalC / (goalS + goalC)) + "%"
 
-                h2hGradient = "linear-gradient(105deg, " + oppBg + " " + grd1 + ", #c8c8c8 " + grd1 + ", #c8c8c8 " + grd2 + ", #000060 " + grd2 + ")"
+                h2hGradient = "linear-gradient(105deg, " + oppBg + " " + grd1 + ", #acacac " + grd1 + ", #acacac " + grd2 + ", #000060 " + grd2 + ")"
                 goalGradient = "linear-gradient(105deg, " + oppBg + " " + goalGrd + ", #000060 " + goalGrd + ")"
 
                 if (d == 0) {
@@ -1967,7 +1967,7 @@ function matchH2H() {
                 }
 
                 if (l == 0) {
-                    h2hGradient = "linear-gradient(105deg, " + oppBg + " " + grd1 + ", " + "#c8c8c8" + " " + grd1 + ")"
+                    h2hGradient = "linear-gradient(105deg, " + oppBg + " " + grd1 + ", " + "#acacac" + " " + grd1 + ")"
                 }
 
                 $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)").text(l)
@@ -1987,13 +1987,13 @@ function matchH2H() {
 
                 if ($(window).width() < 768) {
                     $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#c8c8c8", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
+                    $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#acacac", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
                     $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(3) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#000060", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
                     $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
                     $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#000060", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
                 } else {
                     $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#c8c8c8", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
+                    $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#acacac", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
                     $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(3) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#000060", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
                     $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
                     $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#000060", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
@@ -2085,11 +2085,11 @@ function matchH2H() {
                     $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(3) > img").attr("src", "./files/" + opp + "_s.png")
 
                     if (data[h2hList[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") > data[h2hList[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
-                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css("border", "2px solid #000060")
+                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#374df5", "border": "2px solid #374df5"})
                     } else if (data[h2hList[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") == data[h2hList[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "") && data[h2hList[i]]["homeScore"] !== "") {
-                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css("border", "2px solid #808080")
+                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#acacac", "border": "2px solid #acacac"})
                     } else if (data[h2hList[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") < data[h2hList[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
-                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css("border", "2px solid #f00")
+                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#e00000", "border": "2px solid #e00000"})
                     }
 
                     if (h2hList[i] < id) {
@@ -2100,11 +2100,11 @@ function matchH2H() {
                     $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(3) > img").attr("src", "./files/seouleland_s.png")
 
                     if (data[h2hList[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") < data[h2hList[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
-                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css("border", "2px solid #000060")
+                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#374df5", "border": "2px solid #374df5"})
                     } else if (data[h2hList[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") == data[h2hList[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "") && data[h2hList[i]]["homeScore"] !== "") {
-                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css("border", "2px solid #808080")
+                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#acacac", "border": "2px solid #acacac"})
                     } else if (data[h2hList[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") > data[h2hList[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
-                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css("border", "2px solid #f00")
+                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#e00000", "border": "2px solid #e00000"})
                     }
 
                     if (h2hList[i] < id) {

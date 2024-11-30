@@ -261,12 +261,12 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 #calendar {width: 90vw; margin-left: 5vw; display: none;}
 #calendar > table {width: 90vw; border-collapse: separate; border-spacing: 8px; table-layout: fixed; margin-top: 32px;}
 #calendar > table > thead > tr > th {font-size: 20px; font-weight: 300;}
-#calendar > table > thead > tr > th:nth-of-type(1) {color: #f00;}
+#calendar > table > thead > tr > th:nth-of-type(1) {color: #e00000;}
 #calendar > table > thead > tr > th:nth-of-type(7) {color: #000060;}
 #calendar > table > tbody > tr > td {width: calc(90vw / 7); height: 80px; background: #fafafa; border-radius: 8px; vertical-align: top;}
 #calendar > table > tbody > tr > td > p {font-size: 16px;}
 #calendar > table > tbody > tr > td > p:nth-of-type(1) {padding: 8px 0 4px 0; font-weight: 300;}
-#calendar > table > tbody > tr > td:nth-of-type(1) > p {color: #f00;}
+#calendar > table > tbody > tr > td:nth-of-type(1) > p {color: #e00000;}
 #calendar > table > tbody > tr > td:nth-of-type(7) > p {color: #000060;}
 #calendar > table > tbody > tr > td > div {height: 20px;}
 #calendar > table > tbody > tr > td > div > img {height: 16px; margin: 0 2px;}
