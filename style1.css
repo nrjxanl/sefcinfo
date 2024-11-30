@@ -17,6 +17,11 @@ header > div:nth-of-type(2) {left: calc(10vw + 40px);}
 header > div:nth-of-type(2) > img {width: auto; height: 20px; padding: 5vw 0;}
 header > p {width: fit-content; position: absolute; left: 20vw; text-align: left; font-size: 24px; color: #000060; line-height: 24px; margin: calc(8px + 5vw) 0;}
 
+/* 푸터 */
+footer {width: 100vw; height: fit-content; padding: 16px 0; position: fixed; left: 0; bottom: 0; background: #fafafa; z-index: 100; box-shadow: 0 0 4px 2px #00000020;}
+footer > p {width: 100vw; font-size: 14px; font-weight: 300;}
+footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 10px; filter: brightness(0) saturate(100%) invert(0%) sepia(90%) saturate(7460%) hue-rotate(63deg) brightness(96%) contrast(93%);}
+
 /* 스켈레톤 */
 #skeleton {position: absolute; z-index: 2000;}
 #skeleton > div {background: linear-gradient(75deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 2s infinite; border-radius: 20px;}

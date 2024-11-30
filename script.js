@@ -41,6 +41,16 @@ $(document).ready(function () {
     }, 300)
 })
 
+// 푸터
+if (localStorage.getItem("footer") == null) {
+    $("body").append("<footer><p>이 웹사이트는 팬이 운영하는 비공식 팬 페이지이며,<br>제공되는 데이터는 정확성을 보장하지 않습니다.</p><img src='./files/x.svg'></footer>")
+}
+
+$("footer > img").click(function () {
+    localStorage.setItem("footer", "x")
+    $("footer").css("display", "none")
+})
+
 // 메뉴
 $("body").append("<div id='menu'><div><img src='./files/home.svg'>홈</div><div><img src='./files/players.svg'>선수단</div><div><img src='./files/fixtures.svg'>일정</div><div><img src='./files/stats.svg'>기록</div><div><img src='./files/standings.svg'>순위</div></div><div id='menuBg'></div>")
 
