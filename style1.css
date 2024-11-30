@@ -98,8 +98,8 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #playerA > div > div:nth-of-type(2n-1) > p:nth-of-type(n+2) {width: calc(45vw / 6); font-weight: 300;}
 #playerA > div > div:nth-of-type(2n) > div {height: 60px; display: flex; align-items: center; border-bottom: 1px solid #00000020;}
 #playerA > div > div:nth-of-type(2n) > div:nth-of-type(1) {border-top: 1px solid #00000020; margin-top: 20px;}
-#playerA > div > div:nth-of-type(2n) > div > p:nth-of-type(1) {width: 15vw; font-size: 24px; text-align: left; color: #000060;}
-#playerA > div > div:nth-of-type(2n) > div > p:nth-of-type(2) {width: 30vw; font-size: 24px; text-align: left;}
+#playerA > div > div:nth-of-type(2n) > div > p:nth-of-type(1) {width: 10vw; padding-right: 5vw; font-size: 20px; text-align: right; color: #000060;}
+#playerA > div > div:nth-of-type(2n) > div > p:nth-of-type(2) {width: 30vw; font-size: 20px; text-align: left;}
 #playerA > div > div:nth-of-type(2n) > div > p:nth-of-type(n+3) {width: calc(45vw / 6); font-size: 16px; font-weight: 300;}
 
 #playerU18 {margin-top: 160px;}
@@ -242,8 +242,8 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #stats > .stats > table {width: 90vw; margin: 20px 0 0 5vw;}
 #stats > .stats > table > thead > tr > th {height: 40px; font-weight: 300;}
 #stats > .stats > table > tbody > tr {height: 60px;}
-#stats > .stats > table > tbody > tr > td:nth-of-type(1) {width: 15vw; font-size: 24px; text-align: left; color: #000060;}
-#stats > .stats > table > tbody > tr > td:nth-of-type(2) {width: 30vw; font-size: 24px; text-align: left;}
+#stats > .stats > table > tbody > tr > td:nth-of-type(1) {width: 10vw; padding-right: 5vw; font-size: 20px; text-align: right; color: #000060;}
+#stats > .stats > table > tbody > tr > td:nth-of-type(2) {width: 30vw; font-size: 20px; text-align: left;}
 #stats > .stats > table > tbody > tr > td:nth-of-type(n+3) {width: calc(45vw / 6); font-size: 16px; font-weight: 300;}
 
 /* 일정 */
