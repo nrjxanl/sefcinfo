@@ -35,10 +35,8 @@ $(window).resize(function() {
 
 // 스켈레톤 애니메이션
 $(document).ready(function () {
-    setTimeout (function () {
-        $("#skeleton").css("display", "none")
-        $("#actualContents").css("display", "block")
-    }, 500)
+    $("#skeleton").css("display", "none")
+    $("#actualContents").css("display", "block")
 })
 
 // 메뉴
