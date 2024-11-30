@@ -6,16 +6,29 @@
 *::-webkit-scrollbar {display: none;}
 
 body {position: absolute; background: #fafafa;}
+#actualContents {display: none;}
 
 /* 헤더 */
 header {width: 100vw; height: 80px; position: fixed; top: 0; left: 0; background: #fafafa; z-index: 99; display: flex; justify-content: center; align-items: center; z-index: 100;}
-header > div {width: 20vw; position: absolute;}
-header > div:nth-of-type(1) {left: 0;}
-header > div:nth-of-type(2) {left: 20vw;}
-header > div:nth-of-type(3) {right: 0;}
-header > div:nth-of-type(2n+1) > img {width: auto; height: 40px; padding: 5vw 0;}
+header > div {width: fit-content; position: absolute;}
+header > div:nth-of-type(1) {left: 5vw;}
+header > div:nth-of-type(1) > img {width: auto; height: 40px; padding: 5vw 0;}
+header > div:nth-of-type(2) {left: calc(10vw + 40px);}
 header > div:nth-of-type(2) > img {width: auto; height: 20px; padding: 5vw 0;}
 header > p {width: fit-content; position: absolute; left: 20vw; text-align: left; font-size: 24px; color: #000060; line-height: 24px; margin: calc(8px + 5vw) 0;}
+
+/* 스켈레톤 */
+#skeleton {position: absolute; z-index: 2000;}
+#skeleton > div {background: linear-gradient(75deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 10px;}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
 
 /* 메뉴 */
 #menu {width: 60vw; height: 200vh; position: fixed; top: 0; left: -60vw; background-color: #fafafa; z-index: 1000;}

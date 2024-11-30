@@ -16,7 +16,6 @@
 <header>
     <div><img src='./files/menu.svg' onclick='menu()'></div>
     <div><img src="./files/sefcinfo.svg"></div>
-    <div><img src='./files/seouleland_s.png'></div>
 </header>
 
     <body oncontextmenu="return false">
@@ -27,98 +26,100 @@
             <button onclick="standingsU15()">U-15</button>
         </div>
 
-        <div class="standingsSeason"></div>
+        <div id="actualContents">
 
-        <div id="standingsA">
-            <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>순위</th>
-                            <th colspan="2">구단</th>
-                            <th>승점</th>
-                            <th>승</th>
-                            <th>무</th>
-                            <th>패</th>
-                            <th>득점</th>
-                            <th>실점</th>
-                            <th>득실차</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
+            <div class="standingsSeason"></div>
+
+            <div id="standingsA">
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>순위</th>
+                                <th colspan="2">구단</th>
+                                <th>승점</th>
+                                <th>승</th>
+                                <th>무</th>
+                                <th>패</th>
+                                <th>득점</th>
+                                <th>실점</th>
+                                <th>득실차</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+    
             </div>
-
+    
+            <div id="standingsU18">
+    
+                <div id="standingsU18S">
+                    <p>후반기</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>순위</th>
+                                <th colspan="2">구단</th>
+                                <th>승점</th>
+                                <th>승</th>
+                                <th>무</th>
+                                <th>패</th>
+                                <th>득점</th>
+                                <th>실점</th>
+                                <th>득실차</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+    
+                <div id="standingsU18F">
+                    <p>전반기</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>순위</th>
+                                <th colspan="2">구단</th>
+                                <th>승점</th>
+                                <th>승</th>
+                                <th>무</th>
+                                <th>패</th>
+                                <th>득점</th>
+                                <th>실점</th>
+                                <th>득실차</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+    
+            </div>
+    
+            <div id="standingsU15">
+    
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>순위</th>
+                                <th colspan="2">구단</th>
+                                <th>승점</th>
+                                <th>승</th>
+                                <th>무</th>
+                                <th>패</th>
+                                <th>득점</th>
+                                <th>실점</th>
+                                <th>득실차</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+    
+            </div>
+    
         </div>
-
-        <div id="standingsU18">
-
-            <div id="standingsU18S">
-                <p>후반기</p>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>순위</th>
-                            <th colspan="2">구단</th>
-                            <th>승점</th>
-                            <th>승</th>
-                            <th>무</th>
-                            <th>패</th>
-                            <th>득점</th>
-                            <th>실점</th>
-                            <th>득실차</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </div>
-
-            <div id="standingsU18F">
-                <p>전반기</p>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>순위</th>
-                            <th colspan="2">구단</th>
-                            <th>승점</th>
-                            <th>승</th>
-                            <th>무</th>
-                            <th>패</th>
-                            <th>득점</th>
-                            <th>실점</th>
-                            <th>득실차</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </div>
-
-        </div>
-
-        <div id="standingsU15">
-
-            <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>순위</th>
-                            <th colspan="2">구단</th>
-                            <th>승점</th>
-                            <th>승</th>
-                            <th>무</th>
-                            <th>패</th>
-                            <th>득점</th>
-                            <th>실점</th>
-                            <th>득실차</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </div>
-
-        </div>
-
-        <div id="loading"></div>
 
         <script src="script.js"></script>
         <script src="data.js"></script>

@@ -16,7 +16,6 @@
 <header>
     <div><img src='./files/menu.svg' onclick='menu()'></div>
     <div><img src="./files/sefcinfo.svg"></div>
-    <div><img src='./files/seouleland_s.png'></div>
 </header>
 
 <body oncontextmenu="return false">
@@ -27,34 +26,35 @@
         <button onclick="statsU15()">U-15</button>
     </div>
 
-    <div class="statsSeason"></div>
+    <div id="actualContents">
 
-    <div id="stats">
+        <div class="statsSeason"></div>
 
-        <div class="stats">
-            <table>
-                <thead>
-                    <tr>
-                        <th colspan="2">선수</th>
-                        <th>출전</th>
-                        <th>득점</th>
-                        <th>도움</th>
-                        <th>공격P</th>
-                        <th>경고</th>
-                        <th>퇴장</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+        <div id="stats">
+    
+            <div class="stats">
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="2">선수</th>
+                            <th>출전</th>
+                            <th>득점</th>
+                            <th>도움</th>
+                            <th>공격P</th>
+                            <th>경고</th>
+                            <th>퇴장</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+    
         </div>
-
+    
     </div>
 
-    <div id="loading"></div>
-
     <script src="./script.js"></script>
-
     <script src="./data.js"></script>
 
 </body>

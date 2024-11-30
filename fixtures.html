@@ -16,59 +16,67 @@
 <header>
     <div><img src='./files/menu.svg' onclick='menu()'></div>
     <div><img src="./files/sefcinfo.svg"></div>
-    <div><img src='./files/seouleland_s.png'></div>
 </header>
 
 <body oncontextmenu="return false">
 
+    <div id="skeleton">
+        <div style="width: 110px; height: 40px; margin-top: 160px; margin-left: 10vw;"></div>
+        <div style="width: 90vw; height: 125px; margin: 18px 0 0 5vw; border-radius: 20px;"></div>
+        <div style="width: 90vw; height: 125px; margin: 20px 0 0 5vw; border-radius: 20px;"></div>
+        <div style="width: 90vw; height: 125px; margin: 20px 0 0 5vw; border-radius: 20px;"></div>
+        <div style="width: 90vw; height: 125px; margin: 20px 0 0 5vw; border-radius: 20px;"></div>
+    </div>
+
     <div class="fixturesButton" style="margin-top: 0;">
-        <button onclick="fixturesA()">A팀</button>
+        <button onclick="fixturesA()" style="color: #000060;border-bottom: 3px solid #000060;">A팀</button>
         <button onclick="fixturesU18()">U-18</button>
         <button onclick="fixturesU15()">U-15</button>
     </div>
 
-    <div class="fixturesSeason"></div>
-
-    <div id="fixturesA">
-
-        <div class="fixtures"></div>
-
-    </div>
-
-    <div id="fixturesU18">
-
-        <div class="fixtures"></div>
-
-    </div>
-
-    <div id="fixturesU15">
-
-        <div class="fixtures"></div>
-
-    </div>
+    <div id="actualContents">
     
-    <div id="calendar">
-        <table>
-            <thead>
-                <tr>
-                    <th>일</th>
-                    <th>월</th>
-                    <th>화</th>
-                    <th>수</th>
-                    <th>목</th>
-                    <th>금</th>
-                    <th>토</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+        <div class="fixturesSeason"></div>
+    
+        <div id="fixturesA">
+    
+            <div class="fixtures"></div>
+    
+        </div>
+    
+        <div id="fixturesU18">
+    
+            <div class="fixtures"></div>
+    
+        </div>
+    
+        <div id="fixturesU15">
+    
+            <div class="fixtures"></div>
+    
+        </div>
+        
+        <div id="calendar">
+            <table>
+                <thead>
+                    <tr>
+                        <th>일</th>
+                        <th>월</th>
+                        <th>화</th>
+                        <th>수</th>
+                        <th>목</th>
+                        <th>금</th>
+                        <th>토</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    
     </div>
-
-    <div id="loading"></div>
 
     <script src="script.js"></script>
-
     <script src="data.js"></script>
 
 </body>

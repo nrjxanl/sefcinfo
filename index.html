@@ -16,22 +16,28 @@
 <header>
     <div><img src='./files/menu.svg' onclick='menu()'></div>
     <div><img src="./files/sefcinfo.svg"></div>
-    <div><img src='./files/seouleland_s.png'></div>
 </header>
 
 <body oncontextmenu="return false">
 
-    <div id="nextMatch"><div><p></p><div><img></div><div><p></p></div><div><img></div><p></p></div><div><p></p></div></div>
+    <div id="skeleton">
+        <div style="width: 90vw; height: 76px; margin: 100px 0 0 5vw; border-radius: 20px;"></div>
+        <div style="width: 90vw; height: 130px; margin: 20px 0 0 5vw; border-radius: 20px;"></div>
+        <div style="width: 90vw; height: 308px; margin: 20px 0 0 5vw; border-radius: 20px;"></div>
+    </div>
 
-    <div id="prevMatch"><div><div><div><img></div><p></p></div><div><div><img></div><p></p></div><div><div><img></div><p></p></div><div><div><img></div><p></p></div><div><div><img></div><p></p><p></p></div></div><a href="./fixtures"><p>경기 일정 모두 보기&nbsp;&nbsp;》</p></a></div>
+    <div id="actualContents">
 
-    <div id="standingsHome"><div><img src="./files/kleague2.png"></div><table><thead><tr><th>순위</th><th colspan="2">구단</th><th>승점</th><th>득점</th></tr></thead><tbody></tbody></table><a href="./standings"><p>순위 모두 보기&nbsp;&nbsp;》</p></a></div>
+        <div id="nextMatch"><div><p></p><div><img></div><div><p></p></div><div><img></div><p></p></div><div><p></p></div></div>
+
+        <div id="prevMatch"><div><div><div><img></div><p></p></div><div><div><img></div><p></p></div><div><div><img></div><p></p></div><div><div><img></div><p></p></div><div><div><img></div><p></p><p></p></div></div><a href="./fixtures"><p>경기 일정 모두 보기&nbsp;&nbsp;》</p></a></div>
+    
+        <div id="standingsHome"><div><img src="./files/kleague2.png"></div><table><thead><tr><th>순위</th><th colspan="2">구단</th><th>승점</th><th>득점</th></tr></thead><tbody></tbody></table><a href="./standings"><p>순위 모두 보기&nbsp;&nbsp;》</p></a></div>
+
+    </div>
 
     <script src="script.js"></script>
-    
     <script src="data.js"></script>
-
-    <div id="loading"></div>
 
 </body>
 

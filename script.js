@@ -33,6 +33,14 @@ $(window).resize(function() {
     }
 })
 
+// 스켈레톤 애니메이션
+$(document).ready(function () {
+    setTimeout (function () {
+        $("#skeleton").css("display", "none")
+        $("#actualContents").css("display", "block")
+    }, 500)
+})
+
 // 메뉴
 $("body").append("<div id='menu'><div><img src='./files/home.svg'>홈</div><div><img src='./files/players.svg'>선수단</div><div><img src='./files/fixtures.svg'>일정</div><div><img src='./files/stats.svg'>기록</div><div><img src='./files/standings.svg'>순위</div></div><div id='menuBg'></div>")
 
