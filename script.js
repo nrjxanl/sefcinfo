@@ -52,7 +52,7 @@ $("footer > img").click(function () {
 })
 
 // 메뉴
-$("body").append("<div id='menu'><div><img src='./files/home.svg'>홈</div><div><img src='./files/players.svg'>선수단</div><div><img src='./files/fixtures.svg'>일정</div><div><img src='./files/stats.svg'>기록</div><div><img src='./files/standings.svg'>순위</div></div><div id='menuBg'></div>")
+$("body").append("<div id='menu'><div><span></span><img src='./files/home.svg'>홈</div><div><span></span><img src='./files/players.svg'>선수단</div><div><span></span><img src='./files/fixtures.svg'>일정</div><div><span></span><img src='./files/stats.svg'>기록</div><div><span></span><img src='./files/standings.svg'>순위</div></div><div id='menuBg'></div>")
 
 // 상단 클릭 시 홈으로 이동
 $("header > div:nth-of-type(2)").click(function() {
@@ -92,21 +92,26 @@ $("#menu > div:nth-of-type(5)").click(function() {
 
 // 메뉴 내 현재 페이지 이름 강조
 if ($("#prevMatch").length) {
-    $("#menu > div:nth-of-type(1)").css({"background": "#000060", "color": "#fafafa"})
-    $("#menu > div:nth-of-type(1) > img").css("filter", "brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(1deg) brightness(103%) contrast(103%)")
+    $("#menu > div:nth-of-type(1) > span").css("background", "#000060")
 } else if ($(".playerButton").length || $("#playerInfo").length) {
-        $("#menu > div:nth-of-type(2)").css({"background": "#000060", "color": "#fafafa"})
-        $("#menu > div:nth-of-type(2) > img").css("filter", "brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(1deg) brightness(103%) contrast(103%)")
+        $("#menu > div:nth-of-type(2) > span").css("background", "#000060")
 } else if ($(".fixturesButton").length || $("#matchScore").length) {
-    $("#menu > div:nth-of-type(3)").css({"background": "#000060", "color": "#fafafa"})
-    $("#menu > div:nth-of-type(3) > img").css("filter", "brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(1deg) brightness(103%) contrast(103%)")
+    $("#menu > div:nth-of-type(3) > span").css("background", "#000060")
 } else if ($(".statsButton").length) {
-    $("#menu > div:nth-of-type(4)").css({"background": "#000060", "color": "#fafafa"})
-    $("#menu > div:nth-of-type(4) > img").css("filter", "brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(1deg) brightness(103%) contrast(103%)")
+    $("#menu > div:nth-of-type(4) > span").css("background", "#000060")
 } else if ($(".standingsButton").length) {
-    $("#menu > div:nth-of-type(5)").css({"background": "#000060", "color": "#fafafa"})
-    $("#menu > div:nth-of-type(5) > img").css("filter", "brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(1deg) brightness(103%) contrast(103%)")
+    $("#menu > div:nth-of-type(5) > span").css("background", "#000060")
 }
+
+// 메뉴 hover 시 강조
+$("#menu > div").hover(
+    function() {
+        $(this).find("span").css("background", "#000080")
+    }, 
+    function() {
+        $(this).find("span").css("background", "")
+    }
+);
 
 // 선수단 창 전환
 function playerA() {
