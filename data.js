@@ -71,7 +71,9 @@ $(document).ready(function () {
 
         if (id.substring(8, 9) == 8 || id.substring(8, 9) == 5) {
             $("button[onclick='matchInfo()']").css("display", "none")
-            matchLineup()
+            if (localStorage.getItem("match") == "matchLineup") {
+                matchLineup()
+            }
         }
 
         // 하이라이트
@@ -440,9 +442,11 @@ $(document).ready(function () {
         }
 
         // 경기 기록
-        if (id.substring(8, 9) == 8 || id.substring(8, 9) == 5) {
+        if ((id.substring(8, 9) == 8 || id.substring(8, 9) == 5)) {
             $("button[onclick='matchStat()']").css("display", "none")
-            matchH2H()
+            if (localStorage.getItem("match") == "matchH2H") {
+                matchH2H()
+            }
         }
 
         if (id.substring(8, 9) == 0 && dataList["matchStat"][0] !== "") {
@@ -1937,6 +1941,8 @@ function stats() {
 // 전적
 function matchH2H() {
 
+    localStorage.setItem("match", "matchH2H")
+
     document.getElementById("matchInfo").style.display = "none"
     document.getElementById("matchLineup").style.display = "none"
     document.getElementById("matchStat").style.display = "none"
@@ -2124,8 +2130,6 @@ function matchH2H() {
         if (!h2hList.length == 0 && !$("#recentMatch > div").length) {
             $("#matchH2H").append("<div id='recentMatch'></div>")
         }
-
-        localStorage.setItem("match", "matchH2H")
 
         if (!$("#recentMatch > div").length) {
             if (dataList["home"][1] == "seouleland") {
