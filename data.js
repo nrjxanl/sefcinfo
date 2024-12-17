@@ -415,7 +415,7 @@ $(document).ready(function () {
                 })
             })
 
-            $("#startingXI > div > table > tbody > tr > td").each(function () {
+            $("#startingXI > div > table > tbody > tr").each(function () {
                 $(this).click(function () {
                     window.location.href = "./player?" + $(this).attr("id")
                 })
@@ -423,7 +423,7 @@ $(document).ready(function () {
 
             $("#sub > table > tbody > tr").each(function () {
                 $(this).click(function () {
-                    window.location.href = "./player?" + $(this).find("td").attr("id")
+                    window.location.href = "./player?" + $(this).attr("id")
                 })
             })
 
