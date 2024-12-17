@@ -93,7 +93,37 @@ $(document).ready(function () {
 
                 function lineup() {
                     $("#" + pos.toLowerCase()).append("<td id='" + dataList[pos][i][0].replace(/[^0-9]/g, "") + "'></td>")
-                    $("#" + dataList[pos][i][0]).html("<div><img src='./files/" + dataList[pos][i][0] + ".png'></div><p><span>" + playerNumber[year][dataList[pos][i][0]][1] + "</span>" + playerNumber[year][dataList[pos][i][0]][0].replace(/[A-Z,0-9]/g, "") + "<span></span></p><p>" + dataList[pos][i][1].replace(/[g|a|y|r|o|p]/g, "") + "</p>")
+                    $("#" + dataList[pos][i][0]).html("<div><img src='./files/jersey.svg'></div><p>" + playerNumber[year][dataList[pos][i][0]][1] + "</p><p>" + playerNumber[year][dataList[pos][i][0]][0].replace(/[A-Z,0-9]/g, "") + "<span></span></p><p>" + dataList[pos][i][1].replace(/[g|a|y|r|o|p]/g, "") + "</p>")
+
+                    // 유니폼 색상
+                    if (year == 2024) {
+                        $("#startingXI > table > tbody > tr:nth-of-type(-n+3) > td > p:nth-of-type(1)").css("color", "#d4a73f")
+                        $("#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img").css("filter", "brightness(0) saturate(100%) invert(77%) sepia(44%) saturate(5344%) hue-rotate(328deg) brightness(106%) contrast(99%)")
+                        $("#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)").css("color", "#000")
+                    } else if (year == 2023) {
+                        $("#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img").css("filter", "brightness(0) saturate(100%) invert(100%) sepia(93%) saturate(1239%) hue-rotate(11deg) brightness(101%) contrast(93%)")
+                        $("#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)").css("color", "#000")
+                    } else if (year == 2022 || year == 2021) {
+                        $("#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img").css("filter", "brightness(0) saturate(100%) invert(22%) sepia(91%) saturate(7210%) hue-rotate(334deg) brightness(95%) contrast(104%)")
+                        $("#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)").css("color", "#000060")
+                    } else if (year == 2020 || year == 2019 || year == 2018) {
+                        $("#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img").css("filter", "brightness(0) saturate(100%) invert(83%) sepia(8%) saturate(3343%) hue-rotate(49deg) brightness(95%) contrast(89%)")
+                        $("#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)").css("color", "#000")
+                    } else if (year == 2017) {
+                        $("#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img").css("filter", "brightness(0) saturate(100%) invert(41%) sepia(32%) saturate(1362%) hue-rotate(290deg) brightness(94%) contrast(94%)")
+                        $("#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)").css("color", "#fafafa")
+                    } else if (year == 2016) {
+                        $("#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img").css("filter", "brightness(0) saturate(100%) invert(44%) sepia(73%) saturate(3412%) hue-rotate(359deg) brightness(102%) contrast(85%)")
+                        $("#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)").css("color", "#000")
+                    } else if (year == 2015) {
+                        if (Number($("#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").text().replace(".", "")) >= 20150822) {
+                            $("#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img").css("filter", "brightness(0) saturate(100%) invert(53%) sepia(34%) saturate(4466%) hue-rotate(311deg) brightness(99%) contrast(107%)")
+                            $("#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)").css("color", "#fafafa")
+                        } else {
+                            $("#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img").css("filter", "brightness(0) saturate(100%) invert(14%) sepia(82%) saturate(3416%) hue-rotate(319deg) brightness(99%) contrast(89%)")
+                            $("#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)").css("color", "#fafafa")
+                        }
+                    }
 
                     // 평점 없을 때
                     if (dataList[pos][i][1] == "") {
@@ -102,7 +132,6 @@ $(document).ready(function () {
 
                     // POTM 여부
                     if (dataList[pos][i][1].replace(/[^p]/g, "") == "p") {
-                        $("#" + dataList[pos][i][0] + " > p:nth-of-type(2)").css("background", "#000060")
                         $("#potm").html("<p>경기 최고의 선수</p><div><div><img src='./files/" + dataList[pos][i][0] + ".png'></div><p><span>" + playerNumber[year][dataList[pos][i][0]][1] + "</span>" + playerNumber[year][dataList[pos][i][0]][0].replace(/[A-Z,0-9]/g, "") + "</p><p class='potm'>" + dataList[pos][i][1].replace(/[a-z]/g, "") + "</p></div>")
                         href = dataList[pos][i][0]
                     }
@@ -110,41 +139,38 @@ $(document).ready(function () {
                     // 득점 여부
                     if (dataList[pos][i][1].replace(/[^g]/g, "").length !== 0) {
                         for (j = 0; j < dataList[pos][i][1].replace(/[^g]/g, "").length; j++) {
-                            $("#" + dataList[pos][i][0] + " > p:nth-of-type(1) > span:nth-of-type(2)").append("<img src='./files/goal.svg'>")
+                            $("#" + dataList[pos][i][0] + " > p:nth-of-type(2) > span").append("<img src='./files/goal.svg'>")
                         }
                     }
 
                     // 도움 여부
                     if (dataList[pos][i][1].replace(/[^a]/g, "").length !== 0) {
                         for (j = 0; j < dataList[pos][i][1].replace(/[^a]/g, "").length; j++) {
-                            $("#" + dataList[pos][i][0] + " > p:nth-of-type(1) > span:nth-of-type(2)").append("<img src='./files/assist.svg'>")
+                            $("#" + dataList[pos][i][0] + " > p:nth-of-type(2) > span").append("<img src='./files/assist.svg'>")
                         }
                     }
 
                     // 경고 여부
                     if (dataList[pos][i][1].replace(/[^y]/g, "").length !== 0) {
                         for (j = 0; j < dataList[pos][i][1].replace(/[^y]/g, "").length; j++) {
-                            $("#" + dataList[pos][i][0] + " > p:nth-of-type(1) > span:nth-of-type(2)").append("<img src='./files/yc.svg'>")
+                            $("#" + dataList[pos][i][0] + " > p:nth-of-type(2) > span").append("<img src='./files/yc.svg'>")
                         }
                     }
 
                     // 퇴장 여부
                     if (dataList[pos][i][1].replace(/[^r]/g, "").length !== 0) {
                         for (j = 0; j < dataList[pos][i][1].replace(/[^r]/g, "").length; j++) {
-                            $("#" + dataList[pos][i][0] + " > p:nth-of-type(1) > span:nth-of-type(2)").append("<img src='./files/rc.svg'>")
+                            $("#" + dataList[pos][i][0] + " > p:nth-of-type(2) > span").append("<img src='./files/rc.svg'>")
                         }
                     }
 
                     // 자책골 여부
                     if (dataList[pos][i][1].replace(/[^o]/g, "").length !== 0) {
                         for (j = 0; j < dataList[pos][i][1].replace(/[^o]/g, "").length; j++) {
-                            $("#" + dataList[pos][i][0] + " > p:nth-of-type(1) > span:nth-of-type(2)").append("<img src='./files/og.svg'>")
+                            $("#" + dataList[pos][i][0] + " > p:nth-of-type(2) > span").append("<img src='./files/og.svg'>")
                         }
                     }
                 }
-
-                $("#startingXI").html("<img src='./files/field.png'><table><tr id='fw'></tr><tr id='mf'></tr><tr id='df'></tr><tr id='gk'></tr></table>")
-                $("#sub").html("<table><thead><tr><th>교체 명단</th></tr></thead><tbody></tbody></table>")
 
                 for (i = 0; i < Object.keys(dataList["GK"]).length; i++) {
                     pos = "GK"
@@ -165,17 +191,17 @@ $(document).ready(function () {
 
                 for (i = 0; i < Object.keys(dataList["SUB"]).length; i++) {
 
-                    $("#sub > table").append("<tr><td id='" + dataList["SUB"][i][0].replace(/[^0-9]/g, "") + "'></td></tr>")
-                    $("#" + dataList["SUB"][i][0]).html("<div><img src='./files/" + dataList["SUB"][i][0] + ".png'></div><p><span>" + playerNumber[year][dataList["SUB"][i][0]][1] + "</span>" + playerNumber[year][dataList["SUB"][i][0]][0].replace(/[A-Z,0-9]/g, "") + "<span></span></p><p>" + dataList["SUB"][i][1].replace(/[g|a|y|r|o|p]/g, "") + "</p>")
+                    $("#sub > table").append("<tr id='" + dataList["SUB"][i][0].replace(/[^0-9]/g, "") + "'><td></td><td></td></tr>")
+                    $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(1)").html(playerNumber[year][dataList["SUB"][i][0]][1])
+                    $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2)").html("<p>" + playerNumber[year][dataList["SUB"][i][0]][0].replace(/[A-Z,0-9]/g, "") + "<span></span></p><p>" + dataList["SUB"][i][1].replace(/[g|a|y|r|o|p]/g, "") + "</p>")
 
                     // 평점 없을 때
                     if (dataList["SUB"][i][1] == "") {
-                        $("#" + dataList["SUB"][i][0] + " > p:nth-of-type(2)").text("-")
+                        $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2) > p:nth-of-type(2)").text("-----")
                     }
 
                     // POTM 여부
                     if (dataList["SUB"][i][1].replace(/[^p]/g, "") == "p") {
-                        $("#" + dataList["SUB"][i][0] + " > p:nth-of-type(2)").css("background", "#000060")
                         $("#potm").html("<p>경기 최고의 선수</p><div><div><img src='./files/" + dataList["SUB"][i][0] + ".png'></div><p><span>" + playerNumber[year][dataList["SUB"][i][0]][1] + "</span>" + playerNumber[year][dataList["SUB"][i][0]][0].replace(/[A-Z,0-9]/g, "") + "</p><p class='potm'>" + dataList["SUB"][i][1].replace(/[a-z]/g, "") + "</p></div>")
                         href = dataList["SUB"][i][0]
                     }
@@ -183,41 +209,41 @@ $(document).ready(function () {
                     // 득점 여부
                     if (dataList["SUB"][i][1].replace(/[^g]/g, "").length !== 0) {
                         for (j = 0; j < dataList["SUB"][i][1].replace(/[^g]/g, "").length; j++) {
-                            $("#" + dataList["SUB"][i][0] + " > p:nth-of-type(1) > span:nth-of-type(2)").append("<img src='./files/goal.svg'>")
+                            $("#" + dataList["SUB"][i][0] + " > p > span:nth-of-type(2)").append("<img src='./files/goal.svg'>")
                         }
                     }
 
                     // 도움 여부
                     if (dataList["SUB"][i][1].replace(/[^a]/g, "").length !== 0) {
                         for (j = 0; j < dataList["SUB"][i][1].replace(/[^a]/g, "").length; j++) {
-                            $("#" + dataList["SUB"][i][0] + " > p:nth-of-type(1) > span:nth-of-type(2)").append("<img src='./files/assist.svg'>")
+                            $("#" + dataList["SUB"][i][0] + " > p > span:nth-of-type(1)").append("<img src='./files/assist.svg'>")
                         }
                     }
 
                     // 경고 여부
                     if (dataList["SUB"][i][1].replace(/[^y]/g, "").length !== 0) {
                         for (j = 0; j < dataList["SUB"][i][1].replace(/[^y]/g, "").length; j++) {
-                            $("#" + dataList["SUB"][i][0] + " > p:nth-of-type(1) > span:nth-of-type(2)").append("<img src='./files/yc.svg'>")
+                            $("#" + dataList["SUB"][i][0] + " > p > span:nth-of-type(1)").append("<img src='./files/yc.svg'>")
                         }
                     }
 
                     // 퇴장 여부
                     if (dataList["SUB"][i][1].replace(/[^r]/g, "").length !== 0) {
                         for (j = 0; j < dataList["SUB"][i][1].replace(/[^r]/g, "").length; j++) {
-                            $("#" + dataList["SUB"][i][0] + " > p:nth-of-type(1) > span:nth-of-type(2)").append("<img src='./files/rc.svg'>")
+                            $("#" + dataList["SUB"][i][0] + " > p > span:nth-of-type(1)").append("<img src='./files/rc.svg'>")
                         }
                     }
 
                     // 자책골 여부
                     if (dataList["SUB"][i][1].replace(/[^o]/g, "").length !== 0) {
                         for (j = 0; j < dataList["SUB"][i][1].replace(/[^o]/g, "").length; j++) {
-                            $("#" + dataList["SUB"][i][0] + " > p:nth-of-type(1) > span:nth-of-type(2)").append("<img src='./files/og.svg'>")
+                            $("#" + dataList["SUB"][i][0] + " > p > span:nth-of-type(1)").append("<img src='./files/og.svg'>")
                         }
                     }
                 }
 
                 // 선수 평점 칸 배색
-                $("#startingXI > table > tbody > tr > td > p:nth-of-type(2), #sub > table > tbody > tr > td > p:nth-of-type(2), .potm").each(function () {
+                $("#startingXI > table > tbody > tr > td > p:nth-of-type(3), #sub > table > tbody > tr > td > p:nth-of-type(2), .potm").each(function () {
                     if (Number($(this).text().replace(/[a-z]/g, "")) >= 8.5) {
                         $(this).css("background", "#374df5")
                     } else if (Number($(this).text().replace(/[a-z]/g, "")) < 8.5 && Number($(this).text().replace(/[a-z]/g, "")) >= 7.5) {
@@ -232,6 +258,8 @@ $(document).ready(function () {
                         $(this).css("background", "#dc0c00")
                     } else if ($(this).text() == "-") {
                         $(this).css("background", "#00000040")
+                    } else if ($(this).text() == "-----") {
+                        $(this).css("display", "none")
                     }
                 })
 
@@ -243,8 +271,9 @@ $(document).ready(function () {
                 }
 
                 function lineup() {
-                    $("#startingXI > div > table > tbody").append("<tr><td id='" + dataList[pos][i][0].replace(/[^0-9]/g, "") + "'></td></tr>")
-                    $("#" + dataList[pos][i][0]).html("<p><span>" + playerNumber[year][dataList[pos][i][0]][1] + "</span>" + playerNumber[year][dataList[pos][i][0]][0].replace(/[A-Z,0-9]/g, "") + "<span></span></p><p>-</p>")
+                    $("#startingXI > div > table").append("<tr id='" + dataList[pos][i][0].replace(/[^0-9]/g, "") + "'><td></td><td></td></tr>")
+                    $("#" + dataList[pos][i][0] + " > td:nth-of-type(1)").html(playerNumber[year][dataList[pos][i][0]][1])
+                    $("#" + dataList[pos][i][0] + " > td:nth-of-type(2)").html("<p>" + playerNumber[year][dataList[pos][i][0]][0].replace(/[A-Z,0-9]/g, "") + "<span></span></p><p>" + dataList[pos][i][1].replace(/[g|a|y|r|o|p]/g, "") + "</p>")
 
                     // 득점 여부
                     if (dataList[pos][i][1].replace(/[^g]/g, "").length !== 0) {
@@ -283,7 +312,6 @@ $(document).ready(function () {
                 }
 
                 $("#startingXI").html("<div><table><tbody></tbody></table></div>")
-                $("#sub").html("<table><thead><tr><th>교체 명단</th></tr></thead><tbody></tbody></table>")
 
                 for (i = 0; i < Object.keys(dataList["GK"]).length; i++) {
                     pos = "GK"
@@ -303,12 +331,13 @@ $(document).ready(function () {
                 }
                 for (i = 0; i < Object.keys(dataList["SUB"]).length; i++) {
 
-                    $("#sub > table").append("<tr><td id='" + dataList["SUB"][i][0].replace(/[^0-9]/g, "") + "'></td></tr>")
-                    $("#" + dataList["SUB"][i][0]).html("<p><span>" + playerNumber[year][dataList["SUB"][i][0]][1] + "</span>" + playerNumber[year][dataList["SUB"][i][0]][0].replace(/[A-Z,0-9]/g, "") + "<span></span></p><p>-</p>")
+                    $("#sub > table").append("<tr id='" + dataList["SUB"][i][0].replace(/[^0-9]/g, "") + "'><td></td><td></td></tr>")
+                    $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(1)").html(playerNumber[year][dataList["SUB"][i][0]][1])
+                    $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2)").html("<p>" + playerNumber[year][dataList["SUB"][i][0]][0].replace(/[A-Z,0-9]/g, "") + "<span></span></p><p>" + dataList["SUB"][i][1].replace(/[g|a|y|r|o|p]/g, "") + "</p>")
 
                     // 평점 없을 때
                     if (dataList["SUB"][i][1] == "") {
-                        $("#" + dataList["SUB"][i][0] + " > p:nth-of-type(2)").text("-")
+                        $("#" + dataList["SUB"][i][0] + " > td > p:nth-of-type(2)").text("-----")
                     }
 
                     // POTM 여부
@@ -352,9 +381,16 @@ $(document).ready(function () {
                             $("#" + dataList["SUB"][i][0] + " > p:nth-of-type(1) > span:nth-of-type(2)").append("<img src='./files/og.svg'>")
                         }
                     }
-                }
 
-                $("#startingXI").find("tr").css("flex-direction", "column")
+                    // 선수 평점 칸 배색
+                    $("#startingXI > div > table > tbody > tr > td > p:nth-of-type(3), #sub > table > tbody > tr > td > p:nth-of-type(2), .potm").each(function () {
+                        if ($(this).text() == "-") {
+                            $(this).css("background", "#00000040")
+                        } else if ($(this).text() == "-----") {
+                            $(this).css("display", "none")
+                        }
+                    })
+                }
             }
 
             $("#startingXI > table > tbody > tr").each(function () {
