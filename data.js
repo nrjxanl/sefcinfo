@@ -584,7 +584,7 @@ $(document).ready(function () {
     if ($(".statsSeason").length) {
         year = new Date().getFullYear()
 
-        $(".statsSeason").html("<p>" + year + "</p><p>◀</p><p>▶</p><p>현재</p>")
+        $(".statsSeason").html("<p>" + year + "</p><p>◀</p><p>▶</p><p>오늘</p>")
 
         status_ = "A"
 
@@ -597,7 +597,7 @@ $(document).ready(function () {
     })
 
     $(".statsSeason > p:nth-of-type(2)").click(function () {
-        if (year > 2015) {
+        if ((status_ == "A" && year > 2015) || (status_ !== "A" && year > 2016)) {
             year --
             $(".statsSeason > p:nth-of-type(1)").text(year)
             stats()
@@ -636,7 +636,7 @@ $(document).ready(function () {
         year = new Date().getFullYear()
         month = ("0" + (new Date().getMonth() + 1)).slice(-2)
 
-        $(".fixturesSeason").html("<p>" + month + "<span>" + year + "</span></p><p>◀</p><p>▶</p><p>현재</p>")
+        $(".fixturesSeason").html("<p>" + month + "<span>" + year + "</span></p><p>◀</p><p>▶</p><p>오늘</p>")
 
         status_ = "A"
         clndr = 0
@@ -650,13 +650,24 @@ $(document).ready(function () {
     })
 
     $(".fixturesSeason > p:nth-of-type(2)").click(function () {
-        if (year !== 2015 || month !== "01") {
-            if (month == "01") {
-                year --
-                month = "12"
-            } else {
-                month = ("0" + (Number(month) - 1)).slice(-2)
-            }        
+        if (status_ == "A") {
+            if (year !== 2015 || month !== "01") {
+                if (month == "01") {
+                    year --
+                    month = "12"
+                } else {
+                    month = ("0" + (Number(month) - 1)).slice(-2)
+                }        
+            }
+        } else {
+            if (year !== 2016 || month !== "01") {
+                if (month == "01") {
+                    year --
+                    month = "12"
+                } else {
+                    month = ("0" + (Number(month) - 1)).slice(-2)
+                }        
+            }
         }
         fixtures()
     })
@@ -1209,7 +1220,7 @@ $(document).ready(function () {
     if ($(".standingsSeason").length) {
         year = new Date().getFullYear()
 
-        $(".standingsSeason").html("<p>" + year + "</p><p>순위 자세히</p><p>◀</p><p>▶</p><p>현재</p>")
+        $(".standingsSeason").html("<p>" + year + "</p><p>순위 자세히</p><p>◀</p><p>▶</p><p>오늘</p>")
 
         status_ = "A"
 
@@ -1911,10 +1922,12 @@ function stats() {
         if (status_ !== "A") {
             $("#stats > .stats > table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+5)").css("display", "none")
             $("#stats > .stats > table > tbody > tr > td:nth-of-type(n+4):nth-of-type(-n+5)").css("display", "none")
+            $("#stats > .stats > table > thead > tr > th:nth-of-type(n+2)").css("width", "calc(45vw / 4)")
             $("#stats > .stats > table > tbody > tr > td:nth-of-type(n+3)").css("width", "calc(45vw / 4)")
         } else {
             $("#stats > .stats > table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+5)").css("display", "table-cell")
             $("#stats > .stats > table > tbody > tr > td:nth-of-type(n+4):nth-of-type(-n+5)").css("display", "table-cell")
+            $("#stats > .stats > table > thead > tr > th:nth-of-type(n+2)").css("width", "calc(45vw / 6)")
             $("#stats > .stats > table > tbody > tr > td:nth-of-type(n+3)").css("width", "calc(45vw / 6)")
         }
     

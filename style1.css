@@ -235,17 +235,18 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 .statsButton > button {width: 30vw; height: 40px; background: #fafafa; border: none; margin: 0; font-size: 16px;}
 .statsButton > button:hover {color: #000060; border-bottom: 4px solid #000060;}
 
-.statsSeason {width: 50vw; padding-left: 10vw; margin-top: 160px; display: flex; align-items: baseline;}
+.statsSeason {width: 80vw; padding-left: 10vw; margin-top: 160px; display: flex; align-items: baseline;}
 .statsSeason > p:nth-of-type(1) {font-size: 32px; padding-right: 20px; text-align: left;}
 .statsSeason > p:nth-of-type(n+2):nth-of-type(-n+3) {width: 10vw; font-size: 16px;}
-.statsSeason > p:nth-of-type(4) {font-size: 16px; font-weight: 300; padding-left: 20px;}
+.statsSeason > p:nth-of-type(4) {font-size: 14px; font-weight: 300; margin-left: 10px; padding: 3px 10px; border-radius: 10px; border: 1px solid #000080; color: #000060;}
 
 #stats > .stats > table {width: 90vw; margin: 20px 0 0 5vw;}
 #stats > .stats > table > thead > tr > th {height: 40px; font-weight: 300;}
+#stats > .stats > table > thead > tr > th:nth-of-type(1) {width: 45vw;}
 #stats > .stats > table > tbody > tr {height: 60px;}
 #stats > .stats > table > tbody > tr > td:nth-of-type(1) {width: 10vw; padding-right: 5vw; font-size: 20px; text-align: right; color: #000060;}
 #stats > .stats > table > tbody > tr > td:nth-of-type(2) {width: 30vw; font-size: 20px; text-align: left;}
-#stats > .stats > table > tbody > tr > td:nth-of-type(n+3) {width: calc(45vw / 6); font-size: 16px; font-weight: 300;}
+#stats > .stats > table > tbody > tr > td:nth-of-type(n+3) {font-size: 16px; font-weight: 300;}
 
 /* 일정 */
 .fixturesButton {width: 100vw; height: 40px; position: fixed; top: 79px; left: 0; background: #fafafa; z-index: 98;}
@@ -257,7 +258,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 .fixturesSeason > p:nth-of-type(1) > span {font-size: 16px; margin-left: 8px; font-weight: 300;}
 .fixturesSeason > p:nth-of-type(2) {width: 10vw; font-size: 16px;}
 .fixturesSeason > p:nth-of-type(3) {width: 10vw; font-size: 16px;}
-.fixturesSeason > p:nth-of-type(4) {font-size: 16px; font-weight: 300; padding-left: 20px;}
+.fixturesSeason > p:nth-of-type(4) {font-size: 14px; font-weight: 300; margin-left: 10px; padding: 3px 10px; border-radius: 10px; border: 1px solid #000080; color: #000060;}
 
 .fixtures {width: 90vw; margin-left: 5vw;}
 
@@ -422,7 +423,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 .standingsSeason > p:nth-of-type(1) {font-size: 32px; padding-right: 20px; text-align: left;}
 .standingsSeason > p:nth-of-type(2) {width: 20vw; font-size: 16px; font-weight: 300;}
 .standingsSeason > p:nth-of-type(n+3):nth-of-type(-n+4) {width: 10vw; font-size: 16px;}
-.standingsSeason > p:nth-of-type(5) {font-size: 16px; font-weight: 300; padding-left: 20px;}
+.standingsSeason > p:nth-of-type(5) {font-size: 14px; font-weight: 300; margin-left: 10px; padding: 3px 10px; border-radius: 10px; border: 1px solid #000080; color: #000060;}
 
 #standingsA {margin-top: 20px;}
 #standingsA > div {width: 90vw; margin: 0 0 40px 5vw;}

@@ -106,6 +106,7 @@ if ($("#prevMatch").length) {
 // 메뉴 hover 시 강조
 $("#menu > div").hover(
     function() {
+        $("#menu > div > span").css("background", "")
         $(this).find("span").css("background", "#000080")
     }, 
     function() {
