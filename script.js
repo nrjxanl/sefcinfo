@@ -233,7 +233,7 @@ function standingsA() {
 
     status_ = "A"
     year = new Date().getFullYear()
-    $(".standingsSeason > p:nth-of-type(1)").text(year)
+    window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "?" + status_)
     standings()
 }
 
@@ -245,9 +245,14 @@ function standingsU18() {
     $(".standingsButton > button").css({"color": "#000000", "border-bottom": "none"})
     $(".standingsButton > button:nth-of-type(2)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
 
+    // 장석훈 등번호
+    if (year == 2024) {
+        playerNumber[2024][20240155][1] = 10
+    }
+
     status_ = "U18"
     year = new Date().getFullYear()
-    $(".standingsSeason > p:nth-of-type(1)").text(year)
+    window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "?" + status_)
     standings()
 }
 
@@ -261,7 +266,7 @@ function standingsU15() {
 
     status_ = "U15"
     year = new Date().getFullYear()
-    $(".standingsSeason > p:nth-of-type(1)").text(year)
+    window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "?" + status_)
     standings()
 }
 

@@ -597,7 +597,7 @@ $(document).ready(function () {
 
     // 달력 컨트롤
     $(".statsSeason > p:nth-of-type(1)").click(function () {
-        // 연도 선택 기능
+        // 연도 선택 기능 만들어야 됨
     })
 
     $(".statsSeason > p:nth-of-type(2)").click(function () {
@@ -650,7 +650,7 @@ $(document).ready(function () {
 
     // 달력 컨트롤
     $(".fixturesSeason > p:nth-of-type(1)").click(function () {
-        // 연월 선택 기능
+        // 연월 선택 기능 만들어야 됨
     })
 
     $(".fixturesSeason > p:nth-of-type(2)").click(function () {
@@ -1231,12 +1231,15 @@ $(document).ready(function () {
     // 함수 실행
     if ($(".standingsSeason").length) {
         year = new Date().getFullYear()
-
-        $(".standingsSeason").html("<p>" + year + "</p><p>순위 자세히</p><p>◀</p><p>▶</p><p>오늘</p>")
-
         status_ = "A"
 
-        standingsA()
+        $(".standingsSeason").html("<p></p><p>순위 자세히</p><p>◀</p><p>▶</p><p>오늘</p>")
+        
+        if (window.location.href.split("?")[1] == undefined) {
+            window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "" + month + "?" + status_)
+        }
+
+        standings()
     }
 
     // 순위 자세히/간략히
@@ -1271,13 +1274,13 @@ $(document).ready(function () {
 
     // 달력 컨트롤
     $(".standingsSeason > p:nth-of-type(1)").click(function () {
-        // 연도 선택 기능
+        // 연도 선택 기능 만들어야 됨
     })
 
     $(".standingsSeason > p:nth-of-type(3)").click(function () {
         if ((status_ == "A" && year > 2015) || (status_ !== "A" && year > 2016)) {
             year --
-            $(".standingsSeason > p:nth-of-type(1)").text(year)
+            window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "?" + status_)
             standings()
         }
     })
@@ -1285,16 +1288,14 @@ $(document).ready(function () {
     $(".standingsSeason > p:nth-of-type(4)").click(function () {
         if (year < new Date().getFullYear()) {
             year ++
-            $(".standingsSeason > p:nth-of-type(1)").text(year)
+            window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "?" + status_)
             standings()
         }
     })
 
     $(".standingsSeason > p:nth-of-type(5)").click(function () {
         year = new Date().getFullYear()
-
-        $(".standingsSeason > p:nth-of-type(1)").text(year)
-
+        window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "?" + status_)
         standings()
     })
 
@@ -1560,6 +1561,33 @@ function fixtures() {
 
 // 순위
 function standings() {
+    year = window.location.href.split("?")[1]
+    status_ = window.location.href.split("?")[2]
+    $(".standingsSeason > p:nth-of-type(1)").text(year)
+
+    if (status_ == "A") {
+        $("#standingsA").css("display", "block")
+        $("#standingsU18").css("display", "none")
+        $("#standingsU15").css("display", "none")
+
+        $(".standingsButton > button").css({"color": "#000000", "border-bottom": "none"})
+        $(".standingsButton > button:nth-of-type(1)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
+    } else if (status_ == "U18") {
+        $("#standingsA").css("display", "none")
+        $("#standingsU18").css("display", "block")
+        $("#standingsU15").css("display", "none")
+
+        $(".standingsButton > button").css({"color": "#000000", "border-bottom": "none"})
+        $(".standingsButton > button:nth-of-type(2)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
+    } else if (status_ == "U15") {
+        $("#standingsA").css("display", "none")
+        $("#standingsU18").css("display", "none")
+        $("#standingsU15").css("display", "block")
+
+        $(".standingsButton > button").css({"color": "#000000", "border-bottom": "none"})
+        $(".standingsButton > button:nth-of-type(3)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
+    }
+
     $("#standings" + status_ + " > div > table > tbody").empty()
 
     if (status_ !== "U18") {
