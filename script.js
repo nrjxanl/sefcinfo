@@ -144,53 +144,29 @@ function playerU15() {
 
 // 일정 창 전환
 function fixturesA() {
-
-    if ($("#calendar").css("display") == "none") {
-        $("#fixturesA").css("display", "block")
-        $("#fixturesU18").css("display", "none")
-        $("#fixturesU15").css("display", "none")
-    }
-
-    $(".fixturesButton > button").css({"color": "#000000", "border-bottom": "none"})
-    $(".fixturesButton > button:nth-of-type(1)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
-
     status_ = "A"
     year = new Date().getFullYear()
     month = ("0" + (new Date().getMonth() + 1)).slice(-2)
+    window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "" + month + "?" + status_)
     fixtures()
 }
 
 function fixturesU18() {
-
-    if ($("#calendar").css("display") == "none") {
-        $("#fixturesA").css("display", "none")
-        $("#fixturesU18").css("display", "block")
-        $("#fixturesU15").css("display", "none")
-    }
-
-    $(".fixturesButton > button").css({"color": "#000000", "border-bottom": "none"})
-    $(".fixturesButton > button:nth-of-type(2)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
-
     status_ = "U18"
     year = new Date().getFullYear()
     month = ("0" + (new Date().getMonth() + 1)).slice(-2)
+    window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "" + month + "?" + status_)
     fixtures()
 }
 
 function fixturesU15() {
-
-    if ($("#calendar").css("display") == "none") {
-        $("#fixturesA").css("display", "none")
-        $("#fixturesU18").css("display", "none")
-        $("#fixturesU15").css("display", "block")
-    }
-
     $(".fixturesButton > button").css({"color": "#000000", "border-bottom": "none"})
     $(".fixturesButton > button:nth-of-type(3)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
 
     status_ = "U15"
     year = new Date().getFullYear()
     month = ("0" + (new Date().getMonth() + 1)).slice(-2)
+    window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "" + month + "?" + status_)
     fixtures()
 }
 

@@ -637,16 +637,18 @@ $(document).ready(function () {
     if ($(".fixturesSeason").length || $("#calendar").length) {
         year = new Date().getFullYear()
         month = ("0" + (new Date().getMonth() + 1)).slice(-2)
-
-        $(".fixturesSeason").html("<p>" + month + "<span>" + year + "</span></p><p>◀</p><p>▶</p><p>오늘</p>")
-
         status_ = "A"
-        clndr = 0
 
-        fixturesA()
+        $(".fixturesSeason").html("<p><span></span></p><p>◀</p><p>▶</p><p>오늘</p>")
+
+        if (window.location.href.split("?")[1] == undefined) {
+            window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "" + month + "?" + status_)
+        }
+
+        fixtures()
     }
 
-    // 일정 컨트롤
+    // 달력 컨트롤
     $(".fixturesSeason > p:nth-of-type(1)").click(function () {
         // 연월 선택 기능
     })
@@ -671,6 +673,9 @@ $(document).ready(function () {
                 }        
             }
         }
+
+        window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "" + month + "?" + status_)
+
         fixtures()
     })
 
@@ -683,12 +688,17 @@ $(document).ready(function () {
                 month = ("0" + (Number(month) + 1)).slice(-2)
             }
         }
+
+        window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "" + month + "?" + status_)
+
         fixtures()
     })
 
     $(".fixturesSeason > p:nth-of-type(4)").click(function () {
         year = new Date().getFullYear()
         month = (new Date().getMonth() + 1).toString().slice(-2)
+
+        window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "" + month + "?" + status_)
 
         fixtures()
     })
@@ -1454,9 +1464,34 @@ function playerList_ () {
 // 일정
 function fixtures() {
 
-    lastDate = new Date(year, month, 0).getDate()
-    prevMonthLastDate = new Date(year, month - 1, 0).getDate()
-    firstDateDay = new Date(year, month - 1, 1).getDay()
+    year = window.location.href.split("?")[1].substring(0, 4)
+    month = window.location.href.split("?")[1].substring(4, 6)
+    status_ = window.location.href.split("?")[2]
+    
+    if (status_ == "A") {
+        $("#fixturesA").css("display", "block")
+        $("#fixturesU18").css("display", "none")
+        $("#fixturesU15").css("display", "none")
+    
+        $(".fixturesButton > button").css({"color": "#000000", "border-bottom": "none"})
+        $(".fixturesButton > button:nth-of-type(1)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
+    } else if (status_ == "U18") {
+        $("#fixturesA").css("display", "none")
+        $("#fixturesU18").css("display", "block")
+        $("#fixturesU15").css("display", "none")
+    
+        $(".fixturesButton > button").css({"color": "#000000", "border-bottom": "none"})
+        $(".fixturesButton > button:nth-of-type(2)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
+    } else if (status_ == "U15") {
+        $("#fixturesA").css("display", "none")
+        $("#fixturesU18").css("display", "none")
+        $("#fixturesU15").css("display", "block")
+    
+        $(".fixturesButton > button").css({"color": "#000000", "border-bottom": "none"})
+        $(".fixturesButton > button:nth-of-type(3)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
+    }
+
+    $(".statsSeason > p:nth-of-type(1)").text(year)
 
     $("#fixturesA > .fixtures").empty()
     $("#fixturesU18 > .fixtures").empty()
