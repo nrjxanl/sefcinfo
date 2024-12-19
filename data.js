@@ -1236,7 +1236,7 @@ $(document).ready(function () {
         $(".standingsSeason").html("<p></p><p>순위 자세히</p><p>◀</p><p>▶</p><p>오늘</p>")
         
         if (window.location.href.split("?")[1] == undefined) {
-            window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "" + month + "?" + status_)
+            window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "?" + status_)
         }
 
         standings()
