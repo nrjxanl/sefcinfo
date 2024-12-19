@@ -582,13 +582,17 @@ $(document).ready(function () {
 
     // 함수 실행
     if ($(".statsSeason").length) {
+
         year = new Date().getFullYear()
-
-        $(".statsSeason").html("<p>" + year + "</p><p>◀</p><p>▶</p><p>오늘</p>")
-
         status_ = "A"
 
-        statsA()
+        $(".statsSeason").html("<p></p><p>◀</p><p>▶</p><p>오늘</p>")
+
+        if (window.location.href.split("?")[1] == undefined) {
+            window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "?" + status_)
+        }
+
+        stats()
     }
 
     // 달력 컨트롤
@@ -599,7 +603,7 @@ $(document).ready(function () {
     $(".statsSeason > p:nth-of-type(2)").click(function () {
         if ((status_ == "A" && year > 2015) || (status_ !== "A" && year > 2016)) {
             year --
-            $(".statsSeason > p:nth-of-type(1)").text(year)
+            window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "?" + status_)
             stats()
         }
     })
@@ -607,16 +611,14 @@ $(document).ready(function () {
     $(".statsSeason > p:nth-of-type(3)").click(function () {
         if (year < new Date().getFullYear()) {
             year ++
-            $(".statsSeason > p:nth-of-type(1)").text(year)
+            window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "?" + status_)
             stats()
         }
     })
 
     $(".statsSeason > p:nth-of-type(4)").click(function () {
         year = new Date().getFullYear()
-
-        $(".statsSeason > p:nth-of-type(1)").text(year)
-
+        window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "?" + status_)
         stats()
     })
 
@@ -1747,6 +1749,38 @@ function standings() {
 
 // 기록
 function stats() {
+
+    year = window.location.href.split("?")[1]
+    status_ = window.location.href.split("?")[2]
+    $(".statsSeason > p:nth-of-type(1)").text(year)
+
+    if (status_ == "A") {
+        $("#statsA").css("display", "block")
+        $("#statsU18").css("display", "none")
+        $("#statsU15").css("display", "none")
+
+        $(".statsButton > button").css({"color": "#000000", "border-bottom": "none"})
+        $(".statsButton > button:nth-of-type(1)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
+
+        // 장석훈 등번호
+        if (year == 2024) {
+            playerNumber[2024][20240155][1] = 70
+        }
+    } else if (status_ == "U18") {
+        $("#statsA").css("display", "none")
+        $("#statsU18").css("display", "block")
+        $("#statsU15").css("display", "none")
+
+        $(".statsButton > button").css({"color": "#000000", "border-bottom": "none"})
+        $(".statsButton > button:nth-of-type(2)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
+    } else if (status_ == "U15") {
+        $("#statsA").css("display", "none")
+        $("#statsU18").css("display", "none")
+        $("#statsU15").css("display", "block")
+
+        $(".statsButton > button").css({"color": "#000000", "border-bottom": "none"})
+        $(".statsButton > button:nth-of-type(3)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
+    }
 
     $("#stats > .stats > table > tbody").empty()
 

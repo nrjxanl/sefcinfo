@@ -305,7 +305,7 @@ function statsA() {
 
     status_ = "A"
     year = new Date().getFullYear()
-    $(".statsSeason > p:nth-of-type(1)").text(year)
+    window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "?" + status_)
     stats()
 }
 
@@ -324,7 +324,7 @@ function statsU18() {
 
     status_ = "U18"
     year = new Date().getFullYear()
-    $(".statsSeason > p:nth-of-type(1)").text(year)
+    window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "?" + status_)
     stats()
 }
 
@@ -338,7 +338,7 @@ function statsU15() {
 
     status_ = "U15"
     year = new Date().getFullYear()
-    $(".statsSeason > p:nth-of-type(1)").text(year)
+    window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "?" + status_)
     stats()
 }
 
