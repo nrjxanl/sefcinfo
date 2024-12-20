@@ -71,7 +71,7 @@ $(document).ready(function () {
 
         if (id.substring(8, 9) == 8 || id.substring(8, 9) == 5) {
             $("button[onclick='matchInfo()']").css("display", "none")
-            if (localStorage.getItem(id) == "matchLineup") {
+            if (localStorage.getItem(id) !== "matchH2H") {
                 matchLineup()
             }
         }
@@ -259,7 +259,7 @@ $(document).ready(function () {
                     } else if (Number($(this).text().replace(/[a-z]/g, "")) < 5) {
                         $(this).css("background", "#dc0c00")
                     } else if ($(this).text() == "-") {
-                        $(this).css("background", "#00000040")
+                        $(this).css("background", "#00006040")
                     } else if ($(this).text() == "-----") {
                         $(this).css("display", "none")
                     }
@@ -387,7 +387,7 @@ $(document).ready(function () {
                     // 선수 평점 칸 배색
                     $("#startingXI > div > table > tbody > tr > td > p:nth-of-type(3), #sub > table > tbody > tr > td > p:nth-of-type(2), .potm").each(function () {
                         if ($(this).text() == "-") {
-                            $(this).css("background", "#00000040")
+                            $(this).css("background", "#00006040")
                         } else if ($(this).text() == "-----") {
                             $(this).css("display", "none")
                         }
@@ -1041,16 +1041,16 @@ $(document).ready(function () {
             } else if (Number($(this).text().replace(/[a-z]/g, "")) < 5) {
                 $(this).css("background", "#dc0c00")
             } else if ($(this).text() == "-") {
-                $(this).css("background", "#00000040")
+                $(this).css("background", "#00006040")
             }
         })
 
         $("#playedMatchU18 > div > div > p:nth-of-type(6)").each(function () {
-            $(this).css("background", "#00000040")
+            $(this).css("background", "#00006040")
         })
 
         $("#playedMatchU15 > div > div > p:nth-of-type(6)").each(function () {
-            $(this).css("background", "#00000040")
+            $(this).css("background", "#00006040")
         })
 
         // 클릭 시 경기 세부 정보 창 열기

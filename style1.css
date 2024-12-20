@@ -351,7 +351,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #startingXI > div > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(1) > span:nth-of-type(1) {font-size: 16px; color: #000060; margin: 0 1.5vw 0 3vw;}
 #startingXI > div > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(1) > span:nth-of-type(2) > img {height: 16px; vertical-align: middle; margin: 0 0 2px -8px;}
 #startingXI > div > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1) {margin-left: 2px;}
-#startingXI > div > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(2) {width: 10vw; padding: 4px 0; font-size: 12px; border-radius: 50vw; color: #fafafa; background: #000000; position: absolute; right: 20vw;}
+#startingXI > div > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(2) {width: 10vw; padding: 4px 0; font-size: 12px; border-radius: 50vw; color: #fafafa; background: #00006040; position: absolute; right: 20vw;}
 
 #sub {width: 60vw; margin: 60px 0 0 20vw;}
 #sub > table {width: 60vw; height: 110vw;}

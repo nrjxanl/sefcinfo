@@ -83,11 +83,11 @@ footer > div > p {margin-left: 10px;}
 #homeRanking > div:nth-of-type(2) {width: 360px; font-weight: 300; padding-bottom: 20px;}
 
 #latestNews {width: 360px; height: 300px; margin-left: 20px; overflow: scroll; display: flex; align-items: center;}
-#latestNews > div {width: 240px; height: 200px; box-shadow: 0px 0px 5px 1px #00000040; border-radius: 20px; flex-shrink: 0; margin: 0 10px; display: flex; align-items: flex-end;}
+#latestNews > div {width: 240px; height: 200px; box-shadow: 0px 0px 5px 1px #00006040; border-radius: 20px; flex-shrink: 0; margin: 0 10px; display: flex; align-items: flex-end;}
 #latestNews > div:nth-of-type(1) {margin: 0 10px 0 0;}
 #latestNews > div > p {color: #fafafa; padding: 20px; text-align: left; font-size: 14px; line-height: 1.4;}
 
-#latestNews > a > div {box-shadow: 0px 0px 5px 1px #00000040; border-radius: 20px; flex-shrink: 0; margin: 0 10px; display: flex; align-items: flex-end;}
+#latestNews > a > div {box-shadow: 0px 0px 5px 1px #00006040; border-radius: 20px; flex-shrink: 0; margin: 0 10px; display: flex; align-items: flex-end;}
 
 /* 뉴스 */
 #news {width: 360px; margin-left: 20px;}
