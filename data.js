@@ -71,7 +71,7 @@ $(document).ready(function () {
 
         if (id.substring(8, 9) == 8 || id.substring(8, 9) == 5) {
             $("button[onclick='matchInfo()']").css("display", "none")
-            if (localStorage.getItem("match") == "matchLineup") {
+            if (localStorage.getItem(id) == "matchLineup") {
                 matchLineup()
             }
         }
@@ -134,7 +134,7 @@ $(document).ready(function () {
 
                     // POTM 여부
                     if (dataList[pos][i][1].replace(/[^p]/g, "") == "p") {
-                        $("#potm").html("<p>경기 최고의 선수</p><div><div><img src='./files/" + dataList[pos][i][0] + ".png'></div><p><span>" + playerNumber[year][dataList[pos][i][0]][1] + "</span>" + playerNumber[year][dataList[pos][i][0]][0].replace(/[A-Z,0-9]/g, "") + "</p><p class='potm'>" + dataList[pos][i][1].replace(/[a-z]/g, "") + "</p></div>")
+                        $("#potm").html("<p>경기 최고의 선수</p><div><p><span>" + playerNumber[year][dataList[pos][i][0]][1] + "</span>" + playerNumber[year][dataList[pos][i][0]][0].replace(/[A-Z,0-9]/g, "") + "</p><p class='potm'>" + dataList[pos][i][1].replace(/[a-z]/g, "") + "</p></div>")
                         href = dataList[pos][i][0]
                     }
 
@@ -345,7 +345,7 @@ $(document).ready(function () {
                     // POTM 여부
                     if (dataList["SUB"][i][1].replace(/[^p]/g, "") == "p") {
                         $("#" + dataList["SUB"][i][0] + " > p:nth-of-type(2)").css("background", "#000060")
-                        $("#potm").html("<p>경기 최고의 선수</p><div><div><img src='./files/" + dataList["SUB"][i][0] + ".png'></div><p><span>" + playerNumber[year][dataList["SUB"][i][0]][1] + "</span>" + playerNumber[year][dataList["SUB"][i][0]][0].replace(/[A-Z,0-9]/g, "") + "</p><p class='potm'>" + dataList["SUB"][i][1].replace(/[a-z]/g, "") + "</p></div>")
+                        $("#potm").html("<p>경기 최고의 선수</p><div><p><span>" + playerNumber[year][dataList["SUB"][i][0]][1] + "</span>" + playerNumber[year][dataList["SUB"][i][0]][0].replace(/[A-Z,0-9]/g, "") + "</p><p class='potm'>" + dataList["SUB"][i][1].replace(/[a-z]/g, "") + "</p></div>")
                         href = dataList["SUB"][i][0]
                     }
 
@@ -444,7 +444,7 @@ $(document).ready(function () {
         // 경기 기록
         if ((id.substring(8, 9) == 8 || id.substring(8, 9) == 5)) {
             $("button[onclick='matchStat()']").css("display", "none")
-            if (localStorage.getItem("match") == "matchH2H") {
+            if (localStorage.getItem(id) == "matchH2H") {
                 matchH2H()
             }
         }
@@ -510,7 +510,7 @@ $(document).ready(function () {
             $("button[onclick='matchStat()']").css("display", "none")
         }
 
-        if (localStorage.getItem("match") == "matchInfo") {
+        if (localStorage.getItem(id) == "matchInfo") {
             if ($("#matchScore").length && !$("#potm").length && dataList["hl"] == "") {
                 $("button[onclick='matchInfo()']").css("display", "none")
                 if ($("button[onclick='matchLineup()']").css("display") == "none") {
@@ -521,20 +521,27 @@ $(document).ready(function () {
             } else {
                 matchInfo ()
             }
-        } else if (localStorage.getItem("match") == "matchLineup") {
+        } else if (localStorage.getItem(id) == "matchLineup") {
             if ($("button[onclick='matchLineup()']").css("display") == "none") {
                 matchH2H ()
             } else {
                 matchLineup ()
             }
-        } else if (localStorage.getItem("match") == "matchStat") {
+        } else if (localStorage.getItem(id) == "matchStat") {
             if ($("button[onclick='matchStat()']").css("display") == "none") {
                 matchH2H ()
             } else {
                 matchStat ()
             }
-        } else if (localStorage.getItem("match") == "matchH2H") {
+        } else if (localStorage.getItem(id) == "matchH2H") {
             matchH2H ()
+        }
+
+        for (i = 0; i < localStorage.length; i++) {
+            if (localStorage.key(i) !== id && localStorage.key(i) !== "footer") {
+                localStorage.removeItem(localStorage.key(i))
+                i --
+            }
         }
     }
 
@@ -800,7 +807,7 @@ $(document).ready(function () {
         $("#prevMatch > div > div").each(function () {
             $(this).click(function () {
                 window.location.href = "./match?" + prev[$(this).index()]
-                localStorage.setItem("match", "matchInfo")
+                localStorage.setItem(prev[$(this).index()], "matchInfo")
             })
         })
     }
@@ -1049,6 +1056,7 @@ $(document).ready(function () {
         // 클릭 시 경기 세부 정보 창 열기
         $("#playedMatch > div > div").each(function () {
             $(this).click(function () {
+                localStorage.setItem($(this).attr("class"), "matchLineup")
                 window.location.href = "./match?" + $(this).attr("class")
             })
         })
@@ -1547,7 +1555,7 @@ function fixtures() {
 
         $("#fixtures" + status_ + " > .fixtures > .fixtures_").each(function () {
             $(this).click(function () {
-                localStorage.setItem("match", "matchInfo")
+                localStorage.setItem(Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[$(this).index()], "matchInfo")
                 window.location.href = "./match?" + Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[$(this).index()]
             })
         })
@@ -2082,7 +2090,7 @@ function stats() {
 // 전적
 function matchH2H() {
 
-    localStorage.setItem("match", "matchH2H")
+    localStorage.setItem(id, "matchH2H")
 
     document.getElementById("matchInfo").style.display = "none"
     document.getElementById("matchLineup").style.display = "none"

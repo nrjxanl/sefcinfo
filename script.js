@@ -189,7 +189,7 @@ function matchInfo() {
     $(".matchDetail button:nth-child(2)").css("font-weight", 500)
     $(".matchDetail button:nth-child(3)").css("font-weight", 500)
     $(".matchDetail button:nth-child(4)").css("font-weight", 500)
-    localStorage.setItem("match", "matchInfo")
+    localStorage.setItem(id, "matchInfo")
 }
 
 function matchLineup() {
@@ -201,7 +201,7 @@ function matchLineup() {
     $(".matchDetail button:nth-child(2)").css("font-weight", 900)
     $(".matchDetail button:nth-child(3)").css("font-weight", 500)
     $(".matchDetail button:nth-child(4)").css("font-weight", 500)
-    localStorage.setItem("match", "matchLineup")
+    localStorage.setItem(id, "matchLineup")
 }
 
 function matchStat() {
@@ -213,7 +213,7 @@ function matchStat() {
     $(".matchDetail button:nth-child(2)").css("font-weight", 500)
     $(".matchDetail button:nth-child(3)").css("font-weight", 900)
     $(".matchDetail button:nth-child(4)").css("font-weight", 500)
-    localStorage.setItem("match", "matchStat")
+    localStorage.setItem(id, "matchStat")
 }
 
 if ($("#matchScore").length && !$("#highlight").length) {
