@@ -2009,7 +2009,7 @@ function stats() {
             $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(2)").html(player[Object.keys(app)[i]]["name"].replace(/[0-9]/g, ""))
             $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(3)").text(Object.values(app)[i])
 
-            if (player[Object.keys(app)[i]]["sefc"] !== "O") {
+            if (player[Object.keys(app)[i]]["sefc"] !== "O" && year == "allTime") {
                 $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ")").css("opacity", ".5")
             }
 
