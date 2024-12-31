@@ -19,7 +19,7 @@ function news() {
         data[i][2] == "포항 스틸러스" ? "pohangsteelers_s" :
         data[i][2] == "전남 드래곤즈" ? "jeonnamdragons2022_s" :
         data[i][2] == "전북 현대 모터스" ? "jeonbukhyundai2018_s" :
-        data[i][2] == "제주 유나이티드" ? "jejuutd_s" :
+        data[i][2] == "제주 유나이티드" ? "jejuutd2006_s" :
         data[i][2] == "인천 유나이티드" ? "incheonutd_s" :
         data[i][2] == "경남 FC" ? "gyeongnamfc2010_s" :
         data[i][2] == "광주 FC" ? "gwangjufc2020_s" :
@@ -47,7 +47,7 @@ function news() {
         data[i][3] == "포항 스틸러스" ? "pohangsteelers_s" :
         data[i][3] == "전남 드래곤즈" ? "jeonnamdragons2022_s" :
         data[i][3] == "전북 현대 모터스" ? "jeonbukhyundai2018_s" :
-        data[i][3] == "제주 유나이티드" ? "jejuutd_s" :
+        data[i][3] == "제주 유나이티드" ? "jejuutd2006_s" :
         data[i][3] == "인천 유나이티드" ? "incheonutd_s" :
         data[i][3] == "경남 FC" ? "gyeongnamfc2010_s" :
         data[i][3] == "광주 FC" ? "gwangjufc2020_s" :
