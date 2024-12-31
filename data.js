@@ -1824,12 +1824,14 @@ function standings() {
 // 기록
 function stats() {
 
-    year = window.location.href.split("?")[1]
-    status_ = window.location.href.split("?")[2]
-    if ($.isNumeric(year) == true) {
-        $(".statsSeason > p:nth-of-type(1)").text(year)
-    } else {
-        $(".statsSeason > p:nth-of-type(1)").text("통산")
+    if (!$(".playerButton").length) {
+        year = window.location.href.split("?")[1]
+        status_ = window.location.href.split("?")[2]
+        if ($.isNumeric(year) == true) {
+            $(".statsSeason > p:nth-of-type(1)").text(year)
+        } else {
+            $(".statsSeason > p:nth-of-type(1)").text("통산")
+        }
     }
 
     if (status_ == "A") {
