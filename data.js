@@ -733,7 +733,7 @@ $(document).ready(function () {
 
     $(".fixturesSeason > p:nth-of-type(4)").click(function () {
         year = new Date().getFullYear()
-        month = (new Date().getMonth() + 1).toString().slice(-2)
+        month = ("0" + (1 + new Date().getMonth())).slice(-2)
 
         window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "" + month + "?" + status_)
 
@@ -1396,9 +1396,14 @@ function playerList_ () {
         if (player[Object.keys(player)[i]]["sefc"] == "O") {
             try {
                 id = Object.keys(player)[i]
-                name_ = playerNumber[new Date().getFullYear()][Object.keys(player)[i]][0]
-                num = playerNumber[new Date().getFullYear()][Object.keys(player)[i]][1]
+                name_ = player[Object.keys(player)[i]]["name"]
                 pos = player[Object.keys(player)[i]]["pos"]
+
+                try {
+                    num = playerNumber[new Date().getFullYear()][Object.keys(player)[i]][1]
+                } catch (err) {
+                    num = "--"
+                }
                 playerList.push([id, name_, num, pos])
             } catch (err) {}
         }
