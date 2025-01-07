@@ -1368,7 +1368,8 @@ $(document).ready(function () {
                                                                                                                             (emblem == "대구 FC") ? "daegufc2013" :
                                                                                                                                 (emblem == "광주 FC" && year >= 2020) ? "gwangjufc2020" :
                                                                                                                                     (emblem == "광주 FC" && year < 2020) ? "gwangjufc2010" :
-                                                                                                                                        ""
+                                                                                                                                        (emblem == "화성 FC") ? "hwaseongfc2023" :
+                                                                                                                                            ""
 
             $("#standingsHome > table > tbody").append("<tr><td>" + standing[new Date().getFullYear()]["A"][i][0] + "</td><td><img src='./files/" + emblem + "_s.png'></td><td>" + standing[new Date().getFullYear()]["A"][i][1] + "</td><td>" + standing[new Date().getFullYear()]["A"][i][2] + "</td><td>" + standing[new Date().getFullYear()]["A"][i][6] + "</td></tr>")
         }
@@ -1680,7 +1681,8 @@ function standings() {
                                                                                                                                                                                                                                                                             (emblem == "뉴 은평 FC") ? "neweunpyeong" :
                                                                                                                                                                                                                                                                                 (emblem == "영서중학교") ? "yeongseoms" :
                                                                                                                                                                                                                                                                                     (emblem == "FC 한양") ? "fchanyang" :
-                                                                                                                                                                                                                                                                                        ""
+                                                                                                                                                                                                                                                                                        (emblem == "화성 FC") ? "hwaseongfc2023" :
+                                                                                                                                                                                                                                                                                            ""
 
             $("#standings" + status_ + " > div > table > tbody").append("<tr><td>" + standing[year][status_][i][0] + "</td><td><img src='./files/" + emblem + "_s.png'></td><td>" + standing[year][status_][i][1] + "</td><td>" + standing[year][status_][i][2] + "</td><td>" + standing[year][status_][i][3] + "</td><td>" + standing[year][status_][i][4] + "</td><td>" + standing[year][status_][i][5] + "</td><td>" + standing[year][status_][i][6] + "</td><td>" + standing[year][status_][i][7] + "</td><td>" + standing[year][status_][i][8] + "</td></tr>")
 
@@ -1731,7 +1733,8 @@ function standings() {
                                                                                                                                                         (emblem == "고양 자이크로") ? "goyangzaicro" :
                                                                                                                                                             (emblem == "고양 Hi FC") ? "goyanghifc" :
                                                                                                                                                                 (emblem == "안산 경찰청 축구단") ? "ansanpolice" :
-                                                                                                                                                                    ""
+                                                                                                                                                                    (emblem == "화성 FC") ? "hwaseongfc2023" :
+                                                                                                                                                                        ""
 
             $("#standingsU18F > table > tbody").append("<tr><td>" + standing[year]["U18F"][i][0] + "</td><td><img src='./files/" + emblem + "_s.png'></td><td>" + standing[year]["U18F"][i][1] + "</td><td>" + standing[year]["U18F"][i][2] + "</td><td>" + standing[year]["U18F"][i][3] + "</td><td>" + standing[year]["U18F"][i][4] + "</td><td>" + standing[year]["U18F"][i][5] + "</td><td>" + standing[year]["U18F"][i][6] + "</td><td>" + standing[year]["U18F"][i][7] + "</td><td>" + standing[year]["U18F"][i][8] + "</td></tr>")
 
@@ -1786,7 +1789,8 @@ function standings() {
                                                                                                                                                             (emblem == "고양 자이크로") ? "goyangzaicro" :
                                                                                                                                                                 (emblem == "고양 Hi FC") ? "goyanghifc" :
                                                                                                                                                                     (emblem == "안산 경찰청 축구단") ? "ansanpolice" :
-                                                                                                                                                                        ""
+                                                                                                                                                                        (emblem == "화성 FC") ? "hwaseongfc2023" :
+                                                                                                                                                                            ""
 
                 $("#standingsU18S > table > tbody").append("<tr><td>" + standing[year]["U18S"][i][0] + "</td><td><img src='./files/" + emblem + "_s.png'></td><td>" + standing[year]["U18S"][i][1] + "</td><td>" + standing[year]["U18S"][i][2] + "</td><td>" + standing[year]["U18S"][i][3] + "</td><td>" + standing[year]["U18S"][i][4] + "</td><td>" + standing[year]["U18S"][i][5] + "</td><td>" + standing[year]["U18S"][i][6] + "</td><td>" + standing[year]["U18S"][i][7] + "</td><td>" + standing[year]["U18S"][i][8] + "</td></tr>")
 

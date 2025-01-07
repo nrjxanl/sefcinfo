@@ -444,8 +444,8 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #standingsU18 > div > table > thead > tr > th {font-weight: 300; font-size: 12px;}
 #standingsU18 > div > table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+6) {display: none;}
 #standingsU18 > div > table > thead > tr > th:nth-of-type(n+8) {display: none;}
-#standingsU18 > div > table > tbody > tr > td {width: 10vw; font-size: 16px; height: 40px;}
-#standingsU18 > div > table > tbody > tr > td:nth-of-type(3) {width: 45vw; padding-left: 5vw; text-align: left; display: table-cell;}
+#standingsU18 > div > table > tbody > tr > td {width: 10vw; font-size: 16px; height: 40px; font-weight: 300;}
+#standingsU18 > div > table > tbody > tr > td:nth-of-type(3) {width: 45vw; padding-left: 5vw; text-align: left; display: table-cell; font-weight: 900;}
 #standingsU18 > div > table > tbody > tr > td:nth-of-type(n+5):nth-of-type(-n+7) {display: none;}
 #standingsU18 > div > table > tbody > tr > td:nth-of-type(n+9) {display: none;}
 #standingsU18 > div > table > tbody > tr > td > img {height: 24px;}
@@ -457,8 +457,8 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #standingsU15 > div > table > thead > tr > th {font-weight: 300; font-size: 12px;}
 #standingsU15 > div > table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+6) {display: none;}
 #standingsU15 > div > table > thead > tr > th:nth-of-type(n+8) {display: none;}
-#standingsU15 > div > table > tbody > tr > td {width: 10vw; font-size: 16px; height: 40px;}
-#standingsU15 > div > table > tbody > tr > td:nth-of-type(3) {width: 45vw; padding-left: 5vw; text-align: left; display: table-cell;}
+#standingsU15 > div > table > tbody > tr > td {width: 10vw; font-size: 16px; height: 40px; font-weight: 300;}
+#standingsU15 > div > table > tbody > tr > td:nth-of-type(3) {width: 45vw; padding-left: 5vw; text-align: left; display: table-cell; font-weight: 900;}
 #standingsU15 > div > table > tbody > tr > td:nth-of-type(n+5):nth-of-type(-n+7) {display: none;}
 #standingsU15 > div > table > tbody > tr > td:nth-of-type(n+9) {display: none;}
 #standingsU15 > div > table > tbody > tr > td > img {height: 24px;}
