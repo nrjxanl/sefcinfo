@@ -587,8 +587,8 @@ $(document).ready(function () {
             table.children("tbody").append(row)
         })
 
-        $("#stats > .stats > table > thead > tr > th").css("font-weight", "300")
-        $("#stats > .stats > table > tbody > tr > td:nth-of-type(n+3)").css("font-weight", "300")
+        $("#stats > .stats > table > thead > tr > th").css("font-weight", "600")
+        $("#stats > .stats > table > tbody > tr > td:nth-of-type(n+3)").css("font-weight", "600")
         $("#stats > .stats > table > thead > tr > th:nth-of-type(" + columnIndex + ")").css("font-weight", "900")
         $("#stats > .stats > table > tbody > tr > td:nth-of-type(" + (columnIndex + 1) + ")").css("font-weight", "900")
 
@@ -1051,6 +1051,12 @@ $(document).ready(function () {
                         }
                     }
                 }
+
+                $("#statsBySeason > div > p:nth-of-type(2)").each(function () {
+                    if ($(this).text().replace("'", "") == new Date().getFullYear().toString().substring(2, 4)) {
+                        $(this).parent().find("p").css("font-weight", "900")
+                    }
+                })
             }
 
             status_ = "A"
@@ -1579,7 +1585,7 @@ function fixtures() {
     } else {
         $("#fixtures" + status_ + " > .fixtures").append("<p>일정이 없습니다.</p>")
 
-        $("#fixtures" + status_ + " > .fixtures > p").css({ "font-size": "16px", "margin-top": "calc(27px + 5vw)", "font-weight": "500" })
+        $("#fixtures" + status_ + " > .fixtures > p").css({ "font-size": "16px", "margin-top": "calc(27px + 5vw)", "font-weight": "600" })
     }
 }
 
@@ -2141,9 +2147,9 @@ function matchH2H() {
     document.getElementById("matchLineup").style.display = "none"
     document.getElementById("matchStat").style.display = "none"
     document.getElementById("matchH2H").style.display = "flex"
-    $(".matchDetail button:nth-child(1)").css("font-weight", 500)
-    $(".matchDetail button:nth-child(2)").css("font-weight", 500)
-    $(".matchDetail button:nth-child(3)").css("font-weight", 500)
+    $(".matchDetail button:nth-child(1)").css("font-weight", 600)
+    $(".matchDetail button:nth-child(2)").css("font-weight", 600)
+    $(".matchDetail button:nth-child(3)").css("font-weight", 600)
     $(".matchDetail button:nth-child(4)").css("font-weight", 900)
 
     if (dataList["home"][1] == "seouleland") {
@@ -2271,38 +2277,38 @@ function matchH2H() {
             $("#matchH2H > div:nth-of-type(3)").css({ "display": "flex", "justify-content": "flex-start", "margin-top": "5vw" })
             $("#matchH2H > div:nth-of-type(3) > div").css({ "display": "flex" })
             $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1)").css("margin-left", "10vw")
-            $("#matchH2H > div:nth-of-type(3) > div > div > p:nth-of-type(1)").css({ "height": "4vw", "font-weight": "400", "padding": "1vw 0 0 2vw", "text-align": "left", "display": "flex", "align-items": "center" })
-            $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1) > div > p:nth-of-type(2)").css({ "height": "4vw", "font-weight": "400", "text-align": "left", "padding": "0 8vw 0 2vw", "display": "flex", "align-items": "center" })
-            $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(2) > div > p:nth-of-type(2)").css({ "height": "4vw", "font-weight": "400", "text-align": "left", "padding": "0 8vw 0 2vw", "display": "flex", "align-items": "center" })
-            $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(3) > div > p:nth-of-type(2)").css({ "height": "4vw", "font-weight": "400", "text-align": "left", "padding": "0 8vw 0 2vw", "display": "flex", "align-items": "center" })
+            $("#matchH2H > div:nth-of-type(3) > div > div > p:nth-of-type(1)").css({ "height": "4vw", "font-weight": "600", "padding": "1vw 0 0 2vw", "text-align": "left", "display": "flex", "align-items": "center" })
+            $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1) > div > p:nth-of-type(2)").css({ "height": "4vw", "font-weight": "600", "text-align": "left", "padding": "0 8vw 0 2vw", "display": "flex", "align-items": "center" })
+            $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(2) > div > p:nth-of-type(2)").css({ "height": "4vw", "font-weight": "600", "text-align": "left", "padding": "0 8vw 0 2vw", "display": "flex", "align-items": "center" })
+            $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(3) > div > p:nth-of-type(2)").css({ "height": "4vw", "font-weight": "600", "text-align": "left", "padding": "0 8vw 0 2vw", "display": "flex", "align-items": "center" })
 
             $("#matchH2H > div:nth-of-type(4) > p").css({ "width": "80vw", "height": "2vw", "background-image": goalGradient })
 
             $("#matchH2H > div:nth-of-type(5)").css({ "display": "flex", "justify-content": "flex-start", "margin-top": "5vw" })
             $("#matchH2H > div:nth-of-type(5) > div").css({ "display": "flex" })
             $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(1)").css("margin-left", "10vw")
-            $("#matchH2H > div:nth-of-type(5) > div > div > p:nth-of-type(1)").css({ "height": "4vw", "font-weight": "400", "padding": "1vw 0 0 2vw", "text-align": "left", "display": "flex", "align-items": "center" })
-            $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(1) > div > p:nth-of-type(2)").css({ "height": "4vw", "font-weight": "400", "text-align": "left", "padding": "0 8vw 0 2vw", "display": "flex", "align-items": "center" })
-            $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(2) > div > p:nth-of-type(2)").css({ "height": "4vw", "font-weight": "400", "text-align": "left", "padding": "0 8vw 0 2vw", "display": "flex", "align-items": "center" })
+            $("#matchH2H > div:nth-of-type(5) > div > div > p:nth-of-type(1)").css({ "height": "4vw", "font-weight": "600", "padding": "1vw 0 0 2vw", "text-align": "left", "display": "flex", "align-items": "center" })
+            $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(1) > div > p:nth-of-type(2)").css({ "height": "4vw", "font-weight": "600", "text-align": "left", "padding": "0 8vw 0 2vw", "display": "flex", "align-items": "center" })
+            $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(2) > div > p:nth-of-type(2)").css({ "height": "4vw", "font-weight": "600", "text-align": "left", "padding": "0 8vw 0 2vw", "display": "flex", "align-items": "center" })
         } else {
             $("#matchH2H > div:nth-of-type(2) > p").css({ "width": "320px", "height": "8px", "background-image": h2hGradient })
 
             $("#matchH2H > div:nth-of-type(3)").css({ "display": "flex", "justify-content": "flex-start", "margin-top": "20px" })
             $("#matchH2H > div:nth-of-type(3) > div").css({ "display": "flex" })
             $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1)").css("margin-left", "40px")
-            $("#matchH2H > div:nth-of-type(3) > div > div > p:nth-of-type(1)").css({ "height": "16px", "font-weight": "400", "padding": "4px 0 0 8px", "text-align": "left", "display": "flex", "align-items": "center" })
-            $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "400", "text-align": "left", "padding": "0 32px 0 8px", "display": "flex", "align-items": "center" })
-            $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(2) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "400", "text-align": "left", "padding": "0 32px 0 8px", "display": "flex", "align-items": "center" })
-            $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(3) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "400", "text-align": "left", "padding": "0 32px 0 8px", "display": "flex", "align-items": "center" })
+            $("#matchH2H > div:nth-of-type(3) > div > div > p:nth-of-type(1)").css({ "height": "16px", "font-weight": "600", "padding": "4px 0 0 8px", "text-align": "left", "display": "flex", "align-items": "center" })
+            $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "600", "text-align": "left", "padding": "0 32px 0 8px", "display": "flex", "align-items": "center" })
+            $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(2) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "600", "text-align": "left", "padding": "0 32px 0 8px", "display": "flex", "align-items": "center" })
+            $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(3) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "600", "text-align": "left", "padding": "0 32px 0 8px", "display": "flex", "align-items": "center" })
 
             $("#matchH2H > div:nth-of-type(4) > p").css({ "width": "320px", "height": "8px", "background-image": goalGradient })
 
             $("#matchH2H > div:nth-of-type(5)").css({ "display": "flex", "justify-content": "flex-start", "margin-top": "20px" })
             $("#matchH2H > div:nth-of-type(5) > div").css({ "display": "flex" })
             $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(1)").css("margin-left", "40px")
-            $("#matchH2H > div:nth-of-type(5) > div > div > p:nth-of-type(1)").css({ "height": "16px", "font-weight": "400", "padding": "4px 0 0 8px", "text-align": "left", "display": "flex", "align-items": "center" })
-            $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(1) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "400", "text-align": "left", "padding": "0 32px 0 8px", "display": "flex", "align-items": "center" })
-            $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(2) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "400", "text-align": "left", "padding": "0 32px 0 8px", "display": "flex", "align-items": "center" })
+            $("#matchH2H > div:nth-of-type(5) > div > div > p:nth-of-type(1)").css({ "height": "16px", "font-weight": "600", "padding": "4px 0 0 8px", "text-align": "left", "display": "flex", "align-items": "center" })
+            $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(1) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "600", "text-align": "left", "padding": "0 32px 0 8px", "display": "flex", "align-items": "center" })
+            $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(2) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "600", "text-align": "left", "padding": "0 32px 0 8px", "display": "flex", "align-items": "center" })
         }
 
         // 최근 맞대결 결과 *** 수정 필요
@@ -2475,7 +2481,7 @@ function matchH2H() {
 
     } else {
         if (!$("#matchH2H > p").length) {
-            $("#matchH2H").empty().append("<p style='font-size: 16px; font-weight: 300;'>아직 맞대결 기록이 없습니다.</p>")
+            $("#matchH2H").empty().append("<p style='font-size: 16px; font-weight: 600;'>아직 맞대결 기록이 없습니다.</p>")
         }
     }
 }
