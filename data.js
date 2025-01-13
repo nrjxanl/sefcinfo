@@ -413,9 +413,9 @@ $(document).ready(function () {
             })
 
             if ($(window).width() < 768) {
-                $("#potm").css({ "width": "74vw", "padding": "1vw 3vw 2vw 3vw", "margin": "20px 0 0 10vw", "border-radius": "20px", "box-shadow": "0 0 3px 2px #00000020" })
+                $("#potm").css({ "width": "74vw", "padding": "1vw 3vw 2vw 3vw", "margin": "20px 0 0 10vw", "border-radius": "20px", "box-shadow": "0 0 3px 2px #00006020" })
             } else {
-                $("#potm").css({ "width": "296px", "padding": "4px 12px 8px 12px", "margin": "20px 0 0 40px", "border-radius": "20px", "box-shadow": "0 0 3px 2px #00000020" })
+                $("#potm").css({ "width": "296px", "padding": "4px 12px 8px 12px", "margin": "20px 0 0 40px", "border-radius": "20px", "box-shadow": "0 0 3px 2px #00006020" })
             }
 
             $("#startingXI > table > tbody > tr > td").each(function () {
@@ -2147,9 +2147,9 @@ function matchH2H() {
     document.getElementById("matchLineup").style.display = "none"
     document.getElementById("matchStat").style.display = "none"
     document.getElementById("matchH2H").style.display = "flex"
-    $(".matchDetail button:nth-child(1)").css("font-weight", 600)
-    $(".matchDetail button:nth-child(2)").css("font-weight", 600)
-    $(".matchDetail button:nth-child(3)").css("font-weight", 600)
+    $(".matchDetail button:nth-child(1)").css("font-weight", 300)
+    $(".matchDetail button:nth-child(2)").css("font-weight", 300)
+    $(".matchDetail button:nth-child(3)").css("font-weight", 300)
     $(".matchDetail button:nth-child(4)").css("font-weight", 900)
 
     if (dataList["home"][1] == "seouleland") {

@@ -4,9 +4,6 @@ $(document).ready(function() {
     // url 불러오기
     url = window.location.href
 
-    // 새로고침 시 맨 위로 이동
-    history.scrollRestoration = "manual"
-
     // 화면 너비 300px 이하일 때 경고
     if ($(window).width() < 300) {
         $("body").append("<div style='width: 80vw; height: 65px; padding: 0 10vw; background: #fafafa; position: fixed; bottom: 0; left: 0; font-size: 14px; font-weight: 300; z-index: 300; display: flex; align-items: center; justify-content: center;'>기기의 화면 크기가 작아 페이지가 정상적으로 보이지 않을 수 있습니다.</div>")
@@ -52,7 +49,7 @@ $("footer > img").click(function () {
 })
 
 // 메뉴
-$("body").append("<div id='menu'><div><span></span><img src='./files/home.svg'>홈</div><div><span></span><img src='./files/players.svg'>선수단</div><div><span></span><img src='./files/fixtures.svg'>일정</div><div><span></span><img src='./files/stats.svg'>기록</div><div><span></span><img src='./files/standings.svg'>순위</div></div><div id='menuBg'></div>")
+$("body").append("<div id='menu'><div><span></span><img src='./files/home.svg'>홈</div><div><span></span><img src='./files/fixtures.svg'>일정</div><div><span></span><img src='./files/players.svg'>선수단</div><div><span></span><img src='./files/stats.svg'>기록</div><div><span></span><img src='./files/standings.svg'>순위</div><div><span></span><img src='./files/chants.svg'>응원가</div></div><div id='menuBg'></div>")
 
 // 상단 클릭 시 홈으로 이동
 $("header > div:nth-of-type(2)").click(function() {
@@ -78,10 +75,10 @@ $("#menu > div:nth-of-type(1)").click(function() {
     window.location = "https://sefc.info"
 })
 $("#menu > div:nth-of-type(2)").click(function() {
-    window.location = "./players"
+    window.location = "./fixtures"
 })
 $("#menu > div:nth-of-type(3)").click(function() {
-    window.location = "./fixtures"
+    window.location = "./players"
 })
 $("#menu > div:nth-of-type(4)").click(function() {
     window.location = "./stats"
@@ -89,18 +86,23 @@ $("#menu > div:nth-of-type(4)").click(function() {
 $("#menu > div:nth-of-type(5)").click(function() {
     window.location = "./standings"
 })
+$("#menu > div:nth-of-type(6)").click(function() {
+    window.location = "./chants"
+})
 
 // 메뉴 내 현재 페이지 이름 강조
 if ($("#prevMatch").length) {
     $("#menu > div:nth-of-type(1) > span").css("background", "#000060")
-} else if ($(".playerButton").length || $("#playerInfo").length) {
-        $("#menu > div:nth-of-type(2) > span").css("background", "#000060")
 } else if ($(".fixturesButton").length || $("#matchScore").length) {
+    $("#menu > div:nth-of-type(2) > span").css("background", "#000060")
+} else if ($(".playerButton").length || $("#playerInfo").length) {
     $("#menu > div:nth-of-type(3) > span").css("background", "#000060")
 } else if ($(".statsButton").length) {
     $("#menu > div:nth-of-type(4) > span").css("background", "#000060")
 } else if ($(".standingsButton").length) {
     $("#menu > div:nth-of-type(5) > span").css("background", "#000060")
+} else if ($("#team").length) {
+    $("#menu > div:nth-of-type(6) > span").css("background", "#000060")
 }
 
 // 메뉴 hover 시 강조
@@ -186,9 +188,9 @@ function matchInfo() {
     $("#matchStat").css("display", "none")
     $("#matchH2H").css("display", "none")
     $(".matchDetail button:nth-child(1)").css("font-weight", 900)
-    $(".matchDetail button:nth-child(2)").css("font-weight", 500)
-    $(".matchDetail button:nth-child(3)").css("font-weight", 500)
-    $(".matchDetail button:nth-child(4)").css("font-weight", 500)
+    $(".matchDetail button:nth-child(2)").css("font-weight", 300)
+    $(".matchDetail button:nth-child(3)").css("font-weight", 300)
+    $(".matchDetail button:nth-child(4)").css("font-weight", 300)
     localStorage.setItem(id, "matchInfo")
 }
 
@@ -197,10 +199,10 @@ function matchLineup() {
     $("#matchLineup").css("display", "block")
     $("#matchStat").css("display", "none")
     $("#matchH2H").css("display", "none")
-    $(".matchDetail button:nth-child(1)").css("font-weight", 500)
+    $(".matchDetail button:nth-child(1)").css("font-weight", 300)
     $(".matchDetail button:nth-child(2)").css("font-weight", 900)
-    $(".matchDetail button:nth-child(3)").css("font-weight", 500)
-    $(".matchDetail button:nth-child(4)").css("font-weight", 500)
+    $(".matchDetail button:nth-child(3)").css("font-weight", 300)
+    $(".matchDetail button:nth-child(4)").css("font-weight", 300)
     localStorage.setItem(id, "matchLineup")
 }
 
@@ -209,10 +211,10 @@ function matchStat() {
     $("#matchLineup").css("display", "none")
     $("#matchStat").css("display", "block")
     $("#matchH2H").css("display", "none")
-    $(".matchDetail button:nth-child(1)").css("font-weight", 500)
-    $(".matchDetail button:nth-child(2)").css("font-weight", 500)
+    $(".matchDetail button:nth-child(1)").css("font-weight", 300)
+    $(".matchDetail button:nth-child(2)").css("font-weight", 300)
     $(".matchDetail button:nth-child(3)").css("font-weight", 900)
-    $(".matchDetail button:nth-child(4)").css("font-weight", 500)
+    $(".matchDetail button:nth-child(4)").css("font-weight", 300)
     localStorage.setItem(id, "matchStat")
 }
 
