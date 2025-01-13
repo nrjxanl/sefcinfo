@@ -378,11 +378,11 @@ if ($("#team").length || $("#chantsName").length) {
     }
 
     $("#team").children("div").on("click", function () {
-        window.location = "./chants/team?" + ($(this).index() + 1)
+        window.location = "./chants/team?" + $(this).index()
     })
 
     $("#players").children("div").on("click", function () {
-        window.location = "./chants/players?" + ($(this).index() + 1)
+        window.location = "./chants/players?" + $(this).index()
     })
 }
 

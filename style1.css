@@ -99,6 +99,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #playerA > div > div:nth-of-type(2n-1) > p:nth-of-type(n+2) {width: calc(45vw / 6); font-weight: 600;}
 #playerA > div > div:nth-of-type(2n) > div {height: 60px; display: flex; align-items: center; border-bottom: 1px solid #00006020;}
 #playerA > div > div:nth-of-type(2n) > div:nth-of-type(1) {border-top: 1px solid #00006020; margin-top: 20px;}
+#playerA > div > div:nth-of-type(2n) > div:nth-last-of-type(1) {margin-bottom: 40px;}
 #playerA > div > div:nth-of-type(2n) > div > p:nth-of-type(1) {width: 10vw; padding-right: 5vw; font-size: 20px; text-align: right; color: #000060;}
 #playerA > div > div:nth-of-type(2n) > div > p:nth-of-type(2) {width: 30vw; font-size: 20px; text-align: left;}
 #playerA > div > div:nth-of-type(2n) > div > p:nth-of-type(n+3) {width: calc(45vw / 6); font-size: 16px; font-weight: 600;}
@@ -113,6 +114,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #playerU18 > div > div:nth-of-type(2n-1) > p:nth-of-type(n+2) {width: calc(45vw / 4); font-weight: 600;}
 #playerU18 > div > div:nth-of-type(2n) > div {height: 60px; display: flex; align-items: center; border-bottom: 1px solid #00006020;}
 #playerU18 > div > div:nth-of-type(2n) > div:nth-of-type(1) {border-top: 1px solid #00006020; margin-top: 20px;}
+#playerU18 > div > div:nth-of-type(2n) > div:nth-last-of-type(1) {margin-bottom: 40px;}
 #playerU18 > div > div:nth-of-type(2n) > div > p:nth-of-type(1) {width: 10vw; padding-right: 5vw; font-size: 20px; text-align: right; color: #000060;}
 #playerU18 > div > div:nth-of-type(2n) > div > p:nth-of-type(2) {width: 30vw; font-size: 20px; text-align: left;}
 #playerU18 > div > div:nth-of-type(2n) > div > p:nth-of-type(n+3) {width: calc(45vw / 4); font-size: 16px; font-weight: 600;}
@@ -127,6 +129,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #playerU15 > div > div:nth-of-type(2n-1) > p:nth-of-type(n+2) {width: calc(45vw / 4); font-weight: 600;}
 #playerU15 > div > div:nth-of-type(2n) > div {height: 60px; display: flex; align-items: center; border-bottom: 1px solid #00006020;}
 #playerU15 > div > div:nth-of-type(2n) > div:nth-of-type(1) {border-top: 1px solid #00006020; margin-top: 20px;}
+#playerU15 > div > div:nth-of-type(2n) > div:nth-last-of-type(1) {margin-bottom: 40px;}
 #playerU15 > div > div:nth-of-type(2n) > div > p:nth-of-type(1) {width: 10vw; padding-right: 5vw; font-size: 20px; text-align: right; color: #000060;}
 #playerU15 > div > div:nth-of-type(2n) > div > p:nth-of-type(2) {width: 30vw; font-size: 20px; text-align: left;}
 #playerU15 > div > div:nth-of-type(2n) > div > p:nth-of-type(n+3) {width: calc(45vw / 4); font-size: 16px; font-weight: 600;}
@@ -482,6 +485,7 @@ tr.sefc > td > p {background: #fafafa !important; color: #000000 !important;}
 #players > p {width: 80vw; text-align: left; font-size: 24px; margin-bottom: 20px;}
 #players > div {width: 80vw; font-size: 20px; font-weight: 600; text-align: left; vertical-align: bottom; padding: 10px 0; border-bottom: 1px solid #00006020;}
 #players > div:nth-of-type(1) {border-top: 1px solid #00006020;}
+#players > div:nth-last-of-type(1) {margin-bottom: 40px;}
 #players > div > span {font-weight: 600; margin-left: 4px;}
 
 #chantsName {width: 80vw; margin: 120px 0 0 10vw; font-size: 24px;}
