@@ -49,7 +49,7 @@ $("footer > img").click(function () {
 })
 
 // 메뉴
-$("body").append("<div id='menu'><div><span></span><img src='./files/home.svg'>홈</div><div><span></span><img src='./files/fixtures.svg'>일정</div><div><span></span><img src='./files/players.svg'>선수단</div><div><span></span><img src='./files/stats.svg'>기록</div><div><span></span><img src='./files/standings.svg'>순위</div><div><span></span><img src='./files/chants.svg'>응원가</div></div><div id='menuBg'></div>")
+$("body").append("<div id='menu'><div><span></span><img src='https://sefc.info/files/home.svg'>홈</div><div><span></span><img src='https://sefc.info/files/fixtures.svg'>일정</div><div><span></span><img src='https://sefc.info/files/players.svg'>선수단</div><div><span></span><img src='https://sefc.info/files/stats.svg'>기록</div><div><span></span><img src='https://sefc.info/files/standings.svg'>순위</div><div><span></span><img src='https://sefc.info/files/chants.svg'>응원가</div></div><div id='menuBg'></div>")
 
 // 상단 클릭 시 홈으로 이동
 $("header > div:nth-of-type(2)").click(function() {
@@ -92,17 +92,29 @@ $("#menu > div:nth-of-type(6)").click(function() {
 
 // 메뉴 내 현재 페이지 이름 강조
 if ($("#prevMatch").length) {
+    $("#menu > div:nth-of-type(1)").css("color", "#000060")
     $("#menu > div:nth-of-type(1) > span").css("background", "#000060")
+    $("#menu > div:nth-of-type(1) > img").css("filter", "brightness(0) saturate(100%) invert(8%) sepia(76%) saturate(5175%) hue-rotate(242deg) brightness(71%) contrast(125%)")
 } else if ($(".fixturesButton").length || $("#matchScore").length) {
+    $("#menu > div:nth-of-type(2)").css("color", "#000060")
     $("#menu > div:nth-of-type(2) > span").css("background", "#000060")
+    $("#menu > div:nth-of-type(2) > img").css("filter", "brightness(0) saturate(100%) invert(8%) sepia(76%) saturate(5175%) hue-rotate(242deg) brightness(71%) contrast(125%)")
 } else if ($(".playerButton").length || $("#playerInfo").length) {
+    $("#menu > div:nth-of-type(3)").css("color", "#000060")
     $("#menu > div:nth-of-type(3) > span").css("background", "#000060")
+    $("#menu > div:nth-of-type(3) > img").css("filter", "brightness(0) saturate(100%) invert(8%) sepia(76%) saturate(5175%) hue-rotate(242deg) brightness(71%) contrast(125%)")
 } else if ($(".statsButton").length) {
+    $("#menu > div:nth-of-type(4)").css("color", "#000060")
     $("#menu > div:nth-of-type(4) > span").css("background", "#000060")
+    $("#menu > div:nth-of-type(4) > img").css("filter", "brightness(0) saturate(100%) invert(8%) sepia(76%) saturate(5175%) hue-rotate(242deg) brightness(71%) contrast(125%)")
 } else if ($(".standingsButton").length) {
+    $("#menu > div:nth-of-type(5)").css("color", "#000060")
     $("#menu > div:nth-of-type(5) > span").css("background", "#000060")
+    $("#menu > div:nth-of-type(5) > img").css("filter", "brightness(0) saturate(100%) invert(8%) sepia(76%) saturate(5175%) hue-rotate(242deg) brightness(71%) contrast(125%)")
 } else if ($("#team").length) {
+    $("#menu > div:nth-of-type(6)").css("color", "#000060")
     $("#menu > div:nth-of-type(6) > span").css("background", "#000060")
+    $("#menu > div:nth-of-type(6) > img").css("filter", "brightness(0) saturate(100%) invert(8%) sepia(76%) saturate(5175%) hue-rotate(242deg) brightness(71%) contrast(125%)")
 }
 
 // 메뉴 hover 시 강조
@@ -351,3 +363,105 @@ birthday.setFullYear(today.getFullYear())
 if (today < birthday) {years--}
 
 $("#age").text(years + "세")
+
+// 응원가
+if ($("#team").length || $("#chantsName").length) {
+    teamChants = ["SEFC 콜", "서울 이랜드 콜", "2 3 4 서울 콜", "서울의 터<span>(선수 입장 시)</span>", "골 골 골 골 서울 이랜드<span>(세트피스 상황)</span>", "서울의 노래", "사랑해 서울 이랜드", "한강에서부터 제주까지", "표범의 전사들", "앞으로 가자", "하늘 아래서 소리쳐", "바빌론 강가에서<span>(Rivers of Babylon)</span>", "빙빙 돌아라", "서울의 아리아", "라퓨타", "페퍼스", "우리는 항상 여기에", "뱃놀이<span>(경기 승리 후)</span>"]
+    playersChants = ["선수 콜", "주장 콜", "득점 콜", "오스마르 콜"]
+
+    for (i = 0; i < Object.keys(teamChants).length; i++) {
+        $("#team").append("<div>" + teamChants[i] + "</div>")
+    }
+
+    for (i = 0; i < Object.keys(playersChants).length; i++) {
+        $("#players").append("<div>" + playersChants[i] + "</div>")
+    }
+
+    $("#team").children("div").on("click", function () {
+        window.location = "./chants/team?" + ($(this).index() + 1)
+    })
+
+    $("#players").children("div").on("click", function () {
+        window.location = "./chants/players?" + ($(this).index() + 1)
+    })
+}
+
+if ($("#chantsName").length && window.location.href.match("team")) {
+    chantsName = (teamChants[window.location.href.split("?")[1] - 1]).split("<span>")[0]
+    $("#chantsName").text(chantsName)
+    
+    let chantsUrl, timeMapping
+
+    if (chantsName == "SEFC 콜") {
+        chantsUrl = "v_KFUAThuiw"
+
+        timeMapping = [
+            {time: 1.7, elementId: "lyrics-1"},
+            {time: 3, elementId: "lyrics-2"},
+            {time: 4.7, elementId: "lyrics-1"},
+            {time: 6, elementId: "lyrics-2"},
+            {time: 7.3, elementId: "lyrics-1"},
+            {time: 8.6, elementId: "lyrics-2"},
+            {time: 10.2, elementId: "lyrics-1"},
+            {time: 11.8, elementId: "lyrics-2"},
+        ]
+
+        $("#chantsLyrics").append("<p id='lyrics-1'>짝 짝 짝 짝</p><p id='lyrics-2'>SEFC</p>")
+    }
+    
+    $("#chantsVideo").append('<iframe id="youtube-player" src="https://www.youtube.com/embed/' + chantsUrl + '?enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+    
+    let player
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player("youtube-player", {
+            events: {
+                onStateChange: onPlayerStateChange,
+                onReady: onPlayerReady
+            }
+        })
+    }
+    
+    function onPlayerReady(event) {
+        console.log("Player is ready")
+    }
+    
+    let lastBoldId = null  // 마지막으로 볼드 처리된 자막의 ID를 기억
+    
+    function updateTextStyle(currentTime) {
+        // 현재 시간에 맞는 자막을 검색
+        const currentMapping = timeMapping.find(({ time }) => Math.abs(currentTime - time) < 0.25)
+        
+        // 만약 현재 자막이 있으면
+        if (currentMapping) {
+            // 이전 자막이 볼드 상태라면 그 자막을 기본 상태로 되돌림
+            if (lastBoldId && lastBoldId !== currentMapping.elementId) {
+                document.getElementById(lastBoldId).style.fontWeight = "300"  // 이전 자막을 기본 상태로 돌림
+            }
+        
+            // 현재 자막을 볼드 처리
+            document.getElementById(currentMapping.elementId).style.fontWeight = "600"
+        
+            // 현재 자막의 ID를 마지막 볼드 처리된 자막으로 기록
+            lastBoldId = currentMapping.elementId
+        }
+    }
+    
+    // 영상이 끝났을 때 모든 자막의 볼드 처리를 해제하는 함수
+    function resetAllTextStyles() {
+        timeMapping.forEach(({ elementId }) => {
+            document.getElementById(elementId).style.fontWeight = "300"  // 모든 자막을 기본 스타일로 초기화
+        })
+    }
+    
+    function onPlayerStateChange(event) {
+        if (event.data === YT.PlayerState.PLAYING) {
+            setInterval(() => {
+                const currentTime = player.getCurrentTime()
+                updateTextStyle(currentTime)
+            }, 500)
+        } else if (event.data === YT.PlayerState.ENDED) {
+            // 영상이 끝났을 때 모든 자막의 볼드 처리를 해제
+            resetAllTextStyles()
+        }
+    }
+}

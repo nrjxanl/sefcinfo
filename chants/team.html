@@ -6,12 +6,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Page-Enter" content="revealtrans(duration=1, transition=23)">
-    <link rel="stylesheet" href="style1.css" media="screen and (max-width: 768px)">
-    <link rel="stylesheet" href="style2.css" media="screen and (min-width: 768px)">
+    <link rel="stylesheet" href="../style1.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="../style2.css" media="screen and (min-width: 768px)">
     <title>SEFCINFO - 서울 이랜드 FC 팬 페이지</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link rel="icon" type="image/x-icon" href="./files/favicon.png">
+    <link rel="icon" type="image/x-icon" href="../files/favicon.png">
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="39318110-e4f0-4fd3-87a9-3f0c2b33fe85" type="text/javascript" async></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
 </head>
 
 <!-- Google tag (gtag.js) -->
@@ -26,8 +27,8 @@
 </script>
 
 <header>
-    <div><img src='./files/menu.svg' onclick='menu()'></div>
-    <div><img src="./files/sefcinfo.svg"></div>
+    <div><img src='../files/menu.svg' onclick='menu()'></div>
+    <div><img src="../files/sefcinfo.svg"></div>
 </header>
 
 <body oncontextmenu="return false">
@@ -37,16 +38,15 @@
     </div>
 
     <div id="actualContents">
-        <div id="team">
-            <p>팀 응원</p>
-        </div>
-        <div id="players">
-            <p>선수 응원</p>
+        <p id="chantsName"></p>
+        <div id="chantsVideo"></div>
+        <div id="chantsLyrics">
+            <p>영상을 재생하면 영상에 맞춰 아래에 가사가 표시됩니다.</p>
         </div>
     </div>
 
-    <script src="data.js"></script>
-    <script src="script.js"></script>
+    <script src="../data.js"></script>
+    <script src="../script.js"></script>
 
 </body>
 
