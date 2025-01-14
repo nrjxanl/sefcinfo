@@ -1504,21 +1504,21 @@ function fixtures() {
         $("#fixturesU18").css("display", "none")
         $("#fixturesU15").css("display", "none")
     
-        $(".fixturesButton > button").css({"color": "#000000", "border-bottom": "none"})
+        $(".fixturesButton > button").css({"color": "#050505", "border-bottom": "none"})
         $(".fixturesButton > button:nth-of-type(1)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
     } else if (status_ == "U18") {
         $("#fixturesA").css("display", "none")
         $("#fixturesU18").css("display", "block")
         $("#fixturesU15").css("display", "none")
     
-        $(".fixturesButton > button").css({"color": "#000000", "border-bottom": "none"})
+        $(".fixturesButton > button").css({"color": "#050505", "border-bottom": "none"})
         $(".fixturesButton > button:nth-of-type(2)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
     } else if (status_ == "U15") {
         $("#fixturesA").css("display", "none")
         $("#fixturesU18").css("display", "none")
         $("#fixturesU15").css("display", "block")
     
-        $(".fixturesButton > button").css({"color": "#000000", "border-bottom": "none"})
+        $(".fixturesButton > button").css({"color": "#050505", "border-bottom": "none"})
         $(".fixturesButton > button:nth-of-type(3)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
     }
 
@@ -1600,21 +1600,21 @@ function standings() {
         $("#standingsU18").css("display", "none")
         $("#standingsU15").css("display", "none")
 
-        $(".standingsButton > button").css({"color": "#000000", "border-bottom": "none"})
+        $(".standingsButton > button").css({"color": "#050505", "border-bottom": "none"})
         $(".standingsButton > button:nth-of-type(1)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
     } else if (status_ == "U18") {
         $("#standingsA").css("display", "none")
         $("#standingsU18").css("display", "block")
         $("#standingsU15").css("display", "none")
 
-        $(".standingsButton > button").css({"color": "#000000", "border-bottom": "none"})
+        $(".standingsButton > button").css({"color": "#050505", "border-bottom": "none"})
         $(".standingsButton > button:nth-of-type(2)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
     } else if (status_ == "U15") {
         $("#standingsA").css("display", "none")
         $("#standingsU18").css("display", "none")
         $("#standingsU15").css("display", "block")
 
-        $(".standingsButton > button").css({"color": "#000000", "border-bottom": "none"})
+        $(".standingsButton > button").css({"color": "#050505", "border-bottom": "none"})
         $(".standingsButton > button:nth-of-type(3)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
     }
 
@@ -1864,7 +1864,7 @@ function stats() {
         $("#statsU18").css("display", "none")
         $("#statsU15").css("display", "none")
 
-        $(".statsButton > button").css({"color": "#000000", "border-bottom": "none"})
+        $(".statsButton > button").css({"color": "#050505", "border-bottom": "none"})
         $(".statsButton > button:nth-of-type(1)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
 
         // 장석훈 등번호
@@ -1876,14 +1876,14 @@ function stats() {
         $("#statsU18").css("display", "block")
         $("#statsU15").css("display", "none")
 
-        $(".statsButton > button").css({"color": "#000000", "border-bottom": "none"})
+        $(".statsButton > button").css({"color": "#050505", "border-bottom": "none"})
         $(".statsButton > button:nth-of-type(2)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
     } else if (status_ == "U15") {
         $("#statsA").css("display", "none")
         $("#statsU18").css("display", "none")
         $("#statsU15").css("display", "block")
 
-        $(".statsButton > button").css({"color": "#000000", "border-bottom": "none"})
+        $(".statsButton > button").css({"color": "#050505", "border-bottom": "none"})
         $(".statsButton > button:nth-of-type(3)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
     }
 
