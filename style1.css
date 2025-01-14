@@ -488,10 +488,10 @@ tr.sefc > td > p {background: #fafafa !important; color: #000000 !important;}
 #players > div:nth-last-of-type(1) {margin-bottom: 40px;}
 #players > div > span {font-weight: 600; margin-left: 4px;}
 
-#chantsName {width: 80vw; margin: 120px 0 0 10vw; font-size: 24px;}
+#chantsName {width: 80vw; margin: 120px 0 0 10vw; font-size: 40px;}
 #chantsVideo {width: 60vw; height: fit-content; margin: 40px 0 0 20vw;}
 #chantsVideo > iframe {width: 60vw; height: auto;}
 
 #chantsLyrics {width: 80vw; margin-left: 10vw;}
-#chantsLyrics > p {font-size: 16px; font-weight: 300; height: 20px;}
+#chantsLyrics > p {font-size: 16px; font-weight: 300; height: 24px;}
 #chantsLyrics > p:nth-of-type(1) {font-size: 12px; font-weight: 300; margin: 10px 0 40px 0;}

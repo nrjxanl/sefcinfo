@@ -40,7 +40,7 @@ $(document).ready(function () {
 
 // 푸터
 if (localStorage.getItem("footer") == null) {
-    $("body").append("<footer><p>이 웹사이트는 팬이 운영하는 비공식 팬 페이지이며,<br>제공되는 데이터는 정확성을 보장하지 않습니다.</p><img src='./files/x.svg'></footer>")
+    $("body").append("<footer><p>이 웹사이트는 팬이 운영하는 비공식 팬 페이지이며,<br>제공되는 데이터는 정확성을 보장하지 않습니다.</p><img src='https://sefc.info/files/x.svg'></footer>")
 }
 
 $("footer > img").click(function () {
@@ -366,7 +366,7 @@ $("#age").text(years + "세")
 
 // 응원가
 if ($("#team").length || $("#chantsName").length) {
-    teamChants = ["SEFC 콜", "서울 이랜드 콜", "2 3 4 서울 콜", "서울의 터<span>(선수 입장 시)</span>", "골 골 골 골 서울 이랜드<span>(세트피스 상황)</span>", "서울의 노래", "사랑해 서울 이랜드", "한강에서부터 제주까지", "표범의 전사들", "앞으로 가자", "하늘 아래서 소리쳐", "바빌론 강가에서<span>(Rivers of Babylon)</span>", "빙빙 돌아라", "서울의 아리아", "라퓨타", "페퍼스", "우리는 항상 여기에", "뱃놀이<span>(경기 승리 후)</span>"]
+    teamChants = ["SEFC 콜", "서울 이랜드 콜", "2 3 4 서울 콜", "골 골 골 골 서울 이랜드<span>(세트피스 상황)</span>", "서울의 터<span>(선수 입장 시)</span>", "서울의 노래", "사랑해 서울 이랜드", "한강에서부터 제주까지", "표범의 전사들", "앞으로 가자", "하늘 아래서 소리쳐", "바빌론 강가에서<span>(Rivers of Babylon)</span>", "빙빙 돌아라", "서울의 아리아", "라퓨타", "페퍼스", "우리는 항상 여기에", "뱃놀이<span>(경기 승리 후)</span>"]
     playersChants = ["선수 콜", "주장 콜", "득점 콜", "오스마르 콜"]
 
     for (i = 0; i < Object.keys(teamChants).length; i++) {
@@ -392,6 +392,7 @@ if ($("#chantsName").length && window.location.href.match("team")) {
     
     let chantsUrl, timeMapping
 
+    // 응원가 가사
     if (chantsName == "SEFC 콜") {
         chantsUrl = "v_KFUAThuiw"
 
@@ -407,6 +408,143 @@ if ($("#chantsName").length && window.location.href.match("team")) {
         ]
 
         $("#chantsLyrics").append("<p id='lyrics-1'>짝 짝 짝 짝</p><p id='lyrics-2'>SEFC</p>")
+    }
+
+    if (chantsName == "서울 이랜드 콜") {
+        chantsUrl = "o7_aBPj8lMs"
+
+        timeMapping = [
+            {time: 1.6, elementId: "lyrics-1"},
+            {time: 3, elementId: "lyrics-2"},
+            {time: 4.7, elementId: "lyrics-1"},
+            {time: 6.1, elementId: "lyrics-2"},
+            {time: 7.8, elementId: "lyrics-1"},
+            {time: 9.2, elementId: "lyrics-2"},
+            {time: 10.9, elementId: "lyrics-1"},
+            {time: 12.3, elementId: "lyrics-2"},
+        ]
+
+        $("#chantsLyrics").append("<p id='lyrics-1'>짝 짝짝 짝짝</p><p id='lyrics-2'>서울 이랜드</p>")
+    }
+
+    if (chantsName == "2 3 4 서울 콜") {
+        chantsUrl = "OqCh8-FQ7RA"
+
+        timeMapping = [
+            {time: 3, elementId: "lyrics-1"},
+            {time: 5.9, elementId: "lyrics-2"},
+            {time: 6.5, elementId: "lyrics-1"},
+            {time: 9.3, elementId: "lyrics-2"},
+            {time: 9.8, elementId: "lyrics-1"},
+            {time: 12.6, elementId: "lyrics-2"},
+        ]
+
+        $("#chantsLyrics").append("<p id='lyrics-1'>짝짝 짝짝짝 짝짝짝짝(알레알레)</p><p id='lyrics-2'>서울</p>")
+    }
+
+    if (chantsName == "서울의 터") {
+        chantsUrl = "WvykA_uPMsQ"
+
+        timeMapping = [
+            {time: 0.1, elementId: "lyrics-1"},
+            {time: 3.3, elementId: "lyrics-2"},
+            {time: 6.9, elementId: "lyrics-3"},
+            {time: 10, elementId: "lyrics-4"},
+            {time: 13.6, elementId: "lyrics-5"},
+            {time: 16.9, elementId: "lyrics-6"},
+            {time: 20.5, elementId: "lyrics-7"},
+            {time: 23.6, elementId: "lyrics-8"},
+            {time: 27.1, elementId: "lyrics-1"},
+            {time: 30.3, elementId: "lyrics-2"},
+            {time: 33.9, elementId: "lyrics-3"},
+            {time: 37, elementId: "lyrics-4"},
+            {time: 40.6, elementId: "lyrics-5"},
+            {time: 43.9, elementId: "lyrics-6"},
+            {time: 47.5, elementId: "lyrics-7"},
+            {time: 50.6, elementId: "lyrics-8"},
+        ]
+
+        $("#chantsLyrics").append("<p id='lyrics-1'>하나되어 나아가자</p><p id='lyrics-2'>깃발을 높이 들고</p><p id='lyrics-3'>우리의 푸른 함성으로</p><p id='lyrics-4'>승리를 노래하자</p><p id='lyrics-5'>라라라라 라라라라</p><p id='lyrics-6'>라라라 라라라라</p><p id='lyrics-7'>라라라 라라 라라라라</p><p id='lyrics-8'>라라라 라라라라</p>")
+    }
+
+    if (chantsName == "골 골 골 골 서울 이랜드") {
+        chantsUrl = "s1XxZEfYY94"
+
+        timeMapping = [
+            {time: 0.1, elementId: "lyrics-1"},
+            {time: 2.2, elementId: "lyrics-2"},
+            {time: 3.5, elementId: "lyrics-1"},
+            {time: 5.1, elementId: "lyrics-2"},
+            {time: 6.8, elementId: "lyrics-1"},
+            {time: 8.4, elementId: "lyrics-2"},
+            {time: 10, elementId: "lyrics-1"},
+            {time: 11.5, elementId: "lyrics-2"},
+            {time: 13.3, elementId: "lyrics-1"},
+            {time: 14.8, elementId: "lyrics-2"},
+        ]
+
+        $("#chantsLyrics").append("<p id='lyrics-1'>골 골 골 골</p><p id='lyrics-2'>서울 이랜드</p>")
+    }
+
+    if (chantsName == "서울의 노래") {
+        chantsUrl = "TVvKYviPS34"
+
+        timeMapping = [
+            {time: 0.1, elementId: "lyrics-1"},
+            {time: 4.2, elementId: "lyrics-2"},
+            {time: 7.8, elementId: "lyrics-3"},
+            {time: 11, elementId: "lyrics-4"},
+            {time: 17.3, elementId: "lyrics-5"},
+            {time: 23.8, elementId: 'lyrics-1'},
+            {time: 30, elementId: 'lyrics-2'},
+            {time: 33.5, elementId: 'lyrics-3'},
+            {time: 36.8, elementId: 'lyrics-4'},
+            {time: 43.2, elementId: 'lyrics-5'},
+            {time: 49.5, elementId: "lyrics-1"},
+            {time: 56, elementId: "lyrics-2"},
+            {time: 59.2, elementId: "lyrics-3"},
+            {time: 62.5, elementId: "lyrics-6"},
+        ]
+
+        $("#chantsLyrics").append("<p id='lyrics-1'>서울의 승리를 위해 함께 외치자</p><p id='lyrics-2'>오오오 오 오오 오 오</p><p id='lyrics-3'>오오오 오 오오 오 오오</p><p id='lyrics-4'>승리 위한 우리 노래가 여기에 울려 퍼지면</p><p id='lyrics-5'>끝까지 맞서 싸워 서울은 승리하리라</p><p id='lyrics-6'>서울</p>")
+    }
+
+    if (chantsName == "사랑해 서울 이랜드") {
+        chantsUrl = "0fFQVg3hgIE"
+
+        timeMapping = [
+            {time: 0.1, elementId: "lyrics-1"},
+            {time: 3.8, elementId: "lyrics-2"},
+            {time: 7, elementId: "lyrics-3"},
+            {time: 9.8, elementId: "lyrics-4"},
+            {time: 13.8, elementId: 'lyrics-1'},
+            {time: 17, elementId: 'lyrics-2'},
+            {time: 20, elementId: 'lyrics-3'},
+            {time: 22.8, elementId: 'lyrics-4'},
+            {time: 26.9, elementId: "lyrics-1"},
+            {time: 30, elementId: "lyrics-2"},
+            {time: 33.2, elementId: "lyrics-3"},
+            {time: 35.8, elementId: "lyrics-4"},
+        ]
+
+        $("#chantsLyrics").append("<p id='lyrics-1'>사랑해 서울 이랜드</p><p id='lyrics-2'>사랑해 서울 이랜드</p><p id='lyrics-3'>사랑해 서울 이랜드</p><p id='lyrics-4'>오오오</p>")
+    }
+
+    if (chantsName == "한강에서부터 제주까지") {
+        chantsUrl = "tayDQ8_4XWg"
+
+        timeMapping = [
+            {time: 0.1, elementId: "lyrics-1"},
+            {time: 4.8, elementId: "lyrics-2"},
+            {time: 9.9, elementId: "lyrics-3"},
+            {time: 14.8, elementId: "lyrics-4"},
+            {time: 19.5, elementId: 'lyrics-1'},
+            {time: 24, elementId: 'lyrics-2'},
+            {time: 29, elementId: 'lyrics-3'},
+            {time: 33.8, elementId: 'lyrics-4'},
+        ]
+
+        $("#chantsLyrics").append("<p id='lyrics-1'>한강에서부터 제주까지</p><p id='lyrics-2'>우리는 싸운다 SEFC</p><p id='lyrics-3'>오오오오 오오오오</p><p id='lyrics-4'>에에에에 에에에에</p>")
     }
     
     $("#chantsVideo").append('<iframe id="youtube-player" src="https://www.youtube.com/embed/' + chantsUrl + '?enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
@@ -429,7 +567,7 @@ if ($("#chantsName").length && window.location.href.match("team")) {
     
     function updateTextStyle(currentTime) {
         // 현재 시간에 맞는 자막을 검색
-        const currentMapping = timeMapping.find(({ time }) => Math.abs(currentTime - time) < 0.25)
+        const currentMapping = timeMapping.find(({ time }) => Math.abs(currentTime - time) < 0.1)
         
         // 만약 현재 자막이 있으면
         if (currentMapping) {
@@ -458,7 +596,7 @@ if ($("#chantsName").length && window.location.href.match("team")) {
             setInterval(() => {
                 const currentTime = player.getCurrentTime()
                 updateTextStyle(currentTime)
-            }, 500)
+            }, 100)
         } else if (event.data === YT.PlayerState.ENDED) {
             // 영상이 끝났을 때 모든 자막의 볼드 처리를 해제
             resetAllTextStyles()
