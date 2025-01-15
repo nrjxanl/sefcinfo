@@ -42,7 +42,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #menu > div {width: 50vw; height: 32px; padding: 8px 0; margin: 8px 0 8px 5vw; border-radius: 24px; text-align: left; font-size: 24px; display: flex; align-items: center;}
 #menu > div:nth-of-type(1) {margin-top: 100px;}
 #menu > div > span {width: 5px; height: 32px; border-radius: 5px; margin-right: 10px;}
-#menu > div > img {width: auto; height: 18px; margin: 0 8px;}
+#menu > div > img {width: auto; height: 18px; margin-right: 10px;}
 
 /* 로딩 */
 #loading {width: 100vw; height: 200vh; position: fixed; top: 0; left: 0; background: #fafafa; z-index: 99;}
@@ -477,13 +477,13 @@ tr.sefc > td > p {background: #fafafa !important; color: #050505 !important;}
 /* 응원가 */
 #team {width: 80vw; margin: 120px 0 0 10vw;}
 #team > p {width: 80vw; text-align: left; font-size: 24px; margin-bottom: 20px;}
-#team > div {width: 80vw; font-size: 20px; font-weight: 600; text-align: left; vertical-align: bottom; padding: 10px 0; border-bottom: 1px solid #00006020;}
+#team > div {width: 80vw; font-size: 20px; font-weight: 600; text-align: left; vertical-align: bottom; padding: 14px 0; border-bottom: 1px solid #00006020;}
 #team > div:nth-of-type(1) {border-top: 1px solid #00006020;}
 #team > div > span {font-weight: 600; margin-left: 4px;}
 
 #players {width: 80vw; margin: 60px 0 0 10vw;}
 #players > p {width: 80vw; text-align: left; font-size: 24px; margin-bottom: 20px;}
-#players > div {width: 80vw; font-size: 20px; font-weight: 600; text-align: left; vertical-align: bottom; padding: 10px 0; border-bottom: 1px solid #00006020;}
+#players > div {width: 80vw; font-size: 20px; font-weight: 600; text-align: left; vertical-align: bottom; padding: 14px 0; border-bottom: 1px solid #00006020;}
 #players > div:nth-of-type(1) {border-top: 1px solid #00006020;}
 #players > div:nth-last-of-type(1) {margin-bottom: 40px;}
 #players > div > span {font-weight: 600; margin-left: 4px;}

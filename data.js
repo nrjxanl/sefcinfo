@@ -44,7 +44,12 @@ $(document).ready(function () {
         }
         dataList = data[id]
 
-        // 선수 이름, 등번호
+        // getItem 시도하고 정보 없으면 matchInfo로 지정
+        if (localStorage.getItem(id) == null) {
+            localStorage.setItem(id, "matchInfo")
+        }
+
+        // 연도 선언
         year = id.substring(0, 4)
 
         // 상대 전적
