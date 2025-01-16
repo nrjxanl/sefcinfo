@@ -395,37 +395,7 @@ if ($("#chantsName").length) {
     }
 
     $("#chantsName").text(chantsName)
-
-    // 이전, 다음 버튼
-    if (window.location.href.split("?")[1] == "1") {
-        $("#prevNextChants > p:nth-of-type(1)").css("display", "none")
-    }
-    if ((window.location.href.match("team") && window.location.href.split("?")[1] == teamChants.length) || (window.location.href.match("players") && window.location.href.split("?")[1] == playersChants.length)) {
-        $("#prevNextChants > p:nth-of-type(2)").css("display", "none")
-    }
-
-    if (window.location.href.match("team")) {
-        $("#prevNextChants > p:nth-of-type(1)").click(function() {
-            window.location.href = "./team?" + (window.location.href.split("?")[1] - 1)
-            location.reload()
-        })
-        $("#prevNextChants > p:nth-of-type(2)").click(function() {
-            window.location.href = "./team?" + (window.location.href.split("?")[1] + 1)
-            location.reload()
-        })
-    }
-    if (window.location.href.match("players")) {
-        $("#prevNextChants > p:nth-of-type(1)").click(function() {
-            window.location.href = "./players?" + (window.location.href.split("?")[1] - 1)
-            location.reload()
-        })
-        $("#prevNextChants > p:nth-of-type(2)").click(function() {
-            window.location.href = "./players?" + (window.location.href.split("?")[1] + 1)
-            location.reload()
-        })
-    }
-
-    // 응원가 가사
+    
     let chantsUrl, timeMapping
     if (chantsName == "SEFC 콜") {
         chantsUrl = "v_KFUAThuiw"
