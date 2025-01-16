@@ -659,6 +659,29 @@ if ($("#chantsName").length) {
         $("#chantsLyrics").append("<p id='lyrics-1'>푸른색이 빛도는 나의 서울이여</p><p id='lyrics-2'>황금빛 저녁놀 우리들의 청춘</p><p id='lyrics-3'>푸른색이 빛도는 나의 서울이여</p><p id='lyrics-4'>진격하라 저 앞으로 승리를 위해</p>")
     }
 
+    if (chantsName == "페파스") {
+        chantsUrl = "ZJC8G6m2w3k"
+
+        timeMapping = [
+            {time: 0.1, elementId: "lyrics-1"},
+            {time: 6.2, elementId: "lyrics-2"},
+            {time: 7, elementId: "lyrics-3"},
+            {time: 13, elementId: "lyrics-4"},
+            {time: 14, elementId: "lyrics-5"},
+            {time: 20, elementId: "lyrics-6"},
+            {time: 20.8, elementId: "lyrics-7"},
+            {time: 27.8, elementId: "lyrics-1"},
+            {time: 33.9, elementId: "lyrics-2"},
+            {time: 34.7, elementId: "lyrics-3"},
+            {time: 40.4, elementId: "lyrics-4"},
+            {time: 41.3, elementId: "lyrics-5"},
+            {time: 47.6, elementId: "lyrics-6"},
+            {time: 48.6, elementId: "lyrics-7"},
+        ]
+
+        $("#chantsLyrics").append("<p id='lyrics-1'>서울 승리 위해 외쳐 우리는 끝까지 노래하고 뛰어</p><p id='lyrics-2'>후 하</p><p id='lyrics-3'>서울 승리 위해 외쳐 우리는 끝까지 노래하고 뛰어</p><p id='lyrics-4'>후 하</p><p id='lyrics-5'>라라 라라라라 라라 라라라라 라라 라라라라 라라</p><p id='lyrics-6'>서울</p><p id='lyrics-7'>라라 라라라라 라라 라라라라 라라 라라라라 라라</p>")
+    }
+
     if (chantsName == "우리는 항상 여기에") {
         chantsUrl = "lG2VRZi1-C4"
 
