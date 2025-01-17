@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Page-Enter" content="revealtrans(duration=1, transition=23)">
+    <link rel="stylesheet" href="../style1.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="../style2.css" media="screen and (min-width: 768px)">
+    <title>SEFCINFO - 서울 이랜드 FC 팬 페이지</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="../files/favicon.png">
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="39318110-e4f0-4fd3-87a9-3f0c2b33fe85" type="text/javascript" async></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async
+    src="https://www.googletagmanager.com/gtag/js?id=G-85LBNDC5SG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-85LBNDC5SG');
+</script>
+
+<header>
+    <div><img src='../files/menu.svg' onclick='menu()'></div>
+    <div><img src="../files/sefcinfo.svg"></div>
+</header>
+
+<body oncontextmenu="return false">
+
+    <div id="skeleton">
+        <!-- 스켈레톤 추가 -->
+    </div>
+
+    <div id="actualContents" style="margin-top: 120px; width: 100vw;">
+        <input type="text" id="userInput" placeholder="팀명 입력" style="font-weight: 600; height: 30px; font-size: 20px;">
+        <button id="submitBtn" style="height: 30px; width: 60px; font-weight: 600; font-size: 20px;">입력</button>
+        <p id="output" style="margin-top: 40px; font-weight: 600; font-size: 16px;"></p>
+    </div>
+
+    <script src="../data.js"></script>
+    <script src="../script.js"></script>
+
+    <script>
+        if (localStorage.getItem("testLogin") !== "nrjxanl") {
+            $("actualContents").css("display", "none")
+        }
+
+        $('#submitBtn').on('click', function () {
+            const userInput = $('#userInput').val()
+            processInput(userInput)
+        })
+
+        $('#userInput').on('keyup', function (event) {
+            if (event.key === 'Enter') {
+                const userInput = $('#userInput').val()
+                processInput(userInput)
+            }
+        })
+
+        function processInput(input) {
+            $("#userInput").val("")
+
+            sefcScore = 0
+            oppScore = 0
+            w = 0
+            d = 0
+            l = 0
+
+            for (i = 0; i < Object.keys(dataA).length; i++) {
+                // 상대 팀 기준 홈
+                if (dataA[Object.keys(dataA)[i]]["home"][1].match(input)) {
+                    opp = dataA[Object.keys(dataA)[i]]["home"][0]
+                    sefcScore += Number(dataA[Object.keys(dataA)[i]]["awayScore"].replace(/<span>.*?<\/span>/g, ''))
+                    oppScore += Number(dataA[Object.keys(dataA)[i]]["homeScore"].replace(/<span>.*?<\/span>/g, ''))
+                    if (Number(dataA[Object.keys(dataA)[i]]["awayScore"].replace(/<span>.*?<\/span>/g, '')) > Number(dataA[Object.keys(dataA)[i]]["homeScore"].replace(/<span>.*?<\/span>/g, ''))) {
+                        w ++
+                    } else if (Number(dataA[Object.keys(dataA)[i]]["awayScore"].replace(/<span>.*?<\/span>/g, '')) == Number(dataA[Object.keys(dataA)[i]]["homeScore"].replace(/<span>.*?<\/span>/g, '')) && dataA[Object.keys(dataA)[i]]["homeScore"].replace(/<span>.*?<\/span>/g, '') !== "") {
+                        d ++
+                    } else if (Number(dataA[Object.keys(dataA)[i]]["awayScore"].replace(/<span>.*?<\/span>/g, '')) < Number(dataA[Object.keys(dataA)[i]]["homeScore"].replace(/<span>.*?<\/span>/g, ''))) {
+                        l ++
+                    }
+                }
+                // 우리 팀 기준 홈
+                if (dataA[Object.keys(dataA)[i]]["away"][1].match(input)) {
+                    opp = dataA[Object.keys(dataA)[i]]["away"][0]
+                    sefcScore += Number(dataA[Object.keys(dataA)[i]]["homeScore"].replace(/<span>.*?<\/span>/g, ''))
+                    oppScore += Number(dataA[Object.keys(dataA)[i]]["awayScore"].replace(/<span>.*?<\/span>/g, ''))
+                    if (Number(dataA[Object.keys(dataA)[i]]["homeScore"].replace(/<span>.*?<\/span>/g, '')) > Number(dataA[Object.keys(dataA)[i]]["awayScore"].replace(/<span>.*?<\/span>/g, ''))) {
+                        w ++
+                    } else if (Number(dataA[Object.keys(dataA)[i]]["homeScore"].replace(/<span>.*?<\/span>/g, '')) == Number(dataA[Object.keys(dataA)[i]]["awayScore"].replace(/<span>.*?<\/span>/g, '')) && dataA[Object.keys(dataA)[i]]["homeScore"].replace(/<span>.*?<\/span>/g, '') !== "") {
+                        d ++
+                    } else if (Number(dataA[Object.keys(dataA)[i]]["homeScore"].replace(/<span>.*?<\/span>/g, '')) < Number(dataA[Object.keys(dataA)[i]]["awayScore"].replace(/<span>.*?<\/span>/g, ''))) {
+                        l ++
+                    }
+                }
+            }
+            $("#output").html(opp + " 상대 통산 전적: " + (w + d + l) + "경기 " + w + "승 " + d + "무 " + l + "패 " + sefcScore + "득점 " + oppScore + "실점<br>" + w + " / " + d + " / " + l + " / " + sefcScore + " / " + oppScore)
+        }
+    </script>
+
+</body>
+
+</html>
