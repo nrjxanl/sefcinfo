@@ -2490,7 +2490,7 @@ function matchH2H() {
 
     } else {
         if (!$("#matchH2H > p").length) {
-            $("#matchH2H").empty().append("<p style='font-size: 16px; font-weight: 600;'>아직 맞대결 기록이 없습니다.</p>")
+            $("#matchH2H").empty().append("<p style='font-size: 16px; font-weight: 300;'>이전 맞대결 기록이 없습니다.</p>")
         }
     }
 }
