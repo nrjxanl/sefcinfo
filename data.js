@@ -2359,7 +2359,7 @@ function matchH2H() {
 
                 if (data[h2hList[i]]["home"][0] == "서울E") {
                     $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(1) > img").attr("src", "./files/seouleland_s.png")
-                    $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(3) > img").attr("src", "./files/" + opp + "_s.png")
+                    $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(3) > img").attr("src", "./files/" + data[h2hList[i]]["away"][1] + "_s.png")
 
                     if (data[h2hList[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") > data[h2hList[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
                         $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#374df5", "border": "2px solid #374df5"})
@@ -2373,7 +2373,7 @@ function matchH2H() {
                         matches.unshift([data[h2hList[i]]["homeScore"], data[h2hList[i]]["awayScore"], 1])
                     }
                 } else {
-                    $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(1) > img").attr("src", "./files/" + opp + "_s.png")
+                    $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(1) > img").attr("src", "./files/" + data[h2hList[i]]["home"][1] + "_s.png")
                     $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(3) > img").attr("src", "./files/seouleland_s.png")
 
                     if (data[h2hList[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") < data[h2hList[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
