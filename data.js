@@ -647,6 +647,10 @@ $(document).ready(function () {
     })
 
     $(".statsSeason > p:nth-of-type(4)").click(function () {
+        $(".statsSeason > p").css("display", "block")
+        $(".statsSeason > p:nth-of-type(5)").text("통산")
+        $(".statsSeason > p:nth-of-type(n+2):nth-of-type(-n+3)").css("display", "block")
+        $(".statsSeason > p:nth-of-type(4)").css("margin-left", "10px")
         year = new Date().getFullYear()
         window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "?" + status_)
         stats()
