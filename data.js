@@ -2314,7 +2314,7 @@ function matchH2H() {
             $("#h2hGoalsText > div:nth-of-type(2) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "600", "text-align": "left", "padding": "0 32px 0 8px", "display": "flex", "align-items": "center" })
         }
 
-        // 최근 맞대결 결과 *** 수정 필요
+        // 최근 맞대결 결과
         if (dataList["home"][0] == "서울E") {
             opp_ = dataList["away"][0]
         } else {
@@ -2325,8 +2325,16 @@ function matchH2H() {
         matches = []
 
         for (i = 0; i < Object.keys(data).length; i++) {
-            if ((data[Object.keys(data)[i]]["home"][0] == opp_ || data[Object.keys(data)[i]]["away"][0] == opp_) && Object.keys(data)[i] < new Date().getFullYear().toString() + ("0" + (1 + new Date().getMonth())).slice(-2) + ("0" + new Date().getDate()).slice(-2) + id.substr(-1)) {
-                h2hList.unshift(Object.keys(data)[i])
+            if (Object.keys(data)[i] < new Date().getFullYear().toString() + ("0" + (1 + new Date().getMonth())).slice(-2) + ("0" + new Date().getDate()).slice(-2) + id.substr(-1)) {
+                if (opp_ == "안산무궁화" || opp_ == "안산경찰청") {
+                    if (data[Object.keys(data)[i]]["home"][0] == "안산무궁화" || data[Object.keys(data)[i]]["away"][0] == "안산무궁화" || data[Object.keys(data)[i]]["home"][0] == "안산경찰청" || data[Object.keys(data)[i]]["away"][0] == "안산경찰청") {
+                        h2hList.unshift(Object.keys(data)[i])
+                    }
+                } else {
+                    if ((data[Object.keys(data)[i]]["home"][0] == opp_ || data[Object.keys(data)[i]]["away"][0] == opp_)) {
+                        h2hList.unshift(Object.keys(data)[i])
+                    }
+                }
             }
         }
 
