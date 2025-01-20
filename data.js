@@ -702,7 +702,7 @@ $(document).ready(function () {
 
     $(".fixturesSeason > p:nth-of-type(2)").click(function () {
         if (status_ == "A") {
-            if (year !== 2015 || month !== "01") {
+            if (!(year == 2015 && month == "01")) {
                 if (month == "01") {
                     year --
                     month = "12"
@@ -711,7 +711,7 @@ $(document).ready(function () {
                 }        
             }
         } else {
-            if (year !== 2016 || month !== "01") {
+            if (!(year == 2016 && month == "01")) {
                 if (month == "01") {
                     year --
                     month = "12"
@@ -727,7 +727,7 @@ $(document).ready(function () {
     })
 
     $(".fixturesSeason > p:nth-of-type(3)").click(function () {
-        if (year !== new Date().getFullYear() || month !== "12") {
+        if (!(year == new Date().getFullYear() && month == "12")) {
             if (month == "12") {
                 year ++
                 month = "01"
