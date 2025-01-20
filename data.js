@@ -1213,6 +1213,7 @@ $(document).ready(function () {
             $("#playerProfile > div:nth-of-type(2) > p > span").css("display", "none")
         }
 
+        $("#playerInfo > div:nth-of-type(3) > p:nth-of-type(1)").text(player[id]["bd"].substr(2, 2) + "." + player[id]["bd"].substr(4, 2) + "." + player[id]["bd"].substr(6, 2) + ".")
         $("#playerInfo > div:nth-of-type(1) > p:nth-of-type(2)").text(natl)
         $("#playerInfo > div:nth-of-type(2) > p:nth-of-type(2)").text(height + "cm")
         $("#playerInfo > div:nth-of-type(3) > p:nth-of-type(2)").text(age + "세")
