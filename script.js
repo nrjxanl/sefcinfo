@@ -31,12 +31,18 @@ $(window).resize(function() {
 })
 
 // 스켈레톤 애니메이션
-$(document).ready(function () {
-    setTimeout (function () {
-        $("#skeleton").css("display", "none")
-        $("#actualContents").css("display", "block")
-    }, 300)
-})
+// $(document).ready(function () {
+//     setTimeout (function () {
+//         $("#skeleton").css("display", "none")
+//         $("#actualContents").css("display", "block")
+//     }, 300)
+// })
+$("#skeleton").css("display", "none")
+if ($(window).width() < 768) {
+    $("#actualContents").css("display", "block")
+} else {
+    $("#actualContents").css("display", "flex")
+}
 
 // 푸터
 if (localStorage.getItem("footer") == null) {
@@ -120,7 +126,6 @@ if ($("#prevMatch").length) {
 // 메뉴 hover 시 강조
 $("#menu > div").hover(
     function() {
-        $("#menu > div > span").css("background", "")
         $(this).find("span").css("background", "#000080")
     }, 
     function() {
@@ -195,7 +200,11 @@ $("div[id*='fixtures'] > div > a > div > table > tbody > tr:has(.ssb5) > td:nth-
 
 // 경기 세부 정보 창 전환
 function matchInfo() {
-    $("#matchInfo").css("display", "block")
+    if ($(window).width() < 768) {
+        $("#matchInfo").css("display", "block")
+    } else {
+        $("#matchInfo").css("display", "flex")
+    }
     $("#matchLineup").css("display", "none")
     $("#matchStat").css("display", "none")
     $("#matchH2H").css("display", "none")
@@ -208,7 +217,11 @@ function matchInfo() {
 
 function matchLineup() {
     $("#matchInfo").css("display", "none")
-    $("#matchLineup").css("display", "block")
+    if ($(window).width() < 768) {
+        $("#matchLineup").css("display", "block")
+    } else {
+        $("#matchLineup").css("display", "flex")
+    }
     $("#matchStat").css("display", "none")
     $("#matchH2H").css("display", "none")
     $(".matchDetail button:nth-child(1)").css("font-weight", 300)
@@ -221,7 +234,11 @@ function matchLineup() {
 function matchStat() {
     $("#matchInfo").css("display", "none")
     $("#matchLineup").css("display", "none")
-    $("#matchStat").css("display", "block")
+    if ($(window).width() < 768) {
+        $("#matchStat").css("display", "block")
+    } else {
+        $("#matchStat").css("display", "flex")
+    }
     $("#matchH2H").css("display", "none")
     $(".matchDetail button:nth-child(1)").css("font-weight", 300)
     $(".matchDetail button:nth-child(2)").css("font-weight", 300)

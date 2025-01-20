@@ -420,7 +420,7 @@ $(document).ready(function () {
             if ($(window).width() < 768) {
                 $("#potm").css({ "width": "74vw", "padding": "1vw 3vw 2vw 3vw", "margin": "20px 0 0 10vw", "border-radius": "20px", "box-shadow": "0 0 3px 2px #00006020" })
             } else {
-                $("#potm").css({ "width": "296px", "padding": "4px 12px 8px 12px", "margin": "20px 0 0 40px", "border-radius": "20px", "box-shadow": "0 0 3px 2px #00006020" })
+                $("#potm").css({ "width": "calc(30vw - 24px)", "padding": "0 12px", "border-radius": "20px", "box-shadow": "0 0 3px 2px #00006020" })
             }
 
             $("#startingXI > table > tbody > tr > td").each(function () {
@@ -618,7 +618,11 @@ $(document).ready(function () {
             } else {
                 $(".statsSeason > p:nth-of-type(5)").text("연도별")
                 $(".statsSeason > p:nth-of-type(n+2):nth-of-type(-n+3)").css("display", "none")
-                $(".statsSeason > p:nth-of-type(4)").css("margin-left", "calc(20vw + 10px)")
+                if ($(window).width() < 768) {
+                    $(".statsSeason > p:nth-of-type(4)").css("margin-left", "calc(20vw + 10px)")
+                } else {
+                    $(".statsSeason > p:nth-of-type(4)").css("margin-left", "calc(6vw + 10px)")
+                }
             }
         }
 
@@ -662,7 +666,11 @@ $(document).ready(function () {
             year = "allTime"
             $(".statsSeason > p:nth-of-type(5)").text("연도별")
             $(".statsSeason > p:nth-of-type(n+2):nth-of-type(-n+3)").css("display", "none")
-            $(".statsSeason > p:nth-of-type(4)").css("margin-left", "calc(20vw + 10px)")
+            if ($(window).width() < 768) {
+                $(".statsSeason > p:nth-of-type(4)").css("margin-left", "calc(20vw + 10px)")
+            } else {
+                $(".statsSeason > p:nth-of-type(4)").css("margin-left", "calc(6vw + 10px)")
+            }
         } else {
             year = new Date().getFullYear()
             $(".statsSeason > p:nth-of-type(5)").text("통산")
@@ -775,7 +783,11 @@ $(document).ready(function () {
             $("#nextMatch > div:nth-of-type(1) > div:nth-of-type(1) > img").attr("src", "./files/" + next["home"][1] + "_s.png")
             $("#nextMatch > div:nth-of-type(1) > div:nth-of-type(3) > img").attr("src", "./files/" + next["away"][1] + "_s.png")
 
-            $("#nextMatch > div:nth-of-type(2) > p").text(next["comp"][0] + " " + next["round"] + " | " + Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(0, 4) + "." + Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(4, 6) + "." + Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(6, 8) + ".")
+            if ($(window).width() < 768) {
+                $("#nextMatch > div:nth-of-type(2) > p").text(next["comp"][0] + " " + next["round"] + " | " + Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(0, 4) + "." + Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(4, 6) + "." + Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(6, 8) + ".")
+            } else {
+                $("#nextMatch > div:nth-of-type(2) > p").html(next["comp"][0] + " " + next["round"] + "<br>" + Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(0, 4) + "." + Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(4, 6) + "." + Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(6, 8) + ".")
+            }
 
             yearNow = new Date().getFullYear()
             monthNow = new Date().getMonth() + 1
@@ -1102,11 +1114,11 @@ $(document).ready(function () {
             }
         })
 
-        $("#playedMatchU18 > div > div > p:nth-of-type(6)").each(function () {
+        $("#playedMatchU18 > div > div > p:nth-of-type(5)").each(function () {
             $(this).css("background", "#00006040")
         })
 
-        $("#playedMatchU15 > div > div > p:nth-of-type(6)").each(function () {
+        $("#playedMatchU15 > div > div > p:nth-of-type(5)").each(function () {
             $(this).css("background", "#00006040")
         })
 
@@ -1228,11 +1240,11 @@ $(document).ready(function () {
         } else {
             $("#playerSNS").attr("onclick", "return false")
 
-            if (status_ == "A") {
-                $("#playerSNS > div > img").css("opacity", ".5")
-            } else {
+            if ($(window).width() < 768) {
                 $("#playerSNS").css("display", "none")
                 $("#playerInfo").css("margin", "40px 0 0 5vw")
+            } else {
+                $("#playerSNS > div > img").css("opacity", ".5")
             }
         }
 
@@ -1251,6 +1263,19 @@ $(document).ready(function () {
 
         if ($("#playedSEFC > div > div:nth-of-type(1) > p:nth-of-type(2)").text() !== "0" && ($("#playedSEFCU18 > div > div:nth-of-type(1) > p:nth-of-type(2)").text() !== "0" || $("#playedSEFCU18 > div > div:nth-of-type(1) > p:nth-of-type(2)").text() !== "0")) {
             $("#playedSEFC > p:nth-of-type(1)").text("A팀 통산 기록")
+        }
+
+        // PC 버전 margin-left 문제 수정
+        if ($(window).width() >= 768) {
+            if ($("#playedSEFC").length) {
+                $("#playedSEFCU18, #playedSEFCU15").css("margin-left", "0")
+            } else if ($("#playedSEFCU18").length) {
+                $("#playedSEFCU15").css("margin-left", "0")
+            }
+    
+            if ($("[id*='playedSEFC']:visible").length % 2 == 0) {
+                $("#statsBySeason").css("margin-left", "2.5vw")
+            }
         }
 
         // 평점 NaN으로 뜨는 문제 수정
@@ -1358,51 +1383,118 @@ $(document).ready(function () {
             }
         }
 
-        for (i = j - alpha; i < j + beta; i++) {
+        if ($(window).width() < 768) {
+            for (i = j - alpha; i < j + beta; i++) {
 
-            // 엠블럼
-            emblem = standing[new Date().getFullYear()]["A"][i][1].replace(" U-18", "").replace(" U-15", "")
-            emblem = (emblem == "서울 이랜드 FC") ? "seouleland" :
-                (emblem == "수원 삼성 블루윙즈") ? "suwonsamsung" :
-                    (emblem == "FC 안양") ? "fcanyang" :
-                        (emblem == "부산 아이파크") ? "busanipark2012" :
-                            (emblem == "충북청주 FC") ? "chungbukcheongju" :
-                                (emblem == "전남 드래곤즈" && year >= 2022) ? "jeonnamdragons2022" :
-                                    (emblem == "전남 드래곤즈" && year < 2022) ? "jeonnamdragons2014" :
-                                        (emblem == "김포 FC") ? "gimpofc2022" :
-                                            (emblem == "충남아산 FC") ? "chungnamasan" :
-                                                (emblem == "경남 FC") ? "gyeongnamfc2010" :
-                                                    (emblem == "부천 FC 1995") ? "bucheonfc" :
-                                                        (emblem == "안산 그리너스" && year >= 2025) ? "ansangreeners2025" :
-                                                            (emblem == "안산 그리너스" && year < 2025) ? "ansangreeners2017" :
-                                                                (emblem == "성남 FC") ? "seongnamfc2014" :
-                                                                    (emblem == "천안 시티 FC") ? "cheonancity2023" :
-                                                                        (emblem == "김천 상무 FC") ? "gimcheonsangmu" :
-                                                                            (emblem == "포항 스틸러스") ? "pohangsteelers" :
-                                                                                (emblem == "울산 HD FC") ? "ulsanhd2024" :
-                                                                                    (emblem == "울산 현대 FC") ? "ulsanhyundai2016" :
-                                                                                        (emblem == "수원 FC" && year >= 2016) ? "suwonfc2016" :
-                                                                                            (emblem == "수원 FC" && year < 2016) ? "suwonfc2003" :
-                                                                                                (emblem == "제주 유나이티드") ? "jejuutd2006" :
-                                                                                                    (emblem == "제주 SK FC") ? "jejusk2025" :
-                                                                                                        (emblem == "강원 FC") ? "gangwonfc" :
-                                                                                                            (emblem == "전북 현대 모터스") ? "jeonbukhyundai2018" :
-                                                                                                                (emblem == "인천 유나이티드") ? "incheonutd" :
-                                                                                                                    (emblem == "FC 서울") ? "fcseoul" :
-                                                                                                                        (emblem == "대전 하나 시티즌") ? "daejeonhana2020" :
-                                                                                                                            (emblem == "대전 시티즌") ? "daejeoncitizen2003" :
-                                                                                                                                (emblem == "대구 FC") ? "daegufc2013" :
-                                                                                                                                    (emblem == "광주 FC" && year >= 2020) ? "gwangjufc2020" :
-                                                                                                                                        (emblem == "광주 FC" && year < 2020) ? "gwangjufc2010" :
-                                                                                                                                            (emblem == "화성 FC") ? "hwaseongfc2023" :
-                                                                                                                                                ""
+                // 엠블럼
+                emblem = standing[new Date().getFullYear()]["A"][i][1].replace(" U-18", "").replace(" U-15", "")
+                emblem = (emblem == "서울 이랜드 FC") ? "seouleland" :
+                    (emblem == "수원 삼성 블루윙즈") ? "suwonsamsung" :
+                        (emblem == "FC 안양") ? "fcanyang" :
+                            (emblem == "부산 아이파크") ? "busanipark2012" :
+                                (emblem == "충북청주 FC") ? "chungbukcheongju" :
+                                    (emblem == "전남 드래곤즈" && year >= 2022) ? "jeonnamdragons2022" :
+                                        (emblem == "전남 드래곤즈" && year < 2022) ? "jeonnamdragons2014" :
+                                            (emblem == "김포 FC") ? "gimpofc2022" :
+                                                (emblem == "충남아산 FC") ? "chungnamasan" :
+                                                    (emblem == "경남 FC") ? "gyeongnamfc2010" :
+                                                        (emblem == "부천 FC 1995") ? "bucheonfc" :
+                                                            (emblem == "안산 그리너스" && year >= 2025) ? "ansangreeners2025" :
+                                                                (emblem == "안산 그리너스" && year < 2025) ? "ansangreeners2017" :
+                                                                    (emblem == "성남 FC") ? "seongnamfc2014" :
+                                                                        (emblem == "천안 시티 FC") ? "cheonancity2023" :
+                                                                            (emblem == "김천 상무 FC") ? "gimcheonsangmu" :
+                                                                                (emblem == "포항 스틸러스") ? "pohangsteelers" :
+                                                                                    (emblem == "울산 HD FC") ? "ulsanhd2024" :
+                                                                                        (emblem == "울산 현대 FC") ? "ulsanhyundai2016" :
+                                                                                            (emblem == "수원 FC" && year >= 2016) ? "suwonfc2016" :
+                                                                                                (emblem == "수원 FC" && year < 2016) ? "suwonfc2003" :
+                                                                                                    (emblem == "제주 유나이티드") ? "jejuutd2006" :
+                                                                                                        (emblem == "제주 SK FC") ? "jejusk2025" :
+                                                                                                            (emblem == "강원 FC") ? "gangwonfc" :
+                                                                                                                (emblem == "전북 현대 모터스") ? "jeonbukhyundai2018" :
+                                                                                                                    (emblem == "인천 유나이티드") ? "incheonutd" :
+                                                                                                                        (emblem == "FC 서울") ? "fcseoul" :
+                                                                                                                            (emblem == "대전 하나 시티즌") ? "daejeonhana2020" :
+                                                                                                                                (emblem == "대전 시티즌") ? "daejeoncitizen2003" :
+                                                                                                                                    (emblem == "대구 FC") ? "daegufc2013" :
+                                                                                                                                        (emblem == "광주 FC" && year >= 2020) ? "gwangjufc2020" :
+                                                                                                                                            (emblem == "광주 FC" && year < 2020) ? "gwangjufc2010" :
+                                                                                                                                                (emblem == "화성 FC") ? "hwaseongfc2023" :
+                                                                                                                                                    ""
+    
+                $("#standingsHome > table > tbody").append("<tr><td>" + standing[new Date().getFullYear()]["A"][i][0] + "</td><td><img src='./files/" + emblem + "_s.png'></td><td>" + standing[new Date().getFullYear()]["A"][i][1] + "</td><td>" + standing[new Date().getFullYear()]["A"][i][2] + "</td><td>" + standing[new Date().getFullYear()]["A"][i][6] + "</td></tr>")
+            }
 
-            $("#standingsHome > table > tbody").append("<tr><td>" + standing[new Date().getFullYear()]["A"][i][0] + "</td><td><img src='./files/" + emblem + "_s.png'></td><td>" + standing[new Date().getFullYear()]["A"][i][1] + "</td><td>" + standing[new Date().getFullYear()]["A"][i][2] + "</td><td>" + standing[new Date().getFullYear()]["A"][i][6] + "</td></tr>")
-        }
+            for (i = 0; i < 5; i++) {
+                if ($("#standingsHome > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(3)").text() == "서울 이랜드 FC") {
+                    $("#standingsHome > table > tbody > tr:nth-of-type(" + (i + 1) + ")").attr("class", "sefc")
+                    break
+                }
+            }
+        } else {
+            if ($("#standingsHome > table").length == 1) {
+                $("#standingsHome > table").after("<table><thead><tr><th>순위</th><th colspan='2'>구단</th><th>승점</th><th>득점</th></tr></thead><tbody></tbody></table>")
+            }
 
-        for (i = 0; i < 5; i++) {
-            if ($("#standingsHome > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(3)").text() == "서울 이랜드 FC") {
-                $("#standingsHome > table > tbody > tr:nth-of-type(" + (i + 1) + ")").attr("class", "sefc")
+            for (i = 0; i < Object.keys(standing[new Date().getFullYear()]["A"]).length; i++) {
+
+                // 엠블럼
+                emblem = standing[new Date().getFullYear()]["A"][i][1].replace(" U-18", "").replace(" U-15", "")
+                emblem = (emblem == "서울 이랜드 FC") ? "seouleland" :
+                    (emblem == "수원 삼성 블루윙즈") ? "suwonsamsung" :
+                        (emblem == "FC 안양") ? "fcanyang" :
+                            (emblem == "부산 아이파크") ? "busanipark2012" :
+                                (emblem == "충북청주 FC") ? "chungbukcheongju" :
+                                    (emblem == "전남 드래곤즈" && year >= 2022) ? "jeonnamdragons2022" :
+                                        (emblem == "전남 드래곤즈" && year < 2022) ? "jeonnamdragons2014" :
+                                            (emblem == "김포 FC") ? "gimpofc2022" :
+                                                (emblem == "충남아산 FC") ? "chungnamasan" :
+                                                    (emblem == "경남 FC") ? "gyeongnamfc2010" :
+                                                        (emblem == "부천 FC 1995") ? "bucheonfc" :
+                                                            (emblem == "안산 그리너스" && year >= 2025) ? "ansangreeners2025" :
+                                                                (emblem == "안산 그리너스" && year < 2025) ? "ansangreeners2017" :
+                                                                    (emblem == "성남 FC") ? "seongnamfc2014" :
+                                                                        (emblem == "천안 시티 FC") ? "cheonancity2023" :
+                                                                            (emblem == "김천 상무 FC") ? "gimcheonsangmu" :
+                                                                                (emblem == "포항 스틸러스") ? "pohangsteelers" :
+                                                                                    (emblem == "울산 HD FC") ? "ulsanhd2024" :
+                                                                                        (emblem == "울산 현대 FC") ? "ulsanhyundai2016" :
+                                                                                            (emblem == "수원 FC" && year >= 2016) ? "suwonfc2016" :
+                                                                                                (emblem == "수원 FC" && year < 2016) ? "suwonfc2003" :
+                                                                                                    (emblem == "제주 유나이티드") ? "jejuutd2006" :
+                                                                                                        (emblem == "제주 SK FC") ? "jejusk2025" :
+                                                                                                            (emblem == "강원 FC") ? "gangwonfc" :
+                                                                                                                (emblem == "전북 현대 모터스") ? "jeonbukhyundai2018" :
+                                                                                                                    (emblem == "인천 유나이티드") ? "incheonutd" :
+                                                                                                                        (emblem == "FC 서울") ? "fcseoul" :
+                                                                                                                            (emblem == "대전 하나 시티즌") ? "daejeonhana2020" :
+                                                                                                                                (emblem == "대전 시티즌") ? "daejeoncitizen2003" :
+                                                                                                                                    (emblem == "대구 FC") ? "daegufc2013" :
+                                                                                                                                        (emblem == "광주 FC" && year >= 2020) ? "gwangjufc2020" :
+                                                                                                                                            (emblem == "광주 FC" && year < 2020) ? "gwangjufc2010" :
+                                                                                                                                                (emblem == "화성 FC") ? "hwaseongfc2023" :
+                                                                                                                                                    ""
+
+                if (i < Math.ceil(Object.keys(standing[new Date().getFullYear()]["A"]).length / 2)) {
+                    $("#standingsHome > table:nth-of-type(1) > tbody").append("<tr><td>" + standing[new Date().getFullYear()]["A"][i][0] + "</td><td><img src='./files/" + emblem + "_s.png'></td><td>" + standing[new Date().getFullYear()]["A"][i][1] + "</td><td>" + standing[new Date().getFullYear()]["A"][i][2] + "</td><td>" + standing[new Date().getFullYear()]["A"][i][6] + "</td></tr>")
+                } else {
+                    $("#standingsHome > table:nth-of-type(2) > tbody").append("<tr><td>" + standing[new Date().getFullYear()]["A"][i][0] + "</td><td><img src='./files/" + emblem + "_s.png'></td><td>" + standing[new Date().getFullYear()]["A"][i][1] + "</td><td>" + standing[new Date().getFullYear()]["A"][i][2] + "</td><td>" + standing[new Date().getFullYear()]["A"][i][6] + "</td></tr>")
+                }
+            }
+
+            for (i = 0; i < Math.ceil(Object.keys(standing[new Date().getFullYear()]["A"]).length / 2); i++) {
+                if ($("#standingsHome > table:nth-of-type(1) > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(3)").text() == "서울 이랜드 FC") {
+                    $("#standingsHome > table:nth-of-type(1) > tbody > tr:nth-of-type(" + (i + 1) + ")").attr("class", "sefc")
+                    break
+                }
+            }
+
+            for (i = Math.ceil(Object.keys(standing[new Date().getFullYear()]["A"]).length / 2); i < Object.keys(standing[new Date().getFullYear()]["A"]).length; i++) {
+                if ($("#standingsHome > table:nth-of-type(1) > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(3)").text() == "서울 이랜드 FC") {
+                    $("#standingsHome > table:nth-of-type(1) > tbody > tr:nth-of-type(" + (i + 1) + ")").attr("class", "sefc")
+                    break
+                }
             }
         }
     }
@@ -1593,6 +1685,7 @@ function fixtures() {
         $("#fixtures" + status_ + " > .fixtures > .fixtures_").each(function () {
             $(this).click(function () {
                 localStorage.setItem(Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[$(this).index()], "matchInfo")
+
                 window.location.href = "./match?" + Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[$(this).index()]
             })
         })
@@ -1600,7 +1693,7 @@ function fixtures() {
     } else {
         $("#fixtures" + status_ + " > .fixtures").append("<p>일정이 없습니다.</p>")
 
-        $("#fixtures" + status_ + " > .fixtures > p").css({ "font-size": "16px", "margin-top": "calc(27px + 5vw)", "font-weight": "600" })
+        $("#fixtures" + status_ + " > .fixtures > p").css({ "font-size": "16px", "margin-top": "calc(27px + 5vw)", "font-weight": "300" })
     }
 }
 

@@ -191,7 +191,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #statsBySeason > div:nth-of-type(n+2) > p {width: 10vw; font-size: 16px; font-weight: 600;}
 #statsBySeason > div:nth-of-type(n+3) {padding-top: 8px;}
 
-#playedMatch {width: 100vw; height: 70vh; margin-top: 30vh; background: #fafafa; border-radius: 10vw 10vw 0 0; box-shadow: 0 0 4px 2px #00006020; display: flex; flex-direction: column; position: fixed; bottom: -100vh; z-index: 400;}
+#playedMatch {width: 100vw; height: 70vh; margin-top: 30vh; background: #fafafa; border-radius: 20px 20px 0 0; box-shadow: 0 0 4px 2px #00006020; display: flex; flex-direction: column; position: fixed; bottom: -100vh; z-index: 400;}
 #playedMatch > div {width: 100vw; height: calc(70vh - 160px); margin: 40px 0 20px 0; overflow: scroll;}
 #playedMatch > div > div {width: 90vw; margin-left: 5vw; padding: 8px 0; display: flex; justify-content: center; align-items: center; border-bottom: 2px solid #00006020;}
 #playedMatch > div > div:nth-of-type(1) {border-top: 2px solid #00006020;}
@@ -204,33 +204,37 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #playedMatch > div > div > p:nth-of-type(5) {width: 10vw; padding: 4px 0; margin: 0 2.5vw; font-size: 14px; border-radius: 20px; color: #fafafa;}
 #playedMatch > div > div > div {width: 6vw; margin-left: 1vw; display: flex; align-items: center; justify-content: center;}
 #playedMatch > div > div > div > img {height: 16px;}
-#playedMatch > p {width: 100vw; margin-top: 40px; opacity: .5;}
+#playedMatch > p {width: 100vw; margin-top: 40px; opacity: .5; font-weight: 300;}
 
-#playedMatchU18 {width: 100vw; height: 70vh; margin-top: 30vh; background: #fafafa; border-radius: 10vw 10vw 0 0; box-shadow: 0 0 4px 2px #00006020; display: flex; flex-direction: column; position: fixed; bottom: -100vh; z-index: 400;}
+#playedMatchU18 {width: 100vw; height: 70vh; margin-top: 30vh; background: #fafafa; border-radius: 20px 20px 0 0; box-shadow: 0 0 4px 2px #00006020; display: flex; flex-direction: column; position: fixed; bottom: -100vh; z-index: 400;}
 #playedMatchU18 > div {width: 100vw; height: calc(70vh - 160px); margin: 40px 0 20px 0; overflow: scroll;}
 #playedMatchU18 > div > div {width: 90vw; margin-left: 5vw; padding: 8px 0; display: flex; justify-content: center; align-items: center; border-bottom: 2px solid #00006020;}
 #playedMatchU18 > div > div:nth-of-type(1) {border-top: 2px solid #00006020;}
-#playedMatchU18 > div > div > p:nth-of-type(1) {width: 10vw; font-size: 16px;}
-#playedMatchU18 > div > div > p:nth-of-type(2) {width: 20vw; font-size: 16px;}
-#playedMatchU18 > div > div > p:nth-of-type(3) {width: 15vw; font-size: 16px;}
-#playedMatchU18 > div > div > p:nth-of-type(4) {width: 10vw; font-size: 16px;}
-#playedMatchU18 > div > div > p:nth-of-type(5) {width: 10vw; font-size: 16px;}
-#playedMatchU18 > div > div > p:nth-of-type(5) > img:nth-of-type(n+2) {margin-left: -12px;}
-#playedMatchU18 > div > div > p:nth-of-type(6) {width: 10vw; padding: 4px 0; margin: 0 2.5vw; font-size: 16px; border-radius: 20px; color: #fafafa;}
-#playedMatchU18 > p {width: 100vw; margin-top: 40px; opacity: .5;}
+#playedMatchU18 > div > div > p:nth-of-type(1) {width: 8vw; font-size: 14px; font-weight: 600;}
+#playedMatchU18 > div > div > p:nth-of-type(2) {width: 25vw; font-size: 14px; font-weight: 600;}
+#playedMatchU18 > div > div > p:nth-of-type(3) {width: 8vw; font-size: 14px; font-weight: 600;}
+#playedMatchU18 > div > div > p:nth-of-type(4) {width: 10vw; font-size: 14px;}
+#playedMatchU18 > div > div > p:nth-of-type(4) > img {width: 20px;}
+#playedMatchU18 > div > div > p:nth-of-type(4) > img:nth-of-type(n+2) {margin-left: -12px;}
+#playedMatchU18 > div > div > p:nth-of-type(5) {width: 10vw; padding: 4px 0; margin: 0 2.5vw; font-size: 14px; border-radius: 20px; color: #fafafa;}
+#playedMatchU18 > div > div > div {width: 6vw; margin-left: 1vw; display: flex; align-items: center; justify-content: center;}
+#playedMatchU18 > div > div > div > img {height: 16px;}
+#playedMatchU18 > p {width: 100vw; margin-top: 40px; opacity: .5; font-weight: 300;}
 
-#playedMatchU15 {width: 100vw; height: 70vh; margin-top: 30vh; background: #fafafa; border-radius: 10vw 10vw 0 0; box-shadow: 0 0 4px 2px #00006020; display: flex; flex-direction: column; position: fixed; bottom: -100vh; z-index: 400;}
+#playedMatchU15 {width: 100vw; height: 70vh; margin-top: 30vh; background: #fafafa; border-radius: 20px 20px 0 0; box-shadow: 0 0 4px 2px #00006020; display: flex; flex-direction: column; position: fixed; bottom: -100vh; z-index: 400;}
 #playedMatchU15 > div {width: 100vw; height: calc(70vh - 160px); margin: 40px 0 20px 0; overflow: scroll;}
 #playedMatchU15 > div > div {width: 90vw; margin-left: 5vw; padding: 8px 0; display: flex; justify-content: center; align-items: center; border-bottom: 2px solid #00006020;}
 #playedMatchU15 > div > div:nth-of-type(1) {border-top: 2px solid #00006020;}
-#playedMatchU15 > div > div > p:nth-of-type(1) {width: 10vw; font-size: 16px;}
-#playedMatchU15 > div > div > p:nth-of-type(2) {width: 20vw; font-size: 16px;}
-#playedMatchU15 > div > div > p:nth-of-type(3) {width: 15vw; font-size: 16px;}
-#playedMatchU15 > div > div > p:nth-of-type(4) {width: 10vw; font-size: 16px;}
-#playedMatchU15 > div > div > p:nth-of-type(5) {width: 10vw; font-size: 16px;}
-#playedMatchU15 > div > div > p:nth-of-type(5) > img:nth-of-type(n+2) {margin-left: -12px;}
-#playedMatchU15 > div > div > p:nth-of-type(6) {width: 10vw; padding: 4px 0; margin: 0 2.5vw; font-size: 16px; border-radius: 20px; color: #fafafa;}
-#playedMatchU15 > p {width: 100vw; margin-top: 40px; opacity: .5;}
+#playedMatchU15 > div > div > p:nth-of-type(1) {width: 8vw; font-size: 14px; font-weight: 600;}
+#playedMatchU15 > div > div > p:nth-of-type(2) {width: 25vw; font-size: 14px; font-weight: 600;}
+#playedMatchU15 > div > div > p:nth-of-type(3) {width: 8vw; font-size: 14px; font-weight: 600;}
+#playedMatchU15 > div > div > p:nth-of-type(4) {width: 10vw; font-size: 14px;}
+#playedMatchU15 > div > div > p:nth-of-type(4) > img {width: 20px;}
+#playedMatchU15 > div > div > p:nth-of-type(4) > img:nth-of-type(n+2) {margin-left: -12px;}
+#playedMatchU15 > div > div > p:nth-of-type(5) {width: 10vw; padding: 4px 0; margin: 0 2.5vw; font-size: 14px; border-radius: 20px; color: #fafafa;}
+#playedMatchU15 > div > div > div {width: 6vw; margin-left: 1vw; display: flex; align-items: center; justify-content: center;}
+#playedMatchU15 > div > div > div > img {height: 16px;}
+#playedMatchU15 > p {width: 100vw; margin-top: 40px; opacity: .5; font-weight: 300;}
 
 #playedMatchBG {width: 100vw; height: 100vh; background: #05050510; border-radius: 20px 20px 0 0; box-shadow: 0 0 4px 2px #00006020; position: fixed; top: 0; display: none; opacity: 0; z-index: 300;}
 
@@ -418,7 +422,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #recentMatch > div > div:nth-of-type(2) {width: 80vw; height: 20px;}
 #recentMatch > div > div:nth-of-type(2) > p {width: fit-content; height: fit-content; padding: 2px 8px; margin: auto; font-size: 12px; font-weight: 600; border: 1px solid #050505; border-radius: 8px;}
 
-#viewAll {height: 20px !important; display: flex; justify-content: center; align-items: center;}
+#viewAll {height: 20px !important; display: flex; justify-content: center; align-items: center; font-weight: 300;}
 
 /* 순위 */
 .standingsButton {width: 100vw; height: 40px; position: fixed; top: 79px; left: 0; background: #fafafa; z-index: 98;}
