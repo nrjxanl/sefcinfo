@@ -2188,7 +2188,7 @@ function matchH2H() {
         goalSpG = "경기당 " + (goalS / (w + d + l)).toFixed(1)
         goalCpG = "경기당 " + (goalC / (w + d + l)).toFixed(1)
 
-        if ($("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)") !== "") {
+        if ($("#h2hText > div:nth-of-type(1) > p:nth-of-type(1)") !== "") {
             if (dataList["home"][1] == "seouleland") {
                 grd1 = ((100 * w / (w + d + l))) + "%"
                 grd2 = ((100 * (w + d) / (w + d + l))) + "%"
@@ -2205,34 +2205,27 @@ function matchH2H() {
                     h2hGradient = "linear-gradient(105deg, #000060 " + grd1 + ", " + "#acacac" + " " + grd1 + ")"
                 }
 
-                $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)").text(w)
-                $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)").text(Number(d))
-                $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(3) > p:nth-of-type(1)").text(l)
-                $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1) > div > p:nth-of-type(2)").text(wPct)
-                $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(2) > div > p:nth-of-type(2)").text(dPct)
-                $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(3) > div > p:nth-of-type(2)").text(lPct)
-                $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1) > div > p:nth-of-type(1)").text("승리")
-                $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(3) > div > p:nth-of-type(1)").text("패배")
-                $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(1) > p:nth-of-type(1)").text(goalS)
-                $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(2) > p:nth-of-type(1)").text(goalC)
-                $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(1) > div > p:nth-of-type(2)").text(goalSpG)
-                $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(2) > div > p:nth-of-type(2)").text(goalCpG)
-                $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(1) > div > p:nth-of-type(1)").text("득점")
-                $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(2) > div > p:nth-of-type(1)").text("실점")
+                $("#h2hText > div:nth-of-type(1) > p:nth-of-type(1)").text(w)
+                $("#h2hText > div:nth-of-type(2) > p:nth-of-type(1)").text(Number(d))
+                $("#h2hText > div:nth-of-type(3) > p:nth-of-type(1)").text(l)
+                $("#h2hText > div:nth-of-type(1) > div > p:nth-of-type(2)").text(wPct)
+                $("#h2hText > div:nth-of-type(2) > div > p:nth-of-type(2)").text(dPct)
+                $("#h2hText > div:nth-of-type(3) > div > p:nth-of-type(2)").text(lPct)
+                $("#h2hText > div:nth-of-type(1) > div > p:nth-of-type(1)").text("승리")
+                $("#h2hText > div:nth-of-type(3) > div > p:nth-of-type(1)").text("패배")
+                $("#h2hGoalsText > div:nth-of-type(1) > p:nth-of-type(1)").text(goalS)
+                $("#h2hGoalsText > div:nth-of-type(2) > p:nth-of-type(1)").text(goalC)
+                $("#h2hGoalsText > div:nth-of-type(1) > div > p:nth-of-type(2)").text(goalSpG)
+                $("#h2hGoalsText > div:nth-of-type(2) > div > p:nth-of-type(2)").text(goalCpG)
+                $("#h2hGoalsText > div:nth-of-type(1) > div > p:nth-of-type(1)").text("득점")
+                $("#h2hGoalsText > div:nth-of-type(2) > div > p:nth-of-type(1)").text("실점")
 
-                if ($(window).width() < 768) {
-                    $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#000060", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#acacac", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(3) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#000060", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
-                } else {
-                    $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#000060", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#acacac", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(3) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#000060", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
-                }
+                $("#h2hText > div:nth-of-type(1) > p:nth-of-type(1)").css({"background": "#000060", "color": "#fafafa"})
+                $("#h2hText > div:nth-of-type(2) > p:nth-of-type(1)").css({"background": "#acacac", "color": "#fafafa"})
+                $("#h2hText > div:nth-of-type(3) > p:nth-of-type(1)").css({"background": oppBg, "color": oppText})
+                $("#h2hGoalsText > div:nth-of-type(1) > p:nth-of-type(1)").css({"background": "#000060", "color": "#fafafa"})
+                $("#h2hGoalsText > div:nth-of-type(2) > p:nth-of-type(1)").css({"background": oppBg, "color": oppText})
+
             } else {
                 grd1 = (100 * l / (w + d + l)) + "%"
                 grd2 = (100 * (d + l) / (w + d + l)) + "%"
@@ -2249,75 +2242,67 @@ function matchH2H() {
                     h2hGradient = "linear-gradient(105deg, " + oppBg + " " + grd1 + ", " + "#acacac" + " " + grd1 + ")"
                 }
 
-                $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)").text(l)
-                $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)").text(Number(d))
-                $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(3) > p:nth-of-type(1)").text(w)
-                $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1) > div > p:nth-of-type(2)").text(lPct)
-                $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(2) > div > p:nth-of-type(2)").text(dPct)
-                $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(3) > div > p:nth-of-type(2)").text(wPct)
-                $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1) > div > p:nth-of-type(1)").text("패배")
-                $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(3) > div > p:nth-of-type(1)").text("승리")
-                $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(1) > p:nth-of-type(1)").text(goalC)
-                $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(2) > p:nth-of-type(1)").text(goalS)
-                $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(1) > div > p:nth-of-type(2)").text(goalCpG)
-                $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(2) > div > p:nth-of-type(2)").text(goalSpG)
-                $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(1) > div > p:nth-of-type(1)").text("실점")
-                $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(2) > div > p:nth-of-type(1)").text("득점")
+                $("#h2hText > div:nth-of-type(1) > p:nth-of-type(1)").text(l)
+                $("#h2hText > div:nth-of-type(2) > p:nth-of-type(1)").text(Number(d))
+                $("#h2hText > div:nth-of-type(3) > p:nth-of-type(1)").text(w)
+                $("#h2hText > div:nth-of-type(1) > div > p:nth-of-type(2)").text(lPct)
+                $("#h2hText > div:nth-of-type(2) > div > p:nth-of-type(2)").text(dPct)
+                $("#h2hText > div:nth-of-type(3) > div > p:nth-of-type(2)").text(wPct)
+                $("#h2hText > div:nth-of-type(1) > div > p:nth-of-type(1)").text("패배")
+                $("#h2hText > div:nth-of-type(3) > div > p:nth-of-type(1)").text("승리")
+                $("#h2hGoalsText > div:nth-of-type(1) > p:nth-of-type(1)").text(goalC)
+                $("#h2hGoalsText > div:nth-of-type(2) > p:nth-of-type(1)").text(goalS)
+                $("#h2hGoalsText > div:nth-of-type(1) > div > p:nth-of-type(2)").text(goalCpG)
+                $("#h2hGoalsText > div:nth-of-type(2) > div > p:nth-of-type(2)").text(goalSpG)
+                $("#h2hGoalsText > div:nth-of-type(1) > div > p:nth-of-type(1)").text("실점")
+                $("#h2hGoalsText > div:nth-of-type(2) > div > p:nth-of-type(1)").text("득점")
 
-                if ($(window).width() < 768) {
-                    $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#acacac", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(3) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#000060", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "10vw", "height": "10vw", "font-size": "16px", "border-radius": "10px", "background": "#000060", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
-                } else {
-                    $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#acacac", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(3) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#000060", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(1) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": oppBg, "color": oppText, "display": "flex", "align-items": "center", "justify-content": "center" })
-                    $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(2) > p:nth-of-type(1)").css({ "width": "40px", "height": "40px", "font-size": "16px", "border-radius": "10px", "background": "#000060", "color": "#fafafa", "display": "flex", "align-items": "center", "justify-content": "center" })
-                }
+                $("#h2hText > div:nth-of-type(3) > p:nth-of-type(1)").css({"background": "#000060", "color": "#fafafa"})
+                $("#h2hText > div:nth-of-type(2) > p:nth-of-type(1)").css({"background": "#acacac", "color": "#fafafa"})
+                $("#h2hText > div:nth-of-type(1) > p:nth-of-type(1)").css({"background": oppBg, "color": oppText})
+                $("#h2hGoalsText > div:nth-of-type(2) > p:nth-of-type(1)").css({"background": "#000060", "color": "#fafafa"})
+                $("#h2hGoalsText > div:nth-of-type(1) > p:nth-of-type(1)").css({"background": oppBg, "color": oppText})
             }
         }
 
         if ($(window).width() < 768) {
-            $("#matchH2H > div:nth-of-type(2) > p").css({ "width": "80vw", "height": "2vw", "background-image": h2hGradient })
+            $("#h2hBar > p").css({ "width": "80vw", "height": "2vw", "background-image": h2hGradient })
 
-            $("#matchH2H > div:nth-of-type(3)").css({ "display": "flex", "justify-content": "flex-start", "margin-top": "5vw" })
-            $("#matchH2H > div:nth-of-type(3) > div").css({ "display": "flex" })
-            $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1)").css("margin-left", "10vw")
-            $("#matchH2H > div:nth-of-type(3) > div > div > p:nth-of-type(1)").css({ "height": "4vw", "font-weight": "600", "padding": "1vw 0 0 2vw", "text-align": "left", "display": "flex", "align-items": "center" })
-            $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1) > div > p:nth-of-type(2)").css({ "height": "4vw", "font-weight": "600", "text-align": "left", "padding": "0 8vw 0 2vw", "display": "flex", "align-items": "center" })
-            $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(2) > div > p:nth-of-type(2)").css({ "height": "4vw", "font-weight": "600", "text-align": "left", "padding": "0 8vw 0 2vw", "display": "flex", "align-items": "center" })
-            $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(3) > div > p:nth-of-type(2)").css({ "height": "4vw", "font-weight": "600", "text-align": "left", "padding": "0 8vw 0 2vw", "display": "flex", "align-items": "center" })
+            $("#h2hText").css({ "display": "flex", "justify-content": "flex-start", "margin-top": "5vw" })
+            $("#h2hText > div").css({ "display": "flex" })
+            $("#h2hText > div:nth-of-type(1)").css("margin-left", "10vw")
+            $("#h2hText > div > div > p:nth-of-type(1)").css({ "height": "4vw", "font-weight": "600", "padding": "1vw 0 0 2vw", "text-align": "left", "display": "flex", "align-items": "center" })
+            $("#h2hText > div:nth-of-type(1) > div > p:nth-of-type(2)").css({ "height": "4vw", "font-weight": "600", "text-align": "left", "padding": "0 8vw 0 2vw", "display": "flex", "align-items": "center" })
+            $("#h2hText > div:nth-of-type(2) > div > p:nth-of-type(2)").css({ "height": "4vw", "font-weight": "600", "text-align": "left", "padding": "0 8vw 0 2vw", "display": "flex", "align-items": "center" })
+            $("#h2hText > div:nth-of-type(3) > div > p:nth-of-type(2)").css({ "height": "4vw", "font-weight": "600", "text-align": "left", "padding": "0 8vw 0 2vw", "display": "flex", "align-items": "center" })
 
-            $("#matchH2H > div:nth-of-type(4) > p").css({ "width": "80vw", "height": "2vw", "background-image": goalGradient })
+            $("#h2hGoalsBar > p").css({ "width": "80vw", "height": "2vw", "background-image": goalGradient })
 
-            $("#matchH2H > div:nth-of-type(5)").css({ "display": "flex", "justify-content": "flex-start", "margin-top": "5vw" })
-            $("#matchH2H > div:nth-of-type(5) > div").css({ "display": "flex" })
-            $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(1)").css("margin-left", "10vw")
-            $("#matchH2H > div:nth-of-type(5) > div > div > p:nth-of-type(1)").css({ "height": "4vw", "font-weight": "600", "padding": "1vw 0 0 2vw", "text-align": "left", "display": "flex", "align-items": "center" })
-            $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(1) > div > p:nth-of-type(2)").css({ "height": "4vw", "font-weight": "600", "text-align": "left", "padding": "0 8vw 0 2vw", "display": "flex", "align-items": "center" })
-            $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(2) > div > p:nth-of-type(2)").css({ "height": "4vw", "font-weight": "600", "text-align": "left", "padding": "0 8vw 0 2vw", "display": "flex", "align-items": "center" })
+            $("#h2hGoalsText").css({ "display": "flex", "justify-content": "flex-start", "margin-top": "5vw" })
+            $("#h2hGoalsText > div").css({ "display": "flex" })
+            $("#h2hGoalsText > div:nth-of-type(1)").css("margin-left", "10vw")
+            $("#h2hGoalsText > div > div > p:nth-of-type(1)").css({ "height": "4vw", "font-weight": "600", "padding": "1vw 0 0 2vw", "text-align": "left", "display": "flex", "align-items": "center" })
+            $("#h2hGoalsText > div:nth-of-type(1) > div > p:nth-of-type(2)").css({ "height": "4vw", "font-weight": "600", "text-align": "left", "padding": "0 8vw 0 2vw", "display": "flex", "align-items": "center" })
+            $("#h2hGoalsText > div:nth-of-type(2) > div > p:nth-of-type(2)").css({ "height": "4vw", "font-weight": "600", "text-align": "left", "padding": "0 8vw 0 2vw", "display": "flex", "align-items": "center" })
         } else {
-            $("#matchH2H > div:nth-of-type(2) > p").css({ "width": "320px", "height": "8px", "background-image": h2hGradient })
+            $("#h2hBar > p").css({ "width": "320px", "height": "8px", "background-image": h2hGradient })
 
-            $("#matchH2H > div:nth-of-type(3)").css({ "display": "flex", "justify-content": "flex-start", "margin-top": "20px" })
-            $("#matchH2H > div:nth-of-type(3) > div").css({ "display": "flex" })
-            $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1)").css("margin-left", "40px")
-            $("#matchH2H > div:nth-of-type(3) > div > div > p:nth-of-type(1)").css({ "height": "16px", "font-weight": "600", "padding": "4px 0 0 8px", "text-align": "left", "display": "flex", "align-items": "center" })
-            $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(1) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "600", "text-align": "left", "padding": "0 32px 0 8px", "display": "flex", "align-items": "center" })
-            $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(2) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "600", "text-align": "left", "padding": "0 32px 0 8px", "display": "flex", "align-items": "center" })
-            $("#matchH2H > div:nth-of-type(3) > div:nth-of-type(3) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "600", "text-align": "left", "padding": "0 32px 0 8px", "display": "flex", "align-items": "center" })
+            $("#h2hText").css({ "display": "flex", "justify-content": "flex-start", "margin-top": "20px" })
+            $("#h2hText > div").css({ "display": "flex" })
+            $("#h2hText > div:nth-of-type(1)").css("margin-left", "40px")
+            $("#h2hText > div > div > p:nth-of-type(1)").css({ "height": "16px", "font-weight": "600", "padding": "4px 0 0 8px", "text-align": "left", "display": "flex", "align-items": "center" })
+            $("#h2hText > div:nth-of-type(1) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "600", "text-align": "left", "padding": "0 32px 0 8px", "display": "flex", "align-items": "center" })
+            $("#h2hText > div:nth-of-type(2) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "600", "text-align": "left", "padding": "0 32px 0 8px", "display": "flex", "align-items": "center" })
+            $("#h2hText > div:nth-of-type(3) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "600", "text-align": "left", "padding": "0 32px 0 8px", "display": "flex", "align-items": "center" })
 
-            $("#matchH2H > div:nth-of-type(4) > p").css({ "width": "320px", "height": "8px", "background-image": goalGradient })
+            $("#h2hGoalsBar > p").css({ "width": "320px", "height": "8px", "background-image": goalGradient })
 
-            $("#matchH2H > div:nth-of-type(5)").css({ "display": "flex", "justify-content": "flex-start", "margin-top": "20px" })
-            $("#matchH2H > div:nth-of-type(5) > div").css({ "display": "flex" })
-            $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(1)").css("margin-left", "40px")
-            $("#matchH2H > div:nth-of-type(5) > div > div > p:nth-of-type(1)").css({ "height": "16px", "font-weight": "600", "padding": "4px 0 0 8px", "text-align": "left", "display": "flex", "align-items": "center" })
-            $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(1) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "600", "text-align": "left", "padding": "0 32px 0 8px", "display": "flex", "align-items": "center" })
-            $("#matchH2H > div:nth-of-type(5) > div:nth-of-type(2) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "600", "text-align": "left", "padding": "0 32px 0 8px", "display": "flex", "align-items": "center" })
+            $("#h2hGoalsText").css({ "display": "flex", "justify-content": "flex-start", "margin-top": "20px" })
+            $("#h2hGoalsText > div").css({ "display": "flex" })
+            $("#h2hGoalsText > div:nth-of-type(1)").css("margin-left", "40px")
+            $("#h2hGoalsText > div > div > p:nth-of-type(1)").css({ "height": "16px", "font-weight": "600", "padding": "4px 0 0 8px", "text-align": "left", "display": "flex", "align-items": "center" })
+            $("#h2hGoalsText > div:nth-of-type(1) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "600", "text-align": "left", "padding": "0 32px 0 8px", "display": "flex", "align-items": "center" })
+            $("#h2hGoalsText > div:nth-of-type(2) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "600", "text-align": "left", "padding": "0 32px 0 8px", "display": "flex", "align-items": "center" })
         }
 
         // 최근 맞대결 결과 *** 수정 필요
