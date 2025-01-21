@@ -35,14 +35,14 @@ $(document).ready(function () {
     if ($(window).width() < 768) {
         setTimeout (function () {
             $("#skeletonMobile").css("display", "none")
-            if ($("#standingsA").length || $("#chantsName").length) {
-                $("#actualContents").css("flex-direction", "column")
-            }
-            $("#actualContents").css("display", "flex")
+            $("#actualContents").css("display", "block")
         }, 300)
     } else {
         setTimeout (function () {
             $("#skeletonPC").css("display", "none")
+            if ($("#standingsA").length || $("#chantsName").length) {
+                $("#actualContents").css("flex-direction", "column")
+            }
             $("#actualContents").css("display", "flex")
         }, 300)
     }
