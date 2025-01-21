@@ -193,7 +193,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #statsBySeason > div:nth-of-type(n+3) {padding-top: 8px;}
 
 #playedMatch {width: 100vw; height: 70vh; margin-top: 30vh; background: #fafafa; border-radius: 20px 20px 0 0; box-shadow: 0 0 4px 2px #00006020; display: flex; flex-direction: column; position: fixed; bottom: -100vh; z-index: 400;}
-#playedMatch > div {width: 100vw; height: calc(70vh - 160px); margin: 40px 0 20px 0; overflow: scroll;}
+#playedMatch > div {width: 100vw; height: calc(70vh - 100px); margin: 40px 0 20px 0; overflow: scroll;}
 #playedMatch > div > div {width: 90vw; margin-left: 5vw; padding: 8px 0; display: flex; justify-content: center; align-items: center; border-bottom: 2px solid #00006020;}
 #playedMatch > div > div:nth-of-type(1) {border-top: 2px solid #00006020;}
 #playedMatch > div > div > p:nth-of-type(1) {width: 8vw; font-size: 14px; font-weight: 600;}
@@ -205,7 +205,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #playedMatch > div > div > p:nth-of-type(5) {width: 10vw; padding: 4px 0; margin: 0 2.5vw; font-size: 14px; border-radius: 20px; color: #fafafa;}
 #playedMatch > div > div > div {width: 6vw; margin-left: 1vw; display: flex; align-items: center; justify-content: center;}
 #playedMatch > div > div > div > img {height: 16px;}
-#playedMatch > p {width: 100vw; margin-top: 40px; opacity: .5; font-weight: 300;}
+#playedMatch > p {width: 100vw; opacity: .5; font-weight: 300;}
 
 #playedMatchU18 {width: 100vw; height: 70vh; margin-top: 30vh; background: #fafafa; border-radius: 20px 20px 0 0; box-shadow: 0 0 4px 2px #00006020; display: flex; flex-direction: column; position: fixed; bottom: -100vh; z-index: 400;}
 #playedMatchU18 > div {width: 100vw; height: calc(70vh - 160px); margin: 40px 0 20px 0; overflow: scroll;}
