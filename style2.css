@@ -67,7 +67,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #prevMatch > div > div > p:nth-of-type(2) {width: 3vw; height: 4px; margin: 4px 1vw 0 1vw; font-size: 16px; border-radius: 10vw;}
 #prevMatch > a > p {font-weight: 300; padding: 8px 0 16px 0;}
 
-#standingsHome {width: 65vw; box-shadow: 0 0 4px 2px #00006020; border-radius: 20px; display: flex; flex-wrap: wrap;}
+#standingsHome {width: 65vw; margin-bottom: 40px; box-shadow: 0 0 4px 2px #00006020; border-radius: 20px; display: flex; flex-wrap: wrap;}
 #standingsHome > div {width: 65vw; height: fit-content; margin-top: 16px;}
 #standingsHome > div > img {height: 28px;}
 #standingsHome > table {width: 27.5vw; margin: 8px 2.5vw 0 2.5vw; vertical-align: middle;}
@@ -135,10 +135,10 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #playerU18, #playerU15 {margin-top: 40px; display: none;}
 
 /* 선수 정보 */
-#playerProfile {width: 70vw;}
-#playerProfile > div:nth-of-type(1) {width: 70vw; height: 20px; background: #fafafa; display: flex; justify-content: center; align-items: center;}
+#playerProfile {width: 65vw;}
+#playerProfile > div:nth-of-type(1) {width: 65vw; height: 20px; background: #fafafa; display: flex; justify-content: center; align-items: center;}
 #playerProfile > div:nth-of-type(1) > p {font-weight: 600;}
-#playerProfile > div:nth-of-type(2) {width: 70vw; height: 40px; padding-bottom: 4px; background: #fafafa; display: flex; justify-content: center; align-items: center;}
+#playerProfile > div:nth-of-type(2) {width: 65vw; height: 40px; padding-bottom: 4px; background: #fafafa; display: flex; justify-content: center; align-items: center;}
 #playerProfile > div:nth-of-type(2) > p {font-size: 40px;}
 #playerProfile > div:nth-of-type(2) > p > span {color: #000060; font-size: 40px; margin-right: 12px;}
 #playerProfile > div:nth-of-type(2) > div {width: 30px; height: 30px; border: 3px solid #000060; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center; margin-left: 12px;}
@@ -146,7 +146,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 
 #playerImg {display: none;}
 
-#playerSNS > div {width: 30vw; height: 70px; border-radius: 20px; box-shadow: 0 0 4px 2px #00006020; margin-left: 2.5vw; display: flex; justify-content: center; align-items: center;}
+#playerSNS > div {width: 30vw; height: 70px; border-radius: 20px; box-shadow: 0 0 4px 2px #00006020; display: flex; justify-content: center; align-items: center;}
 #playerSNS > div > img:nth-of-type(1) {height: 32px; margin-right: 8px;}
 #playerSNS > div > img:nth-of-type(2) {height: 36px;}
 
@@ -157,7 +157,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #playerInfo > div > p:nth-of-type(1) {font-weight: 600; margin-bottom: 4px;}
 #playerInfo > div > p:nth-of-type(2) {font-size: 16px;}
 
-#playedSEFC {width: 30vw; height: fit-content; margin-left: 2.5vw; padding: 16px 0; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 20px; box-shadow: 0 0 4px 2px #00006020;}
+#playedSEFC {width: 30vw; height: fit-content; padding: 16px 0; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 20px; box-shadow: 0 0 4px 2px #00006020;}
 #playedSEFC > p:nth-of-type(1) {font-size: 16px;}
 #playedSEFC > p:nth-of-type(2) {font-weight: 300; margin-top: 14px;}
 #playedSEFC > div {width: 25vw; display: flex; justify-content: center; align-items: center;}
@@ -302,118 +302,102 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #calendar > table > tbody > tr > td > div > img {height: 16px; margin: 0 2px;}
 
 /* 경기 세부 정보 */
-#matchScore {width: 50vw; padding: 16px 5vw; margin: 0 2.5vw; border-radius: 20px; box-shadow: 0 0 4px 2px #00006020;}
-#matchScore > div:nth-of-type(1) {width: 50vw; display: flex; justify-content: center; align-items: center; margin-bottom: 16px;}
+#matchScore {width: 26vw; padding: 16px 2vw; border-radius: 20px; box-shadow: 0 0 4px 2px #00006020;}
+#matchScore > div:nth-of-type(1) {width: 26vw; display: flex; justify-content: center; align-items: center; margin-bottom: 16px;}
 #matchScore > div:nth-of-type(1) > img {height: 16px;}
 #matchScore > div:nth-of-type(1) > p {font-size: 12px; padding-left: 4px; font-weight: 600;}
-#matchScore > div:nth-of-type(2) {width: 50vw; display: flex; justify-content: center; align-items: center;}
-#matchScore > div:nth-of-type(2) > div:nth-of-type(2n+1) {width: 20vw;}
-#matchScore > div:nth-of-type(2) > div:nth-of-type(2n+1) > div {width: 20vw;}
+#matchScore > div:nth-of-type(2) {width: 26vw; display: flex; justify-content: center; align-items: center;}
+#matchScore > div:nth-of-type(2) > div:nth-of-type(2n+1) {width: 5vw;}
+#matchScore > div:nth-of-type(2) > div:nth-of-type(2n+1) > div {width: 5vw;}
 #matchScore > div:nth-of-type(2) > div:nth-of-type(2n+1) > div > img {height: 32px;}
 #matchScore > div:nth-of-type(2) > div:nth-of-type(2n+1) > p {font-size: 16px; margin-top: 4px;}
-#matchScore > div:nth-of-type(2) > div:nth-of-type(2) {width: 10vw;}
+#matchScore > div:nth-of-type(2) > div:nth-of-type(2) {width: 16vw;}
 #matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1) {font-size: 32px; margin: -8px 0 8px 0;}
 #matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2) {width: fit-content; height: fit-content; padding: 2px 8px; margin: auto; font-size: 12px; font-weight: 600; border: 1px solid #050505; border-radius: 8px;}
-#matchScore > div:nth-of-type(3) {width: 50vw; display: flex; justify-content: center; align-items: flex-start;}
-#matchScore > div:nth-of-type(3) > p {width: 20vw; height: fit-content; font-weight: 600; margin-top: 8px; line-height: 1.4; white-space: nowrap;}
-#matchScore > div:nth-of-type(3) > p:nth-of-type(1) {margin-right: 5vw;}
-#matchScore > div:nth-of-type(3) > p:nth-of-type(2) {margin-left: 5vw;}
+#matchScore > div:nth-of-type(3) {width: 26vw; display: flex; justify-content: center; align-items: flex-start;}
+#matchScore > div:nth-of-type(3) > p {width: 5vw; height: fit-content; font-weight: 600; margin-top: 8px; line-height: 1.4; white-space: nowrap;}
+#matchScore > div:nth-of-type(3) > p:nth-of-type(1) {margin-right: 8vw;}
+#matchScore > div:nth-of-type(3) > p:nth-of-type(2) {margin-left: 8vw;}
 
-#matchInfo {width: 70vw; display: flex; flex-wrap: wrap; gap: 20px 5vw;}
+#matchInfo {width: 30vw; display: flex; flex-wrap: wrap; gap: 20px 5vw;}
 
-#highlight {width: 26vw; padding: 1vw 2vw; margin-left: 2.5vw; border-radius: 20px; box-shadow: #00006020 0px 0px 4px 2px;}
+#highlight {width: 26vw; padding: 1vw 2vw; border-radius: 20px; box-shadow: #00006020 0px 0px 4px 2px;}
 #highlight > a {width: fit-content; display: flex; align-items: center; justify-content: center;}
 #highlight > a > p {width: fit-content; text-align: left; font-size: 16px;}
 #highlight > a > p > span {margin-left: 1vw; font-weight: 600;}
 #highlight > a > img {width: 3vw; padding: 1vw; border-radius: 50%;}
 
 #potm > p {font-size: 16px; margin: 12px 0 4px 8px; text-align: left;}
-#potm > div {height: 40px; display: flex; align-items: center;}
+#potm > div {height: 40px; display: flex; align-items: center; justify-content: space-between;}
 #potm > div > p:nth-of-type(1) {font-size: 16px; font-weight: 600; margin-left: 4px; padding-bottom: 4px;}
 #potm > div > p:nth-of-type(1) > span {font-size: 16px; color: #000060; margin: 0 1.5vw 0 4px;}
-#potm > div > p:nth-of-type(2) {width: 4vw; padding: 4px 0; font-size: 12px; border-radius: 50vw; color: #fafafa; margin-bottom: 4px; position: absolute; right: 0;}
+#potm > div > p:nth-of-type(2) {width: 4vw; padding: 4px 0; font-size: 12px; border-radius: 50vw; color: #fafafa; margin-bottom: 4px;}
 
-#matchLineup {display: none; margin-top: -4px; padding-bottom: 20px;}
+#matchLineup {display: none; flex-direction: column; margin-top: -4px; padding-bottom: 20px;}
 
-.matchDetail {width: 70vw; height: fit-content; position: relative; z-index: 98;}
-.matchDetail > button {height: 24px; padding: 0 1vw; font-size: 16px; background: none; border: none;}
+.matchDetail {display: none;}
 
-#startingXI {width: 60vw; margin-left: 2.5vw;}
-#startingXI > img {width: 60vw; position: relative; opacity: .1;}
-#startingXI > table {width: 60vw; margin: -115vw 0 0 5vw; z-index: 98; position: absolute;}
+#startingXI {width: 30vw; display: flex;}
+#startingXI > img {width: 30vw; position: relative; opacity: .1; margin-top: -8px;}
+#startingXI > table {width: 30vw; z-index: 98; position: absolute; margin-top: 2vw;}
 #startingXI > table > tbody > tr {display: flex; justify-content: center;}
-#startingXI > table > tbody > tr > td {height: 27.5vw; display: flex; flex-direction: column; justify-content: center; align-items: center;}
+#startingXI > table > tbody > tr > td {height: 10vw; display: flex; flex-direction: column; justify-content: center; align-items: center;}
 #startingXI > table > tbody > tr > td > div > img {height: 40px; border-radius: 20px;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(1) {margin: -34px 1px 8px 0; color: #fafafa; font-family: "KLeagueBasic"; font-size: 20px; letter-spacing: -1px; z-index: 0;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(2) {height: 16px; font-weight: 600; margin-top: 4px;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(2) > span {display: inline-block;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(2) > span > img {height: 16px; vertical-align: middle; margin: 0 0 2px -8px;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(2) > span > img:nth-of-type(1) {margin-left: 2px;}
-#startingXI > table > tbody > tr > td > p:nth-of-type(3) {width: 8vw; padding: 4px 0; margin-top: 4px; border-radius: 50vw; color: #fafafa; background: #050505;}
+#startingXI > table > tbody > tr > td > p:nth-of-type(3) {width: 4vw; padding: 4px 0; margin-top: 4px; border-radius: 50vw; color: #fafafa; background: #050505;}
 
-#startingXI > div {width: 60vw; margin-left: 10vw;}
-#startingXI > div > table {width: 60vw; height: 110vw;}
-#startingXI > div > table > thead > tr > th {width: 60vw; height: 40px; font-size: 16px;}
-#startingXI > div > table > tbody > tr {width: 60vw; height: 50px; display: flex; align-items: center;}
-#startingXI > div > table > tbody > tr > td:nth-of-type(1) {font-size: 16px; width: 5vw; text-align: right; padding-right: 5vw;}
-#startingXI > div > table > tbody > tr > td:nth-of-type(2) {width: 50vw; display: flex; align-items: center;}
+#startingXI > div {width: 30vw;}
+#startingXI > div > table {width: 30vw;}
+#startingXI > div > table > thead > tr > th {width: 30vw; height: 40px; font-size: 16px;}
+#startingXI > div > table > tbody > tr {height: 50px; display: flex; align-items: center;}
+#startingXI > div > table > tbody > tr > td:nth-of-type(1) {font-size: 16px; width: 3vw; text-align: right; padding: 0 2vw;}
+#startingXI > div > table > tbody > tr > td:nth-of-type(2) {width: 23vw; display: flex; align-items: center; justify-content: space-between;}
 #startingXI > div > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(1) {font-size: 16px; font-weight: 600;}
-#startingXI > div > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(1) > span:nth-of-type(1) {font-size: 16px; color: #000060; margin: 0 1.5vw 0 3vw;}
-#startingXI > div > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(1) > span:nth-of-type(2) > img {height: 16px; vertical-align: middle; margin: 0 0 2px -8px;}
-#startingXI > div > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1) {margin-left: 2px;}
-#startingXI > div > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(2) {width: 10vw; padding: 4px 0; font-size: 12px; border-radius: 50vw; color: #fafafa; background: #00006040; position: absolute; right: 20vw;}
+#startingXI > div > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(1) > span > img {height: 16px; vertical-align: middle; margin: 0 0 4px -8px;}
+#startingXI > div > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(1) > span > img:nth-of-type(1) {margin-left: 12px;}
+#startingXI > div > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(2) {width: 4vw; padding: 4px 0; font-size: 12px; border-radius: 50vw; color: #fafafa; background: #00006040; margin-right: 2vw;}
 
-#sub {width: 60vw; margin: 60px 0 0 20vw;}
-#sub > table {width: 60vw; height: 110vw;}
-#sub > table > thead > tr > th {width: 60vw; height: 40px; font-size: 16px;}
-#sub > table > tbody > tr {width: 60vw; height: 50px; display: flex; align-items: center;}
-#sub > table > tbody > tr > td:nth-of-type(1) {font-size: 16px; width: 5vw; text-align: right; padding-right: 5vw;}
-#sub > table > tbody > tr > td:nth-of-type(2) {width: 50vw; display: flex; align-items: center;}
+#sub {width: 30vw; margin-top: 40px}
+#sub > table {width: 30vw;}
+#sub > table > thead > tr > th {width: 30vw; height: 40px; font-size: 16px;}
+#sub > table > tbody > tr {width: 30vw; height: 50px; display: flex; align-items: center;}
+#sub > table > tbody > tr > td:nth-of-type(1) {font-size: 16px; width: 3vw; text-align: right; padding: 0 2vw;}
+#sub > table > tbody > tr > td:nth-of-type(2) {width: 23vw; display: flex; align-items: center; justify-content: space-between;}
 #sub > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(1) {font-size: 16px; font-weight: 600;}
 #sub > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(1) > span:nth-of-type(1) {font-size: 16px; color: #000060; margin: 0 1.5vw 0 3vw;}
 #sub > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(1) > span:nth-of-type(2) > img {height: 16px; vertical-align: middle; margin: 0 0 2px -8px;}
 #sub > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1) {margin-left: 2px;}
-#sub > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(2) {width: 10vw; padding: 4px 0; font-size: 12px; border-radius: 50vw; color: #fafafa; background: #050505; position: absolute; right: 20vw;}
+#sub > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(2) {width: 4vw; padding: 4px 0; font-size: 12px; border-radius: 50vw; color: #fafafa; background: #050505; margin-right: 2vw;}
 
 #matchStat {display: none; padding-bottom: 40px;}
-#matchStat > table {width: 80vw; margin-left: 10vw;}
+#matchStat > table {width: 30vw;}
 #matchStat > table > tbody > tr {height: 48px; display: flex; align-items: center; box-shadow: 0 0 4px 2px #00006020; border-radius: 20px; margin-top: 20px;}
-#matchStat > table > tbody > tr > td:nth-of-type(2) {width: 25vw;}
-#matchStat > table > tbody > tr > td:nth-of-type(2n+1) {width: 27.5vw; display: flex; align-items: center; justify-content: center;}
-#matchStat > table > tbody > tr > td:nth-of-type(2n+1) > p {width: 7.5vw; height: 7.5vw; border-radius: 20px; font-weight: 600; display: flex; align-items: center; justify-content: center;}
+#matchStat > table > tbody > tr > td:nth-of-type(2) {width: 10vw; font-size: 14px; font-weight: 600;}
+#matchStat > table > tbody > tr > td:nth-of-type(2n+1) {width: 10vw; display: flex; align-items: center; justify-content: center;}
+#matchStat > table > tbody > tr > td:nth-of-type(2n+1) > p {width: 3vw; height: 3vw; border-radius: 50%; font-weight: 600; display: flex; align-items: center; justify-content: center;}
 #matchStat > table > tbody > tr:nth-of-type(1) {height: fit-content; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 16px 0; margin-top: 0;}
-#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) {width: 70vw; font-weight: 900; padding-bottom: 20px;}
-#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) {width: 70vw; display: flex;}
+#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) {width: 30vw; font-size: 14px; font-weight: 600; padding-bottom: 20px;}
+#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) {width: 25vw; display: flex;}
 #matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(1) {height: 32px; border-radius: 20px 0 0 20px; display: flex; align-items: center; justify-content: flex-start;}
 #matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(2) {height: 32px; border-radius: 0 20px 20px 0; display: flex; align-items: center; justify-content: flex-end;}
 
-#matchH2H {display: none; flex-direction: column; align-items: center; padding-bottom: 40px;}
-#matchH2H > div:nth-of-type(2) {width: 80vw; display: flex; border-radius: 8px; overflow: hidden;}
+#matchH2H {width: 30vw; display: none; flex-direction: column; align-items: center; padding-bottom: 40px;}
+#matchH2H > div:nth-of-type(2) {width: 30vw; display: flex; border-radius: 8px; overflow: hidden;}
 #matchH2H > div:nth-of-type(2) > p {font-size: 16px; font-weight: 600; color: #fafafa; display: flex; align-items: center; justify-content: center;}
-#matchH2H > div:nth-of-type(4) {width: 80vw; display: flex; border-radius: 8px; overflow: hidden; margin-top: 10vw;}
+#matchH2H > div:nth-of-type(4) {width: 30vw; display: flex; border-radius: 8px; overflow: hidden; margin-top: 40px;}
 #matchH2H > div:nth-of-type(4) > p {font-size: 16px; font-weight: 600; color: #fafafa; display: flex; align-items: center; justify-content: center;}
 
-#expectedResult {width: 70vw; padding: 16px 5vw; margin: 0 10vw 40px 10vw; border-radius: 20px; box-shadow: 0 0 4px 2px #00006020;}
-#expectedResult > div:nth-of-type(1) {font-size: 14px; margin-bottom: 8px;}
-#expectedResult > div:nth-of-type(1) > img {height: 14px; margin: 0 0 -2px 4px;}
-#expectedResult > div:nth-of-type(2) {width: 70vw; display: flex; justify-content: center; align-items: center;}
-#expectedResult > div:nth-of-type(2) > div {width: 20vw;}
-#expectedResult > div:nth-of-type(2) > div > div {width: 20vw;}
-#expectedResult > div:nth-of-type(2) > div > div > img {height: 32px;}
-#expectedResult > div:nth-of-type(2) > p {width: 30vw; font-size: 32px;}
-#expectedResult > div:nth-of-type(3) {width: 70vw; display: flex; justify-content: center; align-items: flex-start;}
-#expectedResult > div:nth-of-type(3) > p {width: 20vw; height: fit-content; font-weight: 600; margin-top: 8px; line-height: 1.4; white-space: nowrap;}
-#expectedResult > div:nth-of-type(3) > p:nth-of-type(1) {margin-right: 5vw;}
-#expectedResult > div:nth-of-type(3) > p:nth-of-type(3) {margin-left: 5vw;}
+#h2hText > div > p:nth-of-type(1) {width: 4vw; height: 4vw; font-size: 14px; border-radius: 50%; display: flex; justify-content: center; align-items: center;}
 
-#h2hText > div > p:nth-of-type(1) {width: 10vw; height: 10vw; font-size: 16px; border-radius: 50%; display: flex; justify-content: center; align-items: center;}
+#h2hGoalsText > div > p:nth-of-type(1) {width: 4vw; height: 4vw; font-size: 14px; border-radius: 50%; display: flex; justify-content: center; align-items: center;}
 
-#h2hGoalsText > div > p:nth-of-type(1) {width: 10vw; height: 10vw; font-size: 16px; border-radius: 50%; display: flex; justify-content: center; align-items: center;}
-
-#help {opacity: 0; width: calc(90vw - 16px); color: #fafafa; background: #050505aa; padding: 12px 8px; line-height: 1.3; font-weight: 600; border-radius: 3vw; position: fixed; left: 5vw; bottom: 5vw; pointer-events: none;}
-#recentMatch {width: 80vw; box-shadow: 0 0 4px 2px #00006020; border-radius: 20px; margin-top: 40px;}
-#recentMatch > div {width: 80vw; height: 60px; border-bottom: 2px solid #00006020; padding: 4px 0 8px 0;}
-#recentMatch > div > div:nth-of-type(1) {width: 80vw; height: 40px; display: flex; align-items: center;}
+#recentMatch {width: 30vw; position: absolute; left: 35vw; box-shadow: 0 0 4px 2px #00006020; border-radius: 20px; margin-bottom: 40px;}
+#recentMatch > div {width: 30vw; height: 60px; border-bottom: 2px solid #00006020; padding: 4px 0 8px 0;}
+#recentMatch > div > div:nth-of-type(1) {width: 30vw; height: 40px; display: flex; align-items: center;}
 #recentMatch > div > div:nth-of-type(1) > div:nth-of-type(1) {width: 30vw; display: flex; align-items: center; justify-content: flex-end;}
 #recentMatch > div > div:nth-of-type(1) > div:nth-of-type(1) > img {height: 20px;}
 #recentMatch > div > div:nth-of-type(1) > div:nth-of-type(2) {width: 15vw; height: 24px; display: flex; align-items: center; justify-content: center; margin: 0 2.5vw;}
@@ -421,58 +405,55 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #recentMatch > div > div:nth-of-type(1) > div:nth-of-type(2) > img {height: 12px; padding: 0 4px;}
 #recentMatch > div > div:nth-of-type(1) > div:nth-of-type(3) {width: 30vw; display: flex; align-items: center; justify-content: flex-start;}
 #recentMatch > div > div:nth-of-type(1) > div:nth-of-type(3) > img {height: 20px;}
-#recentMatch > div > div:nth-of-type(2) {width: 80vw; height: 20px;}
+#recentMatch > div > div:nth-of-type(2) {width: 30vw; height: 20px;}
 #recentMatch > div > div:nth-of-type(2) > p {width: fit-content; height: fit-content; padding: 2px 8px; margin: auto; font-size: 12px; font-weight: 600; border: 1px solid #050505; border-radius: 8px;}
 
 #viewAll {height: 20px !important; display: flex; justify-content: center; align-items: center; font-weight: 300;}
 
 /* 순위 */
-.standingsButton {width: 100vw; height: 40px; position: fixed; top: 79px; left: 0; background: #fafafa; z-index: 98;}
-.standingsButton > button {width: 30vw; height: 40px; background: #fafafa; border: none; margin: 0; font-size: 16px;}
+.standingsButton {width: 75vw; height: 40px; position: fixed; top: 79px; left: 25vw; background: #fafafa; z-index: 98;}
+.standingsButton > button {width: calc(65vw / 3); height: 40px; background: #fafafa; border: none; margin: 0; font-size: 16px;}
 .standingsButton > button:hover {color: #000060; border-bottom: 4px solid #000060;}
 
-.standingsSeason {width: 80vw; padding: 0 10vw; margin-top: 160px; display: flex; align-items: baseline;}
-.standingsSeason > p:nth-of-type(1) {width: 20vw; font-size: 32px; padding-right: 20px; text-align: left;}
-.standingsSeason > p:nth-of-type(2) {width: 20vw; font-size: 16px; font-weight: 600;}
-.standingsSeason > p:nth-of-type(n+3):nth-of-type(-n+4) {width: 10vw; font-size: 16px;}
+.standingsSeason {width: 80vw; margin-top: 80px; display: flex; align-items: baseline;}
+.standingsSeason > p:nth-of-type(1) {width: 10vw; font-size: 32px; padding-right: 20px; text-align: left;}
+.standingsSeason > p:nth-of-type(2) {width: fit-content; padding-right: 1vw; font-size: 16px; font-weight: 600;}
+.standingsSeason > p:nth-of-type(n+3):nth-of-type(-n+4) {width: 3vw; font-size: 16px;}
 .standingsSeason > p:nth-of-type(5) {font-size: 14px; font-weight: 600; margin-left: 10px; padding: 3px 10px; border-radius: 10px; border: 1px solid #050505;}
 
-#standingsA {margin-top: 20px;}
-#standingsA > div {width: 90vw; margin: 0 0 40px 5vw;}
-#standingsA > div > table {width: 90vw; vertical-align: middle;}
+#standingsA > div {width: 65vw; margin-bottom: 40px;}
+#standingsA > div > table {width: 65vw; vertical-align: middle;}
 #standingsA > div > table > thead > tr {height: 40px;}
 #standingsA > div > table > thead > tr > th {font-weight: 600; font-size: 12px;}
 #standingsA > div > table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+6) {display: none;}
 #standingsA > div > table > thead > tr > th:nth-of-type(n+8) {display: none;}
-#standingsA > div > table > tbody > tr > td {width: 10vw; font-size: 16px; height: 40px; font-weight: 600;}
-#standingsA > div > table > tbody > tr > td:nth-of-type(3) {width: 45vw; padding-left: 5vw; text-align: left; display: table-cell; font-weight: 900;}
+#standingsA > div > table > tbody > tr > td {width: 5vw; font-size: 16px; height: 40px; font-weight: 600;}
+#standingsA > div > table > tbody > tr > td:nth-of-type(3) {width: 18vw; padding-left: 2vw; text-align: left; display: table-cell; font-weight: 900;}
 #standingsA > div > table > tbody > tr > td:nth-of-type(n+5):nth-of-type(-n+7) {display: none;}
 #standingsA > div > table > tbody > tr > td:nth-of-type(n+9) {display: none;}
 #standingsA > div > table > tbody > tr > td > img {height: 24px;}
 
-#standingsU18 {margin-top: 20px;}
-#standingsU18 > div {width: 90vw; margin: 0 0 40px 5vw;}
-#standingsU18 > div > p {font-size: 16px; font-weight: 600; margin: 32px 0 8px 0;}
-#standingsU18 > div > table {width: 90vw; vertical-align: middle;}
+#standingsU18 > div {width: 65vw; margin-bottom: 40px;}
+#standingsU18 > div > table {width: 65vw; vertical-align: middle;}
 #standingsU18 > div > table > thead > tr {height: 40px;}
 #standingsU18 > div > table > thead > tr > th {font-weight: 600; font-size: 12px;}
 #standingsU18 > div > table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+6) {display: none;}
 #standingsU18 > div > table > thead > tr > th:nth-of-type(n+8) {display: none;}
-#standingsU18 > div > table > tbody > tr > td {width: 10vw; font-size: 16px; height: 40px; font-weight: 600;}
-#standingsU18 > div > table > tbody > tr > td:nth-of-type(3) {width: 45vw; padding-left: 5vw; text-align: left; display: table-cell; font-weight: 900;}
+#standingsU18 > div > table > tbody > tr > td {width: 5vw; font-size: 16px; height: 40px; font-weight: 600;}
+#standingsU18 > div > table > tbody > tr > td:nth-of-type(3) {width: 18vw; padding-left: 2vw; text-align: left; display: table-cell; font-weight: 900;}
 #standingsU18 > div > table > tbody > tr > td:nth-of-type(n+5):nth-of-type(-n+7) {display: none;}
 #standingsU18 > div > table > tbody > tr > td:nth-of-type(n+9) {display: none;}
 #standingsU18 > div > table > tbody > tr > td > img {height: 24px;}
+#standingsU18 > div > p {font-size: 16px; font-weight: 600; margin-bottom: 20px;}
 
-#standingsU15 {margin-top: 20px;}
-#standingsU15 > div {width: 90vw; margin: 0 0 40px 5vw;}
-#standingsU15 > div > table {width: 90vw; vertical-align: middle;}
+#standingsU15 > div {width: 65vw; margin-bottom: 40px;}
+#standingsU15 > div > table {width: 65vw; vertical-align: middle;}
 #standingsU15 > div > table > thead > tr {height: 40px;}
 #standingsU15 > div > table > thead > tr > th {font-weight: 600; font-size: 12px;}
 #standingsU15 > div > table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+6) {display: none;}
 #standingsU15 > div > table > thead > tr > th:nth-of-type(n+8) {display: none;}
-#standingsU15 > div > table > tbody > tr > td {width: 10vw; font-size: 16px; height: 40px; font-weight: 600;}
-#standingsU15 > div > table > tbody > tr > td:nth-of-type(3) {width: 45vw; padding-left: 5vw; text-align: left; display: table-cell; font-weight: 900;}
+#standingsU15 > div > table > tbody > tr > td {width: 5vw; font-size: 16px; height: 40px; font-weight: 600;}
+#standingsU15 > div > table > tbody > tr > td:nth-of-type(3) {width: 18vw; padding-left: 2vw; text-align: left; display: table-cell; font-weight: 900;}
 #standingsU15 > div > table > tbody > tr > td:nth-of-type(n+5):nth-of-type(-n+7) {display: none;}
 #standingsU15 > div > table > tbody > tr > td:nth-of-type(n+9) {display: none;}
 #standingsU15 > div > table > tbody > tr > td > img {height: 24px;}
@@ -485,24 +466,23 @@ tr.sefc > td:nth-last-of-type(1) {border-radius: 0 20px 20px 0;}
 tr.sefc > td > p {background: #fafafa !important; color: #050505 !important;}
 
 /* 응원가 */
-#team {width: 80vw; margin: 120px 0 0 10vw;}
-#team > p {width: 80vw; text-align: left; font-size: 24px; margin-bottom: 20px;}
-#team > div {width: 80vw; font-size: 20px; font-weight: 600; text-align: left; vertical-align: bottom; padding: 14px 0; border-bottom: 1px solid #00006020;}
+#team {width: 30vw; margin-top: 40px;}
+#team > p {width: 30vw; text-align: left; font-size: 24px; margin-bottom: 20px;}
+#team > div {width: 30vw; font-size: 20px; font-weight: 600; text-align: left; vertical-align: bottom; padding: 14px 0; border-bottom: 1px solid #00006020;}
 #team > div:nth-of-type(1) {border-top: 1px solid #00006020;}
 #team > div > span {font-weight: 600; margin-left: 4px;}
 
-#players {width: 80vw; margin: 60px 0 0 10vw;}
-#players > p {width: 80vw; text-align: left; font-size: 24px; margin-bottom: 20px;}
-#players > div {width: 80vw; font-size: 20px; font-weight: 600; text-align: left; vertical-align: bottom; padding: 14px 0; border-bottom: 1px solid #00006020;}
+#players {width: 30vw; margin-top: 40px;}
+#players > p {width: 30vw; text-align: left; font-size: 24px; margin-bottom: 20px;}
+#players > div {width: 30vw; font-size: 20px; font-weight: 600; text-align: left; vertical-align: bottom; padding: 14px 0; border-bottom: 1px solid #00006020;}
 #players > div:nth-of-type(1) {border-top: 1px solid #00006020;}
-#players > div:nth-last-of-type(1) {margin-bottom: 40px;}
 #players > div > span {font-weight: 600; margin-left: 4px;}
 
-#chantsName {width: 80vw; margin: 120px 0 0 10vw; font-size: 40px;}
-#chantsVideo {width: 60vw; height: fit-content; margin: 40px 0 0 20vw;}
-#chantsVideo > iframe {width: 60vw; height: auto;}
+#chantsName {width: 65vw; margin-top: 40px; font-size: 40px;}
+#chantsVideo {width: 25vw; height: fit-content; margin: 40px 0 0 20vw;}
+#chantsVideo > iframe {width: 25vw; height: auto;}
 
-#chantsLyrics {width: 80vw; margin-left: 10vw;}
+#chantsLyrics {width: 65vw;}
 #chantsLyrics > p {font-size: 16px; font-weight: 300; padding: 4px 0;}
 #chantsLyrics > p:nth-of-type(1) {font-size: 12px; font-weight: 300; margin: 10px 0 40px 0;}
 #chantsLyrics > p > ruby > rb {font-size: 16px; font-weight: 300;}

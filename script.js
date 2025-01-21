@@ -202,12 +202,17 @@ $("div[id*='fixtures'] > div > a > div > table > tbody > tr:has(.ssb5) > td:nth-
 function matchInfo() {
     if ($(window).width() < 768) {
         $("#matchInfo").css("display", "block")
+        $("#matchLineup").css("display", "none")
+        $("#matchStat").css("display", "none")
+        $("#matchH2H").css("display", "none")
     } else {
         $("#matchInfo").css("display", "flex")
+        $("#matchLineup").css("display", "flex")
+        $("#matchStat").css("display", "flex")
+        $("#matchH2H").css("display", "flex")
+
+        matchH2H()
     }
-    $("#matchLineup").css("display", "none")
-    $("#matchStat").css("display", "none")
-    $("#matchH2H").css("display", "none")
     $(".matchDetail button:nth-child(1)").css("font-weight", 900)
     $(".matchDetail button:nth-child(2)").css("font-weight", 300)
     $(".matchDetail button:nth-child(3)").css("font-weight", 300)
@@ -216,14 +221,19 @@ function matchInfo() {
 }
 
 function matchLineup() {
-    $("#matchInfo").css("display", "none")
     if ($(window).width() < 768) {
+        $("#matchInfo").css("display", "none")
         $("#matchLineup").css("display", "block")
+        $("#matchStat").css("display", "none")
+        $("#matchH2H").css("display", "none")
     } else {
+        $("#matchInfo").css("display", "flex")
         $("#matchLineup").css("display", "flex")
+        $("#matchStat").css("display", "flex")
+        $("#matchH2H").css("display", "flex")
+
+        matchH2H()
     }
-    $("#matchStat").css("display", "none")
-    $("#matchH2H").css("display", "none")
     $(".matchDetail button:nth-child(1)").css("font-weight", 300)
     $(".matchDetail button:nth-child(2)").css("font-weight", 900)
     $(".matchDetail button:nth-child(3)").css("font-weight", 300)
@@ -232,14 +242,19 @@ function matchLineup() {
 }
 
 function matchStat() {
-    $("#matchInfo").css("display", "none")
-    $("#matchLineup").css("display", "none")
     if ($(window).width() < 768) {
+        $("#matchInfo").css("display", "none")
+        $("#matchLineup").css("display", "none")
         $("#matchStat").css("display", "block")
+        $("#matchH2H").css("display", "none")
     } else {
+        $("#matchInfo").css("display", "flex")
+        $("#matchLineup").css("display", "flex")
         $("#matchStat").css("display", "flex")
+        $("#matchH2H").css("display", "flex")
+
+        matchH2H()
     }
-    $("#matchH2H").css("display", "none")
     $(".matchDetail button:nth-child(1)").css("font-weight", 300)
     $(".matchDetail button:nth-child(2)").css("font-weight", 300)
     $(".matchDetail button:nth-child(3)").css("font-weight", 900)

@@ -216,7 +216,7 @@ $(document).ready(function () {
 
                     // POTM 여부
                     if (dataList["SUB"][i][1].replace(/[^p]/g, "") == "p") {
-                        $("#potm").html("<p>경기 최고의 선수</p><div><div><img src='./files/" + dataList["SUB"][i][0] + ".png'></div><p><span>" + playerNumber[year][dataList["SUB"][i][0]][1] + "</span>" + playerNumber[year][dataList["SUB"][i][0]][0].replace(/[A-Z,0-9]/g, "") + "</p><p class='potm'>" + dataList["SUB"][i][1].replace(/[a-z]/g, "") + "</p></div>")
+                        $("#potm").html("<p>경기 최고의 선수</p><div><p><span>" + playerNumber[year][dataList["SUB"][i][0]][1] + "</span>" + playerNumber[year][dataList["SUB"][i][0]][0].replace(/[A-Z,0-9]/g, "") + "</p><p class='potm'>" + dataList["SUB"][i][1].replace(/[a-z]/g, "") + "</p></div>")
                         href = dataList["SUB"][i][0]
                     }
 
@@ -292,35 +292,35 @@ $(document).ready(function () {
                     // 득점 여부
                     if (dataList[pos][i][1].replace(/[^g]/g, "").length !== 0) {
                         for (j = 0; j < dataList[pos][i][1].replace(/[^g]/g, "").length; j++) {
-                            $("#" + dataList[pos][i][0] + " > p:nth-of-type(1) > span:nth-of-type(2)").append("<img src='./files/goal.svg'>")
+                            $("#" + dataList[pos][i][0] + " > td:nth-of-type(2) > p:nth-of-type(1) > span").append("<img src='./files/goal.svg'>")
                         }
                     }
 
                     // 도움 여부
                     if (dataList[pos][i][1].replace(/[^a]/g, "").length !== 0) {
                         for (j = 0; j < dataList[pos][i][1].replace(/[^a]/g, "").length; j++) {
-                            $("#" + dataList[pos][i][0] + " > p:nth-of-type(1) > span:nth-of-type(2)").append("<img src='./files/assist.svg'>")
+                            $("#" + dataList[pos][i][0] + " > td:nth-of-type(2) > p:nth-of-type(1) > span").append("<img src='./files/assist.svg'>")
                         }
                     }
 
                     // 경고 여부
                     if (dataList[pos][i][1].replace(/[^y]/g, "").length !== 0) {
                         for (j = 0; j < dataList[pos][i][1].replace(/[^y]/g, "").length; j++) {
-                            $("#" + dataList[pos][i][0] + " > p:nth-of-type(1) > span:nth-of-type(2)").append("<img src='./files/yc.svg'>")
+                            $("#" + dataList[pos][i][0] + " > td:nth-of-type(2) > p:nth-of-type(1) > span").append("<img src='./files/yc.svg'>")
                         }
                     }
 
                     // 퇴장 여부
                     if (dataList[pos][i][1].replace(/[^r]/g, "").length !== 0) {
                         for (j = 0; j < dataList[pos][i][1].replace(/[^r]/g, "").length; j++) {
-                            $("#" + dataList[pos][i][0] + " > p:nth-of-type(1) > span:nth-of-type(2)").append("<img src='./files/rc.svg'>")
+                            $("#" + dataList[pos][i][0] + " > td:nth-of-type(2) > p:nth-of-type(1) > span").append("<img src='./files/rc.svg'>")
                         }
                     }
 
                     // 자책골 여부
                     if (dataList[pos][i][1].replace(/[^o]/g, "").length !== 0) {
                         for (j = 0; j < dataList[pos][i][1].replace(/[^o]/g, "").length; j++) {
-                            $("#" + dataList[pos][i][0] + " > p:nth-of-type(1) > span:nth-of-type(2)").append("<img src='./files/og.svg'>")
+                            $("#" + dataList[pos][i][0] + " > td:nth-of-type(2) > p:nth-of-type(1) > span").append("<img src='./files/og.svg'>")
                         }
                     }
                 }
@@ -453,6 +453,10 @@ $(document).ready(function () {
             $("#potm").remove()
         }
 
+        if (!$("#startingXI > table > tbody > tr:nth-of-type(1) > td").length && !$("#startingXI > div > table > tbody > tr:nth-of-type(1) > td").length) {
+            $("#matchLineup").remove()
+        }
+
         // 경기 기록
         if ((id.substring(8, 9) == 8 || id.substring(8, 9) == 5)) {
             $("button[onclick='matchStat()']").css("display", "none")
@@ -499,8 +503,8 @@ $(document).ready(function () {
                 $("#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(1)").css({ "width": 0.7 * dataList["matchStat"][0] - 2 + "vw", "color": homeColor, "background": homeBg, "padding-left": "2vw" })
                 $("#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(2)").css({ "width": 0.7 * dataList["matchStat"][1] - 2 + "vw", "color": awayColor, "background": awayBg, "padding-right": "2vw" })
             } else {
-                $("#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(1)").css({ "width": 2.8 * dataList["matchStat"][0] - 10, "color": homeColor, "background": homeBg, "padding-left": "10px" })
-                $("#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(2)").css({ "width": 2.8 * dataList["matchStat"][1] - 10, "color": awayColor, "background": awayBg, "padding-right": "10px" })
+                $("#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(1)").css({ "width": 2 * dataList["matchStat"][0] - 10 + "vw", "color": homeColor, "background": homeBg, "padding-left": "10px" })
+                $("#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(2)").css({ "width": 2 * dataList["matchStat"][1] - 10 + "vw", "color": awayColor, "background": awayBg, "padding-right": "10px" })
             }
 
             for (i = 2; i <= 10; i++) {
@@ -520,6 +524,10 @@ $(document).ready(function () {
             }
         } else {
             $("button[onclick='matchStat()']").css("display", "none")
+        }
+
+        if ($("#matchStat > table > tbody > tr:nth-of-type(2) > td:nth-of-type(1) > p").text() == "") {
+            $("#matchStat").remove()
         }
 
         if (localStorage.getItem(id) == "matchInfo") {
@@ -1272,10 +1280,6 @@ $(document).ready(function () {
             } else if ($("#playedSEFCU18").length) {
                 $("#playedSEFCU15").css("margin-left", "0")
             }
-    
-            if ($("[id*='playedSEFC']:visible").length % 2 == 0) {
-                $("#statsBySeason").css("margin-left", "2.5vw")
-            }
         }
 
         // 평점 NaN으로 뜨는 문제 수정
@@ -1306,10 +1310,12 @@ $(document).ready(function () {
     $(".standingsSeason > p:nth-of-type(2)").click(function () {
 
         if ($(".standingsSeason > p:nth-of-type(2)").text() == "순위 자세히") {
-            $("table > thead > tr > th:nth-of-type(2)").attr("colspan", "1")
+            if ($(window).width() < 768) {
+                $("table > thead > tr > th:nth-of-type(2)").attr("colspan", "1")
+                $("table > tbody > tr > td:nth-of-type(3)").css("display", "none")
+            }
             $("table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+6)").css("display", "table-cell")
             $("table > thead > tr > th:nth-of-type(n+8)").css("display", "table-cell")
-            $("table > tbody > tr > td:nth-of-type(3)").css("display", "none")
             $("table > tbody > tr > td:nth-of-type(n+5):nth-of-type(-n+7)").css("display", "table-cell")
             $("table > tbody > tr > td:nth-of-type(n+9)").css("display", "table-cell")
 
@@ -1331,6 +1337,10 @@ $(document).ready(function () {
 
         }
     })
+
+    if ($(window).width() >= 768) {
+        $(".standingsSeason > p:nth-of-type(2)").trigger("click").css("display", "none")
+    }
 
     // 달력 컨트롤
     $(".standingsSeason > p:nth-of-type(1)").click(function () {
@@ -1937,10 +1947,12 @@ function standings() {
         $("tr.sefc > td:nth-of-type(8)").css("border-radius", "0 20px 20px 0")
 
     } else {
-        $("table > thead > tr > th:nth-of-type(2)").attr("colspan", "1")
+        if ($(window).width() < 768) {
+            $("table > thead > tr > th:nth-of-type(2)").attr("colspan", "1")
+            $("table > tbody > tr > td:nth-of-type(3)").css("display", "none")
+        }
         $("table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+6)").css("display", "table-cell")
         $("table > thead > tr > th:nth-of-type(n+8)").css("display", "table-cell")
-        $("table > tbody > tr > td:nth-of-type(3)").css("display", "none")
         $("table > tbody > tr > td:nth-of-type(n+5):nth-of-type(-n+7)").css("display", "table-cell")
         $("table > tbody > tr > td:nth-of-type(n+9)").css("display", "table-cell")
 
@@ -2254,10 +2266,17 @@ function matchH2H() {
 
     localStorage.setItem(id, "matchH2H")
 
-    document.getElementById("matchInfo").style.display = "none"
-    document.getElementById("matchLineup").style.display = "none"
-    document.getElementById("matchStat").style.display = "none"
-    document.getElementById("matchH2H").style.display = "flex"
+    if ($(window).width() < 768) {
+        $("#matchInfo").css("display", "none")
+        $("#matchLineup").css("display", "none")
+        $("#matchStat").css("display", "none")
+        $("#matchH2H").css("display", "flex")
+    } else {
+        $("#matchInfo").css("display", "flex")
+        $("#matchLineup").css("display", "flex")
+        $("#matchStat").css("display", "flex")
+        $("#matchH2H").css("display", "flex")
+    }
     $(".matchDetail button:nth-child(1)").css("font-weight", 300)
     $(".matchDetail button:nth-child(2)").css("font-weight", 300)
     $(".matchDetail button:nth-child(3)").css("font-weight", 300)
@@ -2387,24 +2406,22 @@ function matchH2H() {
             $("#h2hGoalsText > div:nth-of-type(1) > div > p:nth-of-type(2)").css({ "height": "4vw", "font-weight": "600", "text-align": "left", "padding": "0 8vw 0 2vw", "display": "flex", "align-items": "center" })
             $("#h2hGoalsText > div:nth-of-type(2) > div > p:nth-of-type(2)").css({ "height": "4vw", "font-weight": "600", "text-align": "left", "padding": "0 8vw 0 2vw", "display": "flex", "align-items": "center" })
         } else {
-            $("#h2hBar > p").css({ "width": "320px", "height": "8px", "background-image": h2hGradient })
+            $("#h2hBar > p").css({ "width": "30vw", "height": "8px", "background-image": h2hGradient })
 
-            $("#h2hText").css({ "display": "flex", "justify-content": "flex-start", "margin-top": "20px" })
+            $("#h2hText").css({ "width": "30vw", "display": "flex", "justify-content": "space-between", "margin-top": "20px" })
             $("#h2hText > div").css({ "display": "flex" })
-            $("#h2hText > div:nth-of-type(1)").css("margin-left", "40px")
-            $("#h2hText > div > div > p:nth-of-type(1)").css({ "height": "16px", "font-weight": "600", "padding": "4px 0 0 8px", "text-align": "left", "display": "flex", "align-items": "center" })
-            $("#h2hText > div:nth-of-type(1) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "600", "text-align": "left", "padding": "0 32px 0 8px", "display": "flex", "align-items": "center" })
-            $("#h2hText > div:nth-of-type(2) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "600", "text-align": "left", "padding": "0 32px 0 8px", "display": "flex", "align-items": "center" })
-            $("#h2hText > div:nth-of-type(3) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "600", "text-align": "left", "padding": "0 32px 0 8px", "display": "flex", "align-items": "center" })
+            $("#h2hText > div > div > p:nth-of-type(1)").css({ "width": "calc(6vw - 8px)", "height": "16px", "font-weight": "600", "padding": "4px 0 0 8px", "text-align": "left", "display": "flex", "align-items": "center" })
+            $("#h2hText > div:nth-of-type(1) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "600", "text-align": "left", "padding-left": "8px", "display": "flex", "align-items": "center" })
+            $("#h2hText > div:nth-of-type(2) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "600", "text-align": "left", "padding-left": "8px", "display": "flex", "align-items": "center" })
+            $("#h2hText > div:nth-of-type(3) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "600", "text-align": "left", "padding-left": "8px", "display": "flex", "align-items": "center" })
 
-            $("#h2hGoalsBar > p").css({ "width": "320px", "height": "8px", "background-image": goalGradient })
+            $("#h2hGoalsBar > p").css({ "width": "30vw", "height": "8px", "background-image": goalGradient })
 
-            $("#h2hGoalsText").css({ "display": "flex", "justify-content": "flex-start", "margin-top": "20px" })
-            $("#h2hGoalsText > div").css({ "display": "flex" })
-            $("#h2hGoalsText > div:nth-of-type(1)").css("margin-left", "40px")
+            $("#h2hGoalsText").css({"width": "30vw", "display": "flex", "justify-content": "space-between", "margin-top": "20px" })
+            $("#h2hGoalsText > div").css({ "display": "flex", "padding": "0 2vw" })
             $("#h2hGoalsText > div > div > p:nth-of-type(1)").css({ "height": "16px", "font-weight": "600", "padding": "4px 0 0 8px", "text-align": "left", "display": "flex", "align-items": "center" })
-            $("#h2hGoalsText > div:nth-of-type(1) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "600", "text-align": "left", "padding": "0 32px 0 8px", "display": "flex", "align-items": "center" })
-            $("#h2hGoalsText > div:nth-of-type(2) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "600", "text-align": "left", "padding": "0 32px 0 8px", "display": "flex", "align-items": "center" })
+            $("#h2hGoalsText > div:nth-of-type(1) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "600", "text-align": "left", "padding-left": "8px", "display": "flex", "align-items": "center" })
+            $("#h2hGoalsText > div:nth-of-type(2) > div > p:nth-of-type(2)").css({ "height": "16px", "font-weight": "600", "text-align": "left", "padding-left": "8px", "display": "flex", "align-items": "center" })
         }
 
         // 최근 맞대결 결과
@@ -2582,6 +2599,10 @@ function matchH2H() {
                 })
             }
         })
+
+        if (id.substring(8, 9) !== "0" && $("#startingXI > div > table > tbody > tr:nth-of-type(1) > td").length !== 0) {
+            $("#recentMatch").css({"position": "static", "margin-top": "40px"})
+        }
 
     } else {
         if (!$("#matchH2H > p").length) {
