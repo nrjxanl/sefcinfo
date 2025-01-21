@@ -1709,6 +1709,10 @@ function fixtures() {
 
         $("#fixtures" + status_ + " > .fixtures > p").css({ "font-size": "16px", "margin-top": "calc(27px + 5vw)", "font-weight": "300" })
     }
+
+    // 유스 경기 숨기기
+    $("#fixturesU18").empty().append("<p style='font-size: 16px; margin-top: calc(27px + 5vw); font-weight: 300;'>준비 중입니다.</p>")
+    $("#fixturesU15").empty().append("<p style='font-size: 16px; margin-top: calc(27px + 5vw); font-weight: 300;'>준비 중입니다.</p>")
 }
 
 // 순위
@@ -2147,7 +2151,7 @@ function stats() {
     }
 
     // 표에 데이터 삽입
-    if ($("#stats").length) {
+    if ($("#stats").length && status_ == "A") { // 삭제
 
         player = status_ == "A" ? playerA_ :
             status_ == "U18" ? playerU18_ :
@@ -2262,6 +2266,14 @@ function stats() {
                 }
             }
         })
+    }
+
+    // 유스 기록 숨기기
+    $(".stats > p").remove()
+
+    if (status_ !== "A") {
+        $(".stats > table > tbody").empty()
+        $(".stats").append("<p style='font-size: 16px; margin-top: calc(27px + 5vw); font-weight: 300;'>준비 중입니다.</p>")
     }
 }
 
