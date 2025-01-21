@@ -23,8 +23,9 @@ footer > p {width: 100vw; font-size: 14px; font-weight: 600;}
 footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 10px; filter: brightness(0) saturate(100%) invert(0%) sepia(90%) saturate(7460%) hue-rotate(63deg) brightness(96%) contrast(93%);}
 
 /* 스켈레톤 */
-/* #skeleton {position: absolute; z-index: 999;}
-#skeleton > div {background: linear-gradient(75deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 2s infinite; border-radius: 20px;}
+#skeletonMobile {display: none;}
+#skeletonPC {position: absolute; z-index: 2000;}
+#skeletonPC > div {background: linear-gradient(75deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 2s infinite; border-radius: 20px;}
 
 @keyframes shimmer {
     0% {
@@ -33,7 +34,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
     100% {
         background-position: 200% 0;
     }
-} */
+}
 
 /* 메뉴 */
 #menu {width: 30vw; height: 200vh; position: fixed; top: 0; left: 0; background: none; z-index: 99;}

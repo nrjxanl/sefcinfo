@@ -31,18 +31,23 @@ $(window).resize(function() {
 })
 
 // 스켈레톤 애니메이션
-// $(document).ready(function () {
-//     setTimeout (function () {
-//         $("#skeleton").css("display", "none")
-//         $("#actualContents").css("display", "block")
-//     }, 300)
-// })
-$("#skeleton").css("display", "none")
-if ($(window).width() < 768) {
-    $("#actualContents").css("display", "block")
-} else {
-    $("#actualContents").css("display", "flex")
-}
+$(document).ready(function () {
+    if ($(window).width() < 768) {
+        setTimeout (function () {
+            $("#skeletonMobile").css("display", "none")
+            if ($("#standingsA").length) {
+                $("#actualContents").css("flex-direction", "column")
+            } else {
+                $("#actualContents").css("display", "flex")
+            }
+        }, 300)
+    } else {
+        setTimeout (function () {
+            $("#skeletonPC").css("display", "none")
+            $("#actualContents").css("display", "flex")
+        }, 300)
+    }
+})
 
 // 푸터
 if (localStorage.getItem("footer") == null) {
