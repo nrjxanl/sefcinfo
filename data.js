@@ -65,6 +65,8 @@ $(document).ready(function () {
 
         $("#matchScore > div:nth-of-type(1)").html("<img src='./files/" + dataList["comp"][1] + "_s.png'><p>" + dataList["comp"][0] + " " + dataList["round"] + "</p>")
 
+        $("title").text("SEFCiNFO - " + dataList["home"][0] + " vs " + dataList["away"][0] + " (" + id.substring(0, 4) + "." + id.substring(4, 6) + "." + id.substring(6, 8) + ".)")
+
         $("#matchScore > div:nth-of-type(2) > div:nth-of-type(1) > p").text(dataList["home"][0])
         $("#matchScore > div:nth-of-type(2) > div:nth-of-type(3) > p").text(dataList["away"][0])
         $("#matchScore > div:nth-of-type(2) > div:nth-of-type(1) > div > img").attr("src", "./files/" + dataList["home"][1] + "_s.png")
@@ -412,7 +414,7 @@ $(document).ready(function () {
                     width = 70 / $(this).find("td").length + "vw"
                     $(this).find("td").css("width", width)
                 } else {
-                    width = 280 / $(this).find("td").length + "px"
+                    width = 30 / $(this).find("td").length + "vw"
                     $(this).find("td").css("width", width)
                 }
             })
@@ -1236,6 +1238,8 @@ $(document).ready(function () {
         if (playerNum == "--") {
             $("#playerProfile > div:nth-of-type(2) > p > span").css("display", "none")
         }
+
+        $("title").text("SEFCiNFO - " + playerName.replace(/[0-9]/g, "") + " (" + player[id]["bd"].substr(0, 4) + "." + player[id]["bd"].substr(4, 2) + "." + player[id]["bd"].substr(6, 2) + ".)")
 
         $("#playerInfo > div:nth-of-type(3) > p:nth-of-type(1)").text(player[id]["bd"].substr(2, 2) + "." + player[id]["bd"].substr(4, 2) + "." + player[id]["bd"].substr(6, 2) + ".")
         $("#playerInfo > div:nth-of-type(1) > p:nth-of-type(2)").text(natl)

@@ -35,11 +35,10 @@ $(document).ready(function () {
     if ($(window).width() < 768) {
         setTimeout (function () {
             $("#skeletonMobile").css("display", "none")
-            if ($("#standingsA").length) {
+            if ($("#standingsA").length || $("#chantsName").length) {
                 $("#actualContents").css("flex-direction", "column")
-            } else {
-                $("#actualContents").css("display", "flex")
             }
+            $("#actualContents").css("display", "flex")
         }, 300)
     } else {
         setTimeout (function () {
