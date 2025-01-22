@@ -9,6 +9,9 @@ $(document).ready(function() {
         $("body").append("<div style='width: 80vw; height: 65px; padding: 0 10vw; background: #fafafa; position: fixed; bottom: 0; left: 0; font-size: 14px; font-weight: 300; z-index: 300; display: flex; align-items: center; justify-content: center;'>기기의 화면 크기가 작아 페이지가 정상적으로 보이지 않을 수 있습니다.</div>")
     }
 
+    // 새로고침 시 맨 위로 이동
+    history.scrollRestoration = "manual"
+
     // A팀 선수단 불러오기
     if ($(".playerButton").length) {
         playerA()
