@@ -246,9 +246,11 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 .statsButton > button:hover {color: #000060; border-bottom: 4px solid #000060;}
 
 .statsSeason {width: 80vw; padding-left: 10vw; margin-top: 160px; display: flex; align-items: baseline;}
-.statsSeason > p:nth-of-type(1) {width: 20vw; font-size: 32px; padding-right: 20px; text-align: left;}
-.statsSeason > p:nth-of-type(n+2):nth-of-type(-n+3) {width: 10vw; font-size: 16px;}
-.statsSeason > p:nth-of-type(n+4) {font-size: 14px; font-weight: 600; margin-left: 10px; padding: 3px 10px; border-radius: 10px; border: 1px solid #050505;}
+.statsSeason > select {width: fit-content; font-size: 32px; margin-right: 20px; padding: 0; text-align: left; cursor: pointer; border: none; -webkit-appearance: none; -moz-appearance: none; appearance: none; background: url(../) no-repeat;}
+.statsSeason > select:focus {outline: 0;}
+.statsSeason > select:disabled {opacity: 1;}
+.statsSeason > p:nth-of-type(n+1):nth-of-type(-n+2) {width: 10vw; font-size: 16px;}
+.statsSeason > p:nth-of-type(n+3) {font-size: 14px; font-weight: 600; margin-left: 10px; padding: 3px 10px; border-radius: 10px; border: 1px solid #050505;}
 
 #stats > .stats > table {width: 90vw; margin: 20px 0 0 5vw;}
 #stats > .stats > table > thead > tr > th {height: 40px; font-weight: 600;}
@@ -264,11 +266,13 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 .fixturesButton > button:hover {color: #000060; border-bottom: 4px solid #000060;}
 
 .fixturesSeason {width: 80vw; padding: 0 10vw; margin-top: 160px; display: flex; align-items: baseline;}
-.fixturesSeason > p:nth-of-type(1) {width: 20vw; font-size: 32px; padding-right: 20px; text-align: left;}
-.fixturesSeason > p:nth-of-type(1) > span {font-size: 16px; margin-left: 8px; font-weight: 600;}
+.fixturesSeason > select {width: fit-content; font-size: 32px; padding: 0; text-align: left; cursor: pointer; border: none; -webkit-appearance: none; -moz-appearance: none; appearance: none; background: url(../) no-repeat;}
+.fixturesSeason > select:focus {outline: 0;}
+.fixturesSeason > select:disabled {opacity: 1;}
+.fixturesSeason > p:nth-of-type(1) {width: 10vw; font-size: 16px;}
 .fixturesSeason > p:nth-of-type(2) {width: 10vw; font-size: 16px;}
-.fixturesSeason > p:nth-of-type(3) {width: 10vw; font-size: 16px;}
-.fixturesSeason > p:nth-of-type(4) {font-size: 14px; font-weight: 600; margin-left: 10px; padding: 3px 10px; border-radius: 10px; border: 1px solid #050505;}
+.fixturesSeason > p:nth-of-type(3) {font-size: 14px; font-weight: 600; margin-left: 10px; padding: 3px 10px; border-radius: 10px; border: 1px solid #050505;}
+.fixturesSeason > span {font-size: 20px; margin: 0 16px 0 12px; font-weight: 600;}
 
 .fixtures {width: 90vw; margin-left: 5vw;}
 
@@ -430,10 +434,12 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 .standingsButton > button:hover {color: #000060; border-bottom: 4px solid #000060;}
 
 .standingsSeason {width: 80vw; padding: 0 10vw; margin-top: 160px; display: flex; align-items: baseline;}
-.standingsSeason > p:nth-of-type(1) {width: 20vw; font-size: 32px; padding-right: 20px; text-align: left;}
-.standingsSeason > p:nth-of-type(2) {width: 20vw; font-size: 16px; font-weight: 600;}
-.standingsSeason > p:nth-of-type(n+3):nth-of-type(-n+4) {width: 10vw; font-size: 16px;}
-.standingsSeason > p:nth-of-type(5) {font-size: 14px; font-weight: 600; margin-left: 10px; padding: 3px 10px; border-radius: 10px; border: 1px solid #050505;}
+.standingsSeason > select {width: fit-content; font-size: 32px; margin-right: 20px; padding: 0; text-align: left; cursor: pointer; border: none; -webkit-appearance: none; -moz-appearance: none; appearance: none; background: url(../) no-repeat;}
+.standingsSeason > select:focus {outline: 0;}
+.standingsSeason > select:disabled {opacity: 1;}
+.standingsSeason > p:nth-of-type(1) {width: 20vw; font-size: 16px; font-weight: 600;}
+.standingsSeason > p:nth-of-type(n+2):nth-of-type(-n+3) {width: 10vw; font-size: 16px;}
+.standingsSeason > p:nth-of-type(4) {font-size: 14px; font-weight: 600; margin-left: 10px; padding: 3px 10px; border-radius: 10px; border: 1px solid #050505;}
 
 #standingsA {margin-top: 20px;}
 #standingsA > div {width: 90vw; margin: 0 0 40px 5vw;}

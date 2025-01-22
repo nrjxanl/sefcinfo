@@ -615,23 +615,23 @@ $(document).ready(function () {
         year = new Date().getFullYear()
         status_ = "A"
 
-        $(".statsSeason").html("<p></p><p>◀</p><p>▶</p><p>오늘</p><p></p>")
+        $(".statsSeason").html("<select></select><p>◀</p><p>▶</p><p>오늘</p><p></p>")
 
         if (window.location.href.split("?")[1] == undefined) {
             window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "?" + status_)
-            $(".statsSeason > p:nth-of-type(5)").text("통산")
+            $(".statsSeason > p:nth-of-type(4)").text("통산")
         } else {
             if ($.isNumeric(window.location.href.split("?")[1]) == true) {
-                $(".statsSeason > p:nth-of-type(5)").text("통산")
-                $(".statsSeason > p:nth-of-type(n+2):nth-of-type(-n+3)").css("display", "block")
-                $(".statsSeason > p:nth-of-type(4)").css("margin-left", "10px")
+                $(".statsSeason > p:nth-of-type(4)").text("통산")
+                $(".statsSeason > p:nth-of-type(n+1):nth-of-type(-n+2)").css("display", "block")
+                $(".statsSeason > p:nth-of-type(3)").css("margin-left", "10px")
             } else {
-                $(".statsSeason > p:nth-of-type(5)").text("연도별")
-                $(".statsSeason > p:nth-of-type(n+2):nth-of-type(-n+3)").css("display", "none")
+                $(".statsSeason > p:nth-of-type(4)").text("연도별")
+                $(".statsSeason > p:nth-of-type(n+1):nth-of-type(-n+2)").css("display", "none")
                 if ($(window).width() < 768) {
-                    $(".statsSeason > p:nth-of-type(4)").css("margin-left", "calc(20vw + 10px)")
+                    $(".statsSeason > p:nth-of-type(3)").css("margin-left", "calc(20vw + 10px)")
                 } else {
-                    $(".statsSeason > p:nth-of-type(4)").css("margin-left", "calc(6vw + 10px)")
+                    $(".statsSeason > p:nth-of-type(3)").css("margin-left", "calc(6vw + 10px)")
                 }
             }
         }
@@ -640,11 +640,13 @@ $(document).ready(function () {
     }
 
     // 달력 컨트롤
-    $(".statsSeason > p:nth-of-type(1)").click(function () {
-        // 연도 선택 기능 만들어야 됨
+    $(".statsSeason > select").on("change", function () {
+        year = $(this).val()
+        window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "?" + status_)
+        stats()
     })
 
-    $(".statsSeason > p:nth-of-type(2)").click(function () {
+    $(".statsSeason > p:nth-of-type(1)").click(function () {
         if ((status_ == "A" && year > 2015) || (status_ !== "A" && year > 2016)) {
             year --
             window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "?" + status_)
@@ -652,7 +654,7 @@ $(document).ready(function () {
         }
     })
 
-    $(".statsSeason > p:nth-of-type(3)").click(function () {
+    $(".statsSeason > p:nth-of-type(2)").click(function () {
         if (year < new Date().getFullYear()) {
             year ++
             window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "?" + status_)
@@ -660,32 +662,32 @@ $(document).ready(function () {
         }
     })
 
-    $(".statsSeason > p:nth-of-type(4)").click(function () {
+    $(".statsSeason > p:nth-of-type(3)").click(function () {
         $(".statsSeason > p").css("display", "block")
-        $(".statsSeason > p:nth-of-type(5)").text("통산")
-        $(".statsSeason > p:nth-of-type(n+2):nth-of-type(-n+3)").css("display", "block")
-        $(".statsSeason > p:nth-of-type(4)").css("margin-left", "10px")
+        $(".statsSeason > p:nth-of-type(4)").text("통산")
+        $(".statsSeason > p:nth-of-type(n+1):nth-of-type(-n+2)").css("display", "block")
+        $(".statsSeason > p:nth-of-type(3)").css("margin-left", "10px")
         year = new Date().getFullYear()
         window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "?" + status_)
         stats()
     })
 
-    $(".statsSeason > p:nth-of-type(5)").click(function () {
+    $(".statsSeason > p:nth-of-type(4)").click(function () {
 
         if ($.isNumeric(year) == true) {
             year = "allTime"
-            $(".statsSeason > p:nth-of-type(5)").text("연도별")
-            $(".statsSeason > p:nth-of-type(n+2):nth-of-type(-n+3)").css("display", "none")
+            $(".statsSeason > p:nth-of-type(4)").text("연도별")
+            $(".statsSeason > p:nth-of-type(n+1):nth-of-type(-n+2)").css("display", "none")
             if ($(window).width() < 768) {
-                $(".statsSeason > p:nth-of-type(4)").css("margin-left", "calc(20vw + 10px)")
+                $(".statsSeason > p:nth-of-type(3)").css("margin-left", "calc(20vw + 10px)")
             } else {
-                $(".statsSeason > p:nth-of-type(4)").css("margin-left", "calc(6vw + 10px)")
+                $(".statsSeason > p:nth-of-type(3)").css("margin-left", "calc(6vw + 10px)")
             }
         } else {
             year = new Date().getFullYear()
-            $(".statsSeason > p:nth-of-type(5)").text("통산")
-            $(".statsSeason > p:nth-of-type(n+2):nth-of-type(-n+3)").css("display", "block")
-            $(".statsSeason > p:nth-of-type(4)").css("margin-left", "10px")
+            $(".statsSeason > p:nth-of-type(4)").text("통산")
+            $(".statsSeason > p:nth-of-type(n+1):nth-of-type(-n+2)").css("display", "block")
+            $(".statsSeason > p:nth-of-type(3)").css("margin-left", "10px")
         }
         window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "?" + status_)
         stats()
@@ -708,7 +710,16 @@ $(document).ready(function () {
         month = ("0" + (new Date().getMonth() + 1)).slice(-2)
         status_ = "A"
 
-        $(".fixturesSeason").html("<p><span></span></p><p>◀</p><p>▶</p><p>오늘</p>")
+        $(".fixturesSeason").html("<select></select><span></span><p>◀</p><p>▶</p><p>오늘</p>")
+
+        $(".fixturesSeason > select").empty().prop("disabled", false)
+        for (i = new Date().getFullYear(); i >= 2015; i--) {
+            $(".fixturesSeason > select").append("<option value='" + i + "'>" + i + "</option>")
+        }
+        $("option[value='" + year + "']").prop("selected", true)
+        if (status_ !== "A") {
+            $("option[value='2015']").remove()
+        }
 
         if (window.location.href.split("?")[1] == undefined) {
             window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "" + month + "?" + status_)
@@ -718,11 +729,13 @@ $(document).ready(function () {
     }
 
     // 달력 컨트롤
-    $(".fixturesSeason > p:nth-of-type(1)").click(function () {
-        // 연월 선택 기능 만들어야 됨
+    $(".fixturesSeason > select").on("change", function () {
+        year = $(this).val()
+        window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "" + month + "?" + status_)
+        fixtures()
     })
 
-    $(".fixturesSeason > p:nth-of-type(2)").click(function () {
+    $(".fixturesSeason > p:nth-of-type(1)").click(function () {
         if (status_ == "A") {
             if (!(year == 2015 && month == "01")) {
                 if (month == "01") {
@@ -748,7 +761,7 @@ $(document).ready(function () {
         fixtures()
     })
 
-    $(".fixturesSeason > p:nth-of-type(3)").click(function () {
+    $(".fixturesSeason > p:nth-of-type(2)").click(function () {
         if (!(year == new Date().getFullYear() && month == "12")) {
             if (month == "12") {
                 year ++
@@ -763,7 +776,7 @@ $(document).ready(function () {
         fixtures()
     })
 
-    $(".fixturesSeason > p:nth-of-type(4)").click(function () {
+    $(".fixturesSeason > p:nth-of-type(3)").click(function () {
         year = new Date().getFullYear()
         month = ("0" + (1 + new Date().getMonth())).slice(-2)
 
@@ -1301,8 +1314,17 @@ $(document).ready(function () {
         year = new Date().getFullYear()
         status_ = "A"
 
-        $(".standingsSeason").html("<p></p><p>순위 자세히</p><p>◀</p><p>▶</p><p>오늘</p>")
-        
+        $(".standingsSeason").html("<select></select><p>순위 자세히</p><p>◀</p><p>▶</p><p>오늘</p>")
+
+        $(".standingsSeason > select").empty().prop("disabled", false)
+        for (i = new Date().getFullYear(); i >= 2015; i--) {
+            $(".standingsSeason > select").append("<option value='" + i + "'>" + i + "</option>")
+        }
+        $("option[value='" + year + "']").prop("selected", true)
+        if (status_ !== "A") {
+            $("option[value='2015']").remove()
+        }
+
         if (window.location.href.split("?")[1] == undefined) {
             window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "?" + status_)
         }
@@ -1311,9 +1333,9 @@ $(document).ready(function () {
     }
 
     // 순위 자세히/간략히
-    $(".standingsSeason > p:nth-of-type(2)").click(function () {
+    $(".standingsSeason > p:nth-of-type(1)").click(function () {
 
-        if ($(".standingsSeason > p:nth-of-type(2)").text() == "순위 자세히") {
+        if ($(".standingsSeason > p:nth-of-type(1)").text() == "순위 자세히") {
             if ($(window).width() < 768) {
                 $("table > thead > tr > th:nth-of-type(2)").attr("colspan", "1")
                 $("table > tbody > tr > td:nth-of-type(3)").css("display", "none")
@@ -1325,7 +1347,7 @@ $(document).ready(function () {
 
             $("tr.sefc > td:nth-of-type(8)").css("border-radius", "0")
 
-            $(".standingsSeason > p:nth-of-type(2)").text("순위 간략히")
+            $(".standingsSeason > p:nth-of-type(1)").text("순위 간략히")
 
         } else {
             $("table > thead > tr > th:nth-of-type(2)").attr("colspan", "2")
@@ -1337,21 +1359,23 @@ $(document).ready(function () {
 
             $("tr.sefc > td:nth-of-type(8)").css("border-radius", "0 20px 20px 0")
 
-            $(".standingsSeason > p:nth-of-type(2)").text("순위 자세히")
+            $(".standingsSeason > p:nth-of-type(1)").text("순위 자세히")
 
         }
     })
 
     if ($(window).width() >= 768) {
-        $(".standingsSeason > p:nth-of-type(2)").trigger("click").css("display", "none")
+        $(".standingsSeason > p:nth-of-type(1)").trigger("click").css("display", "none")
     }
 
     // 달력 컨트롤
-    $(".standingsSeason > p:nth-of-type(1)").click(function () {
-        // 연도 선택 기능 만들어야 됨
+    $(".standingsSeason > select").on("change", function () {
+        year = $(this).val()
+        window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "?" + status_)
+        standings()
     })
 
-    $(".standingsSeason > p:nth-of-type(3)").click(function () {
+    $(".standingsSeason > p:nth-of-type(2)").click(function () {
         if ((status_ == "A" && year > 2015) || (status_ !== "A" && year > 2016)) {
             year --
             window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "?" + status_)
@@ -1359,7 +1383,7 @@ $(document).ready(function () {
         }
     })
 
-    $(".standingsSeason > p:nth-of-type(4)").click(function () {
+    $(".standingsSeason > p:nth-of-type(3)").click(function () {
         if (year < new Date().getFullYear()) {
             year ++
             window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "?" + status_)
@@ -1367,7 +1391,7 @@ $(document).ready(function () {
         }
     })
 
-    $(".standingsSeason > p:nth-of-type(5)").click(function () {
+    $(".standingsSeason > p:nth-of-type(4)").click(function () {
         year = new Date().getFullYear()
         window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "?" + status_)
         standings()
@@ -1643,14 +1667,13 @@ function fixtures() {
         $(".fixturesButton > button:nth-of-type(3)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
     }
 
-    $(".fixturesSeason > p:nth-of-type(1)").text(year)
-
     $("#fixturesA > .fixtures").empty()
     $("#fixturesU18 > .fixtures").empty()
     $("#fixturesU15 > .fixtures").empty()
     $("#calendar > table > tbody").empty()
 
-    $(".fixturesSeason > p:nth-of-type(1)").html(month + "<span>" + year + "</span>")
+    $("option[value='" + year + "']").prop("selected", true)
+    $(".fixturesSeason > span").text(month)
     $("#calendar > table > tbody").append("<tr><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td></tr><tr><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td></tr><tr><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td></tr><tr><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td></tr><tr><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td></tr><tr><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td></tr>")
 
     data = status_ == "A" ? dataA :
@@ -1719,7 +1742,7 @@ function fixtures() {
 function standings() {
     year = window.location.href.split("?")[1]
     status_ = window.location.href.split("?")[2]
-    $(".standingsSeason > p:nth-of-type(1)").text(year)
+    $("option[value='" + year + "']").prop("selected", true)
 
     if (status_ == "A") {
         $("#standingsA").css("display", "block")
@@ -1944,7 +1967,7 @@ function standings() {
     }
 
     // 순위 펼치기 / 접기
-    if ($(".standingsSeason > p:nth-of-type(2)").text() == "순위 자세히") {
+    if ($(".standingsSeason > p:nth-of-type(1)").text() == "순위 자세히") {
         $("table > thead > tr > th:nth-of-type(2)").attr("colspan", "2")
         $("table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+6)").css("display", "none")
         $("table > thead > tr > th:nth-of-type(n+8)").css("display", "none")
@@ -1984,9 +2007,16 @@ function stats() {
         year = window.location.href.split("?")[1]
         status_ = window.location.href.split("?")[2]
         if ($.isNumeric(year) == true) {
-            $(".statsSeason > p:nth-of-type(1)").text(year)
+            $(".statsSeason > select").empty().prop("disabled", false)
+            for (i = new Date().getFullYear(); i >= 2015; i--) {
+                $(".statsSeason > select").append("<option value='" + i + "'>" + i + "</option>")
+            }
+            $("option[value='" + year + "']").prop("selected", true)
+            if (status_ !== "A") {
+                $("option[value='2015']").remove()
+            }
         } else {
-            $(".statsSeason > p:nth-of-type(1)").text("통산")
+            $(".statsSeason > select").empty().append("<option selected>통산</option>").prop("disabled", true)
         }
     }
 
