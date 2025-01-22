@@ -54,7 +54,7 @@ $("footer > img").click(function () {
 })
 
 // 메뉴
-$("body").append("<div id='menu'><div><span></span><img src='https://sefc.info/files/home.svg'>홈</div><div><span></span><img src='https://sefc.info/files/fixtures.svg'>일정</div><div><span></span><img src='https://sefc.info/files/players.svg'>선수단</div><div><span></span><img src='https://sefc.info/files/stats.svg'>기록</div><div><span></span><img src='https://sefc.info/files/standings.svg'>순위</div><div><span></span><img src='https://sefc.info/files/chants.svg'>응원가</div></div><div id='menuBg'></div>")
+$("body").append("<div id='menu'><div><span></span><img src='https://sefc.info/files/home.svg'>홈</div><div><span></span><img src='https://sefc.info/files/fixtures.svg'>일정</div><div><span></span><img src='https://sefc.info/files/players.svg'>선수단</div><div><span></span><img src='https://sefc.info/files/stats.svg'>기록</div><div><span></span><img src='https://sefc.info/files/standings.svg'>순위</div><div><span></span><img src='https://sefc.info/files/chants.svg'>응원가</div><a href='https://naver.me/GlJ18AQh' target='_blank'>오류 제보 및 건의</a></div><div id='menuBg'></div>")
 
 // 상단 클릭 시 홈으로 이동
 $("header > div:nth-of-type(2)").click(function() {
