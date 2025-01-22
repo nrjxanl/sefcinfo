@@ -1250,7 +1250,7 @@ $(document).ready(function () {
         if (sns !== "") {
             $("#playerSNS").attr("href", "https://instagram.com/" + sns)
         } else {
-            $("#playerSNS").attr("onclick", "return false")
+            $("#playerSNS").attr("onclick", "return false").find("div").css("cursor", "default")
 
             if ($(window).width() < 768) {
                 $("#playerSNS").css("display", "none")
