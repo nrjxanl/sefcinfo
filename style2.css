@@ -14,7 +14,7 @@ header {width: 100vw; height: 80px; position: fixed; top: 0; left: 0; background
 header > div {width: fit-content; position: absolute;}
 header > div:nth-of-type(1) {display: none;}
 header > div:nth-of-type(2) {left: 5vw;}
-header > div:nth-of-type(2) > img {width: auto; height: 20px; padding: 5vw 0; cursor: pointer;}
+header > div:nth-of-type(2) > img {width: auto; height: 28px; padding: 5vw 0; cursor: pointer;}
 header > p {width: fit-content; position: absolute; left: 20vw; text-align: left; font-size: 24px; color: #000060; line-height: 24px; margin: calc(8px + 5vw) 0;}
 
 /* 푸터 */
