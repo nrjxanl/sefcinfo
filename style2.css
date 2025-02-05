@@ -503,10 +503,11 @@ tr.sefc > td > p {background: #fafafa !important; color: #050505 !important;}
 #wallpaperInput {width: 70vw; text-align: left;}
 #wallpaperInput > input {width: 20vw; padding: 8px 0; border: 2px solid #000000; border-radius: 20px; margin-right: 16px; font-size: 16px; font-weight: 600;}
 
-#wallpaperCanvas {width: calc(60vh * (9 / 20)); height: 60vh; border: 2px solid #000000; border-radius: 20px; overflow: hidden; margin-bottom: 40px; display: flex; justify-content: center;}
+#wallpaperCanvas {width: calc(60vh * (9 / 20)); height: 60vh; border: 2px solid #000000; border-radius: 20px; overflow: hidden; margin-bottom: 40px;}
+#wallpaperCanvas > div {display: flex; justify-content: center;}
 #wallpaperBg {width: calc(60vh * (9 / 20)); height: 60vh;}
-#wallpaperName {font-size: 4.5vh; position: absolute; margin-top: 7.5vh; font-family: "KLeagueBasic";}
-#wallpaperNum {font-size: 20vh; position: absolute; margin: 12vh 0 0 .3vh; letter-spacing: .3vh; font-family: "KLeagueBasic";}
+#wallpaperName {width: calc(60vh * (9 / 20)); font-size: 4.5vh; position: absolute; top: calc(130px + 8vh); font-family: "KLeagueBasic";}
+#wallpaperNum {width: calc(60vh * (9 / 20)); position: absolute; top: calc(130px + 19vh);}
+#wallpaperNum > img {height: 14vh; margin: 0 .8vh;}
 
-#wallpaperLeopardPrint {position: absolute; left: 0; margin-top: 30.3vh;}
-#wallpaperLeopardPrint > img {height: .8vh;}
+#wallpaperDownload {height: 28px; padding: 0 16px; font-size: 16px; font-weight: 600; color: #fafafa; background: #000060; border: none; border-radius: 20px;}
