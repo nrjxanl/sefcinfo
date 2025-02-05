@@ -1669,6 +1669,14 @@ $(document).ready(function () {
     $("#wallpaperNum").append("<img src='./files/2w.png'><img src='./files/0w.png'>")
     wallpaperLetterSpacing()
 
+    // 모바일 버전 width 줄이기
+    if ($(window).width() < 768) {
+        $("#wallpaperButton > button:nth-of-type(1)").text("1st")
+        $("#wallpaperButton > button:nth-of-type(2)").text("2nd")
+        $("#wallpaperButton > button:nth-of-type(3)").text("GK 1st")
+        $("#wallpaperButton > button:nth-of-type(4)").text("GK 2nd")
+    }
+
 })
 
 ////////// 함수 //////////

@@ -512,3 +512,19 @@ tr.sefc > td > p {background: #fafafa !important; color: #050505 !important;}
 #chantsLyrics > p > ruby > rb {font-size: 16px; font-weight: 300;}
 #chantsLyrics > p > ruby > rp {font-size: 12px; font-weight: 300;}
 #chantsLyrics > p > ruby > rt {font-size: 12px; font-weight: 300;}
+
+/* 배경화면 */
+#wallpaperButton {width: 100vw; margin-top: 100px;}
+#wallpaperButton > button {padding: 4px 16px; border: 2px solid #000000; border-radius: 20px; background: none; margin-right: 8px; font-size: 16px; font-weight: 600;}
+
+#wallpaperInput {width: 100vw; margin-top: 20px;}
+#wallpaperInput > input {width: 40vw; padding: 8px 0; border: 2px solid #000000; border-radius: 20px; margin-right: 16px; font-size: 16px; font-weight: 600;}
+
+#wallpaperCanvas {width: calc(60vh * (9 / 20)); height: 60vh; margin: 40px 0 0 calc((100vw - (60vh * (9 / 20))) / 2); border: 2px solid #000000; border-radius: 20px; overflow: hidden; margin-bottom: 40px;}
+#wallpaperCanvas > div {display: flex; justify-content: center;}
+#wallpaperBg {width: calc(60vh * (9 / 20)); height: 60vh;}
+#wallpaperName {width: calc(60vh * (9 / 20)); font-size: 4.5vh; position: absolute; top: calc(220px + 8vh); font-family: "KLeagueBasic";}
+#wallpaperNum {width: calc(60vh * (9 / 20)); position: absolute; top: calc(220px + 19vh);}
+#wallpaperNum > img {height: 14vh; margin: 0 .8vh;}
+
+#wallpaperDownload {height: 28px; padding: 0 16px; font-size: 16px; font-weight: 600; color: #fafafa; background: #000060; border: none; border-radius: 20px;}

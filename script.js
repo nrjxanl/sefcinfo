@@ -57,7 +57,7 @@ $("footer > img").click(function () {
 })
 
 // 메뉴
-$("body").append("<div id='menu'><div><span></span><img src='https://sefc.info/files/home.svg'>홈</div><div><span></span><img src='https://sefc.info/files/fixtures.svg'>일정</div><div><span></span><img src='https://sefc.info/files/players.svg'>선수단</div><div><span></span><img src='https://sefc.info/files/stats.svg'>기록</div><div><span></span><img src='https://sefc.info/files/standings.svg'>순위</div><div><span></span><img src='https://sefc.info/files/chants.svg'>응원가</div><a href='https://naver.me/GlJ18AQh' target='_blank'>오류 제보 및 건의</a></div><div id='menuBg'></div>")
+$("body").append("<div id='menu'><div><span></span><img src='https://sefc.info/files/home.svg'>홈</div><div><span></span><img src='https://sefc.info/files/fixtures.svg'>일정</div><div><span></span><img src='https://sefc.info/files/players.svg'>선수단</div><div><span></span><img src='https://sefc.info/files/stats.svg'>기록</div><div><span></span><img src='https://sefc.info/files/standings.svg'>순위</div><div><span></span><img src='https://sefc.info/files/chants.svg'>응원가</div><div><span></span><img src='https://sefc.info/files/wallpaper.svg'>배경화면</div><a href='https://naver.me/GlJ18AQh' target='_blank'>오류 제보 및 건의</a></div><div id='menuBg'></div>")
 
 // 상단 클릭 시 홈으로 이동
 $("header > div:nth-of-type(2)").click(function() {
@@ -97,6 +97,9 @@ $("#menu > div:nth-of-type(5)").click(function() {
 $("#menu > div:nth-of-type(6)").click(function() {
     window.location = "https://sefc.info/chants"
 })
+$("#menu > div:nth-of-type(7)").click(function() {
+    window.location = "https://sefc.info/wallpaper"
+})
 
 // 메뉴 내 현재 페이지 이름 강조
 if ($("#prevMatch").length) {
@@ -123,6 +126,10 @@ if ($("#prevMatch").length) {
     $("#menu > div:nth-of-type(6)").css("color", "#000060")
     $("#menu > div:nth-of-type(6) > span").css("background", "#000060")
     $("#menu > div:nth-of-type(6) > img").css("filter", "brightness(0) saturate(100%) invert(8%) sepia(76%) saturate(5175%) hue-rotate(242deg) brightness(71%) contrast(125%)")
+} else if ($("#wallpaperCanvas").length) {
+    $("#menu > div:nth-of-type(7)").css("color", "#000060")
+    $("#menu > div:nth-of-type(7) > span").css("background", "#000060")
+    $("#menu > div:nth-of-type(7) > img").css("filter", "brightness(0) saturate(100%) invert(8%) sepia(76%) saturate(5175%) hue-rotate(242deg) brightness(71%) contrast(125%)")
 }
 
 // 메뉴 hover 시 강조
