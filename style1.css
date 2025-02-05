@@ -521,7 +521,7 @@ tr.sefc > td > p {background: #fafafa !important; color: #050505 !important;}
 #wallpaperInput > input {width: 40vw; padding: 8px 0; border: 2px solid #000000; border-radius: 20px; margin-right: 16px; font-size: 16px; font-weight: 600;}
 
 #wallpaperCanvas {width: calc(60vh * (9 / 20)); height: 60vh; margin: 40px 0 0 calc((100vw - (60vh * (9 / 20))) / 2); border: 2px solid #000000; border-radius: 20px; overflow: hidden; margin-bottom: 40px;}
-#wallpaperCanvas > div {display: flex; justify-content: center;}
+#wallpaperCanvas > div {display: flex; justify-content: center; border: 0; padding: 0;}
 #wallpaperBg {width: calc(60vh * (9 / 20)); height: 60vh;}
 #wallpaperName {width: calc(60vh * (9 / 20)); font-size: 4.5vh; position: absolute; top: calc(230px + 8vh); font-family: "KLeagueBasic";}
 #wallpaperNum {width: calc(60vh * (9 / 20)); position: absolute; top: calc(230px + 19vh);}

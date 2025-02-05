@@ -1637,7 +1637,8 @@ $(document).ready(function () {
     // 다운로드
     document.getElementById("wallpaperDownload").addEventListener("click", () => {
         html2canvas(document.querySelector("#wallpaperCanvas > div"), {
-            scale: 4,
+            scale: window.devicePixelRatio,
+            backgroundColor: null,
             useCORS: true,
             allowTaint: false
         }).then(canvas => {
