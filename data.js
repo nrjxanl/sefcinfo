@@ -1584,6 +1584,7 @@ $(document).ready(function () {
     $("#wallpaperButton > button:nth-of-type(1)").click(function() {
         $("#wallpaperBg").attr("src", "./files/homekit.jpg")
         $("#wallpaperName").css("color", "#fff")
+        $("#wallpaperCanvas > div").css("background", "#132847")
 
         $("#wallpaperNum > img").each(function() {
             $("#wallpaperNum").append("<img src='./files/" + $(this).attr("src").replace("./files/", "").replace(/[./a-zA-Z]/g, "") + "w.png'>")
@@ -1594,6 +1595,7 @@ $(document).ready(function () {
     $("#wallpaperButton > button:nth-of-type(2)").click(function() {
         $("#wallpaperBg").attr("src", "./files/awaykit.jpg")
         $("#wallpaperName").css("color", "#132847")
+        $("#wallpaperCanvas > div").css("background", "#fff")
 
         $("#wallpaperNum > img").each(function() {
             $("#wallpaperNum").append("<img src='./files/" + $(this).attr("src").replace("./files/", "").replace(/[./a-zA-Z]/g, "") + "n.png'>")
