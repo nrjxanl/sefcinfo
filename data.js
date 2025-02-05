@@ -1544,6 +1544,205 @@ $(document).ready(function () {
 
     $("#loading").remove()
 
+    // 배경화면
+    function wallpaperLetterSpacing() {
+        if ($("#wallpaperName").text().length == "1") {
+            $("#wallpaperName").css({"letter-spacing": "0", "margin-left": "0"})
+        }
+        if ($("#wallpaperName").text().length == "2") {
+            $("#wallpaperName").css({"letter-spacing": "4.5vh", "margin-left": "4.5vh"})
+        }
+        if ($("#wallpaperName").text().length == "3") {
+            $("#wallpaperName").css({"letter-spacing": "1.2vh", "margin-left": "1.2vh"})
+        }
+        if ($("#wallpaperName").text().length == "4") {
+            $("#wallpaperName").css({"letter-spacing": ".3vh", "margin-left": ".3vh"})
+        }
+        if ($("#wallpaperName").text().length == "5") {
+            $("#wallpaperName").css({"letter-spacing": "0", "margin-left": "0"})
+        }
+    }
+
+    function wallpaperNumberPrint() {
+        $("#wallpaperLeopardPrint").empty()
+        wallpaperNum = $("#wallpaperNum").text()
+
+        if (wallpaperNum.length == 1) {
+            $("#wallpaperLeopardPrint").append("<img src='./files/leopard.png'>")
+
+            if (wallpaperNum == 1) {
+                $("#wallpaperLeopardPrint > img").css("margin-left", "13.2vh")
+            } else if (wallpaperNum == 4) {
+                $("#wallpaperLeopardPrint > img").css("margin-left", "14.7vh")
+            } else if (wallpaperNum == 7) {
+                $("#wallpaperLeopardPrint > img").css("margin-left", "12.4vh")
+            } else if (wallpaperNum == 9) {
+                $("#wallpaperLeopardPrint > img").css("margin-left", "13.3vh")
+            } else {
+                $("#wallpaperLeopardPrint > img").css("margin-left", "13vh")
+            }
+        } else if (wallpaperNum.length == 2) {
+            $("#wallpaperLeopardPrint").append("<img src='./files/leopard.png'><img src='./files/leopard.png'>")
+
+            if (wallpaperNum.substring(0, 1) == 1) {
+                if (wallpaperNum.substring(1, 2) == 1) {
+                    $("#wallpaperLeopardPrint > img:nth-of-type(1)").css("margin-left", "9.7vh")
+                    $("#wallpaperLeopardPrint > img:nth-of-type(2)").css("margin-left", "5.2vh")
+                } else if (wallpaperNum.substring(1, 2) == 3) {
+                    $("#wallpaperLeopardPrint > img:nth-of-type(1)").css("margin-left", "8.6vh")
+                    $("#wallpaperLeopardPrint > img:nth-of-type(2)").css("margin-left", "6.2vh")
+                } else if (wallpaperNum.substring(1, 2) == 4) {
+                    $("#wallpaperLeopardPrint > img:nth-of-type(1)").css("margin-left", "8.2vh")
+                    $("#wallpaperLeopardPrint > img:nth-of-type(2)").css("margin-left", "8.2vh")
+                } else if (wallpaperNum.substring(1, 2) == 7) {
+                    $("#wallpaperLeopardPrint > img:nth-of-type(1)").css("margin-left", "8.7vh")
+                    $("#wallpaperLeopardPrint > img:nth-of-type(2)").css("margin-left", "5.6vh")
+                } else if (wallpaperNum.substring(1, 2) == 9) {
+                    $("#wallpaperLeopardPrint > img:nth-of-type(1)").css("margin-left", "8.3vh")
+                    $("#wallpaperLeopardPrint > img:nth-of-type(2)").css("margin-left", "6.7vh")
+                } else {
+                    $("#wallpaperLeopardPrint > img:nth-of-type(1)").css("margin-left", "8.3vh")
+                    $("#wallpaperLeopardPrint > img:nth-of-type(2)").css("margin-left", "6.5vh")
+                }
+            }
+
+            if (wallpaperNum.substring(0, 1) == 2) {
+                if (wallpaperNum.substring(1, 2) == 1) {
+                    $("#wallpaperLeopardPrint > img:nth-of-type(1)").css("margin-left", "9.7vh")
+                    $("#wallpaperLeopardPrint > img:nth-of-type(2)").css("margin-left", "6.6vh")
+                } else if (wallpaperNum.substring(1, 2) == 3) {
+                    $("#wallpaperLeopardPrint > img:nth-of-type(1)").css("margin-left", "8.6vh")
+                    $("#wallpaperLeopardPrint > img:nth-of-type(2)").css("margin-left", "7.4vh")
+                } else if (wallpaperNum.substring(1, 2) == 4) {
+                    $("#wallpaperLeopardPrint > img:nth-of-type(1)").css("margin-left", "8.2vh")
+                    $("#wallpaperLeopardPrint > img:nth-of-type(2)").css("margin-left", "9.6vh")
+                } else if (wallpaperNum.substring(1, 2) == 7) {
+                    $("#wallpaperLeopardPrint > img:nth-of-type(1)").css("margin-left", "8.7vh")
+                    $("#wallpaperLeopardPrint > img:nth-of-type(2)").css("margin-left", "6.5vh")
+                } else if (wallpaperNum.substring(1, 2) == 9) {
+                    $("#wallpaperLeopardPrint > img:nth-of-type(1)").css("margin-left", "8.3vh")
+                    $("#wallpaperLeopardPrint > img:nth-of-type(2)").css("margin-left", "7.9vh")
+                } else {
+                    $("#wallpaperLeopardPrint > img:nth-of-type(1)").css("margin-left", "8.3vh")
+                    $("#wallpaperLeopardPrint > img:nth-of-type(2)").css("margin-left", "7.8vh")
+                }
+            }
+
+            if (wallpaperNum.substring(0, 1) == 3) {
+                if (wallpaperNum.substring(1, 2) == 1) {
+                    $("#wallpaperLeopardPrint > img:nth-of-type(1)").css("margin-left", "9.5vh")
+                    $("#wallpaperLeopardPrint > img:nth-of-type(2)").css("margin-left", "6.6vh")
+                } else if (wallpaperNum.substring(1, 2) == 3) {
+                    $("#wallpaperLeopardPrint > img:nth-of-type(1)").css("margin-left", "8.4vh")
+                    $("#wallpaperLeopardPrint > img:nth-of-type(2)").css("margin-left", "7.4vh")
+                } else if (wallpaperNum.substring(1, 2) == 4) {
+                    $("#wallpaperLeopardPrint > img:nth-of-type(1)").css("margin-left", "8vh")
+                    $("#wallpaperLeopardPrint > img:nth-of-type(2)").css("margin-left", "9.6vh")
+                } else if (wallpaperNum.substring(1, 2) == 7) {
+                    $("#wallpaperLeopardPrint > img:nth-of-type(1)").css("margin-left", "8.5vh")
+                    $("#wallpaperLeopardPrint > img:nth-of-type(2)").css("margin-left", "6.5vh")
+                } else if (wallpaperNum.substring(1, 2) == 9) {
+                    $("#wallpaperLeopardPrint > img:nth-of-type(1)").css("margin-left", "8.1vh")
+                    $("#wallpaperLeopardPrint > img:nth-of-type(2)").css("margin-left", "8.1vh")
+                } else {
+                    $("#wallpaperLeopardPrint > img:nth-of-type(1)").css("margin-left", "8.1vh")
+                    $("#wallpaperLeopardPrint > img:nth-of-type(2)").css("margin-left", "7.8vh")
+                }
+            }
+
+            if (wallpaperNum.substring(0, 1) == 4) {
+                if (wallpaperNum.substring(1, 2) == 1) {
+                    $("#wallpaperLeopardPrint > img:nth-of-type(1)").css("margin-left", "11.2vh")
+                    $("#wallpaperLeopardPrint > img:nth-of-type(2)").css("margin-left", "5.3vh")
+                } else if (wallpaperNum.substring(1, 2) == 3) {
+                    $("#wallpaperLeopardPrint > img:nth-of-type(1)").css("margin-left", "10.1vh")
+                    $("#wallpaperLeopardPrint > img:nth-of-type(2)").css("margin-left", "6.1vh")
+                } else if (wallpaperNum.substring(1, 2) == 4) {
+                    $("#wallpaperLeopardPrint > img:nth-of-type(1)").css("margin-left", "9.7vh")
+                    $("#wallpaperLeopardPrint > img:nth-of-type(2)").css("margin-left", "8.4vh")
+                } else if (wallpaperNum.substring(1, 2) == 7) {
+                    $("#wallpaperLeopardPrint > img:nth-of-type(1)").css("margin-left", "10.7vh")
+                    $("#wallpaperLeopardPrint > img:nth-of-type(2)").css("margin-left", "4.8vh")
+                } else if (wallpaperNum.substring(1, 2) == 9) {
+                    $("#wallpaperLeopardPrint > img:nth-of-type(1)").css("margin-left", "10.1vh")
+                    $("#wallpaperLeopardPrint > img:nth-of-type(2)").css("margin-left", "6.4vh")
+                } else {
+                    $("#wallpaperLeopardPrint > img:nth-of-type(1)").css("margin-left", "9.8vh")
+                    $("#wallpaperLeopardPrint > img:nth-of-type(2)").css("margin-left", "6.5vh")
+                }
+            }
+        }
+    }
+
+    $("#wallpaperButton > button").click(function() {
+        $("#wallpaperButton > button").css({"border": "2px solid #000000", "color": "#000000", "background": "none"})
+        $(this).css({"border": "2px solid #000060", "color": "#fafafa", "background": "#000060"})
+        wallpaperLetterSpacing()
+        wallpaperNumberPrint()
+    })
+
+    $("#wallpaperButton > button:nth-of-type(1)").click(function() {
+        $("#wallpaperBg").attr("src", "./files/homekit.jpg")
+        $("#wallpaperCanvas > p").css("color", "#fff")
+        $("#wallpaperLeopardPrint").css("filter", "brightness(0) saturate(100%) invert(6%) sepia(38%) saturate(1676%) hue-rotate(193deg) brightness(95%) contrast(94%)")
+    })
+
+    $("#wallpaperButton > button:nth-of-type(2)").click(function() {
+        $("#wallpaperBg").attr("src", "./files/awaykit.jpg")
+        $("#wallpaperCanvas > p").css("color", "#132847")
+        $("#wallpaperLeopardPrint").css("filter", "none")
+    })
+
+    $("#wallpaperButton > button:nth-of-type(3)").click(function() {
+    })
+
+    $("#wallpaperButton > button:nth-of-type(4)").click(function() {
+    })
+
+    $("#nameInput").on("propertychange change keyup paste input", function(){
+        $("#wallpaperName").text($("#nameInput").val())
+
+        if ($("#nameInput").val().length == 0) {
+            $("#wallpaperName").text("김오규")
+        }
+
+        wallpaperLetterSpacing()
+    })
+
+    $("#numInput").on("propertychange change keyup paste input", function(){
+        $("#wallpaperNum").text($("#numInput").val())
+
+        if ($("#numInput").val().length == 0) {
+            $("#wallpaperNum").text("20")
+        }
+
+        wallpaperNumberPrint()
+    })
+
+    // 다운로드
+    document.getElementById("wallpaperDownload").addEventListener("click", () => {
+        html2canvas(document.getElementById("wallpaperCanvas")).then(canvas => {
+            saveImg(canvas.toDataURL("wallpaper/jpg"), "wallpaper.jpg")
+        })
+    })
+    
+    const saveImg = (uri, filename) => {
+        let link = document.createElement("a")
+    
+        document.body.appendChild(link)
+    
+        link.href = uri
+        link.download = filename
+        link.click()
+    
+        document.body.removeChild(link)
+    }
+
+    // 나중에 삭제
+    $("#wallpaperButton > button:nth-of-type(n+3)").css("opacity", ".5").prop("disabled", true)
+
+    // 처음 접속 시 홈 유니폼으로 설정
+    $("#wallpaperButton > button:nth-of-type(1)").click()
 })
 
 ////////// 함수 //////////
