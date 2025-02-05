@@ -1636,9 +1636,16 @@ $(document).ready(function () {
     document.getElementById("wallpaperDownload").addEventListener("click", () => {
         html2canvas(document.querySelector("#wallpaperCanvas > div"), {
             scale: 4,
-            useCORS: true
+            useCORS: true,
+            allowTaint: false
         }).then(canvas => {
-            saveImg(canvas.toDataURL("image/jpeg", 1.0), "wallpaper.jpg")
+            try {
+                let dataURL = canvas.toDataURL("image/jpeg", 1.0);
+                if (dataURL.length < 10) throw new Error("Invalid image data");
+                saveImg(dataURL, "wallpaper.jpg");
+            } catch (error) {
+                alert("이미지 저장 실패:", error);
+            }
         })
     })
     
