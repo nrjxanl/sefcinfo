@@ -1566,7 +1566,7 @@ $(document).ready(function () {
     function wallpaperNum() {
         $("#wallpaperNum").empty()
 
-        if ($("#wallpaperBg").attr("src") == "./files/homekit.jpg") {
+        if ($("#wallpaperBg").attr("src") == "./files/homekit.jpg" || $("#wallpaperBg").attr("src") == "./files/gkawaykit.jpg") {
             if ($("#numInput").val().length == 1) {
                 $("#wallpaperNum").append("<img src='./files/" + $("#numInput").val() + "w.png'>")
             } else if ($("#numInput").val().length == 2) {
@@ -1577,6 +1577,12 @@ $(document).ready(function () {
                 $("#wallpaperNum").append("<img src='./files/" + $("#numInput").val() + "n.png'>")
             } else if ($("#numInput").val().length == 2) {
                 $("#wallpaperNum").append("<img src='./files/" + $("#numInput").val().substring(0, 1) + "n.png'><img src='./files/" + $("#numInput").val().substring(1, 2) + "n.png'>")
+            }
+        } else if ($("#wallpaperBg").attr("src") == "./files/gkhomekit.jpg") {
+            if ($("#numInput").val().length == 1) {
+                $("#wallpaperNum").append("<img src='./files/" + $("#numInput").val() + "b.png'>")
+            } else if ($("#numInput").val().length == 2) {
+                $("#wallpaperNum").append("<img src='./files/" + $("#numInput").val().substring(0, 1) + "b.png'><img src='./files/" + $("#numInput").val().substring(1, 2) + "b.png'>")
             }
         }
     }
@@ -1604,9 +1610,25 @@ $(document).ready(function () {
     })
 
     $("#wallpaperButton > button:nth-of-type(3)").click(function() {
+        $("#wallpaperBg").attr("src", "./files/gkhomekit.jpg")
+        $("#wallpaperName").css("color", "#000")
+        $("#wallpaperCanvas > div").css("background", "#c9ec61")
+
+        $("#wallpaperNum > img").each(function() {
+            $("#wallpaperNum").append("<img src='./files/" + $(this).attr("src").replace("./files/", "").replace(/[./a-zA-Z]/g, "") + "b.png'>")
+            $(this).remove()
+        })
     })
 
     $("#wallpaperButton > button:nth-of-type(4)").click(function() {
+        $("#wallpaperBg").attr("src", "./files/gkawaykit.jpg")
+        $("#wallpaperName").css("color", "#fff")
+        $("#wallpaperCanvas > div").css("background", "#000")
+
+        $("#wallpaperNum > img").each(function() {
+            $("#wallpaperNum").append("<img src='./files/" + $(this).attr("src").replace("./files/", "").replace(/[./a-zA-Z]/g, "") + "w.png'>")
+            $(this).remove()
+        })
     })
 
     $("#wallpaperButton > button").click(function() {
@@ -1663,9 +1685,6 @@ $(document).ready(function () {
     
         document.body.removeChild(link)
     }
-
-    // 나중에 삭제
-    $("#wallpaperButton > button:nth-of-type(n+3)").css("opacity", ".5").prop("disabled", true)
 
     // 처음 접속 시 홈 유니폼 + 김오규 마킹으로 설정
     $("#wallpaperButton > button:nth-of-type(1)").click()
