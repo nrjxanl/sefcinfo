@@ -1661,7 +1661,7 @@ $(document).ready(function () {
         const targetElement = document.querySelector("#wallpaperCanvas > div")
     
         html2canvas(targetElement, {
-            scale: 4, // 해상도 4배 증가
+            scale: 8, // 해상도 4배 증가
             backgroundColor: null,
             useCORS: true,
             allowTaint: false
