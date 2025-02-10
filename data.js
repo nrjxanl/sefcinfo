@@ -1660,8 +1660,8 @@ $(document).ready(function () {
     document.getElementById("wallpaperDownload").addEventListener("click", () => {
         html2canvas(document.querySelector("#wallpaperCanvas > div"), {
             scale: 4,
-            width: 1800,
-            height: 4000,
+            width: 1800 / 4,
+            height: 4000 / 4,
             backgroundColor: null,
             useCORS: true,
             allowTaint: false
