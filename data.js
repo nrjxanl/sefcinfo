@@ -1658,18 +1658,27 @@ $(document).ready(function () {
 
     // 다운로드
     document.getElementById("wallpaperDownload").addEventListener("click", () => {
-        const targetElement = document.querySelector("#wallpaperCanvas > div")
-    
+        const targetElement = document.querySelector("#wallpaperCanvas > div");
+
         html2canvas(targetElement, {
-            scale: 4,
+            scale: 4, // 해상도 4배 증가
+            width: 1800 * 4, // 내부 캔버스 크기를 4배로 설정
+            height: 4000 * 4,
             backgroundColor: null,
             useCORS: true,
-            allowTaint: false,
-            width: targetElement.clientWidth,
-            height: targetElement.clientHeight
+            allowTaint: false
         }).then(canvas => {
             try {
-                let dataURL = canvas.toDataURL("image/jpeg", 1.0)
+                // 4배 크기의 캔버스를 원본 크기로 줄이기
+                let finalCanvas = document.createElement("canvas")
+                finalCanvas.width = 1800
+                finalCanvas.height = 4000
+                let ctx = finalCanvas.getContext("2d")
+    
+                // 고해상도로 렌더링된 이미지를 원하는 크기로 줄이면서 저장
+                ctx.drawImage(canvas, 0, 0, 1800, 4000)
+    
+                let dataURL = finalCanvas.toDataURL("image/jpeg", 1.0)
                 saveImg(dataURL, "wallpaper.jpg")
             } catch (error) {
                 alert("이미지 저장 실패: " + error.message)
