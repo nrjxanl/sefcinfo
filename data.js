@@ -1658,24 +1658,26 @@ $(document).ready(function () {
 
     // 다운로드
     document.getElementById("wallpaperDownload").addEventListener("click", () => {
-        html2canvas(document.querySelector("#wallpaperCanvas > div"), {
+        const targetElement = document.querySelector("#wallpaperCanvas > div")
+    
+        html2canvas(targetElement, {
             scale: 4,
-            width: 1800 / 4,
-            height: 4000 / 4,
             backgroundColor: null,
             useCORS: true,
-            allowTaint: false
+            allowTaint: false,
+            width: targetElement.clientWidth,
+            height: targetElement.clientHeight
         }).then(canvas => {
             try {
-                let dataURL = canvas.toDataURL("image/jpeg", 1.0);
-                if (dataURL.length < 10) throw new Error("Invalid image data");
-                saveImg(dataURL, "wallpaper.jpg");
+                let dataURL = canvas.toDataURL("image/jpeg", 1.0)
+                saveImg(dataURL, "wallpaper.jpg")
             } catch (error) {
-                alert("이미지 저장 실패:", error);
+                alert("이미지 저장 실패: " + error.message)
             }
         })
     })
-    
+
+
     saveImg = (uri, filename) => {
         let link = document.createElement("a")
     
