@@ -367,35 +367,35 @@ $(document).ready(function () {
                     // 득점 여부
                     if (dataList["SUB"][i][1].replace(/[^g]/g, "").length !== 0) {
                         for (j = 0; j < dataList["SUB"][i][1].replace(/[^g]/g, "").length; j++) {
-                            $("#" + dataList["SUB"][i][0] + " > p:nth-of-type(1) > span:nth-of-type(2)").append("<img src='./files/goal.svg'>")
+                            $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2) > p:nth-of-type(1) > span").append("<img src='./files/goal.svg'>")
                         }
                     }
 
                     // 도움 여부
                     if (dataList["SUB"][i][1].replace(/[^a]/g, "").length !== 0) {
                         for (j = 0; j < dataList["SUB"][i][1].replace(/[^g]/g, "").length; j++) {
-                            $("#" + dataList["SUB"][i][0] + " > p:nth-of-type(1) > span:nth-of-type(2)").append("<img src='./files/assist.svg'>")
+                            $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2) > p:nth-of-type(1) > span").append("<img src='./files/assist.svg'>")
                         }
                     }
 
                     // 경고 여부
                     if (dataList["SUB"][i][1].replace(/[^y]/g, "").length !== 0) {
                         for (j = 0; j < dataList["SUB"][i][1].replace(/[^y]/g, "").length; j++) {
-                            $("#" + dataList["SUB"][i][0] + " > p:nth-of-type(1) > span:nth-of-type(2)").append("<img src='./files/yc.svg'>")
+                            $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2) > p:nth-of-type(1) > span").append("<img src='./files/yc.svg'>")
                         }
                     }
 
                     // 퇴장 여부
                     if (dataList["SUB"][i][1].replace(/[^r]/g, "").length !== 0) {
                         for (j = 0; j < dataList["SUB"][i][1].replace(/[^r]/g, "").length; j++) {
-                            $("#" + dataList["SUB"][i][0] + " > p:nth-of-type(1) > span:nth-of-type(2)").append("<img src='./files/rc.svg'>")
+                            $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2) > p:nth-of-type(1) > span").append("<img src='./files/rc.svg'>")
                         }
                     }
 
                     // 자책골 여부
                     if (dataList["SUB"][i][1].replace(/[^o]/g, "").length !== 0) {
                         for (j = 0; j < dataList["SUB"][i][1].replace(/[^o]/g, "").length; j++) {
-                            $("#" + dataList["SUB"][i][0] + " > p:nth-of-type(1) > span:nth-of-type(2)").append("<img src='./files/og.svg'>")
+                            $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2) > p:nth-of-type(1) > span").append("<img src='./files/og.svg'>")
                         }
                     }
 
