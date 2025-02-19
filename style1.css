@@ -508,7 +508,7 @@ tr.sefc > td > p {background: #fafafa !important; color: #050505 !important;}
 #chantsVideo {width: 60vw; height: fit-content; margin: 40px 0 0 20vw;}
 #chantsVideo > iframe {width: 60vw; height: auto;}
 
-#chantsLyrics {width: 80vw; margin-left: 10vw;}
+#chantsLyrics {width: 80vw; margin: 0 0 40px 10vw;}
 #chantsLyrics > p {font-size: 16px; font-weight: 300; padding: 4px 0;}
 #chantsLyrics > p:nth-of-type(1) {font-size: 12px; font-weight: 300; margin: 10px 0 40px 0;}
 #chantsLyrics > p > ruby > rb {font-size: 16px; font-weight: 300;}

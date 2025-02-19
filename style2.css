@@ -491,7 +491,7 @@ tr.sefc > td > p {background: #fafafa !important; color: #050505 !important;}
 #chantsVideo {width: 25vw; height: fit-content; margin: 40px 0 0 20vw;}
 #chantsVideo > iframe {width: 25vw; height: auto;}
 
-#chantsLyrics {width: 65vw;}
+#chantsLyrics {width: 65vw; margin-bottom: 40px;}
 #chantsLyrics > p {font-size: 16px; font-weight: 300; padding: 4px 0;}
 #chantsLyrics > p:nth-of-type(1) {font-size: 12px; font-weight: 300; margin: 10px 0 40px 0;}
 #chantsLyrics > p > ruby > rb {font-size: 16px; font-weight: 300;}
