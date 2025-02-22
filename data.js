@@ -62,7 +62,7 @@ $(document).ready(function () {
             h2h = {"gangwonfc": ["dd5828", "ffffff", "7", "1", "2", "20", "9"], "gyeongnamfc": ["e83827", "f5cd21", "1", "2", "0", "2", "0"], "gimcheonsangmu": ["002649", "c5a775", "1", "1", "0", "3", "1"], "gimpofc": ["203d41", "cdb161", "1", "1", "1", "1", "6"], "daegufc": ["59b8f6", "000000", "0", "0", "1", "0", "1"], "daejeoncitizen": ["9b2743", "041e42", "0", "0", "1", "0", "1"], "daejeonhana": ["007e6e", "9b2743", "0", "0", "1", "0", "1"], "busanipark": ["ff0d00", "ffffff", "1", "1", "1", "4", "5"], "bucheonfc": ["ac2424", "ffffff", "2", "5", "3", "13", "14"], "sangjusangmu": ["ed1a2e", "ffffff", "1", "1", "1", "2", "3"], "seongnamfc": ["000000", "ffffff", "3", "0", "9", "12", "32"], "suwonfc": ["00396f", "eb0028", "3", "2", "5", "16", "23"], "suwonfcp": ["00396f", "eb0028", "0", "1", "1", "2", "3"], "ansangreeners": ["00979c", "0a2a3b", "7", "0", "2", "30", "9"], "jeonnamdragons": ["ffde00", "000000", "0", "3", "1", "8", "10"], "jejuutd2006": ["f58026", "ffffff", "3", "4", "7", "19", "35"], "chungnamasan": ["f4cd1c", "093c91", "5", "3", "0", "23", "11"], "fcanyang": ["4f1b87", "cda55f", "5", "2", "4", "26", "15"], "ulsanhyundai": ["003f98", "f9be00", "0", "1", "2", "2", "5"], "fcseoul": ["b5191a", "000000", "5", "0", "9", "19", "46"], "incheonutd": ["004f9e", "231815", "3", "2", "7", "12", "24"], "suwonsamsung": ["194996", "ffffff", "1", "1", "9", "5", "34"], "pohangsteelers": ["e70012", "000000", "1", "0", "2", "1", "9"], "boinms": ["a52a2a", "ebb767", "1", "0", "1", "3", "3"], "jeonbukhyundai": ["034f36", "ffdd00", "0", "0", "1", "2", "5"], "dongbukms": ["fe5112", "0d1689", "0", "0", "1", "0", "6"], "namkangms": ["4367ad", "ffffff", "1", "0", "1", "8", "4"], "mullaems": ["30aa8c", "fed308", "0", "0", "1", "1", "10"], "joongdongms": ["1246c2", "ffffff", "0", "0", "2", "3", "8"], "dangsanseoms": ["1a87c7", "ffffff", "0", "0", "1", "0", "4"], "neweunpyeongfc": ["808080", "ffffff", "0", "0", "1", "0", "5"], "fchanyang": ["12345a", "ffffff", "1", "0", "0", "4", "1"], "dongwonms": ["ffa034", "ffffff", "0", "0", "1", "0", "4"], "chungangunivms": ["0075b3", "ffffff", "0", "0", "1", "0", "4"], "yeongseoms": ["9c2629", "f6fb80", "1", "0", "0", "4", "3"], "sahams": ["2e308d", "ffffff", "0", "0", "1", "2", "3"], "daegubukms": ["f8e933", "ffffff", "1", "0", "0", "4", "0"], "dobongms": ["008b05", "ffffff", "0", "0", "1", "1", "2"], "gaewonms": ["1965af", "ffffff", "0", "0", "1", "1", "2"], "gusanms": ["4d408f", "ffffff", "0", "0", "1", "0", "2"], "hwagokms": ["191080", "f5b907", "0", "1", "0", "4", "4"], "maposinbukfc": ["c8ae37", "2a2b49", "1", "0", "0", "4", "1"], "seilms": ["202a61", "ffffff", "0", "1", "2", "1", "6"], "janganms": ["41236c", "ffffff", "0", "0", "1", "0", "2"], "anyangms": ["4f1b87", "cda55f", "6", "1", "0", "17", "7"], "seokgwanms": ["0ea91f", "ffffff", "0", "0", "1", "0", "1"], "haenamms": ["137e4e", "a8171c", "1", "0", "0", "2", "0"], "sinjangms": ["112c86", "27a543", "1", "0", "0", "2", "1"], "leepyeongfc": ["008001", "ffffff", "1", "0", "0", "2", "0"], "kyungheems": ["1a2985", "ffffff", "1", "0", "0", "4", "2"], "sillimms": ["009900", "fffe04", "0", "0", "1", "2", "3"], "sincheonms": ["f0ef13", "c60a03", "1", "0", "0", "2", "0"], "paichaims": ["2056ae", "ffffff", "1", "0", "0", "2", "0"], "soongsilms": ["122a4a", "ffffff", "0", "0", "1", "1", "2"], "seongnamfcgangdong": ["000000", "ffffff", "1", "0", "0", "11", "0"], "fcseoulfos": ["b5191a", "000000", "1", "0", "0", "5", "1"], "hanyangms": ["00467f", "ffffff", "0", "0", "1", "0", "1"], "cheonancity": ["5dacd8", "ffffff", "2", "1", "0", "9", "1"],}
         }
 
-        $("#matchScore").append("<div></div><div><div><div><img></div><p></p></div><div><p></p><p></p></div><div><div><img></div><p></p></div></div><div><p></p><p></p></div>")
+        $("#matchScore").append("<div></div><div><div><div><img></div><p></p></div><div><p></p><p></p><p></p></div><div><div><img></div><p></p></div></div><div><p></p><p></p></div>")
 
         $("#matchScore > div:nth-of-type(1)").html("<img src='./files/" + dataList["comp"][1] + "_s.png'><p>" + dataList["comp"][0] + " " + dataList["round"] + "</p>")
 
@@ -74,14 +74,28 @@ $(document).ready(function () {
         $("#matchScore > div:nth-of-type(2) > div:nth-of-type(3) > div > img").attr("src", "./files/" + dataList["away"][1] + "_s.png")
 
         $("#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)").html(dataList["homeScore"] + " : " + dataList["awayScore"])
-        $("#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").text(id.substring(0, 4) + "." + id.substring(4, 6) + "." + id.substring(6, 8) + ".")
+        if (dataList["time"] !== undefined) {
+            $("#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").text(id.substring(4, 6) + "." + id.substring(6, 8) + ". " + dataList["time"])
+        } else {
+            $("#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").text(id.substring(0, 4) + "." + id.substring(4, 6) + "." + id.substring(6, 8) + ".")
+        }
+        if (dataList["stadium"] !== undefined) {
+            $("#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(3)").text("@" + dataList["stadium"])
+        }
 
         $("#matchScore > div:nth-of-type(3) > p:nth-of-type(1)").html(dataList["homeScorer"])
         $("#matchScore > div:nth-of-type(3) > p:nth-of-type(2)").html(dataList["awayScorer"])
 
         if (dataList["homeScore"] == "") {
             $("#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)").text("vs")
-            $("#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").text(id.substring(0, 4) + "." + id.substring(4, 6) + "." + id.substring(6, 8) + ".")
+            if (dataList["time"] !== undefined) {
+                $("#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").text(id.substring(4, 6) + "." + id.substring(6, 8) + ". " + dataList["time"])
+            } else {
+                $("#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").text(id.substring(0, 4) + "." + id.substring(4, 6) + "." + id.substring(6, 8) + ".")
+            }
+            if (dataList["stadium"] !== undefined) {
+                $("#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(3)").text("@" + dataList["stadium"])
+            }
         }
 
         if (id.substring(8, 9) == 8 || id.substring(8, 9) == 5) {
