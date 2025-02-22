@@ -412,8 +412,8 @@ $("#age").text(years + "세")
 
 // 응원가
 if ($("#team").length || $("#chantsName").length) {
-    teamChants = ["SEFC 콜", "서울 이랜드 콜", "2 3 4 서울 콜", "세트피스 콜", "승리하라 서울 콜", "하나되어<span>(선수 입장 시)</span>", "서울의 노래", "사랑한다 서울", "우리는 서울 이랜드", "사랑해 서울 이랜드", "한강에서부터 제주까지", "표범의 전사들", "앞으로 가자", "하늘 아래서 소리쳐", "서울의 아리아", "너를 태우고", "페파스", "우리는 항상 여기에", "뱃놀이<span>(경기 승리 후)</span>", "우리 모두 다 같이<span>(경기 승리 후 세리머니)</span>",]
-    playersChants = ["선수 콜", "주장 콜", "득점 콜", "오스마르 콜(1)", "오스마르 콜(2)"]
+    teamChants = ["SEFC 콜", "서울 이랜드 콜(1)", "서울 이랜드 콜(2)", "2 3 4 서울 콜", "3 3 4 2 서울 콜", "샤랄라 SEFC", "승리하라 서울 콜", "뛰어 뛰어 서울 콜", "세트피스 콜", "하나되어<span>(선수단 입장 시)</span>", "사랑해 서울 이랜드<span>(선수단 인사 시)</span>", "서울의 노래", "사랑한다 서울", "우리는 서울 이랜드", "한강에서부터 제주까지", "표범의 전사들", "앞으로 가자", "둥글게 둥글게", "포에버", "항상 사랑할 거야", "푸른 심장", "서울 승리를 향해", "We Cheer for Seoul", "서울을 위해 달려라", "서울의 아리아", "너를 태우고", "페파스", "우리는 항상 여기에", "우리 모두 다 같이<span>(경기 승리 세리머니)</span>", "샤랄라 SEFC<span>(경기 승리 세리머니)</span>", "좌로 우로<span>(카니발)</span>", "뱃놀이<span>(카니발)</span>"]
+    playersChants = ["캡틴 콜", "득점 콜", "오스마르 콜(1)", "오스마르 콜(2)", "변경준 콜"]
 
     for (i = 0; i < Object.keys(teamChants).length; i++) {
         $("#team").append("<div>" + teamChants[i] + "</div>")
@@ -468,7 +468,7 @@ if ($("#chantsName").length) {
         $("#chantsLyrics").append("<p id='lyrics-1'>짝 짝 짝 짝</p><p id='lyrics-2'>SEFC</p>")
     }
 
-    if (chantsName == "서울 이랜드 콜") {
+    if (chantsName == "서울 이랜드 콜(1)") {
         chantsUrl = "hWGFNT7Jip0"
 
         timeMapping = [
@@ -493,6 +493,17 @@ if ($("#chantsName").length) {
         ]
 
         $("#chantsLyrics").append("<p id='lyrics-1'>짝 짝짝 짝짝</p><p id='lyrics-2'>서울 이랜드</p>")
+    }
+
+    if (chantsName == "서울 이랜드 콜(2)") {
+        chantsUrl = "g7zcA27FN5Q"
+        original = "Uptown Funk"
+
+        timeMapping = [
+            {time: 3, elementId: "lyrics-1"},
+        ]
+
+        $("#chantsLyrics").append("<p id='lyrics-1'>서울 이랜드 서울 이랜드</p>")
     }
 
     if (chantsName == "2 3 4 서울 콜") {
@@ -520,6 +531,32 @@ if ($("#chantsName").length) {
         ]
 
         $("#chantsLyrics").append("<p id='lyrics-1'>짝짝 짝짝짝 <ruby><rb>짝짝짝짝</rb><rp>(</rp><rt>알레알레</rt><rp>)</rp></ruby></p><p id='lyrics-2'>서울</p>")
+    }
+
+    if (chantsName == "3 3 4 2 서울 콜") {
+        chantsUrl = "fRxMNt_J2Ts"
+
+        timeMapping = [
+            {time: 2.9, elementId: "lyrics-1"},
+            {time: 9.4, elementId: "lyrics-2"},
+            {time: 12.6, elementId: "lyrics-3"},
+            {time: 15.9, elementId: "lyrics-1"},
+            {time: 22, elementId: "lyrics-2"},
+            {time: 25.6, elementId: "lyrics-3"},
+            {time: 28.9, elementId: "lyrics-1"},
+        ]
+
+        $("#chantsLyrics").append("<p id='lyrics-1'>서울 서울 서울 오</p><p id='lyrics-2'>짝짝짝 짝짝짝 짝짝짝짝 짝짝</p><p id='lyrics-3'>짝짝짝 짝짝짝 짝짝짝짝 짝짝</p>")
+    }
+
+    if (chantsName == "샤랄라 SEFC") {
+        chantsUrl = "kMggPKSa2AU"
+
+        timeMapping = [
+            {time: 3, elementId: "lyrics-1"},
+        ]
+
+        $("#chantsLyrics").append("<p id='lyrics-1'>샤랄라랄라랄라 SEFC</p>")
     }
 
     if (chantsName == "하나되어") {
@@ -574,6 +611,16 @@ if ($("#chantsName").length) {
         ]
 
         $("#chantsLyrics").append("<p id='lyrics-1'>골 골 골 골</p><p id='lyrics-2'>서울 이랜</p>")
+    }
+
+    if (chantsName == "뛰어 뛰어 서울 콜") {
+        chantsUrl = "SfEogkJ9eMo"
+
+        timeMapping = [
+            {time: 3.6, elementId: "lyrics-1"},
+        ]
+
+        $("#chantsLyrics").append("<p id='lyrics-1'>뛰어 뛰어 뛰어 뛰어 서울</p>")
     }
 
     if (chantsName == "서울의 노래") {
@@ -866,6 +913,7 @@ if ($("#chantsName").length) {
 
     if (chantsName == "우리는 서울 이랜드") {
         chantsUrl = "w1oEKWw7XHA"
+        original = "When the Saints Go Marching In"
 
         timeMapping = [
             {time: 3, elementId: "lyrics-1"},
@@ -889,17 +937,246 @@ if ($("#chantsName").length) {
         $("#chantsLyrics").append("<p id='lyrics-1'>오오오오 오오오오</p><p id='lyrics-2'>우리는 서울 이랜드</p><p id='lyrics-3'>오오오오 오오 오오</p><p id='lyrics-4'>승리의 서울 이랜드</p>")
     }
 
-    if (chantsName == "선수 콜") {
-        chantsUrl = "63tMGuZemIs"
+    if (chantsName == "좌로 우로") {
+        chantsUrl = "2pUSfvzW_JM"
+        original = "Links Rechts"
 
         timeMapping = [
-            {time: 2, elementId: "lyrics-1"},
+            {time: 6, elementId: "lyrics-1"},
+            {time: 9.2, elementId: "lyrics-2"},
+            {time: 12.6, elementId: "lyrics-3"},
+            {time: 15.9, elementId: "lyrics-4"},
+            {time: 18.6, elementId: "lyrics-5"},
+            {time: 22, elementId: "lyrics-6"},
+            {time: 25.3, elementId: "lyrics-7"},
+            {time: 28.5, elementId: "lyrics-8"},
+            {time: 32, elementId: "lyrics-9"},
+            {time: 35.3, elementId: "lyrics-10"},
+            {time: 38.7, elementId: "lyrics-11"},
+            {time: 42, elementId: "lyrics-12"},
+            {time: 45, elementId: "lyrics-1"},
+            {time: 48.2, elementId: "lyrics-2"},
+            {time: 51.6, elementId: "lyrics-3"},
+            {time: 54.9, elementId: "lyrics-4"},
+            {time: 57.9, elementId: "lyrics-5"},
+            {time: 61, elementId: "lyrics-6"},
+            {time: 64.1, elementId: "lyrics-7"},
+            {time: 67.5, elementId: "lyrics-8"},
+            {time: 71.1, elementId: "lyrics-9"},
+            {time: 74, elementId: "lyrics-10"},
+            {time: 77.7, elementId: "lyrics-11"},
+            {time: 81, elementId: "lyrics-12"},
         ]
 
-        $("#chantsLyrics").append("<p id='lyrics-1'>서울의 <ruby><rb>◌◌</rb><rp>(</rp><rt>선수</rt><rp>)</rp></ruby> 야이야이야</p>")
+        $("#chantsLyrics").append("<p id='lyrics-1'>푸른 도시 위를 질주하여라</p><p id='lyrics-2'>피 끓는 심장이 터질 때까지</p><p id='lyrics-3'>승리 위해 뛰어 저 표범처럼</p><p id='lyrics-4'>좌로 우로 뛰면서 서울을 외치자</p><p id='lyrics-5'>좌로 뜨드 뜨드 뜨드</p><p id='lyrics-6'>우로 뜨드 뜨드 뜨드</p><p id='lyrics-7'>좌로 뜨드 뜨드 뜨드</p><p id='lyrics-8'>우로 뜨드 뜨드 뜨드</p><p id='lyrics-9'>뜨뜨드드드드 뜨뜨드드드</p><p id='lyrics-10'>뜨뜨드드드드 뜨드드뜨드드</p><p id='lyrics-11'>뜨뜨드드드드 뜨뜨드드드</p><p id='lyrics-12'>뜨드뜨드드뜨드드 뜨드드뜨드드</p>")
     }
 
-    if (chantsName == "주장 콜") {
+    if (chantsName == "둥글게 둥글게") {
+        chantsUrl = "8h1k988BO8s"
+        original = "둥글게 둥글게"
+
+        timeMapping = [
+            {time: 6, elementId: "lyrics-1"},
+            {time: 9.3, elementId: "lyrics-2"},
+            {time: 12.8, elementId: "lyrics-3"},
+            {time: 16, elementId: "lyrics-4"},
+            {time: 19.4, elementId: "lyrics-5"},
+            {time: 23, elementId: "lyrics-6"},
+            {time: 26, elementId: "lyrics-7"},
+            {time: 29.4, elementId: "lyrics-8"},
+            {time: 33, elementId: "lyrics-1"},
+            {time: 36.3, elementId: "lyrics-2"},
+            {time: 39.6, elementId: "lyrics-3"},
+            {time: 42.8, elementId: "lyrics-4"},
+            {time: 46.1, elementId: "lyrics-5"},
+            {time: 49.5, elementId: "lyrics-6"},
+            {time: 52.6, elementId: "lyrics-7"},
+            {time: 56, elementId: "lyrics-8"},
+            {time: 59.1, elementId: "lyrics-1"},
+            {time: 62.4, elementId: "lyrics-2"},
+            {time: 65.7, elementId: "lyrics-3"},
+            {time: 68.9, elementId: "lyrics-4"},
+            {time: 72.2, elementId: "lyrics-5"},
+            {time: 75.6, elementId: "lyrics-6"},
+            {time: 78.8, elementId: "lyrics-7"},
+            {time: 82.2, elementId: "lyrics-8"},
+        ]
+
+        $("#chantsLyrics").append("<p id='lyrics-1'>승리를 위하여 다 함께 일어나</p><p id='lyrics-2'>서울 이랜 승리 위해 함께 외치자</p><p id='lyrics-3'>깃발을 흔들며 북 소리 맞춰서</p><p id='lyrics-4'>라라라라 머플러를 힘껏 돌리자</p><p id='lyrics-5'>알레 알레 알레 서울 이랜드</p><p id='lyrics-6'>알레 알레 알레 서울 이랜드</p><p id='lyrics-7'>함께 나아가자 포르차 서울</p><p id='lyrics-8'>하나되어 불러 봅시다</p>")
+    }
+
+    if (chantsName == "포에버") {
+        chantsUrl = "r021bEbcxtE"
+        original = "Si Nos Organizamos..."
+
+        timeMapping = [
+            {time: 3, elementId: "lyrics-1"},
+            {time: 11.3, elementId: "lyrics-2"},
+            {time: 15.3, elementId: "lyrics-3"},
+            {time: 19.6, elementId: "lyrics-4"},
+            {time: 23.3, elementId: "lyrics-5"},
+            {time: 27.4, elementId: "lyrics-1"},
+            {time: 35.9, elementId: "lyrics-2"},
+            {time: 39.9, elementId: "lyrics-3"},
+            {time: 44, elementId: "lyrics-4"},
+            {time: 48, elementId: "lyrics-5"},
+            {time: 52.2, elementId: "lyrics-1"},
+            {time: 60.7, elementId: "lyrics-2"},
+            {time: 64.8, elementId: "lyrics-3"},
+            {time: 68.9, elementId: "lyrics-4"},
+            {time: 72.9, elementId: "lyrics-5"},
+            {time: 77, elementId: "lyrics-1"},
+            {time: 85.2, elementId: "lyrics-2"},
+            {time: 89.4, elementId: "lyrics-3"},
+            {time: 93.7, elementId: "lyrics-4"},
+            {time: 97.7, elementId: "lyrics-5"},
+        ]
+
+        $("#chantsLyrics").append("<p id='lyrics-1'>오 나의 서울 오 나의 서울</p><p id='lyrics-2'>어떠한 시련들이 다가와도</p><p id='lyrics-3'>우리는 항상 이곳을 지킨다네</p><p id='lyrics-4'>영광의 날이 다가올 때까지</p><p id='lyrics-5'>우리의 사랑 영원히 변함없네</p>")
+    }
+
+    if (chantsName == "항상 사랑할 거야") {
+        chantsUrl = "80WBRiLRC9M"
+        original = "Vamos, Vamos Azulcrema, Vamos a Ganar"
+
+        timeMapping = [
+            {time: 6.9, elementId: "lyrics-1"},
+            {time: 11.1, elementId: "lyrics-2"},
+            {time: 15.5, elementId: "lyrics-3"},
+            {time: 19.8, elementId: "lyrics-4"},
+            {time: 24, elementId: "lyrics-1"},
+            {time: 28, elementId: "lyrics-2"},
+            {time: 32.4, elementId: "lyrics-3"},
+            {time: 36.8, elementId: "lyrics-4"},
+            {time: 41, elementId: "lyrics-1"},
+            {time: 45.1, elementId: "lyrics-2"},
+            {time: 49.2, elementId: "lyrics-3"},
+            {time: 53.8, elementId: "lyrics-4"},
+        ]
+
+        $("#chantsLyrics").append("<p id='lyrics-1'>가자 가자 서울은 승리하리라</p><p id='lyrics-2'>이 목소리는 멈추지 않을 거야</p><p id='lyrics-3'>너희가 어디 있든 따라가리라</p><p id='lyrics-4'>항상 사랑할 거야</p>")
+    }
+
+    if (chantsName == "푸른 심장") {
+        chantsUrl = "V1IA-3XdjRw"
+        original = "Corazon Rojinegro"
+
+        timeMapping = [
+            {time: 6.9, elementId: "lyrics-1"},
+            {time: 11.2, elementId: "lyrics-2"},
+            {time: 15.1, elementId: "lyrics-3"},
+            {time: 19.2, elementId: "lyrics-4"},
+            {time: 22.4, elementId: "lyrics-5"},
+            {time: 23.8, elementId: "lyrics-6"},
+            {time: 27.7, elementId: "lyrics-7"},
+            {time: 31.8, elementId: "lyrics-8"},
+            {time: 36, elementId: "lyrics-9"},
+            {time: 38.8, elementId: "lyrics-10"},
+            {time: 40, elementId: "lyrics-1"},
+            {time: 44.2, elementId: "lyrics-2"},
+            {time: 48.1, elementId: "lyrics-3"},
+            {time: 52.2, elementId: "lyrics-4"},
+            {time: 55.4, elementId: "lyrics-5"},
+            {time: 56.8, elementId: "lyrics-6"},
+            {time: 60.7, elementId: "lyrics-7"},
+            {time: 64.8, elementId: "lyrics-8"},
+            {time: 69, elementId: "lyrics-9"},
+            {time: 71.8, elementId: "lyrics-10"},
+            {time: 40, elementId: "lyrics-1"},
+            {time: 44.2, elementId: "lyrics-2"},
+            {time: 48.1, elementId: "lyrics-3"},
+            {time: 52.2, elementId: "lyrics-4"},
+            {time: 55.4, elementId: "lyrics-5"},
+            {time: 56.8, elementId: "lyrics-6"},
+            {time: 60.7, elementId: "lyrics-7"},
+            {time: 64.8, elementId: "lyrics-8"},
+            {time: 69, elementId: "lyrics-9"},
+            {time: 71.8, elementId: "lyrics-10"},
+            {time: 73, elementId: "lyrics-1"},
+            {time: 77.2, elementId: "lyrics-2"},
+            {time: 81.1, elementId: "lyrics-3"},
+            {time: 85.2, elementId: "lyrics-4"},
+            {time: 88.4, elementId: "lyrics-5"},
+            {time: 89.8, elementId: "lyrics-6"},
+            {time: 93.7, elementId: "lyrics-7"},
+            {time: 97.8, elementId: "lyrics-8"},
+            {time: 102, elementId: "lyrics-9"},
+            {time: 104.8, elementId: "lyrics-10"},
+        ]
+
+        $("#chantsLyrics").append("<p id='lyrics-1'>그대와 이 길을 같이 걷는다면</p><p id='lyrics-2'>나는 그 누구도 두렵지가 않네</p><p id='lyrics-3'>우리의 가슴에 불을 지핀다면</p><p id='lyrics-4'>나는 그 누구도 부럽지가 않네</p><p id='lyrics-5'>라라라라</p><p id='lyrics-6'>자 가자 가자 앞으로</p><p id='lyrics-7'>터뜨려 너의 푸른 심장을</p><p id='lyrics-8'>자 가자 가자 앞으로</p><p id='lyrics-9'>터뜨려 너의 푸른 심장</p><p id='lyrics-10'>라라라라</p>")
+    }
+
+    if (chantsName == "서울 승리를 향해") {
+        chantsUrl = "Aes0LShAauM"
+        original = "Bud Like You"
+
+        timeMapping = [
+            {time: 5.3, elementId: "lyrics-1"},
+            {time: 8.9, elementId: "lyrics-2"},
+            {time: 12.6, elementId: "lyrics-3"},
+            {time: 15.9, elementId: "lyrics-4"},
+            {time: 19.3, elementId: "lyrics-1"},
+            {time: 22.9, elementId: "lyrics-2"},
+            {time: 26.6, elementId: "lyrics-3"},
+            {time: 29.9, elementId: "lyrics-4"},
+            {time: 33.3, elementId: "lyrics-1"},
+            {time: 36.9, elementId: "lyrics-2"},
+            {time: 40.6, elementId: "lyrics-3"},
+            {time: 43.9, elementId: "lyrics-4"},
+        ]
+
+        $("#chantsLyrics").append("<p id='lyrics-1'>서울 서울 승리를 향해</p><p id='lyrics-2'>언젠가는 찾아오리 영광의 그날</p><p id='lyrics-3'>서울 서울 승리를 향해</p><p id='lyrics-4'>별을 다는 순간까지 모두 외쳐라</p>")
+    }
+
+    if (chantsName == "We Cheer for Seoul") {
+        chantsUrl = "rEkqhK96icg"
+
+        timeMapping = [
+            {time: 3, elementId: "lyrics-1"},
+            {time: 6, elementId: "lyrics-2"},
+            {time: 9, elementId: "lyrics-3"},
+            {time: 11.9, elementId: "lyrics-4"},
+            {time: 14.8, elementId: "lyrics-5"},
+            {time: 20.8, elementId: "lyrics-6"},
+            {time: 27.8, elementId: "lyrics-7"},
+            {time: 34, elementId: "lyrics-8"},
+            {time: 41.6, elementId: "lyrics-1"},
+            {time: 44.7, elementId: "lyrics-2"},
+            {time: 47.6, elementId: "lyrics-3"},
+            {time: 50.6, elementId: "lyrics-4"},
+            {time: 53.3, elementId: "lyrics-5"},
+            {time: 59.9, elementId: "lyrics-6"},
+            {time: 66, elementId: "lyrics-7"},
+            {time: 72.7, elementId: "lyrics-8"},
+        ]
+
+        $("#chantsLyrics").append("<p id='lyrics-1'>서울 서울 갖다 박아 버려</p><p id='lyrics-2'>서울 서울 때려 부숴 버려</p><p id='lyrics-3'>서울 서울 갖다 박아 버려</p><p id='lyrics-4'>서울 서울 때려 부숴 버려</p><p id='lyrics-5'>올레 올레오 서울 이랜</p><p id='lyrics-6'>올레 올레오 서울 이랜</p><p id='lyrics-7'>올레 올레오 서울 이랜</p><p id='lyrics-8'>올레 올레오 서울 이랜</p>")
+    }
+
+    if (chantsName == "서울을 위해 달려라") {
+        chantsUrl = "aaKGkYKbeTA"
+        original = "Runner"
+
+        timeMapping = [
+            {time: 6.6, elementId: "lyrics-1"},
+            {time: 10.7, elementId: "lyrics-2"},
+            {time: 14.5, elementId: "lyrics-3"},
+            {time: 18.4, elementId: "lyrics-4"},
+            {time: 22.4, elementId: "lyrics-1"},
+            {time: 26.2, elementId: "lyrics-2"},
+            {time: 30.3, elementId: "lyrics-3"},
+            {time: 34.1, elementId: "lyrics-4"},
+            {time: 38.1, elementId: "lyrics-5"},
+            {time: 42, elementId: "lyrics-6"},
+            {time: 46, elementId: "lyrics-7"},
+            {time: 49.9, elementId: "lyrics-8"},
+        ]
+
+        $("#chantsLyrics").append("<p id='lyrics-1'>달려라 달려라 서울을 위해</p><p id='lyrics-2'>흐르는 땀을 바람에 흩뿌리며</p><p id='lyrics-3'>힘들고 숨이 차 넘어져도</p><p id='lyrics-4'>또 다시 일어나 앞으로 나아가리</p><p id='lyrics-5'>라라라 라라라 라라라 라라</p><p id='lyrics-6'>라라라 라라라라라라 라라라라</p><p id='lyrics-7'>라라라 라라라 라라라 라라</p><p id='lyrics-8'>라라라 라라라라라라 라 라라</p>")
+    }
+
+    if (chantsName == "캡틴 콜") {
         chantsUrl = "fla4_qsIHCw"
 
         timeMapping = [
@@ -961,6 +1238,28 @@ if ($("#chantsName").length) {
         ]
 
         $("#chantsLyrics").append("<p id='lyrics-1'>오스마르 오스마르 서울만을 사랑해</p><p id='lyrics-2'>레울파크에 왔네 오 오 오스마르 헤이</p><p id='lyrics-3'>오스마르 오스마르 스페인의 검투사</p><p id='lyrics-4'>승격을 위해 왔네 오 오 오스마르 헤이</p><p id='lyrics-5'>오스마르 오스마르 이바녜스 바르바</p><p id='lyrics-6'>황새도 막지 못해 오 오 오스마르 헤이</p>")
+    }
+
+    if (chantsName == "변경준 콜") {
+        chantsUrl = "lBfPmmageI0"
+        original = "슈퍼맨"
+
+        timeMapping = [
+            {time: 6, elementId: "lyrics-1"},
+            {time: 9.3, elementId: "lyrics-2"},
+            {time: 12.8, elementId: "lyrics-3"},
+            {time: 16, elementId: "lyrics-4"},
+            {time: 19, elementId: "lyrics-1"},
+            {time: 22.3, elementId: "lyrics-2"},
+            {time: 25.8, elementId: "lyrics-3"},
+            {time: 29, elementId: "lyrics-4"},
+            {time: 32, elementId: "lyrics-1"},
+            {time: 35.3, elementId: "lyrics-2"},
+            {time: 38.8, elementId: "lyrics-3"},
+            {time: 42, elementId: "lyrics-4"},
+        ]
+
+        $("#chantsLyrics").append("<p id='lyrics-1'>치고 달려나가 서울 변경준</p><p id='lyrics-2'><ruby><rb>◌◌</rb><rp>(</rp><rt>상대</rt><rp>)</rp></ruby> 부숴 버려 서울 변경준</p><p id='lyrics-3'>멋지구나 잘생겼다 잔디 위의 푸른 야수</p><p id='lyrics-4'>스피드가 장난 아니지</p>")
     }
 
     $("#chantsVideo").append('<iframe id="youtube-player" src="https://www.youtube.com/embed/' + chantsUrl + '?enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
