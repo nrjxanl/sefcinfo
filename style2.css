@@ -475,13 +475,13 @@ tr.sefc > td:nth-last-of-type(1) {border-radius: 0 20px 20px 0;}
 tr.sefc > td > p {background: #fafafa !important; color: #050505 !important;}
 
 /* 응원가 */
-#team {width: 30vw; margin-top: 40px;}
+#team {width: 30vw; margin: 40px 0;}
 #team > p {width: 30vw; text-align: left; font-size: 24px; margin-bottom: 20px;}
 #team > div {width: 30vw; font-size: 20px; font-weight: 600; text-align: left; vertical-align: bottom; padding: 14px 0; border-bottom: 1px solid #00006020; cursor: pointer;}
 #team > div:nth-of-type(1) {border-top: 1px solid #00006020;}
 #team > div > span {font-weight: 600; margin-left: 4px;}
 
-#players {width: 30vw; margin-top: 40px;}
+#players {width: 30vw; margin: 40px 0;}
 #players > p {width: 30vw; text-align: left; font-size: 24px; margin-bottom: 20px;}
 #players > div {width: 30vw; font-size: 20px; font-weight: 600; text-align: left; vertical-align: bottom; padding: 14px 0; border-bottom: 1px solid #00006020; cursor: pointer;}
 #players > div:nth-of-type(1) {border-top: 1px solid #00006020;}
