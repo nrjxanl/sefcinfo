@@ -969,7 +969,7 @@ $(document).ready(function () {
         }
 
         function playedMatch() {
-            played[year] += stat.replace(/[^-]/g, "").length
+            if (stat.replace(/[a-z]/g, "").length !== 0) {played[year] += 1}
             goal[year] += stat.replace(/[^g]/g, "").length
             assist[year] += stat.replace(/[^a]/g, "").length
             yc[year] += stat.replace(/[^y]/g, "").length
@@ -981,7 +981,7 @@ $(document).ready(function () {
                 exc[year] ++
             }
 
-            if (status_ == "A" && stat.includes("-")) {
+            if (status_ == "A" && stat.replace(/[a-z]/g, "").length !== 0) {
                 $("#playedMatch > div").prepend("<div class='" + Object.keys(data)[i] + "'><p>" + Object.values(played).reduce(function (a, b) { return a + b }, 0) + "</p><div><img src='./files/" + opp + "_s.png'></div><div><img src='./files/" + comp + "_s.png'></div><p>" + Object.keys(data)[i].substring(2, 4) + "." + Object.keys(data)[i].substring(4, 6) + "." + Object.keys(data)[i].substring(6, 8) + "." + "</p><p>" + pos + "</p><p></p><p>" + data[Object.keys(data)[i]][pos][j][1].replace(/[g|a|y|r|o|p]/g, "") + "</p></div>")
 
                 $("#playedSEFC > div > div:nth-of-type(1) > p:nth-of-type(2)").text(Object.values(played).reduce(function (a, b) { return a + b }, 0))
@@ -991,7 +991,7 @@ $(document).ready(function () {
                 $("#playedSEFC > div > div:nth-of-type(5) > p:nth-of-type(2)").text(Object.values(rc).reduce(function (a, b) { return a + b }, 0))
                 $("#playedSEFC > div > div:nth-of-type(6) > p:nth-of-type(2)").text((Object.values(rate).reduce(function (a, b) { return a + b }, 0) / (Object.values(played).reduce(function (a, b) { return a + b }, 0) - Object.values(exc).reduce(function (a, b) { return a + b }, 0))).toFixed(1))
 
-            } else if (status_ == "U18" && stat.includes("-")) {
+            } else if (status_ == "U18" && stat.replace(/[a-z]/g, "").length !== 0) {
                 $("#playedMatchU18 > div").prepend("<div class='" + Object.keys(data)[i] + "'><p>" + Object.values(played).reduce(function (a, b) { return a + b }, 0) + "</p><div><img src='./files/" + opp + "_s.png'></div><div><img src='./files/" + comp + "_s.png'></div><p>" + Object.keys(data)[i].substring(2, 4) + "." + Object.keys(data)[i].substring(4, 6) + "." + Object.keys(data)[i].substring(6, 8) + "." + "</p><p>" + pos + "</p><p></p><p>" + data[Object.keys(data)[i]][pos][j][1].replace(/[g|a|y|r|o|p]/g, "") + "</p></div>")
 
                 $("#playedSEFCU18 > div > div:nth-of-type(1) > p:nth-of-type(2)").text(Object.values(played).reduce(function (a, b) { return a + b }, 0))
@@ -999,7 +999,7 @@ $(document).ready(function () {
                 $("#playedSEFCU18 > div > div:nth-of-type(3) > p:nth-of-type(2)").text(Object.values(yc).reduce(function (a, b) { return a + b }, 0))
                 $("#playedSEFCU18 > div > div:nth-of-type(4) > p:nth-of-type(2)").text(Object.values(rc).reduce(function (a, b) { return a + b }, 0))
 
-            } else if (status_ == "U15" && stat.includes("-")) {
+            } else if (status_ == "U15" && stat.replace(/[a-z]/g, "").length !== 0) {
                 $("#playedMatchU15 > div").prepend("<div class='" + Object.keys(data)[i] + "'><p>" + Object.values(played).reduce(function (a, b) { return a + b }, 0) + "</p><div><img src='./files/" + opp + "_s.png'></div><div><img src='./files/" + comp + "_s.png'></div><p>" + Object.keys(data)[i].substring(2, 4) + "." + Object.keys(data)[i].substring(4, 6) + "." + Object.keys(data)[i].substring(6, 8) + "." + "</p><p>" + pos + "</p><p></p><p>" + data[Object.keys(data)[i]][pos][j][1].replace(/[g|a|y|r|o|p]/g, "") + "</p></div>")
 
                 $("#playedSEFCU15 > div > div:nth-of-type(1) > p:nth-of-type(2)").text(Object.values(played).reduce(function (a, b) { return a + b }, 0))
