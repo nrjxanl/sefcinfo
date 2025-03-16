@@ -1929,10 +1929,6 @@ function fixtures() {
 
         $("#fixtures" + status_ + " > .fixtures > p").css({ "font-size": "16px", "margin-top": "calc(27px + 5vw)", "font-weight": "300" })
     }
-
-    // 유스 경기 숨기기
-    $("#fixturesU18").empty().append("<p style='font-size: 16px; margin-top: calc(27px + 5vw); font-weight: 300;'>준비 중입니다.</p>")
-    $("#fixturesU15").empty().append("<p style='font-size: 16px; margin-top: calc(27px + 5vw); font-weight: 300;'>준비 중입니다.</p>")
 }
 
 // 순위
