@@ -107,7 +107,7 @@ $(document).ready(function () {
 
         // 하이라이트
         if (dataList["hl"] !== "") {
-            $("#highlight").html("<a href='https://youtu.be/" + dataList["hl"] + "' target='_blank'><p>하이라이트<span>youtu.be/" + dataList["hl"] + "</span></p><img src='./files/youtube.png'></a>")
+            $("#highlight").html("<a href='https://youtu.be/" + dataList["hl"] + "' target='_blank'><p>하이라이트<span>youtube.com</span></p><img src='./files/youtube.png'></a>")
         } else {
             $("#highlight").remove()
         }

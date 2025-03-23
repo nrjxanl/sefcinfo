@@ -329,13 +329,13 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #match {width: 80vw; margin-left: 10vw;}
 
 #highlight {width: 74vw; padding: 1vw 3vw; margin-left: 10vw; border-radius: 20px; box-shadow: #00006020 0px 0px 4px 2px;}
-#highlight > a {display: flex; align-items: center; justify-content: center;}
+#highlight > a {width: 74vw; height: fit-content; display: flex; align-items: center; justify-content: center;}
 #highlight > a > p {width: 62vw; margin-left: 2vw; text-align: left; font-size: 16px;}
 #highlight > a > p > span {margin-left: 2vw; font-weight: 600;}
-#highlight > a > img {width: 8vw; padding: 1vw; margin-right: 2vw; border-radius: 50%;}
+#highlight > a > img {width: 8vw; padding: 1vw 0; margin-right: 2vw; border-radius: 50%;}
 
 #potm > p {font-size: 16px; padding: 3vw 2vw 2vw 2vw; text-align: left; margin-left: 5vw;}
-#potm > div {height: 40px; display: flex; align-items: center;}
+#potm > div {width: 74vw; height: 40px; display: flex; align-items: center; justify-content: space-between;}
 #potm > div > p:nth-of-type(1) {font-size: 16px; font-weight: 600; margin-left: 5vw;}
 #potm > div > p:nth-of-type(1) > span {font-size: 16px; color: #000060; margin: 0 1.5vw 0 3vw;}
 #potm > div > p:nth-of-type(2) {width: 10vw; padding: 4px 0; font-size: 12px; border-radius: 50vw; color: #fafafa; position: absolute; right: 20vw;}

@@ -330,14 +330,14 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 
 #matchInfo {width: 30vw; display: flex; flex-wrap: wrap; gap: 20px 5vw;}
 
-#highlight {width: 26vw; padding: 1vw 2vw; border-radius: 20px; box-shadow: #00006020 0px 0px 4px 2px;}
-#highlight > a {width: fit-content; display: flex; align-items: center; justify-content: center;}
+#highlight {width: 26vw; height: fit-content; padding: 1vw 2vw; border-radius: 20px; box-shadow: #00006020 0px 0px 4px 2px;}
+#highlight > a {width: 26vw; display: flex; align-items: center; justify-content: space-between;}
 #highlight > a > p {width: fit-content; text-align: left; font-size: 16px;}
 #highlight > a > p > span {margin-left: 1vw; font-weight: 600;}
-#highlight > a > img {width: 3vw; padding: 1vw; border-radius: 50%;}
+#highlight > a > img {width: 3vw; padding: 1vw 0; border-radius: 50%;}
 
 #potm > p {font-size: 16px; margin: 12px 0 4px 8px; text-align: left;}
-#potm > div {height: 40px; display: flex; align-items: center; justify-content: space-between; cursor: pointer;}
+#potm > div {width: calc(-24px + 30vw); height: 40px; display: flex; align-items: center; justify-content: space-between; cursor: pointer;}
 #potm > div > p:nth-of-type(1) {font-size: 16px; font-weight: 600; margin-left: 4px; padding-bottom: 4px;}
 #potm > div > p:nth-of-type(1) > span {font-size: 16px; color: #000060; margin: 0 1.5vw 0 4px;}
 #potm > div > p:nth-of-type(2) {width: 4vw; padding: 4px 0; font-size: 12px; border-radius: 50vw; color: #fafafa; margin-bottom: 4px;}
@@ -403,7 +403,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 
 #h2hGoalsText > div > p:nth-of-type(1) {width: 4vw; height: 4vw; font-size: 14px; border-radius: 50%; display: flex; justify-content: center; align-items: center;}
 
-#recentMatch {width: 30vw; position: absolute; left: 35vw; box-shadow: 0 0 4px 2px #00006020; border-radius: 20px; margin-bottom: 40px;}
+#recentMatch {width: 30vw; left: 35vw; box-shadow: 0 0 4px 2px #00006020; border-radius: 20px; margin: 40px;}
 #recentMatch > div {width: 30vw; height: 60px; border-bottom: 2px solid #00006020; padding: 4px 0 8px 0; cursor: pointer;}
 #recentMatch > div > div:nth-of-type(1) {width: 30vw; height: 40px; display: flex; align-items: center;}
 #recentMatch > div > div:nth-of-type(1) > div:nth-of-type(1) {width: 30vw; display: flex; align-items: center; justify-content: flex-end;}
