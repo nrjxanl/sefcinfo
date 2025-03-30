@@ -1109,12 +1109,12 @@ $(document).ready(function () {
                     if (played[year] > 0) {
                         if (status_ == "A") {
                             if (played[year] !== exc[year]) {
-                                $("#statsBySeason").append("<div><p>A</p><p>" + year.substring(2, 4) + "'</p><p>" + played[year] + "</p><p>" + goal[year] + "</p><p>" + assist[year] + "</p><p>" + yc[year] + "</p><p>" + rc[year] + "</p><p>" + (rate[year] / (played[year] - exc[year])).toFixed(1) + "</p></div>")
+                                $("#statsBySeason").append("<div><p>A</p><p>'" + year.substring(2, 4) + "</p><p>" + played[year] + "</p><p>" + goal[year] + "</p><p>" + assist[year] + "</p><p>" + yc[year] + "</p><p>" + rc[year] + "</p><p>" + (rate[year] / (played[year] - exc[year])).toFixed(1) + "</p></div>")
                             } else {
-                                $("#statsBySeason").append("<div><p>A</p><p>" + year.substring(2, 4) + "'</p><p>" + played[year] + "</p><p>" + goal[year] + "</p><p>" + assist[year] + "</p><p>" + yc[year] + "</p><p>" + rc[year] + "</p><p>-</p></div>")
+                                $("#statsBySeason").append("<div><p>A</p><p>'" + year.substring(2, 4) + "</p><p>" + played[year] + "</p><p>" + goal[year] + "</p><p>" + assist[year] + "</p><p>" + yc[year] + "</p><p>" + rc[year] + "</p><p>-</p></div>")
                             }
                         } else {
-                            $("#statsBySeason").append("<div><p>" + status_ + "</p><p>" + year.substring(2, 4) + "'</p><p>" + played[year] + "</p><p>" + goal[year] + "</p><p>-</p><p>" + yc[year] + "</p><p>" + rc[year] + "</p><p>-</p></div>")
+                            $("#statsBySeason").append("<div><p>" + status_ + "</p><p>'" + year.substring(2, 4) + "</p><p>" + played[year] + "</p><p>" + goal[year] + "</p><p>-</p><p>" + yc[year] + "</p><p>" + rc[year] + "</p><p>-</p></div>")
                         }
                     }
                 }
