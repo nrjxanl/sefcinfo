@@ -46,7 +46,8 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #menu > div > img {width: auto; height: 18px; margin-right: 10px;}
 #menu > a {width: 50vw; display: block; margin: 20px 0 0 calc(5vw + 15px); font-size: 14px; font-weight: 300; text-align: left; text-decoration: underline;}
 
-.bannerMenu {width: 50vw; height: 12.5vw; border-radius: 20px; margin-top: 24px; padding: 0; overflow: hidden; cursor: pointer;}
+.bannerMenu {width: 50vw; height: 12.5vw; border-radius: 20px; margin-top: 12px; padding: 0; overflow: hidden; cursor: pointer;}
+.bannerMenu:nth-of-type(1) {margin-top: 28px;}
 
 /* 로딩 */
 #loading {width: 100vw; height: 200vh; position: fixed; top: 0; left: 0; background: #fafafa; z-index: 99;}
