@@ -23,7 +23,7 @@ $(document).ready(function() {
 before = $(this).width()
 $(window).resize(function() {
     after = $(this).width()
-    if (after != before) {
+    if ((after >= 768 && before < 768) || (after < 768 && before >= 768)) {
         location.reload()
     }
 })
