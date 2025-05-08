@@ -103,6 +103,9 @@ $("#menu > div:nth-of-type(7)").click(function() {
 
 // 배너 클릭 시 페이지 이동
 $(".bannerMenu:nth-of-type(1)").click(function() {
+    window.open("https://www.instagram.com/sefcinfo/")
+})
+$(".bannerMenu:nth-of-type(2)").click(function() {
     window.open("https://linktr.ee/sefcnuevo")
 })
 
