@@ -57,7 +57,7 @@ $("footer > img").click(function () {
 })
 
 // 메뉴
-$("body").append("<div id='menu'><div><span></span><img src='https://sefc.info/files/home.svg'>홈</div><div><span></span><img src='https://sefc.info/files/fixtures.svg'>일정</div><div><span></span><img src='https://sefc.info/files/players.svg'>선수단</div><div><span></span><img src='https://sefc.info/files/stats.svg'>기록</div><div><span></span><img src='https://sefc.info/files/standings.svg'>순위</div><div><span></span><img src='https://sefc.info/files/chants.svg'>응원가</div><div><span></span><img src='https://sefc.info/files/wallpaper.svg'>배경화면</div><a href='https://naver.me/GlJ18AQh' target='_blank'>오류 제보 및 건의</a><img class='bannerMenu' src='https://sefc.info/files/banner_insta.svg'><img class='bannerMenu' src='https://sefc.info/files/banner_1.jpg'></div><div id='menuBg'></div>")
+$("body").append("<div id='menu'><div><span></span><img src='https://sefc.info/files/home.svg'>홈</div><div><span></span><img src='https://sefc.info/files/fixtures.svg'>일정</div><div><span></span><img src='https://sefc.info/files/players.svg'>선수단</div><div><span></span><img src='https://sefc.info/files/stats.svg'>기록</div><div><span></span><img src='https://sefc.info/files/standings.svg'>순위</div><div><span></span><img src='https://sefc.info/files/chants.svg'>응원가</div><div><span></span><img src='https://sefc.info/files/wallpaper.svg'>배경화면</div><a href='https://naver.me/GlJ18AQh' target='_blank'>오류 제보 및 건의</a><img class='bannerMenu' src='https://sefc.info/files/banner_1.jpg'></div><div id='menuBg'></div>")
 
 // 상단 클릭 시 홈으로 이동
 $("header > div:nth-of-type(2)").click(function() {
@@ -103,10 +103,10 @@ $("#menu > div:nth-of-type(7)").click(function() {
 
 // 배너 클릭 시 페이지 이동
 $(".bannerMenu:nth-of-type(1)").click(function() {
-    window.open("https://www.instagram.com/sefcinfo/")
-})
-$(".bannerMenu:nth-of-type(2)").click(function() {
     window.open("https://linktr.ee/sefcnuevo")
+})
+$(".instaMenu:nth-of-type(1)").click(function() {
+    window.open("https://www.instagram.com/sefcinfo/")
 })
 
 // 메뉴 내 현재 페이지 이름 강조
