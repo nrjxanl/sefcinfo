@@ -883,7 +883,7 @@ $(document).ready(function () {
                 $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > div > img").attr("src", "./files/" + dataA[prev[i]]["away"][1] + "_s.png")
 
                 if (dataA[prev[i]]["homeScore"] > dataA[prev[i]]["awayScore"]) {
-                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#000060")
+                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#174fff")
                 } else if (dataA[prev[i]]["homeScore"] == dataA[prev[i]]["awayScore"]) {
                     $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#acacac")
                 } else {
@@ -893,7 +893,7 @@ $(document).ready(function () {
                 $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > div > img").attr("src", "./files/" + dataA[prev[i]]["home"][1] + "_s.png")
 
                 if (dataA[prev[i]]["homeScore"] < dataA[prev[i]]["awayScore"]) {
-                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#000060")
+                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#174fff")
                 } else if (dataA[prev[i]]["homeScore"] == dataA[prev[i]]["awayScore"]) {
                     $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#acacac")
                 } else {
