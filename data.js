@@ -2380,6 +2380,8 @@ function stats() {
             status_ == "U18" ? playerU18_ :
                 status_ == "U15" ? playerU15_ : ""
 
+        y = new Date().getFullYear()
+
         for (i = 0; i < Object.keys(app).length; i++) {
             $("#stats > .stats > table > tbody").append("<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>")
             // console.log(Object.keys(app)[i]) // 오류 확인용
@@ -2387,7 +2389,7 @@ function stats() {
                 $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(1)").text(playerNumber[year][Object.keys(app)[i]][1])
             } catch (error) {
                 try {
-                    $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(1)").text(playerNumber[2024][Object.keys(app)[i]][1])
+                    $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(1)").text(playerNumber[y][Object.keys(app)[i]][1])
                 } catch (error) {
                     $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(1)").text("--")
                 }
