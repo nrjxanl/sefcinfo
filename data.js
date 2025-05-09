@@ -1169,7 +1169,7 @@ $(document).ready(function () {
         })
 
         // 클릭 시 경기 세부 정보 창 열기
-        $("#playedMatch > div > div").each(function () {
+        $("[id*=playedMatch] > div > div").each(function () {
             $(this).click(function () {
                 localStorage.setItem($(this).attr("class"), "matchLineup")
                 window.location.href = "./match?" + $(this).attr("class")
