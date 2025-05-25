@@ -123,6 +123,9 @@ $(document).ready(function () {
                 }
 
                 function lineup() {
+
+                    zIndex = 0
+
                     $("#" + pos.toLowerCase()).append("<td id='" + dataList[pos][i][0].replace(/[^0-9]/g, "") + "'></td>")
                     $("#" + dataList[pos][i][0]).html("<div><img src='./files/jersey.svg'></div><p>" + playerNumber[year][dataList[pos][i][0]][1] + "</p><p>" + playerNumber[year][dataList[pos][i][0]][0].replace(/[A-Z,0-9]/g, "") + "<span></span></p><p>" + dataList[pos][i][1].replace(/[g|a|y|r|o|p]/g, "") + "</p>")
 
@@ -174,6 +177,8 @@ $(document).ready(function () {
                     if (dataList[pos][i][1].replace(/[^g]/g, "").length !== 0) {
                         for (j = 0; j < dataList[pos][i][1].replace(/[^g]/g, "").length; j++) {
                             $("#" + dataList[pos][i][0] + " > p:nth-of-type(2) > span").append("<img src='./files/goal.svg'>")
+                            $("#" + dataList[pos][i][0] + " > p:nth-of-type(2) > span > img:nth-of-type(" + (zIndex + 1) + ")").css("z-index", 100 - zIndex)
+                            zIndex ++
                         }
                     }
 
@@ -181,6 +186,8 @@ $(document).ready(function () {
                     if (dataList[pos][i][1].replace(/[^a]/g, "").length !== 0) {
                         for (j = 0; j < dataList[pos][i][1].replace(/[^a]/g, "").length; j++) {
                             $("#" + dataList[pos][i][0] + " > p:nth-of-type(2) > span").append("<img src='./files/assist.svg'>")
+                            $("#" + dataList[pos][i][0] + " > p:nth-of-type(2) > span > img:nth-of-type(" + (zIndex + 1) + ")").css("z-index", 100 - zIndex)
+                            zIndex ++
                         }
                     }
 
@@ -188,6 +195,8 @@ $(document).ready(function () {
                     if (dataList[pos][i][1].replace(/[^y]/g, "").length !== 0) {
                         for (j = 0; j < dataList[pos][i][1].replace(/[^y]/g, "").length; j++) {
                             $("#" + dataList[pos][i][0] + " > p:nth-of-type(2) > span").append("<img src='./files/yc.svg'>")
+                            $("#" + dataList[pos][i][0] + " > p:nth-of-type(2) > span > img:nth-of-type(" + (zIndex + 1) + ")").css("z-index", 100 - zIndex)
+                            zIndex ++
                         }
                     }
 
@@ -195,6 +204,8 @@ $(document).ready(function () {
                     if (dataList[pos][i][1].replace(/[^r]/g, "").length !== 0) {
                         for (j = 0; j < dataList[pos][i][1].replace(/[^r]/g, "").length; j++) {
                             $("#" + dataList[pos][i][0] + " > p:nth-of-type(2) > span").append("<img src='./files/rc.svg'>")
+                            $("#" + dataList[pos][i][0] + " > p:nth-of-type(2) > span > img:nth-of-type(" + (zIndex + 1) + ")").css("z-index", 100 - zIndex)
+                            zIndex ++
                         }
                     }
 
@@ -202,6 +213,8 @@ $(document).ready(function () {
                     if (dataList[pos][i][1].replace(/[^o]/g, "").length !== 0) {
                         for (j = 0; j < dataList[pos][i][1].replace(/[^o]/g, "").length; j++) {
                             $("#" + dataList[pos][i][0] + " > p:nth-of-type(2) > span").append("<img src='./files/og.svg'>")
+                            $("#" + dataList[pos][i][0] + " > p:nth-of-type(2) > span > img:nth-of-type(" + (zIndex + 1) + ")").css("z-index", 100 - zIndex)
+                            zIndex ++
                         }
                     }
                 }
@@ -225,6 +238,8 @@ $(document).ready(function () {
 
                 for (i = 0; i < Object.keys(dataList["SUB"]).length; i++) {
 
+                    zIndex = 0
+
                     $("#sub > table").append("<tr id='" + dataList["SUB"][i][0].replace(/[^0-9]/g, "") + "'><td></td><td></td></tr>")
                     $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(1)").html(playerNumber[year][dataList["SUB"][i][0]][1])
                     $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2)").html("<p>" + playerNumber[year][dataList["SUB"][i][0]][0].replace(/[A-Z,0-9]/g, "") + "<span></span></p><p>" + dataList["SUB"][i][1].replace(/[g|a|y|r|o|p]/g, "") + "</p>")
@@ -244,6 +259,8 @@ $(document).ready(function () {
                     if (dataList["SUB"][i][1].replace(/[^g]/g, "").length !== 0) {
                         for (j = 0; j < dataList["SUB"][i][1].replace(/[^g]/g, "").length; j++) {
                             $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2) > p:nth-of-type(1) > span").append("<img src='./files/goal.svg'>")
+                            $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2) > span > img:nth-of-type(" + (zIndex + 1) + ")").css("z-index", 100 - zIndex)
+                            zIndex ++
                         }
                     }
 
@@ -251,6 +268,8 @@ $(document).ready(function () {
                     if (dataList["SUB"][i][1].replace(/[^a]/g, "").length !== 0) {
                         for (j = 0; j < dataList["SUB"][i][1].replace(/[^a]/g, "").length; j++) {
                             $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2) > p:nth-of-type(1) > span").append("<img src='./files/assist.svg'>")
+                            $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2) > span > img:nth-of-type(" + (zIndex + 1) + ")").css("z-index", 100 - zIndex)
+                            zIndex ++
                         }
                     }
 
@@ -258,6 +277,8 @@ $(document).ready(function () {
                     if (dataList["SUB"][i][1].replace(/[^y]/g, "").length !== 0) {
                         for (j = 0; j < dataList["SUB"][i][1].replace(/[^y]/g, "").length; j++) {
                             $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2) > p:nth-of-type(1) > span").append("<img src='./files/yc.svg'>")
+                            $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2) > span > img:nth-of-type(" + (zIndex + 1) + ")").css("z-index", 100 - zIndex)
+                            zIndex ++
                         }
                     }
 
@@ -265,6 +286,8 @@ $(document).ready(function () {
                     if (dataList["SUB"][i][1].replace(/[^r]/g, "").length !== 0) {
                         for (j = 0; j < dataList["SUB"][i][1].replace(/[^r]/g, "").length; j++) {
                             $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2) > p:nth-of-type(1) > span").append("<img src='./files/rc.svg'>")
+                            $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2) > span > img:nth-of-type(" + (zIndex + 1) + ")").css("z-index", 100 - zIndex)
+                            zIndex ++
                         }
                     }
 
@@ -272,6 +295,8 @@ $(document).ready(function () {
                     if (dataList["SUB"][i][1].replace(/[^o]/g, "").length !== 0) {
                         for (j = 0; j < dataList["SUB"][i][1].replace(/[^o]/g, "").length; j++) {
                             $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2) > p:nth-of-type(1) > span").append("<img src='./files/og.svg'>")
+                            $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2) > span > img:nth-of-type(" + (zIndex + 1) + ")").css("z-index", 100 - zIndex)
+                            zIndex ++
                         }
                     }
                 }
@@ -310,6 +335,9 @@ $(document).ready(function () {
                 }
 
                 function lineup() {
+
+                    zIndex = 0
+                    
                     $("#startingXI > div > table").append("<tr id='" + dataList[pos][i][0].replace(/[^0-9]/g, "") + "'><td></td><td></td></tr>")
                     $("#" + dataList[pos][i][0] + " > td:nth-of-type(1)").html(playerNumber[year][dataList[pos][i][0]][1])
                     $("#" + dataList[pos][i][0] + " > td:nth-of-type(2)").html("<p>" + playerNumber[year][dataList[pos][i][0]][0].replace(/[A-Z,0-9]/g, "") + "<span></span></p><p>" + dataList[pos][i][1].replace(/[g|a|y|r|o|p]/g, "") + "</p>")
@@ -318,6 +346,8 @@ $(document).ready(function () {
                     if (dataList[pos][i][1].replace(/[^g]/g, "").length !== 0) {
                         for (j = 0; j < dataList[pos][i][1].replace(/[^g]/g, "").length; j++) {
                             $("#" + dataList[pos][i][0] + " > td:nth-of-type(2) > p:nth-of-type(1) > span").append("<img src='./files/goal.svg'>")
+                            $("#" + dataList[pos][i][0] + " > td:nth-of-type(2) > span > img:nth-of-type(" + (zIndex + 1) + ")").css("z-index", 100 - zIndex)
+                            zIndex ++
                         }
                     }
 
@@ -325,6 +355,8 @@ $(document).ready(function () {
                     if (dataList[pos][i][1].replace(/[^a]/g, "").length !== 0) {
                         for (j = 0; j < dataList[pos][i][1].replace(/[^a]/g, "").length; j++) {
                             $("#" + dataList[pos][i][0] + " > td:nth-of-type(2) > p:nth-of-type(1) > span").append("<img src='./files/assist.svg'>")
+                            $("#" + dataList[pos][i][0] + " > td:nth-of-type(2) > span > img:nth-of-type(" + (zIndex + 1) + ")").css("z-index", 100 - zIndex)
+                            zIndex ++
                         }
                     }
 
@@ -332,6 +364,8 @@ $(document).ready(function () {
                     if (dataList[pos][i][1].replace(/[^y]/g, "").length !== 0) {
                         for (j = 0; j < dataList[pos][i][1].replace(/[^y]/g, "").length; j++) {
                             $("#" + dataList[pos][i][0] + " > td:nth-of-type(2) > p:nth-of-type(1) > span").append("<img src='./files/yc.svg'>")
+                            $("#" + dataList[pos][i][0] + " > td:nth-of-type(2) > span > img:nth-of-type(" + (zIndex + 1) + ")").css("z-index", 100 - zIndex)
+                            zIndex ++
                         }
                     }
 
@@ -339,6 +373,8 @@ $(document).ready(function () {
                     if (dataList[pos][i][1].replace(/[^r]/g, "").length !== 0) {
                         for (j = 0; j < dataList[pos][i][1].replace(/[^r]/g, "").length; j++) {
                             $("#" + dataList[pos][i][0] + " > td:nth-of-type(2) > p:nth-of-type(1) > span").append("<img src='./files/rc.svg'>")
+                            $("#" + dataList[pos][i][0] + " > td:nth-of-type(2) > span > img:nth-of-type(" + (zIndex + 1) + ")").css("z-index", 100 - zIndex)
+                            zIndex ++
                         }
                     }
 
@@ -346,6 +382,8 @@ $(document).ready(function () {
                     if (dataList[pos][i][1].replace(/[^o]/g, "").length !== 0) {
                         for (j = 0; j < dataList[pos][i][1].replace(/[^o]/g, "").length; j++) {
                             $("#" + dataList[pos][i][0] + " > td:nth-of-type(2) > p:nth-of-type(1) > span").append("<img src='./files/og.svg'>")
+                            $("#" + dataList[pos][i][0] + " > td:nth-of-type(2) > span > img:nth-of-type(" + (zIndex + 1) + ")").css("z-index", 100 - zIndex)
+                            zIndex ++
                         }
                     }
                 }
@@ -370,6 +408,8 @@ $(document).ready(function () {
                 }
                 for (i = 0; i < Object.keys(dataList["SUB"]).length; i++) {
 
+                    zIndex = 0
+
                     $("#sub > table").append("<tr id='" + dataList["SUB"][i][0].replace(/[^0-9]/g, "") + "'><td></td><td></td></tr>")
                     $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(1)").html(playerNumber[year][dataList["SUB"][i][0]][1])
                     $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2)").html("<p>" + playerNumber[year][dataList["SUB"][i][0]][0].replace(/[A-Z,0-9]/g, "") + "<span></span></p><p>" + dataList["SUB"][i][1].replace(/[g|a|y|r|o|p]/g, "") + "</p>")
@@ -383,13 +423,14 @@ $(document).ready(function () {
                     if (dataList["SUB"][i][1].replace(/[^p]/g, "") == "p") {
                         $("#" + dataList["SUB"][i][0] + " > p:nth-of-type(2)").css("background", "#000060")
                         $("#potm").html("<p>경기 최고의 선수</p><div><p><span>" + playerNumber[year][dataList["SUB"][i][0]][1] + "</span>" + playerNumber[year][dataList["SUB"][i][0]][0].replace(/[A-Z,0-9]/g, "") + "</p><p class='potm'>" + dataList["SUB"][i][1].replace(/[a-z]/g, "") + "</p></div>")
-                        href = dataList["SUB"][i][0]
                     }
 
                     // 득점 여부
                     if (dataList["SUB"][i][1].replace(/[^g]/g, "").length !== 0) {
                         for (j = 0; j < dataList["SUB"][i][1].replace(/[^g]/g, "").length; j++) {
                             $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2) > p:nth-of-type(1) > span").append("<img src='./files/goal.svg'>")
+                            $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2) > span > img:nth-of-type(" + (zIndex + 1) + ")").css("z-index", 100 - zIndex)
+                            zIndex ++
                         }
                     }
 
@@ -397,6 +438,8 @@ $(document).ready(function () {
                     if (dataList["SUB"][i][1].replace(/[^a]/g, "").length !== 0) {
                         for (j = 0; j < dataList["SUB"][i][1].replace(/[^g]/g, "").length; j++) {
                             $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2) > p:nth-of-type(1) > span").append("<img src='./files/assist.svg'>")
+                            $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2) > span > img:nth-of-type(" + (zIndex + 1) + ")").css("z-index", 100 - zIndex)
+                            zIndex ++
                         }
                     }
 
@@ -404,6 +447,8 @@ $(document).ready(function () {
                     if (dataList["SUB"][i][1].replace(/[^y]/g, "").length !== 0) {
                         for (j = 0; j < dataList["SUB"][i][1].replace(/[^y]/g, "").length; j++) {
                             $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2) > p:nth-of-type(1) > span").append("<img src='./files/yc.svg'>")
+                            $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2) > span > img:nth-of-type(" + (zIndex + 1) + ")").css("z-index", 100 - zIndex)
+                            zIndex ++
                         }
                     }
 
@@ -411,6 +456,8 @@ $(document).ready(function () {
                     if (dataList["SUB"][i][1].replace(/[^r]/g, "").length !== 0) {
                         for (j = 0; j < dataList["SUB"][i][1].replace(/[^r]/g, "").length; j++) {
                             $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2) > p:nth-of-type(1) > span").append("<img src='./files/rc.svg'>")
+                            $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2) > span > img:nth-of-type(" + (zIndex + 1) + ")").css("z-index", 100 - zIndex)
+                            zIndex ++
                         }
                     }
 
@@ -418,6 +465,8 @@ $(document).ready(function () {
                     if (dataList["SUB"][i][1].replace(/[^o]/g, "").length !== 0) {
                         for (j = 0; j < dataList["SUB"][i][1].replace(/[^o]/g, "").length; j++) {
                             $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2) > p:nth-of-type(1) > span").append("<img src='./files/og.svg'>")
+                            $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2) > span > img:nth-of-type(" + (zIndex + 1) + ")").css("z-index", 100 - zIndex)
+                            zIndex ++
                         }
                     }
 

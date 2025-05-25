@@ -356,8 +356,8 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #startingXI > table > tbody > tr > td > p:nth-of-type(1) {margin: -34px 1px 8px 0; color: #fafafa; font-family: "KLeagueBasic"; font-size: 20px; letter-spacing: -1px; z-index: 0; cursor: pointer;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(2) {height: 16px; font-weight: 600; margin-top: 4px; cursor: pointer;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(2) > span {display: inline-block;}
-#startingXI > table > tbody > tr > td > p:nth-of-type(2) > span > img {height: 16px; vertical-align: middle; margin: 0 0 2px -8px;}
-#startingXI > table > tbody > tr > td > p:nth-of-type(2) > span > img:nth-of-type(1) {margin-left: 2px;}
+#startingXI > table > tbody > tr > td > p:nth-of-type(2) > span > img {height: 14px; vertical-align: middle; margin: 0 0 4px -3px; position: relative;}
+#startingXI > table > tbody > tr > td > p:nth-of-type(2) > span > img:nth-of-type(1) {margin-left: 4px;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(3) {width: 4vw; padding: 4px 0; margin-top: 4px; border-radius: 50vw; color: #fafafa; background: #050505; cursor: pointer;}
 
 #startingXI > div {width: 30vw;}
@@ -367,7 +367,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #startingXI > div > table > tbody > tr > td:nth-of-type(1) {font-size: 16px; width: 3vw; text-align: right; padding: 0 2vw;}
 #startingXI > div > table > tbody > tr > td:nth-of-type(2) {width: 23vw; display: flex; align-items: center; justify-content: space-between;}
 #startingXI > div > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(1) {font-size: 16px; font-weight: 600;}
-#startingXI > div > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(1) > span > img {height: 16px; vertical-align: middle; margin: 0 0 4px -8px;}
+#startingXI > div > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(1) > span > img {height: 14px; vertical-align: middle; margin: 0 0 4px -3px; position: relative;}
 #startingXI > div > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(1) > span > img:nth-of-type(1) {margin-left: 12px;}
 #startingXI > div > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(2) {width: 4vw; padding: 4px 0; font-size: 12px; border-radius: 50vw; color: #fafafa; background: #00006040; margin-right: 2vw;}
 
@@ -378,7 +378,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #sub > table > tbody > tr > td:nth-of-type(1) {font-size: 16px; width: 3vw; text-align: right; padding: 0 2vw;}
 #sub > table > tbody > tr > td:nth-of-type(2) {width: 23vw; display: flex; align-items: center; justify-content: space-between;}
 #sub > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(1) {font-size: 16px; font-weight: 600;}
-#sub > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(1) > span > img {height: 16px; vertical-align: middle; margin: 0 0 4px -8px;}
+#sub > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(1) > span > img {height: 14px; vertical-align: middle; margin: 0 0 4px -3px; position: relative;}
 #sub > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(1) > span > img:nth-of-type(1) {margin-left: 12px;}
 #sub > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(2) {width: 4vw; padding: 4px 0; font-size: 12px; border-radius: 50vw; color: #fafafa; background: #050505; margin-right: 2vw;}
 
