@@ -102,12 +102,17 @@ $("#menu > div:nth-of-type(7)").click(function() {
 })
 
 // 배너 클릭 시 페이지 이동
-$(".bannerMenu:nth-of-type(1)").click(function() {
+$(".bannerMenu:nth-of-type(1), .bannerFixtures").click(function() {
     window.open("https://linktr.ee/sefcnuevo")
 })
 $(".instaMenu:nth-of-type(1)").click(function() {
     window.open("https://www.instagram.com/sefcinfo/")
 })
+
+// 모바일 버전에서 일정 페이지 배너 숨기기
+if ($(window).width() < 768) {
+    $(".bannerFixtures").css("display", "none")
+}
 
 // 메뉴 내 현재 페이지 이름 강조
 if ($("#prevMatch").length) {

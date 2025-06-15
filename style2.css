@@ -297,7 +297,10 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #fixturesU18 {display: none;}
 #fixturesU15 {display: none;}
 
-#calendar {width: 90vw; margin-left: 5vw; display: none;}
+.bannerFixtures {width: 15vw; padding-left: 5vw; margin-top: -64px; cursor: pointer;}
+.bannerFixtures > img {width: 15vw; border-radius: 20px;}
+
+/* #calendar {width: 90vw; margin-left: 5vw; display: none;}
 #calendar > table {width: 90vw; border-collapse: separate; border-spacing: 8px; table-layout: fixed; margin-top: 32px;}
 #calendar > table > thead > tr > th {font-size: 20px; font-weight: 600;}
 #calendar > table > thead > tr > th:nth-of-type(1) {color: #e00000;}
@@ -308,7 +311,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #calendar > table > tbody > tr > td:nth-of-type(1) > p {color: #e00000;}
 #calendar > table > tbody > tr > td:nth-of-type(7) > p {color: #000060;}
 #calendar > table > tbody > tr > td > div {height: 20px;}
-#calendar > table > tbody > tr > td > div > img {height: 16px; margin: 0 2px;}
+#calendar > table > tbody > tr > td > div > img {height: 16px; margin: 0 2px;} */
 
 /* 경기 세부 정보 */
 #matchScore {width: 26vw; padding: 16px 2vw; border-radius: 20px;}
