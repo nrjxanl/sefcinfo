@@ -48,7 +48,7 @@ $(document).ready(function () {
 
 // 푸터
 if (localStorage.getItem("footer") == null) {
-    $("body").append("<footer><p>이 웹사이트는 팬이 운영하는 비공식 팬 페이지이며,<br>제공되는 데이터는 정확성을 보장하지 않습니다.</p><img src='https://sefc.info/files/x.svg'></footer>")
+    $("body").append("<footer glass='true'><p>이 웹사이트는 팬이 운영하는 비공식 팬 페이지이며,<br>제공되는 데이터는 정확성을 보장하지 않습니다.</p><img src='https://sefc.info/files/x.svg'></footer>")
 }
 
 $("footer > img").click(function () {

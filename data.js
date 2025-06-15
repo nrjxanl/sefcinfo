@@ -492,9 +492,9 @@ $(document).ready(function () {
             })
 
             if ($(window).width() < 768) {
-                $("#potm").css({ "width": "74vw", "padding": "1vw 3vw 2vw 3vw", "margin": "20px 0 0 10vw", "border-radius": "20px", "box-shadow": "0 0 3px 2px #05090a20" })
+                $("#potm").css({ "width": "74vw", "padding": "1vw 3vw 2vw 3vw", "margin": "20px 0 0 10vw", "border-radius": "20px" })
             } else {
-                $("#potm").css({ "width": "calc(30vw - 24px)", "padding": "0 12px", "border-radius": "20px", "box-shadow": "0 0 3px 2px #05090a20" })
+                $("#potm").css({ "width": "calc(30vw - 24px)", "padding": "0 12px", "border-radius": "20px" })
             }
 
             $("#startingXI > table > tbody > tr > td").each(function () {
