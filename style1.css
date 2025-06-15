@@ -509,7 +509,7 @@ tr.sefc > td > p {background: #faf6f5 !important; color: #05090a !important;}
 #chantsVideo {width: 60vw; height: fit-content; margin: 40px 0 0 20vw; border-radius: 20px; overflow: hidden;}
 #chantsVideo > iframe {width: 60vw; height: auto;}
 
-#chantsLyrics {width: 80vw; margin: 40px 0 40px 10vw; padding: 20px 0;}
+#chantsLyrics {width: 80vw; margin: 40px 0 40px 10vw; padding: 20px 0; border-radius: 20px;}
 #chantsLyrics > p {font-size: 16px; font-weight: 300; padding: 4px 0;}
 #chantsLyrics > p > ruby > rb {font-size: 16px; font-weight: 300;}
 #chantsLyrics > p > ruby > rp {font-size: 12px; font-weight: 300;}
