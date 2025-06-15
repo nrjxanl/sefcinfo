@@ -6,7 +6,7 @@ $(document).ready(function() {
 
     // 화면 너비 300px 이하일 때 경고
     if ($(window).width() < 300) {
-        $("body").append("<div style='width: 80vw; height: 65px; padding: 0 10vw; background: #fafafa; position: fixed; bottom: 0; left: 0; font-size: 14px; font-weight: 300; z-index: 300; display: flex; align-items: center; justify-content: center;'>기기의 화면 크기가 작아 페이지가 정상적으로 보이지 않을 수 있습니다.</div>")
+        $("body").append("<div style='width: 80vw; height: 65px; padding: 0 10vw; background: #faf6f5; position: fixed; bottom: 0; left: 0; font-size: 14px; font-weight: 300; z-index: 300; display: flex; align-items: center; justify-content: center;'>기기의 화면 크기가 작아 페이지가 정상적으로 보이지 않을 수 있습니다.</div>")
     }
 
     // 새로고침 시 맨 위로 이동
@@ -57,7 +57,7 @@ $("footer > img").click(function () {
 })
 
 // 메뉴
-$("body").append("<div id='menu'><div><span></span><img src='https://sefc.info/files/home.svg'>홈</div><div><span></span><img src='https://sefc.info/files/fixtures.svg'>일정</div><div><span></span><img src='https://sefc.info/files/players.svg'>선수단</div><div><span></span><img src='https://sefc.info/files/stats.svg'>기록</div><div><span></span><img src='https://sefc.info/files/standings.svg'>순위</div><div><span></span><img src='https://sefc.info/files/chants.svg'>응원가</div><div><span></span><img src='https://sefc.info/files/wallpaper.svg'>배경화면</div><a href='https://naver.me/GlJ18AQh' target='_blank'>오류 제보 및 건의</a><img class='bannerMenu' src='https://sefc.info/files/banner_1.jpg'></div><div id='menuBg'></div>")
+ $("body").append("<div id='menu' glass='true'><div><img src='https://sefc.info/files/home.svg'>홈</div><div><img src='https://sefc.info/files/fixtures.svg'>일정</div><div><img src='https://sefc.info/files/players.svg'>선수단</div><div><img src='https://sefc.info/files/stats.svg'>기록</div><div><img src='https://sefc.info/files/standings.svg'>순위</div><div><img src='https://sefc.info/files/chants.svg'>응원가</div><div><img src='https://sefc.info/files/wallpaper.svg'>배경화면</div><a href='https://naver.me/GlJ18AQh' target='_blank'>오류 제보 및 건의</a><img class='bannerMenu' src='https://sefc.info/files/banner_1.jpg'></div><div id='menuBg' glass='true'></div>")
 
 // 상단 클릭 시 홈으로 이동
 $("header > div:nth-of-type(2)").click(function() {
@@ -156,8 +156,8 @@ function playerA() {
     $("#playerU18").css("display", "none")
     $("#playerU15").css("display", "none")
 
-    $(".playerButton > button").css({"color": "#050505", "border-bottom": "none"})
-    $(".playerButton > button:nth-of-type(1)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
+    $(".playerButton > button").css({"color": "#05090a", "background": "#faf6f540"})
+    $(".playerButton > button:nth-of-type(1)").css({"color": "#faf6f5", "background": "#000060c0"})
 }
 
 function playerU18() {
@@ -165,8 +165,8 @@ function playerU18() {
     $("#playerU18").css("display", "block")
     $("#playerU15").css("display", "none")
 
-    $(".playerButton > button").css({"color": "#050505", "border-bottom": "none"})
-    $(".playerButton > button:nth-of-type(2)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
+    $(".playerButton > button").css({"color": "#05090a", "background": "#faf6f540"})
+    $(".playerButton > button:nth-of-type(2)").css({"color": "#faf6f5", "background": "#000060c0"})
 }
 
 function playerU15() {
@@ -174,8 +174,8 @@ function playerU15() {
     $("#playerU18").css("display", "none")
     $("#playerU15").css("display", "block")
 
-    $(".playerButton > button").css({"color": "#050505", "border-bottom": "none"})
-    $(".playerButton > button:nth-of-type(3)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
+    $(".playerButton > button").css({"color": "#05090a", "background": "#faf6f540"})
+    $(".playerButton > button:nth-of-type(3)").css({"color": "#faf6f5", "background": "#000060c0"})
 }
 
 // 일정 창 전환
@@ -196,8 +196,8 @@ function fixturesU18() {
 }
 
 function fixturesU15() {
-    $(".fixturesButton > button").css({"color": "#050505", "border-bottom": "none"})
-    $(".fixturesButton > button:nth-of-type(3)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
+    $(".fixturesButton > button").css({"color": "#05090a", "background": "#faf6f540"})
+    $(".fixturesButton > button:nth-of-type(3)").css({"color": "#faf6f5", "background": "#000060c0"})
 
     status_ = "U15"
     year = new Date().getFullYear()
@@ -291,8 +291,8 @@ function standingsA() {
     $("#standingsU18").css("display", "none")
     $("#standingsU15").css("display", "none")
 
-    $(".standingsButton > button").css({"color": "#050505", "border-bottom": "none"})
-    $(".standingsButton > button:nth-of-type(1)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
+    $(".standingsButton > button").css({"color": "#05090a", "background": "#faf6f540"})
+    $(".standingsButton > button:nth-of-type(1)").css({"color": "#faf6f5", "background": "#000060c0"})
 
     status_ = "A"
     year = new Date().getFullYear()
@@ -305,8 +305,8 @@ function standingsU18() {
     $("#standingsU18").css("display", "block")
     $("#standingsU15").css("display", "none")
 
-    $(".standingsButton > button").css({"color": "#050505", "border-bottom": "none"})
-    $(".standingsButton > button:nth-of-type(2)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
+    $(".standingsButton > button").css({"color": "#05090a", "background": "#faf6f540"})
+    $(".standingsButton > button:nth-of-type(2)").css({"color": "#faf6f5", "background": "#000060c0"})
 
     // 장석훈 등번호
     if (year == 2024) {
@@ -324,8 +324,8 @@ function standingsU15() {
     $("#standingsU18").css("display", "none")
     $("#standingsU15").css("display", "block")
 
-    $(".standingsButton > button").css({"color": "#050505", "border-bottom": "none"})
-    $(".standingsButton > button:nth-of-type(3)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
+    $(".standingsButton > button").css({"color": "#05090a", "background": "#faf6f540"})
+    $(".standingsButton > button:nth-of-type(3)").css({"color": "#faf6f5", "background": "#000060c0"})
 
     status_ = "U15"
     year = new Date().getFullYear()
@@ -339,8 +339,8 @@ function statsA() {
     $("#statsU18").css("display", "none")
     $("#statsU15").css("display", "none")
 
-    $(".statsButton > button").css({"color": "#050505", "border-bottom": "none"})
-    $(".statsButton > button:nth-of-type(1)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
+    $(".statsButton > button").css({"color": "#05090a", "background": "#faf6f540"})
+    $(".statsButton > button:nth-of-type(1)").css({"color": "#faf6f5", "background": "#000060c0"})
 
     // 장석훈 등번호
     if (year == 2024) {
@@ -361,8 +361,8 @@ function statsU18() {
     $("#statsU18").css("display", "block")
     $("#statsU15").css("display", "none")
 
-    $(".statsButton > button").css({"color": "#050505", "border-bottom": "none"})
-    $(".statsButton > button:nth-of-type(2)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
+    $(".statsButton > button").css({"color": "#05090a", "background": "#faf6f540"})
+    $(".statsButton > button:nth-of-type(2)").css({"color": "#faf6f5", "background": "#000060c0"})
 
     // 장석훈 등번호
     if (year == 2024) {
@@ -383,8 +383,8 @@ function statsU15() {
     $("#statsU18").css("display", "none")
     $("#statsU15").css("display", "block")
 
-    $(".statsButton > button").css({"color": "#050505", "border-bottom": "none"})
-    $(".statsButton > button:nth-of-type(3)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
+    $(".statsButton > button").css({"color": "#05090a", "background": "#faf6f540"})
+    $(".statsButton > button:nth-of-type(3)").css({"color": "#faf6f5", "background": "#000060c0"})
 
     status_ = "U15"
     year = new Date().getFullYear()
@@ -419,11 +419,11 @@ if ($("#team").length || $("#chantsName").length) {
     playersChants = ["캡틴 콜", "득점 콜", "오스마르 콜(1)", "오스마르 콜(2)", "변경준 콜"]
 
     for (i = 0; i < Object.keys(teamChants).length; i++) {
-        $("#team").append("<div>" + teamChants[i] + "</div>")
+        $("#team").append("<div glass='true'>" + teamChants[i] + "</div>")
     }
 
     for (i = 0; i < Object.keys(playersChants).length; i++) {
-        $("#players").append("<div>" + playersChants[i] + "</div>")
+        $("#players").append("<div glass='true'>" + playersChants[i] + "</div>")
     }
 
     $("#team").children("div").on("click", function () {
@@ -1290,10 +1290,10 @@ if ($("#chantsName").length) {
             // 이전 자막이 볼드 상태라면 그 자막과 내부 요소들을 기본 상태로 되돌림
             if (lastBoldId && lastBoldId !== currentMapping.elementId) {
                 const lastElement = document.getElementById(lastBoldId)
-                lastElement.style.color = "#050505"
+                lastElement.style.color = "#05090a"
                 lastElement.style.fontWeight = "300"
                 lastElement.querySelectorAll("ruby, rb, rp, rt").forEach(el => {
-                    el.style.color = "#050505"
+                    el.style.color = "#05090a"
                     el.style.fontWeight = "300"
                 });
             }
@@ -1315,7 +1315,7 @@ if ($("#chantsName").length) {
     // 영상이 끝났을 때 모든 자막의 볼드 처리를 해제하는 함수
     function resetAllTextStyles() {
         timeMapping.forEach(({ elementId }) => {
-            document.getElementById(elementId).style.color = "#050505"
+            document.getElementById(elementId).style.color = "#05090a"
             document.getElementById(elementId).style.fontWeight = "300"  // 모든 자막을 기본 스타일로 초기화
         })
     }

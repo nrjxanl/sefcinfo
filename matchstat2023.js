@@ -42,11 +42,11 @@ if (id.substr(-1) == 0) {
     index = Object.keys(stat).indexOf("R" + round)
 
     if (dataList["home"][0] == "서울E") {
-        homeColor = "#050505"
+        homeColor = "#05090a"
         awayColor = "#" + h2h[dataList["away"][1].replace(/[0-9]/g, "")][0]
     } else {
         homeColor = "#" + h2h[dataList["home"][1].replace(/[0-9]/g, "")][0]
-        awayColor = "#050505"
+        awayColor = "#05090a"
     }
 
     posH = (stat[Object.keys(stat)[index]][0])

@@ -127,7 +127,7 @@ $(document).ready(function () {
                     zIndex = 0
 
                     $("#" + pos.toLowerCase()).append("<td id='" + dataList[pos][i][0].replace(/[^0-9]/g, "") + "'></td>")
-                    $("#" + dataList[pos][i][0]).html("<div><img src='./files/jersey.svg'></div><p>" + playerNumber[year][dataList[pos][i][0]][1] + "</p><p>" + playerNumber[year][dataList[pos][i][0]][0].replace(/[A-Z,0-9]/g, "") + "<span></span></p><p>" + dataList[pos][i][1].replace(/[g|a|y|r|o|p]/g, "") + "</p>")
+                    $("#" + dataList[pos][i][0]).html("<div><img src='./files/jersey.svg'></div><p>" + playerNumber[year][dataList[pos][i][0]][1] + "</p><p>" + playerNumber[year][dataList[pos][i][0]][0].replace(/[A-Z,0-9]/g, "") + "<span></span></p><p glass='true'>" + dataList[pos][i][1].replace(/[g|a|y|r|o|p]/g, "") + "</p>")
 
                     // 유니폼 색상
                     if (year == 2025) {
@@ -148,17 +148,17 @@ $(document).ready(function () {
                         $("#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)").css("color", "#000")
                     } else if (year == 2017) {
                         $("#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img").css("filter", "brightness(0) saturate(100%) invert(41%) sepia(32%) saturate(1362%) hue-rotate(290deg) brightness(94%) contrast(94%)")
-                        $("#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)").css("color", "#fafafa")
+                        $("#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)").css("color", "#faf6f5")
                     } else if (year == 2016) {
                         $("#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img").css("filter", "brightness(0) saturate(100%) invert(44%) sepia(73%) saturate(3412%) hue-rotate(359deg) brightness(102%) contrast(85%)")
                         $("#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)").css("color", "#000")
                     } else if (year == 2015) {
                         if (Number($("#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").text().replace(".", "")) >= 20150822) {
                             $("#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img").css("filter", "brightness(0) saturate(100%) invert(53%) sepia(34%) saturate(4466%) hue-rotate(311deg) brightness(99%) contrast(107%)")
-                            $("#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)").css("color", "#fafafa")
+                            $("#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)").css("color", "#faf6f5")
                         } else {
                             $("#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img").css("filter", "brightness(0) saturate(100%) invert(14%) sepia(82%) saturate(3416%) hue-rotate(319deg) brightness(99%) contrast(89%)")
-                            $("#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)").css("color", "#fafafa")
+                            $("#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)").css("color", "#faf6f5")
                         }
                     }
 
@@ -242,7 +242,7 @@ $(document).ready(function () {
 
                     $("#sub > table").append("<tr id='" + dataList["SUB"][i][0].replace(/[^0-9]/g, "") + "'><td></td><td></td></tr>")
                     $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(1)").html(playerNumber[year][dataList["SUB"][i][0]][1])
-                    $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2)").html("<p>" + playerNumber[year][dataList["SUB"][i][0]][0].replace(/[A-Z,0-9]/g, "") + "<span></span></p><p>" + dataList["SUB"][i][1].replace(/[g|a|y|r|o|p]/g, "") + "</p>")
+                    $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2)").html("<p>" + playerNumber[year][dataList["SUB"][i][0]][0].replace(/[A-Z,0-9]/g, "") + "<span></span></p><p glass='true'>" + dataList["SUB"][i][1].replace(/[g|a|y|r|o|p]/g, "") + "</p>")
 
                     // 평점 없을 때
                     if (dataList["SUB"][i][1] == "") {
@@ -304,17 +304,17 @@ $(document).ready(function () {
                 // 선수 평점 칸 배색
                 $("#startingXI > table > tbody > tr > td > p:nth-of-type(3), #sub > table > tbody > tr > td > p:nth-of-type(2), .potm").each(function () {
                     if (Number($(this).text().replace(/[a-z]/g, "")) >= 8.5) {
-                        $(this).css("background", "#374df5")
+                        $(this).css("background", "#374df5c0")
                     } else if (Number($(this).text().replace(/[a-z]/g, "")) < 8.5 && Number($(this).text().replace(/[a-z]/g, "")) >= 7.5) {
-                        $(this).css("background", "#00adc4")
+                        $(this).css("background", "#00adc4c0")
                     } else if (Number($(this).text().replace(/[a-z]/g, "")) < 7.5 && Number($(this).text().replace(/[a-z]/g, "")) >= 6.5) {
-                        $(this).css("background", "#00c424")
+                        $(this).css("background", "#00c424c0")
                     } else if (Number($(this).text().replace(/[a-z]/g, "")) < 6.5 && Number($(this).text().replace(/[a-z]/g, "")) >= 6) {
-                        $(this).css("background", "#d9af00")
+                        $(this).css("background", "#d9af00c0")
                     } else if (Number($(this).text().replace(/[a-z]/g, "")) < 6 && Number($(this).text().replace(/[a-z]/g, "")) >= 5) {
-                        $(this).css("background", "#ed7e07")
+                        $(this).css("background", "#ed7e07c0")
                     } else if (Number($(this).text().replace(/[a-z]/g, "")) < 5) {
-                        $(this).css("background", "#dc0c00")
+                        $(this).css("background", "#dc0c00c0")
                     } else if ($(this).text() == "-") {
                         $(this).css("background", "#00006040")
                     } else if ($(this).text() == "-----") {
@@ -340,7 +340,7 @@ $(document).ready(function () {
                     
                     $("#startingXI > div > table").append("<tr id='" + dataList[pos][i][0].replace(/[^0-9]/g, "") + "'><td></td><td></td></tr>")
                     $("#" + dataList[pos][i][0] + " > td:nth-of-type(1)").html(playerNumber[year][dataList[pos][i][0]][1])
-                    $("#" + dataList[pos][i][0] + " > td:nth-of-type(2)").html("<p>" + playerNumber[year][dataList[pos][i][0]][0].replace(/[A-Z,0-9]/g, "") + "<span></span></p><p>" + dataList[pos][i][1].replace(/[g|a|y|r|o|p]/g, "") + "</p>")
+                    $("#" + dataList[pos][i][0] + " > td:nth-of-type(2)").html("<p>" + playerNumber[year][dataList[pos][i][0]][0].replace(/[A-Z,0-9]/g, "") + "<span></span></p><p glass='true'>" + dataList[pos][i][1].replace(/[g|a|y|r|o|p]/g, "") + "</p>")
 
                     // 득점 여부
                     if (dataList[pos][i][1].replace(/[^g]/g, "").length !== 0) {
@@ -412,7 +412,7 @@ $(document).ready(function () {
 
                     $("#sub > table").append("<tr id='" + dataList["SUB"][i][0].replace(/[^0-9]/g, "") + "'><td></td><td></td></tr>")
                     $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(1)").html(playerNumber[year][dataList["SUB"][i][0]][1])
-                    $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2)").html("<p>" + playerNumber[year][dataList["SUB"][i][0]][0].replace(/[A-Z,0-9]/g, "") + "<span></span></p><p>" + dataList["SUB"][i][1].replace(/[g|a|y|r|o|p]/g, "") + "</p>")
+                    $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2)").html("<p>" + playerNumber[year][dataList["SUB"][i][0]][0].replace(/[A-Z,0-9]/g, "") + "<span></span></p><p glass='true'>" + dataList["SUB"][i][1].replace(/[g|a|y|r|o|p]/g, "") + "</p>")
 
                     // 평점 없을 때
                     if (dataList["SUB"][i][1] == "") {
@@ -492,9 +492,9 @@ $(document).ready(function () {
             })
 
             if ($(window).width() < 768) {
-                $("#potm").css({ "width": "74vw", "padding": "1vw 3vw 2vw 3vw", "margin": "20px 0 0 10vw", "border-radius": "20px", "box-shadow": "0 0 3px 2px #00000020" })
+                $("#potm").css({ "width": "74vw", "padding": "1vw 3vw 2vw 3vw", "margin": "20px 0 0 10vw", "border-radius": "20px", "box-shadow": "0 0 3px 2px #05090a20" })
             } else {
-                $("#potm").css({ "width": "calc(30vw - 24px)", "padding": "0 12px", "border-radius": "20px", "box-shadow": "0 0 3px 2px #00000020" })
+                $("#potm").css({ "width": "calc(30vw - 24px)", "padding": "0 12px", "border-radius": "20px", "box-shadow": "0 0 3px 2px #05090a20" })
             }
 
             $("#startingXI > table > tbody > tr > td").each(function () {
@@ -562,15 +562,15 @@ $(document).ready(function () {
             $("#matchStat > table > tbody > tr:nth-of-type(10) > td:nth-of-type(3) > p").text(dataList["matchStat"][19])
 
             if (dataList["home"][0] == "서울E") {
-                homeBg = "#000060"
-                homeColor = "#fafafa"
-                awayBg = "#" + h2h[dataList["away"][1].replace(/[0-9]/g, "")][0]
+                homeBg = "#000060c0"
+                homeColor = "#faf6f5"
+                awayBg = "#" + h2h[dataList["away"][1].replace(/[0-9]/g, "")][0] + "c0"
                 awayColor = "#" + h2h[dataList["away"][1].replace(/[0-9]/g, "")][1]
             } else {
-                homeBg = "#" + h2h[dataList["home"][1].replace(/[0-9]/g, "")][0]
+                homeBg = "#" + h2h[dataList["home"][1].replace(/[0-9]/g, "")][0] + "c0"
                 homeColor = "#" + h2h[dataList["home"][1].replace(/[0-9]/g, "")][1]
-                awayBg = "#000060"
-                awayColor = "#fafafa"
+                awayBg = "#000060c0"
+                awayColor = "#faf6f5"
             }
 
             if ($(window).width() < 768) {
@@ -584,15 +584,15 @@ $(document).ready(function () {
             for (i = 2; i <= 10; i++) {
                 if ((i >= 2 && i <= 3) || (i >= 8 && i <= 9)) {
                     if (Number($("#matchStat > table > tbody > tr:nth-of-type(" + i + ") > td:nth-of-type(1) > p").text()) > Number($("#matchStat > table > tbody > tr:nth-of-type(" + i + ") > td:nth-of-type(3) > p").text())) {
-                        $("#matchStat > table > tbody > tr:nth-of-type(" + i + ") > td:nth-of-type(1) > p").css({ "color": homeColor, "background": homeBg, "font-weight": "900" })
+                        $("#matchStat > table > tbody > tr:nth-of-type(" + i + ") > td:nth-of-type(1) > p").css({ "color": homeColor, "background": homeBg, "font-weight": "900" }).attr("glass", "true");
                     } else if (Number($("#matchStat > table > tbody > tr:nth-of-type(" + i + ") > td:nth-of-type(1) > p").text()) < Number($("#matchStat > table > tbody > tr:nth-of-type(" + i + ") > td:nth-of-type(3) > p").text())) {
-                        $("#matchStat > table > tbody > tr:nth-of-type(" + i + ") > td:nth-of-type(3) > p").css({ "color": awayColor, "background": awayBg, "font-weight": "900" })
+                        $("#matchStat > table > tbody > tr:nth-of-type(" + i + ") > td:nth-of-type(3) > p").css({ "color": awayColor, "background": awayBg, "font-weight": "900" }).attr("glass", "true");
                     }
                 } else {
                     if (Number($("#matchStat > table > tbody > tr:nth-of-type(" + i + ") > td:nth-of-type(1) > p").text()) < Number($("#matchStat > table > tbody > tr:nth-of-type(" + i + ") > td:nth-of-type(3) > p").text())) {
-                        $("#matchStat > table > tbody > tr:nth-of-type(" + i + ") > td:nth-of-type(1) > p").css({ "color": homeColor, "background": homeBg, "font-weight": "900" })
+                        $("#matchStat > table > tbody > tr:nth-of-type(" + i + ") > td:nth-of-type(1) > p").css({ "color": homeColor, "background": homeBg, "font-weight": "900" }).attr("glass", "true");
                     } else if (Number($("#matchStat > table > tbody > tr:nth-of-type(" + i + ") > td:nth-of-type(1) > p").text()) > Number($("#matchStat > table > tbody > tr:nth-of-type(" + i + ") > td:nth-of-type(3) > p").text())) {
-                        $("#matchStat > table > tbody > tr:nth-of-type(" + i + ") > td:nth-of-type(3) > p").css({ "color": awayColor, "background": awayBg, "font-weight": "900" })
+                        $("#matchStat > table > tbody > tr:nth-of-type(" + i + ") > td:nth-of-type(3) > p").css({ "color": awayColor, "background": awayBg, "font-weight": "900" }).attr("glass", "true");
                     }
                 }
             }
@@ -687,7 +687,7 @@ $(document).ready(function () {
         year = new Date().getFullYear()
         status_ = "A"
 
-        $(".statsSeason").html("<select></select><p>◀</p><p>▶</p><p>오늘</p><p></p>")
+        $(".statsSeason").html("<select></select><p>◀</p><p>▶</p><p glass='true'>오늘</p><p glass='true'></p>")
 
         if (window.location.href.split("?")[1] == undefined) {
             window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "?" + status_)
@@ -782,7 +782,7 @@ $(document).ready(function () {
         month = ("0" + (new Date().getMonth() + 1)).slice(-2)
         status_ = "A"
 
-        $(".fixturesSeason").html("<select></select><span></span><p>◀</p><p>▶</p><p>오늘</p>")
+        $(".fixturesSeason").html("<select></select><span></span><p>◀</p><p>▶</p><p glass='true'>오늘</p>")
 
         $(".fixturesSeason > select").empty().prop("disabled", false)
         for (i = new Date().getFullYear(); i >= 2015; i--) {
@@ -932,26 +932,22 @@ $(document).ready(function () {
                 $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > div > img").attr("src", "./files/" + dataA[prev[i]]["away"][1] + "_s.png")
 
                 if (dataA[prev[i]]["homeScore"] > dataA[prev[i]]["awayScore"]) {
-                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#174fff")
+                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p").css({"color": "#faf6f5", "background": "#374df5c0", "border": "1px solid #374df5c0"})
                 } else if (dataA[prev[i]]["homeScore"] == dataA[prev[i]]["awayScore"]) {
-                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#acacac")
+                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p").css({"color": "#faf6f5", "background": "#05090a40", "border": "1px solid #05090a40"})
                 } else {
-                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#e00000")
+                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p").css({"color": "#faf6f5", "background": "#e0000080", "border": "1px solid #e0000080"})
                 }
             } else {
                 $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > div > img").attr("src", "./files/" + dataA[prev[i]]["home"][1] + "_s.png")
 
                 if (dataA[prev[i]]["homeScore"] < dataA[prev[i]]["awayScore"]) {
-                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#174fff")
+                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p").css({"color": "#faf6f5", "background": "#374df5c0", "border": "1px solid #374df5c0"})
                 } else if (dataA[prev[i]]["homeScore"] == dataA[prev[i]]["awayScore"]) {
-                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#acacac")
+                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p").css({"color": "#faf6f5", "background": "#05090a40", "border": "1px solid #05090a40"})
                 } else {
-                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p:nth-of-type(1)").css("background", "#e00000")
+                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p").css({"color": "#faf6f5", "background": "#e0000080", "border": "1px solid #e0000080"})
                 }
-            }
-
-            if (i == 4) {
-                $("#prevMatch > div > div:nth-of-type(5) > p:nth-of-type(2)").css("background", $("#prevMatch > div > div:nth-of-type(5) > p:nth-of-type(1)").css("background"))
             }
         }
 
@@ -1031,7 +1027,7 @@ $(document).ready(function () {
             }
 
             if (status_ == "A" && stat.replace(/[a-z]/g, "").length !== 0) {
-                $("#playedMatch > div").prepend("<div class='" + Object.keys(data)[i] + "'><p>" + Object.values(played).reduce(function (a, b) { return a + b }, 0) + "</p><div><img src='./files/" + opp + "_s.png'></div><div><img src='./files/" + comp + "_s.png'></div><p>" + Object.keys(data)[i].substring(2, 4) + "." + Object.keys(data)[i].substring(4, 6) + "." + Object.keys(data)[i].substring(6, 8) + "." + "</p><p>" + pos + "</p><p></p><p>" + data[Object.keys(data)[i]][pos][j][1].replace(/[g|a|y|r|o|p]/g, "") + "</p></div>")
+                $("#playedMatch > div").prepend("<div class='" + Object.keys(data)[i] + "'><p>" + Object.values(played).reduce(function (a, b) { return a + b }, 0) + "</p><div><img src='./files/" + opp + "_s.png'></div><div><img src='./files/" + comp + "_s.png'></div><p>" + Object.keys(data)[i].substring(2, 4) + "." + Object.keys(data)[i].substring(4, 6) + "." + Object.keys(data)[i].substring(6, 8) + "." + "</p><p>" + pos + "</p><p></p><p glass='true'>" + data[Object.keys(data)[i]][pos][j][1].replace(/[g|a|y|r|o|p]/g, "") + "</p></div>")
 
                 $("#playedSEFC > div > div:nth-of-type(1) > p:nth-of-type(2)").text(Object.values(played).reduce(function (a, b) { return a + b }, 0))
                 $("#playedSEFC > div > div:nth-of-type(2) > p:nth-of-type(2)").text(Object.values(goal).reduce(function (a, b) { return a + b }, 0))
@@ -1041,7 +1037,7 @@ $(document).ready(function () {
                 $("#playedSEFC > div > div:nth-of-type(6) > p:nth-of-type(2)").text((Object.values(rate).reduce(function (a, b) { return a + b }, 0) / (Object.values(played).reduce(function (a, b) { return a + b }, 0) - Object.values(exc).reduce(function (a, b) { return a + b }, 0))).toFixed(1))
 
             } else if (status_ == "U18" && stat.replace(/[a-z]/g, "").length !== 0) {
-                $("#playedMatchU18 > div").prepend("<div class='" + Object.keys(data)[i] + "'><p>" + Object.values(played).reduce(function (a, b) { return a + b }, 0) + "</p><div><img src='./files/" + opp + "_s.png'></div><div><img src='./files/" + comp + "_s.png'></div><p>" + Object.keys(data)[i].substring(2, 4) + "." + Object.keys(data)[i].substring(4, 6) + "." + Object.keys(data)[i].substring(6, 8) + "." + "</p><p>" + pos + "</p><p></p><p>" + data[Object.keys(data)[i]][pos][j][1].replace(/[g|a|y|r|o|p]/g, "") + "</p></div>")
+                $("#playedMatchU18 > div").prepend("<div class='" + Object.keys(data)[i] + "'><p>" + Object.values(played).reduce(function (a, b) { return a + b }, 0) + "</p><div><img src='./files/" + opp + "_s.png'></div><div><img src='./files/" + comp + "_s.png'></div><p>" + Object.keys(data)[i].substring(2, 4) + "." + Object.keys(data)[i].substring(4, 6) + "." + Object.keys(data)[i].substring(6, 8) + "." + "</p><p>" + pos + "</p><p></p><p glass='true'>" + data[Object.keys(data)[i]][pos][j][1].replace(/[g|a|y|r|o|p]/g, "") + "</p></div>")
 
                 $("#playedSEFCU18 > div > div:nth-of-type(1) > p:nth-of-type(2)").text(Object.values(played).reduce(function (a, b) { return a + b }, 0))
                 $("#playedSEFCU18 > div > div:nth-of-type(2) > p:nth-of-type(2)").text(Object.values(goal).reduce(function (a, b) { return a + b }, 0))
@@ -1049,7 +1045,7 @@ $(document).ready(function () {
                 $("#playedSEFCU18 > div > div:nth-of-type(4) > p:nth-of-type(2)").text(Object.values(rc).reduce(function (a, b) { return a + b }, 0))
 
             } else if (status_ == "U15" && stat.replace(/[a-z]/g, "").length !== 0) {
-                $("#playedMatchU15 > div").prepend("<div class='" + Object.keys(data)[i] + "'><p>" + Object.values(played).reduce(function (a, b) { return a + b }, 0) + "</p><div><img src='./files/" + opp + "_s.png'></div><div><img src='./files/" + comp + "_s.png'></div><p>" + Object.keys(data)[i].substring(2, 4) + "." + Object.keys(data)[i].substring(4, 6) + "." + Object.keys(data)[i].substring(6, 8) + "." + "</p><p>" + pos + "</p><p></p><p>" + data[Object.keys(data)[i]][pos][j][1].replace(/[g|a|y|r|o|p]/g, "") + "</p></div>")
+                $("#playedMatchU15 > div").prepend("<div class='" + Object.keys(data)[i] + "'><p>" + Object.values(played).reduce(function (a, b) { return a + b }, 0) + "</p><div><img src='./files/" + opp + "_s.png'></div><div><img src='./files/" + comp + "_s.png'></div><p>" + Object.keys(data)[i].substring(2, 4) + "." + Object.keys(data)[i].substring(4, 6) + "." + Object.keys(data)[i].substring(6, 8) + "." + "</p><p>" + pos + "</p><p></p><p glass='true'>" + data[Object.keys(data)[i]][pos][j][1].replace(/[g|a|y|r|o|p]/g, "") + "</p></div>")
 
                 $("#playedSEFCU15 > div > div:nth-of-type(1) > p:nth-of-type(2)").text(Object.values(played).reduce(function (a, b) { return a + b }, 0))
                 $("#playedSEFCU15 > div > div:nth-of-type(2) > p:nth-of-type(2)").text(Object.values(goal).reduce(function (a, b) { return a + b }, 0))
@@ -1193,17 +1189,17 @@ $(document).ready(function () {
         // 선수 평점 칸 배색
         $("#playedMatch > div > div > p:nth-of-type(5)").each(function () {
             if (Number($(this).text().replace(/[a-z]/g, "")) >= 8.5) {
-                $(this).css("background", "#374df5")
+                $(this).css("background", "#374df5c0")
             } else if (Number($(this).text().replace(/[a-z]/g, "")) < 8.5 && Number($(this).text().replace(/[a-z]/g, "")) >= 7.5) {
-                $(this).css("background", "#00adc4")
+                $(this).css("background", "#00adc4c0")
             } else if (Number($(this).text().replace(/[a-z]/g, "")) < 7.5 && Number($(this).text().replace(/[a-z]/g, "")) >= 6.5) {
-                $(this).css("background", "#00c424")
+                $(this).css("background", "#00c424c0")
             } else if (Number($(this).text().replace(/[a-z]/g, "")) < 6.5 && Number($(this).text().replace(/[a-z]/g, "")) >= 6) {
-                $(this).css("background", "#d9af00")
+                $(this).css("background", "#d9af00c0")
             } else if (Number($(this).text().replace(/[a-z]/g, "")) < 6 && Number($(this).text().replace(/[a-z]/g, "")) >= 5) {
-                $(this).css("background", "#ed7e07")
+                $(this).css("background", "#ed7e07c0")
             } else if (Number($(this).text().replace(/[a-z]/g, "")) < 5) {
-                $(this).css("background", "#dc0c00")
+                $(this).css("background", "#dc0c00c0")
             } else if ($(this).text() == "-") {
                 $(this).css("background", "#00006040")
             }
@@ -1258,9 +1254,9 @@ $(document).ready(function () {
                     $("#playedMatchBG").css("display", "none")
                 })
 
-                $("#playedMatch").animate({ bottom: "-70vh" }, 300)
-                $("#playedMatchU18").animate({ bottom: "-70vh" }, 300)
-                $("#playedMatchU15").animate({ bottom: "-70vh" }, 300)
+                $("#playedMatch").animate({ bottom: "-100vh" }, 300)
+                $("#playedMatchU18").animate({ bottom: "-100vh" }, 300)
+                $("#playedMatchU15").animate({ bottom: "-100vh" }, 300)
 
                 $("body").css({ "overflow": "scroll" })
 
@@ -1386,7 +1382,7 @@ $(document).ready(function () {
         year = new Date().getFullYear()
         status_ = "A"
 
-        $(".standingsSeason").html("<select></select><p>순위 자세히</p><p>◀</p><p>▶</p><p>오늘</p>")
+        $(".standingsSeason").html("<select></select><p>순위 자세히</p><p>◀</p><p>▶</p><p glass='true'>오늘</p>")
 
         $(".standingsSeason > select").empty().prop("disabled", false)
         for (i = new Date().getFullYear(); i >= 2015; i--) {
@@ -1533,7 +1529,7 @@ $(document).ready(function () {
                                                                                                                                                 (emblem == "화성 FC") ? "hwaseongfc2023" :
                                                                                                                                                     ""
     
-                $("#standingsHome > table > tbody").append("<tr><td>" + standing[new Date().getFullYear()]["A"][i][0] + "</td><td><img src='./files/" + emblem + "_s.png'></td><td>" + standing[new Date().getFullYear()]["A"][i][1] + "</td><td>" + standing[new Date().getFullYear()]["A"][i][2] + "</td><td>" + standing[new Date().getFullYear()]["A"][i][6] + "</td></tr>")
+                $("#standingsHome > table > tbody").append("<tr glass='true'><td>" + standing[new Date().getFullYear()]["A"][i][0] + "</td><td><img src='./files/" + emblem + "_s.png'></td><td>" + standing[new Date().getFullYear()]["A"][i][1] + "</td><td>" + standing[new Date().getFullYear()]["A"][i][2] + "</td><td>" + standing[new Date().getFullYear()]["A"][i][6] + "</td></tr>")
             }
 
             for (i = 0; i < 5; i++) {
@@ -1587,9 +1583,9 @@ $(document).ready(function () {
                                                                                                                                                     ""
 
                 if (i < Math.ceil(Object.keys(standing[new Date().getFullYear()]["A"]).length / 2)) {
-                    $("#standingsHome > table:nth-of-type(1) > tbody").append("<tr><td>" + standing[new Date().getFullYear()]["A"][i][0] + "</td><td><img src='./files/" + emblem + "_s.png'></td><td>" + standing[new Date().getFullYear()]["A"][i][1] + "</td><td>" + standing[new Date().getFullYear()]["A"][i][2] + "</td><td>" + standing[new Date().getFullYear()]["A"][i][6] + "</td></tr>")
+                    $("#standingsHome > table:nth-of-type(1) > tbody").append("<tr glass='true'><td>" + standing[new Date().getFullYear()]["A"][i][0] + "</td><td><img src='./files/" + emblem + "_s.png'></td><td>" + standing[new Date().getFullYear()]["A"][i][1] + "</td><td>" + standing[new Date().getFullYear()]["A"][i][2] + "</td><td>" + standing[new Date().getFullYear()]["A"][i][6] + "</td></tr>")
                 } else {
-                    $("#standingsHome > table:nth-of-type(2) > tbody").append("<tr><td>" + standing[new Date().getFullYear()]["A"][i][0] + "</td><td><img src='./files/" + emblem + "_s.png'></td><td>" + standing[new Date().getFullYear()]["A"][i][1] + "</td><td>" + standing[new Date().getFullYear()]["A"][i][2] + "</td><td>" + standing[new Date().getFullYear()]["A"][i][6] + "</td></tr>")
+                    $("#standingsHome > table:nth-of-type(2) > tbody").append("<tr glass='true'><td>" + standing[new Date().getFullYear()]["A"][i][0] + "</td><td><img src='./files/" + emblem + "_s.png'></td><td>" + standing[new Date().getFullYear()]["A"][i][1] + "</td><td>" + standing[new Date().getFullYear()]["A"][i][2] + "</td><td>" + standing[new Date().getFullYear()]["A"][i][6] + "</td></tr>")
                 }
             }
 
@@ -1703,8 +1699,8 @@ $(document).ready(function () {
     })
 
     $("#wallpaperButton > button").click(function() {
-        $("#wallpaperButton > button").css({"border": "2px solid #000000", "color": "#000000", "background": "none"})
-        $(this).css({"border": "2px solid #000060", "color": "#fafafa", "background": "#000060"})
+        $("#wallpaperButton > button").css({"border": "1px solid #faf6f580", "color": "#05090a", "background": "#faf6f580"})
+        $(this).css({"border": "1px solid #000060c0", "color": "#faf6f5", "background": "#000060c0"})
     })
 
     $("#nameInput").on("propertychange change keyup paste input", function(){
@@ -1812,9 +1808,9 @@ function playerList_ () {
     player_GK = player_GK.sort((a, b) => a[2] - b[2])
     for (i = 0; i < player_GK.length; i++) {
         if (status_ == "A") {
-            $("#player" + status_ + " > div > #gkList").append("<div class='" + player_GK[i][0] + "'><p>" + player_GK[i][2] + "</p><p>" + player_GK[i][1].replace(/[0-9]/g, "") + "</p><p>0</p><p>0</p><p>0</p><p>0</p><p>0</p><p>0</p></div>")
+            $("#player" + status_ + " > div > #gkList").append("<div class='" + player_GK[i][0] + "' glass='true'><p>" + player_GK[i][2] + "</p><p>" + player_GK[i][1].replace(/[0-9]/g, "") + "</p><p>0</p><p>0</p><p>0</p><p>0</p><p>0</p><p>0</p></div>")
         } else {
-            $("#player" + status_ + " > div > #gkList").append("<div class='" + player_GK[i][0] + "'><p>" + player_GK[i][2] + "</p><p>" + player_GK[i][1].replace(/[0-9]/g, "") + "</p><p>0</p><p>0</p><p>0</p><p>0</p></div>")
+            $("#player" + status_ + " > div > #gkList").append("<div class='" + player_GK[i][0] + "' glass='true'><p>" + player_GK[i][2] + "</p><p>" + player_GK[i][1].replace(/[0-9]/g, "") + "</p><p>0</p><p>0</p><p>0</p><p>0</p></div>")
         }
     }
 
@@ -1824,9 +1820,9 @@ function playerList_ () {
     player_DF = player_DF.sort((a, b) => a[2] - b[2])
     for (i = 0; i < player_DF.length; i++) {
         if (status_ == "A") {
-            $("#player" + status_ + " > div > #dfList").append("<div class='" + player_DF[i][0] + "'><p>" + player_DF[i][2] + "</p><p>" + player_DF[i][1].replace(/[0-9]/g, "") + "</p><p>0</p><p>0</p><p>0</p><p>0</p><p>0</p><p>0</p></div>")
+            $("#player" + status_ + " > div > #dfList").append("<div class='" + player_DF[i][0] + "' glass='true'><p>" + player_DF[i][2] + "</p><p>" + player_DF[i][1].replace(/[0-9]/g, "") + "</p><p>0</p><p>0</p><p>0</p><p>0</p><p>0</p><p>0</p></div>")
         } else {
-            $("#player" + status_ + " > div > #dfList").append("<div class='" + player_DF[i][0] + "'><p>" + player_DF[i][2] + "</p><p>" + player_DF[i][1].replace(/[0-9]/g, "") + "</p><p>0</p><p>0</p><p>0</p><p>0</p></div>")
+            $("#player" + status_ + " > div > #dfList").append("<div class='" + player_DF[i][0] + "' glass='true'><p>" + player_DF[i][2] + "</p><p>" + player_DF[i][1].replace(/[0-9]/g, "") + "</p><p>0</p><p>0</p><p>0</p><p>0</p></div>")
         }
     }
 
@@ -1846,9 +1842,9 @@ function playerList_ () {
     player_MF = player_MF.sort((a, b) => a[2] - b[2])
     for (i = 0; i < player_MF.length; i++) {
         if (status_ == "A") {
-            $("#player" + status_ + " > div > #mfList").append("<div class='" + player_MF[i][0] + "'><p>" + player_MF[i][2] + "</p><p>" + player_MF[i][1].replace(/[0-9]/g, "") + "</p><p>0</p><p>0</p><p>0</p><p>0</p><p>0</p><p>0</p></div>")
+            $("#player" + status_ + " > div > #mfList").append("<div class='" + player_MF[i][0] + "' glass='true'><p>" + player_MF[i][2] + "</p><p>" + player_MF[i][1].replace(/[0-9]/g, "") + "</p><p>0</p><p>0</p><p>0</p><p>0</p><p>0</p><p>0</p></div>")
         } else {
-            $("#player" + status_ + " > div > #mfList").append("<div class='" + player_MF[i][0] + "'><p>" + player_MF[i][2] + "</p><p>" + player_MF[i][1].replace(/[0-9]/g, "") + "</p><p>0</p><p>0</p><p>0</p><p>0</p></div>")
+            $("#player" + status_ + " > div > #mfList").append("<div class='" + player_MF[i][0] + "' glass='true'><p>" + player_MF[i][2] + "</p><p>" + player_MF[i][1].replace(/[0-9]/g, "") + "</p><p>0</p><p>0</p><p>0</p><p>0</p></div>")
         }
     }
 
@@ -1858,9 +1854,9 @@ function playerList_ () {
     player_FW = player_FW.sort((a, b) => a[2] - b[2])
     for (i = 0; i < player_FW.length; i++) {
         if (status_ == "A") {
-            $("#player" + status_ + " > div > #fwList").append("<div class='" + player_FW[i][0] + "'><p>" + player_FW[i][2] + "</p><p>" + player_FW[i][1].replace(/[0-9]/g, "") + "</p><p>0</p><p>0</p><p>0</p><p>0</p><p>0</p><p>0</p></div>")
+            $("#player" + status_ + " > div > #fwList").append("<div class='" + player_FW[i][0] + "' glass='true'><p>" + player_FW[i][2] + "</p><p>" + player_FW[i][1].replace(/[0-9]/g, "") + "</p><p>0</p><p>0</p><p>0</p><p>0</p><p>0</p><p>0</p></div>")
         } else {
-            $("#player" + status_ + " > div > #fwList").append("<div class='" + player_FW[i][0] + "'><p>" + player_FW[i][2] + "</p><p>" + player_FW[i][1].replace(/[0-9]/g, "") + "</p><p>0</p><p>0</p><p>0</p><p>0</p></div>")
+            $("#player" + status_ + " > div > #fwList").append("<div class='" + player_FW[i][0] + "' glass='true'><p>" + player_FW[i][2] + "</p><p>" + player_FW[i][1].replace(/[0-9]/g, "") + "</p><p>0</p><p>0</p><p>0</p><p>0</p></div>")
         }
     }
 
@@ -1886,22 +1882,22 @@ function fixtures() {
         $("#fixturesU18").css("display", "none")
         $("#fixturesU15").css("display", "none")
     
-        $(".fixturesButton > button").css({"color": "#050505", "border-bottom": "none"})
-        $(".fixturesButton > button:nth-of-type(1)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
+        $(".fixturesButton > button").css({"color": "#05090a", "background": "#faf6f540"})
+        $(".fixturesButton > button:nth-of-type(1)").css({"color": "#faf6f5", "background": "#000060c0"})
     } else if (status_ == "U18") {
         $("#fixturesA").css("display", "none")
         $("#fixturesU18").css("display", "block")
         $("#fixturesU15").css("display", "none")
     
-        $(".fixturesButton > button").css({"color": "#050505", "border-bottom": "none"})
-        $(".fixturesButton > button:nth-of-type(2)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
+        $(".fixturesButton > button").css({"color": "#05090a", "background": "#faf6f540"})
+        $(".fixturesButton > button:nth-of-type(2)").css({"color": "#faf6f5", "background": "#000060c0"})
     } else if (status_ == "U15") {
         $("#fixturesA").css("display", "none")
         $("#fixturesU18").css("display", "none")
         $("#fixturesU15").css("display", "block")
     
-        $(".fixturesButton > button").css({"color": "#050505", "border-bottom": "none"})
-        $(".fixturesButton > button:nth-of-type(3)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
+        $(".fixturesButton > button").css({"color": "#05090a", "background": "#faf6f540"})
+        $(".fixturesButton > button:nth-of-type(3)").css({"color": "#faf6f5", "background": "#000060c0"})
     }
 
     $("#fixturesA > .fixtures").empty()
@@ -1919,7 +1915,7 @@ function fixtures() {
 
     if (Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month).length) {
         for (i = 0; i < Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month).length; i++) {
-            $("#fixtures" + status_ + " > .fixtures").append("<div class='fixtures_'><div></div><div><div><div><img></div><p></p></div><div><p></p><p></p></div><div><div><img></div><p></p></div></div></div>")
+            $("#fixtures" + status_ + " > .fixtures").append("<div class='fixtures_' glass='true'><div></div><div><div><div><img></div><p></p></div><div><p></p><p glass='true'></p></div><div><div><img></div><p></p></div></div></div>")
 
             $("#fixtures" + status_ + " > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1)").html("<img src='./files/" + data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["comp"][1] + "_s.png'><p>" + data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["comp"][0] + " " + data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["round"])
 
@@ -1938,19 +1934,19 @@ function fixtures() {
 
             if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["home"][0] == "서울E") {
                 if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") > data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
-                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css({"color": "#fafafa", "background": "#374df5", "border": "2px solid #374df5"})
+                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css({"color": "#faf6f5", "background": "#374df5c0", "border": "1px solid #374df5c0"})
                 } else if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") == data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "") && data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"] !== "") {
-                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css({"color": "#fafafa", "background": "#acacac", "border": "2px solid #acacac"})
+                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css({"color": "#faf6f5", "background": "#05090a40", "border": "1px solid #05090a40"})
                 } else if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") < data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
-                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css({"color": "#fafafa", "background": "#e00000", "border": "2px solid #e00000"})
+                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css({"color": "#faf6f5", "background": "#e0000080", "border": "1px solid #e0000080"})
                 }
             } else if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["away"][0] == "서울E") {
                 if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") < data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
-                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css({"color": "#fafafa", "background": "#374df5", "border": "2px solid #374df5"})
+                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css({"color": "#faf6f5", "background": "#374df5c0", "border": "1px solid #374df5c0"})
                 } else if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") == data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "") && data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"] !== "") {
-                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css({"color": "#fafafa", "background": "#acacac", "border": "2px solid #acacac"})
+                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css({"color": "#faf6f5", "background": "#05090a40", "border": "1px solid #05090a40"})
                 } else if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") > data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
-                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css({"color": "#fafafa", "background": "#e00000", "border": "2px solid #e00000"})
+                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css({"color": "#faf6f5", "background": "#e0000080", "border": "1px solid #e0000080"})
                 }
             }
 
@@ -1962,6 +1958,7 @@ function fixtures() {
                 } else {
                     $("#fixtures" + status_ + " > .fixtures > .fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").text(Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i].substring(0, 4) + "." + Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i].substring(4, 6) + "." + Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i].substring(6, 8) + ".")
                 }
+                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css({"background": "#faf6f540", "border": "1px solid #faf6f580"})
             }
         }
 
@@ -1991,22 +1988,22 @@ function standings() {
         $("#standingsU18").css("display", "none")
         $("#standingsU15").css("display", "none")
 
-        $(".standingsButton > button").css({"color": "#050505", "border-bottom": "none"})
-        $(".standingsButton > button:nth-of-type(1)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
+        $(".standingsButton > button").css({"color": "#05090a", "background": "#faf6f540"})
+        $(".standingsButton > button:nth-of-type(1)").css({"color": "#faf6f5", "background": "#000060c0"})
     } else if (status_ == "U18") {
         $("#standingsA").css("display", "none")
         $("#standingsU18").css("display", "block")
         $("#standingsU15").css("display", "none")
 
-        $(".standingsButton > button").css({"color": "#050505", "border-bottom": "none"})
-        $(".standingsButton > button:nth-of-type(2)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
+        $(".standingsButton > button").css({"color": "#05090a", "background": "#faf6f540"})
+        $(".standingsButton > button:nth-of-type(2)").css({"color": "#faf6f5", "background": "#000060c0"})
     } else if (status_ == "U15") {
         $("#standingsA").css("display", "none")
         $("#standingsU18").css("display", "none")
         $("#standingsU15").css("display", "block")
 
-        $(".standingsButton > button").css({"color": "#050505", "border-bottom": "none"})
-        $(".standingsButton > button:nth-of-type(3)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
+        $(".standingsButton > button").css({"color": "#05090a", "background": "#faf6f540"})
+        $(".standingsButton > button:nth-of-type(3)").css({"color": "#faf6f5", "background": "#000060c0"})
     }
 
     $("#standings" + status_ + " > div > table > tbody").empty()
@@ -2087,7 +2084,7 @@ function standings() {
                                                                                                                                                                                                                                                                                             (emblem == "화성 FC") ? "hwaseongfc2023" :
                                                                                                                                                                                                                                                                                                 ""
 
-            $("#standings" + status_ + " > div > table > tbody").append("<tr><td>" + standing[year][status_][i][0] + "</td><td><img src='./files/" + emblem + "_s.png'></td><td>" + standing[year][status_][i][1] + "</td><td>" + standing[year][status_][i][2] + "</td><td>" + standing[year][status_][i][3] + "</td><td>" + standing[year][status_][i][4] + "</td><td>" + standing[year][status_][i][5] + "</td><td>" + standing[year][status_][i][6] + "</td><td>" + standing[year][status_][i][7] + "</td><td>" + standing[year][status_][i][8] + "</td></tr>")
+            $("#standings" + status_ + " > div > table > tbody").append("<tr glass='true'><td>" + standing[year][status_][i][0] + "</td><td><img src='./files/" + emblem + "_s.png'></td><td>" + standing[year][status_][i][1] + "</td><td>" + standing[year][status_][i][2] + "</td><td>" + standing[year][status_][i][3] + "</td><td>" + standing[year][status_][i][4] + "</td><td>" + standing[year][status_][i][5] + "</td><td>" + standing[year][status_][i][6] + "</td><td>" + standing[year][status_][i][7] + "</td><td>" + standing[year][status_][i][8] + "</td></tr>")
 
             if (emblem == "seouleland") {
                 $("#standings" + status_ + " > div > table > tbody > tr:nth-of-type(" + (i + 1) + ")").attr("class", "sefc")
@@ -2140,7 +2137,7 @@ function standings() {
                                                                                                                                                                         (emblem == "화성 FC") ? "hwaseongfc2023" :
                                                                                                                                                                             ""
 
-            $("#standingsU18F > table > tbody").append("<tr><td>" + standing[year]["U18F"][i][0] + "</td><td><img src='./files/" + emblem + "_s.png'></td><td>" + standing[year]["U18F"][i][1] + "</td><td>" + standing[year]["U18F"][i][2] + "</td><td>" + standing[year]["U18F"][i][3] + "</td><td>" + standing[year]["U18F"][i][4] + "</td><td>" + standing[year]["U18F"][i][5] + "</td><td>" + standing[year]["U18F"][i][6] + "</td><td>" + standing[year]["U18F"][i][7] + "</td><td>" + standing[year]["U18F"][i][8] + "</td></tr>")
+            $("#standingsU18F > table > tbody").append("<tr glass='true'><td>" + standing[year]["U18F"][i][0] + "</td><td><img src='./files/" + emblem + "_s.png'></td><td>" + standing[year]["U18F"][i][1] + "</td><td>" + standing[year]["U18F"][i][2] + "</td><td>" + standing[year]["U18F"][i][3] + "</td><td>" + standing[year]["U18F"][i][4] + "</td><td>" + standing[year]["U18F"][i][5] + "</td><td>" + standing[year]["U18F"][i][6] + "</td><td>" + standing[year]["U18F"][i][7] + "</td><td>" + standing[year]["U18F"][i][8] + "</td></tr>")
 
             if (emblem == "seouleland") {
                 $("#standingsU18F > table > tbody > tr:nth-of-type(" + (i + 1) + ")").attr("class", "sefc")
@@ -2197,7 +2194,7 @@ function standings() {
                                                                                                                                                                             (emblem == "화성 FC") ? "hwaseongfc2023" :
                                                                                                                                                                                 ""
 
-                $("#standingsU18S > table > tbody").append("<tr><td>" + standing[year]["U18S"][i][0] + "</td><td><img src='./files/" + emblem + "_s.png'></td><td>" + standing[year]["U18S"][i][1] + "</td><td>" + standing[year]["U18S"][i][2] + "</td><td>" + standing[year]["U18S"][i][3] + "</td><td>" + standing[year]["U18S"][i][4] + "</td><td>" + standing[year]["U18S"][i][5] + "</td><td>" + standing[year]["U18S"][i][6] + "</td><td>" + standing[year]["U18S"][i][7] + "</td><td>" + standing[year]["U18S"][i][8] + "</td></tr>")
+                $("#standingsU18S > table > tbody").append("<tr glass='true'><td>" + standing[year]["U18S"][i][0] + "</td><td><img src='./files/" + emblem + "_s.png'></td><td>" + standing[year]["U18S"][i][1] + "</td><td>" + standing[year]["U18S"][i][2] + "</td><td>" + standing[year]["U18S"][i][3] + "</td><td>" + standing[year]["U18S"][i][4] + "</td><td>" + standing[year]["U18S"][i][5] + "</td><td>" + standing[year]["U18S"][i][6] + "</td><td>" + standing[year]["U18S"][i][7] + "</td><td>" + standing[year]["U18S"][i][8] + "</td></tr>")
 
                 if (emblem == "seouleland") {
                     $("#standingsU18S > table > tbody > tr:nth-of-type(" + (i + 1) + ")").attr("class", "sefc")
@@ -2267,8 +2264,8 @@ function stats() {
         $("#statsU18").css("display", "none")
         $("#statsU15").css("display", "none")
 
-        $(".statsButton > button").css({"color": "#050505", "border-bottom": "none"})
-        $(".statsButton > button:nth-of-type(1)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
+        $(".statsButton > button").css({"color": "#05090a", "background": "#faf6f540"})
+        $(".statsButton > button:nth-of-type(1)").css({"color": "#faf6f5", "background": "#000060c0"})
 
         // 장석훈 등번호
         if (year == 2024) {
@@ -2279,15 +2276,15 @@ function stats() {
         $("#statsU18").css("display", "block")
         $("#statsU15").css("display", "none")
 
-        $(".statsButton > button").css({"color": "#050505", "border-bottom": "none"})
-        $(".statsButton > button:nth-of-type(2)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
+        $(".statsButton > button").css({"color": "#05090a", "background": "#faf6f540"})
+        $(".statsButton > button:nth-of-type(2)").css({"color": "#faf6f5", "background": "#000060c0"})
     } else if (status_ == "U15") {
         $("#statsA").css("display", "none")
         $("#statsU18").css("display", "none")
         $("#statsU15").css("display", "block")
 
-        $(".statsButton > button").css({"color": "#050505", "border-bottom": "none"})
-        $(".statsButton > button:nth-of-type(3)").css({"color": "#000060", "border-bottom": "3px solid #000060"})
+        $(".statsButton > button").css({"color": "#05090a", "background": "#faf6f540"})
+        $(".statsButton > button:nth-of-type(3)").css({"color": "#faf6f5", "background": "#000060c0"})
     }
 
     $("#stats > .stats > table > tbody").empty()
@@ -2432,7 +2429,7 @@ function stats() {
         y = new Date().getFullYear()
 
         for (i = 0; i < Object.keys(app).length; i++) {
-            $("#stats > .stats > table > tbody").append("<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>")
+            $("#stats > .stats > table > tbody").append("<tr glass='true'><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>")
             // console.log(Object.keys(app)[i]) // 오류 확인용
             try {
                 $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(1)").text(playerNumber[year][Object.keys(app)[i]][1])
@@ -2447,7 +2444,7 @@ function stats() {
             $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ") > td:nth-of-type(3)").text(Object.values(app)[i])
 
             if (player[Object.keys(app)[i]]["sefc"] !== "O" && year == "allTime") {
-                $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ")").css("opacity", ".5")
+                $("#stats > .stats > table > tbody > tr:nth-of-type(" + (i + 1) + ")").css("opacity", ".7")
             }
 
             if (goal[Object.keys(app)[i]] === undefined) {
@@ -2582,8 +2579,8 @@ function matchH2H() {
         goalS = Number(h2h[h2hList[index]][5])
         goalC = Number(h2h[h2hList[index]][6])
 
-        oppBg = "#" + (h2h[Object.keys(h2h)[index]][0])
-        oppText = "#" + (h2h[Object.keys(h2h)[index]][1])
+        oppBg = "#" + (h2h[Object.keys(h2h)[index]][0]) + "c0"
+        oppText = "#" + (h2h[Object.keys(h2h)[index]][1]) + "c0"
 
         wPct = (100 * w / (w + d + l)).toFixed(1) + "%"
         dPct = (100 * d / (w + d + l)).toFixed(1) + "%"
@@ -2597,15 +2594,15 @@ function matchH2H() {
                 grd2 = ((100 * (w + d) / (w + d + l))) + "%"
                 goalGrd = (100 * goalS / (goalS + goalC)) + "%"
 
-                h2hGradient = "linear-gradient(105deg, #000060 " + grd1 + ", #acacac " + grd1 + ", #acacac " + grd2 + ", " + oppBg + " " + grd2 + ")"
-                goalGradient = "linear-gradient(105deg, #000060 " + goalGrd + ", " + oppBg + " " + goalGrd + ")"
+                h2hGradient = "linear-gradient(105deg, #000060c0 " + grd1 + ", #05090a40 " + grd1 + ", #05090a40 " + grd2 + ", " + oppBg + " " + grd2 + ")"
+                goalGradient = "linear-gradient(105deg, #000060c0 " + goalGrd + ", " + oppBg + " " + goalGrd + ")"
 
                 if (d == 0) {
-                    h2hGradient = "linear-gradient(105deg, #000060 " + grd1 + ", " + oppBg + " " + grd1 + ")"
+                    h2hGradient = "linear-gradient(105deg, #000060c0 " + grd1 + ", " + oppBg + " " + grd1 + ")"
                 }
 
                 if (l == 0) {
-                    h2hGradient = "linear-gradient(105deg, #000060 " + grd1 + ", " + "#acacac" + " " + grd1 + ")"
+                    h2hGradient = "linear-gradient(105deg, #000060c0 " + grd1 + ", " + "#05090a40" + " " + grd1 + ")"
                 }
 
                 $("#h2hText > div:nth-of-type(1) > p:nth-of-type(1)").text(w)
@@ -2623,10 +2620,10 @@ function matchH2H() {
                 $("#h2hGoalsText > div:nth-of-type(1) > div > p:nth-of-type(1)").text("득점")
                 $("#h2hGoalsText > div:nth-of-type(2) > div > p:nth-of-type(1)").text("실점")
 
-                $("#h2hText > div:nth-of-type(1) > p:nth-of-type(1)").css({"background": "#000060", "color": "#fafafa"})
-                $("#h2hText > div:nth-of-type(2) > p:nth-of-type(1)").css({"background": "#acacac", "color": "#fafafa"})
+                $("#h2hText > div:nth-of-type(1) > p:nth-of-type(1)").css({"background": "#000060c0", "color": "#faf6f5"})
+                $("#h2hText > div:nth-of-type(2) > p:nth-of-type(1)").css({"background": "#05090a40", "color": "#faf6f5"})
                 $("#h2hText > div:nth-of-type(3) > p:nth-of-type(1)").css({"background": oppBg, "color": oppText})
-                $("#h2hGoalsText > div:nth-of-type(1) > p:nth-of-type(1)").css({"background": "#000060", "color": "#fafafa"})
+                $("#h2hGoalsText > div:nth-of-type(1) > p:nth-of-type(1)").css({"background": "#000060c0", "color": "#faf6f5"})
                 $("#h2hGoalsText > div:nth-of-type(2) > p:nth-of-type(1)").css({"background": oppBg, "color": oppText})
 
             } else {
@@ -2634,15 +2631,15 @@ function matchH2H() {
                 grd2 = (100 * (d + l) / (w + d + l)) + "%"
                 goalGrd = (100 * goalC / (goalS + goalC)) + "%"
 
-                h2hGradient = "linear-gradient(105deg, " + oppBg + " " + grd1 + ", #acacac " + grd1 + ", #acacac " + grd2 + ", #000060 " + grd2 + ")"
-                goalGradient = "linear-gradient(105deg, " + oppBg + " " + goalGrd + ", #000060 " + goalGrd + ")"
+                h2hGradient = "linear-gradient(105deg, " + oppBg + " " + grd1 + ", #05090a40 " + grd1 + ", #05090a40 " + grd2 + ", #000060 " + grd2 + ")"
+                goalGradient = "linear-gradient(105deg, " + oppBg + " " + goalGrd + ", #000060c0 " + goalGrd + ")"
 
                 if (d == 0) {
-                    h2hGradient = "linear-gradient(105deg, " + oppBg + " " + grd1 + ", #000060 " + grd1 + ")"
+                    h2hGradient = "linear-gradient(105deg, " + oppBg + " " + grd1 + ", #000060c0 " + grd1 + ")"
                 }
 
                 if (l == 0) {
-                    h2hGradient = "linear-gradient(105deg, " + oppBg + " " + grd1 + ", " + "#acacac" + " " + grd1 + ")"
+                    h2hGradient = "linear-gradient(105deg, " + oppBg + " " + grd1 + ", " + "#05090a40" + " " + grd1 + ")"
                 }
 
                 $("#h2hText > div:nth-of-type(1) > p:nth-of-type(1)").text(l)
@@ -2660,10 +2657,10 @@ function matchH2H() {
                 $("#h2hGoalsText > div:nth-of-type(1) > div > p:nth-of-type(1)").text("실점")
                 $("#h2hGoalsText > div:nth-of-type(2) > div > p:nth-of-type(1)").text("득점")
 
-                $("#h2hText > div:nth-of-type(3) > p:nth-of-type(1)").css({"background": "#000060", "color": "#fafafa"})
-                $("#h2hText > div:nth-of-type(2) > p:nth-of-type(1)").css({"background": "#acacac", "color": "#fafafa"})
+                $("#h2hText > div:nth-of-type(3) > p:nth-of-type(1)").css({"background": "#000060c0", "color": "#faf6f5"})
+                $("#h2hText > div:nth-of-type(2) > p:nth-of-type(1)").css({"background": "#05090a40", "color": "#faf6f5"})
                 $("#h2hText > div:nth-of-type(1) > p:nth-of-type(1)").css({"background": oppBg, "color": oppText})
-                $("#h2hGoalsText > div:nth-of-type(2) > p:nth-of-type(1)").css({"background": "#000060", "color": "#fafafa"})
+                $("#h2hGoalsText > div:nth-of-type(2) > p:nth-of-type(1)").css({"background": "#000060c0", "color": "#faf6f5"})
                 $("#h2hGoalsText > div:nth-of-type(1) > p:nth-of-type(1)").css({"background": oppBg, "color": oppText})
             }
         }
@@ -2731,7 +2728,7 @@ function matchH2H() {
         }
 
         if (!h2hList.length == 0 && !$("#recentMatch > div").length) {
-            $("#matchH2H").append("<div id='recentMatch'></div>")
+            $("#matchH2H").append("<div id='recentMatch' glass='true'></div>")
         }
 
         if (!$("#recentMatch > div").length) {
@@ -2756,11 +2753,11 @@ function matchH2H() {
                     $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(3) > img").attr("src", "./files/" + data[h2hList[i]]["away"][1] + "_s.png")
 
                     if (data[h2hList[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") > data[h2hList[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
-                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#374df5", "border": "2px solid #374df5"})
+                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css({"color": "#faf6f5", "background": "#374df5c0", "border": "1px solid #374df5c0"})
                     } else if (data[h2hList[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") == data[h2hList[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "") && data[h2hList[i]]["homeScore"] !== "") {
-                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#acacac", "border": "2px solid #acacac"})
+                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css({"color": "#faf6f5", "background": "#05090a40", "border": "1px solid #05090a40"})
                     } else if (data[h2hList[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") < data[h2hList[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
-                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#e00000", "border": "2px solid #e00000"})
+                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css({"color": "#faf6f5", "background": "#e0000080", "border": "1px solid #e0000080"})
                     }
 
                     if (h2hList[i] < id) {
@@ -2771,11 +2768,11 @@ function matchH2H() {
                     $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(1) > div:nth-of-type(3) > img").attr("src", "./files/seouleland_s.png")
 
                     if (data[h2hList[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") < data[h2hList[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
-                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#374df5", "border": "2px solid #374df5"})
+                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css({"color": "#faf6f5", "background": "#374df5c0", "border": "1px solid #374df5c0"})
                     } else if (data[h2hList[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") == data[h2hList[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "") && data[h2hList[i]]["homeScore"] !== "") {
-                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#acacac", "border": "2px solid #acacac"})
+                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css({"color": "#faf6f5", "background": "#05090a40", "border": "1px solid #05090a40"})
                     } else if (data[h2hList[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") > data[h2hList[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
-                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css({"color": "#fafafa", "background": "#e00000", "border": "2px solid #e00000"})
+                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css({"color": "#faf6f5", "background": "#e0000080", "border": "1px solid #e0000080"})
                     }
 
                     if (h2hList[i] < id) {
