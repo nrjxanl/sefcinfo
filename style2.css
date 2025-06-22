@@ -387,7 +387,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 
 #matchStat {display: none; padding-bottom: 40px;}
 #matchStat > table {width: 30vw;}
-#matchStat > table > tbody > tr {height: 48px; display: flex; align-items: center; border-radius: 20px; margin-top: 20px;}
+#matchStat > table > tbody > tr {height: 64px; display: flex; align-items: center; border-radius: 20px; margin-top: 20px;}
 #matchStat > table > tbody > tr > td:nth-of-type(2) {width: 10vw; font-size: 14px; font-weight: 600;}
 #matchStat > table > tbody > tr > td:nth-of-type(2n+1) {width: 10vw; display: flex; align-items: center; justify-content: center;}
 #matchStat > table > tbody > tr > td:nth-of-type(2n+1) > p {width: 3vw; height: 3vw; border-radius: 50%; font-weight: 600; display: flex; align-items: center; justify-content: center;}
