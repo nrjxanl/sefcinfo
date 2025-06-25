@@ -1337,3 +1337,161 @@ if ($("#chantsName").length) {
         }
     }
 }
+
+// 경기장 시야
+if ($("#stadium").length) {
+    cnt = 0
+
+    // 사진 존재하는지 판단하는 함수
+    function checkImgExists(url, callback) {
+        img = new Image()
+        
+        img.onload = function() {
+            callback(true)
+        }
+
+        img.onerror = function() {
+            callback(false)
+        }
+
+        img.src = url
+    }
+    
+    rowGs = $("#seats > div > svg > g > g > g").filter(function() {
+        return $(this).find("rect").length > 0;
+    })
+
+    if (window.location.href.split("?")[1] != undefined) {
+        cnt = 1
+
+        $("#stadium").css("display", "none")
+        $("#seats, #" + window.location.href.split("?")[1]).css("display", "block")
+
+        ver = rowGs.length
+        hor = rowGs.first().find("rect").length
+
+        for (let i = 0; i < ver; i++) {
+            for (let j = 0; j < hor; j++) {
+                checkImgExists(`../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${window.location.href.split("?")[1]}_${i + 1}_${j + 1}.jpg`, function(exists) {
+                    if (exists) {
+                        rowGs.eq(i).find("rect").eq(hor - 1 - j).css("opacity", "1")
+                    } else {
+                        checkImgExists(`../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${window.location.href.split("?")[1]}_${i + 1}_${j + 1}.jpeg`, function(exists) {
+                            if (exists) {
+                                rowGs.eq(i).find("rect").eq(hor - 1 - j).css("opacity", "1")
+                            } else {
+                                checkImgExists(`../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${window.location.href.split("?")[1]}_${i + 1}_${j + 1}.png`, function(exists) {
+                                    if (exists) {
+                                        rowGs.eq(i).find("rect").eq(hor - 1 - j).css("opacity", "1")
+                                    }
+                                })
+                            }
+                        })
+                    }
+                })
+            }
+        }
+    }
+
+    // $("#stadium > g > g").click(function() {
+    //     window.location.href = "./" + window.location.href.split("?")[0].split("/").pop().replace(".html", "") + "?" + $(this).attr("id")
+
+    //     cnt = 1
+
+    //     $("#stadium").css("display", "none")
+    //     $("#seats").css("display", "block")
+    // })
+
+    $("#stadium > g > g").click(function() {
+        if ($(this).attr("id") == "E3") { // 완성 후 삭제
+            window.location.href = "./" + window.location.href.split("?")[0].split("/").pop().replace(".html", "") + "?" + $(this).attr("id")
+            
+            cnt = 1
+
+            $("#stadium").css("display", "none")
+            $("#seats, #" + window.location.href.split("?")[1]).css("display", "block")
+
+            ver = rowGs.length
+            hor = rowGs.first().find("rect").length
+
+            for (let i = 0; i < ver; i++) {
+                for (let j = 0; j < hor; j++) {
+                    checkImgExists(`../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${window.location.href.split("?")[1]}_${i + 1}_${j + 1}.jpg`, function(exists) {
+                        if (exists) {
+                            rowGs.eq(i).find("rect").eq(hor - 1 - j).css("opacity", "1")
+                        } else {
+                            checkImgExists(`../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${window.location.href.split("?")[1]}_${i + 1}_${j + 1}.jpeg`, function(exists) {
+                                if (exists) {
+                                    rowGs.eq(i).find("rect").eq(hor - 1 - j).css("opacity", "1")
+                                } else {
+                                    checkImgExists(`../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${window.location.href.split("?")[1]}_${i + 1}_${j + 1}.png`, function(exists) {
+                                        if (exists) {
+                                            rowGs.eq(i).find("rect").eq(hor - 1 - j).css("opacity", "1")
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    })
+                }
+            }
+        } else {
+            alert("현재 E3을 제외한 구역의 정보는 제공되지 않습니다. 빠른 시일 내에 준비하겠습니다.")
+        }
+    })
+
+    $("#seats > div > svg > g > g > g > rect").on("click", function() {
+        $rect = $(this)
+        $parentG = $rect.parent()
+
+        ver = rowGs.index($parentG) + 1
+        hor = $parentG.find("rect").length - $parentG.find("rect").index($rect)
+
+        $("#seatsPopUp").animate({ opacity: "1" }, 100).css("pointer-events", "auto").empty()
+        $("#seatsPopUpBG").animate({ opacity: "1" }, 100).css("pointer-events", "auto")
+
+        $("#seatsPopUp").append(`<p>${window.location.href.split("?")[1]}구역 ${ver}열 ${hor}번</p>`)
+
+        // 사진 존재하면 출력
+        checkImgExists(`../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${window.location.href.split("?")[1]}_${ver}_${hor}.jpg`, function(exists) {
+            if (exists) {
+                $("#seatsPopUp").append(`<img src='../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${window.location.href.split("?")[1]}_${ver}_${hor}.jpg'><button>사진 추가하기</button>`)
+            } else {
+                checkImgExists(`../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${window.location.href.split("?")[1]}_${ver}_${hor}.jpeg`, function(exists) {
+                    if (exists) {
+                        $("#seatsPopUp").append(`<img src='../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${window.location.href.split("?")[1]}_${ver}_${hor}.jpeg'><button>사진 추가하기</button>`)
+                    } else {
+                        checkImgExists(`../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${window.location.href.split("?")[1]}_${ver}_${hor}.png`, function(exists) {
+                            if (exists) {
+                                $("#seatsPopUp").append(`<img src='../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${window.location.href.split("?")[1]}_${ver}_${hor}.png'><button>사진 추가하기</button>`)
+                            } else {
+                                $("#seatsPopUp").append("<p>해당 좌석의 사진이 없습니다.</p><button>사진 추가하기</button>")
+                            }
+                        })
+                    }
+                })
+            }
+        })
+
+    })
+
+    $("#seatsPopUp").on("click", "button", function() {
+        window.open("https://naver.me/FutjIQDR")
+    })
+
+    $("#seatsPopUpBG").click(function() {
+        $("#seatsPopUp").animate({ opacity: "0" }, 100).css("pointer-events", "none")
+        $("#seatsPopUpBG").animate({ opacity: "0" }, 100).css("pointer-events", "none")
+
+        cnt = 0
+    })
+
+    $(document).on("keydown", function(e) {
+        if (e.key === "Escape") {
+            $("#seatsPopUp").animate({ opacity: "0" }, 100).css("pointer-events", "none")
+            $("#seatsPopUpBG").animate({ opacity: "0" }, 100).css("pointer-events", "none")
+
+            cnt = 0
+        }
+    })
+}

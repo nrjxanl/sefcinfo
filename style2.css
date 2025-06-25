@@ -10,11 +10,11 @@ body {position: absolute; background: #00006003; width: 65vw; top: 100px; left: 
 #actualContents {display: none; width: 70vw; flex-wrap: wrap; gap: 30px 5vw;}
 
 /* 헤더 */
-header {width: 100vw; height: 100px; position: fixed; top: 0; left: 0; z-index: 301; display: flex; justify-content: center; align-items: center; background: none;}
+header {width: 100vw; height: 100px; position: fixed; top: 0; left: 0; z-index: 301; display: flex; justify-content: center; align-items: center; background: none; pointer-events: none;}
 header > div {width: fit-content; position: absolute;}
 header > div:nth-of-type(1) {display: none;}
 header > div:nth-of-type(2) {left: 5vw;}
-header > div:nth-of-type(2) > img {width: 18vw; height: auto; cursor: pointer; margin-left: -1vw;}
+header > div:nth-of-type(2) > img {width: 18vw; height: auto; cursor: pointer; margin-left: -1vw; pointer-events: auto;}
 header > p {width: fit-content; position: absolute; left: 20vw; text-align: left; font-size: 24px; color: #000060; line-height: 24px; margin: calc(8px + 5vw) 0;}
 
 /* 푸터 */
@@ -197,8 +197,8 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #statsBySeason > div:nth-of-type(n+2) > p {width: 3.2vw; font-size: 14px; font-weight: 600;}
 #statsBySeason > div:nth-of-type(n+3) {padding-top: 8px;}
 
-#playedMatch {width: 70vw; height: 70vh; margin-top: 30vh; background: #faf6f5c0; border-radius: 20px 20px 0 0; display: flex; flex-direction: column; position: fixed; left: 30vw; bottom: -100vh; z-index: 400;}
-#playedMatch > div {width: 70vw; height: calc(70vh - 20px); margin: 40px 0 20px 0; overflow: scroll;}
+#playedMatch {width: 75vw; height: 70vh; margin-top: 30vh; background: #faf6f5d0; border-radius: 20px 20px 0 0; display: flex; flex-direction: column; position: fixed; left: 25vw; bottom: -100vh; z-index: 400;}
+#playedMatch > div {width: 75vw; height: calc(70vh - 20px); margin: 40px 0 20px 0; overflow: scroll;}
 #playedMatch > div > div {width: 65vw; margin-left: 2.5vw; padding: 10px 0; display: flex; justify-content: center; align-items: center; border-bottom: 2px solid #05090a20; cursor: pointer;}
 #playedMatch > div > div:nth-of-type(1) {border-top: 2px solid #05090a20;}
 #playedMatch > div > div > p:nth-of-type(1) {width: 5vw; font-size: 14px; font-weight: 600;}
@@ -210,10 +210,10 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #playedMatch > div > div > p:nth-of-type(5) {width: 5vw; padding: 4px 0; margin: 0 2.5vw; font-size: 14px; border-radius: 20px; color: #faf6f5;}
 #playedMatch > div > div > div {width: 3vw; margin-left: 1vw; display: flex; align-items: center; justify-content: center;}
 #playedMatch > div > div > div > img {height: 16px;}
-#playedMatch > p {width: 70vw; margin-bottom: 20px; opacity: .5; font-weight: 300;}
+#playedMatch > p {width: 75vw; margin-bottom: 20px; opacity: .5; font-weight: 300;}
 
-#playedMatchU18 {width: 70vw; height: 70vh; margin-top: 30vh; background: #faf6f5c0; border-radius: 20px 20px 0 0; display: flex; flex-direction: column; position: fixed; left: 30vw; bottom: -100vh; z-index: 400;}
-#playedMatchU18 > div {width: 70vw; height: calc(70vh - 20px); margin: 40px 0 20px 0; overflow: scroll;}
+#playedMatchU18 {width: 75vw; height: 70vh; margin-top: 30vh; background: #faf6f5d0; border-radius: 20px 20px 0 0; display: flex; flex-direction: column; position: fixed; left: 25vw; bottom: -100vh; z-index: 400;}
+#playedMatchU18 > div {width: 75vw; height: calc(70vh - 20px); margin: 40px 0 20px 0; overflow: scroll;}
 #playedMatchU18 > div > div {width: 65vw; margin-left: 2.5vw; padding: 10px 0; display: flex; justify-content: center; align-items: center; border-bottom: 2px solid #05090a20; cursor: pointer;}
 #playedMatchU18 > div > div:nth-of-type(1) {border-top: 2px solid #05090a20;}
 #playedMatchU18 > div > div > p:nth-of-type(1) {width: 5vw; font-size: 14px; font-weight: 600;}
@@ -225,10 +225,10 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #playedMatchU18 > div > div > p:nth-of-type(5) {width: 5vw; padding: 4px 0; margin: 0 2.5vw; font-size: 14px; border-radius: 20px; color: #faf6f5;}
 #playedMatchU18 > div > div > div {width: 3vw; margin-left: 1vw; display: flex; align-items: center; justify-content: center;}
 #playedMatchU18 > div > div > div > img {height: 16px;}
-#playedMatchU18 > p {width: 70vw; margin-bottom: 20px; opacity: .5; font-weight: 300;}
+#playedMatchU18 > p {width: 75vw; margin-bottom: 20px; opacity: .5; font-weight: 300;}
 
-#playedMatchU15 {width: 70vw; height: 70vh; margin-top: 30vh; background: #faf6f5c0; border-radius: 20px 20px 0 0; display: flex; flex-direction: column; position: fixed; left: 30vw; bottom: -100vh; z-index: 400;}
-#playedMatchU15 > div {width: 70vw; height: calc(70vh - 20px); margin: 40px 0 20px 0; overflow: scroll;}
+#playedMatchU15 {width: 75vw; height: 70vh; margin-top: 30vh; background: #faf6f5d0; border-radius: 20px 20px 0 0; display: flex; flex-direction: column; position: fixed; left: 25vw; bottom: -100vh; z-index: 400;}
+#playedMatchU15 > div {width: 75vw; height: calc(70vh - 20px); margin: 40px 0 20px 0; overflow: scroll;}
 #playedMatchU15 > div > div {width: 65vw; margin-left: 2.5vw; padding: 10px 0; display: flex; justify-content: center; align-items: center; border-bottom: 2px solid #05090a20; cursor: pointer;}
 #playedMatchU15 > div > div:nth-of-type(1) {border-top: 2px solid #05090a20;}
 #playedMatchU15 > div > div > p:nth-of-type(1) {width: 5vw; font-size: 14px; font-weight: 600;}
@@ -240,9 +240,9 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #playedMatchU15 > div > div > p:nth-of-type(5) {width: 5vw; padding: 4px 0; margin: 0 2.5vw; font-size: 14px; border-radius: 20px; color: #faf6f5;}
 #playedMatchU15 > div > div > div {width: 3vw; margin-left: 1vw; display: flex; align-items: center; justify-content: center;}
 #playedMatchU15 > div > div > div > img {height: 16px;}
-#playedMatchU15 > p {width: 70vw; margin-bottom: 20px; opacity: .5; font-weight: 300;}
+#playedMatchU15 > p {width: 75vw; margin-bottom: 20px; opacity: .5; font-weight: 300;}
 
-#playedMatchBG {width: 70vw; height: 100vh; background: #05090a10; border: none !important; border-radius: 20px 20px 0 0; position: fixed; top: 0; left: 30vw; display: none; opacity: 0; z-index: 300;}
+#playedMatchBG {width: 75vw; height: 100vh; background: #05090a10; border: none !important; border-radius: 20px 20px 0 0; position: fixed; top: 0; left: 25vw; display: none; opacity: 0; z-index: 300;}
 
 /* 선수 기록 */
 .statsButton {width: 80vw; height: 40px; margin: 0 0 0 -5vw; padding-left: 5vw; z-index: 98; display: flex; justify-content: flex-start;}
@@ -523,6 +523,26 @@ tr.sefc > td > p {background: #faf6f5 !important; color: #05090a !important;}
 #wallpaperNum > img {height: 14vh; margin: 0 .8vh;}
 
 #wallpaperDownload {height: 28px; padding: 0 16px; font-size: 16px; font-weight: 600; color: #faf6f5; background: #00006080; border: none; border-radius: 20px;}
+
+/* 경기장 시야 */
+#selectStadium > a {width: calc(65vw / 3 - 5vw); display: block; margin: 0 2.5vw; font-size: 16px; font-weight: 600;}
+#selectStadium > a > img {width: calc(65vw / 3 - 5vw); padding-bottom: 12px;}
+
+#stadium {width: 55vw; margin-left: 5vw;}
+#stadium > g:nth-of-type(n + 3):nth-of-type(-n + 6) > g:hover {opacity: 0.5; transition: opacity 0.2s; cursor: pointer;}
+
+#seats {display: none; width: 55vw; margin-left: 5vw;}
+#seats > div {display: none;}
+#seats > div > svg > g > g > g > rect {opacity: 0.5; transition: opacity 0.2s;}
+#seats > div > svg > g > g > g > rect:hover {opacity: 1; transition: opacity 0.2s; cursor: pointer;}
+
+#seatsPopUp {width: 40vw; height: 80vh; position: fixed; top: 10vh; left: 40vw; background: #faf6f5d0; border-radius: 20px; opacity: 0; z-index: 1; pointer-events: none; display: flex; flex-direction: column; align-items: center;}
+#seatsPopUp > p:nth-of-type(1) {font-size: 20px; font-weight: 600; margin-top: 5vh;}
+#seatsPopUp > p:nth-of-type(2) {font-size: 16px; font-weight: 300; margin-top: 5vh;}
+#seatsPopUp > img {max-width: 30vw; max-height: 45vh; margin-top: 5vh; border-radius: 20px;}
+#seatsPopUp > button {width: 15vw; height: 32px; color: #faf6f5; background: #000060c0; font-size: 16px; font-weight: 600; border: none; border-radius: 20px; margin-top: 5vh; cursor: pointer;}
+
+#seatsPopUpBG {width: 80vw; height: 100vh; position: fixed; top: 0; left: 20vw; opacity: 0; z-index: 0; pointer-events: none;}
 
 /* Glassmorphism */
 [glass="true"] {background: #faf6f540; box-shadow: 0 4px 30px #05090a16; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid #faf6f580;}
