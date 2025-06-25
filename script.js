@@ -1362,8 +1362,6 @@ if ($("#stadium").length) {
     })
 
     if (window.location.href.split("?")[1] != undefined) {
-        cnt = 1
-
         $("#stadium").css("display", "none")
         $("#seats, #" + window.location.href.split("?")[1]).css("display", "block")
 
@@ -1396,17 +1394,14 @@ if ($("#stadium").length) {
     // $("#stadium > g > g").click(function() {
     //     window.location.href = "./" + window.location.href.split("?")[0].split("/").pop().replace(".html", "") + "?" + $(this).attr("id")
 
-    //     cnt = 1
-
     //     $("#stadium").css("display", "none")
     //     $("#seats").css("display", "block")
     // })
 
-    $("#stadium > g > g").click(function() {
+    $("#stadium > g > g").off("click").on("click", function(e) {
+        e.stopPropagation()
         if ($(this).attr("id") == "E3") { // 완성 후 삭제
             window.location.href = "./" + window.location.href.split("?")[0].split("/").pop().replace(".html", "") + "?" + $(this).attr("id")
-            
-            cnt = 1
 
             $("#stadium").css("display", "none")
             $("#seats, #" + window.location.href.split("?")[1]).css("display", "block")
@@ -1482,16 +1477,12 @@ if ($("#stadium").length) {
     $("#seatsPopUpBG").click(function() {
         $("#seatsPopUp").animate({ opacity: "0" }, 100).css("pointer-events", "none")
         $("#seatsPopUpBG").animate({ opacity: "0" }, 100).css("pointer-events", "none")
-
-        cnt = 0
     })
 
     $(document).on("keydown", function(e) {
         if (e.key === "Escape") {
             $("#seatsPopUp").animate({ opacity: "0" }, 100).css("pointer-events", "none")
             $("#seatsPopUpBG").animate({ opacity: "0" }, 100).css("pointer-events", "none")
-
-            cnt = 0
         }
     })
 }
