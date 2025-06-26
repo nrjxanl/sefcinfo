@@ -542,7 +542,7 @@ tr.sefc > td > p {background: #faf6f5 !important; color: #05090a !important;}
 #seatsPopUp {width: 30vw; height: 80vh; position: fixed; top: 10vh; left: 45vw; background: #faf6f5d0; border-radius: 20px; opacity: 0; z-index: 1; pointer-events: none; display: flex; flex-direction: column; align-items: center;}
 #seatsPopUp > p:nth-of-type(1) {font-size: 20px; font-weight: 600; margin-top: 5vh;}
 #seatsPopUp > p:nth-of-type(2) {font-size: 16px; font-weight: 300; margin-top: 5vh;}
-#seatsPopUp > img {max-width: 25vw; max-height: 45vh; margin-top: 5vh; border-radius: 20px;}
+#seatsPopUp > img {max-width: 25vw; max-height: 55vh; margin-top: 5vh; border-radius: 20px;}
 #seatsPopUp > button {width: 15vw; height: 32px; color: #faf6f5; background: #000060c0; font-size: 16px; font-weight: 600; border: none; border-radius: 20px; margin-top: 5vh; cursor: pointer;}
 
 #seatsPopUpBG {width: 80vw; height: 100vh; position: fixed; top: 0; left: 20vw; opacity: 0; z-index: 0; pointer-events: none;}
