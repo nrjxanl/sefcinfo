@@ -1356,68 +1356,34 @@ if ($("#stadium").length) {
 
         img.src = url
     }
-    
-    rowGs = $(`#${window.location.href.split("?")[1]} > svg > g > g > g`).filter(function() {
-        return $(this).find("rect").length > 0;
-    })
-
-    if (window.location.href.split("?")[1] != undefined) {
-        $("#seats, #" + window.location.href.split("?")[1]).css("display", "block")
-
-        ver = rowGs.length
-        hor = rowGs.first().find("rect").length 
-
-        for (let i = 0; i < ver; i++) {
-            for (let j = 0; j < hor; j++) {
-                checkImgExists(`../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${window.location.href.split("?")[1]}_${i + 1}_${j + 1}.jpg`, function(exists) {
-                    if (exists) {
-                        rowGs.eq(i).find("rect").eq(hor - 1 - j).css("opacity", "1")
-                    } else {
-                        checkImgExists(`../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${window.location.href.split("?")[1]}_${i + 1}_${j + 1}.jpeg`, function(exists) {
-                            if (exists) {
-                                rowGs.eq(i).find("rect").eq(hor - 1 - j).css("opacity", "1")
-                            } else {
-                                checkImgExists(`../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${window.location.href.split("?")[1]}_${i + 1}_${j + 1}.png`, function(exists) {
-                                    if (exists) {
-                                        rowGs.eq(i).find("rect").eq(hor - 1 - j).css("opacity", "1")
-                                    }
-                                })
-                            }
-                        })
-                    }
-                })
-            }
-        }
-    }
-
-    // $("#stadium > g > g").click(function() {
-    //     window.location.href = "./" + window.location.href.split("?")[0].split("/").pop().replace(".html", "") + "?" + $(this).attr("id")
-
-    //     $("#stadium").css("display", "none")
-    //     $("#seats").css("display", "block")
-    // })
 
     $("#stadium > g > g").off("click").on("click", function(e) {
         e.stopPropagation()
         if ($(this).attr("id").includes("E")) { // 완성 후 삭제
-            window.location.href = "./" + window.location.href.split("?")[0].split("/").pop().replace(".html", "") + "?" + $(this).attr("id")
 
-            $("#seats, #" + window.location.href.split("?")[1]).css("display", "block")
+            id = $(this).attr("id")
+
+            $("#seats, #" + id).css("display", "block")
+    
+            rowGs = $(`#${id} > svg > g > g > g`).filter(function() {
+                return $(this).find("rect").length > 0;
+            })
 
             ver = rowGs.length
             hor = rowGs.first().find("rect").length
 
+            // 사진 있는 좌석 표시
             for (let i = 0; i < ver; i++) {
                 for (let j = 0; j < hor; j++) {
-                    checkImgExists(`../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${window.location.href.split("?")[1]}_${i + 1}_${j + 1}.jpg`, function(exists) {
+                    checkImgExists(`../files/${window.location.href.split("/").pop().replace(".html", "")}_${id}_${i + 1}_${j + 1}.jpg`, function(exists) {
                         if (exists) {
                             rowGs.eq(i).find("rect").eq(hor - 1 - j).css("opacity", "1")
                         } else {
-                            checkImgExists(`../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${window.location.href.split("?")[1]}_${i + 1}_${j + 1}.jpeg`, function(exists) {
+                            checkImgExists(`../files/${window.location.href.split("/").pop().replace(".html", "")}_${id}_${i + 1}_${j + 1}.jpeg`, function(exists) {
                                 if (exists) {
                                     rowGs.eq(i).find("rect").eq(hor - 1 - j).css("opacity", "1")
                                 } else {
-                                    checkImgExists(`../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${window.location.href.split("?")[1]}_${i + 1}_${j + 1}.png`, function(exists) {
+                                    checkImgExists(`../files/${window.location.href.split("/").pop().replace(".html", "")}_${id}_${i + 1}_${j + 1}.png`, function(exists) {
                                         if (exists) {
                                             rowGs.eq(i).find("rect").eq(hor - 1 - j).css("opacity", "1")
                                         }
@@ -1428,9 +1394,16 @@ if ($("#stadium").length) {
                     })
                 }
             }
+            
+            $("#seats").append("<button>돌아가기</button>")
         } else {
             alert("현재 동측(E 구역)을 제외한 구역의 정보는 제공되지 않습니다. 빠른 시일 내에 준비하겠습니다.")
         }
+    })
+
+    $("#seats").on("click", "button", function() {
+        $("#seats, #seats > div").css("display", "none")
+        $("#seats > button").remove()
     })
 
     $("#seats > div > svg > g > g > g > rect").on("click", function() {
@@ -1442,44 +1415,44 @@ if ($("#stadium").length) {
 
         // hor, ver 안 맞는 좌석 보정
         // 목동 E1
-        if (window.location.href.split("?")[0].split("/").pop().replace(".html", "") == "mokdong" && window.location.href.split("?")[1] == "E1") ver --
-        if (window.location.href.split("?")[0].split("/").pop().replace(".html", "") == "mokdong" && window.location.href.split("?")[1] == "E1" && ver == 0) hor +=4
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E1") ver --
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E1" && ver == 0) hor +=4
         // 목동 E8
-        if (window.location.href.split("?")[0].split("/").pop().replace(".html", "") == "mokdong" && window.location.href.split("?")[1] == "E8" && ver == 1) hor ++
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E8" && ver == 1) hor ++
         // 목동 E10
-        if (window.location.href.split("?")[0].split("/").pop().replace(".html", "") == "mokdong" && window.location.href.split("?")[1] == "E10") ver --
-        if (window.location.href.split("?")[0].split("/").pop().replace(".html", "") == "mokdong" && window.location.href.split("?")[1] == "E10" && ver == 0) hor ++
-        if (window.location.href.split("?")[0].split("/").pop().replace(".html", "") == "mokdong" && window.location.href.split("?")[1] == "E10" && ver >= 1 && ver <= 2 && hor >= 2) hor += 10
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E10") ver --
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E10" && ver == 0) hor ++
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E10" && ver >= 1 && ver <= 2 && hor >= 2) hor += 10
         // 목동 E12
-        if (window.location.href.split("?")[0].split("/").pop().replace(".html", "") == "mokdong" && window.location.href.split("?")[1] == "E12" && ver >= 1 && ver <= 3 && hor >= 11) hor +=7
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E12" && ver >= 1 && ver <= 3 && hor >= 11) hor +=7
         // 목동 E14
-        if (window.location.href.split("?")[0].split("/").pop().replace(".html", "") == "mokdong" && window.location.href.split("?")[1] == "E14" && ver >= 1 && ver <= 3 && hor >= 11) hor +=7
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E14" && ver >= 1 && ver <= 3 && hor >= 11) hor +=7
         // 목동 E16
-        if (window.location.href.split("?")[0].split("/").pop().replace(".html", "") == "mokdong" && window.location.href.split("?")[1] == "E16" && ver >= 1 && ver <= 3 && hor >= 11) hor +=7
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E16" && ver >= 1 && ver <= 3 && hor >= 11) hor +=7
         // 목동 E18
-        if (window.location.href.split("?")[0].split("/").pop().replace(".html", "") == "mokdong" && window.location.href.split("?")[1] == "E18" && ver >= 1 && ver <= 3 && hor >= 11) hor +=7
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E18" && ver >= 1 && ver <= 3 && hor >= 11) hor +=7
         // 목동 E19
-        if (window.location.href.split("?")[0].split("/").pop().replace(".html", "") == "mokdong" && window.location.href.split("?")[1] == "E19" && ver == 7) hor +=7
-        if (window.location.href.split("?")[0].split("/").pop().replace(".html", "") == "mokdong" && window.location.href.split("?")[1] == "E19" && ver > 7) hor +=14
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E19" && ver == 7) hor +=7
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E19" && ver > 7) hor +=14
 
         $("#seatsPopUp").animate({ opacity: "1" }, 100).css("pointer-events", "auto").empty()
         $("#seatsPopUpBG").animate({ opacity: "1" }, 100).css("pointer-events", "auto")
 
-        if (ver > 0) $("#seatsPopUp").append(`<p>${window.location.href.split("?")[1]}구역 ${ver}열 ${hor}번</p>`)
-        else $("#seatsPopUp").append(`<p>${window.location.href.split("?")[1]}구역 휠체어석 ${hor}번</p>`)
+        if (ver > 0) $("#seatsPopUp").append(`<p>${id}구역 ${ver}열 ${hor}번</p>`)
+        else $("#seatsPopUp").append(`<p>${id}구역 휠체어석 ${hor}번</p>`)
 
         // 사진 존재하면 출력
-        checkImgExists(`../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${window.location.href.split("?")[1]}_${ver}_${hor}.jpg`, function(exists) {
+        checkImgExists(`../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${id}_${ver}_${hor}.jpg`, function(exists) {
             if (exists) {
-                $("#seatsPopUp").append(`<img src='../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${window.location.href.split("?")[1]}_${ver}_${hor}.jpg'><button>사진 추가하기</button>`)
+                $("#seatsPopUp").append(`<img src='../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${id}_${ver}_${hor}.jpg'><button>사진 추가하기</button>`)
             } else {
-                checkImgExists(`../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${window.location.href.split("?")[1]}_${ver}_${hor}.jpeg`, function(exists) {
+                checkImgExists(`../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${id}_${ver}_${hor}.jpeg`, function(exists) {
                     if (exists) {
-                        $("#seatsPopUp").append(`<img src='../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${window.location.href.split("?")[1]}_${ver}_${hor}.jpeg'><button>사진 추가하기</button>`)
+                        $("#seatsPopUp").append(`<img src='../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${id}_${ver}_${hor}.jpeg'><button>사진 추가하기</button>`)
                     } else {
-                        checkImgExists(`../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${window.location.href.split("?")[1]}_${ver}_${hor}.png`, function(exists) {
+                        checkImgExists(`../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${id}_${ver}_${hor}.png`, function(exists) {
                             if (exists) {
-                                $("#seatsPopUp").append(`<img src='../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${window.location.href.split("?")[1]}_${ver}_${hor}.png'><button>사진 추가하기</button>`)
+                                $("#seatsPopUp").append(`<img src='../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${id}_${ver}_${hor}.png'><button>사진 추가하기</button>`)
                             } else {
                                 $("#seatsPopUp").append("<p>해당 좌석의 사진이 없습니다.</p><button>사진 추가하기</button>")
                             }

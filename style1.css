@@ -533,6 +533,7 @@ tr.sefc > td > p {background: #faf6f5 !important; color: #05090a !important;}
 #seats > div > svg {width: 100%; height: 100%; object-fit: contain;}
 #seats > div > svg > g > g > g > rect {opacity: 0.5; transition: opacity 0.2s;}
 #seats > div > svg > g > g > g > rect:active {opacity: 1; transition: opacity 0.2s; cursor: pointer;}
+#seats > button {width: 40vw; height: 32px; color: #faf6f5; background: #000060c0; font-size: 16px; font-weight: 600; border: none; border-radius: 20px; margin-top: 24px; cursor: pointer;}
 
 path.cls-64 {pointer-events: none;}
 
