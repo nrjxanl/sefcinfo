@@ -1359,46 +1359,42 @@ if ($("#stadium").length) {
 
     $("#stadium > g > g").off("click").on("click", function(e) {
         e.stopPropagation()
-        if ($(this).attr("id").includes("E")) { // 완성 후 삭제
 
-            id = $(this).attr("id")
+        id = $(this).attr("id")
 
-            $("#seats, #" + id).css("display", "block")
+        $("#seats, #" + id).css("display", "block")
     
-            rowGs = $(`#${id} > svg > g > g > g`).filter(function() {
-                return $(this).find("rect").length > 0;
-            })
+        rowGs = $(`#${id} > svg > g > g > g`).filter(function() {
+            return $(this).find("rect").length > 0;
+        })
 
-            ver = rowGs.length
-            hor = rowGs.first().find("rect").length
+        ver = rowGs.length
+        hor = rowGs.first().find("rect").length
 
-            // 사진 있는 좌석 표시
-            for (let i = 0; i < ver; i++) {
-                for (let j = 0; j < hor; j++) {
-                    checkImgExists(`../files/${window.location.href.split("/").pop().replace(".html", "")}_${id}_${i + 1}_${j + 1}.jpg`, function(exists) {
-                        if (exists) {
-                            rowGs.eq(i).find("rect").eq(hor - 1 - j).css("opacity", "1")
-                        } else {
-                            checkImgExists(`../files/${window.location.href.split("/").pop().replace(".html", "")}_${id}_${i + 1}_${j + 1}.jpeg`, function(exists) {
-                                if (exists) {
-                                    rowGs.eq(i).find("rect").eq(hor - 1 - j).css("opacity", "1")
-                                } else {
-                                    checkImgExists(`../files/${window.location.href.split("/").pop().replace(".html", "")}_${id}_${i + 1}_${j + 1}.png`, function(exists) {
-                                        if (exists) {
-                                            rowGs.eq(i).find("rect").eq(hor - 1 - j).css("opacity", "1")
-                                        }
-                                    })
-                                }
-                            })
-                        }
-                    })
-                }
+        // 사진 있는 좌석 표시
+        for (let i = 0; i < ver; i++) {
+            for (let j = 0; j < hor; j++) {
+                checkImgExists(`../files/${window.location.href.split("/").pop().replace(".html", "")}_${id}_${i + 1}_${j + 1}.jpg`, function(exists) {
+                    if (exists) {
+                        rowGs.eq(i).find("rect").eq(hor - 1 - j).css("opacity", "1")
+                    } else {
+                        checkImgExists(`../files/${window.location.href.split("/").pop().replace(".html", "")}_${id}_${i + 1}_${j + 1}.jpeg`, function(exists) {
+                            if (exists) {
+                                rowGs.eq(i).find("rect").eq(hor - 1 - j).css("opacity", "1")
+                            } else {
+                                checkImgExists(`../files/${window.location.href.split("/").pop().replace(".html", "")}_${id}_${i + 1}_${j + 1}.png`, function(exists) {
+                                    if (exists) {
+                                        rowGs.eq(i).find("rect").eq(hor - 1 - j).css("opacity", "1")
+                                    }
+                                })
+                            }
+                        })
+                    }
+                })
             }
-            
-            $("#seats").append("<button>돌아가기</button>")
-        } else {
-            alert("현재 동측(E 구역)을 제외한 구역의 정보는 제공되지 않습니다. 빠른 시일 내에 준비하겠습니다.")
         }
+        
+        $("#seats").append("<button>돌아가기</button>")
     })
 
     $("#seats").on("click", "button", function() {
