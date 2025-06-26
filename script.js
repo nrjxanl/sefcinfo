@@ -1357,7 +1357,7 @@ if ($("#stadium").length) {
         img.src = url
     }
     
-    rowGs = $("#seats > div > svg > g > g > g").filter(function() {
+    rowGs = $(`#${window.location.href.split("?")[1]} > svg > g > g > g`).filter(function() {
         return $(this).find("rect").length > 0;
     })
 
@@ -1366,7 +1366,7 @@ if ($("#stadium").length) {
         $("#seats, #" + window.location.href.split("?")[1]).css("display", "block")
 
         ver = rowGs.length
-        hor = rowGs.first().find("rect").length
+        hor = rowGs.first().find("rect").length 
 
         for (let i = 0; i < ver; i++) {
             for (let j = 0; j < hor; j++) {
@@ -1400,7 +1400,7 @@ if ($("#stadium").length) {
 
     $("#stadium > g > g").off("click").on("click", function(e) {
         e.stopPropagation()
-        if ($(this).attr("id") == "E3") { // 완성 후 삭제
+        if ($(this).attr("id").includes("E")) { // 완성 후 삭제
             window.location.href = "./" + window.location.href.split("?")[0].split("/").pop().replace(".html", "") + "?" + $(this).attr("id")
 
             $("#stadium").css("display", "none")
@@ -1431,7 +1431,7 @@ if ($("#stadium").length) {
                 }
             }
         } else {
-            alert("현재 E3을 제외한 구역의 정보는 제공되지 않습니다. 빠른 시일 내에 준비하겠습니다.")
+            alert("현재 동측(E 구역)을 제외한 구역의 정보는 제공되지 않습니다. 빠른 시일 내에 준비하겠습니다.")
         }
     })
 
@@ -1442,10 +1442,33 @@ if ($("#stadium").length) {
         ver = rowGs.index($parentG) + 1
         hor = $parentG.find("rect").length - $parentG.find("rect").index($rect)
 
+        // hor, ver 안 맞는 좌석 보정
+        // 목동 E1
+        if (window.location.href.split("?")[0].split("/").pop().replace(".html", "") == "mokdong" && window.location.href.split("?")[1] == "E1") ver --
+        if (window.location.href.split("?")[0].split("/").pop().replace(".html", "") == "mokdong" && window.location.href.split("?")[1] == "E1" && ver == 0) hor +=4
+        // 목동 E8
+        if (window.location.href.split("?")[0].split("/").pop().replace(".html", "") == "mokdong" && window.location.href.split("?")[1] == "E8" && ver == 1) hor ++
+        // 목동 E10
+        if (window.location.href.split("?")[0].split("/").pop().replace(".html", "") == "mokdong" && window.location.href.split("?")[1] == "E10") ver --
+        if (window.location.href.split("?")[0].split("/").pop().replace(".html", "") == "mokdong" && window.location.href.split("?")[1] == "E10" && ver == 0) hor ++
+        if (window.location.href.split("?")[0].split("/").pop().replace(".html", "") == "mokdong" && window.location.href.split("?")[1] == "E10" && ver >= 1 && ver <= 2 && hor >= 2) hor += 10
+        // 목동 E12
+        if (window.location.href.split("?")[0].split("/").pop().replace(".html", "") == "mokdong" && window.location.href.split("?")[1] == "E12" && ver >= 1 && ver <= 3 && hor >= 11) hor +=7
+        // 목동 E14
+        if (window.location.href.split("?")[0].split("/").pop().replace(".html", "") == "mokdong" && window.location.href.split("?")[1] == "E14" && ver >= 1 && ver <= 3 && hor >= 11) hor +=7
+        // 목동 E16
+        if (window.location.href.split("?")[0].split("/").pop().replace(".html", "") == "mokdong" && window.location.href.split("?")[1] == "E16" && ver >= 1 && ver <= 3 && hor >= 11) hor +=7
+        // 목동 E18
+        if (window.location.href.split("?")[0].split("/").pop().replace(".html", "") == "mokdong" && window.location.href.split("?")[1] == "E18" && ver >= 1 && ver <= 3 && hor >= 11) hor +=7
+        // 목동 E19
+        if (window.location.href.split("?")[0].split("/").pop().replace(".html", "") == "mokdong" && window.location.href.split("?")[1] == "E19" && ver == 7) hor +=7
+        if (window.location.href.split("?")[0].split("/").pop().replace(".html", "") == "mokdong" && window.location.href.split("?")[1] == "E19" && ver > 7) hor +=14
+
         $("#seatsPopUp").animate({ opacity: "1" }, 100).css("pointer-events", "auto").empty()
         $("#seatsPopUpBG").animate({ opacity: "1" }, 100).css("pointer-events", "auto")
 
-        $("#seatsPopUp").append(`<p>${window.location.href.split("?")[1]}구역 ${ver}열 ${hor}번</p>`)
+        if (ver > 0) $("#seatsPopUp").append(`<p>${window.location.href.split("?")[1]}구역 ${ver}열 ${hor}번</p>`)
+        else $("#seatsPopUp").append(`<p>${window.location.href.split("?")[1]}구역 휠체어석 ${hor}번</p>`)
 
         // 사진 존재하면 출력
         checkImgExists(`../files/${window.location.href.split("?")[0].split("/").pop().replace(".html", "")}_${window.location.href.split("?")[1]}_${ver}_${hor}.jpg`, function(exists) {
