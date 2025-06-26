@@ -1362,7 +1362,6 @@ if ($("#stadium").length) {
     })
 
     if (window.location.href.split("?")[1] != undefined) {
-        $("#stadium").css("display", "none")
         $("#seats, #" + window.location.href.split("?")[1]).css("display", "block")
 
         ver = rowGs.length
@@ -1403,7 +1402,6 @@ if ($("#stadium").length) {
         if ($(this).attr("id").includes("E")) { // 완성 후 삭제
             window.location.href = "./" + window.location.href.split("?")[0].split("/").pop().replace(".html", "") + "?" + $(this).attr("id")
 
-            $("#stadium").css("display", "none")
             $("#seats, #" + window.location.href.split("?")[1]).css("display", "block")
 
             ver = rowGs.length

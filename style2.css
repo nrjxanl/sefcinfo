@@ -534,7 +534,7 @@ tr.sefc > td > p {background: #faf6f5 !important; color: #05090a !important;}
 #stadium {width: 55vw; margin-left: 5vw;}
 #stadium > g:nth-of-type(n + 3):nth-of-type(-n + 6) > g:hover {opacity: 0.5; transition: opacity 0.2s; cursor: pointer;}
 
-#seats {display: none; width: 55vw; height: calc(100vh - 200px); margin-left: 5vw;}
+#seats {display: none; width: 55vw; height: calc(100vh - 200px); padding: 0 5vw 50vh 5vw; background: #fcfcfd; position: fixed; top: 0; left: 30vw;}
 #seats > div {display: none; width: 100%; height: 100%;}
 #seats > div > svg {width: 100%; height: 100%; object-fit: contain;}
 #seats > div > svg > g > g > g > rect {opacity: 0.5; transition: opacity 0.2s;}
@@ -542,13 +542,13 @@ tr.sefc > td > p {background: #faf6f5 !important; color: #05090a !important;}
 
 path.cls-64 {pointer-events: none;}
 
-#seatsPopUp {width: 30vw; height: 80vh; position: fixed; top: 10vh; left: 47.5vw; background: #faf6f5d0; border-radius: 20px; opacity: 0; z-index: 1; pointer-events: none; display: flex; flex-direction: column; align-items: center;}
+#seatsPopUp {width: 30vw; height: 80vh; position: fixed; top: 10vh; left: 47.5vw; background: #faf6f5d0; border-radius: 20px; opacity: 0; z-index: 2; pointer-events: none; display: flex; flex-direction: column; align-items: center;}
 #seatsPopUp > p:nth-of-type(1) {font-size: 20px; font-weight: 600; margin-top: 5vh;}
 #seatsPopUp > p:nth-of-type(2) {font-size: 16px; font-weight: 300; margin-top: 5vh;}
 #seatsPopUp > img {max-width: 25vw; max-height: 55vh; margin-top: 5vh; border-radius: 20px;}
 #seatsPopUp > button {width: 15vw; height: 32px; color: #faf6f5; background: #000060c0; font-size: 16px; font-weight: 600; border: none; border-radius: 20px; margin-top: 5vh; cursor: pointer;}
 
-#seatsPopUpBG {width: 80vw; height: 100vh; position: fixed; top: 0; left: 20vw; opacity: 0; z-index: 0; pointer-events: none;}
+#seatsPopUpBG {width: 80vw; height: 100vh; position: fixed; top: 0; left: 20vw; opacity: 0; z-index: 1; pointer-events: none;}
 
 /* Glassmorphism */
 [glass="true"] {background: #faf6f540; box-shadow: 0 4px 30px #05090a16; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid #faf6f580;}
