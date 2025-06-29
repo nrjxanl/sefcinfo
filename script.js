@@ -1357,7 +1357,41 @@ if ($("#stadium").length) {
         img.src = url
     }
 
-    $("#stadium > g > g").off("click").on("click", function(e) {
+    // 비동기(Promise)로 사진 존재 여부 체크
+    function checkImgExistsAsync(url) {
+        return new Promise((resolve) => {
+            const img = new Image()
+            img.onload = () => resolve(url)
+            img.onerror = () => resolve(null)
+            img.src = url
+        })
+    }
+
+    // 사진 있는 좌석 표시 (병렬화)
+    async function markSeatsWithPhotos(rowGs, id) {
+        const baseName = window.location.href.split("/").pop().replace(".html", "")
+        const exts = ["jpg", "jpeg", "png"]
+        let tasks = []
+        for (let i = 0; i < rowGs.length; i++) {
+            const $rects = rowGs.eq(i).find("rect")
+            const hor = $rects.length
+            for (let j = 0; j < hor; j++) {
+                tasks.push((async () => {
+                    for (let ext of exts) {
+                        const url = `../files/${baseName}_${id}_${i + 1}_${j + 1}.${ext}`
+                        const result = await checkImgExistsAsync(url)
+                        if (result) {
+                            $rects.eq(hor - 1 - j).css("opacity", "1")
+                            break
+                        }
+                    }
+                })())
+            }
+        }
+        await Promise.all(tasks)
+    }
+
+    $("#stadium > g > g").off("click").on("click", async function(e) {
         e.stopPropagation()
 
         id = $(this).attr("id")
@@ -1365,37 +1399,14 @@ if ($("#stadium").length) {
         $("#seats, #" + id).css("display", "block")
     
         rowGs = $(`#${id} > svg > g > g > g`).filter(function() {
-            return $(this).find("rect").length > 0;
+            return $(this).find("rect").length > 0
         })
 
         ver = rowGs.length
 
-        // 사진 있는 좌석 표시
-        for (let i = 0; i < ver; i++) {
+        // 사진 있는 좌석 표시 (병렬화)
+        await markSeatsWithPhotos(rowGs, id)
 
-            hor = rowGs.eq(i).find("rect").length
-
-            for (let j = 0; j < hor; j++) {
-                checkImgExists(`../files/${window.location.href.split("/").pop().replace(".html", "")}_${id}_${i + 1}_${j + 1}.jpg`, function(exists) {
-                    if (exists) {
-                        rowGs.eq(i).find("rect").eq(hor - 1 - j).css("opacity", "1")
-                    } else {
-                        checkImgExists(`../files/${window.location.href.split("/").pop().replace(".html", "")}_${id}_${i + 1}_${j + 1}.jpeg`, function(exists) {
-                            if (exists) {
-                                rowGs.eq(i).find("rect").eq(hor - 1 - j).css("opacity", "1")
-                            } else {
-                                checkImgExists(`../files/${window.location.href.split("/").pop().replace(".html", "")}_${id}_${i + 1}_${j + 1}.png`, function(exists) {
-                                    if (exists) {
-                                        rowGs.eq(i).find("rect").eq(hor - 1 - j).css("opacity", "1")
-                                    }
-                                })
-                            }
-                        })
-                    }
-                })
-            }
-        }
-        
         $("#seats").append("<button>돌아가기</button>")
     })
 
@@ -1488,10 +1499,20 @@ if ($("#stadium").length) {
         $("#seatsPopUpBG").animate({ opacity: "0" }, 100).css("pointer-events", "none")
     })
 
-    $(document).on("keydown", function(e) {
+    $(document).on("keydown", function (e) {
         if (e.key === "Escape") {
-            $("#seatsPopUp").animate({ opacity: "0" }, 100).css("pointer-events", "none")
-            $("#seatsPopUpBG").animate({ opacity: "0" }, 100).css("pointer-events", "none")
+            
+            // 팝업이 열려 있으면 팝업만 닫기
+            if ($("#seatsPopUp").css("opacity") === "1" && $("#seatsPopUp").css("pointer-events") !== "none") {
+                $("#seatsPopUp").animate({ opacity: "0" }, 100).css("pointer-events", "none")
+                $("#seatsPopUpBG").animate({ opacity: "0" }, 100).css("pointer-events", "none")
+            } else {
+
+                // 팝업이 안 열려 있으면 seats 전체를 닫기
+                $("#seats, #seats > div").css("display", "none")
+                $("#seats > button").remove()
+            }
         }
     })
+
 }
