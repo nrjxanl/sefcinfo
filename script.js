@@ -1339,6 +1339,7 @@ if ($("#chantsName").length) {
 }
 
 // 경기장 시야
+// 경기장 시야
 if ($("#stadium").length) {
     cnt = 0
 
@@ -1394,15 +1395,22 @@ if ($("#stadium").length) {
     $("#stadium > g > g").off("click").on("click", async function(e) {
         e.stopPropagation()
 
-        id = $(this).attr("id")
+        const id = $(this).attr("id")
 
         $("#seats, #" + id).css("display", "block")
     
-        rowGs = $(`#${id} > svg > g > g > g`).filter(function() {
+        const rowGs = $(`#${id} > svg > g > g > g`).filter(function() {
             return $(this).find("rect").length > 0
         })
 
-        ver = rowGs.length
+        const ver = rowGs.length
+
+        // seats에 현재 상태 저장
+        $("#seats").data({
+            id: id,
+            rowGs: rowGs,
+            ver: ver
+        })
 
         // 사진 있는 좌석 표시 (병렬화)
         await markSeatsWithPhotos(rowGs, id)
@@ -1413,14 +1421,19 @@ if ($("#stadium").length) {
     $("#seats").on("click", "button", function() {
         $("#seats, #seats > div").css("display", "none")
         $("#seats > button").remove()
+        // seats에 저장된 값 초기화
+        $("#seats").removeData("id rowGs ver")
     })
 
     $("#seats > div > svg > g > g > g > rect").on("click", function() {
         $rect = $(this)
         $parentG = $rect.parent()
 
-        ver = rowGs.index($parentG) + 1
-        hor = $parentG.find("rect").length - $parentG.find("rect").index($rect)
+        // seats에 저장된 값 사용
+        const id = $("#seats").data("id")
+        const rowGs = $("#seats").data("rowGs")
+        let ver = rowGs ? rowGs.index($parentG) + 1 : 0
+        let hor = $parentG.find("rect").length - $parentG.find("rect").index($rect)
 
         // hor, ver 안 맞는 좌석 보정
         // 목동 E1
@@ -1501,18 +1514,16 @@ if ($("#stadium").length) {
 
     $(document).on("keydown", function (e) {
         if (e.key === "Escape") {
-            
             // 팝업이 열려 있으면 팝업만 닫기
             if ($("#seatsPopUp").css("opacity") === "1" && $("#seatsPopUp").css("pointer-events") !== "none") {
                 $("#seatsPopUp").animate({ opacity: "0" }, 100).css("pointer-events", "none")
                 $("#seatsPopUpBG").animate({ opacity: "0" }, 100).css("pointer-events", "none")
             } else {
-
                 // 팝업이 안 열려 있으면 seats 전체를 닫기
                 $("#seats, #seats > div").css("display", "none")
                 $("#seats > button").remove()
+                $("#seats").removeData("id rowGs ver")
             }
         }
     })
-
 }
