@@ -1473,44 +1473,60 @@ if ($("#stadium").length) {
         let ver = rowGs ? rowGs.index($parentG) + 1 : 0
         let hor = $parentG.find("rect").length - $parentG.find("rect").index($rect)
 
-        // // hor, ver 안 맞는 좌석 보정
-        // // 목동 E1
-        // if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E1") ver --
-        // if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E1" && ver == 0) hor += 4
-        // // 목동 E8
-        // if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E8" && ver == 1) hor ++
-        // // 목동 E10
-        // if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E10") ver --
-        // if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E10" && ver == 0) hor ++
-        // if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E10" && ver >= 1 && ver <= 2 && hor >= 2) hor += 10
-        // // 목동 E12/E14/E16/E18
-        // if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && (id == "E12" || id == "E14" || id == "E16" || id == "E18") && ver >= 1 && ver <= 3 && hor >= 11) hor += 7
-        // // 목동 E19
-        // if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E19" && ver == 7) hor += 7
-        // if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E19" && ver > 7) hor += 14
-        // // 목동 W2/W3
-        // if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && (id == "W2" || id == "W3")) hor = hor * 3 - 2
-        // // 목동 W4
-        // if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W4") hor = hor * 4 - 3
-        // // 목동 W5
-        // if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W5") hor = hor % 2 == 1 ? Math.round((5 * hor - 4) / 2) : (5 * hor - 2) / 2
-        // // 목동 W9
-        // if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W9" && ver <= 3 && hor > 9) hor += 6
-        // if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W9" && ver == 13 && hor > 6) hor += 2
-        // if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W9" && ver == 13 && hor > 17) hor += 2
-        // if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W9" && ver == 14 && hor > 7) hor ++
-        // if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W9" && ver == 14 && hor > 17) hor += 2
-        // // 목동 W10
-        // if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W10" && ver == 12) hor ++
-        // if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W10" && ver == 13) hor += 3
-        // if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W10" && ver == 13 && hor > 11) hor += 2
-        // if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W10" && ver == 14) hor += 2
-        // if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W10" && ver == 14 && hor > 11) hor += 2
-        // // 목동 W11
-        // if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W11") hor = hor * 3 - 2
-        // // 목동 W13
-        // if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W13" && ver == 1) hor = hor * 3 - 2
-        // if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W13" && ver > 1) hor = hor * 3 - 1
+        // hor, ver 안 맞는 좌석 보정
+        // 목동 E1
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E1") ver --
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E1" && ver == 0) hor += 4
+        // 목동 E8
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E8" && ver == 1) hor ++
+        // 목동 E10
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E10") ver --
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E10" && ver == 0) hor ++
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E10" && ver >= 1 && ver <= 2 && hor >= 2) hor += 10
+        // 목동 E12/E14/E16/E18
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && (id == "E12" || id == "E14" || id == "E16" || id == "E18") && ver >= 1 && ver <= 3 && hor >= 11) hor += 7
+        // 목동 E19
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E19" && ver == 7) hor += 7
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E19" && ver > 7) hor += 14
+        // 목동 W2/W3
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && (id == "W2" || id == "W3")) hor = hor * 3 - 2
+        // 목동 W4
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W4") hor = hor * 4 - 3
+        // 목동 W5
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W5") hor = hor % 2 == 1 ? Math.round((5 * hor - 4) / 2) : (5 * hor - 2) / 2
+        // 목동 W9
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W9" && ver <= 3 && hor > 9) hor += 6
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W9" && ver == 13 && hor > 6) hor += 2
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W9" && ver == 13 && hor > 17) hor += 2
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W9" && ver == 14 && hor > 7) hor ++
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W9" && ver == 14 && hor > 17) hor += 2
+        // 목동 W10
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W10" && ver == 12) hor ++
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W10" && ver == 13) hor += 3
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W10" && ver == 13 && hor > 11) hor += 2
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W10" && ver == 14) hor += 2
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W10" && ver == 14 && hor > 11) hor += 2
+        // 목동 W11
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W11") hor = hor * 3 - 2
+        // 목동 W13
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W13" && ver == 1) hor = hor * 3 - 2
+        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W13" && ver > 1) hor = hor * 3 - 1
+
+        // 이순신 S1
+        if (window.location.href.split("/").pop().replace(".html", "") == "yisunsin" && id == "S1" && ver <= 2) hor ++
+        // 이순신 S3/S7
+        if (window.location.href.split("/").pop().replace(".html", "") == "yisunsin" && (id == "S3" || id == "S7") && ver <= 3) hor += 3
+        if (window.location.href.split("/").pop().replace(".html", "") == "yisunsin" && (id == "S3" || id == "S7") && ver > 3 && ver <= 8) hor += 2
+        if (window.location.href.split("/").pop().replace(".html", "") == "yisunsin" && (id == "S3" || id == "S7") && ver > 8 && ver <= 12) hor ++
+        // 이순신 S4/S6
+        if (window.location.href.split("/").pop().replace(".html", "") == "yisunsin" && (id == "S4" || id == "S6") && ver <= 2) hor += 3
+        if (window.location.href.split("/").pop().replace(".html", "") == "yisunsin" && (id == "S4" || id == "S6") && ver > 2 && ver <= 7) hor += 2
+        if (window.location.href.split("/").pop().replace(".html", "") == "yisunsin" && (id == "S4" || id == "S6") && ver > 7 && ver <= 11) hor ++
+        // 이순신 S5
+        if (window.location.href.split("/").pop().replace(".html", "") == "yisunsin" && id == "S5" && ver <= 7 && hor > 2) hor += 13
+        if (window.location.href.split("/").pop().replace(".html", "") == "yisunsin" && id == "S5" && ver <= 7 && hor <= 2) hor ++
+        if (window.location.href.split("/").pop().replace(".html", "") == "yisunsin" && id == "S5" && ver == 8) hor += 2
+        if (window.location.href.split("/").pop().replace(".html", "") == "yisunsin" && id == "S5" && ver > 8 && ver <= 12) hor ++
 
         $("#seatsPopUp").animate({ opacity: "1" }, 100).css("pointer-events", "auto").empty()
         $("#seatsPopUpBG").animate({ opacity: "1" }, 100).css("pointer-events", "auto")
