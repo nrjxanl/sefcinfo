@@ -529,7 +529,7 @@ tr.sefc > td > p {background: #faf6f5 !important; color: #05090a !important;}
 #stadium > g:nth-of-type(n + 3):nth-of-type(-n + 6) > g:active {opacity: 0.5; transition: opacity 0.2s; cursor: pointer;}
 
 #seats {display: none; width: 90vw; height: 50vh; padding: 100px 5vw 50vh 5vw; background: #fcfcfd; position: fixed; top: 0; left: 0;}
-#seats > div {display: none;}
+#seats > div {display: none; pointer-events: none;}
 #seats > div > svg {width: 100%; height: 100%; object-fit: contain;}
 #seats > div > svg > g > g > g > rect {opacity: 0.5; transition: opacity 0.2s;}
 #seats > div > svg > g > g > g > rect:active {opacity: 1; transition: opacity 0.2s; cursor: pointer;}

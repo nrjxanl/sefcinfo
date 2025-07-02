@@ -1340,237 +1340,160 @@ if ($("#chantsName").length) {
 
 // 경기장 시야
 if ($("#stadium").length) {
-    cnt = 0
+    let cnt = 0;
 
     // 사진 존재하는지 판단하는 함수
     function checkImgExists(url, callback) {
-        img = new Image()
+        const img = new Image();
         img.onload = function() {
-            callback(true)
-        }
+            callback(true);
+        };
         img.onerror = function() {
-            callback(false)
-        }
-        img.src = url
+            callback(false);
+        };
+        img.src = url;
     }
 
     // 비동기(Promise)로 사진 존재 여부 체크
     function checkImgExistsAsync(url) {
         return new Promise((resolve) => {
-            const img = new Image()
-            img.onload = () => resolve(url)
-            img.onerror = () => resolve(null)
-            img.src = url
-        })
+            const img = new Image();
+            img.onload = () => resolve(url);
+            img.onerror = () => resolve(null);
+            img.src = url;
+        });
     }
 
-    // 구역별 사진 존재 여부 캐시 (메모리)
-    const seatsPhotoCache = {}
+    // 구역별 사진 존재 여부 캐시 (메모리, 새로고침 시 사라짐)
+    const seatsPhotoCache = {};
 
-    // localStorage에서 캐시 불러오기 (있으면 seatsPhotoCache에 복사)
-    function loadSeatsPhotoCacheFromLocalStorage(id) {
-        const cacheStr = localStorage.getItem("seatsPhotoCache_" + id)
-        if (cacheStr) {
-            try {
-                seatsPhotoCache[id] = JSON.parse(cacheStr)
-                return true
-            } catch (e) {
-                // 파싱 에러 시 무시
-            }
-        }
-        return false
-    }
-
-    // localStorage에 캐시 저장
-    function saveSeatsPhotoCacheToLocalStorage(id) {
-        try {
-            localStorage.setItem("seatsPhotoCache_" + id, JSON.stringify(seatsPhotoCache[id]))
-        } catch (e) {
-            // 저장 실패 시 무시 (용량 초과 등)
-        }
-    }
-
-    // 사진 있는 좌석 표시 (병렬화) + localStorage 캐시 활용
+    // 사진 있는 좌석 표시 (병렬화, 메모리 캐시만 활용)
     async function markSeatsWithPhotos(rowGs, id) {
-        // localStorage에 캐시가 있으면 seatsPhotoCache에 복사 후 바로 표시
-        if (loadSeatsPhotoCacheFromLocalStorage(id)) {
+        // seatsPhotoCache에 있으면 바로 표시
+        if (seatsPhotoCache[id]) {
             for (let i = 0; i < rowGs.length; i++) {
-                const $rects = rowGs.eq(i).find("rect")
-                const hor = $rects.length
+                const $rects = rowGs.eq(i).find("rect");
+                const hor = $rects.length;
                 for (let j = 0; j < hor; j++) {
                     if (seatsPhotoCache[id][i] && seatsPhotoCache[id][i][j]) {
-                        $rects.eq(hor - 1 - j).css("opacity", "1")
+                        $rects.eq(hor - 1 - j).css("opacity", "1");
                     }
                 }
             }
-            return
+            return;
         }
 
         // 없으면 서버에서 체크 후 seatsPhotoCache에 저장
-        const baseName = window.location.href.split("/").pop().replace(".html", "")
-        let tasks = []
-        seatsPhotoCache[id] = []
+        const baseName = window.location.href.split("/").pop().replace(".html", "");
+        let tasks = [];
+        seatsPhotoCache[id] = [];
         for (let i = 0; i < rowGs.length; i++) {
-            const $rects = rowGs.eq(i).find("rect")
-            const hor = $rects.length
-            seatsPhotoCache[id][i] = []
+            const $rects = rowGs.eq(i).find("rect");
+            const hor = $rects.length;
+            seatsPhotoCache[id][i] = [];
             for (let j = 0; j < hor; j++) {
                 tasks.push((async () => {
-                    const url = `../files/${baseName}_${id}_${i + 1}_${j + 1}.jpg`
-                    const result = await checkImgExistsAsync(url)
-                    seatsPhotoCache[id][i][j] = !!result // true/false로 저장
+                    const url = `../files/${baseName}_${id}_${i + 1}_${j + 1}.jpg`;
+                    const result = await checkImgExistsAsync(url);
+                    seatsPhotoCache[id][i][j] = !!result; // true/false로 저장
                     if (result) {
-                        $rects.eq(hor - 1 - j).css("opacity", "1")
+                        $rects.eq(hor - 1 - j).css("opacity", "1");
                     }
-                })())
+                })());
             }
         }
-        await Promise.all(tasks)
-        // 체크가 끝나면 localStorage에 저장
-        saveSeatsPhotoCacheToLocalStorage(id)
+        await Promise.all(tasks);
     }
 
     $("#stadium > g > g").off("click").on("click", async function(e) {
-        e.stopPropagation()
+        e.stopPropagation();
 
-        const id = $(this).attr("id")
+        const id = $(this).attr("id");
 
-        $("#seats, #" + id).css("display", "block")
-    
+        $("#seats, #" + id).css("display", "block");
+
         const rowGs = $(`#${id} > svg > g > g > g`).filter(function() {
-            return $(this).find("rect").length > 0
-        })
+            return $(this).find("rect").length > 0;
+        });
 
-        const ver = rowGs.length
+        const ver = rowGs.length;
 
         // seats에 현재 상태 저장
         $("#seats").data({
             id: id,
             rowGs: rowGs,
             ver: ver
-        })
+        });
 
-        // 사진 있는 좌석 표시 (병렬화, localStorage 캐시 활용)
-        await markSeatsWithPhotos(rowGs, id)
+        // 사진 있는 좌석 표시 (병렬화, 메모리 캐시만 활용)
+        await markSeatsWithPhotos(rowGs, id);
 
-        $("#seats").append("<button>돌아가기</button>")
-    })
+        $("#seats").append("<button>돌아가기</button>");
+
+        $("#seats > div").css("pointer-events", "auto");
+    });
 
     $("#seats").on("click", "button", function() {
-        $("#seats, #seats > div").css("display", "none")
-        $("#seats > button").remove()
+        $("#seats, #seats > div").css("display", "none");
+        $("#seats > button").remove();
         // seats에 저장된 값 초기화
-        $("#seats").removeData("id rowGs ver")
-    })
+        $("#seats").removeData("id rowGs ver");
+    });
 
     $("#seats > div > svg > g > g > g > rect").on("click", function() {
-        $rect = $(this)
-        $parentG = $rect.parent()
+        const $rect = $(this);
+        const $parentG = $rect.parent();
 
         // seats에 저장된 값 사용
-        const id = $("#seats").data("id")
-        const rowGs = $("#seats").data("rowGs")
-        let ver = rowGs ? rowGs.index($parentG) + 1 : 0
-        let hor = $parentG.find("rect").length - $parentG.find("rect").index($rect)
+        const id = $("#seats").data("id");
+        const rowGs = $("#seats").data("rowGs");
+        let ver = rowGs ? rowGs.index($parentG) + 1 : 0;
+        let hor = $parentG.find("rect").length - $parentG.find("rect").index($rect);
 
-        // hor, ver 안 맞는 좌석 보정
-        // 목동 E1
-        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E1") ver --
-        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E1" && ver == 0) hor += 4
-        // 목동 E8
-        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E8" && ver == 1) hor ++
-        // 목동 E10
-        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E10") ver --
-        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E10" && ver == 0) hor ++
-        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E10" && ver >= 1 && ver <= 2 && hor >= 2) hor += 10
-        // 목동 E12/E14/E16/E18
-        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && (id == "E12" || id == "E14" || id == "E16" || id == "E18") && ver >= 1 && ver <= 3 && hor >= 11) hor += 7
-        // 목동 E19
-        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E19" && ver == 7) hor += 7
-        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "E19" && ver > 7) hor += 14
-        // 목동 W2/W3
-        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && (id == "W2" || id == "W3")) hor = hor * 3 - 2
-        // 목동 W4
-        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W4") hor = hor * 4 - 3
-        // 목동 W5
-        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W5") hor = hor % 2 == 1 ? Math.round((5 * hor - 4) / 2) : (5 * hor - 2) / 2
-        // 목동 W9
-        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W9" && ver <= 3 && hor > 9) hor += 6
-        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W9" && ver == 13 && hor > 6) hor += 2
-        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W9" && ver == 13 && hor > 17) hor += 2
-        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W9" && ver == 14 && hor > 7) hor ++
-        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W9" && ver == 14 && hor > 17) hor += 2
-        // 목동 W10
-        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W10" && ver == 12) hor ++
-        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W10" && ver == 13) hor += 3
-        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W10" && ver == 13 && hor > 11) hor += 2
-        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W10" && ver == 14) hor += 2
-        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W10" && ver == 14 && hor > 11) hor += 2
-        // 목동 W11
-        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W11") hor = hor * 3 - 2
-        // 목동 W13
-        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W13" && ver == 1) hor = hor * 3 - 2
-        if (window.location.href.split("/").pop().replace(".html", "") == "mokdong" && id == "W13" && ver > 1) hor = hor * 3 - 1
+        $("#seatsPopUp").animate({ opacity: "1" }, 100).css("pointer-events", "auto").empty();
+        $("#seatsPopUpBG").animate({ opacity: "1" }, 100).css("pointer-events", "auto");
 
-        // 이순신 S1
-        if (window.location.href.split("/").pop().replace(".html", "") == "yisunsin" && id == "S1" && ver <= 2) hor ++
-        // 이순신 S3/S7
-        if (window.location.href.split("/").pop().replace(".html", "") == "yisunsin" && (id == "S3" || id == "S7") && ver <= 3) hor += 3
-        if (window.location.href.split("/").pop().replace(".html", "") == "yisunsin" && (id == "S3" || id == "S7") && ver > 3 && ver <= 8) hor += 2
-        if (window.location.href.split("/").pop().replace(".html", "") == "yisunsin" && (id == "S3" || id == "S7") && ver > 8 && ver <= 12) hor ++
-        // 이순신 S4/S6
-        if (window.location.href.split("/").pop().replace(".html", "") == "yisunsin" && (id == "S4" || id == "S6") && ver <= 2) hor += 3
-        if (window.location.href.split("/").pop().replace(".html", "") == "yisunsin" && (id == "S4" || id == "S6") && ver > 2 && ver <= 7) hor += 2
-        if (window.location.href.split("/").pop().replace(".html", "") == "yisunsin" && (id == "S4" || id == "S6") && ver > 7 && ver <= 11) hor ++
-        // 이순신 S5
-        if (window.location.href.split("/").pop().replace(".html", "") == "yisunsin" && id == "S5" && ver <= 7 && hor > 2) hor += 13
-        if (window.location.href.split("/").pop().replace(".html", "") == "yisunsin" && id == "S5" && ver <= 7 && hor <= 2) hor ++
-        if (window.location.href.split("/").pop().replace(".html", "") == "yisunsin" && id == "S5" && ver == 8) hor += 2
-        if (window.location.href.split("/").pop().replace(".html", "") == "yisunsin" && id == "S5" && ver > 8 && ver <= 12) hor ++
+        if (ver > 0) $("#seatsPopUp").append(`<p>${id}구역 ${ver}열 ${hor}번</p>`);
+        else $("#seatsPopUp").append(`<p>${id}구역 휠체어석 ${hor}번</p>`);
 
-        $("#seatsPopUp").animate({ opacity: "1" }, 100).css("pointer-events", "auto").empty()
-        $("#seatsPopUpBG").animate({ opacity: "1" }, 100).css("pointer-events", "auto")
-
-        if (ver > 0) $("#seatsPopUp").append(`<p>${id}구역 ${ver}열 ${hor}번</p>`)
-        else $("#seatsPopUp").append(`<p>${id}구역 휠체어석 ${hor}번</p>`)
-
-        // localStorage 캐시에서 사진 존재 여부 확인
-        let hasPhoto = false
+        // 메모리 캐시에서 사진 존재 여부 확인
+        let hasPhoto = false;
         if (seatsPhotoCache[id] && seatsPhotoCache[id][ver - 1] && seatsPhotoCache[id][ver - 1][hor - 1]) {
-            hasPhoto = true
+            hasPhoto = true;
         }
 
-        const baseName = window.location.href.split("?")[0].split("/").pop().replace(".html", "")
+        const baseName = window.location.href.split("?")[0].split("/").pop().replace(".html", "");
         if (hasPhoto) {
             $("#seatsPopUp").append(
                 `<img src='../files/${baseName}_${id}_${ver}_${hor}.jpg'><button>사진 추가하기</button>`
-            )
+            );
         } else {
-            $("#seatsPopUp").append("<p>해당 좌석의 사진이 없습니다.</p><button>사진 추가하기</button>")
+            $("#seatsPopUp").append("<p>해당 좌석의 사진이 없습니다.</p><button>사진 추가하기</button>");
         }
-    })
+    });
 
     $("#seatsPopUp").on("click", "button", function() {
-        window.open("https://naver.me/FutjIQDR")
-    })
+        window.open("https://naver.me/FutjIQDR");
+    });
 
     $("#seatsPopUpBG").click(function() {
-        $("#seatsPopUp").animate({ opacity: "0" }, 100).css("pointer-events", "none")
-        $("#seatsPopUpBG").animate({ opacity: "0" }, 100).css("pointer-events", "none")
-    })
+        $("#seatsPopUp").animate({ opacity: "0" }, 100).css("pointer-events", "none");
+        $("#seatsPopUpBG").animate({ opacity: "0" }, 100).css("pointer-events", "none");
+    });
 
     $(document).on("keydown", function (e) {
         if (e.key === "Escape") {
             // 팝업이 열려 있으면 팝업만 닫기
             if ($("#seatsPopUp").css("opacity") === "1" && $("#seatsPopUp").css("pointer-events") !== "none") {
-                $("#seatsPopUp").animate({ opacity: "0" }, 100).css("pointer-events", "none")
-                $("#seatsPopUpBG").animate({ opacity: "0" }, 100).css("pointer-events", "none")
+                $("#seatsPopUp").animate({ opacity: "0" }, 100).css("pointer-events", "none");
+                $("#seatsPopUpBG").animate({ opacity: "0" }, 100).css("pointer-events", "none");
             } else {
                 // 팝업이 안 열려 있으면 seats 전체를 닫기
-                $("#seats, #seats > div").css("display", "none")
-                $("#seats > button").remove()
-                $("#seats").removeData("id rowGs ver")
+                $("#seats, #seats > div").css("display", "none");
+                $("#seats > div").css("pointer-events", "none");
+                $("#seats > button").remove();
+                $("#seats").removeData("id rowGs ver");
             }
         }
-    })
+    });
 }

@@ -536,7 +536,7 @@ tr.sefc > td > p {background: #faf6f5 !important; color: #05090a !important;}
 #stadium > g:nth-of-type(n + 3):nth-of-type(-n + 6) > g:hover {opacity: 0.5; transition: opacity 0.2s; cursor: pointer;}
 
 #seats {display: none; width: 55vw; height: calc(100vh - 200px); padding: 0 5vw 50vh 5vw; background: #fcfcfd; position: fixed; top: 40px; left: 30vw;}
-#seats > div {display: none; width: 100%; height: 100%;}
+#seats > div {display: none; pointer-events: none; width: 100%; height: 100%;}
 #seats > div > svg {width: 100%; height: 100%; object-fit: contain;}
 #seats > div > svg > g > g > g > rect {opacity: 0.5; transition: opacity 0.2s;}
 #seats > div > svg > g > g > g > rect:hover {opacity: 1; transition: opacity 0.2s; cursor: pointer;}
