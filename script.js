@@ -1342,6 +1342,25 @@ if ($("#chantsName").length) {
 if ($("#stadium").length) {
     let cnt = 0;
 
+    // stadium 이름 추출
+    const baseName = window.location.href.split("/").pop().replace(".html", "");
+
+    // 숫자 → 알파벳 변환 함수 (1→A, 2→B, ...)
+    function numberToLetter(num) {
+        if (num >= 1 && num <= 26) {
+            return String.fromCharCode(64 + num);
+        }
+        return '';
+    }
+
+    // 알파벳 → 숫자 변환 함수 (A→1, B→2, ...)
+    function letterToNumber(letter) {
+        if (/^[A-Z]$/.test(letter)) {
+            return letter.charCodeAt(0) - 64;
+        }
+        return NaN;
+    }
+
     // 사진 존재하는지 판단하는 함수
     function checkImgExists(url, callback) {
         const img = new Image();
@@ -1369,13 +1388,16 @@ if ($("#stadium").length) {
 
     // 사진 있는 좌석 표시 (병렬화, 메모리 캐시만 활용)
     async function markSeatsWithPhotos(rowGs, id) {
-        // seatsPhotoCache에 있으면 바로 표시
-        if (seatsPhotoCache[id]) {
+        // 좌석 열을 알파벳으로 표기하는 경기장 캐시 키도 알파벳 ver 사용
+        const cacheKey = id;
+        if (seatsPhotoCache[cacheKey]) {
             for (let i = 0; i < rowGs.length; i++) {
                 const $rects = rowGs.eq(i).find("rect");
                 const hor = $rects.length;
+                // 좌석 열을 알파벳으로 표기하는 경기 i+1을 알파벳으로 변환
+                let verKey = (baseName === 'tancheon' || baseName === 'hwaseong') ? numberToLetter(i + 1) : (i + 1);
                 for (let j = 0; j < hor; j++) {
-                    if (seatsPhotoCache[id][i] && seatsPhotoCache[id][i][j]) {
+                    if (seatsPhotoCache[cacheKey][verKey] && seatsPhotoCache[cacheKey][verKey][j + 1]) {
                         $rects.eq(hor - 1 - j).css("opacity", "1");
                     }
                 }
@@ -1383,19 +1405,22 @@ if ($("#stadium").length) {
             return;
         }
 
-        // 없으면 서버에서 체크 후 seatsPhotoCache에 저장
-        const baseName = window.location.href.split("/").pop().replace(".html", "");
+        seatsPhotoCache[cacheKey] = {};
         let tasks = [];
-        seatsPhotoCache[id] = [];
         for (let i = 0; i < rowGs.length; i++) {
             const $rects = rowGs.eq(i).find("rect");
             const hor = $rects.length;
-            seatsPhotoCache[id][i] = [];
+            // 좌석 열을 알파벳으로 표기하는 경기장 열을 알파벳으로 변환
+            let verKey = (baseName === 'tancheon' || baseName === 'hwaseong') ? numberToLetter(i + 1) : (i + 1);
+            seatsPhotoCache[cacheKey][verKey] = {};
             for (let j = 0; j < hor; j++) {
+                let horKey = j + 1;
                 tasks.push((async () => {
-                    const url = `../files/${baseName}_${id}_${i + 1}_${j + 1}.jpg`;
+                    // 좌석 열을 알파벳으로 표기하는 경기 파일명도 알파벳 ver 사용
+                    let fileVer = (baseName === 'tancheon' || baseName === 'hwaseong') ? verKey : (i + 1);
+                    const url = `../files/${baseName}_${id}_${fileVer}_${horKey}.jpg`;
                     const result = await checkImgExistsAsync(url);
-                    seatsPhotoCache[id][i][j] = !!result; // true/false로 저장
+                    seatsPhotoCache[cacheKey][verKey][horKey] = !!result;
                     if (result) {
                         $rects.eq(hor - 1 - j).css("opacity", "1");
                     }
@@ -1418,14 +1443,12 @@ if ($("#stadium").length) {
 
         const ver = rowGs.length;
 
-        // seats에 현재 상태 저장
         $("#seats").data({
             id: id,
             rowGs: rowGs,
             ver: ver
         });
 
-        // 사진 있는 좌석 표시 (병렬화, 메모리 캐시만 활용)
         await markSeatsWithPhotos(rowGs, id);
 
         $("#seats").append("<button>돌아가기</button>");
@@ -1436,7 +1459,6 @@ if ($("#stadium").length) {
     $("#seats").on("click", "button", function() {
         $("#seats, #seats > div").css("display", "none");
         $("#seats > button").remove();
-        // seats에 저장된 값 초기화
         $("#seats").removeData("id rowGs ver");
     });
 
@@ -1444,28 +1466,40 @@ if ($("#stadium").length) {
         const $rect = $(this);
         const $parentG = $rect.parent();
 
-        // seats에 저장된 값 사용
         const id = $("#seats").data("id");
         const rowGs = $("#seats").data("rowGs");
         let ver = rowGs ? rowGs.index($parentG) + 1 : 0;
         let hor = $parentG.find("rect").length - $parentG.find("rect").index($rect);
 
+        // 좌석 열을 알파벳으로 표기하는 경기장의 열 알파벳 변환
+        let displayVer = ver;
+        let cacheVerKey = ver;
+        let fileVerKey = ver;
+        if ((baseName === 'tancheon' || baseName === 'hwaseong') && ver > 0) {
+            displayVer = numberToLetter(ver);
+            cacheVerKey = displayVer;
+            fileVerKey = displayVer;
+        }
+
         $("#seatsPopUp").animate({ opacity: "1" }, 100).css("pointer-events", "auto").empty();
         $("#seatsPopUpBG").animate({ opacity: "1" }, 100).css("pointer-events", "auto");
 
-        if (ver > 0) $("#seatsPopUp").append(`<p>${id}구역 ${ver}열 ${hor}번</p>`);
-        else $("#seatsPopUp").append(`<p>${id}구역 휠체어석 ${hor}번</p>`);
+        if (ver > 0) {
+            $("#seatsPopUp").append(`<p>${id}구역 ${displayVer}열 ${hor}번</p>`);
+        } else {
+            $("#seatsPopUp").append(`<p>${id}구역 휠체어석 ${hor}번</p>`);
+        }
 
-        // 메모리 캐시에서 사진 존재 여부 확인
+        // 좌석 열을 알파벳으로 표기하는 경기 캐시 알파벳 ver 사용
         let hasPhoto = false;
-        if (seatsPhotoCache[id] && seatsPhotoCache[id][ver - 1] && seatsPhotoCache[id][ver - 1][hor - 1]) {
+        if (seatsPhotoCache[id] && seatsPhotoCache[id][cacheVerKey] && seatsPhotoCache[id][cacheVerKey][hor]) {
             hasPhoto = true;
         }
 
-        const baseName = window.location.href.split("?")[0].split("/").pop().replace(".html", "");
+        // 좌석 열을 알파벳으로 표기하는 경기 파일명 알파벳 ver 사용
         if (hasPhoto) {
             $("#seatsPopUp").append(
-                `<img src='../files/${baseName}_${id}_${ver}_${hor}.jpg'><button>사진 추가하기</button>`
+                `<img src='../files/${baseName}_${id}_${fileVerKey}_${hor}.jpg'><button>사진 추가하기</button>`
             );
         } else {
             $("#seatsPopUp").append("<p>해당 좌석의 사진이 없습니다.</p><button>사진 추가하기</button>");
@@ -1483,12 +1517,10 @@ if ($("#stadium").length) {
 
     $(document).on("keydown", function (e) {
         if (e.key === "Escape") {
-            // 팝업이 열려 있으면 팝업만 닫기
             if ($("#seatsPopUp").css("opacity") === "1" && $("#seatsPopUp").css("pointer-events") !== "none") {
                 $("#seatsPopUp").animate({ opacity: "0" }, 100).css("pointer-events", "none");
                 $("#seatsPopUpBG").animate({ opacity: "0" }, 100).css("pointer-events", "none");
             } else {
-                // 팝업이 안 열려 있으면 seats 전체를 닫기
                 $("#seats, #seats > div").css("display", "none");
                 $("#seats > div").css("pointer-events", "none");
                 $("#seats > button").remove();
