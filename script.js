@@ -64,6 +64,13 @@ $("header > div:nth-of-type(2)").click(function() {
     window.location = "https://sefc.info"
 })
 
+// 매년 7월 7일 메인 로고, 배너 변경
+if (new Date().getMonth() == 6 && new Date().getDate() == 7) {
+    $("header > div:nth-of-type(2) > img").attr("src", "https://sefc.info/files/july7th.svg")
+    $(".bannerMenu:nth-of-type(1)").attr("src", "https://sefc.info/files/july7th_1.png").css("pointer-events", "none")
+    $(".bannerFixtures > img").attr("src", "https://sefc.info/files/july7th_2.png").parent().css("pointer-events", "none")
+}
+
 // 메뉴 열기
 function menu() {
     $("#menuBg").css("display", "block").animate({opacity: "1"}, 200)
