@@ -1316,7 +1316,7 @@ $(document).ready(function () {
         $("#playerProfile > div:nth-of-type(2) > p").html("<span>" + playerNum + "</span>" + playerName.replace(/[0-9]/g, ""))
         $("#playerProfile > div:nth-of-type(2) > div > img").attr("src", "./files/" + natl + ".svg")
 
-        if (playerNum == "--") {
+        if (playerNum == "--" || player[id]["sefc"] !== "O") {
             $("#playerProfile > div:nth-of-type(2) > p > span").css("display", "none")
         }
 
