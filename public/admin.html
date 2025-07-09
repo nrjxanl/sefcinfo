@@ -1,8 +1,86 @@
-<form id="matchForm">
-        <input type="text" name="teamA" placeholder="팀A" required>
-        <input type="text" name="teamB" placeholder="팀B" required>
-        <input type="number" name="scoreA" placeholder="팀A 점수" required>
-        <input type="number" name="scoreB" placeholder="팀B 점수" required>
-        <button type="submit">저장</button>
-</form>
-<script src="script.js"></script>
+<!DOCTYPE html>
+
+<html lang="ko">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Page-Enter" content="revealtrans(duration=1, transition=23)">
+        <meta property="og:url" content="sefc.info">
+        <meta property="og:title" content="SEFCiNFO - 서울 이랜드 FC 팬 페이지">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="./files/thumbnail.jpg">
+        <meta property="og:description" content="서울 이랜드 FC의 모든 것">
+        <link rel="stylesheet" href="style1.css" media="screen and (max-width: 768px)">
+        <link rel="stylesheet" href="style2.css" media="screen and (min-width: 768px)">
+        <title>Admin</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="icon" type="image/x-icon" href="./files/favicon.png">
+        <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js"
+                data-cbid="39318110-e4f0-4fd3-87a9-3f0c2b33fe85" type="text/javascript" async></script>
+</head>
+
+<body>
+        <div id="adminInfo" glass="true">
+                <div></div>
+                <div>
+                        <div>
+                                <div><img></div>
+                                <p></p>
+                        </div>
+                        <div>
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                        </div>
+                        <div>
+                                <div><img></div>
+                                <p></p>
+                        </div>
+                </div>
+                <div>
+                        <p></p>
+                        <p></p>
+                </div>
+        </div>
+
+        <form id="matchForm">
+                <input type="text" name="homeScore" placeholder="홈팀 점수" required>
+                <input type="text" name="awayScore" placeholder="원정팀 점수" required>
+                <input type="text" name="homeScorer" placeholder="홈팀 득점자">
+                <input type="text" name="awayScorer" placeholder="원정팀 득점자">
+                <button type="submit">저장</button>
+        </form>
+
+        <script>
+                document.getElementById('matchForm').onsubmit = async function (e) {
+                        e.preventDefault();
+                        const formData = new FormData(this);
+
+                        // 배열 필드(comp[], home[], away[]) 직접 처리
+                        const data = {};
+                        formData.forEach((value, key) => {
+                                if (key.endsWith('[]')) {
+                                        const arrKey = key.replace('[]', '');
+                                        if (!data[arrKey]) data[arrKey] = [];
+                                        data[arrKey].push(value);
+                                } else {
+                                        data[key] = value;
+                                }
+                        });
+
+                        await fetch('/api/add', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(data),
+                        });
+                        this.reset();
+                };
+        </script>
+
+        <script src="script.js"></script>
+        <script src="data.js"></script>
+
+</body>
+
+</html>

@@ -552,5 +552,24 @@ path.cls-64 {pointer-events: none;}
 
 #seatsPopUpBG {width: 80vw; height: 100vh; position: fixed; top: 0; left: 20vw; opacity: 0; z-index: 1; pointer-events: none;}
 
+/* 관리자 페이지 */
+#adminInfo {width: 26vw; padding: 16px 2vw; border-radius: 20px;}
+#adminInfo > div:nth-of-type(1) {width: 26vw; display: flex; justify-content: center; align-items: center; margin-bottom: 16px;}
+#adminInfo > div:nth-of-type(1) > img {height: 16px;}
+#adminInfo > div:nth-of-type(1) > p {font-size: 12px; padding-left: 4px; font-weight: 600;}
+#adminInfo > div:nth-of-type(2) {width: 26vw; display: flex; justify-content: center; align-items: center;}
+#adminInfo > div:nth-of-type(2) > div:nth-of-type(2n+1) {width: 8vw; margin-top: -20px}
+#adminInfo > div:nth-of-type(2) > div:nth-of-type(2n+1) > div {width: 8vw;}
+#adminInfo > div:nth-of-type(2) > div:nth-of-type(2n+1) > div > img {height: 32px;}
+#adminInfo > div:nth-of-type(2) > div:nth-of-type(2n+1) > p {font-size: 16px; margin-top: 4px;}
+#adminInfo > div:nth-of-type(2) > div:nth-of-type(2) {width: 10vw;}
+#adminInfo > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1) {font-size: 32px; margin: -8px 0 8px 0;}
+#adminInfo > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2) {width: fit-content; height: fit-content; padding: 2px 8px; margin: auto; font-size: 10px; font-weight: 600; border: 1px solid #05090a; border-radius: 8px;}
+#adminInfo > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(3) {font-weight: 300; margin-top: 6px;}
+#adminInfo > div:nth-of-type(3) {width: 26vw; display: flex; justify-content: center; align-items: flex-start;}
+#adminInfo > div:nth-of-type(3) > p {width: 8vw; height: fit-content; font-weight: 600; margin-top: 8px; line-height: 1.4; white-space: nowrap;}
+#adminInfo > div:nth-of-type(3) > p:nth-of-type(1) {margin-right: 5vw;}
+#adminInfo > div:nth-of-type(3) > p:nth-of-type(2) {margin-left: 5vw;}
+
 /* Glassmorphism */
 [glass="true"] {background: #faf6f540; box-shadow: 0 4px 30px #05090a16; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid #faf6f580;}
