@@ -32,3 +32,21 @@ wss.on('connection', (ws) => {
 server.listen(process.env.PORT || 3000, () => {
         console.log('Server started');
 });
+
+// 루트 경로(index.html) 처리
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// 모든 .html 파일을 확장자 없이도 접근 가능하게
+app.get('/:page', (req, res, next) => {
+  const filePath = path.join(__dirname, 'public', req.params.page + '.html');
+  res.sendFile(filePath, err => {
+    if (err) next();
+  });
+});
+
+// (선택) 404 처리
+app.use((req, res) => {
+  res.status(404).send('페이지를 찾을 수 없습니다.');
+});

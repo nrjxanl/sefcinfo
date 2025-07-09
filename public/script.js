@@ -1553,7 +1553,7 @@ document.getElementById('matchForm').onsubmit = async function (e) {
 };
 
 // WebSocket으로 실시간 데이터 받기
-const wsUrl = 'wss://<Render에서 제공하는 서버 주소>'; // 실제 배포 후 URL로 수정
+const wsUrl = 'wss://sefcinfo.onrender.com/'; // 실제 배포 후 URL로 수정
 const socket = new WebSocket(wsUrl);
 socket.onmessage = function (event) {
     const data = JSON.parse(event.data);
