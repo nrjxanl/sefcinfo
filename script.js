@@ -1536,3 +1536,32 @@ if ($("#stadium").length) {
         }
     });
 }
+
+///// 서버 관련 /////
+
+// 데이터 입력 폼 처리
+document.getElementById('matchForm').onsubmit = async function (e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData.entries());
+    await fetch('/api/add', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+    });
+    this.reset();
+};
+
+// WebSocket으로 실시간 데이터 받기
+const wsUrl = 'wss://<Render에서 제공하는 서버 주소>'; // 실제 배포 후 URL로 수정
+const socket = new WebSocket(wsUrl);
+socket.onmessage = function (event) {
+    const data = JSON.parse(event.data);
+    const list = document.getElementById('matchList');
+    list.innerHTML = '';
+    data.forEach(match => {
+        const li = document.createElement('li');
+        li.textContent = `${match.teamA} ${match.scoreA} : ${match.scoreB} ${match.teamB}`;
+        list.appendChild(li);
+    });
+};
