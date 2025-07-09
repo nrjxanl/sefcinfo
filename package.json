@@ -1,0 +1,24 @@
+{
+  "name": "sefcinfo",
+  "version": "1.0.0",
+  "main": "data.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nrjxanl/sefcinfo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nrjxanl/sefcinfo/issues"
+  },
+  "homepage": "https://github.com/nrjxanl/sefcinfo#readme",
+  "description": ""
+}
