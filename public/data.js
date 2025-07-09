@@ -661,7 +661,11 @@ $(document).ready(function () {
     function getLatestMatchId(dataA) {
         const todayStr = getTodayStr();
         const keys = Object.keys(dataA)
-            .filter(id => id.slice(0, 8) <= todayStr && dataA[id]["homeScore"] !== "" && dataA[id]["awayScore"] !== "")
+            .filter(id =>
+                id.length === 9 &&
+                id.slice(0, 8) <= todayStr &&
+                (!dataA[id]["homeScore"] || dataA[id]["homeScore"] === "")
+            )
             .sort((a, b) => b.localeCompare(a));
         return keys.length > 0 ? keys[0] : null;
     }
@@ -676,7 +680,7 @@ $(document).ready(function () {
         // 이 페이지의 id가 "가장 최근(오늘 이하, 점수 입력된) 경기"일 때만 갱신
         if (thisMatchId === latestId) {
             const match = dataA[thisMatchId];
-            if (match && dataA[latestId]["homeScore"] !== "") {
+            if (match && dataA[latestId]["homeScore"] == "") {
                 $("#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)").text(`${match.homeScore} : ${match.awayScore}`);
                 $("#matchScore > div:nth-of-type(3) > p:nth-of-type(1)").text(match.homeScorer);
                 $("#matchScore > div:nth-of-type(3) > p:nth-of-type(2)").text(match.awayScorer);
