@@ -1402,7 +1402,7 @@ if ($("#stadium").length) {
                 const $rects = rowGs.eq(i).find("rect");
                 const hor = $rects.length;
                 // 좌석 열을 알파벳으로 표기하는 경기 i+1을 알파벳으로 변환
-                let verKey = (baseName === 'tancheon' || baseName === 'hwaseong') ? numberToLetter(i + 1) : (i + 1);
+                let verKey = (baseName === 'tancheon' || baseName === 'hwaseong' || baseName ==='incheon') ? numberToLetter(i + 1) : (i + 1);
                 for (let j = 0; j < hor; j++) {
                     if (seatsPhotoCache[cacheKey][verKey] && seatsPhotoCache[cacheKey][verKey][j + 1]) {
                         $rects.eq(hor - 1 - j).css("opacity", "1");
@@ -1418,13 +1418,13 @@ if ($("#stadium").length) {
             const $rects = rowGs.eq(i).find("rect");
             const hor = $rects.length;
             // 좌석 열을 알파벳으로 표기하는 경기장 열을 알파벳으로 변환
-            let verKey = (baseName === 'tancheon' || baseName === 'hwaseong') ? numberToLetter(i + 1) : (i + 1);
+            let verKey = (baseName === 'tancheon' || baseName === 'hwaseong' || baseName ==='incheon') ? numberToLetter(i + 1) : (i + 1);
             seatsPhotoCache[cacheKey][verKey] = {};
             for (let j = 0; j < hor; j++) {
                 let horKey = j + 1;
                 tasks.push((async () => {
                     // 좌석 열을 알파벳으로 표기하는 경기 파일명도 알파벳 ver 사용
-                    let fileVer = (baseName === 'tancheon' || baseName === 'hwaseong') ? verKey : (i + 1);
+                    let fileVer = (baseName === 'tancheon' || baseName === 'hwaseong' || baseName ==='incheon') ? verKey : (i + 1);
                     const url = `../files/${baseName}_${id}_${fileVer}_${horKey}.jpg`;
                     const result = await checkImgExistsAsync(url);
                     seatsPhotoCache[cacheKey][verKey][horKey] = !!result;
@@ -1482,7 +1482,7 @@ if ($("#stadium").length) {
         let displayVer = ver;
         let cacheVerKey = ver;
         let fileVerKey = ver;
-        if ((baseName === 'tancheon' || baseName === 'hwaseong') && ver > 0) {
+        if ((baseName === 'tancheon' || baseName === 'hwaseong' || baseName ==='incheon') && ver > 0) {
             displayVer = numberToLetter(ver);
             cacheVerKey = displayVer;
             fileVerKey = displayVer;
