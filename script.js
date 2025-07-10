@@ -1346,6 +1346,49 @@ if ($("#chantsName").length) {
 }
 
 // 경기장 시야
+$("#selectStadium > a").click(function(e) {
+    if ($(e.target).is("button")) return;
+
+    $("#selectStadium > a > div > img").css("display", "inline");
+    $("#selectStadium > a > div > button").remove();
+    $(this).find("div > img").css("display", "none");
+    $(this).find("div").append("<button glass='true'>좌석 시야</button><button glass='true'>경기장 길찾기</button>");
+
+    stadium = $(this).closest("a").find("p").contents().filter(function() {
+        return this.nodeType === 3;
+    }).text().trim();
+
+    // 좌석 시야 미지원 경기장
+    if (stadium == "광양축구전용구장" || stadium == "천안종합운동장" || stadium == "청주종합경기장") {
+        $(this).find("div > button:nth-of-type(1)").css("opacity", 0.3).attr("class", "noHover")
+    };
+
+    // 경기장 길찾기 미지원 경기장
+    // if (stadium == "경기장명") {
+    //     $(this).find("div > button:nth-of-type(2)").css("opacity", 0.3).attr("class", "noHover")
+    // };
+});
+
+// 좌석 시야 페이지로 이동
+$("#selectStadium").on("click", "a > div > button:nth-of-type(1)", function() {
+    stadium = $(this).closest("a").find("p").contents().filter(function() {
+        return this.nodeType === 3;
+    }).text().trim();
+
+    if ($(this).attr("class") == "noHover") alert(`${stadium}은 비지정석제로, 경기장 시야 확인 기능을 제공하지 않습니다.`);
+    else window.location = `./seats/${$(this).closest("a").attr("id")}`
+});
+
+// 경기장 길찾기 페이지로 이동
+$("#selectStadium").on("click", "a > div > button:nth-of-type(2)", function() {
+    stadium = $(this).closest("a").find("p").contents().filter(function() {
+        return this.nodeType === 3;
+    }).text().trim();
+
+    if ($(this).attr("class") == "noHover") alert(`기능 준비 중입니다.`);
+    else window.location = `./routes/${$(this).closest("a").attr("id")}`
+});
+
 if ($("#stadium").length) {
     let cnt = 0;
 
@@ -1536,3 +1579,10 @@ if ($("#stadium").length) {
         }
     });
 }
+
+// 경기장 경로
+$("#map > svg > g").click(function() {
+    clicked = $(this).attr("id").replace("bus", "").replace("subway", "");
+    $("g[id*='route']").css({"opacity": 0, "transition": "opacity .2s"});
+    $(`#route${clicked}`).css({"opacity": 1, "transition": "opacity .2s"});
+});
