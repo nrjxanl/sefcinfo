@@ -524,12 +524,12 @@ tr.sefc > td > p {background: #faf6f5 !important; color: #05090a !important;}
 
 #wallpaperDownload {height: 28px; padding: 0 16px; font-size: 16px; font-weight: 600; color: #faf6f5; background: #00006080; border: none; border-radius: 20px;}
 
-/* 경기장 시야 */
+/* 경기장 시야/길찾기 */
 #selectStadium {width: 75vw; display: flex; flex-wrap: wrap;}
 #selectStadium > a {width: calc(65vw / 3 - 5vw); display: block; margin: 0 2.5vw 24px 2.5vw;}
 #selectStadium > a > div {width: calc(65vw / 3 - 5vw); height: calc((65vw / 3 - 5vw) * (3 / 4)); margin-bottom: 12px; overflow: hidden; border-radius: 20px;}
 #selectStadium > a > div > img {width: 100%; height: 100%; object-fit: cover; object-position: center bottom;}
-#selectStadium > a > div > button {width: calc((65vw / 3 - 5vw) - 20px); height: calc(((65vw / 3 - 5vw) * (3 / 4)) / 2 - 15px); margin-top: 10px; font-size: 16px; border: none; border-radius: 20px; color: #faf5f6; background: #000060; opacity: .5; cursor: pointer;;}
+#selectStadium > a > div > button {width: calc((65vw / 3 - 5vw) - 20px); height: calc(((65vw / 3 - 5vw) * (3 / 4)) / 2 - 15px); margin-top: 10px; font-size: 16px; border: none; border-radius: 100vw; color: #faf5f6; background: #000060; opacity: .5; cursor: pointer;;}
 #selectStadium > a > div > button:hover {opacity: 1; transition: opacity .2s;}
 #selectStadium > a > p {font-size: 20px; font-weight: 600; line-height: 1;}
 #selectStadium > a > p > span {font-size: 14px; font-weight: 300;}
@@ -556,10 +556,10 @@ path.cls-64 {pointer-events: none;}
 
 #seatsPopUpBG {width: 80vw; height: 100vh; position: fixed; top: 0; left: 20vw; opacity: 0; z-index: 1; pointer-events: none;}
 
-/* 경기장 경로 */
-#map {width: 55vw; max-height: calc(100vh - 200px); padding: 0 5vw; background: #fcfcfd;}
+#map {width: 55vw; max-height: calc(100vh - 200px); padding: 0 5vw;}
 #map > svg {width: 100%; height: 100%; object-fit: contain;}
 #map > svg > g:hover {opacity: 0.5; transition: opacity 0.2s;}
+#map > p {font-weight: 300; font-size: 16px; line-height: 1.4; margin-top: 20px;}
 
 /* Glassmorphism */
 [glass="true"] {background: #faf6f540; box-shadow: 0 4px 30px #05090a16; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid #faf6f580;}

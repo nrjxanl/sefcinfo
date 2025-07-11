@@ -1580,7 +1580,7 @@ if ($("#stadium").length) {
     });
 }
 
-// 경기장 경로
+// 경기장 길찾기
 $("#map > svg > g").click(function() {
     clicked = $(this).attr("id").replace("bus", "").replace("subway", "");
     $("g[id*='route']").css({"opacity": 0, "transition": "opacity .2s"});
