@@ -1364,9 +1364,9 @@ $("#selectStadium > a").click(function(e) {
     };
 
     // 경기장 길찾기 미지원 경기장
-    // if (stadium == "경기장명") {
-    //     $(this).find("div > button:nth-of-type(2)").css("opacity", 0.3).attr("class", "noHover")
-    // };
+    if (stadium != "목동운동장" && stadium != "안산와~스타디움") {
+        $(this).find("div > button:nth-of-type(2)").css("opacity", 0.3).attr("class", "noHover")
+    };
 });
 
 // 좌석 시야 페이지로 이동
