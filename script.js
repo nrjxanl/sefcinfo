@@ -1364,7 +1364,7 @@ $("#selectStadium > a").click(function(e) {
     };
 
     // 경기장 길찾기 미지원 경기장
-    if (stadium != "목동운동장" && stadium != "안산와~스타디움") {
+    if (stadium != "목동운동장" && stadium != "안산와~스타디움" && stadium != "수원월드컵경기장") {
         $(this).find("div > button:nth-of-type(2)").css("opacity", 0.3).attr("class", "noHover")
     };
 });
