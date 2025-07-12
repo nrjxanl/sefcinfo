@@ -83,8 +83,13 @@ $(document).ready(function () {
             $("#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(3)").text("@" + dataList["stadium"])
         }
 
-        $("#matchScore > div:nth-of-type(3) > p:nth-of-type(1)").html(dataList["homeScorer"])
-        $("#matchScore > div:nth-of-type(3) > p:nth-of-type(2)").html(dataList["awayScorer"])
+        if ($(window).width() < 768) {
+            $("#matchScore > div:nth-of-type(3) > p:nth-of-type(1)").html(dataList["homeScorer"].replace(/\(.*?\)/g, ''))
+            $("#matchScore > div:nth-of-type(3) > p:nth-of-type(2)").html(dataList["awayScorer"].replace(/\(.*?\)/g, ''))
+        } else {
+            $("#matchScore > div:nth-of-type(3) > p:nth-of-type(1)").html(dataList["homeScorer"])
+            $("#matchScore > div:nth-of-type(3) > p:nth-of-type(2)").html(dataList["awayScorer"])
+        }
 
         if (dataList["homeScore"] == "") {
             $("#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)").text("vs")
