@@ -529,10 +529,10 @@ tr.sefc > td > p {background: #faf6f5 !important; color: #05090a !important;}
 
 .noHover {opacity: .2 !important; transition: none;}
 
-#stadium {width: 90vw; margin: 100px 0 0 5vw;}
+#stadium {width: 90vw; max-height: 50vh; margin: 100px 0 0 5vw;}
 #stadium > g:nth-of-type(n + 3):nth-of-type(-n + 6) > g:active {opacity: 0.5; transition: opacity 0.2s; cursor: pointer;}
 
-#seats {display: none; width: 90vw; height: 50vh; padding: 100px 5vw 50vh 5vw; background: #fcfcfd; position: fixed; top: 0; left: 0;}
+#seats {display: none; width: 90vw; max-height: 50vh; padding: 100px 5vw 50vh 5vw; background: #fcfcfd; position: fixed; top: 0; left: 0;}
 #seats > div {display: none; pointer-events: none;}
 #seats > div > svg {width: 100%; height: 100%; object-fit: contain;}
 #seats > div > svg > g > g > g > rect {opacity: 0.5; transition: opacity 0.2s;}
@@ -549,7 +549,7 @@ path.cls-64 {pointer-events: none;}
 
 #seatsPopUpBG {width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; opacity: 0; z-index: 1; pointer-events: none;}
 
-#map {width: 90vw; height: 50vh; padding: 100px 5vw 0 5vw;}
+#map {width: 90vw; max-height: 50vh; padding: 100px 5vw 0 5vw;}
 #map > svg {width: 100%; height: 100%; object-fit: contain;}
 #map > svg > g:active {opacity: 0.5; transition: opacity 0.2s;}
 #map > p {font-weight: 300; font-size: 16px; line-height: 1.4;}
