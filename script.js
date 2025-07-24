@@ -1379,16 +1379,6 @@ $("#selectStadium").on("click", "a > div > button:nth-of-type(1)", function() {
     else window.location = `./seats/${$(this).closest("a").attr("id")}`
 });
 
-// 경기장 길찾기 페이지로 이동
-$("#selectStadium").on("click", "a > div > button:nth-of-type(2)", function() {
-    stadium = $(this).closest("a").find("p").contents().filter(function() {
-        return this.nodeType === 3;
-    }).text().trim();
-
-    if ($(this).attr("class") == "noHover") alert(`기능 준비 중입니다.`);
-    else window.location = `./routes/${$(this).closest("a").attr("id")}`
-});
-
 if ($("#stadium").length) {
     let cnt = 0;
 
@@ -1579,10 +1569,3 @@ if ($("#stadium").length) {
         }
     });
 }
-
-// 경기장 길찾기
-$("#map > svg > g").click(function() {
-    clicked = $(this).attr("id").replace("bus", "").replace("subway", "");
-    $("g[id*='route']").css({"opacity": 0, "transition": "opacity .2s"});
-    $(`#route${clicked}`).css({"opacity": 1, "transition": "opacity .2s"});
-});

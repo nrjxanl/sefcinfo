@@ -556,10 +556,5 @@ path.cls-64 {pointer-events: none;}
 
 #seatsPopUpBG {width: 80vw; height: 100vh; position: fixed; top: 0; left: 20vw; opacity: 0; z-index: 1; pointer-events: none;}
 
-#map {width: 55vw; max-height: calc(100vh - 200px); padding: 0 5vw;}
-#map > svg {width: 100%; height: 100%; object-fit: contain;}
-#map > svg > g:hover {opacity: 0.5; transition: opacity 0.2s;}
-#map > p {font-weight: 300; font-size: 16px; line-height: 1.4; margin-top: 20px;}
-
 /* Glassmorphism */
 [glass="true"] {background: #faf6f540; box-shadow: 0 4px 30px #05090a16; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid #faf6f580;}
