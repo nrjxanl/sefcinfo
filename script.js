@@ -1352,31 +1352,57 @@ $("#selectStadium > a").click(function(e) {
     $("#selectStadium > a > div > img").css("display", "inline");
     $("#selectStadium > a > div > button").remove();
     $(this).find("div > img").css("display", "none");
-    $(this).find("div").append("<button glass='true'>좌석 시야</button><button glass='true'>경기장 길찾기</button>");
+    $(this).find("div").append("<button glass='true'>관중석 시야</button><button glass='true'>교통 및 주차</button><button glass='true'>주변 맛집</button>");
 
     stadium = $(this).closest("a").find("p").contents().filter(function() {
         return this.nodeType === 3;
     }).text().trim();
 
-    // 좌석 시야 미지원 경기장
-    if (stadium == "광양축구전용구장" || stadium == "천안종합운동장" || stadium == "청주종합경기장") {
+    // 관중석 시야 미지원 경기장
+    if (stadium == "광양축구전용구장" || stadium == "천안종합운동장" || stadium == "청주종합경기장" || stadium == "이순신종합운동장") {
         $(this).find("div > button:nth-of-type(1)").css("opacity", 0.3).attr("class", "noHover")
     };
 
-    // 경기장 길찾기 미지원 경기장
-    if (stadium != "목동운동장" && stadium != "안산와~스타디움" && stadium != "수원월드컵경기장") {
+    // 교통 및 주차 미지원 경기장
+    if (stadium != "목동운동장") {
         $(this).find("div > button:nth-of-type(2)").css("opacity", 0.3).attr("class", "noHover")
+    };
+
+    // 주변 맛집 미지원 경기장
+    if (stadium != "목동운동장") {
+        $(this).find("div > button:nth-of-type(3)").css("opacity", 0.3).attr("class", "noHover")
     };
 });
 
-// 좌석 시야 페이지로 이동
+// 관중석 시야 페이지로 이동
 $("#selectStadium").on("click", "a > div > button:nth-of-type(1)", function() {
     stadium = $(this).closest("a").find("p").contents().filter(function() {
         return this.nodeType === 3;
     }).text().trim();
 
-    if ($(this).attr("class") == "noHover") alert(`${stadium}은 비지정석제로, 경기장 시야 확인 기능을 제공하지 않습니다.`);
+    if (stadium == "이순신종합운동장") alert(`준비 중입니다.`);
+    else if ($(this).attr("class") == "noHover") alert(`${stadium}은 비지정석제로, 관중석 시야 확인 기능을 제공하지 않습니다.`);
     else window.location = `./seats/${$(this).closest("a").attr("id")}`
+});
+
+// 교통 및 주차 페이지로 이동
+$("#selectStadium").on("click", "a > div > button:nth-of-type(2)", function() {
+    stadium = $(this).closest("a").find("p").contents().filter(function() {
+        return this.nodeType === 3;
+    }).text().trim();
+
+    if ($(this).attr("class") == "noHover") alert(`준비 중입니다.`);
+    else window.location = `./trans/${$(this).closest("a").attr("id")}`
+});
+
+// 주변 맛집 페이지로 이동
+$("#selectStadium").on("click", "a > div > button:nth-of-type(3)", function() {
+    stadium = $(this).closest("a").find("p").contents().filter(function() {
+        return this.nodeType === 3;
+    }).text().trim();
+
+    if ($(this).attr("class") == "noHover") alert(`준비 중입니다.`);
+    else window.location = `./fnb/${$(this).closest("a").attr("id")}`
 });
 
 if ($("#stadium").length) {

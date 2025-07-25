@@ -524,18 +524,19 @@ tr.sefc > td > p {background: #faf6f5 !important; color: #05090a !important;}
 
 #wallpaperDownload {height: 28px; padding: 0 16px; font-size: 16px; font-weight: 600; color: #faf6f5; background: #00006080; border: none; border-radius: 20px;}
 
-/* 경기장 시야/길찾기 */
+/* 경기장 */
 #selectStadium {width: 75vw; display: flex; flex-wrap: wrap;}
 #selectStadium > a {width: calc(65vw / 3 - 5vw); display: block; margin: 0 2.5vw 24px 2.5vw;}
 #selectStadium > a > div {width: calc(65vw / 3 - 5vw); height: calc((65vw / 3 - 5vw) * (3 / 4)); margin-bottom: 12px; overflow: hidden; border-radius: 20px;}
 #selectStadium > a > div > img {width: 100%; height: 100%; object-fit: cover; object-position: center bottom;}
-#selectStadium > a > div > button {width: calc((65vw / 3 - 5vw) - 20px); height: calc(((65vw / 3 - 5vw) * (3 / 4)) / 2 - 15px); margin-top: 10px; font-size: 16px; border: none; border-radius: 100vw; color: #faf5f6; background: #000060; opacity: .5; cursor: pointer;;}
+#selectStadium > a > div > button {width: calc((65vw / 3 - 5vw) - 20px); height: calc((((65vw / 3 - 5vw) * (3 / 4)) - 40px) / 3); margin-top: 10px; font-size: 16px; border: none; border-radius: 100vw; color: #faf5f6; background: #000060; opacity: .5; cursor: pointer;;}
 #selectStadium > a > div > button:hover {opacity: 1; transition: opacity .2s;}
 #selectStadium > a > p {font-size: 20px; font-weight: 600; line-height: 1;}
 #selectStadium > a > p > span {font-size: 14px; font-weight: 300;}
 
 .noHover {opacity: .2 !important; transition: none;}
 
+/* 관중석 시야 */
 #stadium {width: 55vw; max-height: calc(100vh - 200px); margin-left: 5vw;}
 #stadium > g:nth-of-type(n + 3):nth-of-type(-n + 6) > g:hover {opacity: 0.5; transition: opacity 0.2s; cursor: pointer;}
 
@@ -555,6 +556,62 @@ path.cls-64 {pointer-events: none;}
 #seatsPopUp > button {width: 15vw; height: 32px; color: #faf6f5; background: #000060c0; font-size: 16px; font-weight: 600; border: none; border-radius: 20px; margin-top: 5vh; cursor: pointer;}
 
 #seatsPopUpBG {width: 80vw; height: 100vh; position: fixed; top: 0; left: 20vw; opacity: 0; z-index: 1; pointer-events: none;}
+
+/* 교통 및 주차 */
+#subway {width: 65vw;}
+#subway > p {width: 65vw; text-align: left; font-size: 24px;}
+#subway > div {width: calc(65vw - 126px); padding: 20px 106px 20px 20px; border-radius: 20px; margin-top: 20px; display: flex; align-items: center;}
+#subway > div > p:nth-of-type(1) {font-size: 18px; font-weight: 600; text-align: left;}
+#subway > div > p:nth-of-type(2) {width: fit-content; margin: 0 40px 0 30px; font-size: 16px; font-weight: 600; text-align: left;}
+#subway > div > div:nth-of-type(1) {display: flex; flex-wrap: wrap;}
+#subway > div > div:nth-of-type(2) {position: absolute; right: 10px;}
+#subway > div > div > p {width: fit-content; height: 28px; margin: 5px 0 5px 10px; font-size: 16px; line-height: 28px; padding: 0 8px; color: #faf5f6; border-radius: 14px;}
+#subway > div > div > img {width: 28px; height: 28px; border-radius: 100%; cursor: pointer; margin-right: 10px;}
+
+#bus {width: 65vw; margin: 40px 0;}
+#bus > p {width: 65vw; text-align: left; font-size: 24px;}
+#bus > div {width: calc(65vw - 126px); padding: 20px 106px 20px 20px; border-radius: 20px; margin-top: 20px; display: flex; align-items: center;}
+#bus > div > p:nth-of-type(1) {font-size: 18px; font-weight: 600; text-align: left;}
+#bus > div > p:nth-of-type(2) {width: fit-content; margin: 0 40px 0 30px; font-size: 16px; font-weight: 600; text-align: left;}
+#bus > div > div:nth-of-type(1) {display: flex; flex-wrap: wrap;}
+#bus > div > div:nth-of-type(2) {position: absolute; right: 10px;}
+#bus > div > div > p {width: fit-content; height: 28px; margin: 5px 0 5px 10px; font-size: 16px; line-height: 28px; padding: 0 8px; color: #faf5f6; border-radius: 14px;}
+#bus > div > div > img {width: 28px; height: 28px; border-radius: 100%; cursor: pointer; margin-right: 10px;}
+
+#parking {width: 65vw; margin: 40px 0;}
+#parking > p {width: 65vw; text-align: left; font-size: 24px;}
+#parking > div {width: calc(65vw - 126px); padding: 20px 106px 20px 20px; border-radius: 20px; margin-top: 20px; display: flex; align-items: center;}
+#parking > div > p:nth-of-type(1) {font-size: 18px; font-weight: 600; text-align: left;}
+#parking > div > p:nth-of-type(2) {width: fit-content; margin: 0 40px 0 30px; font-size: 16px; font-weight: 600; text-align: left;}
+#parking > div > div:nth-of-type(1) {display: flex; flex-wrap: wrap;}
+#parking > div > div:nth-of-type(2) {position: absolute; right: 10px;}
+#parking > div > div > p {width: fit-content; height: 28px; margin: 5px 0 5px 10px; font-size: 16px; line-height: 28px; padding: 0 8px; color: #faf5f6; border-radius: 14px;}
+#parking > div > div > img {width: 28px; height: 28px; border-radius: 100%; cursor: pointer; margin-right: 10px;}
+
+/* 주변 맛집 */
+#food {width: 65vw;}
+#food > p {width: 65vw; text-align: left; font-size: 24px;}
+#food > div {width: calc(65vw - 126px); padding: 20px 106px 20px 20px; border-radius: 20px; margin-top: 20px; display: flex; align-items: center;}
+#food > div > p:nth-of-type(1) {font-size: 18px; font-weight: 600; text-align: left;}
+#food > div > p:nth-of-type(2) {font-size: 18px; font-weight: 300; text-align: left; margin-left: 15px;}
+#food > div > p:nth-of-type(3) {width: fit-content; margin: 0 40px 0 30px; font-size: 16px; font-weight: 600; text-align: left;}
+#food > div > div:nth-of-type(1) {width: 120px; height: 120px; border-radius: 20px; overflow: hidden; margin-right: 30px;}
+#food > div > div:nth-of-type(1) > img {width: 100%; height: 100%; object-fit: cover; object-position: center bottom;}
+#food > div > div:nth-of-type(2) {position: absolute; right: 10px;}
+#food > div > div:nth-of-type(2) > img {width: 28px; height: 28px; border-radius: 100%; cursor: pointer; margin-right: 10px;}
+#food > div > div > p {width: fit-content; height: 28px; margin: 5px 0 5px 10px; font-size: 16px; line-height: 28px; padding: 0 8px; color: #faf5f6; border-radius: 14px;}
+
+#cafe {width: 65vw; margin: 40px 0;}
+#cafe > p {width: 65vw; text-align: left; font-size: 24px;}
+#cafe > div {width: calc(65vw - 126px); padding: 20px 106px 20px 20px; border-radius: 20px; margin-top: 20px; display: flex; align-items: center;}
+#cafe > div > p:nth-of-type(1) {font-size: 18px; font-weight: 600; text-align: left;}
+#cafe > div > p:nth-of-type(2) {font-size: 18px; font-weight: 300; text-align: left; margin-left: 15px;}
+#cafe > div > p:nth-of-type(3) {width: fit-content; margin: 0 40px 0 30px; font-size: 16px; font-weight: 600; text-align: left;}
+#cafe > div > div:nth-of-type(1) {width: 120px; height: 120px; border-radius: 20px; overflow: hidden; margin-right: 30px;}
+#cafe > div > div:nth-of-type(1) > img {width: 100%; height: 100%; object-fit: cover; object-position: center bottom;}
+#cafe > div > div:nth-of-type(2) {position: absolute; right: 10px;}
+#cafe > div > div:nth-of-type(2) > img {width: 28px; height: 28px; border-radius: 100%; cursor: pointer; margin-right: 10px;}
+#cafe > div > div > p {width: fit-content; height: 28px; margin: 5px 0 5px 10px; font-size: 16px; line-height: 28px; padding: 0 8px; color: #faf5f6; border-radius: 14px;}
 
 /* Glassmorphism */
 [glass="true"] {background: #faf6f540; box-shadow: 0 4px 30px #05090a16; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid #faf6f580;}
