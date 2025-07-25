@@ -568,7 +568,7 @@ path.cls-64 {pointer-events: none;}
 #subway > div > div > p {width: fit-content; height: 28px; margin: 5px 0 5px 10px; font-size: 16px; line-height: 28px; padding: 0 8px; color: #faf5f6; border-radius: 14px;}
 #subway > div > div > img {width: 28px; height: 28px; border-radius: 100%; cursor: pointer; margin-right: 10px;}
 
-#bus {width: 65vw; margin: 40px 0;}
+#bus {width: 65vw; margin-top: 40px;}
 #bus > p {width: 65vw; text-align: left; font-size: 24px;}
 #bus > div {width: calc(65vw - 126px); padding: 20px 106px 20px 20px; border-radius: 20px; margin-top: 20px; display: flex; align-items: center;}
 #bus > div > p:nth-of-type(1) {font-size: 18px; font-weight: 600; text-align: left;}
