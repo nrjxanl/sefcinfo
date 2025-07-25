@@ -57,7 +57,7 @@ $("footer > img").click(function () {
 })
 
 // 메뉴
- $("body").append("<div id='menu' glass='true'><div><img src='https://sefc.info/files/home.svg'>홈</div><div><img src='https://sefc.info/files/fixtures.svg'>일정</div><div><img src='https://sefc.info/files/players.svg'>선수단</div><div><img src='https://sefc.info/files/stats.svg'>기록</div><div><img src='https://sefc.info/files/standings.svg'>순위</div><div><img src='https://sefc.info/files/chants.svg'>응원가</div><div><img src='https://sefc.info/files/wallpaper.svg'>배경화면</div><a href='https://naver.me/GlJ18AQh' target='_blank'>오류 제보 및 건의</a><img class='bannerMenu' src='https://sefc.info/files/banner_1.jpg'></div><div id='menuBg' glass='true'></div>")
+ $("body").append("<div id='menu' glass='true'><div><img src='https://sefc.info/files/home.svg'>홈</div><div><img src='https://sefc.info/files/fixtures.svg'>일정</div><div><img src='https://sefc.info/files/players.svg'>선수단</div><div><img src='https://sefc.info/files/stats.svg'>기록</div><div><img src='https://sefc.info/files/standings.svg'>순위</div><div><img src='https://sefc.info/files/chants.svg'>응원가</div><div><img src='https://sefc.info/files/wallpaper.svg'>배경화면</div><div><img src='https://sefc.info/files/stadium.svg'>직관 가이드</div><a href='https://naver.me/GlJ18AQh' target='_blank'>오류 제보 및 건의</a><img class='bannerMenu' src='https://sefc.info/files/banner_1.jpg'></div><div id='menuBg' glass='true'></div>")
 
 // 상단 클릭 시 홈으로 이동
 $("header > div:nth-of-type(2)").click(function() {
@@ -107,6 +107,9 @@ $("#menu > div:nth-of-type(6)").click(function() {
 $("#menu > div:nth-of-type(7)").click(function() {
     window.location = "https://sefc.info/wallpaper"
 })
+$("#menu > div:nth-of-type(8)").click(function() {
+    window.location = "https://sefc.info/stadium"
+})
 
 // 배너 클릭 시 페이지 이동
 $(".bannerMenu:nth-of-type(1), .bannerFixtures").click(function() {
@@ -150,6 +153,10 @@ if ($("#prevMatch").length) {
     $("#menu > div:nth-of-type(7)").css("color", "#000060")
     $("#menu > div:nth-of-type(7) > span").css("background", "#000060")
     $("#menu > div:nth-of-type(7) > img").css("filter", "brightness(0) saturate(100%) invert(8%) sepia(76%) saturate(5175%) hue-rotate(242deg) brightness(71%) contrast(125%)")
+} else if ($("#selectStadium").length || $("#stadium").length || $("#subway").length || $("#bus").length || $("#parking").length || $("#addFnb").length) {
+    $("#menu > div:nth-of-type(8)").css("color", "#000060")
+    $("#menu > div:nth-of-type(8) > span").css("background", "#000060")
+    $("#menu > div:nth-of-type(8) > img").css("filter", "brightness(0) saturate(100%) invert(8%) sepia(76%) saturate(5175%) hue-rotate(242deg) brightness(71%) contrast(125%)")
 }
 
 // 메뉴 hover 시 강조
