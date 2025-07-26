@@ -1352,12 +1352,14 @@ if ($("#chantsName").length) {
     }
 }
 
-// 경기장 시야
+// 직관 가이드
 $("#selectStadium > a").click(function(e) {
     if ($(e.target).is("button")) return;
 
+    $("#selectStadium > a").css("cursor", "pointer");
     $("#selectStadium > a > div > img").css("display", "inline");
     $("#selectStadium > a > div > button").remove();
+    $(this).css("cursor", "auto");
     $(this).find("div > img").css("display", "none");
     $(this).find("div").append("<button glass='true'>관중석 시야</button><button glass='true'>교통 및 주차</button><button glass='true'>주변 맛집</button>");
 
@@ -1380,6 +1382,17 @@ $("#selectStadium > a").click(function(e) {
         $(this).find("div > button:nth-of-type(3)").css("opacity", 0.3).attr("class", "noHover")
     };
 });
+
+if ($("#selectStadium").length) {
+    $("#actualContents").click(function(e) {
+        if ($(e.target).closest("#selectStadium > a").length) {
+            return;
+        }
+
+        $("#selectStadium > a > div > img").css("display", "inline");
+        $("#selectStadium > a > div > button").remove();
+    });
+}
 
 // 관중석 시야 페이지로 이동
 $("#selectStadium").on("click", "a > div > button:nth-of-type(1)", function() {

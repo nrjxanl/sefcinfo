@@ -526,15 +526,15 @@ tr.sefc > td > p {background: #faf6f5 !important; color: #05090a !important;}
 
 /* 경기장 */
 #selectStadium {width: 75vw; display: flex; flex-wrap: wrap;}
-#selectStadium > a {width: calc(65vw / 3 - 5vw); display: block; margin: 0 2.5vw 24px 2.5vw;}
+#selectStadium > a {width: calc(65vw / 3 - 5vw); display: block; margin: 0 2.5vw 24px 2.5vw; cursor: pointer;}
 #selectStadium > a > div {width: calc(65vw / 3 - 5vw); height: calc((65vw / 3 - 5vw) * (3 / 4)); margin-bottom: 12px; overflow: hidden; border-radius: 20px;}
 #selectStadium > a > div > img {width: 100%; height: 100%; object-fit: cover; object-position: center bottom;}
-#selectStadium > a > div > button {width: calc((65vw / 3 - 5vw) - 20px); height: calc((((65vw / 3 - 5vw) * (3 / 4)) - 40px) / 3); margin-top: 10px; font-size: 16px; border: none; border-radius: 100vw; color: #faf5f6; background: #000060; opacity: .5; cursor: pointer;;}
+#selectStadium > a > div > button {width: calc((65vw / 3 - 5vw) - 20px); height: calc((((65vw / 3 - 5vw) * (3 / 4)) - 40px) / 3); margin-top: 10px; font-size: 16px; border: none; border-radius: 100vw; color: #faf5f6; background: #000060; opacity: .5; cursor: pointer;}
 #selectStadium > a > div > button:hover {opacity: 1; transition: opacity .2s;}
 #selectStadium > a > p {font-size: 20px; font-weight: 600; line-height: 1;}
 #selectStadium > a > p > span {font-size: 14px; font-weight: 300;}
 
-.noHover {opacity: .2 !important; transition: none;}
+.noHover {opacity: .2 !important; transition: none; cursor: auto !important;}
 
 /* 관중석 시야 */
 #stadium {width: 55vw; max-height: calc(100vh - 200px); margin-left: 5vw;}
