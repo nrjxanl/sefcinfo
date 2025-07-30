@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Page-Enter" content="revealtrans(duration=1, transition=23)">
+    <meta property="og:url" content="sefc.info">
+    <meta property="og:title" content="SEFCiNFO - 서울 이랜드 FC 팬 페이지">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./files/thumbnail.jpg">
+    <meta property="og:description" content="서울 이랜드 FC의 모든 것">
+    <link rel="stylesheet" href="../style1.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="../style2.css" media="screen and (min-width: 768px)">
+    <title>SEFCiNFO - 서울 이랜드 FC 팬 페이지</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="../files/favicon.png">
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="39318110-e4f0-4fd3-87a9-3f0c2b33fe85"
+        type="text/javascript" async></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+</head>
+
+<header>
+    <div><img src='../files/menu.svg' onclick='menu()'></div>
+    <div><img src="../files/sefcinfo.svg"></div>
+</header>
+
+<body oncontextmenu="return false">
+
+    <div id="skeleton">
+        <!-- 스켈레톤 추가 -->
+    </div>
+
+    <div id="actualContents" style="margin-top: 120px; width: 100vw;">
+        <input type="text" id="nx" placeholder="위도" style="font-weight: 600; height: 30px; font-size: 20px;">
+        <input type="text" id="ny" placeholder="경도" style="font-weight: 600; height: 30px; font-size: 20px;">
+        <button id="submitBtn" style="height: 30px; width: 60px; font-weight: 600; font-size: 20px;">입력</button>
+        <p id="output" style="width: 50vw; margin-top: 40px; font-weight: 600; font-size: 16px;"></p>
+    </div>
+
+    <script src="../data.js"></script>
+    <script src="../script.js"></script>
+
+    <script language="javascript">
+        //<!--
+        //
+        // LCC DFS 좌표변환을 위한 기초 자료
+        //
+        var RE = 6371.00877; // 지구 반경(km)
+        var GRID = 5.0; // 격자 간격(km)
+        var SLAT1 = 30.0; // 투영 위도1(degree)
+        var SLAT2 = 60.0; // 투영 위도2(degree)
+        var OLON = 126.0; // 기준점 경도(degree)
+        var OLAT = 38.0; // 기준점 위도(degree)
+        var XO = 43; // 기준점 X좌표(GRID)
+        var YO = 136; // 기1준점 Y좌표(GRID)
+        //
+        // LCC DFS 좌표변환 ( code : "toXY"(위경도->좌표, v1:위도, v2:경도), "toLL"(좌표->위경도,v1:x, v2:y) )
+        //
+
+
+        function dfs_xy_conv(code, v1, v2) {
+            var DEGRAD = Math.PI / 180.0;
+            var RADDEG = 180.0 / Math.PI;
+
+            var re = RE / GRID;
+            var slat1 = SLAT1 * DEGRAD;
+            var slat2 = SLAT2 * DEGRAD;
+            var olon = OLON * DEGRAD;
+            var olat = OLAT * DEGRAD;
+
+            var sn = Math.tan(Math.PI * 0.25 + slat2 * 0.5) / Math.tan(Math.PI * 0.25 + slat1 * 0.5);
+            sn = Math.log(Math.cos(slat1) / Math.cos(slat2)) / Math.log(sn);
+            var sf = Math.tan(Math.PI * 0.25 + slat1 * 0.5);
+            sf = Math.pow(sf, sn) * Math.cos(slat1) / sn;
+            var ro = Math.tan(Math.PI * 0.25 + olat * 0.5);
+            ro = re * sf / Math.pow(ro, sn);
+            var rs = {};
+            if (code == "toXY") {
+                rs['lat'] = v1;
+                rs['lng'] = v2;
+                var ra = Math.tan(Math.PI * 0.25 + (v1) * DEGRAD * 0.5);
+                ra = re * sf / Math.pow(ra, sn);
+                var theta = v2 * DEGRAD - olon;
+                if (theta > Math.PI) theta -= 2.0 * Math.PI;
+                if (theta < -Math.PI) theta += 2.0 * Math.PI;
+                theta *= sn;
+                rs['x'] = Math.floor(ra * Math.sin(theta) + XO + 0.5);
+                rs['y'] = Math.floor(ro - ra * Math.cos(theta) + YO + 0.5);
+            }
+            else {
+                rs['x'] = v1;
+                rs['y'] = v2;
+                var xn = v1 - XO;
+                var yn = ro - v2 + YO;
+                ra = Math.sqrt(xn * xn + yn * yn);
+                if (sn < 0.0) - ra;
+                var alat = Math.pow((re * sf / ra), (1.0 / sn));
+                alat = 2.0 * Math.atan(alat) - Math.PI * 0.5;
+
+                if (Math.abs(xn) <= 0.0) {
+                    theta = 0.0;
+                }
+                else {
+                    if (Math.abs(yn) <= 0.0) {
+                        theta = Math.PI * 0.5;
+                        if (xn < 0.0) - theta;
+                    }
+                    else theta = Math.atan2(xn, yn);
+                }
+                var alon = theta / sn + olon;
+                rs['lat'] = alat * RADDEG;
+                rs['lng'] = alon * RADDEG;
+            }
+            return rs;
+        }
+        //-->
+
+        var rs = dfs_xy_conv("toXY", $('#nx').val(), $('#ny').val())
+
+        $("#submitBtn").click(function () {
+            // 클릭할 때마다 최신 입력값 가져오기
+            var lat = parseFloat($('#nx').val());
+            var lng = parseFloat($('#ny').val());
+
+            // 입력값 유효성 체크 (숫자인지 확인)
+            if (isNaN(lat) || isNaN(lng)) {
+                console.error("유효한 위도와 경도를 입력하세요.");
+                return;
+            }
+
+            // 변환 함수 호출
+            var rs = dfs_xy_conv("toXY", lat, lng);
+
+            // 결과 출력
+            console.log(rs);
+
+            // 필요하면 화면에 표시 (예: #output)
+            $("#output").text(`${rs.x} ${rs.y}`);
+        });
+
+    </script>
+</body>
+
+</html>

@@ -877,16 +877,16 @@ $(document).ready(function () {
         }
 
         if (typeof next !== "undefined") {
-            $("#nextMatch > div:nth-of-type(1) > p:nth-of-type(1)").text(next["home"][0])
-            $("#nextMatch > div:nth-of-type(1) > p:nth-of-type(2)").text(next["away"][0])
+            $("#nextMatch > div:nth-of-type(2) > p:nth-of-type(1)").text(next["home"][0])
+            $("#nextMatch > div:nth-of-type(2) > p:nth-of-type(2)").text(next["away"][0])
 
-            $("#nextMatch > div:nth-of-type(1) > div:nth-of-type(1) > img").attr("src", "./files/" + next["home"][1] + "_s.png")
-            $("#nextMatch > div:nth-of-type(1) > div:nth-of-type(3) > img").attr("src", "./files/" + next["away"][1] + "_s.png")
+            $("#nextMatch > div:nth-of-type(2) > div:nth-of-type(1) > img").attr("src", "./files/" + next["home"][1] + "_s.png")
+            $("#nextMatch > div:nth-of-type(2) > div:nth-of-type(3) > img").attr("src", "./files/" + next["away"][1] + "_s.png")
 
             if ($(window).width() < 768) {
-                $("#nextMatch > div:nth-of-type(2) > p").text(next["comp"][0] + " " + next["round"] + " | " + Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(0, 4) + "." + Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(4, 6) + "." + Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(6, 8) + ".")
+                $("#nextMatch > div:nth-of-type(3) > p").text(next["comp"][0] + " " + next["round"] + " | " + Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(0, 4) + "." + Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(4, 6) + "." + Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(6, 8) + ".")
             } else {
-                $("#nextMatch > div:nth-of-type(2) > p").html(next["comp"][0] + " " + next["round"] + "<br>" + Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(0, 4) + "." + Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(4, 6) + "." + Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(6, 8) + ".")
+                $("#nextMatch > div:nth-of-type(3) > p").html(next["comp"][0] + " " + next["round"] + "<br>" + Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(0, 4) + "." + Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(4, 6) + "." + Object.keys(dataA)[Object.values(dataA).indexOf(next)].substring(6, 8) + ".")
             }
 
             yearNow = new Date().getFullYear()
@@ -902,11 +902,11 @@ $(document).ready(function () {
             diff = (new Date(matchday) - new Date(now)) / (1000 * 60 * 60 * 24)
 
             if (diff > 0) {
-                $("#nextMatch > div:nth-of-type(1) > div:nth-of-type(2)").text("D-" + diff)
+                $("#nextMatch > div:nth-of-type(2) > div:nth-of-type(2)").text("D-" + diff)
             } else if (diff == 0) {
-                $("#nextMatch > div:nth-of-type(1) > div:nth-of-type(2)").text("D-DAY")
+                $("#nextMatch > div:nth-of-type(2) > div:nth-of-type(2)").text("D-DAY")
             } else {
-                $("#nextMatch > div:nth-of-type(1) > div:nth-of-type(2)").text("D+" + diff.toString().replace("-", ""))
+                $("#nextMatch > div:nth-of-type(2) > div:nth-of-type(2)").text("D+" + diff.toString().replace("-", ""))
             }
 
             $("#nextMatch").click(function () {
@@ -914,6 +914,106 @@ $(document).ready(function () {
             })
         } else {
             $("#nextMatch").css({"height": "0", "padding": "0", "box-shadow": "none", "margin": "80px 0 0 5vw"})
+        }
+
+        // 다음 경기 날씨 표시
+        let llList = {
+            "목동운동장": ["58", "126"],
+            "광양축구전용구장": ["74", "70"],
+            "김포솔터축구장": ["54", "128"],
+            "구덕운동장": ["97", "74"],
+            "부천종합운동장": ["57", "125"],
+            "수원월드컵경기장": ["61", "121"],
+            "안산와~스타디움": ["57", "121"],
+            "이순신종합운동장": ["61", "109"],
+            "인천축구전용경기장": ["54", "124"],
+            "창원축구센터 주경기장": ["91", "76"],
+            "천안종합운동장": ["62", "111"],
+            "청주종합경기장": ["69", "107"],
+            "탄천종합운동장": ["62", "123"],
+            "화성종합경기타운 주경기장": ["59", "117"],
+        }
+
+        let weatherCode = {
+            0: "맑음",
+            1: "비",
+            2: "눈·비",
+            3: "눈",
+            5: "빗방울",
+            6: "약한 눈·비",
+            7: "눈 날림",
+        }
+
+        const serviceKey = "xyzq7t%2BR5Yii8yb%2F%2F6hvWVoV%2BA4iXQyYN7PXz%2FLcg%2F4vuT9czLa9Xqw7e045JaZcu%2BIiqB15zOdXW1%2FUmn5T9Q%3D%3D";
+        let numOfRows = "8";
+        let pageNo = "1";
+        let dataType = "JSON";
+        let base_date = new Date().getFullYear().toString() + (new Date().getMonth() + 1).toString().padStart(2, "0") + new Date().getDate().toString().padStart(2, "0");
+        let base_time = new Date().getMinutes() >= 10 ? new Date().getHours().toString().padStart(2, "0") + "00" : (new Date().getHours() - 1).toString().padStart(2, "0") + "00";
+        let nx = llList[next["stadium"]][0];
+        let ny = llList[next["stadium"]][1];
+        let url;
+
+        let array_code = {
+            T1H: { code: "T1H", name: "기온", unit: "℃" },
+            RN1: { code: "RN1", name: "1시간 강수량", unit: "㎜" },
+            UUU: { code: "UUU", name: "동서바람성분", unit: "㎧" },
+            VVV: { code: "VVV", name: "남북바람성분", unit: "㎧" },
+            REH: { code: "REH", name: "습도", unit: "%" },
+            PTY: { code: "PTY", name: "강수형태", unit: "코드값" },
+            VEC: { code: "VEC", name: "풍향", unit: "deg" },
+            WSD: { code: "WSD", name: "풍속", unit: "㎧" }
+        };
+
+        function create_url() {
+            return (
+                "https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst?" +
+                "serviceKey=" +
+                serviceKey +
+                "&pageNo=" +
+                pageNo +
+                "&numOfRows=" +
+                numOfRows +
+                "&dataType=" +
+                dataType +
+                "&base_date=" +
+                base_date +
+                "&base_time=" +
+                base_time +
+                "&nx=" +
+                nx +
+                "&ny=" +
+                ny
+            );
+        }
+
+        url = create_url();
+        load_api();
+
+        function load_api() {
+            fetch(url) //url에 요청 보내기
+                .then((response) => response.json()) //응답이 json
+                .then((data) => {
+                    if (parseInt(data.response.header.resultCode) > 0) { //resultCode가 0보다 크면 에러
+                        console.error(
+                            "ERROR: code: " +
+                            data.response.header.resultMsg +
+                            "(" +
+                            data.response.header.resultCode +
+                            ")"
+                        );
+                    }
+                    result = data.response.body.items.item; //응답에서 api 정보 부분만 가져오기
+
+                    for (const element of result) {
+                        let value;
+                        array_code[element.category].value = element.obsrValue; //각각 기상 정보를 array_code에 저장
+                    }
+                    console.log(array_code)
+                    $("#nextMatch > div:nth-of-type(1) > p:nth-of-type(1)").text(weatherCode[array_code["PTY"]["value"]])
+                    $("#nextMatch > div:nth-of-type(1) > p:nth-of-type(2)").text(array_code["T1H"]["value"] + "℃")
+                    $("#nextMatch > div:nth-of-type(1) > p:nth-of-type(3)").text(array_code["WSD"]["value"] + "㎧")
+                });
         }
 
         // 이전 경기
