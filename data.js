@@ -869,9 +869,9 @@ $(document).ready(function () {
         year = new Date().getFullYear()
 
         // 다음 경기
-        for (i = 0; i < Object.keys(dataA).length; i++) {
-            if (dataA[Object.keys(dataA)[i]]["homeScore"] == "") {
-                next = dataA[Object.keys(dataA)[i]]
+        for (i = Object.keys(dataA).length - 1; i >= 0; i--) {
+            if (dataA[Object.keys(dataA)[i]]["homeScore"] != "") {
+                next = dataA[Object.keys(dataA)[i + 1]]
                 break
             }
         }
@@ -914,106 +914,6 @@ $(document).ready(function () {
             })
         } else {
             $("#nextMatch").css({"height": "0", "padding": "0", "box-shadow": "none", "margin": "80px 0 0 5vw"})
-        }
-
-        // 다음 경기 날씨 표시
-        let llList = {
-            "목동운동장": ["58", "126"],
-            "광양축구전용구장": ["74", "70"],
-            "김포솔터축구장": ["54", "128"],
-            "구덕운동장": ["97", "74"],
-            "부천종합운동장": ["57", "125"],
-            "수원월드컵경기장": ["61", "121"],
-            "안산와~스타디움": ["57", "121"],
-            "이순신종합운동장": ["61", "109"],
-            "인천축구전용경기장": ["54", "124"],
-            "창원축구센터 주경기장": ["91", "76"],
-            "천안종합운동장": ["62", "111"],
-            "청주종합경기장": ["69", "107"],
-            "탄천종합운동장": ["62", "123"],
-            "화성종합경기타운 주경기장": ["59", "117"],
-        }
-
-        let weatherCode = {
-            0: "맑음",
-            1: "비",
-            2: "눈·비",
-            3: "눈",
-            5: "빗방울",
-            6: "약한 눈·비",
-            7: "눈 날림",
-        }
-
-        const serviceKey = "xyzq7t%2BR5Yii8yb%2F%2F6hvWVoV%2BA4iXQyYN7PXz%2FLcg%2F4vuT9czLa9Xqw7e045JaZcu%2BIiqB15zOdXW1%2FUmn5T9Q%3D%3D";
-        let numOfRows = "8";
-        let pageNo = "1";
-        let dataType = "JSON";
-        let base_date = new Date().getFullYear().toString() + (new Date().getMonth() + 1).toString().padStart(2, "0") + new Date().getDate().toString().padStart(2, "0");
-        let base_time = new Date().getMinutes() >= 10 ? new Date().getHours().toString().padStart(2, "0") + "00" : (new Date().getHours() - 1).toString().padStart(2, "0") + "00";
-        let nx = llList[next["stadium"]][0];
-        let ny = llList[next["stadium"]][1];
-        let url;
-
-        let array_code = {
-            T1H: { code: "T1H", name: "기온", unit: "℃" },
-            RN1: { code: "RN1", name: "1시간 강수량", unit: "㎜" },
-            UUU: { code: "UUU", name: "동서바람성분", unit: "㎧" },
-            VVV: { code: "VVV", name: "남북바람성분", unit: "㎧" },
-            REH: { code: "REH", name: "습도", unit: "%" },
-            PTY: { code: "PTY", name: "강수형태", unit: "코드값" },
-            VEC: { code: "VEC", name: "풍향", unit: "deg" },
-            WSD: { code: "WSD", name: "풍속", unit: "㎧" }
-        };
-
-        function create_url() {
-            return (
-                "https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst?" +
-                "serviceKey=" +
-                serviceKey +
-                "&pageNo=" +
-                pageNo +
-                "&numOfRows=" +
-                numOfRows +
-                "&dataType=" +
-                dataType +
-                "&base_date=" +
-                base_date +
-                "&base_time=" +
-                base_time +
-                "&nx=" +
-                nx +
-                "&ny=" +
-                ny
-            );
-        }
-
-        url = create_url();
-        load_api();
-
-        function load_api() {
-            fetch(url) //url에 요청 보내기
-                .then((response) => response.json()) //응답이 json
-                .then((data) => {
-                    if (parseInt(data.response.header.resultCode) > 0) { //resultCode가 0보다 크면 에러
-                        console.error(
-                            "ERROR: code: " +
-                            data.response.header.resultMsg +
-                            "(" +
-                            data.response.header.resultCode +
-                            ")"
-                        );
-                    }
-                    result = data.response.body.items.item; //응답에서 api 정보 부분만 가져오기
-
-                    for (const element of result) {
-                        let value;
-                        array_code[element.category].value = element.obsrValue; //각각 기상 정보를 array_code에 저장
-                    }
-                    console.log(array_code)
-                    $("#nextMatch > div:nth-of-type(1) > p:nth-of-type(1)").text(weatherCode[array_code["PTY"]["value"]])
-                    $("#nextMatch > div:nth-of-type(1) > p:nth-of-type(2)").text(array_code["T1H"]["value"] + "℃")
-                    $("#nextMatch > div:nth-of-type(1) > p:nth-of-type(3)").text(array_code["WSD"]["value"] + "㎧")
-                });
         }
 
         // 이전 경기
@@ -1715,6 +1615,129 @@ $(document).ready(function () {
     }
 
     $("#loading").remove()
+
+    // 날씨
+    if ($("#nextMatch").length || $("#matchScore").length) {
+        let llList = {
+            "목동운동장": ["58", "126"],
+            "광양축구전용구장": ["74", "70"],
+            "김포솔터축구장": ["54", "128"],
+            "구덕운동장": ["97", "74"],
+            "부천종합운동장": ["57", "125"],
+            "수원월드컵경기장": ["61", "121"],
+            "안산와~스타디움": ["57", "121"],
+            "이순신종합운동장": ["61", "109"],
+            "인천축구전용경기장": ["54", "124"],
+            "창원축구센터 주경기장": ["91", "76"],
+            "천안종합운동장": ["62", "111"],
+            "청주종합경기장": ["69", "107"],
+            "탄천종합운동장": ["62", "123"],
+            "화성종합경기타운 주경기장": ["59", "117"],
+        }
+
+        let weatherCode = {
+            0: "맑음",
+            1: "비",
+            2: "눈·비",
+            3: "눈",
+            5: "빗방울",
+            6: "약한 눈·비",
+            7: "눈 날림",
+        }
+
+        const serviceKey = "xyzq7t%2BR5Yii8yb%2F%2F6hvWVoV%2BA4iXQyYN7PXz%2FLcg%2F4vuT9czLa9Xqw7e045JaZcu%2BIiqB15zOdXW1%2FUmn5T9Q%3D%3D";
+        let numOfRows = "8";
+        let pageNo = "1";
+        let dataType = "JSON";
+        let base_date = new Date().getFullYear().toString() + (new Date().getMonth() + 1).toString().padStart(2, "0") + new Date().getDate().toString().padStart(2, "0");
+        let base_time = new Date().getMinutes() >= 10 ? new Date().getHours().toString().padStart(2, "0") + "00" : (new Date().getHours() - 1).toString().padStart(2, "0") + "00";
+        let nx = $("#nextMatch").length ? llList[next["stadium"]][0] : llList[dataList["stadium"]][0];
+        let ny = $("#nextMatch").length ? llList[next["stadium"]][1] : llList[dataList["stadium"]][1];
+        let url;
+
+        let array_code = {
+            T1H: { code: "T1H", name: "기온", unit: "℃" },
+            RN1: { code: "RN1", name: "1시간 강수량", unit: "㎜" },
+            UUU: { code: "UUU", name: "동서바람성분", unit: "㎧" },
+            VVV: { code: "VVV", name: "남북바람성분", unit: "㎧" },
+            REH: { code: "REH", name: "습도", unit: "%" },
+            PTY: { code: "PTY", name: "강수형태", unit: "코드값" },
+            VEC: { code: "VEC", name: "풍향", unit: "deg" },
+            WSD: { code: "WSD", name: "풍속", unit: "㎧" }
+        };
+
+        function create_url() {
+            return (
+                "https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst?" +
+                "serviceKey=" +
+                serviceKey +
+                "&pageNo=" +
+                pageNo +
+                "&numOfRows=" +
+                numOfRows +
+                "&dataType=" +
+                dataType +
+                "&base_date=" +
+                base_date +
+                "&base_time=" +
+                base_time +
+                "&nx=" +
+                nx +
+                "&ny=" +
+                ny
+            );
+        }
+
+        url = create_url();
+        load_api();
+
+        function load_api() {
+            fetch(url) //url에 요청 보내기
+                .then((response) => response.json()) //응답이 json
+                .then((data) => {
+                    if (parseInt(data.response.header.resultCode) > 0) { //resultCode가 0보다 크면 에러
+                        console.error(
+                            "ERROR: code: " +
+                            data.response.header.resultMsg +
+                            "(" +
+                            data.response.header.resultCode +
+                            ")"
+                        );
+                    }
+                    result = data.response.body.items.item; //응답에서 api 정보 부분만 가져오기
+
+                    for (const element of result) {
+                        let value;
+                        array_code[element.category].value = element.obsrValue; //각각 기상 정보를 array_code에 저장
+                    }
+                    console.log(array_code)
+
+                    // 홈 화면
+                    $("#nextMatch > div:nth-of-type(1) > p:nth-of-type(1)").text(weatherCode[array_code["PTY"]["value"]])
+                    $("#nextMatch > div:nth-of-type(1) > p:nth-of-type(2)").text(array_code["T1H"]["value"] + "℃")
+                    $("#nextMatch > div:nth-of-type(1) > p:nth-of-type(3)").text(array_code["WSD"]["value"] + "㎧")
+
+                    // 경기 세부 정보 화면
+                    if ($("#matchScore").length) {
+                        for (i = Object.keys(dataA).length - 1; i >= 0; i--) {
+                            if (dataA[Object.keys(dataA)[i]]["homeScore"] != "") {
+                                next = Object.keys(dataA)[i + 1].substring(0, 8)
+                                break
+                            }
+                        }
+
+                        if (id.substring(8, 9) == "0" && id.substring(0, 8) == next) {
+                            $("#matchScore").after(`<div id='matchWeather' glass='true'><p>현재 ${dataList["stadium"]} 날씨</p><div><div><img src='./files/weather.svg'><p></p></div><div><img src='./files/temp.svg'><p></p></div><div><img src='./files/wind.svg'><p></p></div></div><a href='https://www.data.go.kr/data/15084084/openapi.do' target='_blank'>기상청 제공</a></div>`)
+                            $("#matchInfo").css("display", "none")
+                            $(".matchDetail > button:nth-child(1)").css("display", "none")
+                            $("#matchWeather > div:nth-of-type(1) > div:nth-of-type(1) > p").text(weatherCode[array_code["PTY"]["value"]])
+                            $("#matchWeather > div:nth-of-type(1) > div:nth-of-type(2) > p").text(array_code["T1H"]["value"] + "℃")
+                            $("#matchWeather > div:nth-of-type(1) > div:nth-of-type(3) > p").text(array_code["WSD"]["value"] + "㎧")
+                        }
+                    }
+                });
+        }
+    }
 
     // 배경화면
     function wallpaperLetterSpacing() {

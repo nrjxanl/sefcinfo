@@ -328,6 +328,14 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #matchScore > div:nth-of-type(3) > p:nth-of-type(1) {margin-right: 15vw;}
 #matchScore > div:nth-of-type(3) > p:nth-of-type(2) {margin-left: 15vw;}
 
+#matchWeather {width: 76vw; padding: 16px 2vw; margin: 20px 0 0 10vw; border-radius: 20px; display: flex; flex-direction: column; justify-content: center; align-items: center;}
+#matchWeather > p {font-size: 16px; font-weight: 600; margin-bottom: 16px;}
+#matchWeather > a {font-weight: 300; margin-top: 12px; text-decoration: underline;}
+#matchWeather > div {display: flex; justify-content: center; align-items: center;}
+#matchWeather > div > div {margin: 0 12px;}
+#matchWeather > div > div > img {height: 20px; margin-bottom: 4px;}
+#matchWeather > div > div > p {height: 16px; font-size: 16px; line-height: 16px; font-weight: 600;}
+
 #match {width: 80vw; margin-left: 10vw;}
 
 #highlight {width: 74vw; padding: 1vw 3vw; margin-left: 10vw; border-radius: 20px;}
@@ -371,7 +379,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #startingXI > div > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(1) > span > img:nth-of-type(1) {margin-left: 12px;}
 #startingXI > div > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(2) {width: 10vw; padding: 4px 0; font-size: 12px; border-radius: 50vw; color: #faf6f5; background: #00006040; position: absolute; right: 10vw;}
 
-#sub {width: 80vw; margin: 60px 0 0 10vw; border-radius: 20px; padding: 20px 0;}
+#sub {width: 80vw; margin: 40px 0 0 10vw; border-radius: 20px; padding: 20px 0;}
 #sub > table {width: 60vw; margin-left: 10vw;}
 #sub > table > thead > tr > th {width: 60vw; height: 40px; font-size: 16px;}
 #sub > table > tbody > tr {width: 60vw; height: 50px; display: flex; align-items: center;}
