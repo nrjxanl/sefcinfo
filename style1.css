@@ -57,6 +57,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #nextMatch > div:nth-of-type(1) {width: 90vw; display: flex; justify-content: center; align-items: center;}
 #nextMatch > div:nth-of-type(1) > img {height: 12px; margin: 0 4px 0 12px;}
 #nextMatch > div:nth-of-type(1) > p {height: 12px; line-height: 12px; font-weight: 600;}
+#nextMatch > div:nth-of-type(1) > p:nth-of-type(4) {color: red;}
 #nextMatch > div:nth-of-type(2) {width: 90vw; height: 40px; display: flex; align-items: center;}
 #nextMatch > div:nth-of-type(2) > p:nth-of-type(1) {width: 22.5vw; padding: 0 2.5vw; font-size: 16px; text-align: right;}
 #nextMatch > div:nth-of-type(2) > p:nth-of-type(2) {width: 22.5vw; padding: 0 2.5vw; font-size: 16px; text-align: left;}
@@ -331,10 +332,13 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #matchWeather {width: 76vw; padding: 16px 2vw; margin: 20px 0 0 10vw; border-radius: 20px; display: flex; flex-direction: column; justify-content: center; align-items: center;}
 #matchWeather > p {font-size: 16px; font-weight: 600; margin-bottom: 16px;}
 #matchWeather > a {font-weight: 300; margin-top: 12px; text-decoration: underline;}
-#matchWeather > div {display: flex; justify-content: center; align-items: center;}
-#matchWeather > div > div {margin: 0 12px;}
-#matchWeather > div > div > img {height: 20px; margin-bottom: 4px;}
-#matchWeather > div > div > p {height: 16px; font-size: 16px; line-height: 16px; font-weight: 600;}
+#matchWeather > div:nth-of-type(1) {display: flex; justify-content: center; align-items: center;}
+#matchWeather > div:nth-of-type(1) > div {margin: 0 12px;}
+#matchWeather > div:nth-of-type(1) > div > img {height: 20px; margin-bottom: 4px;}
+#matchWeather > div:nth-of-type(1) > div > p {height: 16px; font-size: 16px; line-height: 16px; font-weight: 600;}
+#matchWeather > div:nth-of-type(2) {display: flex; justify-content: center; align-items: center; margin-top: 12px;}
+#matchWeather > div:nth-of-type(2) > img {height: 16px; margin-right: 8px;}
+#matchWeather > div:nth-of-type(2) > p {height: 16px; font-size: 16px; line-height: 16px; font-weight: 600; color: red;}
 
 #match {width: 80vw; margin-left: 10vw;}
 

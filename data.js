@@ -1618,21 +1618,21 @@ $(document).ready(function () {
 
     // 날씨
     if ($("#nextMatch").length || $("#matchScore").length) {
-        let llList = {
-            "목동운동장": ["58", "126"],
-            "광양축구전용구장": ["74", "70"],
-            "김포솔터축구장": ["54", "128"],
-            "구덕운동장": ["97", "74"],
-            "부천종합운동장": ["57", "125"],
-            "수원월드컵경기장": ["61", "121"],
-            "안산와~스타디움": ["57", "121"],
-            "이순신종합운동장": ["61", "109"],
-            "인천축구전용경기장": ["54", "124"],
-            "창원축구센터 주경기장": ["91", "76"],
-            "천안종합운동장": ["62", "111"],
-            "청주종합경기장": ["69", "107"],
-            "탄천종합운동장": ["62", "123"],
-            "화성종합경기타운 주경기장": ["59", "117"],
+        let stadiumInfo = {
+            "목동운동장": ["58", "126", " 서울"],
+            "광양축구전용구장": ["74", "70", " 광양"],
+            "김포솔터축구장": ["54", "128", " 김포"],
+            "구덕운동장": ["97", "74", " 구덕"],
+            "부천종합운동장": ["57", "125", " 부천"],
+            "수원월드컵경기장": ["61", "121", " 수원"],
+            "안산와~스타디움": ["57", "121", " 안산"],
+            "이순신종합운동장": ["61", "109", " 아산"],
+            "인천축구전용경기장": ["54", "124", " 인천"],
+            "창원축구센터 주경기장": ["91", "76", " 창원"],
+            "천안종합운동장": ["62", "111", " 천안"],
+            "청주종합경기장": ["69", "107", " 청주"],
+            "탄천종합운동장": ["62", "123", " 성남"],
+            "화성종합경기타운 주경기장": ["59", "117", " 화성"],
         }
 
         let weatherCode = {
@@ -1651,11 +1651,11 @@ $(document).ready(function () {
         let dataType = "JSON";
         let base_date = new Date().getFullYear().toString() + (new Date().getMonth() + 1).toString().padStart(2, "0") + new Date().getDate().toString().padStart(2, "0");
         let base_time = new Date().getMinutes() >= 10 ? new Date().getHours().toString().padStart(2, "0") + "00" : (new Date().getHours() - 1).toString().padStart(2, "0") + "00";
-        let nx = $("#nextMatch").length ? llList[next["stadium"]][0] : llList[dataList["stadium"]][0];
-        let ny = $("#nextMatch").length ? llList[next["stadium"]][1] : llList[dataList["stadium"]][1];
+        let nx = $("#nextMatch").length ? stadiumInfo[next["stadium"]][0] : stadiumInfo[dataList["stadium"]][0];
+        let ny = $("#nextMatch").length ? stadiumInfo[next["stadium"]][1] : stadiumInfo[dataList["stadium"]][1];
         let url;
 
-        let array_code = {
+        let weather = {
             T1H: { code: "T1H", name: "기온", unit: "℃" },
             RN1: { code: "RN1", name: "1시간 강수량", unit: "㎜" },
             UUU: { code: "UUU", name: "동서바람성분", unit: "㎧" },
@@ -1708,14 +1708,13 @@ $(document).ready(function () {
 
                     for (const element of result) {
                         let value;
-                        array_code[element.category].value = element.obsrValue; //각각 기상 정보를 array_code에 저장
+                        weather[element.category].value = element.obsrValue; //각각 기상 정보를 weather에 저장
                     }
-                    console.log(array_code)
 
                     // 홈 화면
-                    $("#nextMatch > div:nth-of-type(1) > p:nth-of-type(1)").text(weatherCode[array_code["PTY"]["value"]])
-                    $("#nextMatch > div:nth-of-type(1) > p:nth-of-type(2)").text(array_code["T1H"]["value"] + "℃")
-                    $("#nextMatch > div:nth-of-type(1) > p:nth-of-type(3)").text(array_code["WSD"]["value"] + "㎧")
+                    $("#nextMatch > div:nth-of-type(1) > p:nth-of-type(1)").text(weatherCode[weather["PTY"]["value"]])
+                    $("#nextMatch > div:nth-of-type(1) > p:nth-of-type(2)").text(weather["T1H"]["value"] + "℃")
+                    $("#nextMatch > div:nth-of-type(1) > p:nth-of-type(3)").text(weather["WSD"]["value"] + "㎧")
 
                     // 경기 세부 정보 화면
                     if ($("#matchScore").length) {
@@ -1730,13 +1729,66 @@ $(document).ready(function () {
                             $("#matchScore").after(`<div id='matchWeather' glass='true'><p>현재 ${dataList["stadium"]} 날씨</p><div><div><img src='./files/weather.svg'><p></p></div><div><img src='./files/temp.svg'><p></p></div><div><img src='./files/wind.svg'><p></p></div></div><a href='https://www.data.go.kr/data/15084084/openapi.do' target='_blank'>기상청 제공</a></div>`)
                             $("#matchInfo").css("display", "none")
                             $(".matchDetail > button:nth-child(1)").css("display", "none")
-                            $("#matchWeather > div:nth-of-type(1) > div:nth-of-type(1) > p").text(weatherCode[array_code["PTY"]["value"]])
-                            $("#matchWeather > div:nth-of-type(1) > div:nth-of-type(2) > p").text(array_code["T1H"]["value"] + "℃")
-                            $("#matchWeather > div:nth-of-type(1) > div:nth-of-type(3) > p").text(array_code["WSD"]["value"] + "㎧")
+                            $("#matchWeather > div:nth-of-type(1) > div:nth-of-type(1) > p").text(weatherCode[weather["PTY"]["value"]])
+                            $("#matchWeather > div:nth-of-type(1) > div:nth-of-type(2) > p").text(weather["T1H"]["value"] + "℃")
+                            $("#matchWeather > div:nth-of-type(1) > div:nth-of-type(3) > p").text(weather["WSD"]["value"] + "㎧")
                         }
                     }
                 });
         }
+
+        url = `https://apis.data.go.kr/1360000/WthrWrnInfoService/getPwnStatus?serviceKey=${serviceKey}&pageNo=1&numOfRows=10&dataType=JSON`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                if (data.response.header.resultCode !== "00") {
+                    console.error("API 에러:", data.response.header.resultMsg);
+                    return;
+                }
+
+                const items = data.response.body.items.item;
+                if (!items || items.length === 0) {
+                    console.log("데이터가 없습니다.");
+                    return;
+                }
+
+                const rawText = items[0].t6;
+
+                if ($("#matchScore").length) {
+                    for (i = Object.keys(dataA).length - 1; i >= 0; i--) {
+                        if (dataA[Object.keys(dataA)[i]]["homeScore"] != "") {
+                            next = dataA[Object.keys(dataA)[i + 1]]
+                            break
+                        }
+                    }
+                }
+
+                let warning = rawText.replace(/\r\n/g, '\n').split('\n').map(line => line.replace(/^o\s*/, '').trim()).filter(line => line.length > 0).filter(line => line.includes(stadiumInfo[next["stadium"]][2])).map(line => line.split(':')[0].trim());
+
+                if (warning.length > 0) {
+                    let wrn = "";
+
+                    for (i = 0; i < warning.length; i ++) {
+                        wrn += warning[i];
+
+                        if (warning.length - i > 1) wrn += " · ";
+                    }
+
+                    // 홈 화면
+                    if ($("#nextMatch").length) {
+                        $("#nextMatch > div:nth-of-type(1)").append(`<img src='./files/warning.svg'><p>${wrn}</p>`)
+                    }
+
+                    // 경기 세부 정보 화면
+                    if ($("#matchScore").length) {
+                        $("#matchWeather > div").after(`<div><img src='./files/warning.svg'><p>${wrn}</p></div>`)
+                    }
+                }
+            })
+            .catch(error => {
+                console.error("Fetch error:", error);
+            });
     }
 
     // 배경화면
