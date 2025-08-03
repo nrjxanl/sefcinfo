@@ -4,6 +4,18 @@ $(document).ready(function() {
     // url 불러오기
     url = window.location.href
 
+    // 쿼리스트링 제거
+    if (window.location.search.includes("fbclid")) {
+        var url = new URL(window.location.href);
+        url.searchParams.delete("fbclid");
+
+        if (url.search.endsWith("=")) {
+            url.search = url.search.slice(0, -1);
+        }
+
+        history.replaceState(null, "", url.pathname + url.search + url.hash);
+    }
+
     // 화면 너비 300px 이하일 때 경고
     if ($(window).width() < 300) {
         $("body").append("<div style='width: 80vw; height: 65px; padding: 0 10vw; background: #faf6f5; position: fixed; bottom: 0; left: 0; font-size: 14px; font-weight: 300; z-index: 300; display: flex; align-items: center; justify-content: center;'>기기의 화면 크기가 작아 페이지가 정상적으로 보이지 않을 수 있습니다.</div>")
