@@ -2492,7 +2492,7 @@ function standings() {
     }
 
     // 순위 펼치기 / 접기
-    if ($(".standingsSeason > p:nth-of-type(1)").text() == "순위 자세히") {
+    if ($(".standingsSeason > p:nth-of-type(1)").text() == "순위 자세히" || $(".standingsSeason > p:nth-of-type(1)").text() == "See More Details" || $(".standingsSeason > p:nth-of-type(1)").text() == "Ver Mais Detalhes" || $(".standingsSeason > p:nth-of-type(1)").text() == "Ver Más Detalles" || $(".standingsSeason > p:nth-of-type(1)").text() == "もっと見る") {
         $("table > thead > tr > th:nth-of-type(2)").attr("colspan", "2")
         $("table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+6)").css("display", "none")
         $("table > thead > tr > th:nth-of-type(n+8)").css("display", "none")
