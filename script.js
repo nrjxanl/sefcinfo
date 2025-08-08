@@ -69,7 +69,51 @@ $("footer > img").click(function () {
 })
 
 // 메뉴
- $("body").append("<div id='menu' glass='true'><div><img src='https://sefc.info/files/home.svg'>홈</div><div><img src='https://sefc.info/files/fixtures.svg'>일정</div><div><img src='https://sefc.info/files/players.svg'>선수단</div><div><img src='https://sefc.info/files/stats.svg'>기록</div><div><img src='https://sefc.info/files/standings.svg'>순위</div><div><img src='https://sefc.info/files/chants.svg'>응원가</div><div><img src='https://sefc.info/files/wallpaper.svg'>배경화면</div><div><img src='https://sefc.info/files/stadium.svg'>직관 가이드</div><a href='https://naver.me/GlJ18AQh' target='_blank'>오류 제보 및 건의</a><img class='bannerMenu' src='https://sefc.info/files/banner_1.jpg'></div><div id='menuBg' glass='true'></div>")
+$("body").append("<div id='menu' glass='true'><div transl='y'><img src='https://sefc.info/files/home.svg'>홈</div><div transl='y'><img src='https://sefc.info/files/fixtures.svg'>일정</div><div transl='y'><img src='https://sefc.info/files/players.svg'>선수단</div><div transl='y'><img src='https://sefc.info/files/stats.svg'>기록</div><div transl='y'><img src='https://sefc.info/files/standings.svg'>순위</div><div transl='y'><img src='https://sefc.info/files/chants.svg'>응원가</div><div transl='y'><img src='https://sefc.info/files/stadium.svg'>직관 가이드</div><div id='selectLang'><img src='https://sefc.info/files/lang.svg'><div><p l='ko'>KO</p><p l='en'>EN</p><p l='pt'>PT</p><p l='es'>ES</p><p l='jp'>JP</p></div></div><a href='https://naver.me/GlJ18AQh' target='_blank' transl='y'>오류 제보 및 건의</a><img class='bannerMenu' src='https://sefc.info/files/banner_1.jpg'></div><div id='menuBg' glass='true'></div>")
+
+// 메뉴 번역
+if (localStorage.getItem("lang") == "en") $("#menu > div:nth-of-type(5)").html("<img src='https://sefc.info/files/standings.svg'>Standings")
+else if (localStorage.getItem("lang") == "pt") $("#menu > div:nth-of-type(5)").html("<img src='https://sefc.info/files/standings.svg'>Standings")
+else if (localStorage.getItem("lang") == "es") $("#menu > div:nth-of-type(5)").html("<img src='https://sefc.info/files/standings.svg'>Clasificaciones")
+else if (localStorage.getItem("lang") == "jp") $("#menu > div:nth-of-type(5)").html("<img src='https://sefc.info/files/standings.svg'>順位表")
+
+// 언어 선택 버튼
+if (localStorage.getItem("lang") == null) localStorage.setItem("lang", "ko");
+
+$(`#menu > div:nth-last-of-type(1) > div > p[l="${localStorage.getItem("lang")}"]`).css("font-weight", "900")
+
+$("#menu > div:nth-last-of-type(1) > div > p").filter(function() {
+        return $(this).css("font-weight") == 600;
+    }).css("display", "none")
+    
+el = $("#menu > div:nth-last-of-type(1) > div");
+
+$("#menu > div:nth-last-of-type(1)").click(function() {
+    cnt = el.find("p").filter(function() {
+        return $(this).css("display") == "block";
+    }).length;
+
+    if (cnt == 1) el.find("p").css("display", "block");
+    else el.find("p").filter(function() {
+        return $(this).css("font-weight") == 600;
+    }).css("display", "none")
+})
+
+$("#menu > div:nth-last-of-type(1) > div > p").click(function() {
+    cnt = el.find("p").filter(function() {
+        return $(this).css("display") == "block";
+    }).length;
+
+    if (cnt > 1) {
+        localStorage.setItem("lang", $(this).attr("l"));
+        $("#menu > div:nth-last-of-type(1) > div > p").css("font-weight", "600");
+        $(this).css("font-weight", "900");
+
+        console.log(`${$(this).attr("l")}로 언어 변경`);
+
+        window.location.reload()
+    }
+})
 
 // 상단 클릭 시 홈으로 이동
 $("header > div:nth-of-type(2)").click(function() {
@@ -117,9 +161,6 @@ $("#menu > div:nth-of-type(6)").click(function() {
     window.location = "https://sefc.info/chants"
 })
 $("#menu > div:nth-of-type(7)").click(function() {
-    window.location = "https://sefc.info/wallpaper"
-})
-$("#menu > div:nth-of-type(8)").click(function() {
     window.location = "https://sefc.info/stadium"
 })
 
@@ -450,11 +491,11 @@ if ($("#team").length || $("#chantsName").length) {
     playersChants = ["캡틴 콜", "득점 콜", "오스마르 콜(1)", "오스마르 콜(2)", "변경준 콜"]
 
     for (i = 0; i < Object.keys(teamChants).length; i++) {
-        $("#team").append("<div glass='true'>" + teamChants[i] + "</div>")
+        $("#team").append("<div glass='true' transl='y'>" + teamChants[i] + "</div>")
     }
 
     for (i = 0; i < Object.keys(playersChants).length; i++) {
-        $("#players").append("<div glass='true'>" + playersChants[i] + "</div>")
+        $("#players").append("<div glass='true' transl='y'>" + playersChants[i] + "</div>")
     }
 
     $("#team").children("div").on("click", function () {
@@ -464,6 +505,14 @@ if ($("#team").length || $("#chantsName").length) {
     $("#players").children("div").on("click", function () {
         window.location = "./chants/players?" + $(this).index()
     })
+
+    transl()
+
+    $("#team > div > span, #players > div > span").each(function () {
+        if ($(this).text().includes("()")) {
+            $(this).remove();
+        }
+    });
 }
 
 if ($("#chantsName").length) {
@@ -1373,7 +1422,7 @@ $("#selectStadium > a").click(function(e) {
     $("#selectStadium > a > div > button").remove();
     $(this).css("cursor", "auto");
     $(this).find("div > img").css("display", "none");
-    $(this).find("div").append("<button glass='true'>관중석 시야</button><button glass='true'>교통 및 주차</button><button glass='true'>주변 맛집</button>");
+    $(this).find("div").append("<button glass='true' transl='y'>관중석 시야</button><button glass='true' transl='y'>교통 및 주차</button><button glass='true' transl='y'>주변 맛집</button>");
 
     stadium = $(this).closest("a").find("p").contents().filter(function() {
         return this.nodeType === 3;
@@ -1393,6 +1442,8 @@ $("#selectStadium > a").click(function(e) {
     if (stadium == "광양축구전용구장" || stadium == "김포솔터축구장" || stadium == "구덕운동장" || stadium == "부천종합운동장" || stadium == "안산와~스타디움" || stadium == "이순신종합운동장" || stadium == "인천축구전용경기장" || stadium == "창원축구센터 주경기장" || stadium == "천안종합운동장" || stadium == "화성종합경기타운 주경기장") {
         $(this).find("div > button:nth-of-type(3)").css("opacity", 0.3).attr("class", "noHover")
     };
+
+    transl()
 });
 
 if ($("#selectStadium").length) {
@@ -1404,6 +1455,8 @@ if ($("#selectStadium").length) {
         $("#selectStadium > a > div > img").css("display", "inline");
         $("#selectStadium > a > div > button").remove();
     });
+
+    transl()
 }
 
 // 관중석 시야 페이지로 이동
@@ -1549,9 +1602,11 @@ if ($("#stadium").length) {
 
         await markSeatsWithPhotos(rowGs, id);
 
-        $("#seats").append("<button>돌아가기</button>");
+        $("#seats").append("<button transl='y'>돌아가기</button>");
 
         $("#seats > div").css("pointer-events", "auto");
+
+        transl()
     });
 
     $("#seats").on("click", "button", function() {
@@ -1582,11 +1637,7 @@ if ($("#stadium").length) {
         $("#seatsPopUp").animate({ opacity: "1" }, 100).css("pointer-events", "auto").empty();
         $("#seatsPopUpBG").animate({ opacity: "1" }, 100).css("pointer-events", "auto");
 
-        if (ver > 0) {
-            $("#seatsPopUp").append(`<p>${id}구역 ${displayVer}열 ${hor}번</p>`);
-        } else {
-            $("#seatsPopUp").append(`<p>${id}구역 휠체어석 ${hor}번</p>`);
-        }
+        $("#seatsPopUp").append(`<p>${id}구역 ${displayVer}열 ${hor}번</p>`);
 
         // 좌석 열을 알파벳으로 표기하는 경기 캐시 알파벳 ver 사용
         let hasPhoto = false;
@@ -1597,11 +1648,13 @@ if ($("#stadium").length) {
         // 좌석 열을 알파벳으로 표기하는 경기 파일명 알파벳 ver 사용
         if (hasPhoto) {
             $("#seatsPopUp").append(
-                `<img src='../files/${baseName}_${id}_${fileVerKey}_${hor}.jpg'><button>사진 추가하기</button>`
+                `<img src='../files/${baseName}_${id}_${fileVerKey}_${hor}.jpg'><button transl='y'>사진 추가하기</button>`
             );
         } else {
-            $("#seatsPopUp").append("<p>해당 좌석의 사진이 없습니다.</p><button>사진 추가하기</button>");
+            $("#seatsPopUp").append("<p transl='y'>해당 좌석의 사진이 없습니다.</p><button transl='y'>사진 추가하기</button>");
         }
+
+        transl()
     });
 
     $("#seatsPopUp").on("click", "button", function() {
@@ -1627,3 +1680,687 @@ if ($("#stadium").length) {
         }
     });
 }
+
+// 번역
+function transl() {
+
+    transList = {
+        
+        // 대회명
+        "K리그1": ["K League 1", "K League 1", "K League 1", "Kリーグ1"],
+        "K리그2": ["K League 2", "K League 2", "K League 2", "Kリーグ2"],
+        "K리그 클래식": ["K League Classic", "K League Classic", "K League Classic", "Kリーグクラシック"],
+        "K리그 챌린지": ["K League Challenge", "K League Challenge", "K League Challenge", "Kリーグチャレンジ"],
+        "K리그": ["K League", "K League", "K League", "Kリーグ"],
+        "코리아컵": ["Korean Cup", "Korean Cup", "Korean Cup", "コリアカップ"],
+        "챔피언십": ["Championship", "Championship", "Championship", "チャンピオンシップ"],
+        "주니어": ["Junior", "Junior", "Junior", "ジュニア"],
+        "대한축구협회장배 전국고등학교 축구대회": ["KFA President's National High School Football Cup", "Taça Nacional de Futebol Americano do Presidente da KFA", "Copa Nacional de Fútbol de Escuelas Secundarias del Presidente de la KFA", "大韓サッカー協会長杯全国高校サッカー大会"],
+        "부산MBC 전국고등학교 축구대회": ["Busan MBC National High School Football Cup", "Taça Nacional de Futebol Americano Escolar Busan MBC", "Copa Nacional de Fútbol de Escuelas Secundarias Busan MBC", "<ruby>釜山<rt>プサン</rt></ruby>MBC全国高校サッカー大会"],
+        "문체부장관배 전국고등학교 축구대회": ["MCST National High School Football Cup", "Taça Nacional de Futebol Americano Escolar MCST", "Copa Nacional de Fútbol de Escuelas Secundarias MCST", "文化体育観光部長管轄全国高校サッカー大会"],
+        "대통령금배 전국고등학교 축구대회": ["President's National High School Football Cup", "Taça Nacional de Futebol Americano do Presidente", "Copa Nacional de Fútbol de Escuelas Secundarias del Presidente", "大統領金杯全国高校サッカー大会"],
+        "승강 플레이오프": ["Promotion-Relegation Playoffs", "Promotion-Relegation Playoffs", "Promotion-Relegation Playoffs", "昇降プレイオフ"],
+        "플레이오프": ["Playoff", "Playoff", "Playoff", "プレイオフ"],
+        "32강전": ["Round of 32", "Ronda de 32", "Dieciseisavos de Final", "32強戦"],
+        "24강전": ["Round of 24", "Ronda de 24", "Ronda de 24", "24強戦"],
+        "16강전": ["Round of 16", "Oitavos de Final", "Octavos de Final", "16強戦"],
+        "12강전": ["Round of 12", "Ronda de 12", "Ronda de 12", "12強戦"],
+        "8강전": ["Quarterfinals", "Quartos de Final", "Cuartos de Final", "8強戦"],
+        "4강전": ["Semifinals", "Semifinais", "Semifinales", "4強戦"],
+        "결승전": ["Final", "Final", "Final", "決勝戦"],
+        "조별리그": ["Group Stage", "Fase de Grupos", "Fase de Grupos", "グループリーグ"],
+        "1차전": ["R1", "J1", "J1", "1次戦"],
+        "2차전": ["R2", "J2", "J2", "2次戦"],
+        "전반기": ["1H", "Apertura", "Apertura", "前期"],
+        "후반기": ["2H", "Clausura", "Clausura", "後期"],
+        "KEB하나은행": ["KEB Hana Bank", "KEB Hana Bank", "KEB Hana Bank", "KEBハナ銀行"],
+        "하나은행": ["Hana Bank", "Hana Bank", "Hana Bank", "ハナ銀行"],
+        "하나원큐": ["Hana 1Q", "Hana 1Q", "Hana 1Q", "ハナワンキュー"],
+        "현대오일뱅크": ["Hyundai Oil Bank", "Hyundai Oil Bank", "Hyundai Oil Bank", "現代オイルバンク"],
+
+        // 경기장
+        "목동운동장": ["Mokdong Stadium", "Estádio Mokdong", "Estadio Mokdong", "<ruby>モク洞<rt>木洞</rt></ruby>運動場"],
+        "광양축구전용구장": ["Gwangyang Football Stadium", "Estádio de Futebol de Gwangyang", "Estadio de Fútbol de Gwangyang", "<ruby>クァンヤン<rt>光陽</rt></ruby>サッカー専用球場"],
+        "김포솔터축구장": ["Gimpo Solteo Football Field", "Campo de Futebol Gimpo Solteo", "Campo de Fútbol de Gimpo Solteo", "<ruby>キンポ<rt>金浦</rt></ruby>ソルトサッカー場"],
+        "구덕운동장": ["Gudeok Stadium", "Estádio Gudeok", "Estadio Gudeok", "<ruby>クドク<rt>九徳</rt></ruby>運動場"],
+        "부천종합운동장": ["Bucheon Stadium", "Estádio Bucheon", "Estadio Bucheon", "<ruby>プチョン<rt>富川</rt></ruby>総合運動場"],
+        "수원월드컵경기장": ["Suwon World Cup Stadium", "Estádio da Copa do Mundo de Suwon", "Estadio Mundialista de Suwon", "<ruby>スウォン<rt>水原</rt></ruby>ワールドカップ競技場"],
+        "안산와~스타디움": ["Ansan Wa~ Stadium", "Estádio Ansan Wa~", "Estadio Ansan Wa~", "<ruby>アンサン<rt>安山</rt></ruby>ワ〜スタジアム"],
+        "이순신종합운동장": ["Yi&nbsp;Sunsin Stadium", "Estádio Yi&nbsp;Sunsin", "Estadio Yi&nbsp;Sunsin", "<ruby>イ・スンシン<rt>李舜臣</rt></ruby>総合運動場"],
+        "인천축구전용경기장": ["Incheon Football Stadium", "Estádio de Futebol de Incheon", "Estadio de Fútbol de Incheon", "<ruby>インチョン<rt>仁川</rt></ruby>サッカー専用競技場"],
+        "창원축구센터 주경기장": ["Changwon Football Centre Main Stadium", "Estádio Principal do Centro de Futebol de Changwon", "Estadio Principal del Centro de Fútbol de Changwon", "<ruby>チャンウォン<rt>昌原</rt></ruby>サッカーセンター主競技場"],
+        "천안종합운동장": ["Cheonan Stadium", "Estádio Cheonan", "Estadio Cheonan", "<ruby>チョナン<rt>天安</rt></ruby>総合運動場"],
+        "청주종합경기장": ["Cheongju Stadium", "Estádio Cheongju", "Estadio Cheongju", "<ruby>チョンジュ<rt>清州</rt></ruby>総合競技場"],
+        "탄천종합운동장": ["Tancheon Stadium", "Estádio Tancheon", "Estadio Tancheon", "<ruby>タンチョン<rt>炭川</rt></ruby>総合運動場"],
+        "화성종합경기타운 주경기장": ["Hwaseong Sports Town Main Stadium", "Estádio Principal da Cidade Desportiva de Hwaseong", "Estadio Principal de la Ciudad Deportiva de Hwaseong", "<ruby>ファソン<rt>華城</rt></ruby>総合競技タウン主競技場"],
+
+        // 응원가
+        "팀 응원": ["Team", "Equipe", "Equipo", "チーム"],
+        "선수 응원": ["Players", "Jogadoras", "Jugadores", "選手"],
+
+        "SEFC 콜": ["SEFC", "SEFC", "SEFC", "SEFC"],
+        "서울 이랜드 콜": ["Seoul E-Land", "Seoul E-Land", "Seoul E-Land", "ソウル・イーランド"],
+        "2 3 4 서울 콜": ["2 3 4 Seoul", "2 3 4 Seul", "2 3 4 Seúl", "2-3-4-ソウル"],
+        "3 3 4 2 서울 콜": ["3 3 4 2 Seoul", "3 3 4 2 Seul", "3 3 4 2 Seúl", "3-2-4-2-ソウル"],
+        "승리하라 서울 콜": ["<ruby>Victory<rt>seungnihara</rt></ruby> Seoul", "<ruby>Vitória<rt>seungnihara</rt></ruby> Seul", "<ruby>Victoria<rt>seungnihara</rt></ruby> Seúl", "<ruby>勝利せよ<rt>スンニハラ</rt></ruby>、ソウル"],
+        "뛰어 뛰어 서울 콜": ["<ruby>Jump, Jump,<rt>ttwieo ttwieo</rt></ruby> Seoul", "<ruby>Pula, Pula,<rt>ttwieo ttwieo</rt></ruby> Seul", "<ruby>Salta, Salta,<rt>ttwieo ttwieo</rt></ruby> Seúl", "<ruby>跳べ、跳べ<rt>トゥィオ トゥィオ</rt></ruby>、ソウル"],
+        "세트피스 콜": ["Set Piece", "Set Piece", "Set Piece", "セットプレー"],
+        "하나되어": ["<ruby>United as One<rt>hanadoe-eo</rt></ruby>", "<ruby>Juntos como Um<rt>hanadoe-eo</rt></ruby>", "<ruby>Juntos como Uno<rt>hanadoe-eo</rt></ruby>", "<ruby>一緒になって<rt>ハナドェオ</rt></ruby>"],
+        "사랑해 서울 이랜드": ["<ruby>I Love<rt>saranghae</rt></ruby> Seoul E-Land", "<ruby>Te Amo<rt>saranghae</rt></ruby> Seoul E-Land", "<ruby>Te Amo<rt>saranghae</rt></ruby> Seoul E-Land", "<ruby>愛して<rt>サランヘ</rt></ruby>、ソウル・イーランド"],
+        "서울의 노래": ["<ruby>Song of Seoul<rt>seourui norae</rt></ruby>", "<ruby>Canção de Seul<rt>seourui norae</rt></ruby>", "<ruby>Canción de Seúl<rt>seourui norae</rt></ruby>", "<ruby>ソウルの歌<rt>ソウレ ノレ</rt></ruby>"],
+        "사랑한다 서울": ["<ruby>I Love<rt>saranghanda</rt></ruby> Seoul", "<ruby>Te Amo<rt>saranghanda</rt></ruby> Seul", "<ruby>Te Amo<rt>saranghanda</rt></ruby> Seúl", "<ruby>愛する<rt>サランハンダ</rt></ruby>、ソウル"],
+        "우리는 서울 이랜드": ["<ruby>We are<rt>urineun</rt></ruby> Seoul E-Land", "<ruby>Nós somos<rt>urineun</rt></ruby> Seoul E-Land", "<ruby>Somos<rt>urineun</rt></ruby> Seoul E-Land", "<ruby>僕たちは<rt>ウリヌン</rt></ruby>ソウル・イーランド"],
+        "한강에서부터 제주까지": ["<ruby>From the Hangang River to Jeju<rt>han-gang-eseobuteo jejukkaji</rt></ruby>", "<ruby>Do Rio Hangang a Jeju<rt>han-gang-eseobuteo jejukkaji</rt></ruby>", "<ruby>Del río Hangang a Jeju<rt>han-gang-eseobuteo jejukkaji</rt></ruby>", "<ruby>ハンガンからチェジュまで<rt>ハンガンエソブト チェジュカジ</rt></ruby>"],
+        "표범의 전사들": ["<ruby>Warriors of the Leopard<rt>pyobeomui jeonsadeul</rt></ruby>", "<ruby>Guerreiros do Leopardo<rt>pyobeomui jeonsadeul</rt></ruby>", "<ruby>Guerreros del leopardo<rt>pyobeomui jeonsadeul</rt></ruby>", "<ruby>ヒョウの戦士たち<rt>ピョボメ チョンサドゥル</rt></ruby>"],
+        "앞으로 가자": ["<ruby>Let's Go Forward<rt>apeuro gaja</rt></ruby>", "<ruby>Vamos Avançar<rt>apeuro gaja</rt></ruby>", "<ruby>Vamos Adelante<rt>apeuro gaja</rt></ruby>", "<ruby>前に行こう<rt>アプロ カジャ</rt></ruby>"],
+        "둥글게 둥글게": ["<ruby>Round and Round<rt>dunggeulge</rt></ruby>", "<ruby>Round and Round<rt>dunggeulge</rt></ruby>", "<ruby>Round and Round<rt>dunggeulge</rt></ruby>", "<ruby>丸く丸く<rt>トゥングルゲ トゥングルゲ</rt></ruby>"],
+        "포에버": ["<ruby>Forever<rt>po-ebeo</rt></ruby>", "<ruby>Para Sempre<rt>po-ebeo</rt></ruby>", "<ruby>Para Siempre<rt>po-ebeo</rt></ruby>", "フォーエバー"],
+        "항상 사랑할 거야": ["<ruby>I Will Always Love You<rt>hangsang saranghal geoya</rt></ruby>", "<ruby>Eu Sempre Te Vou Amar<rt>hangsang saranghal geoya</rt></ruby>", "<ruby>Siempre Te Querré<rt>hangsang saranghal geoya</rt></ruby>", "<ruby>いつも愛してるよ<rt>ハンサン サランハル コヤ</rt></ruby>"],
+        "푸른 심장": ["<ruby>Blue Heart<rt>pureun simjang</rt></ruby>", "<ruby>Coração Azul<rt>pureun simjang</rt></ruby>", "<ruby>Corazón Azul<rt>pureun simjang</rt></ruby>", "<ruby>青いハート<rt>プルン シムジャン</rt></ruby>"],
+        "서울 승리를 향해": ["Seoul, <ruby>Towards Victory<rt>seungnireul hyanghae</rt></ruby>", "Seul, <ruby>Rumo à Vitória<rt>seungnireul hyanghae</rt></ruby>", "Seúl, <ruby>Hacia la Victoria<rt>seungnireul hyanghae</rt></ruby>", "ソウル、<ruby>勝利に向けて<rt>スンニルル ヒャンヘ</rt></ruby>"],
+        "서울을 위해 달려라": ["<ruby>Run for Seoul<rt>seoureul wihae dallyeora</rt></ruby>", "<ruby>Corra por Seul<rt>seoureul wihae dallyeora</rt></ruby>", "<ruby>Corre por Seúl<rt>seoureul wihae dallyeora</rt></ruby>", "<ruby>ソウルのために走れ<rt>ソウルル ウィヘ タルリョラ</rt></ruby>"],
+        "서울의 아리아": ["<ruby>Aria of Seoul<rt>seourui aria</rt></ruby>", "<ruby>Ária de Seul<rt>seourui aria</rt></ruby>", "<ruby>Aria de Seúl<rt>seourui aria</rt></ruby>", "<ruby>ソウルのアリア<rt>ソウレ アリア</rt></ruby>"],
+        "너를 태우고": ["<ruby>Carrying You<rt>neoreul taeugo</rt></ruby>", "<ruby>Carregando-o<rt>neoreul taeugo</rt></ruby>", "<ruby>Llevándote<rt>neoreul taeugo</rt></ruby>", "<ruby>君をのせて<rt>ノルル テウゴ</rt></ruby>"],
+        "페파스": ["Pepas", "Pepas", "Pepas", "ペパス"],
+        "우리는 항상 여기에": ["<ruby>We Are Always Here<rt>urineun hangsang yeogie</rt></ruby>", "<ruby>Estamos Sempre Aqui<rt>urineun hangsang yeogie</rt></ruby>", "<ruby>Siempre Estamos Aquí<rt>urineun hangsang yeogie</rt></ruby>", "<ruby>僕たちはいつもここに<rt>ウリヌン ハンサン ヨギエ</rt></ruby>"],
+        "우리 모두 다 같이": ["<ruby>All of Us Together<rt>uri modu da gachi</rt></ruby>", "<ruby>Todos Nós Juntos<rt>uri modu da gachi</rt></ruby>", "<ruby>Todos Juntos<rt>uri modu da gachi</rt></ruby>", "<ruby>みんな一緒に<rt>ウリ モドゥ タ カチ</rt></ruby>"],
+        "샤랄라 SEFC": ["Sharala SEFC", "Sharala SEFC", "Sharala SEFC", "シャララSEFC"],
+        "좌로 우로": ["<ruby>Left Right<rt>jwaro uro</rt></ruby>", "<ruby>Esquerda Direita<rt>jwaro uro</rt></ruby>", "<ruby>Izquierda Derecha<rt>jwaro uro</rt></ruby>", "<ruby>左-右<rt>チャロ ウロ</rt></ruby>"],
+        "뱃놀이": ["<ruby>Shanty<rt>baennori</rt></ruby>", "<ruby>Canção de Marinheiro<rt>baennori</rt></ruby>", "<ruby>Canto de Barqueros<rt>baennori</rt></ruby>", "<ruby>船歌<rt>ペンノリ</rt></ruby>"],
+        
+        "캡틴 콜": ["Captain", "Capitão", "Capitán", "キャプテン"],
+        "득점 콜": ["Goalscorer", "Goleador", "Goleador", "得点した選手"],
+        "오스마르 콜": ["Osmar Ibáñez Barba", "Osmar Ibáñez Barba", "Osmar Ibáñez Barba", "オスマル・イバニェス・バルバ"],
+        "변경준 콜": ["Byeon Gyeongjun", "Byeon Gyeongjun", "Byeon Gyeongjun", "ピョン・キョンジュン"],
+
+        "선수단 입장 시": ["", "", "", ""],
+        "선수단 인사 시": ["", "", "", ""],
+        "경기 승리 세리머니": ["", "", "", ""],
+        "카니발": ["", "", "", ""],
+
+        // 이름
+        "가브리엘": ["Gabriel Santos", "Gabriel Santos", "Gabriel Santos", "ガブリエル・サントス"],
+        "강민재": ["Kang Minjae", "Kang Minjae", "Kang Minjae", "カン・ミンジェ"],
+        "감한솔": ["Gam Hansol", "Gam Hansol", "Gam Hansol", "カム・ハンソル"],
+        "강정묵": ["Kang Jeongmook", "Kang Jeongmook", "Kang Jeongmook", "カン・ジョンムク"],
+        "고경준": ["Ko Kyungjoon", "Ko Kyungjoon", "Ko Kyungjoon", "コ・キョンジュン"],
+        "고민혁": ["Ko Minhyeok", "Ko Minhyeok", "Ko Minhyeok", "コ・ミンヒョク"],
+        "고무열": ["Go Mooyul", "Go Mooyul", "Go Mooyul", "コ・ムヨル"],
+        "고재현": ["Go Jaehyun", "Go Jaehyun", "Go Jaehyun", "コ・チェヒョン"],
+        "고준영": ["Go Junyoung", "Go Junyoung", "Go Junyoung", "コ・チュニョン"],
+        "고차원": ["Ko Chawon", "Ko Chawon", "Ko Chawon", "コ・チャウォン"],
+        "곽성욱": ["Gwak Seonguk", "Gwak Seonguk", "Gwak Seonguk", "クァク・ソンウク"],
+        "곽윤호": ["Gwak Yunho", "Gwak Yunho", "Gwak Yunho", "クァク・ユンホ"],
+        "구대엽": ["Gu Daeyeob", "Gu Daeyeob", "Gu Daeyeob", "ク・テヨブ"],
+        "구성윤": ["Gu Sungyun", "Gu Sungyun", "Gu Sungyun", "ク・ソンユン"],
+        "권기표": ["Kwon Gipyo", "Kwon Gipyo", "Kwon Gipyo", "クォン・キピョ"],
+        "금교진": ["Geum Kyojin", "Geum Kyojin", "Geum Kyojin", "クム・キョジン"],
+        "김강호": ["Kim Kangho", "Kim Kangho", "Kim Kangho", "キム・カンホ"],
+        "김결": ["Kim Gyeol", "Kim Gyeol", "Kim Gyeol", "キム・キョル"],
+        "김경민": ["Kim Kyeongmin", "Kim Kyeongmin", "Kim Kyeongmin", "キム・キョンミン"],
+        "김경준": ["Kim Kyungjun", "Kim Kyungjun", "Kim Kyungjun", "キム・キョンジュン"],
+        "김대광": ["Kim Daekwang", "Kim Daekwang", "Kim Daekwang", "キム・テグァン"],
+        "김동권": ["Kim Donggwon", "Kim Donggwon", "Kim Donggwon", "キム・トングォン"],
+        "김동섭": ["Kim Dongsub", "Kim Dongsub", "Kim Dongsub", "キム・トンソブ"],
+        "김동진": ["Kim Dongjin", "Kim Dongjin", "Kim Dongjin", "キム・トンジン"],
+        "김동철": ["Kim Dongcheol", "Kim Dongcheol", "Kim Dongcheol", "キム・トンチョル"],
+        "김민규1": ["Kim Mingyu", "Kim Mingyu", "Kim Mingyu", "キム・ミンギュ"],
+        "김민규2": ["Kim Minkyu", "Kim Minkyu", "Kim Minkyu", "キム・ミンギュ"],
+        "김민균": ["Kim Minkyun", "Kim Minkyun", "Kim Minkyun", "キム・ミンキュン"],
+        "김민서": ["Kim Minseo", "Kim Minseo", "Kim Minseo", "キム・ミンソ"],
+        "김민제": ["Kim Minje", "Kim Minje", "Kim Minje", "キム・ミンジェ"],
+        "김민호": ["Kim Minho", "Kim Minho", "Kim Minho", "キム・ミンホ"],
+        "김병석": ["Kim Byungsuk", "Kim Byungsuk", "Kim Byungsuk", "キム・ピョンソク"],
+        "김선민": ["Kim Sunmin", "Kim Sunmin", "Kim Sunmin", "キム・ソンミン"],
+        "김성주": ["Kim Sungju", "Kim Sungju", "Kim Sungju", "キム・ソンジュ"],
+        "김성현": ["Kim Seonghyeon", "Kim Seonghyeon", "Kim Seonghyeon", "キム・ソンヒョン"],
+        "김수안": ["Kim Suan", "Kim Suan", "Kim Suan", "キム・スアン"],
+        "김신진": ["Kim Shinjin", "Kim Shinjin", "Kim Shinjin", "キム・シンジン"],
+        "김연수": ["Kim Yeonsoo", "Kim Yeonsoo", "Kim Yeonsoo", "キム・ヨンス"],
+        "김영광": ["Kim Youngkwang", "Kim Youngkwang", "Kim Youngkwang", "キム・ヨングァン"],
+        "김영욱": ["Kim Younguk", "Kim Younguk", "Kim Younguk", "キム・ヨンウク"],
+        "김오규": ["Kim Ohkyu", "Kim Ohkyu", "Kim Ohkyu", "キム・オギュ"],
+        "김원식": ["Kim Wonsik", "Kim Wonsik", "Kim Wonsik", "キム・ウォンシク"],
+        "김인성": ["Kim Insung", "Kim Insung", "Kim Insung", "キム・インソン"],
+        "김재성": ["Kim Jaesung", "Kim Jaesung", "Kim Jaesung", "キム・チェソン"],
+        "김재연": ["Kim Jaeyeon", "Kim Jaeyeon", "Kim Jaeyeon", "キム・チェヨン"],
+        "김재웅": ["Kim Jaewoong", "Kim Jaewoong", "Kim Jaewoong", "キム・チェウン"],
+        "김재현": ["Kim Jaehyun", "Kim Jaehyun", "Kim Jaehyun", "キム・チェヒョン"],
+        "김정수": ["Kim Jungsu", "Kim Jungsu", "Kim Jungsu", "キム・チョンス"],
+        "김정환": ["Kim Jeonghwan", "Kim Jeonghwan", "Kim Jeonghwan", "キム・チョンファン"],
+        "김주환": ["Kim Juhwan", "Kim Juhwan", "Kim Juhwan", "キム・チュファン"],
+        "김준태": ["Kim Juntae", "Kim Juntae", "Kim Juntae", "キム・チュンテ"],
+        "김지운": ["Kim Jiun", "Kim Jiun", "Kim Jiun", "キム・チウン"],
+        "김진혁": ["Kim Jinhyuk", "Kim Jinhyuk", "Kim Jinhyuk", "キム・チンヒョク"],
+        "김진환": ["Kim Jinhwan", "Kim Jinhwan", "Kim Jinhwan", "キム・チンファン"],
+        "김창욱": ["Kim Changwook", "Kim Changwook", "Kim Changwook", "キム・チャンウク"],
+        "김태수": ["Kim Taesu", "Kim Taesu", "Kim Taesu", "キム・テス"],
+        "김태은": ["Kim Taeeun", "Kim Taeeun", "Kim Taeeun", "キム・テウン"],
+        "김태현1": ["Kim Taehyun", "Kim Taehyun", "Kim Taehyun", "キム・テヒョン"],
+        "김태현2": ["Kim Taehyeon", "Kim Taehyeon", "Kim Taehyeon", "キム・テヒョン"],
+        "김하준": ["Kim Hajun", "Kim Hajun", "Kim Hajun", "キム・ハジュン"],
+        "김현규": ["Kim Hyunkyu", "Kim Hyunkyu", "Kim Hyunkyu", "キム・ヒョンギュ"],
+        "김현성": ["Kim Hyeonsung", "Kim Hyeonsung", "Kim Hyeonsung", "キム・ヒョンソン"],
+        "김현솔": ["Kim Hyunsol", "Kim Hyunsol", "Kim Hyunsol", "キム・ヒョンソル"],
+        "김현우": ["Kim Hyeonwoo", "Kim Hyeonwoo", "Kim Hyeonwoo", "キム・ヒョヌ"],
+        "김현훈": ["Kim Hyunhun", "Kim Hyunhun", "Kim Hyunhun", "キム・ヒョンフン"],
+        "김형근": ["Kim Hyunggeun", "Kim Hyunggeun", "Kim Hyunggeun", "キム・ヒョングン"],
+        "김호준1": ["Kim Hojun", "Kim Hojun", "Kim Hojun", "キム・ホジュン"],
+        "김희원": ["Kim Heewon", "Kim Heewon", "Kim Heewon", "キム・ヒウォン"],
+        "까데나시": ["Felipe Cadenazzi", "Felipe Cadenazzi", "Felipe Cadenazzi", "フェリペ・カデナシ"],
+        "까리우스": ["Alan Cariús", "Alan Cariús", "Alan Cariús", "アラン・カリウス"],
+        "노동건": ["No Donggeon", "No Donggeon", "No Donggeon", "ノ・トンゴン"],
+        "두아르테": ["Róbson Duarte", "Róbson Duarte", "Róbson Duarte", "ロブソン・ドゥアルチ"],
+        "라이언존슨": ["Ryan Johnson", "Ryan Johnson", "Ryan Johnson", "ライアン・ジョンソン"],
+        "레안드로": ["Leandro Ribeiro", "Leandro Ribeiro", "Leandro Ribeiro", "レアンドロ・リベイロ"],
+        "로빙요": ["Daniel Lovinho", "Daniel Lovinho", "Daniel Lovinho", "ダニエル・ロビーニョ"],
+        "마스다": ["Masuda Chikashi", "Masuda Chikashi", "Masuda Chikashi", "<ruby>増田誓志<rt>マスダ チカシ</rt></ruby>"],
+        "명준재": ["Myung Junjae", "Myung Junjae", "Myung Junjae", "ミョン・チュンジェ"],
+        "몬타뇨": ["Jhon Montaño", "Jhon Montaño", "Jhon Montaño", "ジョン・モンターニョ"],
+        "문상윤": ["Moon Sangyun", "Moon Sangyun", "Moon Sangyun", "ムン・サンユン"],
+        "문정인": ["Moon Jungin", "Moon Jungin", "Moon Jungin", "ムン・チョンイン"],
+        "바비오": ["William Barbio", "William Barbio", "William Barbio", "ウィリアン・バルビオ"],
+        "박경민": ["Park Kyungmin", "Park Kyungmin", "Park Kyungmin", "パク・キョンミン"],
+        "박경배": ["Park Kyoungbae", "Park Kyoungbae", "Park Kyoungbae", "パク・キョンベ"],
+        "박민서": ["Park Minseo", "Park Minseo", "Park Minseo", "パク・ミンソ"],
+        "박성우": ["Park Seongwoo", "Park Seongwoo", "Park Seongwoo", "パク・ソンウ"],
+        "박정인": ["Park Jeongin", "Park Jeongin", "Park Jeongin", "パク・チョンイン"],
+        "박준영1": ["Park Junyoung", "Park Junyoung", "Park Junyoung", "パク・チュニョン"],
+        "박준영2": ["Park Junyoung", "Park Junyoung", "Park Junyoung", "パク・チュニョン"],
+        "박창환": ["Park Changhwan", "Park Changhwan", "Park Changhwan", "パク・チャンファン"],
+        "박태준": ["Park Taejun", "Park Taejun", "Park Taejun", "パク・テジュン"],
+        "반토안": ["Nguyễn Văn Toàn", "Nguyễn Văn Toàn", "Nguyễn Văn Toàn", "グエン・バン・トアン"],
+        "배서준": ["Bae Seojoon", "Bae Seojoon", "Bae Seojoon", "ペ・ソジュン"],
+        "배재우": ["Bae Jaewoo", "Bae Jaewoo", "Bae Jaewoo", "ペ・チェウ"],
+        "배진우": ["Bae Jinwoo", "Bae Jinwoo", "Bae Jinwoo", "ペ・チヌ"],
+        "백지웅": ["Baek Jiung", "Baek Jiung", "Baek Jiung", "ペク・チウン"],
+        "백지훈": ["Baek Jihoon", "Baek Jihoon", "Baek Jihoon", "ペク・チフン"],
+        "베네가스": ["Nicolás Benegas", "Nicolás Benegas", "Nicolás Benegas", "ニコラス・ベネガス"],
+        "벨루소": ["Jonatas Belusso", "Jonatas Belusso", "Jonatas Belusso", "ジョナタス・ベルゾー"],
+        "변경준": ["Byeon Gyeongjun", "Byeon Gyeongjun", "Byeon Gyeongjun", "ピョン・キョンジュン"],
+        "변준범": ["Byeon Junbyum", "Byeon Junbyum", "Byeon Junbyum", "ピョン・チュンボム"],
+        "보비": ["Robert Cullen", "Robert Cullen", "Robert Cullen", "カレン・ロバート"],
+        "브루노 실바": ["Bruno Silva", "Bruno Silva", "Bruno Silva", "ブルーノ・シウバ"],
+        "브루노": ["Bruno Oliveira", "Bruno Oliveira", "Bruno Oliveira", "ブルーノ・オリベイラ"],
+        "서경주": ["Seo Gyeongju", "Seo Gyeongju", "Seo Gyeongju", "ソ・キョンジュ"],
+        "서보민": ["Seo Bomin", "Seo Bomin", "Seo Bomin", "ソ・ポミン"],
+        "서재민1": ["Seo Jaemin", "Seo Jaemin", "Seo Jaemin", "ソ・チェミン"],
+        "서재민2": ["Seo Jaemin", "Seo Jaemin", "Seo Jaemin", "ソ・チェミン"],
+        "서정진": ["Seo Jungjin", "Seo Jungjin", "Seo Jungjin", "ソ・チョンジン"],
+        "서진석": ["Seo Jinseok", "Seo Jinseok", "Seo Jinseok", "ソ・チンソク"],
+        "손석용": ["Son Sukyong", "Son Sukyong", "Son Sukyong", "ソン・ソクヨン"],
+        "손혁찬": ["Son Hyeokchan", "Son Hyeokchan", "Son Hyeokchan", "ソン・ヒョクチャン"],
+        "송시우": ["Song Siwoo", "Song Siwoo", "Song Siwoo", "ソン・シウ"],
+        "수쿠타 파수": ["Richard Sukuta-Pasu", "Richard Sukuta-Pasu", "Richard Sukuta-Pasu", "リヒャルト・スクタ＝パス"],
+        "신성학": ["Shin Seonghak", "Shin Seonghak", "Shin Seonghak", "シン・ソンハク"],
+        "신일수": ["Shin Ilsoo", "Shin Ilsoo", "Shin Ilsoo", "シン・イルス"],
+        "신세계": ["Shin Segye", "Shin Segye", "Shin Segye", "シン・セギェ"],
+        "심광욱": ["Sim Gwangwook", "Sim Gwangwook", "Sim Gwangwook", "シム・クァンウク"],
+        "심상민": ["Sim Sangmin", "Sim Sangmin", "Sim Sangmin", "シム・サンミン"],
+        "심영성": ["Shim Youngsung", "Shim Youngsung", "Shim Youngsung", "シム・ヨンソン"],
+        "아르시치": ["Lazar Arsić", "Lazar Arsić", "Lazar Arsić", "ラザル・アルシッチ"],
+        "아센호": ["Mauricio Asenjo", "Mauricio Asenjo", "Mauricio Asenjo", "マウリシオ・アセンホ"],
+        "아이데일": ["John Iredale", "John Iredale", "John Iredale", "ジョン・アイルデール"],
+        "아츠키": ["Wada Atsuki", "Wada Atsuki", "Wada Atsuki", "<ruby>和田篤紀<rt>ワダ アツキ</rt></ruby>"],
+        "안동혁": ["An Donghyeog", "An Donghyeog", "An Donghyeog", "アン・トンヒョク"],
+        "안성빈": ["An Sungbin", "An Sungbin", "An Sungbin", "アン・ソンビン"],
+        "안재훈": ["Ahn Jaehoon", "Ahn Jaehoon", "Ahn Jaehoon", "アン・チェフン"],
+        "안지호": ["An Jiho", "An Jiho", "An Jiho", "アン・チホ"],
+        "안태현": ["An Taehyun", "An Taehyun", "An Taehyun", "アン・テヒョン"],
+        "알렉스": ["Wesley Alex Maiolino", "Wesley Alex Maiolino", "Wesley Alex Maiolino", "ウェズリー・アレックス・マイオリーノ"],
+        "야고": ["Yago Moreira Silva", "Yago Moreira Silva", "Yago Moreira Silva", "ヤゴ・モレイラ・シウバ"],
+        "양기훈": ["Yang Kihoon", "Yang Kihoon", "Yang Kihoon", "ヤン・キフン"],
+        "엄예훈": ["Ueom Yehoon", "Ueom Yehoon", "Ueom Yehoon", "オム・イェフン"],
+        "에레라": ["Ignacio Herrera", "Ignacio Herrera", "Ignacio Herrera", "イグナシオ・エレーラ"],
+        "에울레르": ["Euller Silva", "Euller Silva", "Euller Silva", "エウレー・シウバ"],
+        "오스마르": ["Osmar Ibáñez Barba", "Osmar Ibáñez Barba", "Osmar Ibáñez Barba", "オスマル・イバニェス・バルバ"],
+        "오인표": ["Oh Inpyo", "Oh Inpyo", "Oh Inpyo", "オ・インピョ"],
+        "오창현": ["Oh Changhyun", "Oh Changhyun", "Oh Changhyun", "オ・チャンヒョン"],
+        "비엘키에비치": ["Diego Bielkiewicz", "Diego Bielkiewicz", "Diego Bielkiewicz", "ディエゴ・ビエルキエビッチ"],
+        "원기종": ["Won Kijong", "Won Kijong", "Won Kijong", "ウォン・キジョン"],
+        "유키": ["Kobayashi Yūki", "Kobayashi Yūki", "Kobayashi Yūki", "<ruby>小林祐希<rt>コバヤシ ユウキ</rt></ruby>"],
+        "유정완": ["Yu Jeongwan", "Yu Jeongwan", "Yu Jeongwan", "ユ・チョンワン"],
+        "유제호": ["Yu Jeho", "Yu Jeho", "Yu Jeho", "ユ・チェホ"],
+        "유지훈": ["Yu Jihun", "Yu Jihun", "Yu Jihun", "ユ・チフン"],
+        "유창현": ["Ryu Changhyun", "Ryu Changhyun", "Ryu Changhyun", "ユ・チャンヒョン"],
+        "윤보상": ["Yoon Bosang", "Yoon Bosang", "Yoon Bosang", "ユン・ポサン"],
+        "윤상호": ["Yoon Sangho", "Yoon Sangho", "Yoon Sangho", "ユン・サンホ"],
+        "윤석주": ["Yoon Sukju", "Yoon Sukju", "Yoon Sukju", "ユン・ソクチュ"],
+        "윤성열": ["Yoon Sungyeul", "Yoon Sungyeul", "Yoon Sungyeul", "ユン・ソンニョル"],
+        "이건희": ["Lee Kunhee", "Lee Kunhee", "Lee Kunhee", "イ・コンヒ"],
+        "이경렬": ["Lee Kyungryul", "Lee Kyungryul", "Lee Kyungryul", "イ・キョンニョル"],
+        "이규로": ["Lee Kyuro", "Lee Kyuro", "Lee Kyuro", "イ・キュロ"],
+        "이기현": ["Lee Kihyun", "Lee Kihyun", "Lee Kihyun", "イ・キヒョン"],
+        "이동률": ["Lee Dongryul", "Lee Dongryul", "Lee Dongryul", "イ・トンニュル"],
+        "이민규": ["Lee Minkyu", "Lee Minkyu", "Lee Minkyu", "イ・ミンギュ"],
+        "이반": ["Ivan Herceg", "Ivan Herceg", "Ivan Herceg", "イバン・ヘルツェグ"],
+        "이범수": ["Lee Bumsoo", "Lee Bumsoo", "Lee Bumsoo", "イ・ポムス"],
+        "이병욱": ["Lee Byungwook", "Lee Byungwook", "Lee Byungwook", "イ・ピョンウク"],
+        "이상기": ["Lee Sanggi", "Lee Sanggi", "Lee Sanggi", "イ・サンギ"],
+        "이상민1": ["Lee Sangmin", "Lee Sangmin", "Lee Sangmin", "イ・サンミン"],
+        "이상민2": ["Lee Sangmin", "Lee Sangmin", "Lee Sangmin", "イ・サンミン"],
+        "이성윤": ["Lee Sungyoon", "Lee Sungyoon", "Lee Sungyoon", "イ・ソンユン"],
+        "이시영": ["Lee Siyoung", "Lee Siyoung", "Lee Siyoung", "イ・シヨン"],
+        "이시헌": ["Lee Siheon", "Lee Siheon", "Lee Siheon", "イ・シホン"],
+        "이예찬": ["Lee Yeachan", "Lee Yeachan", "Lee Yeachan", "イ・イェチャン"],
+        "이인재": ["Lee Injae", "Lee Injae", "Lee Injae", "イ・インジェ"],
+        "이재안": ["Lee Jaean", "Lee Jaean", "Lee Jaean", "イ・チェアン"],
+        "이재익": ["Lee Jaeik", "Lee Jaeik", "Lee Jaeik", "イ・チェイク"],
+        "이재훈": ["Lee Jaehun", "Lee Jaehun", "Lee Jaehun", "イ・チェフン"],
+        "이정문": ["Lee Jungmoon", "Lee Jungmoon", "Lee Jungmoon", "イ・チョンムン"],
+        "이정필": ["Lee Jeongfeel", "Lee Jeongfeel", "Lee Jeongfeel", "イ・チョンピル"],
+        "이주혁": ["Lee Joohyuk", "Lee Joohyuk", "Lee Joohyuk", "イ・チュヒョク"],
+        "이준석": ["Lee Joonsuk", "Lee Joonsuk", "Lee Joonsuk", "イ・チュンソク"],
+        "이준희": ["Lee Junhee", "Lee Junhee", "Lee Junhee", "イ・チュンヒ"],
+        "이코바": ["Eduvie Ikoba", "Eduvie Ikoba", "Eduvie Ikoba", "エドゥビー・イコバ"],
+        "이탈로": ["Ítalo Carvalho", "Ítalo Carvalho", "Ítalo Carvalho", "イタロ・カルバーリュ"],
+        "이태호": ["Lee Taeho", "Lee Taeho", "Lee Taeho", "イ・テホ"],
+        "이현성": ["Lee Hyunsung", "Lee Hyunsung", "Lee Hyunsung", "イ・ヒョンソン"],
+        "장석훈": ["Chang Seokhoon", "Chang Seokhoon", "Chang Seokhoon", "チャン・ソクン"],
+        "장윤호": ["Jang Yunho", "Jang Yunho", "Jang Yunho", "チャン・ユンホ"],
+        "전기성": ["Jeon Giseong", "Jeon Giseong", "Jeon Giseong", "チョン・キソン"],
+        "전민광": ["Jeon Mingwang", "Jeon Mingwang", "Jeon Mingwang", "チョン・ミングァン"],
+        "전석훈": ["Jeon Seokhun", "Jeon Seokhun", "Jeon Seokhun", "チョン・ソクン"],
+        "정성호": ["Jung Sungho", "Jung Sungho", "Jung Sungho", "チョン・ソンホ"],
+        "정재민": ["Jeong Jaemin", "Jeong Jaemin", "Jeong Jaemin", "チョン・チェミン"],
+        "정재용": ["Jeong Jaeyong", "Jeong Jaeyong", "Jeong Jaeyong", "チョン・チェヨン"],
+        "정희웅": ["Jeong Heewoong", "Jeong Heewoong", "Jeong Heewoong", "チョン・ヒウン"],
+        "조동재": ["Cho Dongjae", "Cho Dongjae", "Cho Dongjae", "チョ・トンジェ"],
+        "조상준": ["Cho Sangjun", "Cho Sangjun", "Cho Sangjun", "チョ・サンジュン"],
+        "조영광": ["Cho Youngkwang", "Cho Youngkwang", "Cho Youngkwang", "チョ・ヨングァン"],
+        "조용태": ["Cho Yongtae", "Cho Yongtae", "Cho Yongtae", "チョ・ヨンテ"],
+        "조우진": ["Cho Woojin", "Cho Woojin", "Cho Woojin", "チョ・ウジン"],
+        "조원희": ["Cho Wonhee", "Cho Wonhee", "Cho Wonhee", "チョ・ウォンヒ"],
+        "조재완": ["Cho Jaewan", "Cho Jaewan", "Cho Jaewan", "チョ・チェワン"],
+        "조찬호": ["Cho Chanho", "Cho Chanho", "Cho Chanho", "チョ・チャンホ"],
+        "조향기": ["Cho Hyanggi", "Cho Hyanggi", "Cho Hyanggi", "チョ・ヒャンギ"],
+        "주민규": ["Joo Minkyu", "Joo Minkyu", "Joo Minkyu", "チョ・ミンギュ"],
+        "주한성": ["Joo Hanseong", "Joo Hanseong", "Joo Hanseong", "チョ・ハンソン"],
+        "주현성": ["Joo Hyunsung", "Joo Hyunsung", "Joo Hyunsung", "チョ・ヒョンソン"],
+        "차승현": ["Cha Seunghyeon", "Cha Seunghyeon", "Cha Seunghyeon", "チャ・スンヒョン"],
+        "채광훈": ["Chae Kwanghoon", "Chae Kwanghoon", "Chae Kwanghoon", "チェ・クァンフン"],
+        "채영현": ["Chae Yeonghyeon", "Chae Yeonghyeon", "Chae Yeonghyeon", "チェ・ヨンヒョン"],
+        "최병도": ["Choi Byungdo", "Choi Byungdo", "Choi Byungdo", "チェ・ピョンド"],
+        "최오백": ["Choi Ohback", "Choi Ohback", "Choi Ohback", "チェ・オベク"],
+        "최유상": ["Choi Yoosang", "Choi Yoosang", "Choi Yoosang", "チェ・ユサン"],
+        "최재훈": ["Choi Jaehun", "Choi Jaehun", "Choi Jaehun", "チェ・チェフン"],
+        "최종환": ["Choi Jonghoan", "Choi Jonghoan", "Choi Jonghoan", "チェ・チョンファン"],
+        "최치원": ["Choi Chiwon", "Choi Chiwon", "Choi Chiwon", "チェ・チウォン"],
+        "최한솔": ["Choi Hansol", "Choi Hansol", "Choi Hansol", "チェ・ハンソル"],
+        "최호정": ["Choi Hojung", "Choi Hojung", "Choi Hojung", "チェ・ホジョン"],
+        "츠바사": ["Nishi Tsubasa", "Nishi Tsubasa", "Nishi Tsubasa", "<ruby>西翼<rt>ニシ ツバサ</rt></ruby>"],
+        "카즈키": ["Kozuka Kazuki", "Kozuka Kazuki", "Kozuka Kazuki", "<ruby>小塚和季<rt>コヅカ カズキ</rt></ruby>"],
+        "칼라일 미첼": ["Carlyle Mitchell", "Carlyle Mitchell", "Carlyle Mitchell", "カーライル・ミッチェル"],
+        "쿠티뉴": ["Douglas Coutinho", "Douglas Coutinho", "Douglas Coutinho", "ドウグラス・コウチーニョ"],
+        "타라바이": ["Tarabai", "Tarabai", "Tarabai", "タラバイ"],
+        "탁우선": ["Tak Woosun", "Tak Woosun", "Tak Woosun", "タク・ウソン"],
+        "토모키": ["Wada Tomoki", "Wada Tomoki", "Wada Tomoki", "<ruby>和田倫季<rt>ワダ トモキ</rt></ruby>"],
+        "페드링요": ["Pedrinho Pimentel", "Pedrinho Pimentel", "Pedrinho Pimentel", "ペドリーニョ・ピメンテル"],
+        "페블레스": ["Daniel Febles", "Daniel Febles", "Daniel Febles", "ダニエル・フェブレス"],
+        "피터": ["Peter Makrillos", "Peter Makrillos", "Peter Makrillos", "ピーター・マクリロス"],
+        "한용수": ["Han Yongsu", "Han Yongsu", "Han Yongsu", "ハン・ヨンス"],
+        "한의권": ["Han Euigwon", "Han Euigwon", "Han Euigwon", "ハン・ウィグォン"],
+        "한지륜": ["Han Jiryun", "Han Jiryun", "Han Jiryun", "ハン・チリュン"],
+        "허범산": ["Heo Beomsan", "Heo Beomsan", "Heo Beomsan", "ホ・ポムサン"],
+        "허용준": ["Heo Yongjoon", "Heo Yongjoon", "Heo Yongjoon", "ホ・ヨンジュン"],
+        "호난": ["Ronan David", "Ronan David", "Ronan David", "ロナン・ダビド"],
+        "홍승현": ["Hong Seunghyeon", "Hong Seunghyeon", "Hong Seunghyeon", "ホン・スンヒョン"],
+        "황도연": ["Hwang Doyeon", "Hwang Doyeon", "Hwang Doyeon", "ファン・トヨン"],
+        "황정욱": ["Hwang Jungwook", "Hwang Jungwook", "Hwang Jungwook", "ファン・チョンウク"],
+        "황태현": ["Hwang Taehyeon", "Hwang Taehyeon", "Hwang Taehyeon", "ファン・テヒョン"],
+        "아론": ["Aaron Calver", "Aaron Calver", "Aaron Calver", "アロン・カルバー"],
+        "임동혁": ["Lim Donghyuk", "Lim Donghyuk", "Lim Donghyuk", "イム・トンヒョク"],
+        "김민서": ["Kim Minseo", "Kim Minseo", "Kim Minseo", "キム・ミンソ"],
+        "강상민": ["Kang Sangmin", "Kang Sangmin", "Kang Sangmin", "カン・サンミン"],
+        "곽승민": ["Kwak Seungmin", "Kwak Seungmin", "Kwak Seungmin", "クァク・スンミン"],
+        "김도윤1": ["Kim Doyun", "Kim Doyun", "Kim Doyun", "キム・トユン"],
+        "김영호": ["Kim Youngho", "Kim Youngho", "Kim Youngho", "キム・ヨンホ"],
+        "김지훈": ["Kim Jihoon", "Kim Jihoon", "Kim Jihoon", "キム・チフン"],
+        "서동현": ["Seo Donghyun", "Seo Donghyun", "Seo Donghyun", "ソ・トンヒョン"],
+        "송원준": ["Song Wonjun", "Song Wonjun", "Song Wonjun", "ソン・ウォンジュン"],
+        "안지현": ["An Jihyeon", "An Jihyeon", "An Jihyeon", "アン・チヒョン"],
+        "오규빈": ["Oh Kyubin", "Oh Kyubin", "Oh Kyubin", "オ・キュビン"],
+        "이도성": ["Lee Doseong", "Lee Doseong", "Lee Doseong", "イ・トソン"],
+        "이상헌": ["Lee Sangheon", "Lee Sangheon", "Lee Sangheon", "イ・サンホン"],
+
+        // 구단명
+        "서울 이랜드 FC": ["Seoul E-Land FC", "Seoul E-Land FC", "Seoul E-Land FC", "ソウル・イーランドFC"],
+        "FC 서울": ["FC Seoul", "FC Seoul", "FC Seoul", "FCソウル"],
+        "FC 안양": ["FC Anyang", "FC Anyang", "FC Anyang", "FC<ruby>アニャン<rt>安養</rt></ruby>"],
+        "강원 FC": ["Gangwon FC", "Gangwon FC", "Gangwon FC", "<ruby>カンウォン<rt>江原</rt></ruby>FC"],
+        "경남 FC": ["Gyeongnam FC", "Gyeongnam FC", "Gyeongnam FC", "<ruby>キョンナム<rt>慶南</rt></ruby>FC"],
+        "고양 자이크로": ["Goyang Zaicro", "Goyang Zaicro", "Goyang Zaicro", "<ruby>コヤン<rt>高陽</rt></ruby>・ザイクロ"],
+        "고양 Hi FC": ["Goyang Hi FC", "Goyang Hi FC", "Goyang Hi FC", "<ruby>コヤン<rt>高陽</rt></ruby>Hi FC"],
+        "광주 FC": ["Gwangju FC", "Gwangju FC", "Gwangju FC", "<ruby>クァンジュ<rt>光州</rt></ruby>FC"],
+        "김천 상무 FC": ["Gimcheon Sangmu FC", "Gimcheon Sangmu FC", "Gimcheon Sangmu FC", "<ruby>キムチョン<rt>金泉</rt></ruby>・サンムFC"],
+        "김포 FC": ["Gimpo FC", "Gimpo FC", "Gimpo FC", "<ruby>キンポ<rt>金浦</rt></ruby>FC"],
+        "대구 FC": ["Daegu FC", "Daegu FC", "Daegu FC", "<ruby>テグ<rt>大邱</rt></ruby>FC"],
+        "대전 시티즌": ["Daejeon Citizen", "Daejeon Citizen", "Daejeon Citizen", "<ruby>テジョン<rt>大田</rt></ruby>・シチズン"],
+        "대전 하나 시티즌": ["Daejeon Hana Citizen", "Daejeon Hana Citizen", "Daejeon Hana Citizen", "<ruby>テジョン<rt>大田</rt></ruby>・ハナ・シチズン"],
+        "부산 아이파크": ["Busan IPark", "Busan IPark", "Busan IPark", "<ruby>プサン<rt>釜山</rt></ruby>・アイパーク"],
+        "부천 FC 1995": ["Bucheon FC 1995", "Bucheon FC 1995", "Bucheon FC 1995", "<ruby>プチョン<rt>富川</rt></ruby>FC1995"],
+        "상주 상무 FC": ["Sangju Sangmu FC", "Sangju Sangmu FC", "Sangju Sangmu FC", "<ruby>サンジュ<rt>常州</rt></ruby>・サンムFC"],
+        "성남 FC": ["Seongnam FC", "Seongnam FC", "Seongnam FC", "<ruby>ソンナム<rt>城南</rt></ruby>FC"],
+        "수원 FC": ["Suwon FC", "Suwon FC", "Suwon FC", "<ruby>スウォン<rt>水原</rt></ruby>FC"],
+        "수원 삼성 블루윙즈": ["Suwon Samsung Bluewings", "Suwon Samsung Bluewings", "Suwon Samsung Bluewings", "<ruby>スウォン<rt>水原</rt></ruby>・サムスン・ブルーウィングス"],
+        "아산 무궁화 FC": ["Asan Mugunghwa FC", "Asan Mugunghwa FC", "Asan Mugunghwa FC", "<ruby>アサン<rt>牙山</rt></ruby>・ムグンファFC"],
+        "안산 경찰청 축구단": ["Ansan Police FC", "Ansan Police FC", "Ansan Police FC", "<ruby>アンサン<rt>安山</rt></ruby><ruby>警察庁<rt>キョンチャルチョン</rt></ruby>FC"],
+        "안산 그리너스": ["Ansan Greeners", "Ansan Greeners", "Ansan Greeners", "<ruby>アンサン<rt>安山</rt></ruby>・グリナース"],
+        "안산 무궁화 FC": ["Ansan Mugunghwa FC", "Ansan Mugunghwa FC", "Ansan Mugunghwa FC", "<ruby>アンサン<rt>安山</rt></ruby>・ムグンファFC"],
+        "울산 현대": ["Ulsan Hyundai", "Ulsan Hyundai", "Ulsan Hyundai", "<ruby>ウルサン<rt>蔚山</rt></ruby><ruby>現代<rt>ヒョンデ</rt></ruby>"],
+        "울산 HD FC": ["Ulsan HD FC", "Ulsan HD FC", "Ulsan HD FC", "<ruby>ウルサン<rt>蔚山</rt></ruby>HD FC"],
+        "인천 유나이티드": ["Incheon United", "Incheon United", "Incheon United", "<ruby>インチョン<rt>仁川</rt></ruby>・ユナイテッド"],
+        "전남 드래곤즈": ["Jeonnam Dragons", "Jeonnam Dragons", "Jeonnam Dragons", "<ruby>チョンナム<rt>全南</rt></ruby>・ドラゴンズ"],
+        "전북 현대 모터스": ["Jeonbuk Hyundai Motors", "Jeonbuk Hyundai Motors", "Jeonbuk Hyundai Motors", "<ruby>チョンブク<rt>全北</rt></ruby><ruby>現代<rt>ヒョンデ</rt></ruby>・モータース"],
+        "제주 유나이티드": ["Jeju United", "Jeju United", "Jeju United", "<ruby>チェジュ<rt>済州</rt></ruby>・ユナイテッド"],
+        "제주 SK FC": ["Jeju SK FC", "Jeju SK FC", "Jeju SK FC", "<ruby>チェジュ<rt>済州</rt></ruby>SK FC"],
+        "천안 시티 FC": ["Cheonan City FC", "Cheonan City FC", "Cheonan City FC", "<ruby>チョナン<rt>天安</rt></ruby>・シティFC"],
+        "충남아산 FC": ["Chungnam Asan FC", "Chungnam Asan FC", "Chungnam Asan FC", "<ruby>チュンナム<rt>忠南</rt></ruby>・<ruby>アサン<rt>牙山</rt></ruby>FC"],
+        "충북청주 FC": ["Chungbuk Cheongju FC", "Chungbuk Cheongju FC", "Chungbuk Cheongju FC", "<ruby>チュンブク<rt>忠北</rt></ruby>・<ruby>チョンジュ<rt>清州</rt></ruby>FC"],
+        "충주 험멜": ["Chungju Hummel", "Chungju Hummel", "Chungju Hummel", "<ruby>チュンジュ<rt>忠州</rt></ruby>ヒュンメル"],
+        "포항 스틸러스": ["Pohang Steelers", "Pohang Steelers", "Pohang Steelers", "<ruby>ポハン<rt>浦項</rt></ruby>・スティーラーズ"],
+        "화성 FC": ["Hwaseong FC", "Hwaseong FC", "Hwaseong FC", "<ruby>ファソン<rt>華城</rt></ruby>FC"],
+        "세일중학교": ["Seil Middle School", "Seil Middle School", "Seil Middle School", "<ruby>セイル<rt>世一</rt></ruby>中学"],
+        "신림중학교": ["Shillim Middle School", "Shillim Middle School", "Shillim Middle School", "<ruby>シンリム<rt>新林</rt></ruby>中学"],
+        "한양중학교": ["Hanyang Middle School", "Hanyang Middle School", "Hanyang Middle School", "<ruby>ハニャン<rt>漢陽</rt></ruby>中学"],
+        "숭실중학교": ["Soongsil Middle School", "Soongsil Middle School", "Soongsil Middle School", "<ruby>スンシル<rt>崇實</rt></ruby>中学"],
+        "중동중학교": ["Joongdong Middle School", "Joongdong Middle School", "Joongdong Middle School", "<ruby>チュンドン<rt>中東</rt></ruby>中学"],
+        "신천중학교": ["Shincheon Middle School", "Shincheon Middle School", "Shincheon Middle School", "<ruby>シンチョン<rt>新川</rt></ruby>中学"],
+        "경희중학교": ["Kyunghee Middle School", "Kyunghee Middle School", "Kyunghee Middle School", "<ruby>キョンヒ<rt>慶熙</rt></ruby>中学"],
+        "배재중학교": ["Paichai Middle School", "Paichai Middle School", "Paichai Middle School", "<ruby>ペジェ<rt>培材</rt></ruby>中学"],
+        "남강중학교": ["Namkang Middle School", "Namkang Middle School", "Namkang Middle School", "<ruby>ナムガン<rt>南崗</rt></ruby>中学"],
+        "강동": ["Gangdong", "Gangdong", "Gangdong", "<ruby>カンドン<rt>江東</rt></ruby>"],
+        "구산중학교": ["Gusan Middle School", "Gusan Middle School", "Gusan Middle School", "<ruby>クサン<rt>龜山</rt></ruby>中学"],
+        "장안중학교": ["Jangan Middle School", "Jangan Middle School", "Jangan Middle School", "<ruby>チャンアン<rt>長安</rt></ruby>中学"],
+        "보인중학교": ["Boin Middle School", "Boin Middle School", "Boin Middle School", "<ruby>ポイン<rt>輔仁</rt></ruby>中学"],
+        "석관중학교": ["Seokgwan Middle School", "Seokgwan Middle School", "Seokgwan Middle School", "<ruby>ソックァン<rt>石串</rt></ruby>中学"],
+        "도봉중학교": ["Dobong Middle School", "Dobong Middle School", "Dobong Middle School", "<ruby>トボン<rt>道峰</rt></ruby>中学"],
+        "마포신북": ["Mapo Sinbuk", "Mapo Sinbuk", "Mapo Sinbuk", "<ruby>マポ<rt>麻浦</rt></ruby>・<ruby>シンブク<rt>新北</rt></ruby>"],
+        "개원중학교": ["Gaewon Middle School", "Gaewon Middle School", "Gaewon Middle School", "<ruby>ケウォン<rt>開院</rt></ruby>中学"],
+        "화곡중학교": ["Hwagok Middle School", "Hwagok Middle School", "Hwagok Middle School", "<ruby>ファゴク<rt>禾谷</rt></ruby>中学"],
+        "문래중학교": ["Mullae Middle School", "Mullae Middle School", "Mullae Middle School", "<ruby>ムンレ<rt>文來</rt></ruby>中学"],
+        "중앙대학교 사범대학 부속중학교": ["Chung-Ang University Middle School", "Chung-Ang University Middle School", "Chung-Ang University Middle School", "<ruby>チュンアン<rt>中央</rt></ruby>大學校師範大學附屬中学"],
+        "동원중학교": ["Dongwon Middle School", "Dongwon Middle School", "Dongwon Middle School", "<ruby>トンウォン<rt>東元</rt></ruby>中学"],
+        "동북중학교": ["Dongbuk Middle School", "Dongbuk Middle School", "Dongbuk Middle School", "<ruby>トンブク<rt>東北</rt></ruby>中学"],
+        "당산서중학교": ["Dangsanseo Middle School", "Dangsanseo Middle School", "Dangsanseo Middle School", "<ruby>タンサンソ<rt>堂山西</rt></ruby>中学"],
+        "뉴 은평 FC": ["New Eunpyeong FC", "New Eunpyeong FC", "New Eunpyeong FC", "ニュー・<ruby>ウンピョン<rt>恩平</rt></ruby>FC"],
+        "영서중학교": ["Yeongseo Middle School", "Yeongseo Middle School", "Yeongseo Middle School", "<ruby>ヨンソ<rt>永西</rt></ruby>中学"],
+        "FC 한양": ["FC Hanyang", "FC Hanyang", "FC Hanyang", "FC<ruby>ハニャン<rt>漢陽</rt></ruby>"],
+
+        // 구단명(Abbr.)
+        "서울E": ["SEFC", "SEFC", "SEFC", "ソウルE"],
+        "FC서울": ["SEO", "SEO", "SEO", "FCソウル"],
+        "안양": ["ANY", "ANY", "ANY", "アニャン"],
+        "강원": ["GAN", "GAN", "GAN", "カンウォン"],
+        "경남공고": ["GN THS", "GN THS", "GN THS", "キョンナム工業高校"],
+        "경남": ["GYE", "GYE", "GYE", "キョンナム"],
+        "고양": ["GOY", "GOY", "GOY", "ゴヤン"],
+        "광주": ["GWA", "GWA", "GWA", "クァンジュ"],
+        "김천": ["GIM", "GIM", "GIM", "キムチョン"],
+        "김포": ["GFC", "GFC", "GFC", "キムポ"],
+        "대구": ["DAE", "DAE", "DAE", "テグ"],
+        "대전코레일": ["KORAIL", "KORAIL", "KORAIL", "テジョンKORAIL"],
+        "대전": ["DHFC", "DHFC", "DHFC", "テジョン"],
+        "부산": ["BUS", "BUS", "BUS", "プサン"],
+        "부천": ["BUC", "BUC", "BUC", "プチョン"],
+        "상주": ["SAN", "SAN", "SAN", "サンジュ"],
+        "성남": ["SFC", "SFC", "SFC", "ソンナム"],
+        "수원FC": ["SUW", "SUW", "SUW", "スウォンFC"],
+        "수원삼성": ["SSB", "SSB", "SSB", "スウォン・サムスン"],
+        "아산무궁화": ["AMFC", "AMFC", "AMFC", "アサン・ムグンファ"],
+        "안산경찰청": ["ANS", "ANS", "ANS", "アンサン警察庁"],
+        "안산무궁화": ["ANS", "ANS", "ANS", "アンサン・ムグンファ"],
+        "안산": ["ANS", "ANS", "ANS", "アンサン"],
+        "울산": ["ULS", "ULS", "ULS", "ウルサン"],
+        "인천": ["INC", "INC", "INC", "インチョン"],
+        "전남": ["JDFC", "JDFC", "JDFC", "チョンナム"],
+        "전북": ["JEO", "JEO", "JEO", "チョンブク"],
+        "제주": ["JEJ", "JEJ", "JEJ", "チェジュ"],
+        "천안": ["CCFC", "CCFC", "CCFC", "チョナン"],
+        "충남아산": ["CAFC", "CAFC", "CAFC", "チュンナム・アサン"],
+        "충북청주": ["CHFC", "CHFC", "CHFC", "チュンブク・チョンジュ"],
+        "충주": ["CHU", "CHU", "CHU", "チュンジュ"],
+        "포항": ["POH", "POH", "POH", "ポハン"],
+        "화성": ["HSFC", "HSFC", "HSFC", "ファソン"],
+        "성균관대": ["SKKU", "SKKU", "SKKU", "ソンギュングァン大学"],
+        "포천": ["PCFC", "PCFC", "PCFC", "ポチョン"],
+        "고려대": ["KU", "KU", "KU", "コリョ大学"],
+        "호남대": ["HU", "HU", "HU", "ホナム大学"],
+        "창원": ["CFC", "CFC", "CFC", "チャンウォン"],
+        "송월": ["SWFC", "SWFC", "SWFC", "ソンウォル"],
+        "계명고": ["KM HS", "KM HS", "KM HS", "キェミョン高校"],
+        "숭실고": ["SS HS", "SS HS", "SS HS", "スンシル高校"],
+        "초지고": ["CJ HS", "CJ HS", "CJ HS", "チョジ高校"],
+        "홍천FC": ["HFC", "HFC", "HFC", "ホンチョン"],
+        "파주고려": ["PJKR", "PJKR", "PJKR", "パジ・ュゴリョ"],
+        "서울광진": ["SGJ", "SGJ", "SGJ", "ソウル・クァンジン"],
+        "운호고": ["UH HS", "UH HS", "UH HS", "ウンホ高校"],
+        "경기항공고": ["GA HS", "GA HS", "GA HS", "キョンギ航空高校"],
+        "보인고": ["BOIN", "BOIN", "BOIN", "ポイン高校"],
+        "과천고": ["GC HS", "GC HS", "GC HS", "クァチョン高校"],
+        "수원고": ["SW HS", "SW HS", "SW HS", "スウォン高校"],
+        "신라고": ["SL HS", "SL HS", "SL HS", "シンラ高校"],
+        "광운AI고": ["KW HS", "KW HS", "KW HS", "クァンウンAI高校"],
+        "대륜고": ["DR HS", "DR HS", "DR HS", "テリュン高校"],
+
+        // 버튼
+        "출전 경기 모두 보기": ["See All", "Ver Tudo", "Ver Todo", "全て見る"],
+        "경기 일정 모두 보기": ["See All", "Ver Tudo", "Ver Todo", "全て見る"],
+        "순위 모두 보기": ["See All", "Ver Tudo", "Ver Todo", "全て見る"],
+        "스크롤하여 모두 보기": ["Scroll to See All", "Percorra para Ver Tudo", "Desplácese para Ver Todo", "スクロールして全て見る"],
+        "모두 보기": ["See All", "Ver Tudo", "Ver Todo", "全て見る"],
+        "A팀": ["A", "A", "A", "Aチーム"],
+        "오늘": ["Today", "Hoje", "Hoy", "今日"],
+        "통산": ["All-Time", "Todos os Tempos", "Todos los Tiempos", "通算"],
+        "연도별": ["by Season", "por Temporada", "por Temporada", "年別"],
+        "배경화면 다운로드": ["Download", "Baixar", "Descargar", "ダウンロード"],
+        "사진 추가하기": ["Add Photos", "Adicionar Fotos", "Añadir Fotos", "写真を追加"],
+        "돌아가기": ["Back", "Volte", "Volver", "戻る"],
+        "관중석 시야": ["View From the Seat", "Vista do Assento", "Vista Desde el Asiento", "観客席の視野"],
+        "교통 및 주차": ["Transportation & Parking", "Transporte e Estacionamento", "Transporte y Estacionamiento", "交通・駐車"],
+        "주변 맛집": ["Nearby Restaurants", "Restaurantes Próximos", "Restaurantes Cercanos", "周辺レストラン"],
+        "맛집 추가하기": ["Add Restaurants", "Adicionar Restaurantes", "Agregar Restaurantes", "レストランを追加"],
+        "순위 자세히": ["See More Details", "Ver Mais Detalhes", "Ver Más Detalles", "もっと見る"],
+        "순위 간략히": ["See Briefly", "Ver Brevemente", "Ver Brevemente", "簡単に見る"],
+
+        "시즌별 기록": ["All Seasons", "Estatísticas por Temporada", "Estadísticas por Temporada", "年別スタッツ"],
+
+        // 메뉴
+        "홈": ["Home", "Home", "Inicio", "ホーム"],
+        "일정": ["Fixtures", "Partidas", "Partidos", "日程"],
+        "선수단": ["Players", "Jogadoras", "Jugadores", "選手名鑑"],
+        "기록": ["Stats", "Estatísticos", "Estadísticas", "スタッツ"],
+        "순위": ["Standings", "Classificações", "Clasificaciones", "順位表"],
+        "응원가": ["Chants", "Canções", "Canciones", "チャント"],
+        "직관 가이드": ["Guides", "Guias", "Guías", "ガイド"],
+        "오류 제보 및 건의": ["Report Errors & Make Suggestions", "Reportar Erros e Fazer Sugestões", "Informar Errores y Hacer Sugerencias", "エラー情報・提案"],
+
+         // legend
+        "순위": ["Pos.", "Pos.", "Pos.", "順位"],
+        "구단": ["Team", "Equipe", "Equipo", "クラブ名"],
+        "승점": ["Pts.", "Pts.", "Pts.", "勝点"],
+        "득점": ["GF", "GP", "GF", "得点"],
+        "실점": ["GA", "GC", "GC", "失点"],
+        "교체 명단": ["Substitutes", "Substitutos", "Suplentes", "控えメンバー"],
+        "하이라이트": ["Highlights", "Resumo", "Resumen", "ハイライト"],
+        "경기 최고의 선수": ["Player of the Match", "Jogador da Partida", "Jugador del Partido", "試合最優秀選手"],
+        "점유율": ["Possession", "Posse de Bola", "Posesión", "ボールの支配率"],
+        "유효슈팅": ["Shots on Target", "Remates Enquadrados", "Disparos a Puerta", "枠内シュート"],
+        "슈팅": ["Shots", "Remates", "Tiros", "シュート"],
+        "파울": ["Fouls Committed", "Faltas", "Faltas", "ファウル"],
+        "경고 누적": ["2nd Yellow Cards", "2º Cartões Amarelos", "2ª Tarjetas Amarillas", "2ndイエローカード"],
+        "경고": ["Yellow Cards", "Cartões Amarelos", "Tarjetas Amarillas", "イエローカード"],
+        "퇴장": ["Red Cards", "Cartões Vermelhos", "Tarjetas Rojas", "レッドカード"],
+        "코너킥": ["Corners", "Cantos", "Saques de Esquina", "コーナー"],
+        "프리킥": ["Free Kicks", "Tiros Livres", "Tiros Libres", "フリーキック"],
+        "오프사이드": ["Offsides", "Foras-de-Jogo", "Fueras de Juego", "オフサイド"],
+        "승리": ["Wins", "Vitórias", "Ganados", "勝利"],
+        "무승부": ["Draws", "Empates", "Empatados", "引き分け"],
+        "패배": ["Losses", "Derrotas", "Perdidos", "敗北"],
+        "골키퍼": ["Goalkeepers", "Guarda-Redes", "Porteros", "ゴールキーパー"],
+        "수비수": ["Defenders", "Defensores", "Defensas", "ディフェンダー"],
+        "미드필더": ["Midfielders", "Meio-campistas", "Centrocampistas", "ミッドフィールダー"],
+        "공격수": ["Forwards", "Atacantes", "Delanteros", "フォワード"],
+        "출전": ["Apps.", "Jogos", "Partidos", "出戦"],
+        "도움": ["Assists", "Assistências", "Asistencias", "アシスト"],
+        "공격P": ["G+A", "G+A", "G+A", "G+A"],
+        "국적": ["Nationality", "Nacionalidade", "Nacionalidad", "国籍"],
+        "키": ["Height", "Altura", "Altura", "身長"],
+        "세": ["", "", "", "歳"],
+        "소속": ["Team", "Equipe", "Equipo", "所属チーム"],
+        "평점": ["Ratings", "Ratings", "Ratings", "レーティング"],
+        "통산 기록": ["All Seasons", "Todas as Épocas", "Todas las Temporadas", "通算スタッツ"],
+        "시즌": ["Seasons", "Temporadas", "Temporadas", "シーズン"],
+        "선수": ["Name", "Nome", "Nombre", "名前"],
+        "승": ["W", "V", "G", "勝利"],
+        "무": ["D", "E", "E", "引き分け"],
+        "패": ["L", "D", "P", "敗北"],
+        "득실차": ["GD", "SG", "Dif.", "得失点"],
+        "해당 좌석의 사진이 없습니다.": ["No Photo", "Sem Foto", "Sin Foto", "写真はありません"],
+        "지하철": ["Subways", "Metrôs", "Metros", "地下鉄"],
+        "버스": ["Buses", "Ônibus", "Autobuses", "バス"],
+        "식당": ["Restaurants", "Restaurantes", "Restaurantes", "レストラン"],
+        "카페&amp;디저트": ["Cafes & Desserts", "Cafés e Sobremesas", "Cafés y Postres", "コーヒー・デザート"],
+
+        // 국적
+        "대한민국": ["Republic of Korea", "República da Coreia", "República de Corea", "大韓民国"],
+        "아르헨티나": ["Argentina", "Argentina", "Argentina", "アルゼンチン"],
+        "브라질": ["Brazil", "Brasil", "Brasil", "ブラジル"],
+        "자메이카": ["Jamaica", "Jamaica", "Jamaica", "ジャマイカ"],
+        "일본": ["Japan", "Japão", "Japón", "日本"],
+        "콜롬비아": ["Colombia", "Colômbia", "Colombia", "コロンビア"],
+        "베트남": ["Vietnam", "Vietnã", "Vietnam", "ベトナム"],
+        "독일": ["Germany", "Alemanha", "Alemania", "ドイツ"],
+        "오스트레일리아": ["Australia", "Austrália", "Australia", "オーストラリア"],
+        "세르비아": ["Serbia", "Sérvia", "Serbia", "セルビア"],
+        "칠레": ["Chile", "Chile", "Chile", "チリ"],
+        "스페인": ["Spain", "Espanha", "España", "スペイン"],
+        "크로아티아": ["Croatia", "Croácia", "Croacia", "クロアチア"],
+        "미국": ["United States", "Estados Unidos", "Estados Unidos", "アメリカ合衆国"],
+        "트리니다드 토바고": ["Trinidad and Tobago", "Trindade e Tobago", "Trinidad y Tobago", "トリニダード・トバゴ"],
+        "베네수엘라": ["Venezuela", "Venezuela", "Venezuela", "ベネズエラ"],
+
+        // 날씨
+        "맑음": ["Clear", "Claro", "Despejado", "晴れ"],
+        "비": ["Rain", "Chuva", "Lluvia", "雨"],
+        "눈·비": ["Snow & Rain", "Neve e Chuva", "Nieve y Lluvia", "雪・雨"],
+        "눈": ["Snow", "Neve", "Nieve", "雪"],
+        "빗방울": ["Raindrops", "Gotas de Chuva", "Gotas de Lluvia", "小雨"],
+        "약한 눈·비": ["Light Snow & Rain", "Neve e Chuva Fraca", "Nieve y Lluvia Débil", "小雨・雪"],
+        "눈 날림": ["Snow Flurry", "Nevasca Leve", "Ventisca de Nieve", "小雪"],
+        "강풍주의보": ["Strong Wind Advisory", "Aviso de Vento Forte", "Aviso de Viento Fuerte", "強風注意報"],
+        "강풍경보": ["Strong Wind Warning", "Alerta de Vento Forte", "Alerta de Viento Fuerte", "強風警報"],
+        "풍랑주의보": ["High Seas Advisory", "Aviso de Maré Alta", "Aviso de Mar Adverso", "嵐の注意報"],
+        "풍랑경보": ["High Seas Warning", "Alerta de Maré Alta", "Alerta de Mar Adverso", "嵐の警報"],
+        "호우주의보": ["Heavy Rain Advisory", "Aviso de Chuva Forte", "Aviso de Lluvia Intensa", "大雨注意報"],
+        "호우경보": ["Heavy Rain Warning", "Alerta de Chuva Forte", "Alerta de Lluvia Intensa", "大雨警報"],
+        "대설주의보": ["Heavy Snow Advisory", "Aviso de Nevasca", "Aviso de Nevadas", "大雪注意報"],
+        "대설경보": ["Heavy Snow Warning", "Alerta de Nevasca", "Alerta de Nevadas", "大雪警報"],
+        "건조주의보": ["Dry Weather Advisory", "Aviso de Tempo Seco", "Aviso de Tiempo Seco", "乾燥注意報"],
+        "건조경보": ["Dry Weather Warning", "Alerta de Tempo Seco", "Alerta de Tiempo Seco", "乾燥警報"],
+        "폭풍해일주의보": ["Storm Surge Advisory", "Aviso de Ressaca de Tempestade", "Aviso de Marea de Tormenta", "津波注意報"],
+        "폭풍해일경보": ["Storm Surge Warning", "Alerta de Ressaca de Tempestade", "Alerta de Marea de Tormenta", "津波警報"],
+        "한파주의보": ["Cold Wave Advisory", "Aviso de Onda de Frio", "Aviso de Ola de Frío", "低温注意報"],
+        "한파경보": ["Cold Wave Warning", "Alerta de Onda de Frio", "Alerta de Ola de Frío", "低温警報"],
+        "태풍주의보": ["Typhoon Advisory", "Aviso de Tufão", "Aviso de Tifón", "台風注意報"],
+        "태풍경보": ["Typhoon Warning", "Alerta de Tufão", "Alerta de Tifón", "台風警報"],
+        "황사주의보": ["Yellow Dust Advisory", "Aviso de Poeira Amarela", "Aviso de Polvo Amarillo", "黄砂注意報"],
+        "황사경보": ["Yellow Dust Warning", "Alerta de Poeira Amarela", "Alerta de Polvo Amarillo", "黄砂警報"],
+        "폭염주의보": ["Heat Wave Advisory", "Aviso de Onda de Calor", "Aviso de Ola de Calor", "爆炎注意報"],
+        "폭염경보": ["Heat Wave Warning", "Alerta de Onda de Calor", "Alerta de Ola de Calor", "爆炎警報"],
+
+        // 지역명
+        "서울": ["Seoul", "Seul", "Seúl", "ソウル"],
+
+        // 배경화면
+        "홈 킷": ["Home Kit", "Camiseta Principal", "Camiseta 1ª Equipación", "ホームユニフォーム"],
+        "원정 킷": ["Away Kit", "Camisola Alternativa", "Camiseta 2ª Equipación", "アウェイユニフォーム"],
+        "GK 홈 킷": ["GK Home Kit", "Camiseta Principal", "Camiseta 1ª Equipación", "GKホームユニフォーム"],
+        "GK 원정 킷": ["GK Away Kit", "Camisola Alternativa", "Camiseta 2ª Equipación", "GKアウェイユニフォーム"],
+    };
+
+    var lang = localStorage.getItem("lang");
+    var langNum = lang == "en" ? 0
+        : lang == "pt" ? 1
+            : lang == "es" ? 2
+                : lang == "jp" ? 3
+                    : null;
+
+    $("[transl='y']").each(function () {
+        var originalText = $(this).html();
+        var newText = originalText;
+
+        if (langNum != null) {
+            for (var word in transList) {
+                if (originalText.indexOf(word) !== -1) {
+                    var regex = new RegExp(word, "g");
+                    newText = newText.replace(regex, transList[word][langNum]);
+                }
+            }
+        }
+
+        // 라운드
+        var regex = /(\d+)라운드/g;
+        if (regex.test(newText) && lang != "ko") {
+            newText = newText.replace(regex, function (match, p1) {
+                if (langNum == 0) return "R" + p1;
+                else if (langNum == 1 || langNum == 2) return "J" + p1;
+                else if (langNum == 3) return p1 + "ラウンド";
+            });
+        }
+
+        // 제n회
+        var regex = /제(\d+)회/g;
+        if (regex.test(newText) && lang != "ko") {
+            var newText = newText.replace(regex, function (match, p1) {
+                var num = parseInt(p1, 10);
+
+                if (langNum == 0) {
+                    var j = num % 10, k = num % 100;
+
+                    if (j == 1 && k != 11) {
+                        return num + "st";
+                    }
+                    if (j == 2 && k != 12) {
+                        return num + "nd";
+                    }
+                    if (j == 3 && k != 13) {
+                        return num + "rd";
+                    }
+                    return num + "th";
+                } else if (langNum == 1 || langNum == 2) return num + "º";
+                else if (langNum == 3) return "第" + num + "回";
+            });
+        }
+        
+        // 경기당 n
+        var regex = /경기당\s*([\d.]+)/g;
+
+        if (regex.test(newText)) {
+            newText = newText.replace(regex, function (match, p1) {
+                var n = parseFloat(p1.trim());
+
+                if (langNum === 0) {
+                    return n + " per Game";
+                } else if (langNum === 1) {
+                    return n + " por Jogo";
+                } else if (langNum === 2) {
+                    return n + " por Juego";
+                } else if (langNum === 3) return "1試合あたり" + n + "回";
+            });
+        }
+
+
+        if (newText !== originalText) {
+            $(this).html(newText);
+        }
+
+        // 선수 이름 뒤 숫자 지우기
+
+    });
+
+    console.log(`번역 완료(ko -> ${lang})`)
+
+};
+
+transl()
