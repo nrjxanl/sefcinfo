@@ -307,6 +307,8 @@ function matchInfo() {
     $(".matchDetail button:nth-child(3)").css("font-weight", 300)
     $(".matchDetail button:nth-child(4)").css("font-weight", 300)
     localStorage.setItem(id, "matchInfo")
+
+    transl()
 }
 
 function matchLineup() {
@@ -328,6 +330,8 @@ function matchLineup() {
     $(".matchDetail button:nth-child(3)").css("font-weight", 300)
     $(".matchDetail button:nth-child(4)").css("font-weight", 300)
     localStorage.setItem(id, "matchLineup")
+
+    transl()
 }
 
 function matchStat() {
@@ -349,6 +353,8 @@ function matchStat() {
     $(".matchDetail button:nth-child(3)").css("font-weight", 900)
     $(".matchDetail button:nth-child(4)").css("font-weight", 300)
     localStorage.setItem(id, "matchStat")
+
+    transl()
 }
 
 if ($("#matchScore").length && !$("#highlight").length) {
@@ -1907,7 +1913,7 @@ function transl() {
         "안재훈": ["Ahn Jaehoon", "Ahn Jaehoon", "Ahn Jaehoon", "アン・チェフン"],
         "안지호": ["An Jiho", "An Jiho", "An Jiho", "アン・チホ"],
         "안태현": ["An Taehyun", "An Taehyun", "An Taehyun", "アン・テヒョン"],
-        "알렉스": ["Wesley Alex Maiolino", "Wesley Alex Maiolino", "Wesley Alex Maiolino", "ウェズリー・アレックス・マイオリーノ"],
+        "알렉스": ["Wesley Alex", "Wesley Alex", "Wesley Alex", "ウェズリー・アレックス"],
         "야고": ["Yago Moreira Silva", "Yago Moreira Silva", "Yago Moreira Silva", "ヤゴ・モレイラ・シウバ"],
         "양기훈": ["Yang Kihoon", "Yang Kihoon", "Yang Kihoon", "ヤン・キフン"],
         "엄예훈": ["Ueom Yehoon", "Ueom Yehoon", "Ueom Yehoon", "オム・イェフン"],
@@ -2162,6 +2168,9 @@ function transl() {
         "맛집 추가하기": ["Add Restaurants", "Adicionar Restaurantes", "Agregar Restaurantes", "レストランを追加"],
         "순위 자세히": ["See More Details", "Ver Mais Detalhes", "Ver Más Detalles", "もっと見る"],
         "순위 간략히": ["See Briefly", "Ver Brevemente", "Ver Brevemente", "簡単に見る"],
+        "정보": ["Info", "Info", "Info", "情報"],
+        "라인업": ["Lineups", "Formação", "Alineación", "ラインナップ"],
+        "전적": ["H2H", "Frente-a-Frente", "Cara a Cara", "チーム対チーム"],
 
         "시즌별 기록": ["All Seasons", "Estatísticas por Temporada", "Estadísticas por Temporada", "年別スタッツ"],
 
@@ -2197,10 +2206,10 @@ function transl() {
         "승리": ["Wins", "Vitórias", "Ganados", "勝利"],
         "무승부": ["Draws", "Empates", "Empatados", "引き分け"],
         "패배": ["Losses", "Derrotas", "Perdidos", "敗北"],
-        "골키퍼": ["Goalkeepers", "Guarda-Redes", "Porteros", "ゴールキーパー"],
-        "수비수": ["Defenders", "Defensores", "Defensas", "ディフェンダー"],
-        "미드필더": ["Midfielders", "Meio-campistas", "Centrocampistas", "ミッドフィールダー"],
-        "공격수": ["Forwards", "Atacantes", "Delanteros", "フォワード"],
+        "골키퍼": ["", "", "", ""],
+        "수비수": ["", "", "", ""],
+        "미드필더": ["", "", "", ""],
+        "공격수": ["", "", "", ""],
         "출전": ["Apps.", "Jogos", "Partidos", "出戦"],
         "도움": ["Assists", "Assistências", "Asistencias", "アシスト"],
         "공격P": ["G+A", "G+A", "G+A", "G+A"],
@@ -2279,6 +2288,12 @@ function transl() {
         "GK 원정 킷": ["GK Away Kit", "Camisola Alternativa", "Camiseta 2ª Equipación", "GKアウェイユニフォーム"],
     };
 
+    nameList = {
+        0:[20250207, 20200151, 20130116, 20200135, 20200150, 20220286, 20170227, 20250192, 20140067, 20160266, 20240313, 20250194, 20230211, 20230194],
+        1:[20150225, 20240190, 20150224],
+        2:[20020081, 20150222],
+    };
+
     var lang = localStorage.getItem("lang");
     var langNum = lang == "en" ? 0
         : lang == "pt" ? 1
@@ -2306,6 +2321,7 @@ function transl() {
                 if (langNum == 0) return "R" + p1;
                 else if (langNum == 1 || langNum == 2) return "J" + p1;
                 else if (langNum == 3) return p1 + "ラウンド";
+                else return p1 + "라운드";
             });
         }
 
@@ -2330,10 +2346,11 @@ function transl() {
                     return num + "th";
                 } else if (langNum == 1 || langNum == 2) return num + "º";
                 else if (langNum == 3) return "第" + num + "回";
+                else return "제" + num + "회";
             });
         }
         
-        // 경기당 n
+        // 경기당
         var regex = /경기당\s*([\d.]+)/g;
 
         if (regex.test(newText)) {
@@ -2347,6 +2364,7 @@ function transl() {
                 } else if (langNum === 2) {
                     return n + " por Juego";
                 } else if (langNum === 3) return "1試合あたり" + n + "回";
+                else return "경기당 " + n;
             });
         }
 
@@ -2355,9 +2373,31 @@ function transl() {
             $(this).html(newText);
         }
 
-        // 선수 이름 뒤 숫자 지우기
-
     });
+    
+    // 선수 이름 뒤 숫자 지우기/이름 짧게
+    $("#startingXI > table > tbody > tr > td > p:nth-of-type(2), #sub > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(1)").each(function() {
+        $(this).text().replace(/[0-9]/g, "");
+
+        parent = $(this).parents().filter(function () {
+            return typeof $(this).attr('id') !== 'undefined' && $(this).attr('id') !== '';
+        }).first().attr("id");
+        parent = Number(parent);
+
+        // 공백으로 구분
+        if(nameList[0].includes(parent)) $(this).text($(this).text().split(" ")[0]);
+        else if(nameList[1].includes(parent)) $(this).text($(this).text());
+        else if(parent == nameList[2][0]) $(this).text("Glory");
+        else if(parent == nameList[2][1]) $(this).text("Bobby");
+        else $(this).text($(this).text().split(" ").length > 1 ? $(this).text().split(" ").slice(1).join(" ") : $(this).text());
+
+        // 나카구로(・)로 구분
+        if(nameList[0].includes(parent)) $(this).text($(this).text().split("・")[0]);
+        else if(nameList[1].includes(parent)) $(this).text($(this).text());
+        else if(parent == nameList[2][0]) $(this).text("Glory");
+        else if(parent == nameList[2][1]) $(this).text("Bobby");
+        else $(this).text($(this).text().split("・").length > 1 ? $(this).text().split("・").slice(1).join("・") : $(this).text());
+    })
 
     console.log(`번역 완료(ko -> ${lang})`)
 

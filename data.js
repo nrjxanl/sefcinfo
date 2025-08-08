@@ -62,7 +62,7 @@ $(document).ready(function () {
             h2h = {"gangwonfc": ["dd5828", "ffffff", "7", "1", "2", "20", "9"], "gyeongnamfc": ["e83827", "f5cd21", "1", "2", "0", "2", "0"], "gimcheonsangmu": ["002649", "c5a775", "1", "1", "0", "3", "1"], "gimpofc": ["203d41", "cdb161", "1", "1", "1", "1", "6"], "daegufc": ["59b8f6", "000000", "0", "0", "1", "0", "1"], "daejeoncitizen": ["9b2743", "041e42", "0", "0", "1", "0", "1"], "daejeonhana": ["007e6e", "9b2743", "0", "0", "1", "0", "1"], "busanipark": ["ff0d00", "ffffff", "1", "1", "1", "4", "5"], "bucheonfc": ["ac2424", "ffffff", "2", "5", "3", "13", "14"], "sangjusangmu": ["ed1a2e", "ffffff", "1", "1", "1", "2", "3"], "seongnamfc": ["000000", "ffffff", "3", "1", "10", "15", "40"], "suwonfc": ["00396f", "eb0028", "4", "2", "7", "23", "34"], "suwonfcp": ["00396f", "eb0028", "0", "1", "1", "2", "3"], "ansangreeners": ["00979c", "0a2a3b", "7", "0", "2", "30", "9"], "jeonnamdragons": ["ffde00", "000000", "0", "3", "1", "8", "10"], "jejuutd": ["f58026", "ffffff", "3", "4", "9", "23", "42"], "jejusk": ["f58026", "ffffff", "3", "4", "9", "23", "42"], "chungnamasan": ["f4cd1c", "093c91", "5", "4", "1", "24", "13"], "fcanyang": ["4f1b87", "cda55f", "5", "4", "4", "29", "18"], "ulsanhyundai": ["003f98", "f9be00", "0", "1", "2", "2", "5"], "fcseoul": ["b5191a", "000000", "5", "0", "11", "20", "59"], "incheonutd": ["004f9e", "231815", "3", "2", "7", "12", "24"], "suwonsamsung": ["194996", "ffffff", "1", "1", "9", "5", "34"], "pohangsteelers": ["e70012", "000000", "1", "0", "2", "1", "9"], "boinms": ["a52a2a", "ebb767", "1", "0", "1", "3", "3"], "jeonbukhyundai": ["034f36", "ffdd00", "0", "0", "1", "2", "5"], "dongbukms": ["fe5112", "0d1689", "0", "0", "1", "0", "6"], "namkangms": ["4367ad", "ffffff", "1", "0", "1", "8", "4"], "mullaems": ["30aa8c", "fed308", "0", "0", "1", "1", "10"], "joongdongms": ["1246c2", "ffffff", "0", "0", "2", "3", "8"], "dangsanseoms": ["1a87c7", "ffffff", "0", "0", "1", "0", "4"], "neweunpyeongfc": ["808080", "ffffff", "0", "0", "1", "0", "5"], "fchanyang": ["12345a", "ffffff", "1", "0", "0", "4", "1"], "dongwonms": ["ffa034", "ffffff", "0", "0", "1", "0", "4"], "chungangunivms": ["0075b3", "ffffff", "0", "0", "1", "0", "4"], "yeongseoms": ["9c2629", "f6fb80", "1", "0", "0", "4", "3"], "sahams": ["2e308d", "ffffff", "0", "0", "1", "2", "3"], "daegubukms": ["f8e933", "ffffff", "1", "0", "0", "4", "0"], "dobongms": ["008b05", "ffffff", "0", "0", "1", "1", "2"], "gaewonms": ["1965af", "ffffff", "0", "0", "1", "1", "2"], "gusanms": ["4d408f", "ffffff", "0", "0", "1", "0", "2"], "hwagokms": ["191080", "f5b907", "0", "1", "0", "4", "4"], "maposinbukfc": ["c8ae37", "2a2b49", "1", "0", "0", "4", "1"], "seilms": ["202a61", "ffffff", "0", "1", "2", "1", "6"], "janganms": ["41236c", "ffffff", "0", "0", "1", "0", "2"], "anyangms": ["4f1b87", "cda55f", "6", "1", "0", "17", "7"], "seokgwanms": ["0ea91f", "ffffff", "0", "0", "1", "0", "1"], "haenamms": ["137e4e", "a8171c", "1", "0", "0", "2", "0"], "sinjangms": ["112c86", "27a543", "1", "0", "0", "2", "1"], "leepyeongfc": ["008001", "ffffff", "1", "0", "0", "2", "0"], "kyungheems": ["1a2985", "ffffff", "1", "0", "0", "4", "2"], "sillimms": ["009900", "fffe04", "0", "0", "1", "2", "3"], "sincheonms": ["f0ef13", "c60a03", "1", "0", "0", "2", "0"], "paichaims": ["2056ae", "ffffff", "1", "0", "0", "2", "0"], "soongsilms": ["122a4a", "ffffff", "0", "0", "1", "1", "2"], "seongnamfcgangdong": ["000000", "ffffff", "1", "0", "0", "11", "0"], "fcseoulfos": ["b5191a", "000000", "1", "0", "0", "5", "1"], "hanyangms": ["00467f", "ffffff", "0", "0", "1", "0", "1"], "cheonancity": ["5dacd8", "ffffff", "5", "1", "0", "17", "2"],}
         }
 
-        $("#matchScore").append("<div></div><div><div><div><img></div><p transl = 'y'></p></div><div><p></p><p></p><p transl = 'y'></p></div><div><div><img></div><p transl = 'y'></p></div></div><div><p transl = 'y'></p><p transl = 'y'></p></div>")
+        $("#matchScore").append("<div></div><div><div><div><img></div><p transl = 'y'></p></div><div><p></p><p></p><p transl = 'y'></p></div><div><div><img></div><p transl = 'y'></p></div></div><div><p></p><p></p></div>")
 
         $("#matchScore > div:nth-of-type(1)").html("<img src='./files/" + dataList["comp"][1] + "_s.png'><p transl = 'y'>" + dataList["comp"][0] + " " + dataList["round"] + "</p>")
 
@@ -132,7 +132,7 @@ $(document).ready(function () {
                     zIndex = 0
 
                     $("#" + pos.toLowerCase()).append("<td id='" + dataList[pos][i][0].replace(/[^0-9]/g, "") + "'></td>")
-                    $("#" + dataList[pos][i][0]).html("<div><img src='./files/jersey.svg'></div><p>" + playerNumber[year][dataList[pos][i][0]][1] + "</p><p transl = 'y'>" + playerNumber[year][dataList[pos][i][0]][0].replace(/[A-Z,0-9]/g, "") + "<span></span></p><p glass='true'>" + dataList[pos][i][1].replace(/[g|a|y|r|o|p]/g, "") + "</p>")
+                    $("#" + dataList[pos][i][0]).html("<div><img src='./files/jersey.svg'></div><p>" + playerNumber[year][dataList[pos][i][0]][1] + "</p><p transl = 'y'>" + playerNumber[year][dataList[pos][i][0]][0] + "<span></span></p><p glass='true'>" + dataList[pos][i][1].replace(/[g|a|y|r|o|p]/g, "") + "</p>")
 
                     // 유니폼 색상
                     if (year == 2025) {
@@ -174,7 +174,7 @@ $(document).ready(function () {
 
                     // POTM 여부
                     if (dataList[pos][i][1].replace(/[^p]/g, "") == "p") {
-                        $("#potm").html("<p transl = 'y'>경기 최고의 선수</p><div><p><span>" + playerNumber[year][dataList[pos][i][0]][1] + "</span>" + playerNumber[year][dataList[pos][i][0]][0].replace(/[A-Z,0-9]/g, "") + "</p><p class='potm' glass='true'>" + dataList[pos][i][1].replace(/[a-z]/g, "") + "</p></div>")
+                        $("#potm").html("<p transl = 'y'>경기 최고의 선수</p><div><p transl='y'><span>" + playerNumber[year][dataList[pos][i][0]][1] + "</span>" + playerNumber[year][dataList[pos][i][0]][0].replace(/[A-Z,0-9]/g, "") + "</p><p class='potm' glass='true'>" + dataList[pos][i][1].replace(/[a-z]/g, "") + "</p></div>")
                         href = dataList[pos][i][0]
                     }
 
@@ -245,9 +245,9 @@ $(document).ready(function () {
 
                     zIndex = 0
 
-                    $("#sub > table").append("<tr id='" + dataList["SUB"][i][0].replace(/[^0-9]/g, "") + "'><td></td><td></td></tr>")
+                    $("#sub > table").append("<tr id='" + dataList["SUB"][i][0].replace(/[^0-9]/g, "") + "'><td></td><td transl='y'></td></tr>")
                     $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(1)").html(playerNumber[year][dataList["SUB"][i][0]][1])
-                    $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2)").html("<p>" + playerNumber[year][dataList["SUB"][i][0]][0].replace(/[A-Z,0-9]/g, "") + "<span></span></p><p glass='true'>" + dataList["SUB"][i][1].replace(/[g|a|y|r|o|p]/g, "") + "</p>")
+                    $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2)").html("<p>" + playerNumber[year][dataList["SUB"][i][0]][0] + "<span></span></p><p glass='true'>" + dataList["SUB"][i][1].replace(/[g|a|y|r|o|p]/g, "") + "</p>")
 
                     // 평점 없을 때
                     if (dataList["SUB"][i][1] == "") {
@@ -256,7 +256,7 @@ $(document).ready(function () {
 
                     // POTM 여부
                     if (dataList["SUB"][i][1].replace(/[^p]/g, "") == "p") {
-                        $("#potm").html("<p transl = 'y'>경기 최고의 선수</p><div><p><span>" + playerNumber[year][dataList["SUB"][i][0]][1] + "</span>" + playerNumber[year][dataList["SUB"][i][0]][0].replace(/[A-Z,0-9]/g, "") + "</p><p class='potm' glass='true'>" + dataList["SUB"][i][1].replace(/[a-z]/g, "") + "</p></div>")
+                        $("#potm").html("<p transl = 'y'>경기 최고의 선수</p><div><p transl='y'><span>" + playerNumber[year][dataList["SUB"][i][0]][1] + "</span>" + playerNumber[year][dataList["SUB"][i][0]][0].replace(/[A-Z,0-9]/g, "") + "</p><p class='potm' glass='true'>" + dataList["SUB"][i][1].replace(/[a-z]/g, "") + "</p></div>")
                         href = dataList["SUB"][i][0]
                     }
 
@@ -427,7 +427,7 @@ $(document).ready(function () {
                     // POTM 여부
                     if (dataList["SUB"][i][1].replace(/[^p]/g, "") == "p") {
                         $("#" + dataList["SUB"][i][0] + " > p:nth-of-type(2)").css("background", "#000060")
-                        $("#potm").html("<p transl = 'y'>경기 최고의 선수</p><div><p><span>" + playerNumber[year][dataList["SUB"][i][0]][1] + "</span>" + playerNumber[year][dataList["SUB"][i][0]][0].replace(/[A-Z,0-9]/g, "") + "</p><p class='potm' glass='true'>" + dataList["SUB"][i][1].replace(/[a-z]/g, "") + "</p></div>")
+                        $("#potm").html("<p transl = 'y'>경기 최고의 선수</p><div><p transl='y'><span>" + playerNumber[year][dataList["SUB"][i][0]][1] + "</span>" + playerNumber[year][dataList["SUB"][i][0]][0].replace(/[A-Z,0-9]/g, "") + "</p><p class='potm' glass='true'>" + dataList["SUB"][i][1].replace(/[a-z]/g, "") + "</p></div>")
                     }
 
                     // 득점 여부
@@ -637,7 +637,7 @@ $(document).ready(function () {
         }
 
         for (i = 0; i < localStorage.length; i++) {
-            if (localStorage.key(i) !== id && localStorage.key(i) !== "footer") {
+            if (localStorage.key(i) !== id && localStorage.key(i) !== "footer" && localStorage.key(i) !== "lang") {
                 localStorage.removeItem(localStorage.key(i))
                 i --
             }
@@ -1332,7 +1332,7 @@ $(document).ready(function () {
 
         $("#playerInfo > div:nth-of-type(3) > p:nth-of-type(1)").text(player[id]["bd"].substr(2, 2) + "." + player[id]["bd"].substr(4, 2) + "." + player[id]["bd"].substr(6, 2) + ".")
         $("#playerInfo > div:nth-of-type(1) > p:nth-of-type(2)").text(natl)
-        $("#playerInfo > div:nth-of-type(2) > p:nth-of-type(2)").text(height + "cm")
+        $("#playerInfo > div:nth-of-type(2) > p:nth-of-type(2)").text(height + "㎝")
         $("#playerInfo > div:nth-of-type(3) > p:nth-of-type(2)").text(age + "세")
 
         // 인스타그램 링크
@@ -2147,6 +2147,11 @@ function playerList_ () {
         $("[id*='player'] > div > div:nth-of-type(2n-1) > p:nth-of-type(6)").text("Amarillas");
         $("[id*='player'] > div > div:nth-of-type(2n-1) > p:nth-of-type(7)").text("Rojas");
     }
+    if (localStorage.getItem("lang") == "jp") {
+        $("[id*='player'] > div > div:nth-of-type(2n-1) > p:nth-of-type(3)").text("得点");
+        $("[id*='player'] > div > div:nth-of-type(2n-1) > p:nth-of-type(6)").text("イエローカード");
+        $("[id*='player'] > div > div:nth-of-type(2n-1) > p:nth-of-type(7)").text("レッドカード");
+    }
 }
 
 // 일정
@@ -2826,15 +2831,19 @@ function stats() {
 
     if (localStorage.getItem("lang") == "en") {
         $("#stats > .stats > table > thead > tr > th:nth-of-type(3)").text("Goals");
-        $("#standingsU18 > div > p").replace("전반기", "1H").replace("후반기", "2H")
+        $("#standingsU18 > div > p").text().replace("전반기", "1H").replace("후반기", "2H")
     }
     if (localStorage.getItem("lang") == "pt") {
         $("#stats > .stats > table > thead > tr > th:nth-of-type(3)").text("Gols");
-        $("#standingsU18 > div > p").replace("전반기", "Apertura").replace("Clausura", "2H")
+        $("#standingsU18 > div > p").text().replace("전반기", "Apertura").replace("후반기", "Clausura")
     }
     if (localStorage.getItem("lang") == "es") {
         $("#stats > .stats > table > thead > tr > th:nth-of-type(3)").text("Goles");
-        $("#standingsU18 > div > p").replace("전반기", "Apertura").replace("Clausura", "2H")
+        $("#standingsU18 > div > p").text().replace("전반기", "Apertura").replace("후반기", "Clausura")
+    }
+    if (localStorage.getItem("lang") == "jp") {
+        $("#stats > .stats > table > thead > tr > th:nth-of-type(3)").text("得点");
+        $("#standingsU18 > div > p").text().replace("전반기", "前期").replace("후반기", "後期")
     }
 }
 
@@ -3180,6 +3189,8 @@ function matchH2H() {
         if (id.substring(8, 9) !== "0" && $("#startingXI > div > table > tbody > tr:nth-of-type(1) > td").length !== 0) {
             $("#recentMatch").css({"position": "static", "margin-top": "40px"})
         }
+
+        transl()
 
     } else {
         if (!$("#matchH2H > p").length) {
