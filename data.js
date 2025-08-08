@@ -1765,7 +1765,7 @@ $(document).ready(function () {
                         }
 
                         if (id.substring(8, 9) == "0" && id.substring(0, 8) == next) {
-                            $("#matchScore").after(`<div id='matchWeather' glass='true'><p>현재 ${dataList["stadium"]} 날씨</p><div><div><img src='./files/weather.svg'><p></p></div><div><img src='./files/temp.svg'><p></p></div><div><img src='./files/wind.svg'><p></p></div></div><a href='https://www.data.go.kr/data/15084084/openapi.do' target='_blank'>기상청 제공</a></div>`)
+                            $("#matchScore").after(`<div id='matchWeather' glass='true'><p transl='y'>현재 ${dataList["stadium"]} 날씨</p><div><div><img src='./files/weather.svg'><p transl='y'></p></div><div><img src='./files/temp.svg'><p transl='y'></p></div><div><img src='./files/wind.svg'><p transl='y'></p></div></div><a href='https://www.data.go.kr/data/15084084/openapi.do' target='_blank' transl='y'>기상청 제공</a></div>`)
                             $("#matchInfo").css("display", "none")
                             $(".matchDetail > button:nth-child(1)").css("display", "none")
                             $("#matchWeather > div:nth-of-type(1) > div:nth-of-type(1) > p").text(weatherCode[weather["PTY"]["value"]])

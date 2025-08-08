@@ -354,6 +354,8 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 
 #matchWeather {width: 26vw; padding: 16px 2vw; border-radius: 20px; display: flex; flex-direction: column; justify-content: center; align-items: center;}
 #matchWeather > p {font-size: 18px; font-weight: 600; margin-bottom: 20px;}
+#matchWeather > p > ruby {font-size: 18px; font-weight: 600;}
+#matchWeather > p > ruby > rt {font-size: 12px; font-weight: 300;}
 #matchWeather > a {font-weight: 300; margin-top: 14px; text-decoration: underline;}
 #matchWeather > div:nth-of-type(1) {display: flex; justify-content: center; align-items: center;}
 #matchWeather > div:nth-of-type(1) > div {margin: 0 12px;}

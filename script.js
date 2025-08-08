@@ -202,14 +202,10 @@ if ($("#prevMatch").length) {
     $("#menu > div:nth-of-type(6)").css("color", "#000060")
     $("#menu > div:nth-of-type(6) > span").css("background", "#000060")
     $("#menu > div:nth-of-type(6) > img").css("filter", "brightness(0) saturate(100%) invert(8%) sepia(76%) saturate(5175%) hue-rotate(242deg) brightness(71%) contrast(125%)")
-} else if ($("#wallpaperCanvas").length) {
+} else if ($("#selectStadium").length || $("#stadium").length || $("#subway").length || $("#bus").length || $("#parking").length || $("#addFnb").length) {
     $("#menu > div:nth-of-type(7)").css("color", "#000060")
     $("#menu > div:nth-of-type(7) > span").css("background", "#000060")
     $("#menu > div:nth-of-type(7) > img").css("filter", "brightness(0) saturate(100%) invert(8%) sepia(76%) saturate(5175%) hue-rotate(242deg) brightness(71%) contrast(125%)")
-} else if ($("#selectStadium").length || $("#stadium").length || $("#subway").length || $("#bus").length || $("#parking").length || $("#addFnb").length) {
-    $("#menu > div:nth-of-type(8)").css("color", "#000060")
-    $("#menu > div:nth-of-type(8) > span").css("background", "#000060")
-    $("#menu > div:nth-of-type(8) > img").css("filter", "brightness(0) saturate(100%) invert(8%) sepia(76%) saturate(5175%) hue-rotate(242deg) brightness(71%) contrast(125%)")
 }
 
 // 메뉴 hover 시 강조
@@ -2171,6 +2167,7 @@ function transl() {
         "정보": ["Info", "Info", "Info", "情報"],
         "라인업": ["Lineups", "Formação", "Alineación", "ラインナップ"],
         "전적": ["H2H", "Frente-a-Frente", "Cara a Cara", "チーム対チーム"],
+        "기상청 제공": ["Provided by the Korea Meteorological Administration", "Fornecido pela Administração Meteorológica da Coreia", "Proporcionado por la Administración Meteorológica de Corea", "気象庁提供"],
 
         "시즌별 기록": ["All Seasons", "Estatísticas por Temporada", "Estadísticas por Temporada", "年別スタッツ"],
 
@@ -2230,6 +2227,8 @@ function transl() {
         "버스": ["Buses", "Ônibus", "Autobuses", "バス"],
         "식당": ["Restaurants", "Restaurantes", "Restaurantes", "レストラン"],
         "카페&amp;디저트": ["Cafes & Desserts", "Cafés e Sobremesas", "Cafés y Postres", "コーヒー・デザート"],
+        "현재 ": ["Current Weather in ", "Tempo Atual no ", "El Tiempo Actual en ", "現在"],
+        " 날씨": ["", "", "", "の天気"],
 
         // 국적
         "대한민국": ["Republic of Korea", "República da Coreia", "República de Corea", "大韓民国"],
@@ -2289,7 +2288,7 @@ function transl() {
     };
 
     nameList = {
-        0:[20250207, 20200151, 20130116, 20200135, 20200150, 20220286, 20170227, 20250192, 20140067, 20160266, 20240313, 20250194, 20230211, 20230194],
+        0:[20250207, 20200151, 20130116, 20200150, 20220286, 20170227, 20250192, 20140067, 20160266, 20240313, 20250194, 20230211, 20230194],
         1:[20150225, 20240190, 20150224],
         2:[20020081, 20150222],
     };
