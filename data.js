@@ -345,7 +345,7 @@ $(document).ready(function () {
                     
                     $("#startingXI > div > table").append("<tr id='" + dataList[pos][i][0].replace(/[^0-9]/g, "") + "'><td></td><td></td></tr>")
                     $("#" + dataList[pos][i][0] + " > td:nth-of-type(1)").html(playerNumber[year][dataList[pos][i][0]][1])
-                    $("#" + dataList[pos][i][0] + " > td:nth-of-type(2)").html("<p>" + playerNumber[year][dataList[pos][i][0]][0].replace(/[A-Z,0-9]/g, "") + "<span></span></p><p glass='true'>" + dataList[pos][i][1].replace(/[g|a|y|r|o|p]/g, "") + "</p>")
+                    $("#" + dataList[pos][i][0] + " > td:nth-of-type(2)").html("<p transl='y'>" + playerNumber[year][dataList[pos][i][0]][0] + "<span></span></p><p glass='true'>" + dataList[pos][i][1].replace(/[g|a|y|r|o|p]/g, "") + "</p>")
 
                     // 득점 여부
                     if (dataList[pos][i][1].replace(/[^g]/g, "").length !== 0) {
@@ -417,7 +417,7 @@ $(document).ready(function () {
 
                     $("#sub > table").append("<tr id='" + dataList["SUB"][i][0].replace(/[^0-9]/g, "") + "'><td></td><td></td></tr>")
                     $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(1)").html(playerNumber[year][dataList["SUB"][i][0]][1])
-                    $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2)").html("<p>" + playerNumber[year][dataList["SUB"][i][0]][0].replace(/[A-Z,0-9]/g, "") + "<span></span></p><p glass='true'>" + dataList["SUB"][i][1].replace(/[g|a|y|r|o|p]/g, "") + "</p>")
+                    $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2)").html("<p transl='y'>" + playerNumber[year][dataList["SUB"][i][0]][0] + "<span></span></p><p glass='true'>" + dataList["SUB"][i][1].replace(/[g|a|y|r|o|p]/g, "") + "</p>")
 
                     // 평점 없을 때
                     if (dataList["SUB"][i][1] == "") {
