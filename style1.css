@@ -40,7 +40,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 /* 메뉴 */
 #menu {width: 60vw; height: 200vh; position: fixed; top: 0; left: -60vw; background-color: #faf6f5d0; z-index: 1000; clip-path: none; border: none; box-shadow: none; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
 #menuBg {width: 100vw; height: 200vh; position: fixed; top: 0; left: 0; background: #05090a20; opacity: 0; display: none; z-index: 999;}
-#menu > div {width: 40vw; height: 32px; padding: 8px 0; margin: 8px 0 8px 10vw; border-radius: 20px; text-align: left; font-size: 20px; display: flex; align-items: center; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
+#menu > div {width: 40vw; height: 28px; padding: 8px 0; margin: 8px 0 8px 10vw; border-radius: 20px; text-align: left; font-size: 20px; display: flex; align-items: center; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
 #menu > div:nth-of-type(1) {margin-top: 100px;}
 #menu > div:nth-last-of-type(1) > div {width: fit-content; display: flex; overflow: hidden;}
 #menu > div:nth-last-of-type(1) > div > p {font-weight: 600; margin-right: 8px;}
@@ -550,13 +550,14 @@ tr.sefc > td > p {background: #faf6f5 !important; color: #05090a !important;}
 #wallpaperInput > input {width: 40vw; padding: 8px 0; border: 2px solid #05090a; border-radius: 20px; margin-right: 16px; font-size: 16px; font-weight: 600;}
 
 #wallpaperCanvas {width: calc(60vh * (9 / 20)); height: 60vh; margin: 40px 0 0 calc((100vw - (60vh * (9 / 20))) / 2); border: 2px solid #000060; border-radius: 20px; overflow: hidden; margin-bottom: 40px;}
-#wallpaperCanvas > div {display: flex; justify-content: center; border: 0; padding: 0;}
+#wallpaperCanvas > div {position: relative; display: flex; justify-content: center; border: 0; padding: 0;}
 #wallpaperBg {width: calc(60vh * (9 / 20)); height: 60vh;}
-#wallpaperName {width: calc(60vh * (9 / 20)); font-size: 4.5vh; position: absolute; top: calc(230px + 8vh); font-family: "KLeagueBasic";}
-#wallpaperNum {width: calc(60vh * (9 / 20)); position: absolute; top: calc(230px + 19vh);}
+#wallpaperName {width: calc(60vh * (9 / 20)); font-size: 4.5vh; line-height: 4.5vh; position: absolute; top: 7vh; font-family: "KLeagueBasic";}
+#wallpaperNum {width: calc(60vh * (9 / 20)); position: absolute; top: 17vh;}
 #wallpaperNum > img {height: 14vh; margin: 0 .8vh;}
 
-#wallpaperDownload {height: 28px; padding: 0 16px; font-size: 16px; font-weight: 600; color: #faf6f5; background: #00006080; border: none; border-radius: 20px;}
+#wallpaperDownload {height: 28px; padding: 0 16px; margin-bottom: 40px; font-size: 16px; font-weight: 600; color: #faf6f5; background: #00006080; border: none; border-radius: 20px;}
+#wallpaperDownload:active {background: #000060c0;}
 
 /* 경기장 시야/길찾기 */
 #selectStadium {width: 100vw; margin: 100px 0 0 2.5vw; display: flex; flex-wrap: wrap;}
