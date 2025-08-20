@@ -1061,7 +1061,7 @@ $(document).ready(function () {
                 $("#playedSEFCU15 > div > div:nth-of-type(4) > p:nth-of-type(2)").text(Object.values(rc).reduce(function (a, b) { return a + b }, 0))
 
             }
-
+console.log(stat.replace(/[^g]/g, ""))
             for (k = 0; k < stat.replace(/[^g]/g, "").length; k++) {
                 $("." + Object.keys(data)[i] + " > p:nth-of-type(4)").append("<img src='./files/goal.svg'>")
             }
