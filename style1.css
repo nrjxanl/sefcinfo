@@ -114,7 +114,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #playerA > div > div:nth-of-type(2n) > div:nth-last-of-type(1) {margin-bottom: 40px;}
 #playerA > div > div:nth-of-type(2n) > div > p:nth-of-type(1) {width: 10vw; padding-right: 5vw; font-size: 16px; text-align: right; color: #000060;}
 #playerA > div > div:nth-of-type(2n) > div > p:nth-of-type(2) {width: 30vw; font-size: 16px; text-align: left;}
-#playerA > div > div:nth-of-type(2n) > div > p:nth-of-type(2) > ruby {font-size: 20px;}
+#playerA > div > div:nth-of-type(2n) > div > p:nth-of-type(2) > ruby {font-size: 16px;}
 #playerA > div > div:nth-of-type(2n) > div > p:nth-of-type(2) > ruby > rt {font-size: 12px; font-weight: 300;}
 #playerA > div > div:nth-of-type(2n) > div > p:nth-of-type(n+3) {width: calc(45vw / 6); font-size: 16px; font-weight: 600;}
 
@@ -130,8 +130,8 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #playerU18 > div > div:nth-of-type(2n) > div:nth-of-type(1) {margin-top: 20px;}
 #playerU18 > div > div:nth-of-type(2n) > div:nth-last-of-type(1) {margin-bottom: 40px;}
 #playerU18 > div > div:nth-of-type(2n) > div > p:nth-of-type(1) {width: 10vw; padding-right: 5vw; font-size: 20px; text-align: right; color: #000060;}
-#playerU18 > div > div:nth-of-type(2n) > div > p:nth-of-type(2) {width: 30vw; font-size: 20px; text-align: left;}
-#playerU18 > div > div:nth-of-type(2n) > div > p:nth-of-type(2) > ruby {font-size: 20px;}
+#playerU18 > div > div:nth-of-type(2n) > div > p:nth-of-type(2) {width: 30vw; font-size: 16px; text-align: left;}
+#playerU18 > div > div:nth-of-type(2n) > div > p:nth-of-type(2) > ruby {font-size: 16px;}
 #playerU18 > div > div:nth-of-type(2n) > div > p:nth-of-type(2) > ruby > rt {font-size: 12px; font-weight: 300;}
 #playerU18 > div > div:nth-of-type(2n) > div > p:nth-of-type(n+3) {width: calc(45vw / 4); font-size: 16px; font-weight: 600;}
 
@@ -147,8 +147,8 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #playerU15 > div > div:nth-of-type(2n) > div:nth-of-type(1) {margin-top: 20px;}
 #playerU15 > div > div:nth-of-type(2n) > div:nth-last-of-type(1) {margin-bottom: 40px;}
 #playerU15 > div > div:nth-of-type(2n) > div > p:nth-of-type(1) {width: 10vw; padding-right: 5vw; font-size: 20px; text-align: right; color: #000060;}
-#playerU15 > div > div:nth-of-type(2n) > div > p:nth-of-type(2) {width: 30vw; font-size: 20px; text-align: left;}
-#playerU15 > div > div:nth-of-type(2n) > div > p:nth-of-type(2) > ruby {font-size: 20px;}
+#playerU15 > div > div:nth-of-type(2n) > div > p:nth-of-type(2) {width: 30vw; font-size: 16px; text-align: left;}
+#playerU15 > div > div:nth-of-type(2n) > div > p:nth-of-type(2) > ruby {font-size: 16px;}
 #playerU15 > div > div:nth-of-type(2n) > div > p:nth-of-type(2) > ruby > rt {font-size: 12px; font-weight: 300;}
 #playerU15 > div > div:nth-of-type(2n) > div > p:nth-of-type(n+3) {width: calc(45vw / 4); font-size: 16px; font-weight: 600;}
 
