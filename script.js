@@ -2367,6 +2367,7 @@ function transl() {
         "기록": ["Stats", "Estatísticos", "Estadísticas", "スタッツ"],
         "순위": ["Standings", "Classificações", "Clasificaciones", "順位表"],
         "응원가": ["Chants", "Canções", "Canciones", "チャント"],
+        "배경화면": ["Wallpaper", "Papel de Parede", "Fondo de Pantalla", "待ち受け"],
         "직관 가이드": ["Guides", "Guias", "Guías", "ガイド"],
         "오류 제보 및 건의": ["Report Errors & Make Suggestions", "Reportar Erros e Fazer Sugestões", "Informar Errores y Hacer Sugerencias", "エラー情報・提案"],
 
