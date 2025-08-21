@@ -25,11 +25,11 @@
 <!-- 선수단 -->
 <url>
   <loc>https://sefc.info/players</loc>
-  <lastmod>2025-08-08T12:47:00+09:00</lastmod>
+  <lastmod></lastmod>
 </url>
 <url>
   <loc>https://sefc.info/player</loc>
-  <lastmod>2025-08-08T12:47:00+09:00</lastmod>
+  <lastmod></lastmod>
 </url>
 
 <!-- 기록 -->
@@ -47,7 +47,7 @@
 <!-- 응원가 -->
 <url>
   <loc>https://sefc.info/chants</loc>
-  <lastmod>2025-08-08T12:47:00+09:00</lastmod>
+  <lastmod></lastmod>
 </url>
 <url>
   <loc>https://sefc.info/chants/team</loc>
@@ -61,7 +61,7 @@
 <!-- 배경화면 -->
 <url>
   <loc>https://sefc.info/wallpapers</loc>
-  <lastmod>2025-08-08T12:47:00+09:00</lastmod>
+  <lastmod></lastmod>
 </url>
 
 <!-- 직관 가이드 -->

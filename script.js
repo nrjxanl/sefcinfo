@@ -71,12 +71,6 @@ $("footer > img").click(function () {
 // 메뉴
 $("body").append("<div id='menu' glass='true'><div transl='y'><img src='https://sefc.info/files/home.svg'>홈</div><div transl='y'><img src='https://sefc.info/files/fixtures.svg'>일정</div><div transl='y'><img src='https://sefc.info/files/players.svg'>선수단</div><div transl='y'><img src='https://sefc.info/files/stats.svg'>기록</div><div transl='y'><img src='https://sefc.info/files/standings.svg'>순위</div><div transl='y'><img src='https://sefc.info/files/chants.svg'>응원가</div><div transl='y'><img src='https://sefc.info/files/wallpaper.svg'>배경화면</div><div transl='y'><img src='https://sefc.info/files/stadium.svg'>직관 가이드</div><div id='selectLang'><img src='https://sefc.info/files/lang.svg'><div><p l='ko'>KO</p><p l='en'>EN</p><p l='pt'>PT</p><p l='es'>ES</p><p l='jp'>JP</p></div></div><a href='https://naver.me/GlJ18AQh' target='_blank' transl='y'>오류 제보 및 건의</a><img class='bannerMenu' src='https://sefc.info/files/banner_1.jpg'></div><div id='menuBg' glass='true'></div>")
 
-// 메뉴 번역
-if (localStorage.getItem("lang") == "en") $("#menu > div:nth-of-type(5)").html("<img src='https://sefc.info/files/standings.svg'>Standings")
-else if (localStorage.getItem("lang") == "pt") $("#menu > div:nth-of-type(5)").html("<img src='https://sefc.info/files/standings.svg'>Standings")
-else if (localStorage.getItem("lang") == "es") $("#menu > div:nth-of-type(5)").html("<img src='https://sefc.info/files/standings.svg'>Clasificaciones")
-else if (localStorage.getItem("lang") == "jp") $("#menu > div:nth-of-type(5)").html("<img src='https://sefc.info/files/standings.svg'>順位表")
-
 // 언어 선택 버튼
 if (localStorage.getItem("lang") == null) localStorage.setItem("lang", "ko");
 
@@ -311,7 +305,7 @@ function matchInfo() {
     $(".matchDetail button:nth-child(4)").css("font-weight", 300)
     localStorage.setItem(id, "matchInfo")
 
-    transl()
+    
 }
 
 function matchLineup() {
@@ -334,7 +328,7 @@ function matchLineup() {
     $(".matchDetail button:nth-child(4)").css("font-weight", 300)
     localStorage.setItem(id, "matchLineup")
 
-    transl()
+    
 }
 
 function matchStat() {
@@ -357,7 +351,7 @@ function matchStat() {
     $(".matchDetail button:nth-child(4)").css("font-weight", 300)
     localStorage.setItem(id, "matchStat")
 
-    transl()
+    
 }
 
 if ($("#matchScore").length && !$("#highlight").length) {
@@ -515,7 +509,7 @@ if ($("#team").length || $("#chantsName").length) {
         window.location = "./chants/players?" + $(this).index()
     })
 
-    transl()
+    
 
     $("#team > div > span, #players > div > span").each(function () {
         if ($(this).text().includes("()")) {
@@ -1452,7 +1446,7 @@ $("#selectStadium > a").click(function(e) {
         $(this).find("div > button:nth-of-type(3)").css("opacity", 0.3).attr("class", "noHover")
     };
 
-    transl()
+    
 });
 
 if ($("#selectStadium").length) {
@@ -1465,7 +1459,7 @@ if ($("#selectStadium").length) {
         $("#selectStadium > a > div > button").remove();
     });
 
-    transl()
+    
 }
 
 // 관중석 시야 페이지로 이동
@@ -1615,7 +1609,7 @@ if ($("#stadium").length) {
 
         $("#seats > div").css("pointer-events", "auto");
 
-        transl()
+        
     });
 
     $("#seats").on("click", "button", function() {
@@ -1663,7 +1657,7 @@ if ($("#stadium").length) {
             $("#seatsPopUp").append("<p transl='y'>해당 좌석의 사진이 없습니다.</p><button transl='y'>사진 추가하기</button>");
         }
 
-        transl()
+        
     });
 
     $("#seatsPopUp").on("click", "button", function() {
@@ -2557,43 +2551,123 @@ function transl() {
             });
         }
 
-
-        if (newText !== originalText) {
-            $(this).html(newText);
-        }
+        $(this).html(newText);
 
     });
     
     // 선수 이름 뒤 숫자 지우기/이름 짧게
     $("#startingXI > table > tbody > tr > td > p:nth-of-type(2), #startingXI > div > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(1), #sub > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(1)").each(function() {
-        $(this).text().replace(/[0-9]/g, "");
+        var text = $(this).html()
+        
+        text.replace(/[0-9]/g, "");
 
         parent = $(this).parents().filter(function () {
             return typeof $(this).attr("id") !== "undefined" && $(this).attr("id") !== "";
         }).first().attr("id");
         parent = Number(parent);
 
-        // 공백으로 구분
-        if(nameList[0].includes(parent)) $(this).text($(this).text().split(" ")[0]);
-        else if(nameList[1].includes(parent)) $(this).text($(this).text());
-        else if(parent == nameList[2][0]) $(this).text("Glory");
-        else if(parent == nameList[2][1]) $(this).text("Bobby");
-        else $(this).text($(this).text().split(" ").length > 1 ? $(this).text().split(" ").slice(1).join(" ") : $(this).text());
+        // nameList[0]: 이름만, nameList[1]: 성명 전체, nameList[2]: 별명
 
-        // 나카구로(・)로 구분
-        if(nameList[0].includes(parent)) $(this).text($(this).text().split("・")[0]);
-        else if(nameList[1].includes(parent)) $(this).text($(this).text());
-        else if(parent == nameList[2][0]) $(this).text("Glory");
-        else if(parent == nameList[2][1]) $(this).text("Bobby");
-        else $(this).text($(this).text().split("・").length > 1 ? $(this).text().split("・").slice(1).join("・") : $(this).text());
+        if (langNum == 3) {
+            // 나카구로(・)로 구분
+            if(nameList[0].includes(parent)) $(this).html(text.split("・")[0]);
+            else if(nameList[1].includes(parent)) $(this).html(text);
+            else if(parent == nameList[2][0]) $(this).html("Glory");
+            else if(parent == nameList[2][1]) $(this).html("Bobby");
+            else $(this).html(text.split("・").length > 1 ? text.split("・").slice(1).join("・") : text);
+        }
+        else {
+            // 공백으로 구분
+            if(nameList[0].includes(parent)) $(this).html(text.split(" ")[0]);
+            else if(nameList[1].includes(parent)) $(this).html(text);
+            else if(parent == nameList[2][0]) $(this).html("Glory");
+            else if(parent == nameList[2][1]) $(this).html("Bobby");
+            else $(this).html(text.split(" ").length > 1 ? text.replace(/^[^ ]* ?/, "") : text);
+            
+            console.log(text, text.split(" "));
+        }
+
     })
 
     $("#startingXI > table > tbody > tr > td > p:nth-of-type(2), #startingXI > div > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(1), #sub > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(1), #playerA > div > div:nth-of-type(2n) > div > p:nth-of-type(2), #playerU18 > div > div:nth-of-type(2n) > div > p:nth-of-type(2), #playerU15 > div > div:nth-of-type(2n) > div > p:nth-of-type(2), #stats > .stats > table > tbody > tr > td:nth-of-type(2)").each(function() {
-        $(this).text($(this).text().replace(/[0-9]/g, ""));
+        $(this).html($(this).html().replace(/[0-9]/g, ""));
     })
+
+    // 기타 번역
+    if (localStorage.getItem("lang") == "en") {
+        $("[id*='playedSEFC'] > div > div:nth-of-type(2) > p:nth-of-type(1)").text("Goals");
+        $("[id*='playedSEFC'] > div > div:nth-of-type(4) > p:nth-of-type(1)").text("YCs");
+        $("[id*='playedSEFC'] > div > div:nth-of-type(5) > p:nth-of-type(1)").text("RCs");
+        $("#statsBySeason > div:nth-of-type(1) > p:nth-of-type(4)").text("Goals");
+        $("#statsBySeason > div:nth-of-type(1) > p:nth-of-type(6)").text("YCs");
+        $("#statsBySeason > div:nth-of-type(1) > p:nth-of-type(7)").text("RCs");
+            
+        $("#nameInput").attr("placeholder", "Name(up to 5 characters)")
+        $("#numInput").attr("placeholder", "Number(up to 2 digits)")
+
+        $("[id*='player'] > div > div:nth-of-type(2n-1) > p:nth-of-type(3)").text("Goals");
+        $("[id*='player'] > div > div:nth-of-type(2n-1) > p:nth-of-type(6)").text("YCs");
+        $("[id*='player'] > div > div:nth-of-type(2n-1) > p:nth-of-type(7)").text("RCs");
+
+        $("#stats > .stats > table > thead > tr > th:nth-of-type(3)").text("Goals");
+        $("#standingsU18 > div > p").text().replace("전반기", "1H").replace("후반기", "2H")
+
+        $("#menu > div:nth-of-type(5)").html("<img src='https://sefc.info/files/standings.svg'>Standings")
+    }
+    if (localStorage.getItem("lang") == "pt") {
+        $("[id*='playedSEFC'] > div > div:nth-of-type(2) > p:nth-of-type(1)").text("Gols");
+        $("[id*='playedSEFC'] > div > div:nth-of-type(4) > p:nth-of-type(1)").text("Amarelos");
+        $("[id*='playedSEFC'] > div > div:nth-of-type(5) > p:nth-of-type(1)").text("Vermelhos");
+        $("#statsBySeason > div:nth-of-type(1) > p:nth-of-type(4)").text("Gols");
+        $("#statsBySeason > div:nth-of-type(1) > p:nth-of-type(6)").text("Amarelos");
+        $("#statsBySeason > div:nth-of-type(1) > p:nth-of-type(7)").text("Vermelhos");
+
+        $("#nameInput").attr("placeholder", "Nome(máximo 5 caracteres)")
+        $("#numInput").attr("placeholder", "Número(máximo 2 dígitos)")
+
+        $("[id*='player'] > div > div:nth-of-type(2n-1) > p:nth-of-type(3)").text("Gols");
+        $("[id*='player'] > div > div:nth-of-type(2n-1) > p:nth-of-type(6)").text("Amarelos");
+        $("[id*='player'] > div > div:nth-of-type(2n-1) > p:nth-of-type(7)").text("Vermelhos");
+
+        $("#stats > .stats > table > thead > tr > th:nth-of-type(3)").text("Gols");
+        $("#standingsU18 > div > p").text().replace("전반기", "Apertura").replace("후반기", "Clausura")
+
+        $("#menu > div:nth-of-type(5)").html("<img src='https://sefc.info/files/standings.svg'>Standings")
+    }
+    if (localStorage.getItem("lang") == "es") {
+        $("[id*='playedSEFC'] > div > div:nth-of-type(2) > p:nth-of-type(1)").text("Goles");
+        $("[id*='playedSEFC'] > div > div:nth-of-type(4) > p:nth-of-type(1)").text("Amarillas");
+        $("[id*='playedSEFC'] > div > div:nth-of-type(5) > p:nth-of-type(1)").text("Rojas");
+        $("#statsBySeason > div:nth-of-type(1) > p:nth-of-type(4)").text("Goles");
+        $("#statsBySeason > div:nth-of-type(1) > p:nth-of-type(6)").text("Amarillas");
+        $("#statsBySeason > div:nth-of-type(1) > p:nth-of-type(7)").text("Rojas");
+
+        $("#nameInput").attr("placeholder", "Nombre(máximo 5 caracteres)")
+        $("#numInput").attr("placeholder", "Número(máximo 2 dígitos)")
+        
+        $("[id*='player'] > div > div:nth-of-type(2n-1) > p:nth-of-type(3)").text("Goles");
+        $("[id*='player'] > div > div:nth-of-type(2n-1) > p:nth-of-type(6)").text("Amarillas");
+        $("[id*='player'] > div > div:nth-of-type(2n-1) > p:nth-of-type(7)").text("Rojas");
+
+        $("#stats > .stats > table > thead > tr > th:nth-of-type(3)").text("Goles");
+        $("#standingsU18 > div > p").text().replace("전반기", "Apertura").replace("후반기", "Clausura")
+
+        $("#menu > div:nth-of-type(5)").html("<img src='https://sefc.info/files/standings.svg'>Clasificaciones")
+    }
+    if (localStorage.getItem("lang") == "jp") {
+        $("#nameInput").attr("placeholder", "名前（最大5文字）")
+        $("#numInput").attr("placeholder", "背番号（最大2桁）")
+        
+        $("[id*='player'] > div > div:nth-of-type(2n-1) > p:nth-of-type(3)").text("得点");
+        $("[id*='player'] > div > div:nth-of-type(2n-1) > p:nth-of-type(6)").text("イエローカード");
+        $("[id*='player'] > div > div:nth-of-type(2n-1) > p:nth-of-type(7)").text("レッドカード");
+
+        $("#stats > .stats > table > thead > tr > th:nth-of-type(3)").text("得点");
+        $("#standingsU18 > div > p").text().replace("전반기", "前期").replace("후반기", "後期")
+
+        $("#menu > div:nth-of-type(5)").html("<img src='https://sefc.info/files/standings.svg'>順位表")
+    }
 
     console.log(`번역 완료(ko -> ${lang})`)
 
 };
-
-transl()

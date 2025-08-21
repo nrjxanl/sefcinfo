@@ -132,7 +132,7 @@ $(document).ready(function () {
                     zIndex = 0
 
                     $("#" + pos.toLowerCase()).append("<td id='" + dataList[pos][i][0].replace(/[^0-9]/g, "") + "'></td>")
-                    $("#" + dataList[pos][i][0]).html("<div><img src='./files/jersey.svg'></div><p>" + playerNumber[year][dataList[pos][i][0]][1] + "</p><p transl = 'y'>" + playerNumber[year][dataList[pos][i][0]][0] + "<span></span></p><p glass='true'>" + dataList[pos][i][1].replace(/[g|a|y|r|o|p]/g, "") + "</p>")
+                    $("#" + dataList[pos][i][0]).html("<div><img src='./files/jersey.svg'></div><p>" + playerNumber[year][dataList[pos][i][0]][1] + "</p><p transl = 'y'>" + playerNumber[year][dataList[pos][i][0]][0] + "<span></span></p><p glass='true'>" + dataList[pos][i][1].replace(/[agopry]/g, "") + "</p>")
 
                     // 유니폼 색상
                     if (year == 2025) {
@@ -247,7 +247,7 @@ $(document).ready(function () {
 
                     $("#sub > table").append("<tr id='" + dataList["SUB"][i][0].replace(/[^0-9]/g, "") + "'><td></td><td transl='y'></td></tr>")
                     $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(1)").html(playerNumber[year][dataList["SUB"][i][0]][1])
-                    $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2)").html("<p>" + playerNumber[year][dataList["SUB"][i][0]][0] + "<span></span></p><p glass='true'>" + dataList["SUB"][i][1].replace(/[g|a|y|r|o|p]/g, "") + "</p>")
+                    $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2)").html("<p>" + playerNumber[year][dataList["SUB"][i][0]][0] + "<span></span></p><p glass='true'>" + dataList["SUB"][i][1].replace(/[agopry]/g, "") + "</p>")
 
                     // 평점 없을 때
                     if (dataList["SUB"][i][1] == "") {
@@ -342,10 +342,10 @@ $(document).ready(function () {
                 function lineup() {
 
                     zIndex = 0
-                    
+
                     $("#startingXI > div > table").append("<tr id='" + dataList[pos][i][0].replace(/[^0-9]/g, "") + "'><td></td><td></td></tr>")
                     $("#" + dataList[pos][i][0] + " > td:nth-of-type(1)").html(playerNumber[year][dataList[pos][i][0]][1])
-                    $("#" + dataList[pos][i][0] + " > td:nth-of-type(2)").html("<p transl='y'>" + playerNumber[year][dataList[pos][i][0]][0] + "<span></span></p><p glass='true'>" + dataList[pos][i][1].replace(/[g|a|y|r|o|p]/g, "") + "</p>")
+                    $("#" + dataList[pos][i][0] + " > td:nth-of-type(2)").html(`<p transl = 'y'>${playerNumber[year][dataList[pos][i][0]][0]}<span></span></p><p glass='true'>${dataList[pos][i][1].replace(/[agopry]/g, "")}</p>`)
 
                     // 득점 여부
                     if (dataList[pos][i][1].replace(/[^g]/g, "").length !== 0) {
@@ -417,7 +417,7 @@ $(document).ready(function () {
 
                     $("#sub > table").append("<tr id='" + dataList["SUB"][i][0].replace(/[^0-9]/g, "") + "'><td></td><td></td></tr>")
                     $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(1)").html(playerNumber[year][dataList["SUB"][i][0]][1])
-                    $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2)").html("<p transl='y'>" + playerNumber[year][dataList["SUB"][i][0]][0] + "<span></span></p><p glass='true'>" + dataList["SUB"][i][1].replace(/[g|a|y|r|o|p]/g, "") + "</p>")
+                    $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2)").html("<p transl='y'>" + playerNumber[year][dataList["SUB"][i][0]][0] + "<span></span></p><p glass='true'>" + dataList["SUB"][i][1].replace(/[agopry]/g, "") + "</p>")
 
                     // 평점 없을 때
                     if (dataList["SUB"][i][1] == "") {
@@ -643,7 +643,7 @@ $(document).ready(function () {
             }
         }
 
-        transl() 
+        
     }
 
     ////////// 선수 기록 화면 //////////
@@ -779,7 +779,7 @@ $(document).ready(function () {
         $(".stats > table > tbody").empty()
 
         stats()
-        transl()
+        
     })
 
     ////////// 경기 일정 목록 화면 //////////
@@ -1035,7 +1035,7 @@ $(document).ready(function () {
             }
 
             if (status_ == "A" && stat.replace(/[a-z]/g, "").length !== 0) {
-                $("#playedMatch > div").prepend("<div class='" + Object.keys(data)[i] + "'><p>" + Object.values(played).reduce(function (a, b) { return a + b }, 0) + "</p><div><img src='./files/" + opp + "_s.png'></div><div><img src='./files/" + comp + "_s.png'></div><p>" + Object.keys(data)[i].substring(2, 4) + "." + Object.keys(data)[i].substring(4, 6) + "." + Object.keys(data)[i].substring(6, 8) + "." + "</p><p>" + pos + "</p><p></p><p glass='true'>" + data[Object.keys(data)[i]][pos][j][1].replace(/[g|a|y|r|o|p]/g, "") + "</p></div>")
+                $("#playedMatch > div").prepend("<div class='" + Object.keys(data)[i] + "'><p>" + Object.values(played).reduce(function (a, b) { return a + b }, 0) + "</p><div><img src='./files/" + opp + "_s.png'></div><div><img src='./files/" + comp + "_s.png'></div><p>" + Object.keys(data)[i].substring(2, 4) + "." + Object.keys(data)[i].substring(4, 6) + "." + Object.keys(data)[i].substring(6, 8) + "." + "</p><p>" + pos + "</p><p></p><p glass='true'>" + data[Object.keys(data)[i]][pos][j][1].replace(/[agopry]/g, "") + "</p></div>")
 
                 $("#playedSEFC > div > div:nth-of-type(1) > p:nth-of-type(2)").text(Object.values(played).reduce(function (a, b) { return a + b }, 0))
                 $("#playedSEFC > div > div:nth-of-type(2) > p:nth-of-type(2)").text(Object.values(goal).reduce(function (a, b) { return a + b }, 0))
@@ -1045,7 +1045,7 @@ $(document).ready(function () {
                 $("#playedSEFC > div > div:nth-of-type(6) > p:nth-of-type(2)").text((Object.values(rate).reduce(function (a, b) { return a + b }, 0) / (Object.values(played).reduce(function (a, b) { return a + b }, 0) - Object.values(exc).reduce(function (a, b) { return a + b }, 0))).toFixed(1))
 
             } else if (status_ == "U18" && stat.replace(/[a-z]/g, "").length !== 0) {
-                $("#playedMatchU18 > div").prepend("<div class='" + Object.keys(data)[i] + "'><p>" + Object.values(played).reduce(function (a, b) { return a + b }, 0) + "</p><div><img src='./files/" + opp + "_s.png'></div><div><img src='./files/" + comp + "_s.png'></div><p>" + Object.keys(data)[i].substring(2, 4) + "." + Object.keys(data)[i].substring(4, 6) + "." + Object.keys(data)[i].substring(6, 8) + "." + "</p><p>" + pos + "</p><p></p><p glass='true'>" + data[Object.keys(data)[i]][pos][j][1].replace(/[g|a|y|r|o|p]/g, "") + "</p></div>")
+                $("#playedMatchU18 > div").prepend("<div class='" + Object.keys(data)[i] + "'><p>" + Object.values(played).reduce(function (a, b) { return a + b }, 0) + "</p><div><img src='./files/" + opp + "_s.png'></div><div><img src='./files/" + comp + "_s.png'></div><p>" + Object.keys(data)[i].substring(2, 4) + "." + Object.keys(data)[i].substring(4, 6) + "." + Object.keys(data)[i].substring(6, 8) + "." + "</p><p>" + pos + "</p><p></p><p glass='true'>" + data[Object.keys(data)[i]][pos][j][1].replace(/[agopry]/g, "") + "</p></div>")
 
                 $("#playedSEFCU18 > div > div:nth-of-type(1) > p:nth-of-type(2)").text(Object.values(played).reduce(function (a, b) { return a + b }, 0))
                 $("#playedSEFCU18 > div > div:nth-of-type(2) > p:nth-of-type(2)").text(Object.values(goal).reduce(function (a, b) { return a + b }, 0))
@@ -1053,7 +1053,7 @@ $(document).ready(function () {
                 $("#playedSEFCU18 > div > div:nth-of-type(4) > p:nth-of-type(2)").text(Object.values(rc).reduce(function (a, b) { return a + b }, 0))
 
             } else if (status_ == "U15" && stat.replace(/[a-z]/g, "").length !== 0) {
-                $("#playedMatchU15 > div").prepend("<div class='" + Object.keys(data)[i] + "'><p>" + Object.values(played).reduce(function (a, b) { return a + b }, 0) + "</p><div><img src='./files/" + opp + "_s.png'></div><div><img src='./files/" + comp + "_s.png'></div><p>" + Object.keys(data)[i].substring(2, 4) + "." + Object.keys(data)[i].substring(4, 6) + "." + Object.keys(data)[i].substring(6, 8) + "." + "</p><p>" + pos + "</p><p></p><p glass='true'>" + data[Object.keys(data)[i]][pos][j][1].replace(/[g|a|y|r|o|p]/g, "") + "</p></div>")
+                $("#playedMatchU15 > div").prepend("<div class='" + Object.keys(data)[i] + "'><p>" + Object.values(played).reduce(function (a, b) { return a + b }, 0) + "</p><div><img src='./files/" + opp + "_s.png'></div><div><img src='./files/" + comp + "_s.png'></div><p>" + Object.keys(data)[i].substring(2, 4) + "." + Object.keys(data)[i].substring(4, 6) + "." + Object.keys(data)[i].substring(6, 8) + "." + "</p><p>" + pos + "</p><p></p><p glass='true'>" + data[Object.keys(data)[i]][pos][j][1].replace(/[agopry]/g, "") + "</p></div>")
 
                 $("#playedSEFCU15 > div > div:nth-of-type(1) > p:nth-of-type(2)").text(Object.values(played).reduce(function (a, b) { return a + b }, 0))
                 $("#playedSEFCU15 > div > div:nth-of-type(2) > p:nth-of-type(2)").text(Object.values(goal).reduce(function (a, b) { return a + b }, 0))
@@ -1061,7 +1061,7 @@ $(document).ready(function () {
                 $("#playedSEFCU15 > div > div:nth-of-type(4) > p:nth-of-type(2)").text(Object.values(rc).reduce(function (a, b) { return a + b }, 0))
 
             }
-console.log(stat.replace(/[^g]/g, ""))
+
             for (k = 0; k < stat.replace(/[^g]/g, "").length; k++) {
                 $("." + Object.keys(data)[i] + " > p:nth-of-type(4)").append("<img src='./files/goal.svg'>")
             }
@@ -1379,33 +1379,6 @@ console.log(stat.replace(/[^g]/g, ""))
         if ($("#playedSEFC > div > div:nth-of-type(6) > p:nth-of-type(2)").text() == "NaN") {
             $("#playedSEFC > div > div:nth-of-type(6) > p:nth-of-type(2)").text("-")
         }
-
-        transl()
-
-        if (localStorage.getItem("lang") == "en") {
-            $("[id*='playedSEFC'] > div > div:nth-of-type(2) > p:nth-of-type(1)").text("Goals");
-            $("[id*='playedSEFC'] > div > div:nth-of-type(4) > p:nth-of-type(1)").text("YCs");
-            $("[id*='playedSEFC'] > div > div:nth-of-type(5) > p:nth-of-type(1)").text("RCs");
-            $("#statsBySeason > div:nth-of-type(1) > p:nth-of-type(4)").text("Goals");
-            $("#statsBySeason > div:nth-of-type(1) > p:nth-of-type(6)").text("YCs");
-            $("#statsBySeason > div:nth-of-type(1) > p:nth-of-type(7)").text("RCs");
-        }
-        if (localStorage.getItem("lang") == "pt") {
-            $("[id*='playedSEFC'] > div > div:nth-of-type(2) > p:nth-of-type(1)").text("Gols");
-            $("[id*='playedSEFC'] > div > div:nth-of-type(4) > p:nth-of-type(1)").text("Amarelos");
-            $("[id*='playedSEFC'] > div > div:nth-of-type(5) > p:nth-of-type(1)").text("Vermelhos");
-            $("#statsBySeason > div:nth-of-type(1) > p:nth-of-type(4)").text("Gols");
-            $("#statsBySeason > div:nth-of-type(1) > p:nth-of-type(6)").text("Amarelos");
-            $("#statsBySeason > div:nth-of-type(1) > p:nth-of-type(7)").text("Vermelhos");
-        }
-        if (localStorage.getItem("lang") == "es") {
-            $("[id*='playedSEFC'] > div > div:nth-of-type(2) > p:nth-of-type(1)").text("Goles");
-            $("[id*='playedSEFC'] > div > div:nth-of-type(4) > p:nth-of-type(1)").text("Amarillas");
-            $("[id*='playedSEFC'] > div > div:nth-of-type(5) > p:nth-of-type(1)").text("Rojas");
-            $("#statsBySeason > div:nth-of-type(1) > p:nth-of-type(4)").text("Goles");
-            $("#statsBySeason > div:nth-of-type(1) > p:nth-of-type(6)").text("Amarillas");
-            $("#statsBySeason > div:nth-of-type(1) > p:nth-of-type(7)").text("Rojas");
-        }
     }
 
     ////////// 순위 화면 //////////
@@ -1434,7 +1407,7 @@ console.log(stat.replace(/[^g]/g, ""))
 
         standings()
 
-        transl()
+        
     }
 
     // 순위 자세히/간략히
@@ -1470,7 +1443,7 @@ console.log(stat.replace(/[^g]/g, ""))
 
         }
 
-        transl()
+        
     })
 
     if ($(window).width() >= 768) {
@@ -1645,7 +1618,7 @@ console.log(stat.replace(/[^g]/g, ""))
             }
         }
 
-        transl()
+        
     }
 
     if ($("#standingsHome").length) {
@@ -1753,7 +1726,7 @@ console.log(stat.replace(/[^g]/g, ""))
                     $("#nextMatch > div:nth-of-type(1) > p:nth-of-type(1)").text(weatherCode[weather["PTY"]["value"]])
                     $("#nextMatch > div:nth-of-type(1) > p:nth-of-type(2)").text(weather["T1H"]["value"] + "℃")
                     $("#nextMatch > div:nth-of-type(1) > p:nth-of-type(3)").text(weather["WSD"]["value"] + "㎧")
-                    transl()
+                    
 
                     // 경기 세부 정보 화면
                     if ($("#matchScore").length) {
@@ -1771,7 +1744,7 @@ console.log(stat.replace(/[^g]/g, ""))
                             $("#matchWeather > div:nth-of-type(1) > div:nth-of-type(1) > p").text(weatherCode[weather["PTY"]["value"]])
                             $("#matchWeather > div:nth-of-type(1) > div:nth-of-type(2) > p").text(weather["T1H"]["value"] + "℃")
                             $("#matchWeather > div:nth-of-type(1) > div:nth-of-type(3) > p").text(weather["WSD"]["value"] + "㎧")
-                            transl()
+                            
                         }
                     }
                 });
@@ -1818,13 +1791,13 @@ console.log(stat.replace(/[^g]/g, ""))
                     // 홈 화면
                     if ($("#nextMatch").length) {
                         $("#nextMatch > div:nth-of-type(1)").append(`<img src='./files/warning.svg'><p transl = 'y'>${wrn}</p>`)
-                        transl()
+                        
                     }
 
                     // 경기 세부 정보 화면
                     if ($("#matchScore").length) {
                         $("#matchWeather > div").after(`<div><img src='./files/warning.svg'><p transl = 'y'>${wrn}</p></div>`)
-                        transl()
+                        
                     }
                 }
             })
@@ -1990,8 +1963,6 @@ console.log(stat.replace(/[^g]/g, ""))
     $("#wallpaperNum").append("<img src='./files/2w.png'><img src='./files/0w.png'>")
     wallpaperLetterSpacing()
 
-    transl()
-
     // 모바일 버전 width 줄이기
     if ($(window).width() < 768) {
         if (localStorage.getItem("lang") == "kr") {
@@ -2020,21 +1991,6 @@ console.log(stat.replace(/[^g]/g, ""))
             $("#wallpaperButton > button:nth-of-type(3)").text("GK ホーム")
             $("#wallpaperButton > button:nth-of-type(4)").text("GK アウェイ")
         }
-    }
-    
-    // placeholder 번역
-    if (localStorage.getItem("lang") == "en") {
-        $("#nameInput").attr("placeholder", "Name(up to 5 characters)")
-        $("#numInput").attr("placeholder", "Number(up to 2 digits)")
-    } else if (localStorage.getItem("lang") == "pt") {
-        $("#nameInput").attr("placeholder", "Nome(máximo 5 caracteres)")
-        $("#numInput").attr("placeholder", "Número(máximo 2 dígitos)")
-    } else if (localStorage.getItem("lang") == "es") {
-        $("#nameInput").attr("placeholder", "Nombre(máximo 5 caracteres)")
-        $("#numInput").attr("placeholder", "Número(máximo 2 dígitos)")
-    } else if (localStorage.getItem("lang") == "jp") {
-        $("#nameInput").attr("placeholder", "名前（最大5文字）")
-        $("#numInput").attr("placeholder", "背番号（最大2桁）")
     }
 
 })
@@ -2129,29 +2085,6 @@ function playerList_ () {
             }
         })
     })
-
-    transl()
-
-    if (localStorage.getItem("lang") == "en") {
-        $("[id*='player'] > div > div:nth-of-type(2n-1) > p:nth-of-type(3)").text("Goals");
-        $("[id*='player'] > div > div:nth-of-type(2n-1) > p:nth-of-type(6)").text("YCs");
-        $("[id*='player'] > div > div:nth-of-type(2n-1) > p:nth-of-type(7)").text("RCs");
-    }
-    if (localStorage.getItem("lang") == "pt") {
-        $("[id*='player'] > div > div:nth-of-type(2n-1) > p:nth-of-type(3)").text("Gols");
-        $("[id*='player'] > div > div:nth-of-type(2n-1) > p:nth-of-type(6)").text("Amarelos");
-        $("[id*='player'] > div > div:nth-of-type(2n-1) > p:nth-of-type(7)").text("Vermelhos");
-    }
-    if (localStorage.getItem("lang") == "es") {
-        $("[id*='player'] > div > div:nth-of-type(2n-1) > p:nth-of-type(3)").text("Goles");
-        $("[id*='player'] > div > div:nth-of-type(2n-1) > p:nth-of-type(6)").text("Amarillas");
-        $("[id*='player'] > div > div:nth-of-type(2n-1) > p:nth-of-type(7)").text("Rojas");
-    }
-    if (localStorage.getItem("lang") == "jp") {
-        $("[id*='player'] > div > div:nth-of-type(2n-1) > p:nth-of-type(3)").text("得点");
-        $("[id*='player'] > div > div:nth-of-type(2n-1) > p:nth-of-type(6)").text("イエローカード");
-        $("[id*='player'] > div > div:nth-of-type(2n-1) > p:nth-of-type(7)").text("レッドカード");
-    }
 }
 
 // 일정
@@ -2260,7 +2193,7 @@ function fixtures() {
         $("#fixtures" + status_ + " > .fixtures > p").css({ "font-size": "16px", "margin-top": "calc(27px + 5vw)", "font-weight": "300" })
     }
 
-    transl()
+    
 }
 
 // 순위
@@ -2524,7 +2457,7 @@ function standings() {
         $("#standingsU18F > p").css("display", "block")
     }
 
-    transl()
+    
 }
 
 // 기록
@@ -2825,25 +2758,6 @@ function stats() {
                 }
             }
         })
-    }
-
-    transl()
-
-    if (localStorage.getItem("lang") == "en") {
-        $("#stats > .stats > table > thead > tr > th:nth-of-type(3)").text("Goals");
-        $("#standingsU18 > div > p").text().replace("전반기", "1H").replace("후반기", "2H")
-    }
-    if (localStorage.getItem("lang") == "pt") {
-        $("#stats > .stats > table > thead > tr > th:nth-of-type(3)").text("Gols");
-        $("#standingsU18 > div > p").text().replace("전반기", "Apertura").replace("후반기", "Clausura")
-    }
-    if (localStorage.getItem("lang") == "es") {
-        $("#stats > .stats > table > thead > tr > th:nth-of-type(3)").text("Goles");
-        $("#standingsU18 > div > p").text().replace("전반기", "Apertura").replace("후반기", "Clausura")
-    }
-    if (localStorage.getItem("lang") == "jp") {
-        $("#stats > .stats > table > thead > tr > th:nth-of-type(3)").text("得点");
-        $("#standingsU18 > div > p").text().replace("전반기", "前期").replace("후반기", "後期")
     }
 }
 
@@ -3190,7 +3104,7 @@ function matchH2H() {
             $("#recentMatch").css({"position": "static", "margin-top": "40px"})
         }
 
-        transl()
+        
 
     } else {
         if (!$("#matchH2H > p").length) {
