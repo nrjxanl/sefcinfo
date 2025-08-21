@@ -1432,17 +1432,17 @@ $("#selectStadium > a").click(function(e) {
     }).text().trim();
 
     // 관중석 시야 미지원 경기장
-    if (stadium == "광양축구전용구장" || stadium == "천안종합운동장" || stadium == "청주종합경기장" || stadium == "이순신종합운동장") {
+    if (stadium == "광양축구전용구장" || stadium == "천안종합운동장 주경기장" || stadium == "청주종합경기장" || stadium == "이순신종합운동장") {
         $(this).find("div > button:nth-of-type(1)").css("opacity", 0.3).attr("class", "noHover")
     };
 
     // 교통 및 주차 미지원 경기장
-    if (stadium == "김포솔터축구장" || stadium == "구덕운동장" || stadium == "부천종합운동장" || stadium == "안산와~스타디움" || stadium == "이순신종합운동장" || stadium == "인천축구전용경기장" || stadium == "창원축구센터 주경기장" || stadium == "천안종합운동장" || stadium == "청주종합경기장" || stadium == "탄천종합운동장" || stadium == "화성종합경기타운 주경기장") {
+    if (stadium == "김포솔터축구장" || stadium == "구덕운동장" || stadium == "부천종합운동장" || stadium == "안산와~스타디움" || stadium == "이순신종합운동장" || stadium == "인천축구전용경기장" || stadium == "창원축구센터 주경기장" || stadium == "천안종합운동장 주경기장" || stadium == "청주종합경기장" || stadium == "탄천종합운동장" || stadium == "화성종합경기타운 주경기장") {
         $(this).find("div > button:nth-of-type(2)").css("opacity", 0.3).attr("class", "noHover")
     };
 
     // 주변 맛집 미지원 경기장
-    if (stadium == "김포솔터축구장" || stadium == "구덕운동장" || stadium == "부천종합운동장" || stadium == "안산와~스타디움" || stadium == "이순신종합운동장" || stadium == "인천축구전용경기장" || stadium == "창원축구센터 주경기장" || stadium == "천안종합운동장" || stadium == "화성종합경기타운 주경기장") {
+    if (stadium == "김포솔터축구장" || stadium == "구덕운동장" || stadium == "부천종합운동장" || stadium == "안산와~스타디움" || stadium == "이순신종합운동장" || stadium == "인천축구전용경기장" || stadium == "창원축구센터 주경기장" || stadium == "천안종합운동장 주경기장" || stadium == "화성종합경기타운 주경기장") {
         $(this).find("div > button:nth-of-type(3)").css("opacity", 0.3).attr("class", "noHover")
     };
 
@@ -1722,20 +1722,41 @@ function transl() {
         "현대오일뱅크": ["Hyundai Oil Bank", "Hyundai Oil Bank", "Hyundai Oil Bank", "現代オイルバンク"],
 
         // 경기장
-        "목동운동장": ["Mokdong Stadium", "Estádio Mokdong", "Estadio Mokdong", "<ruby>モク洞<rt>木洞</rt></ruby>運動場"],
+        "GS챔피언스파크": ["GS Champions Park", "Parque dos Campeões GS", "Parque de Campeones GS", "GSチャンピオンスパーク"],
+        "공천포 A구장": ["Gongcheonpo Stadium A", "Gongcheonpo Estádio A", "Gongcheonpo Estadio A", "<ruby>コンチョンポ<rt>公泉浦</rt></ruby>A球場"],
         "광양축구전용구장": ["Gwangyang Football Stadium", "Estádio de Futebol de Gwangyang", "Estadio de Fútbol de Gwangyang", "<ruby>クァンヤン<rt>光陽</rt></ruby>サッカー専用球場"],
-        "김포솔터축구장": ["Gimpo Solteo Football Field", "Campo de Futebol Gimpo Solteo", "Campo de Fútbol de Gimpo Solteo", "<ruby>キンポ<rt>金浦</rt></ruby>ソルトサッカー場"],
         "구덕운동장": ["Gudeok Stadium", "Estádio Gudeok", "Estadio Gudeok", "<ruby>クドク<rt>九徳</rt></ruby>運動場"],
+        "김포솔터축구장": ["Gimpo Solteo Football Field", "Campo de Futebol Gimpo Solteo", "Campo de Fútbol de Gimpo Solteo", "<ruby>キンポ<rt>金浦</rt></ruby>ソルトサッカー場"],
+        "목동운동장": ["Mokdong Stadium", "Estádio Mokdong", "Estadio Mokdong", "<ruby>モク洞<rt>木洞</rt></ruby>運動場"],
         "부천종합운동장": ["Bucheon Stadium", "Estádio Bucheon", "Estadio Bucheon", "<ruby>プチョン<rt>富川</rt></ruby>総合運動場"],
+        "설악생활체육공원": ["Seorak Sports Park", "Parque Desportivo de Seorak", "Parque Deportivo Seorak", "<ruby>ソラク<rt>雪岳</rt></ruby>生活体育公園"],
+        "성남종합운동장": ["Seongnam Stadium", "Estádio Seongnam", "Estadio Seongnam", "<ruby>ソンナム<rt>城南</rt></ruby>総合運動場"],
         "수원월드컵경기장": ["Suwon World Cup Stadium", "Estádio da Copa do Mundo de Suwon", "Estadio Mundialista de Suwon", "<ruby>スウォン<rt>水原</rt></ruby>ワールドカップ競技場"],
+        "수원종합운동장 보조구장": ["Suwon Sports Complex Main Stadium", "Estádio Auxiliar do Complexo Desportivo de Suwon", "Estadio Auxiliar del Complejo Deportivo de Suwon", "<ruby>スウォン<rt>水原</rt></ruby>総合運動場補助球場"],
+        "선장축구장 2구장": ["Seonjang Stadium", "Estádio Seonjang 2", "Estadio Seonjang 2", "<ruby>ソンジャン<rt>仙掌</rt></ruby>蹴球場2球場"],
         "안산와~스타디움": ["Ansan Wa~ Stadium", "Estádio Ansan Wa~", "Estadio Ansan Wa~", "<ruby>アンサン<rt>安山</rt></ruby>ワ〜スタジアム"],
+        "안영생활체육공원": ["Anyeong Sports Park", "Parque Desportivo de Anyeong", "Parque Deportivo Anyeong", ""],
+        "양재근린공원": ["Yangjae Neighbourhood Park", "Parque do Bairro Yangjae", "Parque del Barrio de Yangjae", "<ruby>ヤンジェ<rt>良才</rt></ruby>近隣公園"],
+        "양촌골든밸리 축구장": ["Yangchon Golden Valley Stadium", "Estádio Yangchon Golden Valley", "Estadio Yangchon Golden Valley", "<ruby>ヤンチョン<rt>陽村</rt></ruby>ゴールデンバレースタジアム"],
+        "와동인조잔디구장": ["Wado Artificial Turf Field", "Campo de Relva Artificial Wa-dong", "Campo de Césped Artificial de Wa-dong", "<ruby>ワ洞<rt>ワドン</rt></ruby>人工芝球場"],
         "이순신종합운동장": ["Yi&nbsp;Sunsin Stadium", "Estádio Yi&nbsp;Sunsin", "Estadio Yi&nbsp;Sunsin", "<ruby>イ・スンシン<rt>李舜臣</rt></ruby>総合運動場"],
         "인천축구전용경기장": ["Incheon Football Stadium", "Estádio de Futebol de Incheon", "Estadio de Fútbol de Incheon", "<ruby>インチョン<rt>仁川</rt></ruby>サッカー専用競技場"],
+        "평촌자유공원": ["Pyeongchon Jayu Park", "Parque Jayu de Pyeongchon", "Parque Jayu de Pyeongchon", "<ruby>ピョンチョン<rt>坪村</rt></ruby>自由公園"],
         "창원축구센터 주경기장": ["Changwon Football Centre Main Stadium", "Estádio Principal do Centro de Futebol de Changwon", "Estadio Principal del Centro de Fútbol de Changwon", "<ruby>チャンウォン<rt>昌原</rt></ruby>サッカーセンター主競技場"],
-        "천안종합운동장": ["Cheonan Stadium", "Estádio Cheonan", "Estadio Cheonan", "<ruby>チョナン<rt>天安</rt></ruby>総合運動場"],
+        "천성산체육공원": ["Cheonseong Mt. Sports Park", "Parque Desportivo do Monte Cheonseong", "Parque Deportivo del Monte Cheonseong", "<ruby>チョンソン山<rt>チョンソンサン</rt></ruby>体育公園"],
+        "천안NFC 인조2구장": ["Cheonan NFC", "Cheonan NFC Estádio A", "Cheonan NFC Estadio A", "<ruby>チョナン<rt>天安</rt></ruby>NFC2球場"],
+        "천안북부스포츠센터": ["Cheonan Northern Sports Centre", "Centro Desportivo do Norte de Cheonan", "Centro Deportivo del Norte de Cheonan", "<ruby>チョナン<rt>天安</rt></ruby>北部スポーツセンター"],
+        "천안종합운동장 주경기장": ["Cheonan Sports Complex Main Stadium", "Estádio Principal do Complexo Desportivo de Cheonan", "Estadio Principal del Complejo Deportivo Cheonan", "<ruby>チョナン<rt>天安</rt></ruby>総合運動場主競技場"],
+        "천안축구센터 인조1구장": ["Cheonan Football Centre Artificial Turf Field 1", "Campo de Relva Artificial 1 do Centro de Futebol de Cheonan", "Campo de Césped Artificial 1 del Centro de Fútbol Cheonan", "<ruby>チョナン<rt>天安</rt></ruby>サッカーセンター人工芝1球場"],
+        "천안축구센터 인조3구장": ["Cheonan Football Centre Artificial Turf Field 3", "Campo de Relva Artificial 3 do Centro de Futebol de Cheonan", "Campo de Césped Artificial 3 del Centro de Fútbol Cheonan", "<ruby>チョナン<rt>天安</rt></ruby>サッカーセンター人工芝3球場"],
         "청주종합경기장": ["Cheongju Stadium", "Estádio Cheongju", "Estadio Cheongju", "<ruby>チョンジュ<rt>清州</rt></ruby>総合競技場"],
+        "청평생활체육공원": ["Cheongpyeong Sports Park", "Parque Desportivo de Cheongpyeong", "Parque Deportivo Cheongpyeong", "<ruby>チョンピョン<rt>清平</rt></ruby>生活体育公園"],
         "탄천종합운동장": ["Tancheon Stadium", "Estádio Tancheon", "Estadio Tancheon", "<ruby>タンチョン<rt>炭川</rt></ruby>総合運動場"],
+        "함안스포츠파크 단감구장": ["Haman Sports Park Dangam Stadium", "Estádio Dangam do Parque Desportivo Haman", "Estadio Dangam del Parque Deportivo Haman", "<ruby>ハマン<rt>咸安</rt></ruby>スポーツ公園ダンガムスタジアム"],
+        "함안스포츠파크 수박구장": ["Haman Sports Park Subak Stadium", "Estádio Subak do Parque Desportivo Haman", "Estadio Subak del Parque Deportivo Haman", "<ruby>ハマン<rt>咸安</rt></ruby>スポーツ公園スバクスタジアム"],
+        "현풍고등학교": ["Hyunpung High School", "Hyunpung High School", "Hyunpung High School", "<ruby>ヒョンプン<rt>玄風</rt></ruby>高校"],
         "화성종합경기타운 주경기장": ["Hwaseong Sports Town Main Stadium", "Estádio Principal da Cidade Desportiva de Hwaseong", "Estadio Principal de la Ciudad Deportiva de Hwaseong", "<ruby>ファソン<rt>華城</rt></ruby>総合競技タウン主競技場"],
+        "흥덕축구공원": ["Heungdeok Football Park", "Parque de Futebol Heungdeok", "Parque de Fútbol de Heungdeok", "<ruby>フンドク<rt>興徳</rt></ruby>サッカー公園h"],
 
         // 응원가
         "팀 응원": ["Team", "Equipe", "Equipo", "チーム"],
