@@ -509,7 +509,8 @@ if ($("#team").length || $("#chantsName").length) {
         window.location = "./chants/players?" + $(this).index()
     })
 
-    
+    transl()
+    console.trace(`Translated(${localStorage.getItem("lang")})`)    
 
     $("#team > div > span, #players > div > span").each(function () {
         if ($(this).text().includes("()")) {
@@ -1445,8 +1446,9 @@ $("#selectStadium > a").click(function(e) {
     if (stadium == "김포솔터축구장" || stadium == "구덕운동장" || stadium == "부천종합운동장" || stadium == "안산와~스타디움" || stadium == "이순신종합운동장" || stadium == "인천축구전용경기장" || stadium == "창원축구센터 주경기장" || stadium == "천안종합운동장 주경기장" || stadium == "화성종합경기타운 주경기장") {
         $(this).find("div > button:nth-of-type(3)").css("opacity", 0.3).attr("class", "noHover")
     };
-
-    
+        
+    transl()
+    console.trace(`Translated(${localStorage.getItem("lang")})`)
 });
 
 if ($("#selectStadium").length) {
@@ -1459,7 +1461,8 @@ if ($("#selectStadium").length) {
         $("#selectStadium > a > div > button").remove();
     });
 
-    
+    transl()
+    console.trace(`Translated(${localStorage.getItem("lang")})`)
 }
 
 // 관중석 시야 페이지로 이동
@@ -1608,8 +1611,9 @@ if ($("#stadium").length) {
         $("#seats").append("<button transl='y'>돌아가기</button>");
 
         $("#seats > div").css("pointer-events", "auto");
-
         
+        transl()
+        console.trace(`Translated(${localStorage.getItem("lang")})`)
     });
 
     $("#seats").on("click", "button", function() {
@@ -1656,8 +1660,9 @@ if ($("#stadium").length) {
         } else {
             $("#seatsPopUp").append("<p transl='y'>해당 좌석의 사진이 없습니다.</p><button transl='y'>사진 추가하기</button>");
         }
-
         
+        transl()
+        console.trace(`Translated(${localStorage.getItem("lang")})`)
     });
 
     $("#seatsPopUp").on("click", "button", function() {
@@ -2375,6 +2380,10 @@ function transl() {
 
         "시즌별 기록": ["All Seasons", "Estatísticas por Temporada", "Estadísticas por Temporada", "年別スタッツ"],
 
+        // 배경화면
+        "홈 킷": ["Home Kit", "Camiseta Principal", "Camiseta 1ª Equipación", "ホームユニフォーム"],
+        "원정 킷": ["Away Kit", "Camisola Alternativa", "Camiseta 2ª Equipación", "アウェイユニフォーム"],
+
         // 메뉴
         "홈": ["Home", "Home", "Inicio", "ホーム"],
         "일정": ["Fixtures", "Partidas", "Partidos", "日程"],
@@ -2386,7 +2395,7 @@ function transl() {
         "직관 가이드": ["Guides", "Guias", "Guías", "ガイド"],
         "오류 제보 및 건의": ["Report Errors & Make Suggestions", "Reportar Erros e Fazer Sugestões", "Informar Errores y Hacer Sugerencias", "エラー情報・提案"],
 
-         // legend
+        // legend
         "순위": ["Pos.", "Pos.", "Pos.", "順位"],
         "구단": ["Team", "Equipe", "Equipo", "クラブ名"],
         "승점": ["Pts.", "Pts.", "Pts.", "勝点"],
@@ -2430,6 +2439,7 @@ function transl() {
         "해당 좌석의 사진이 없습니다.": ["No Photo", "Sem Foto", "Sin Foto", "写真はありません"],
         "지하철": ["Subways", "Metrôs", "Metros", "地下鉄"],
         "버스": ["Buses", "Ônibus", "Autobuses", "バス"],
+        "주차": ["Parking", "Estacionamento", "Estacionamiento", "駐車"],
         "식당": ["Restaurants", "Restaurantes", "Restaurantes", "レストラン"],
         "카페&amp;디저트": ["Cafes & Desserts", "Cafés e Sobremesas", "Cafés y Postres", "コーヒー・デザート"],
         "현재 ": ["Current Weather in ", "Tempo Atual no ", "El Tiempo Actual en ", "現在"],
@@ -2484,12 +2494,6 @@ function transl() {
 
         // 지역명
         "서울": ["Seoul", "Seul", "Seúl", "ソウル"],
-
-        // 배경화면
-        "홈 킷": ["Home Kit", "Camiseta Principal", "Camiseta 1ª Equipación", "ホームユニフォーム"],
-        "원정 킷": ["Away Kit", "Camisola Alternativa", "Camiseta 2ª Equipación", "アウェイユニフォーム"],
-        "GK 홈 킷": ["GK Home Kit", "Camiseta Principal", "Camiseta 1ª Equipación", "GKホームユニフォーム"],
-        "GK 원정 킷": ["GK Away Kit", "Camisola Alternativa", "Camiseta 2ª Equipación", "GKアウェイユニフォーム"],
     };
 
     nameList = {
@@ -2689,6 +2693,7 @@ function transl() {
         $("#menu > div:nth-of-type(5)").html("<img src='https://sefc.info/files/standings.svg'>順位表")
     }
 
-    console.log(`번역 완료(ko -> ${lang})`)
-
 };
+        
+transl()
+console.trace(`Translated(${localStorage.getItem("lang")})`)

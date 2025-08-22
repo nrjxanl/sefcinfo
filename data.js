@@ -1379,6 +1379,9 @@ $(document).ready(function () {
         if ($("#playedSEFC > div > div:nth-of-type(6) > p:nth-of-type(2)").text() == "NaN") {
             $("#playedSEFC > div > div:nth-of-type(6) > p:nth-of-type(2)").text("-")
         }
+
+        transl()
+        console.trace(`Translated(${localStorage.getItem("lang")})`)
     }
 
     ////////// 순위 화면 //////////
@@ -1406,8 +1409,6 @@ $(document).ready(function () {
         }
 
         standings()
-
-        
     }
 
     // 순위 자세히/간략히
@@ -1443,7 +1444,8 @@ $(document).ready(function () {
 
         }
 
-        
+        transl()
+        console.trace(`Translated(${localStorage.getItem("lang")})`)
     })
 
     if ($(window).width() >= 768) {
@@ -1617,8 +1619,6 @@ $(document).ready(function () {
                 }
             }
         }
-
-        
     }
 
     if ($("#standingsHome").length) {
@@ -1726,7 +1726,6 @@ $(document).ready(function () {
                     $("#nextMatch > div:nth-of-type(1) > p:nth-of-type(1)").text(weatherCode[weather["PTY"]["value"]])
                     $("#nextMatch > div:nth-of-type(1) > p:nth-of-type(2)").text(weather["T1H"]["value"] + "℃")
                     $("#nextMatch > div:nth-of-type(1) > p:nth-of-type(3)").text(weather["WSD"]["value"] + "㎧")
-                    
 
                     // 경기 세부 정보 화면
                     if ($("#matchScore").length) {
@@ -1747,6 +1746,9 @@ $(document).ready(function () {
                             
                         }
                     }
+
+                    transl()
+                    console.trace(`Translated(${localStorage.getItem("lang")})`)
                 });
         }
 
@@ -1791,14 +1793,15 @@ $(document).ready(function () {
                     // 홈 화면
                     if ($("#nextMatch").length) {
                         $("#nextMatch > div:nth-of-type(1)").append(`<img src='./files/warning.svg'><p transl = 'y'>${wrn}</p>`)
-                        
                     }
 
                     // 경기 세부 정보 화면
                     if ($("#matchScore").length) {
                         $("#matchWeather > div").after(`<div><img src='./files/warning.svg'><p transl = 'y'>${wrn}</p></div>`)
-                        
                     }
+
+                    transl()
+                    console.trace(`Translated(${localStorage.getItem("lang")})`)
                 }
             })
             .catch(error => {
@@ -1807,190 +1810,195 @@ $(document).ready(function () {
     }
 
     // 배경화면
-    function wallpaperLetterSpacing() {
-        if ($("#wallpaperName").text().length == "1") {
-            $("#wallpaperName").css({"letter-spacing": "0", "margin-left": "0"})
-        }
-        if ($("#wallpaperName").text().length == "2") {
-            $("#wallpaperName").css({"letter-spacing": "4.5vh", "margin-left": "4.5vh"})
-        }
-        if ($("#wallpaperName").text().length == "3") {
-            $("#wallpaperName").css({"letter-spacing": "1.2vh", "margin-left": "1.2vh"})
-        }
-        if ($("#wallpaperName").text().length == "4") {
-            $("#wallpaperName").css({"letter-spacing": ".3vh", "margin-left": ".3vh"})
-        }
-        if ($("#wallpaperName").text().length == "5") {
-            $("#wallpaperName").css({"letter-spacing": "0", "margin-left": "0"})
-        }
-    }
-
-    function wallpaperNum() {
-        $("#wallpaperNum").empty()
-
-        if ($("#wallpaperBg").attr("src") == "./files/homekit.jpg" || $("#wallpaperBg").attr("src") == "./files/gkawaykit.jpg") {
-            if ($("#numInput").val().length == 1) {
-                $("#wallpaperNum").append("<img src='./files/" + $("#numInput").val() + "w.png'>")
-            } else if ($("#numInput").val().length == 2) {
-                $("#wallpaperNum").append("<img src='./files/" + $("#numInput").val().substring(0, 1) + "w.png'><img src='./files/" + $("#numInput").val().substring(1, 2) + "w.png'>")
+    if ($("#wallpaperName").length) {
+        function wallpaperLetterSpacing() {
+            if ($("#wallpaperName").text().length == "1") {
+                $("#wallpaperName").css({ "letter-spacing": "0", "margin-left": "0" })
             }
-        } else if ($("#wallpaperBg").attr("src") == "./files/awaykit.jpg") {
-            if ($("#numInput").val().length == 1) {
-                $("#wallpaperNum").append("<img src='./files/" + $("#numInput").val() + "n.png'>")
-            } else if ($("#numInput").val().length == 2) {
-                $("#wallpaperNum").append("<img src='./files/" + $("#numInput").val().substring(0, 1) + "n.png'><img src='./files/" + $("#numInput").val().substring(1, 2) + "n.png'>")
+            if ($("#wallpaperName").text().length == "2") {
+                $("#wallpaperName").css({ "letter-spacing": "4.5vh", "margin-left": "4.5vh" })
             }
-        } else if ($("#wallpaperBg").attr("src") == "./files/gkhomekit.jpg") {
-            if ($("#numInput").val().length == 1) {
-                $("#wallpaperNum").append("<img src='./files/" + $("#numInput").val() + "b.png'>")
-            } else if ($("#numInput").val().length == 2) {
-                $("#wallpaperNum").append("<img src='./files/" + $("#numInput").val().substring(0, 1) + "b.png'><img src='./files/" + $("#numInput").val().substring(1, 2) + "b.png'>")
+            if ($("#wallpaperName").text().length == "3") {
+                $("#wallpaperName").css({ "letter-spacing": "1.2vh", "margin-left": "1.2vh" })
+            }
+            if ($("#wallpaperName").text().length == "4") {
+                $("#wallpaperName").css({ "letter-spacing": ".3vh", "margin-left": ".3vh" })
+            }
+            if ($("#wallpaperName").text().length == "5") {
+                $("#wallpaperName").css({ "letter-spacing": "0", "margin-left": "0" })
             }
         }
-    }
 
-    $("#wallpaperButton > button:nth-of-type(1)").click(function() {
-        $("#wallpaperBg").attr("src", "./files/homekit.jpg")
-        $("#wallpaperName").css("color", "#fff")
-        $("#wallpaperCanvas > div").css("background", "#132847")
+        function wallpaperNum() {
+            $("#wallpaperNum").empty()
 
-        $("#wallpaperNum > img").each(function() {
-            $("#wallpaperNum").append("<img src='./files/" + $(this).attr("src").replace("./files/", "").replace(/[./a-zA-Z]/g, "") + "w.png'>")
-            $(this).remove()
-        })
-    })
-
-    $("#wallpaperButton > button:nth-of-type(2)").click(function() {
-        $("#wallpaperBg").attr("src", "./files/awaykit.jpg")
-        $("#wallpaperName").css("color", "#132847")
-        $("#wallpaperCanvas > div").css("background", "#fff")
-
-        $("#wallpaperNum > img").each(function() {
-            $("#wallpaperNum").append("<img src='./files/" + $(this).attr("src").replace("./files/", "").replace(/[./a-zA-Z]/g, "") + "n.png'>")
-            $(this).remove()
-        })
-    })
-
-    $("#wallpaperButton > button:nth-of-type(3)").click(function() {
-        $("#wallpaperBg").attr("src", "./files/gkhomekit.jpg")
-        $("#wallpaperName").css("color", "#000")
-        $("#wallpaperCanvas > div").css("background", "#c9ec61")
-
-        $("#wallpaperNum > img").each(function() {
-            $("#wallpaperNum").append("<img src='./files/" + $(this).attr("src").replace("./files/", "").replace(/[./a-zA-Z]/g, "") + "b.png'>")
-            $(this).remove()
-        })
-    })
-
-    $("#wallpaperButton > button:nth-of-type(4)").click(function() {
-        $("#wallpaperBg").attr("src", "./files/gkawaykit.jpg")
-        $("#wallpaperName").css("color", "#fff")
-        $("#wallpaperCanvas > div").css("background", "#000")
-
-        $("#wallpaperNum > img").each(function() {
-            $("#wallpaperNum").append("<img src='./files/" + $(this).attr("src").replace("./files/", "").replace(/[./a-zA-Z]/g, "") + "w.png'>")
-            $(this).remove()
-        })
-    })
-
-    $("#wallpaperButton > button").click(function() {
-        $("#wallpaperButton > button").css({"border": "1px solid #faf6f580", "color": "#05090a", "background": "#faf6f580"})
-        $(this).css({"border": "1px solid #000060c0", "color": "#faf6f5", "background": "#000060c0"})
-    })
-
-    $("#nameInput").on("propertychange change keyup paste input", function(){
-        $("#wallpaperName").text($("#nameInput").val())
-
-        if ($("#nameInput").val().length == 0) {
-            $("#wallpaperName").text("김오규")
+            if ($("#wallpaperBg").attr("src") == "./files/homekit.jpg" || $("#wallpaperBg").attr("src") == "./files/gkawaykit.jpg") {
+                if ($("#numInput").val().length == 1) {
+                    $("#wallpaperNum").append("<img src='./files/" + $("#numInput").val() + "w.png'>")
+                } else if ($("#numInput").val().length == 2) {
+                    $("#wallpaperNum").append("<img src='./files/" + $("#numInput").val().substring(0, 1) + "w.png'><img src='./files/" + $("#numInput").val().substring(1, 2) + "w.png'>")
+                }
+            } else if ($("#wallpaperBg").attr("src") == "./files/awaykit.jpg") {
+                if ($("#numInput").val().length == 1) {
+                    $("#wallpaperNum").append("<img src='./files/" + $("#numInput").val() + "n.png'>")
+                } else if ($("#numInput").val().length == 2) {
+                    $("#wallpaperNum").append("<img src='./files/" + $("#numInput").val().substring(0, 1) + "n.png'><img src='./files/" + $("#numInput").val().substring(1, 2) + "n.png'>")
+                }
+            } else if ($("#wallpaperBg").attr("src") == "./files/gkhomekit.jpg") {
+                if ($("#numInput").val().length == 1) {
+                    $("#wallpaperNum").append("<img src='./files/" + $("#numInput").val() + "b.png'>")
+                } else if ($("#numInput").val().length == 2) {
+                    $("#wallpaperNum").append("<img src='./files/" + $("#numInput").val().substring(0, 1) + "b.png'><img src='./files/" + $("#numInput").val().substring(1, 2) + "b.png'>")
+                }
+            }
         }
 
+        $("#wallpaperButton > button:nth-of-type(1)").click(function () {
+            $("#wallpaperBg").attr("src", "./files/homekit.jpg")
+            $("#wallpaperName").css("color", "#fff")
+            $("#wallpaperCanvas > div").css("background", "#132847")
+
+            $("#wallpaperNum > img").each(function () {
+                $("#wallpaperNum").append("<img src='./files/" + $(this).attr("src").replace("./files/", "").replace(/[./a-zA-Z]/g, "") + "w.png'>")
+                $(this).remove()
+            })
+        })
+
+        $("#wallpaperButton > button:nth-of-type(2)").click(function () {
+            $("#wallpaperBg").attr("src", "./files/awaykit.jpg")
+            $("#wallpaperName").css("color", "#132847")
+            $("#wallpaperCanvas > div").css("background", "#fff")
+
+            $("#wallpaperNum > img").each(function () {
+                $("#wallpaperNum").append("<img src='./files/" + $(this).attr("src").replace("./files/", "").replace(/[./a-zA-Z]/g, "") + "n.png'>")
+                $(this).remove()
+            })
+        })
+
+        $("#wallpaperButton > button:nth-of-type(3)").click(function () {
+            $("#wallpaperBg").attr("src", "./files/gkhomekit.jpg")
+            $("#wallpaperName").css("color", "#000")
+            $("#wallpaperCanvas > div").css("background", "#c9ec61")
+
+            $("#wallpaperNum > img").each(function () {
+                $("#wallpaperNum").append("<img src='./files/" + $(this).attr("src").replace("./files/", "").replace(/[./a-zA-Z]/g, "") + "b.png'>")
+                $(this).remove()
+            })
+        })
+
+        $("#wallpaperButton > button:nth-of-type(4)").click(function () {
+            $("#wallpaperBg").attr("src", "./files/gkawaykit.jpg")
+            $("#wallpaperName").css("color", "#fff")
+            $("#wallpaperCanvas > div").css("background", "#000")
+
+            $("#wallpaperNum > img").each(function () {
+                $("#wallpaperNum").append("<img src='./files/" + $(this).attr("src").replace("./files/", "").replace(/[./a-zA-Z]/g, "") + "w.png'>")
+                $(this).remove()
+            })
+        })
+
+        $("#wallpaperButton > button").click(function () {
+            $("#wallpaperButton > button").css({ "border": "1px solid #faf6f580", "color": "#05090a", "background": "#faf6f580" })
+            $(this).css({ "border": "1px solid #000060c0", "color": "#faf6f5", "background": "#000060c0" })
+        })
+
+        $("#nameInput").on("propertychange change keyup paste input", function () {
+            $("#wallpaperName").text($("#nameInput").val())
+
+            if ($("#nameInput").val().length == 0) {
+                $("#wallpaperName").text("김오규")
+            }
+
+            wallpaperLetterSpacing()
+        })
+
+        $("#numInput").on("propertychange change keyup paste input", function () {
+            $("#wallpaperNum").text($("#numInput").val())
+
+            if ($("#numInput").val().length == 0) {
+                $("#wallpaperNum").append("<img src='./files/2w.png'><img src='./files/0w.png'>")
+            }
+
+            wallpaperNum()
+        })
+
+        // 다운로드
+        document.getElementById("wallpaperDownload").addEventListener("click", () => {
+            const targetElement = document.querySelector("#wallpaperCanvas > div")
+
+            html2canvas(targetElement, {
+                scale: 8, // 해상도 4배 증가
+                backgroundColor: null,
+                useCORS: true,
+                allowTaint: false
+            }).then(canvas => {
+                try {
+                    // 4배 크기의 캔버스를 원본 크기로 줄이기
+                    let finalCanvas = document.createElement("canvas")
+                    finalCanvas.width = 1800
+                    finalCanvas.height = 4000
+                    let ctx = finalCanvas.getContext("2d")
+
+                    // 올바른 drawImage 사용 (캡처된 큰 이미지에서 잘라내기)
+                    ctx.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, 1800, 4000)
+
+                    let dataURL = finalCanvas.toDataURL("image/jpeg", 1.0)
+                    saveImg(dataURL, "wallpaper.jpg")
+                } catch (error) {
+                    alert("이미지 저장 실패: " + error.message)
+                }
+            })
+        })
+
+        saveImg = (uri, filename) => {
+            let link = document.createElement("a")
+
+            document.body.appendChild(link)
+
+            link.href = uri
+            link.download = filename
+            link.click()
+
+            document.body.removeChild(link)
+        }
+
+        // 처음 접속 시 홈 유니폼 + 김오규 마킹으로 설정
+        $("#wallpaperButton > button:nth-of-type(1)").click()
+        $("#wallpaperNum").append("<img src='./files/2w.png'><img src='./files/0w.png'>")
         wallpaperLetterSpacing()
-    })
 
-    $("#numInput").on("propertychange change keyup paste input", function(){
-        $("#wallpaperNum").text($("#numInput").val())
-
-        if ($("#numInput").val().length == 0) {
-            $("#wallpaperNum").append("<img src='./files/2w.png'><img src='./files/0w.png'>")
-        }
-
-        wallpaperNum()
-    })
-
-    // 다운로드
-    document.getElementById("wallpaperDownload").addEventListener("click", () => {
-        const targetElement = document.querySelector("#wallpaperCanvas > div")
-    
-        html2canvas(targetElement, {
-            scale: 8, // 해상도 4배 증가
-            backgroundColor: null,
-            useCORS: true,
-            allowTaint: false
-        }).then(canvas => {
-            try {
-                // 4배 크기의 캔버스를 원본 크기로 줄이기
-                let finalCanvas = document.createElement("canvas")
-                finalCanvas.width = 1800
-                finalCanvas.height = 4000
-                let ctx = finalCanvas.getContext("2d")
-    
-                // 올바른 drawImage 사용 (캡처된 큰 이미지에서 잘라내기)
-                ctx.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, 1800, 4000)
-    
-                let dataURL = finalCanvas.toDataURL("image/jpeg", 1.0)
-                saveImg(dataURL, "wallpaper.jpg")
-            } catch (error) {
-                alert("이미지 저장 실패: " + error.message)
+        // 모바일 버전 width 줄이기
+        if ($(window).width() < 768) {
+            if (localStorage.getItem("lang") == "kr") {
+                $("#wallpaperButton > button:nth-of-type(1)").text("홈")
+                $("#wallpaperButton > button:nth-of-type(2)").text("원정")
+                $("#wallpaperButton > button:nth-of-type(3)").text("GK 홈")
+                $("#wallpaperButton > button:nth-of-type(4)").text("GK 원정")
+            } else if (localStorage.getItem("lang") == "en") {
+                $("#wallpaperButton > button:nth-of-type(1)").text("Home")
+                $("#wallpaperButton > button:nth-of-type(2)").text("Away")
+                $("#wallpaperButton > button:nth-of-type(3)").text("GK Home")
+                $("#wallpaperButton > button:nth-of-type(4)").text("GK Away")
+            } else if (localStorage.getItem("lang") == "pt") {
+                $("#wallpaperButton > button:nth-of-type(1)").text("1ª")
+                $("#wallpaperButton > button:nth-of-type(2)").text("2ª")
+                $("#wallpaperButton > button:nth-of-type(3)").text("GK 1ª")
+                $("#wallpaperButton > button:nth-of-type(4)").text("GK 2ª")
+            } else if (localStorage.getItem("lang") == "es") {
+                $("#wallpaperButton > button:nth-of-type(1)").text("1ª")
+                $("#wallpaperButton > button:nth-of-type(2)").text("2ª")
+                $("#wallpaperButton > button:nth-of-type(3)").text("PT 1ª")
+                $("#wallpaperButton > button:nth-of-type(4)").text("PT 2ª")
+            } else if (localStorage.getItem("lang") == "jp") {
+                $("#wallpaperButton > button:nth-of-type(1)").text("ホーム")
+                $("#wallpaperButton > button:nth-of-type(2)").text("アウェイ")
+                $("#wallpaperButton > button:nth-of-type(3)").text("GK ホーム")
+                $("#wallpaperButton > button:nth-of-type(4)").text("GK アウェイ")
             }
-        })
-    })
-
-    saveImg = (uri, filename) => {
-        let link = document.createElement("a")
-    
-        document.body.appendChild(link)
-    
-        link.href = uri
-        link.download = filename
-        link.click()
-    
-        document.body.removeChild(link)
-    }
-
-    // 처음 접속 시 홈 유니폼 + 김오규 마킹으로 설정
-    $("#wallpaperButton > button:nth-of-type(1)").click()
-    $("#wallpaperNum").append("<img src='./files/2w.png'><img src='./files/0w.png'>")
-    wallpaperLetterSpacing()
-
-    // 모바일 버전 width 줄이기
-    if ($(window).width() < 768) {
-        if (localStorage.getItem("lang") == "kr") {
-            $("#wallpaperButton > button:nth-of-type(1)").text("홈")
-            $("#wallpaperButton > button:nth-of-type(2)").text("원정")
-            $("#wallpaperButton > button:nth-of-type(3)").text("GK 홈")
-            $("#wallpaperButton > button:nth-of-type(4)").text("GK 원정")
-        } else if (localStorage.getItem("lang") == "en") {
-            $("#wallpaperButton > button:nth-of-type(1)").text("Home")
-            $("#wallpaperButton > button:nth-of-type(2)").text("Away")
-            $("#wallpaperButton > button:nth-of-type(3)").text("GK Home")
-            $("#wallpaperButton > button:nth-of-type(4)").text("GK Away")
-        } else if (localStorage.getItem("lang") == "pt") {
-            $("#wallpaperButton > button:nth-of-type(1)").text("1ª")
-            $("#wallpaperButton > button:nth-of-type(2)").text("2ª")
-            $("#wallpaperButton > button:nth-of-type(3)").text("GK 1ª")
-            $("#wallpaperButton > button:nth-of-type(4)").text("GK 2ª")
-        } else if (localStorage.getItem("lang") == "es") {
-            $("#wallpaperButton > button:nth-of-type(1)").text("1ª")
-            $("#wallpaperButton > button:nth-of-type(2)").text("2ª")
-            $("#wallpaperButton > button:nth-of-type(3)").text("PT 1ª")
-            $("#wallpaperButton > button:nth-of-type(4)").text("PT 2ª")
-        } else if (localStorage.getItem("lang") == "jp") {
-            $("#wallpaperButton > button:nth-of-type(1)").text("ホーム")
-            $("#wallpaperButton > button:nth-of-type(2)").text("アウェイ")
-            $("#wallpaperButton > button:nth-of-type(3)").text("GK ホーム")
-            $("#wallpaperButton > button:nth-of-type(4)").text("GK アウェイ")
         }
+        
+        transl()
+        console.trace(`Translated(${localStorage.getItem("lang")})`)
     }
 
 })
@@ -2085,6 +2093,9 @@ function playerList_ () {
             }
         })
     })
+
+    transl()
+    console.trace(`Translated(${localStorage.getItem("lang")})`)
 }
 
 // 일정
@@ -2193,7 +2204,8 @@ function fixtures() {
         $("#fixtures" + status_ + " > .fixtures > p").css({ "font-size": "16px", "margin-top": "calc(27px + 5vw)", "font-weight": "300" })
     }
 
-    
+    transl()
+    console.trace(`Translated(${localStorage.getItem("lang")})`)
 }
 
 // 순위
@@ -2457,7 +2469,8 @@ function standings() {
         $("#standingsU18F > p").css("display", "block")
     }
 
-    
+    transl()
+    console.trace(`Translated(${localStorage.getItem("lang")})`)
 }
 
 // 기록
@@ -2759,6 +2772,9 @@ function stats() {
             }
         })
     }
+
+    transl()
+    console.trace(`Translated(${localStorage.getItem("lang")})`)
 }
 
 // 전적
