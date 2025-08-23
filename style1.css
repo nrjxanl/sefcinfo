@@ -517,30 +517,36 @@ tr.sefc > td > p {background: #faf6f5 !important; color: #05090a !important;}
 
 /* 응원가 */
 #team {width: 80vw; margin: 120px 0 0 10vw;}
-#team > p {width: 75vw; text-align: left; font-size: 24px; margin: 0 0 20px 5vw;}
-#team > div {width: 75vw; font-size: 20px; font-weight: 600; text-align: left; vertical-align: bottom; padding: 14px 0 14px 5vw; border-radius: 20px; margin-top: 10px;}
+#team > p {width: 80vw; text-align: left; font-size: 24px; margin: 0 0 20px 5vw;}
+#team > div {width: 80vw; padding: 14px 0; border-radius: 20px; margin-top: 10px;}
 #team > div:nth-last-of-type(1) {margin-bottom: 40px;}
-#team > div > span {font-weight: 600; margin-left: 4px;}
-#team > div > ruby {font-size: 20px; font-weight: 600;}
-#team > div > ruby > rt {font-weight: 300; padding-bottom: 2px;}
+#team > div > p {width: 80vw; font-size: 18px; font-weight: 600; vertical-align: bottom;}
+#team > div > p > span {font-weight: 600; margin-left: 4px;}
+#team > div > p > ruby {font-size: 18px; font-weight: 600;}
+#team > div > p > ruby > rt {font-weight: 300; padding-bottom: 2px;}
+#team > div > div > p {width: 74vw; font-size: 16px; font-weight: 300; padding: 4px 0; margin-left: 3vw;}
+#team > div > div > p:nth-of-type(1) {padding-top: 20px;}
+#team > div > div > p:nth-last-of-type(1) {padding-bottom: 20px;}
+#team > div > div > p > ruby > rb {font-size: 16px; font-weight: 300;}
+#team > div > div > p > ruby > rp {font-size: 12px; font-weight: 300;}
+#team > div > div > p > ruby > rt {font-size: 12px; font-weight: 300;}
 
 #players {width: 80vw; margin: 60px 0 0 10vw;}
-#players > p {width: 75vw; text-align: left; font-size: 24px; margin: 0 0 20px 5vw;}
-#players > div {width: 75vw; font-size: 20px; font-weight: 600; text-align: left; vertical-align: bottom; padding: 14px 0 14px 5vw; border-radius: 20px; margin-top: 10px;}
+#players > p {width: 80vw; text-align: left; font-size: 24px; margin: 0 0 20px 5vw;}
+#players > div {width: 80vw; padding: 14px 0; border-radius: 20px; margin-top: 10px;}
 #players > div:nth-last-of-type(1) {margin-bottom: 40px;}
-#players > div > span {font-weight: 600; margin-left: 4px;}
-#players > div > ruby {font-size: 20px; font-weight: 600;}
-#players > div > ruby > rt {font-weight: 300; padding-bottom: 2px;}
+#players > div > p {width: 80vw; font-size: 18px; font-weight: 600; vertical-align: bottom;}
+#players > div > p > span {font-weight: 600; margin-left: 4px;}
+#players > div > p > ruby {font-size: 18px; font-weight: 600;}
+#players > div > p > ruby > rt {font-weight: 300; padding-bottom: 2px;}
+#players > div > div > p {width: 74vw; font-size: 16px; font-weight: 300; padding: 4px 0; margin-left: 3vw;}
+#players > div > div > p:nth-of-type(1) {padding-top: 20px;}
+#players > div > div > p:nth-last-of-type(1) {padding-bottom: 20px;}
+#players > div > div > p > ruby > rb {font-size: 16px; font-weight: 300;}
+#players > div > div > p > ruby > rp {font-size: 12px; font-weight: 300;}
+#players > div > div > p > ruby > rt {font-size: 12px; font-weight: 300;}
 
-#chantsName {width: 80vw; margin: 120px 0 0 10vw; font-size: 40px;}
-#chantsVideo {width: 60vw; height: fit-content; margin: 40px 0 0 20vw; border-radius: 20px; overflow: hidden;}
-#chantsVideo > iframe {width: 60vw; height: auto;}
-
-#chantsLyrics {width: 80vw; margin: 40px 0 40px 10vw; padding: 20px 0; border-radius: 20px;}
-#chantsLyrics > p {font-size: 16px; font-weight: 300; padding: 4px 0;}
-#chantsLyrics > p > ruby > rb {font-size: 16px; font-weight: 300;}
-#chantsLyrics > p > ruby > rp {font-size: 12px; font-weight: 300;}
-#chantsLyrics > p > ruby > rt {font-size: 12px; font-weight: 300;}
+#chantsVideo {width: 60vw; height: 60vw; margin-top: 20px; border-radius: 20px; overflow: hidden;}
 
 /* 배경화면 */
 #wallpaperButton {width: 100vw; margin-top: 100px;}
