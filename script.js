@@ -2636,9 +2636,8 @@ function transl() {
     
     // 선수 이름 뒤 숫자 지우기/이름 짧게
     $("#startingXI > table > tbody > tr > td > p:nth-of-type(2), #startingXI > div > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(1), #sub > table > tbody > tr > td:nth-of-type(2) > p:nth-of-type(1)").each(function() {
-        var text = $(this).html()
-        
-        text.replace(/[0-9]/g, "");
+        var span = $(this).find("span").html();
+        var name = $(this).html().replace(/<span[^>]*>.*?<\/span>/gi, "").replace(/[0-9]/g, "");
 
         parent = $(this).parents().filter(function () {
             return typeof $(this).attr("id") !== "undefined" && $(this).attr("id") !== "";
@@ -2649,21 +2648,19 @@ function transl() {
 
         if (langNum == 3) {
             // 나카구로(・)로 구분
-            if(nameList[0].includes(parent)) $(this).html(text.split("・")[0]);
-            else if(nameList[1].includes(parent)) $(this).html(text);
-            else if(parent == nameList[2][0]) $(this).html("Glory");
-            else if(parent == nameList[2][1]) $(this).html("Bobby");
-            else $(this).html(text.split("・").length > 1 ? text.split("・").slice(1).join("・") : text);
+            if(nameList[0].includes(parent)) $(this).html(`${name.split("・")[0]}<span>${span}</span>`);
+            else if(nameList[1].includes(parent)) $(this).html(`${name}<span>${span}</span>`);
+            else if(parent == nameList[2][0]) $(this).html(`Glory<span>${span}</span>`);
+            else if(parent == nameList[2][1]) $(this).html(`Bobby<span>${span}</span>`);
+            else $(this).html(name.split("・").length > 1 ? `${name.split("・").slice(1).join("・")}<span>${span}</span>` : `${name}<span>${span}</span>`);
         }
         else {
             // 공백으로 구분
-            if(nameList[0].includes(parent)) $(this).html(text.split(" ")[0]);
-            else if(nameList[1].includes(parent)) $(this).html(text);
-            else if(parent == nameList[2][0]) $(this).html("Glory");
-            else if(parent == nameList[2][1]) $(this).html("Bobby");
-            else $(this).html(text.split(" ").length > 1 ? text.replace(/^[^ ]* ?/, "") : text);
-            
-            console.log(text, text.split(" "));
+            if(nameList[0].includes(parent)) $(this).html(`${name.split(" ")[0]}<span>${span}</span>`);
+            else if(nameList[1].includes(parent)) $(this).html(`${name}<span>${span}</span>`);
+            else if(parent == nameList[2][0]) $(this).html(`Glory<span>${span}</span>`);
+            else if(parent == nameList[2][1]) $(this).html(`Bobby<span>${span}</span>`);
+            else $(this).html(name.split(" ").length > 1 ? `${name.split(" ").slice(1).join(" ")}<span>${span}</span>` : `${name}<span>${span}</span>`);
         }
 
     })
