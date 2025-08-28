@@ -162,12 +162,14 @@ function chat() {
     loginBtn.addEventListener('click', () => auth.signInWithPopup(googleProvider).catch(e => console.error(e)));
     logoutBtn.addEventListener('click', () => auth.signOut().catch(e => console.error(e)));
 
-    postForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
+    submitBtn.addEventListener('click', async (event) => {
+        // 버튼의 기본 동작(폼 전송 등)을 막아서 우리가 모든 것을 제어합니다.
+        event.preventDefault();
+
         const content = postContent.value.trim();
         if (content === '' || !currentUser) return;
 
-        // 임시로 전송 버튼을 비활성화하여 중복 전송 방지
+        // 전송 중에 버튼을 잠시 비활성화하여 중복 전송 방지
         submitBtn.disabled = true;
 
         try {
@@ -182,9 +184,9 @@ function chat() {
             });
 
             postContent.value = '';
-            postContent.style.height = 'auto';
+            postContent.style.height = 'auto'; // 높이 초기화
 
-            // ✅ 전송 후 텍스트 입력창에 다시 포커스
+            // ✅ 전송 후에도 텍스트 입력창에 포커스를 유지 (키보드를 다시 올리는 역할)
             postContent.focus();
 
         } catch (error) {
@@ -310,7 +312,7 @@ function chat() {
             const fullUrl = urlWithoutProtocol ? 'http://' + urlWithoutProtocol : urlWithProtocol;
             return `<a href="${fullUrl}" target="_blank" rel="noopener noreferrer">${url}</a>`;
         });
-        
+
         // 2단계: 'sefc.info' 라는 특정 문자열을 찾아 링크로 변환
         // 단, 이미 <a> 태그 안에 있는 경우는 제외합니다. (고급 정규식 사용)
         const specialRegex = /\b(sefc\.info)\b(?![^<]*>|[^<>]*<\/a>)/ig;
