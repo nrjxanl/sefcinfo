@@ -660,9 +660,9 @@ path.cls-64 {pointer-events: none;}
 [glass="true"] {background: #faf5f640; box-shadow: 0 4px 30px #05090a16; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid #faf5f680;}
 
 /* 채팅 */
-.chat {width: 90vw; margin-left: 5vw;}
+.chat {width: 90vw; height: 100vh; margin-left: 5vw; display: flex; flex-direction: column; flex-grow: 1; overflow: hidden;}
 
-#board-info {position: sticky; top: 0; padding: 100px 0 20px 0; background: #fcfcfd;}
+#board-info {padding: 100px 0 20px 0; background: #fcfcfd; flex-shrink: 0;}
 #board-info > p {width: 90vw; font-size: 24px;}
 
 #board-header {width: 90vw; margin: 8px 0 20px 0; display: flex; justify-content: center; align-items: center;}
@@ -676,7 +676,7 @@ path.cls-64 {pointer-events: none;}
 #auth-container > button, #user-info > button {padding: 6px 12px; border-radius: 20px; background: #faf6f540; cursor: pointer; font-size: 16px; font-weight: 600;}
 #auth-container > button:active, #user-info > button:active {color: #faf6f5; background: #000060c0;}
 
-#posts-container {margin-bottom: 200px;}
+#posts-container {flex-grow: 1; overflow-y: auto;}
 #posts-container > p {font-size: 16px; font-weight: 300;}
 
 .post {width: 90vw; margin-bottom: 28px; display: flex; align-items: flex-end;}
@@ -698,7 +698,7 @@ path.cls-64 {pointer-events: none;}
 .admin-post .post-content {color: #faf6f5; background: #174fffd0; border: none;}
 .admin-post .post-content > a {font-size: 18px; font-weight: 300; color: #faf6f5; text-decoration: underline; margin: 0 4px;}
 
-#post-form {width: 90vw; display: flex; align-items: center; position: fixed; bottom: 0; padding: 20px 0 40px 0; background: #fcfcfd;}
+#post-form {width: 90vw; display: flex; align-items: center; padding: 20px 0 40px 0; background: #fcfcfd; flex-shrink: 0;}
 #post-form > textarea {width: calc(70vw - 40px); padding: 20px; border: 1px solid #00000080; border-radius: 20px; resize: unset; box-sizing: border-box; font-size: 16px; font-weight: 300; line-height: 1.6; text-align: left; background: none;}
 #post-form > button {width: 20vw; height: 20vw; border-radius: 100%; margin-left: 10vw; align-self: end;}
 #post-form > button:active {background: #000060c0;}

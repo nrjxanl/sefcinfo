@@ -29,6 +29,7 @@ const profileModal = document.getElementById('profile-modal');
 const profileNameInput = document.getElementById('profile-name-input');
 const profileSaveBtn = document.getElementById('profile-save-btn');
 const submitBtn = postForm.querySelector('button[type="submit"]');
+const actualContents = document.getElementById('actualContents');
 
 // --- 전역 '상태(State)' 변수 ---
 let currentUser = null;
@@ -39,6 +40,29 @@ let isFirstLoad = true;
 const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
 // --- 헬퍼 함수 (Helper Functions) ---
+
+// ✅ 1. 페이지 로드 시 Body 높이 고정 코드
+// 키보드가 올라오기 전의 원래 화면 높이를 저장할 변수
+let initialWindowHeight = window.innerHeight;
+window.onload = function() {
+    initialWindowHeight = window.innerHeight;
+    // body의 높이를 px 값으로 고정하여 키보드가 올라와도 줄어들지 않게 함
+    document.body.style.height = initialWindowHeight + "px";
+};
+
+
+// ✅ 2. 키보드 감지 및 레이아웃 조절 코드
+// 화면 크기가 변할 때(특히, 키보드가 나타나거나 사라질 때) 실행
+if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', () => {
+        // visualViewport의 높이를 실제 컨텐츠 영역(#actualContents)의 높이로 설정
+        const viewportHeight = window.visualViewport.height;
+        actualContents.style.height = viewportHeight + "px";
+        
+        // 키보드가 올라왔을 때 채팅창을 맨 아래로 스크롤
+        postsContainer.scrollTop = postsContainer.scrollHeight;
+    });
+}
 
 /** 문자열 내 URL을 <a> 태그로 변환 */
 function linkify(text) {
@@ -183,7 +207,6 @@ profileSaveBtn.addEventListener('click', async () => {
 window.addEventListener('keydown', (event) => { if (event.key === 'Escape' && !profileModal.classList.contains('hidden')) profileModal.classList.add('hidden'); });
 postContent.addEventListener('input', () => {
     updateTextareaLayout();
-    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
 });
 postContent.addEventListener('keydown', (event) => {
     if (!isMobile && event.key === 'Enter' && !event.shiftKey) {
@@ -208,13 +231,6 @@ function main() {
     postsQuery.onSnapshot(snapshot => {
         postsCache = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
         render();
-        if (isFirstLoad && postsCache.length > 0) {
-            updateTextareaLayout();
-            window.scrollTo(0, document.body.scrollHeight);
-            isFirstLoad = false;
-        } else if (!isFirstLoad) {
-            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-        }
     }, error => {
         console.error("게시물 로딩 오류:", error);
         postsContainer.innerHTML = "<p>게시물을 불러오는 데 실패했습니다.</p>";
