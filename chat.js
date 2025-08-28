@@ -40,7 +40,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const filterUid = urlParams.get('uid');
 
 // 1. 게시물 실시간 감시 시작 (데이터만 가져와서 상태 변수 업데이트)
-const twentyFourHoursAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
+const twentyFourHoursAgo = new Date(Date.now() - 48 * 60 * 60 * 1000);
 
 let postsQuery = db.collection('posts').where('timestamp', '>=', twentyFourHoursAgo).orderBy('timestamp', 'asc');
 if (filterUid) {
