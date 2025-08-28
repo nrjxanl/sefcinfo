@@ -696,7 +696,7 @@ path.cls-64 {pointer-events: none;}
 #posts-container > p {font-size: 16px; font-weight: 300;}
 
 .post {width: 55vw; margin-bottom: 28px; display: flex; align-items: flex-end;}
-.post:hover .post-delete-btn {display: block;}
+.post:hover .post-delete-btn {opacity: 1; visibility: visible; transition: opacity .1s ease-in-out, visibility .1s ease-in-out;}
 .post > div {display: flex; flex-direction: column; align-items: flex-start;}
 .post-header {display: flex; align-items: center;}
 .post-author-link {text-decoration: none; color: inherit;}
@@ -704,7 +704,7 @@ path.cls-64 {pointer-events: none;}
 .post-content {width: fit-content; max-width: 40vw; font-size: 18px; font-weight: 600; text-align: left; margin: 10px 0; padding: 8px 16px; border: 1px solid #00000080; border-radius: 5px 20px 20px 20px; white-space: pre-wrap; word-break: break-word;}
 .post-content > a {font-size: 18px; font-weight: 300; color: #174fff; text-decoration: underline; margin: 0 4px;}
 .post-date {font-weight: 300;}
-.post-delete-btn {display: none; color: #faf6f5; background: red; font-size: 16px; font-weight: 600; border: none; padding: 8px 16px; border-radius: 20px; cursor: pointer; margin: 0 20px;}
+.post-delete-btn {opacity: 0; visibility: hidden; transition: opacity .1s ease-in-out, visibility .1s ease-in-out; color: #faf6f5; background: red; font-size: 16px; font-weight: 600; border: none; padding: 8px 16px; border-radius: 20px; cursor: pointer; margin: 0 20px;}
 
 .my-post {flex-direction: row-reverse;}
 .my-post > div {align-items: flex-end;}

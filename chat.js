@@ -115,34 +115,31 @@ function chat() {
                 } else {
                     postClasses.push('other-post');
                 }
-
-                // ✅ 특별 닉네임 강조 기능 추가
                 if (post.author === "SEFCiNFO") {
                     postClasses.push('admin-post');
                 }
-
                 postElement.className = postClasses.join(' ');
+
+                postElement.setAttribute('tabindex', '0');
 
                 let deleteBtnHTML = '';
                 if (currentUser && (isAdmin || currentUser.uid === post.uid)) {
                     deleteBtnHTML = `<button class="post-delete-btn" data-id="${post.id}">삭제</button>`;
                 }
-
                 const postDate = post.timestamp ? formatDate(post.timestamp) : '';
-
                 const linkedContent = linkify((post.content || "").replace(/\n/g, '<br>'));
 
                 postElement.innerHTML = `
-                <div>
-                    <a href="?uid=${post.uid}" class="post-author-link">
-                        <div class="post-header">
-                            <span class="post-author-name">${post.author}</span>
-                        </div>
-                    </a>
-                    <p class="post-content">${linkedContent}</p>
-                    <div class="post-date">${postDate}</div>
+        <div>
+            <a href="?uid=${post.uid}" class="post-author-link">
+                <div class="post-header">
+                    <span class="post-author-name">${post.author}</span>
                 </div>
-                ${deleteBtnHTML}`;
+            </a>
+            <p class="post-content">${linkedContent}</p>
+            <div class="post-date">${postDate}</div>
+        </div>
+        ${deleteBtnHTML}`;
                 postsContainer.appendChild(postElement);
             });
         }
