@@ -2001,6 +2001,16 @@ $(document).ready(function () {
         console.trace(`Translated(${localStorage.getItem("lang")})`)
     }
 
+    // 채팅
+    if ($(".chat").length) {
+        for (i = Object.keys(dataA).length - 1; i >= 0; i--) {
+            if (dataA[Object.keys(dataA)[i]]["homeScore"] != "") {
+                $(".nextMatchId").text(Object.keys(dataA)[i + 1].substring(0, 8));
+                break;
+            }
+        }
+    }
+
 })
 
 ////////// 함수 //////////

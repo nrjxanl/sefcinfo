@@ -677,7 +677,7 @@ path.cls-64 {pointer-events: none;}
 #auth-container > button:active, #user-info > button:active {color: #faf6f5; background: #000060c0;}
 
 #posts-container {margin-bottom: 200px;}
-#posts-container > p {font-size: 16px; font-weight: 600;}
+#posts-container > p {font-size: 16px; font-weight: 300;}
 
 .post {width: 90vw; margin-bottom: 28px; display: flex; align-items: flex-end;}
 .post:focus .post-delete-btn {display: block;}
@@ -685,15 +685,18 @@ path.cls-64 {pointer-events: none;}
 .post-header {display: flex; align-items: center;}
 .post-author-link {text-decoration: none; color: inherit;}
 .post-author-name {font-size: 14px; font-weight: 600;}
-.post-content {width: fit-content; max-width: 40vw; font-size: 18px; font-weight: 600; text-align: left; margin: 10px 0; padding: 8px 16px; border: 1px solid #00000080; border-radius: 5px 20px 20px 20px; white-space: pre-wrap; word-break: break-word;}
+.post-content {width: fit-content; max-width: 70vw; font-size: 18px; font-weight: 600; text-align: left; margin: 10px 0; padding: 8px 16px; border: 1px solid #00000080; border-radius: 5px 20px 20px 20px; white-space: pre-wrap; word-break: break-word;}
+.post-content > a {font-size: 18px; font-weight: 300; color: #174fff; text-decoration: underline; margin: 0 4px;}
 .post-date {font-weight: 300;}
 .post-delete-btn {display: none; color: #faf6f5; background: red; font-size: 16px; font-weight: 600; border: none; padding: 8px 16px; border-radius: 20px; cursor: pointer; margin: 0 20px;}
 
 .my-post {flex-direction: row-reverse;}
 .my-post > div {align-items: flex-end;}
 .my-post .post-content {border-radius: 20px 5px 20px 20px;}
+.my-post .post-content > a {font-size: 18px; font-weight: 300; text-decoration: underline; margin: 0 4px;}
 
 .admin-post .post-content {color: #faf6f5; background: #174fffd0; border: none;}
+.admin-post .post-content > a {font-size: 18px; font-weight: 300; color: #faf6f5; text-decoration: underline; margin: 0 4px;}
 
 #post-form {width: 90vw; display: flex; align-items: center; position: fixed; bottom: 0; padding: 20px 0 40px 0; background: #fcfcfd;}
 #post-form > textarea {width: calc(70vw - 40px); padding: 20px; border: 1px solid #00000080; border-radius: 20px; resize: unset; box-sizing: border-box; font-size: 16px; font-weight: 300; line-height: 1.6; text-align: left; background: none;}

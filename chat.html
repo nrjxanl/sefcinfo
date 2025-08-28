@@ -15,7 +15,7 @@
     <meta name="keywords" content="서울, 서울 이랜드, 서울 이랜드 FC. SEFC. SEFCiNFO">
     <link rel="stylesheet" href="./style1.css" media="screen and (max-width: 768px)">
     <link rel="stylesheet" href="./style2.css" media="screen and (min-width: 768px)">
-    <title>SEFCiNFO - 온라인 커뮤니티</title>
+    <title>SEFCiNFO - 실시간 채팅</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <link rel="icon" type="image/x-icon" href="./files/favicon.png">
@@ -52,7 +52,7 @@
     <div id="actualContents">
         <div class="chat">
             <div id="board-info">
-                <p>실시간 게시판</p>
+                <p>실시간 채팅</p>
                 <div id="board-header"></div>
                 
                 <div id="auth-container">
@@ -83,15 +83,17 @@
                 <button id="profile-save-btn" glass="true">저장</button>
             </div>
         </div>
+
+        <p class="nextMatchId" style="display: none;"></p>
     </div>
     
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
       
-    <script src="./chat.js"></script>
     <script src="./script.js"></script>
     <script src="./data.js"></script>
+    <script src="./chat.js"></script>
 
 </body>
 
