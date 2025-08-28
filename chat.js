@@ -167,6 +167,7 @@ function render() {
 //  아래 코드를 그대로 사용하시거나, 이전 버전에서 복사해서 사용하세요.)
 loginBtn.addEventListener('click', () => auth.signInWithPopup(googleProvider).catch(e => console.error(e)));
 logoutBtn.addEventListener('click', () => auth.signOut().catch(e => console.error(e)));
+
 postForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const content = postContent.value.trim();
@@ -183,14 +184,17 @@ postForm.addEventListener('submit', async (e) => {
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         });
         
-        postContent.value = ''; // 1. 입력창의 내용을 비우고
-        updateTextareaLayout(); // 2. 레이아웃 업데이트 함수를 호출하여 높이와 여백을 초기화
+        postContent.value = '';
+        postContent.style.height = 'auto';
+        
+        postContent.focus(); // 전송 후에도 텍스트 입력창에 포커스를 유지
 
     } catch (error) {
         console.error("글 작성 오류: ", error);
         alert("글 작성에 실패했습니다. 콘솔을 확인하세요.");
     }
 });
+
 postsContainer.addEventListener('click', (e) => { const deleteBtn = e.target.closest('.post-delete-btn'); if (deleteBtn) { const postId = deleteBtn.getAttribute('data-id'); if (confirm('정말 이 글을 삭제하시겠습니까? 삭제 후에는 글을 복구할 수 없습니다.')) { db.collection('posts').doc(postId).delete().catch(e => console.error("삭제 오류: ", e)); } } });
 editProfileBtn.addEventListener('click', async () => { if (!currentUser) return; const userDoc = await db.collection('users').doc(currentUser.uid).get(); const customName = userDoc.exists && userDoc.data().displayName ? userDoc.data().displayName : currentUser.displayName; profileNameInput.value = customName; profileModal.classList.remove('hidden'); });
 profileModal.addEventListener('click', (event) => {
@@ -277,3 +281,18 @@ function updateTextareaLayout() {
     // 3. postsContainer의 하단 여백도 새로운 높이에 맞춰서 다시 계산
     postsContainer.style.marginBottom = (postContent.scrollHeight + 100) + 'px';
 }
+
+postContent.addEventListener('keydown', (event) => {
+    // 만약 눌린 키가 'Enter'이고, 동시에 Shift 키는 눌리지 않았다면
+    if (event.key === 'Enter' && !event.shiftKey) {
+        // 1. Enter 키의 기본 동작(줄바꿈)을 막습니다.
+        event.preventDefault();
+        
+        // 2. 전송 버튼을 강제로 클릭합니다.
+        // HTML에 있는 전송 버튼의 id를 가져와야 합니다.
+        // 제공해주신 HTML 코드 SVG의 id는 sendButton 이지만, 버튼 자체의 id가 필요합니다.
+        // form의 submit 버튼은 하나이므로 아래와 같이 선택할 수 있습니다.
+        postForm.querySelector('button[type="submit"]').click();
+    }
+    // Shift + Enter를 누르면 이 조건문이 실행되지 않으므로, 원래 기능대로 줄바꿈이 됩니다.
+});
