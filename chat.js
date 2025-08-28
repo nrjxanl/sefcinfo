@@ -28,13 +28,15 @@ function chat() {
     const profileModal = document.getElementById('profile-modal');
     const profileNameInput = document.getElementById('profile-name-input');
     const profileSaveBtn = document.getElementById('profile-save-btn');
+    const submitBtn = postForm.querySelector('button[type="submit"]');
 
     // --- 전역 '상태(State)' 변수 ---
     let currentUser = null;
     let isAdmin = false;
     let postsCache = [];
     let unsubscribeUserProfile = null;
-    let isFirstLoad = true
+    let isFirstLoad = true;
+    const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
     // --- 핵심 로직 ---
     const urlParams = new URLSearchParams(window.location.search);
@@ -165,6 +167,9 @@ function chat() {
         const content = postContent.value.trim();
         if (content === '' || !currentUser) return;
 
+        // 임시로 전송 버튼을 비활성화하여 중복 전송 방지
+        submitBtn.disabled = true;
+
         try {
             const userDoc = await db.collection('users').doc(currentUser.uid).get();
             const authorName = userDoc.exists && userDoc.data().displayName ? userDoc.data().displayName : currentUser.displayName;
@@ -179,11 +184,15 @@ function chat() {
             postContent.value = '';
             postContent.style.height = 'auto';
 
-            postContent.focus(); // 전송 후에도 텍스트 입력창에 포커스를 유지
+            // ✅ 전송 후 텍스트 입력창에 다시 포커스
+            postContent.focus();
 
         } catch (error) {
             console.error("글 작성 오류: ", error);
             alert("글 작성에 실패했습니다. 콘솔을 확인하세요.");
+        } finally {
+            // 성공하든 실패하든, 버튼을 다시 활성화
+            submitBtn.disabled = false;
         }
     });
 
@@ -207,7 +216,7 @@ function chat() {
         }
         const nameRegex = /^[a-z0-9ㄱ-ㅎㅏ-ㅣ가-힣]+$/; // ✅ 정규식도 소문자만 허용하도록 변경 (a-z)
         if (!nameRegex.test(newName)) {
-            alert('닉네임은 영문 소문자, 한글, 숫자만 사용할 수 있습니다 (특수문자, 공백, 대문자 불가).');
+            alert('닉네임은 영문, 한글, 숫자만 사용할 수 있습니다 (특수문자, 공백, 대문자 불가).');
             return;
         }
 
@@ -275,38 +284,41 @@ function chat() {
     }
 
     postContent.addEventListener('keydown', (event) => {
-        // 만약 눌린 키가 'Enter'이고, 동시에 Shift 키는 눌리지 않았다면
-        if (event.key === 'Enter' && !event.shiftKey) {
-            // 1. Enter 키의 기본 동작(줄바꿈)을 막습니다.
-            event.preventDefault();
-
-            // 2. 전송 버튼을 강제로 클릭합니다.
-            // HTML에 있는 전송 버튼의 id를 가져와야 합니다.
-            // 제공해주신 HTML 코드 SVG의 id는 sendButton 이지만, 버튼 자체의 id가 필요합니다.
-            // form의 submit 버튼은 하나이므로 아래와 같이 선택할 수 있습니다.
-            postForm.querySelector('button[type="submit"]').click();
+        // ✅ PC 환경일 때만 (isMobile이 아닐 때) Enter 키 전송 기능이 작동하도록 함
+        if (!isMobile) {
+            // 만약 눌린 키가 'Enter'이고, 동시에 Shift 키는 눌리지 않았다면
+            if (event.key === 'Enter' && !event.shiftKey) {
+                // 1. Enter 키의 기본 동작(줄바꿈)을 막습니다.
+                event.preventDefault();
+                // 2. 전송 버튼을 강제로 클릭합니다.
+                postForm.querySelector('button[type="submit"]').click();
+            }
         }
-        // Shift + Enter를 누르면 이 조건문이 실행되지 않으므로, 원래 기능대로 줄바꿈이 됩니다.
     });
 
     /**
-     * 문자열 내의 URL을 찾아서 <a> 태그로 변환
+     * 문자열 내의 URL을 찾아서 <a> 태그로 변환하는 함수
      * @param {string} text - 변환할 원본 텍스트
      * @returns {string} - URL이 <a> 태그로 변환된 HTML 문자열
      */
     function linkify(text) {
         if (!text) return ''; // 텍스트가 없으면 빈 문자열 반환
 
-        // URL을 찾기 위한 정규표현식
+        // 1단계: 일반적인 URL (http, https, www 등)을 먼저 링크로 변환
         const urlRegex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])|(\bwww\.[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
-
-        return text.replace(urlRegex, function (url, urlWithProtocol, protocol, urlWithoutProtocol) {
-            // 'www.example.com' 형태의 주소는 'http://'를 붙여줘야 올바르게 링크됩니다.
+        let linkedText = text.replace(urlRegex, function (url, urlWithProtocol, protocol, urlWithoutProtocol) {
             const fullUrl = urlWithoutProtocol ? 'http://' + urlWithoutProtocol : urlWithProtocol;
-
-            // 새 탭에서 열리도록 target="_blank" 추가, 보안을 위해 rel="noopener noreferrer" 추가
             return `<a href="${fullUrl}" target="_blank" rel="noopener noreferrer">${url}</a>`;
         });
+        
+        // 2단계: 'sefc.info' 라는 특정 문자열을 찾아 링크로 변환
+        // 단, 이미 <a> 태그 안에 있는 경우는 제외합니다. (고급 정규식 사용)
+        const specialRegex = /\b(sefc\.info)\b(?![^<]*>|[^<>]*<\/a>)/ig;
+        linkedText = linkedText.replace(specialRegex, function (match) {
+            return `<a href="http://${match}" target="_blank" rel="noopener noreferrer">${match}</a>`;
+        });
+
+        return linkedText;
     }
 
     /**
@@ -344,3 +356,10 @@ $(document).ready(function () {
     // if (Number(nextMatch.substring(0, 4)) == y && Number(nextMatch.substring(4, 6)) == m && Number(nextMatch.substring(6, 8)) == d) chat();
     chat()
 })
+
+// 모바일에서 전송 버튼을 눌러도 키보드가 내려가지 않게 하는 트릭
+submitBtn.addEventListener('mousedown', (event) => {
+    if (isMobile) {
+        event.preventDefault();
+    }
+});
