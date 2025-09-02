@@ -2647,7 +2647,6 @@ function transl() {
         parent = Number(parent);
 
         // nameList[0]: 이름만, nameList[1]: 성명 전체, nameList[2]: 별명
-
         if (langNum == 3) {
             // 나카구로(・)로 구분
             if(nameList[0].includes(parent)) $(this).html(`${name.split("・")[0]}<span>${span}</span>`);

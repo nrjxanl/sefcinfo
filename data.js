@@ -222,6 +222,9 @@ $(document).ready(function () {
                             zIndex ++
                         }
                     }
+
+                    transl()
+                    console.trace(`Translated(${localStorage.getItem("lang")})`)
                 }
 
                 for (i = 0; i < Object.keys(dataList["GK"]).length; i++) {
@@ -391,6 +394,9 @@ $(document).ready(function () {
                             zIndex ++
                         }
                     }
+
+                    transl()
+                    console.trace(`Translated(${localStorage.getItem("lang")})`)
                 }
 
                 $("#startingXI").html("<div><table><tbody></tbody></table></div>")
