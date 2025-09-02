@@ -306,7 +306,10 @@ $(document).ready(function () {
                             $("#" + dataList["SUB"][i][0] + " > td:nth-of-type(2) > span > img:nth-of-type(" + (zIndex + 1) + ")").css("z-index", 100 - zIndex)
                             zIndex ++
                         }
-                    }
+                    }                    
+
+                    transl()
+                    console.trace(`Translated(${localStorage.getItem("lang")})`)
                 }
 
                 // 선수 평점 칸 배색
@@ -489,6 +492,9 @@ $(document).ready(function () {
                             $(this).css("display", "none")
                         }
                     })
+
+                    transl()
+                    console.trace(`Translated(${localStorage.getItem("lang")})`)
                 }
             }
 
