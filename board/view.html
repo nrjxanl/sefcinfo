@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEFCiNFO - 글 보기</title>
+    <link rel="stylesheet" href="../style1.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="../style2.css" media="screen and (min-width: 768px)">
+    <link rel="icon" type="image/x-icon" href="../files/favicon.png">
+</head>
+<header>
+    <div><img src='../files/menu.svg' onclick='menu()'></div>
+    <div><img src="../files/sefcinfo.svg"></div>
+</header>
+
+<body oncontextmenu="return false">
+    <div id="skeletonMobile"></div>
+    <div id="skeletonPC"></div>
+
+    <div id="actualContents">
+        <div class="board">
+            <div id="post-detail-container">
+                <p>게시물을 불러오는 중입니다...</p>
+            </div>
+            <button id="back-to-list-btn" class="link-to-list" glass="true">목록으로 돌아가기</button>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="../board.js"></script>
+    <script src="../script.js"></script>
+    <script src="../data.js"></script>
+</body>
+
+</html>

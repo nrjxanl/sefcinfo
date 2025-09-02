@@ -659,7 +659,7 @@ path.cls-64 {pointer-events: none;}
 /* Glassmorphism */
 [glass="true"] {background: #faf5f640; box-shadow: 0 4px 30px #05090a16; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid #faf5f680;}
 
-/* 채팅 */
+/* 게시판 */
 
 .chat {width: 90vw; margin-left: 5vw;}
 

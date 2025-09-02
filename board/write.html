@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEFCiNFO - 새 글 작성</title>
+    <link rel="stylesheet" href="../style1.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="../style2.css" media="screen and (min-width: 768px)">
+    <link rel="icon" type="image/x-icon" href="../files/favicon.png">
+</head>
+<header>
+    <div><img src='../files/menu.svg' onclick='menu()'></div>
+    <div><img src="../files/sefcinfo.svg"></div>
+</header>
+
+<body oncontextmenu="return false">
+    <div id="skeletonMobile"></div>
+    <div id="skeletonPC"></div>
+
+    <div id="actualContents">
+        <div class="board">
+            <p>새 글 작성</p>
+            <form id="write-form">
+                <input type="text" id="post-title-input" placeholder="제목을 입력하세요" required>
+                <textarea id="post-content-input" placeholder="내용을 입력하세요" required></textarea>
+            
+                <div class="form-actions">
+                    <button type="button" id="cancel-write-btn" glass="true">작성 취소</button>
+                    <button type="submit" id="post-save-btn" glass="true">등록</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="../board.js"></script>
+    <script src="../script.js"></script>
+    <script src="../data.js"></script>
+</body>
+
+</html>

@@ -675,8 +675,12 @@ path.cls-64 {pointer-events: none;}
 /* Glassmorphism */
 [glass="true"] {background: #faf6f540; box-shadow: 0 4px 30px #05090a16; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid #faf6f580;}
 
-/* 채팅 */
-.chat {width: 55vw;}
+/* 게시판 */
+.board {width: 55vw;}
+.board > p {font-size: 20px; font-weight: 600;}
+.board > form {margin-top: 20px; display: flex; flex-direction: column; align-items: center;}
+.board > form > input {width: calc(55vw - 48px); text-align: left; font-size: 16px; font-weight: 600; line-height: 1.6; padding: 12px 24px; border: 1px solid #05090a; border-radius: 20px;}
+.board > form > textarea {width: calc(55vw - 48px); height: 50vh; text-align: left; font-size: 16px; font-weight: 300; line-height: 1.6; padding: 12px 24px; border: 1px solid #05090a; border-radius: 20px; margin: 20px 0; resize: none;}
 
 #board-info {position: sticky; top: 0; margin-top: -100px; padding: 40px 0 20px 0; background: #fcfcfd;}
 #board-info > p {width: 55vw; font-size: 24px;}
@@ -692,34 +696,21 @@ path.cls-64 {pointer-events: none;}
 #auth-container > button, #user-info > button {padding: 6px 12px; border-radius: 20px; background: #faf6f540; cursor: pointer; font-size: 16px; font-weight: 600;}
 #auth-container > button:hover, #user-info > button:hover {color: #faf6f5; background: #000060c0;}
 
-#posts-container {margin-bottom: 200px;}
 #posts-container > p {font-size: 16px; font-weight: 300;}
 
-.post {width: 55vw; margin-bottom: 28px; display: flex; align-items: flex-end;}
-.post:hover .post-delete-btn {opacity: 1; visibility: visible; transition: opacity .1s ease-in-out, visibility .1s ease-in-out;}
-.post > div {display: flex; flex-direction: column; align-items: flex-start;}
-.post-header {display: flex; align-items: center;}
-.post-author-link {text-decoration: none; color: inherit;}
-.post-author-name {font-size: 14px; font-weight: 600;}
-.post-content {width: fit-content; max-width: 40vw; font-size: 18px; font-weight: 600; text-align: left; margin: 10px 0; padding: 8px 16px; border: 1px solid #00000080; border-radius: 5px 20px 20px 20px; white-space: pre-wrap; word-break: break-word;}
-.post-content > a {font-size: 18px; font-weight: 300; color: #174fff; text-decoration: underline; margin: 0 4px;}
-.post-date {font-weight: 300;}
-.post-delete-btn {opacity: 0; visibility: hidden; transition: opacity .1s ease-in-out, visibility .1s ease-in-out; color: #faf6f5; background: red; font-size: 16px; font-weight: 600; border: none; padding: 8px 16px; border-radius: 20px; cursor: pointer; margin: 0 20px;}
-
-.my-post {flex-direction: row-reverse;}
-.my-post > div {align-items: flex-end;}
-.my-post .post-content {border-radius: 20px 5px 20px 20px;}
-.my-post .post-content > a {font-size: 18px; font-weight: 300; text-decoration: underline; margin: 0 4px;}
+.post-item-link {margin-bottom: 20px;}
+.post {width: calc(55vw - 24px); display: flex; justify-content: right; align-items: center; padding: 12px; border-top: 1px solid #05090a80; gap: 20px;}
+.post > p:nth-of-type(1) {text-align: left; font-size: 18px; font-weight: 600;}
+.post > p:nth-of-type(2) {margin-left: auto;}
+.post > p:nth-of-type(n+2) {text-align: left; font-size: 14px; font-weight: 300; flex-shrink: 0;}
 
 .admin-post .post-content {color: #faf6f5; background: #174fff; border: none;}
 .admin-post .post-content > a {font-size: 18px; font-weight: 300; color: #faf6f5; text-decoration: underline; margin: 0 4px;}
 
-#post-form {width: 55vw; min-height: 40px; display: flex; align-items: center; position: fixed; bottom: 0; padding: 40px; margin-left: -40px; background: #fcfcfd;}
-#post-form > textarea {width: calc(53vw - 40px); padding: 20px; border: 1px solid #00000080; border-radius: 20px; resize: unset; box-sizing: border-box; font-size: 16px; font-weight: 300; line-height: 1.6; text-align: left; background: none;}
-#post-form > button {width: 5vw; height: 5vw; border-radius: 100%; margin-left: 2vw; align-self: end;}
-#post-form > button:hover {background: #000060c0;}
-#post-form > button > svg {width: 2vw; height: auto; margin: 0.2vw 0 0 0.2vw;}
-#post-form > button:hover > svg {filter: brightness(0) saturate(100%) invert(97%) sepia(69%) saturate(456%) hue-rotate(292deg) brightness(110%) contrast(96%);}
+#pagination-controls {width: 55vw; padding-top: 40px; border-top: 1px solid #05090a80;}
+#pagination-controls > button {background: none; border: none; font-size: 16px; font-weight: 300; cursor: pointer;}
+#pagination-controls > button:disabled {cursor: auto; opacity: .5}
+#pagination-controls > span {font-size: 20px; font-weight: 600; padding: 0 20px;}
 
 .modal {width: 75vw; height: 100vh; position: fixed; z-index: 300; top: 0; left: 25vw; overflow: auto; background: #05090a10; display: flex; align-items: center; justify-content: center;}
 .modal-content {background: #faf6f5; padding: 20px; width: 80%; max-width: 400px; border-radius: 20px;}
@@ -730,3 +721,19 @@ path.cls-64 {pointer-events: none;}
 #profile-save-btn:hover {color: #faf6f5; background: #000060c0;}
 
 .hidden {display: none !important;}
+
+#post-detail-container {width: 55vw;}
+#post-detail-container > p {font-size: 20px; font-weight: 600; line-height: 1.6;}
+
+.post-meta {padding: 20px 0; font-size: 16px; font-weight: 300;}
+
+.post-actions > button {padding: 6px 12px; border-radius: 20px; background: #faf6f540; cursor: pointer; font-size: 16px; font-weight: 600; margin-bottom: 20px;}
+
+.post-content-body {width: 55vw; font-size: 16px; font-weight: 300; line-height: 1.6; padding: 40px 0; border-top: 1px solid #05090a80; border-bottom: 1px solid #05090a80;}
+.post-content-body > a {font-size: 16px; font-weight: 300; line-height: 1.6; text-decoration: underline; color: #000060; padding: 0 4px;}
+
+.link-to-list {padding: 6px 12px; border-radius: 20px; background: #faf6f540; cursor: pointer; font-size: 16px; font-weight: 600; margin-top: 20px;}
+
+.form-actions {display: flex; gap: 10px;}
+.form-actions > button {padding: 6px 12px; border-radius: 20px; background: #faf6f540; cursor: pointer; font-size: 16px; font-weight: 600; margin-bottom: 20px;}
+.form-actions > button:hover {color: #faf6f5; background: #000060c0;}
