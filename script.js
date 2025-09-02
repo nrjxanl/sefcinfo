@@ -1816,6 +1816,8 @@ function transl() {
         "현풍고등학교": ["Hyunpung High School", "Hyunpung High School", "Hyunpung High School", "<ruby>ヒョンプン<rt>玄風</rt></ruby>高校"],
         "화성종합경기타운 주경기장": ["Hwaseong Sports Town Main Stadium", "Estádio Principal da Cidade Desportiva de Hwaseong", "Estadio Principal de la Ciudad Deportiva de Hwaseong", "<ruby>ファソン<rt>華城</rt></ruby>総合競技タウン主競技場"],
         "흥덕축구공원": ["Heungdeok Football Park", "Parque de Futebol Heungdeok", "Parque de Fútbol de Heungdeok", "<ruby>フンドク<rt>興徳</rt></ruby>サッカー公園h"],
+        "걸매A축구장": ["Geolmae A Football Stadium", "Estádio A de Futebol de Geolmae", "Estadio A de Fútbol de Geolmae", "コルメサッカー専用競技場"],
+        "조종생활체육공원": ["Jojong Sports Park", "Parque Desportivo de Jojong", "Parque Deportivo Jojong", "<ruby>チョジョン<rt>清平</rt></ruby>生活体育公園"],
 
         // 응원가
         "팀 응원": ["Team", "Equipe", "Equipo", "チーム"],
