@@ -579,7 +579,7 @@ tr.sefc > td > p {background: #faf5f6 !important; color: #05090a !important;}
 #selectStadium > a > p > span > ruby {font-size: 14px; font-weight: 300;}
 #selectStadium > a > p > span > ruby > rt {font-size: 10px; font-weight: 300;}
 
-.noHover {opacity: .2 !important; transition: none;}
+.noactive {opacity: .2 !important; transition: none;}
 
 #stadium {width: 90vw; max-height: 50vh; margin-top: 100px;}
 #stadium > g:nth-of-type(n + 3):nth-of-type(-n + 6) > g:active {opacity: 0.5; transition: opacity 0.2s; cursor: pointer;}
@@ -660,10 +660,13 @@ path.cls-64 {pointer-events: none;}
 [glass="true"] {background: #faf5f640; box-shadow: 0 4px 30px #05090a16; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid #faf5f680;}
 
 /* 게시판 */
+.board {width: 90vw; margin: 120px 0 0 5vw;}
+.board > p {font-size: 20px; font-weight: 600;}
+.board > form {margin-top: 20px; display: flex; flex-direction: column; align-items: center;}
+.board > form > input {width: calc(90vw - 48px); text-align: left; font-size: 16px; font-weight: 600; line-height: 1.6; padding: 12px 24px; border: 1px solid #05090a; border-radius: 20px; background: none;}
+.board > form > textarea {width: calc(90vw - 48px); height: 50vh; text-align: left; font-size: 16px; font-weight: 300; line-height: 1.6; padding: 12px 24px; border: 1px solid #05090a; border-radius: 20px; margin: 20px 0; resize: none; background: none;}
 
-.chat {width: 90vw; margin-left: 5vw;}
-
-#board-info {position: sticky; top: 0; padding: 100px 0 20px 0; background: #fcfcfd;}
+#board-info {position: sticky; top: 0; padding: 20px 0; background: #fcfcfd;}
 #board-info > p {width: 90vw; font-size: 24px;}
 
 #board-header {width: 90vw; margin: 8px 0 20px 0; display: flex; justify-content: center; align-items: center;}
@@ -671,47 +674,78 @@ path.cls-64 {pointer-events: none;}
 #board-header > a {text-decoration: none; font-size: 14px; font-weight: 600; background: #faf6f540; margin-left: 8px; padding: 6px 12px; border-radius: 20px;}
 #board-header > a:active {color: #faf6f5; background: #000060c0;}
 
-#auth-container {width: 90vw; text-align: right; margin-bottom: 20px;}
-#user-info {display: flex; align-items: center; justify-content: center; gap: 12px;}
-#user-info > span {font-size: 16px; font-weight: 600;}
-#auth-container > button, #user-info > button {padding: 6px 12px; border-radius: 20px; background: #faf6f540; cursor: pointer; font-size: 16px; font-weight: 600;}
-#auth-container > button:active, #user-info > button:active {color: #faf6f5; background: #000060c0;}
+#auth-container {width: 90vw; text-align: center;}
+#user-info {display: flex; align-items: center; justify-content: flex-end; gap: 12px;}
+#user-info > span {font-size: 14px; font-weight: 600;}
+#auth-container > button, #user-info > button {padding: 6px 12px; border-radius: 20px; background: #faf6f540; cursor: pointer; font-size: 14px; font-weight: 600;}
+#auth-container > button:hover, #user-info > button:hover {color: #faf6f5; background: #000060c0;}
 
-#posts-container {margin-bottom: 200px;}
-#posts-container > p {font-size: 16px; font-weight: 300;}
+#posts-container > p {font-size: 16px; font-weight: 300; padding-bottom: 20px;}
 
-.post {width: 90vw; margin-bottom: 28px; display: flex; align-items: flex-end;}
-.post:focus .post-delete-btn {opacity: 1; visibility: visible; transition: opacity .1s ease-in-out, visibility .1s ease-in-out;}
-.post > div {display: flex; flex-direction: column; align-items: flex-start;}
-.post-header {display: flex; align-items: center;}
-.post-author-link {text-decoration: none; color: inherit;}
-.post-author-name {font-size: 14px; font-weight: 600;}
-.post-content {width: fit-content; max-width: 70vw; font-size: 18px; font-weight: 600; text-align: left; margin: 10px 0; padding: 8px 16px; border: 1px solid #00000080; border-radius: 5px 20px 20px 20px; white-space: pre-wrap; word-break: break-word;}
-.post-content > a {font-size: 18px; font-weight: 300; color: #174fff; text-decoration: underline; margin: 0 4px;}
-.post-date {font-weight: 300;}
-.post-delete-btn {opacity: 0; visibility: hidden; transition: opacity .1s ease-in-out, visibility .1s ease-in-out; color: #faf6f5; background: red; font-size: 16px; font-weight: 600; border: none; padding: 8px 16px; border-radius: 20px; cursor: pointer; margin: 0 20px;}
+.post-item-link {margin-bottom: 20px;}
+.post {width: calc(90vw - 24px); display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; padding: 12px; border-top: 1px solid #05090a80; gap: 10px;}
+.post > p:nth-of-type(1) {text-align: left; font-size: 18px; font-weight: 600;}
+.post > div {display: flex; gap: 10px; flex-shrink: 0;}
+.post > div > p:nth-of-type(1) {margin-left: auto;}
+.post > div > p:nth-of-type(n+1) {text-align: left; font-size: 14px; font-weight: 300; flex-shrink: 0;}
 
-.my-post {flex-direction: row-reverse;}
-.my-post > div {align-items: flex-end;}
-.my-post .post-content {border-radius: 20px 5px 20px 20px;}
-.my-post .post-content > a {font-size: 18px; font-weight: 300; text-decoration: underline; margin: 0 4px;}
-
-.admin-post .post-content {color: #faf6f5; background: #174fffd0; border: none;}
+.admin-post .post-content {color: #faf6f5; background: #174fff; border: none;}
 .admin-post .post-content > a {font-size: 18px; font-weight: 300; color: #faf6f5; text-decoration: underline; margin: 0 4px;}
 
-#post-form {width: 90vw; display: flex; align-items: center; position: fixed; bottom: 0; padding: 20px 0 40px 0; background: #fcfcfd;}
-#post-form > textarea {width: calc(70vw - 40px); padding: 20px; border: 1px solid #00000080; border-radius: 20px; resize: unset; box-sizing: border-box; font-size: 16px; font-weight: 300; line-height: 1.6; text-align: left; background: none;}
-#post-form > button {width: 20vw; height: 20vw; border-radius: 100%; margin-left: 10vw; align-self: end;}
-#post-form > button:active {background: #000060c0;}
-#post-form > button > svg {width: 8vw; height: auto; margin: 0.8vw 0 0 0.8vw;}
-#post-form > button:active > svg {filter: brightness(0) saturate(100%) invert(97%) sepia(69%) saturate(456%) hue-rotate(292deg) brightness(110%) contrast(96%);}
-.modal {width: 100vw; height: 100vh; position: fixed; z-index: 300; top: 0; left: 0; overflow: auto; background: #05090a10; display: flex; align-items: center; justify-content: center;}
+#pagination-controls {width: 90vw; padding-top: 20px; border-top: 1px solid #05090a80;}
+#pagination-controls > button {background: none; border: none; font-size: 14px; font-weight: 300; cursor: pointer;}
+#pagination-controls > button:disabled {cursor: auto; opacity: .5}
+#pagination-controls > span {font-size: 16px; font-weight: 600; padding: 0 20px;}
 
-.modal-content {background: #faf6f5; padding: 20px; width: 80%; max-width: 400px; border-radius: 20px;}
+.modal {width: 100vw; height: 100vh; position: fixed; z-index: 300; top: 0; left: 0; overflow: auto; background: #05090a10; display: flex; align-items: center; justify-content: center;}
+.modal-content {background: #faf6f5; padding: 20px; width: 70vw; max-width: 400px; border-radius: 20px;}
 .modal-content > p:nth-of-type(1) {font-size: 16px; font-weight: 600;}
 .modal-content > p:nth-of-type(2) {font-size: 16px; font-weight: 300; color: #00000080; margin-bottom: 20px;}
 #profile-name-input {width: 100%; padding: 10px; margin: 20px 0; box-sizing: border-box; border: 1px solid #00000080; border-radius: 20px; font-size: 16px; font-weight: 600;}
 #profile-save-btn {padding: 6px 12px; border-radius: 20px; background: #faf6f540; cursor: pointer; font-size: 16px; font-weight: 600;}
-#profile-save-btn:active {color: #faf6f5; background: #000060c0;}
+#profile-save-btn:hover {color: #faf6f5; background: #000060c0;}
 
 .hidden {display: none !important;}
+
+#post-detail-container {width: 90vw;}
+#post-detail-container > p {width: calc(90vw - 40px); padding: 0 20px; font-size: 16px; font-weight: 600; line-height: 1.6;}
+
+.post-meta {padding: 12px 0; font-size: 14px; font-weight: 300;}
+
+.post-actions > button {padding: 6px 12px; border-radius: 20px; background: #faf6f540; cursor: pointer; font-size: 16px; font-weight: 600; margin-bottom: 10px;}
+
+.post-content-body {width: calc(90vw - 40px);; font-size: 16px; font-weight: 300; line-height: 1.6; text-align: left; padding: 20px; border-top: 1px solid #05090a80; border-bottom: 1px solid #05090a80;}
+.post-content-body > a {font-size: 16px; font-weight: 300; line-height: 1.6; text-decoration: underline; color: #000060; padding: 0 4px;}
+
+.link-to-list {padding: 6px 12px; border-radius: 20px; background: #faf6f540; cursor: pointer; font-size: 16px; font-weight: 600; margin: 20px 0 40px 0;}
+
+.form-actions {display: flex; gap: 10px;}
+.form-actions > button {padding: 6px 12px; border-radius: 20px; background: #faf6f540; cursor: pointer; font-size: 16px; font-weight: 600; margin-bottom: 20px;}
+.form-actions > button:hover {color: #faf6f5; background: #000060c0;}
+
+#comments-section {margin-top: 28px; padding-bottom: 20px; border-bottom: 1px solid #05090a80;}
+#comments-section > p {font-size: 16px; font-weight: 600; text-align: left; padding-left: 20px;}
+#comments-section > p > span {font-size: 16px; font-weight: 300;}
+
+#comments-list > p {font-size: 16px; font-weight: 300; padding-top: 20px;}
+
+.comment-item {padding: 10px 20px 0 20px; display: flex; flex-direction: row; gap: 10px; justify-content: space-between;}
+
+.comment-header {display: flex; flex-direction: row; gap: 10px; padding: 10px 0;}
+.comment-header > span:nth-of-type(1) {font-size: 14px; font-weight: 600;}
+.comment-header > span:nth-of-type(2) {font-size: 14px; font-weight: 300;}
+
+.comment-text {font-size: 16px; font-weight: 300; text-align: left; line-height: 1.6;}
+
+.comment-delete-btn {padding: 6px 12px; border-radius: 20px; background: #faf6f540; cursor: pointer; font-size: 16px; font-weight: 600; margin-bottom: auto;}
+
+#comment-form {margin-top: 28px;}
+#comment-form > textarea { width: calc(90vw - 48px); height: 10vh; text-align: left; font-size: 16px; font-weight: 300; line-height: 1.6; padding: 12px 24px; border: 1px solid #05090a; border-radius: 20px; resize: none; background: none;}
+#comment-form > button {padding: 6px 12px; border-radius: 20px; background: #faf6f540; cursor: pointer; font-size: 16px; font-weight: 600; margin-top: 10px;}
+
+.post.admin-post > p {color: #000060;}
+
+.admin-comment > div > div > span {color: #000060;}
+.admin-comment > div > p {color: #000060;}
+
+.author-comment > div > p {color: #174fff;}

@@ -679,8 +679,8 @@ path.cls-64 {pointer-events: none;}
 .board {width: 55vw;}
 .board > p {font-size: 20px; font-weight: 600;}
 .board > form {margin-top: 20px; display: flex; flex-direction: column; align-items: center;}
-.board > form > input {width: calc(55vw - 48px); text-align: left; font-size: 16px; font-weight: 600; line-height: 1.6; padding: 12px 24px; border: 1px solid #05090a; border-radius: 20px;}
-.board > form > textarea {width: calc(55vw - 48px); height: 50vh; text-align: left; font-size: 16px; font-weight: 300; line-height: 1.6; padding: 12px 24px; border: 1px solid #05090a; border-radius: 20px; margin: 20px 0; resize: none;}
+.board > form > input {width: calc(55vw - 48px); text-align: left; font-size: 16px; font-weight: 600; line-height: 1.6; padding: 12px 24px; border: 1px solid #05090a; border-radius: 20px; background: none;}
+.board > form > textarea {width: calc(55vw - 48px); height: 50vh; text-align: left; font-size: 16px; font-weight: 300; line-height: 1.6; padding: 12px 24px; border: 1px solid #05090a; border-radius: 20px; margin: 20px 0; resize: none; background: none;}
 
 #board-info {position: sticky; top: 0; margin-top: -100px; padding: 40px 0 20px 0; background: #fcfcfd;}
 #board-info > p {width: 55vw; font-size: 24px;}
@@ -696,13 +696,14 @@ path.cls-64 {pointer-events: none;}
 #auth-container > button, #user-info > button {padding: 6px 12px; border-radius: 20px; background: #faf6f540; cursor: pointer; font-size: 16px; font-weight: 600;}
 #auth-container > button:hover, #user-info > button:hover {color: #faf6f5; background: #000060c0;}
 
-#posts-container > p {font-size: 16px; font-weight: 300;}
+#posts-container > p {font-size: 16px; font-weight: 300; padding-bottom: 20px;}
 
 .post-item-link {margin-bottom: 20px;}
-.post {width: calc(55vw - 24px); display: flex; justify-content: right; align-items: center; padding: 12px; border-top: 1px solid #05090a80; gap: 20px;}
+.post {width: calc(55vw - 24px); display: flex; justify-content: space-between; align-items: center; padding: 12px; border-top: 1px solid #05090a80; gap: 20px;}
 .post > p:nth-of-type(1) {text-align: left; font-size: 18px; font-weight: 600;}
-.post > p:nth-of-type(2) {margin-left: auto;}
-.post > p:nth-of-type(n+2) {text-align: left; font-size: 14px; font-weight: 300; flex-shrink: 0;}
+.post > div {display: flex; gap: 10px; flex-shrink: 0;}
+.post > div > p:nth-of-type(1) {margin-left: auto;}
+.post > div > p:nth-of-type(n+1) {text-align: left; font-size: 14px; font-weight: 300; flex-shrink: 0;}
 
 .admin-post .post-content {color: #faf6f5; background: #174fff; border: none;}
 .admin-post .post-content > a {font-size: 18px; font-weight: 300; color: #faf6f5; text-decoration: underline; margin: 0 4px;}
@@ -729,11 +730,38 @@ path.cls-64 {pointer-events: none;}
 
 .post-actions > button {padding: 6px 12px; border-radius: 20px; background: #faf6f540; cursor: pointer; font-size: 16px; font-weight: 600; margin-bottom: 20px;}
 
-.post-content-body {width: 55vw; font-size: 16px; font-weight: 300; line-height: 1.6; padding: 40px 0; border-top: 1px solid #05090a80; border-bottom: 1px solid #05090a80;}
+.post-content-body {width: calc(55vw - 40px);; font-size: 16px; font-weight: 300; line-height: 1.6; text-align: left; padding: 40px 20px; border-top: 1px solid #05090a80; border-bottom: 1px solid #05090a80;}
 .post-content-body > a {font-size: 16px; font-weight: 300; line-height: 1.6; text-decoration: underline; color: #000060; padding: 0 4px;}
 
-.link-to-list {padding: 6px 12px; border-radius: 20px; background: #faf6f540; cursor: pointer; font-size: 16px; font-weight: 600; margin-top: 20px;}
+.link-to-list {padding: 6px 12px; border-radius: 20px; background: #faf6f540; cursor: pointer; font-size: 16px; font-weight: 600; margin: 20px 0 40px 0;}
 
 .form-actions {display: flex; gap: 10px;}
 .form-actions > button {padding: 6px 12px; border-radius: 20px; background: #faf6f540; cursor: pointer; font-size: 16px; font-weight: 600; margin-bottom: 20px;}
 .form-actions > button:hover {color: #faf6f5; background: #000060c0;}
+
+#comments-section {margin-top: 28px; padding-bottom: 20px; border-bottom: 1px solid #05090a80;}
+#comments-section > p {font-size: 16px; font-weight: 600; text-align: left; padding-left: 20px;}
+#comments-section > p > span {font-size: 16px; font-weight: 300;}
+
+#comments-list > p {font-size: 16px; font-weight: 300; padding-top: 20px;}
+
+.comment-item {padding: 10px 20px 0 20px; display: flex; flex-direction: row; gap: 20px; justify-content: space-between;}
+
+.comment-header {display: flex; flex-direction: row; gap: 10px; padding: 10px 0;}
+.comment-header > span:nth-of-type(1) {font-size: 14px; font-weight: 600;}
+.comment-header > span:nth-of-type(2) {font-size: 14px; font-weight: 300;}
+
+.comment-text {font-size: 16px; font-weight: 300; text-align: left; line-height: 1.6;}
+
+.comment-delete-btn {padding: 6px 12px; border-radius: 20px; background: #faf6f540; cursor: pointer; font-size: 16px; font-weight: 600; margin-bottom: auto;}
+
+#comment-form {margin-top: 28px;}
+#comment-form > textarea { width: calc(55vw - 48px); height: 10vh; text-align: left; font-size: 16px; font-weight: 300; line-height: 1.6; padding: 12px 24px; border: 1px solid #05090a; border-radius: 20px; resize: none; background: none;}
+#comment-form > button {padding: 6px 12px; border-radius: 20px; background: #faf6f540; cursor: pointer; font-size: 16px; font-weight: 600; margin-top: 10px;}
+
+.post.admin-post > p {color: #000060;}
+
+.admin-comment > div > div > span {color: #000060;}
+.admin-comment > div > p {color: #000060;}
+
+.author-comment > div > p {color: #174fff;}

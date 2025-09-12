@@ -42,7 +42,8 @@ function formatDate(timestamp) {
     const day = String(date.getDate()).padStart(2, '0');
     const hours = String(date.getHours()).padStart(2, '0');
     const minutes = String(date.getMinutes()).padStart(2, '0');
-    return `${year}.${month}.${day}. ${hours}:${minutes}`;
+    if ($(window).width () < 768) return `${hours}:${minutes}`;
+    else return `${year}.${month}.${day}. ${hours}:${minutes}`;
 }
 
 // --- jQuery가 준비되면 코드 실행 ---
@@ -55,7 +56,11 @@ $(document).ready(function () {
             // --- 로그인 상태 ---
             $('#login-btn').addClass('hidden');
             $('#user-info').removeClass('hidden');
-            $('#open-write-page-btn').removeClass('hidden'); // ✅ 여기가 수정된 부분입니다!
+            $('#open-write-page-btn').removeClass('hidden');
+
+            if ($('#comment-form').length > 0) {
+                $('#comment-form').removeClass('hidden');
+            }
 
             if (unsubscribeUserProfile) unsubscribeUserProfile();
             unsubscribeUserProfile = db.collection('users').doc(user.uid).onSnapshot(doc => {
@@ -73,7 +78,12 @@ $(document).ready(function () {
             // --- 로그아웃 상태 ---
             $('#login-btn').removeClass('hidden');
             $('#user-info').addClass('hidden');
-            $('#open-write-page-btn').addClass('hidden'); // ✅ 여기가 수정된 부분입니다!
+            $('#open-write-page-btn').addClass('hidden');
+
+            if ($('#comment-form').length > 0) {
+                $('#comment-form').addClass('hidden');
+            }
+
             isAdmin = false;
             // 로그아웃 시 목록 UI 갱신
             if ($('#posts-container').length > 0) {
@@ -111,6 +121,7 @@ $(document).ready(function () {
             const urlParams = new URLSearchParams(window.location.search);
             const filterUid = urlParams.get('uid');
             let baseQuery = db.collection('posts');
+            let postAuthorUid = null;
 
             if (filterUid) {
                 baseQuery = baseQuery.where('uid', '==', filterUid);
@@ -174,11 +185,19 @@ $(document).ready(function () {
                     <a href="/board/view?id=${post.id}" class="post-item-link">
                         <div class="post">
                             <p>${postTitle}</p>
-                            <p>${post.author}</p>
-                            <p>${postDate}</p>
-                            <p>조회수 ${viewCount}</p>
+                            <div>
+                                <p>${post.author}</p>
+                                <p>${postDate}</p>
+                                <p>조회수 ${viewCount}</p>
+                            </div>
                         </div>
                     </a>`);
+
+                if (post.author === "SEFCiNFO") {
+                    // <a> 태그 안의 .post div에 admin-post 클래스 추가
+                    $postElement.find('.post').addClass('admin-post');
+                }
+
                 $('#posts-container').append($postElement);
             });
         }
@@ -218,6 +237,7 @@ $(document).ready(function () {
             postRef.get().then(doc => {
                 if (doc.exists) {
                     const post = doc.data();
+                    postAuthorUid = post.uid;
 
                     // 1. 필요한 모든 정보를 변수에 미리 준비합니다.
                     const postDate = formatDate(post.timestamp);
@@ -233,6 +253,13 @@ $(document).ready(function () {
                             <button class="post-delete-btn" data-id="${postId}" glass='true'>삭제</button>
                         </div>
                     `;
+                    }
+
+                    // ✅ "SEFCiNFO"가 쓴 글이면 메인 컨테이너에 클래스 추가
+                    if (post.author === "SEFCiNFO") {
+                        $('#post-detail-container').addClass('admin-post');
+                    } else {
+                        $('#post-detail-container').removeClass('admin-post');
                     }
 
                     // 3. 모든 정보를 조합하여 최종 HTML을 완성합니다.
@@ -257,6 +284,90 @@ $(document).ready(function () {
                 console.error("게시물 로딩 오류:", error);
                 $('#post-detail-container').html('<p>게시물을 불러오는 데 오류가 발생했습니다.</p>');
             });
+
+            const urlParamsForComments = new URLSearchParams(window.location.search);
+            const postIdForComments = urlParamsForComments.get('id');
+
+            if (postIdForComments) {
+                // ✅ 1. '댓글' 컬렉션 자체에 대한 참조를 만듭니다. (add, delete용)
+                const commentsCollectionRef = db.collection('posts').doc(postIdForComments).collection('comments');
+
+                // ✅ 2. 정렬된 데이터를 가져오기 위한 '쿼리'를 만듭니다. (onSnapshot용)
+                const commentsQuery = commentsCollectionRef.orderBy('timestamp', 'asc');
+
+                // 1. 댓글 목록 실시간으로 불러오기 (쿼리 변수 사용)
+                commentsQuery.onSnapshot(snapshot => {
+                    $('#comments-title').html(`댓글 <span>${snapshot.size}</span>`);
+
+                    const $commentsList = $('#comments-list');
+                    $commentsList.empty();
+                    if (snapshot.empty) {
+                        $commentsList.html('<p>아직 댓글이 없습니다.</p>');
+                        return;
+                    }
+                    snapshot.forEach(doc => {
+                        const comment = doc.data();
+                        const commentDate = formatDate(comment.timestamp);
+                        let deleteBtnHTML = '';
+                        if (currentUser && (isAdmin || currentUser.uid === comment.uid)) {
+                            deleteBtnHTML = `<button class="comment-delete-btn" data-comment-id="${doc.id}" glass='true'>삭제</button>`;
+                        }
+                        const $commentElement = $(`
+                            <div class="comment-item">
+                                <div>
+                                    <div class="comment-header">
+                                        <span class="comment-author">${comment.author}</span>
+                                        <span class="comment-date">${commentDate}</span>
+                                    </div>
+                                    <p class="comment-text">${comment.text.replace(/\n/g, '<br>')}</p>
+                                </div>
+                                ${deleteBtnHTML}
+                            </div>
+                        `);
+
+                        if (comment.author === "SEFCiNFO") {
+                            $commentElement.addClass('admin-comment');
+                        }
+
+                        // 만약 댓글 작성자가 현재 글의 작성자라면, 'author-comment' 클래스를 추가합니다.
+                        if (postAuthorUid && comment.uid === postAuthorUid) {
+                            $commentElement.addClass('author-comment');
+                        }
+
+                        $commentsList.append($commentElement);
+                    });
+                });
+
+                // 2. 댓글 작성 폼 처리 (컬렉션 참조 변수 사용)
+                $('#comment-form').on('submit', async function (event) {
+                    event.preventDefault();
+                    if (!currentUser) { alert("로그인 후 댓글을 작성할 수 있습니다."); return; }
+                    const text = $('#comment-input').val().trim();
+                    if (text === '') return;
+
+                    const userDoc = await db.collection('users').doc(currentUser.uid).get();
+                    const authorName = userDoc.exists && userDoc.data().displayName ? userDoc.data().displayName : currentUser.displayName;
+
+                    // ✅ .orderBy()가 없는 컬렉션 참조에 .add()를 사용
+                    commentsCollectionRef.add({
+                        uid: currentUser.uid,
+                        author: authorName,
+                        text: text,
+                        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                    }).then(() => {
+                        $('#comment-input').val('');
+                    }).catch(error => console.error("댓글 작성 오류:", error));
+                });
+
+                // 3. 댓글 삭제 처리 (컬렉션 참조 변수 사용)
+                $('#comments-list').on('click', '.comment-delete-btn', function () {
+                    const commentId = $(this).data('comment-id');
+                    if (confirm('정말 이 댓글을 삭제하시겠습니까?')) {
+                        // ✅ .orderBy()가 없는 컬렉션 참조에 .doc().delete()를 사용
+                        commentsCollectionRef.doc(commentId).delete().catch(error => console.error("댓글 삭제 오류:", error));
+                    }
+                });
+            }
         }
 
         // --- 이벤트 리스너들은 여기에 그대로 둡니다 ---
@@ -344,8 +455,6 @@ $(document).ready(function () {
                 // 2. newPostRef에서 방금 생성된 문서의 고유 ID를 가져옵니다.
                 const newPostId = newPostRef.id;
 
-                alert('글이 성공적으로 등록되었습니다.');
-
                 // 3. 목록 페이지 대신, 방금 만든 글의 상세보기 페이지로 이동합니다.
                 window.location.href = `/board/view?id=${newPostId}`;
                 // --- ---
@@ -392,6 +501,7 @@ $(document).ready(function () {
             await batch.commit();
             alert('프로필이 저장되었습니다.');
             $('#profile-modal').addClass('hidden');
+            location.reload();
         } catch (error) {
             console.error("프로필 저장 중 오류:", error);
         }

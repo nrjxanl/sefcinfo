@@ -21,8 +21,20 @@
     <div id="actualContents">
         <div class="board">
             <div id="post-detail-container">
-                <p>게시물을 불러오는 중입니다...</p>
+                <p style="font-weight: 300;">게시물을 불러오는 중입니다.</p>
             </div>
+
+            <div id="comments-section">
+                <p id="comments-title">댓글</p>
+
+                <div id="comments-list"></div>
+
+                <form id="comment-form" class="hidden">
+                    <textarea id="comment-input" placeholder="댓글을 입력하세요." required></textarea>
+                    <button type="submit" glass="true">등록</button>
+                </form>
+            </div>
+
             <button id="back-to-list-btn" class="link-to-list" glass="true">목록으로 돌아가기</button>
         </div>
     </div>
