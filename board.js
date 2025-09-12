@@ -312,6 +312,9 @@ $(document).ready(function () {
                         if (currentUser && (isAdmin || currentUser.uid === comment.uid)) {
                             deleteBtnHTML = `<button class="comment-delete-btn" data-comment-id="${doc.id}" glass='true'>삭제</button>`;
                         }
+
+                        const linkedCommentText = linkify((comment.text || "").replace(/\n/g, '<br>'));
+                        
                         const $commentElement = $(`
                             <div class="comment-item">
                                 <div>
@@ -319,7 +322,7 @@ $(document).ready(function () {
                                         <span class="comment-author">${comment.author}</span>
                                         <span class="comment-date">${commentDate}</span>
                                     </div>
-                                    <p class="comment-text">${comment.text.replace(/\n/g, '<br>')}</p>
+                                    <p class="comment-text">${linkedCommentText}</p>
                                 </div>
                                 ${deleteBtnHTML}
                             </div>

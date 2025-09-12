@@ -736,6 +736,7 @@ path.cls-64 {pointer-events: none;}
 .comment-header > span:nth-of-type(2) {font-size: 14px; font-weight: 300;}
 
 .comment-text {font-size: 16px; font-weight: 300; text-align: left; line-height: 1.6;}
+.comment-text > a {font-size: 16px; font-weight: 300; line-height: 1.6; text-decoration: underline; color: #000060; padding: 0 4px;}
 
 .comment-delete-btn {padding: 6px 12px; border-radius: 20px; background: #faf6f540; cursor: pointer; font-size: 16px; font-weight: 600; margin-bottom: auto;}
 
