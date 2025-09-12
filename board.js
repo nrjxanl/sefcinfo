@@ -368,6 +368,10 @@ $(document).ready(function () {
                     }
                 });
             }
+
+            $('#back-to-list-btn').on('click', function () {
+                window.location.href = '../board';
+            });
         }
 
         // --- 이벤트 리스너들은 여기에 그대로 둡니다 ---

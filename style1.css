@@ -675,7 +675,7 @@ path.cls-64 {pointer-events: none;}
 #board-header > a:active {color: #faf6f5; background: #000060c0;}
 
 #auth-container {width: 90vw; text-align: center;}
-#user-info {display: flex; align-items: center; justify-content: flex-end; gap: 12px;}
+#user-info {display: flex; align-items: center; justify-content: center; gap: 12px;}
 #user-info > span {font-size: 14px; font-weight: 600;}
 #auth-container > button, #user-info > button {padding: 6px 12px; border-radius: 20px; background: #faf6f540; cursor: pointer; font-size: 14px; font-weight: 600;}
 #auth-container > button:hover, #user-info > button:hover {color: #faf6f5; background: #000060c0;}
