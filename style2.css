@@ -708,7 +708,7 @@ path.cls-64 {pointer-events: none;}
 .admin-post .post-content {color: #faf6f5; background: #174fff; border: none;}
 .admin-post .post-content > a {font-size: 18px; font-weight: 300; color: #faf6f5; text-decoration: underline; margin: 0 4px;}
 
-#pagination-controls {width: 55vw; padding-top: 40px; border-top: 1px solid #05090a80;}
+#pagination-controls {width: 55vw; padding: 40px 0; border-top: 1px solid #05090a80;}
 #pagination-controls > button {background: none; border: none; font-size: 16px; font-weight: 300; cursor: pointer;}
 #pagination-controls > button:disabled {cursor: auto; opacity: .5}
 #pagination-controls > span {font-size: 20px; font-weight: 600; padding: 0 20px;}
@@ -735,7 +735,7 @@ path.cls-64 {pointer-events: none;}
 
 .link-to-list {padding: 6px 12px; border-radius: 20px; background: #faf6f540; cursor: pointer; font-size: 16px; font-weight: 600; margin: 20px 0 40px 0;}
 
-.form-actions {display: flex; gap: 10px;}
+.form-actions {display: flex; gap: 10px; margin-bottom: 40px;}
 .form-actions > button {padding: 6px 12px; border-radius: 20px; background: #faf6f540; cursor: pointer; font-size: 16px; font-weight: 600; margin-bottom: 20px;}
 .form-actions > button:hover {color: #faf6f5; background: #000060c0;}
 
