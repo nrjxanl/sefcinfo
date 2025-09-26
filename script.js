@@ -2554,7 +2554,7 @@ function transl() {
 
     nameList = {
         0:[20250207, 20200151, 20130116, 20200150, 20220286, 20170227, 20250192, 20140067, 20160266, 20240313, 20250194, 20230211, 20230194],
-        1:[20150225, 20240190, 20150224],
+        1:[20240190],
         2:[20020081, 20150222],
     };
 
@@ -2651,11 +2651,11 @@ function transl() {
             // 나카구로(・)로 구분
             if(nameList[0].includes(parent)) $(this).html(`${name.split("・")[0]}<span>${span}</span>`);
             else if(nameList[1].includes(parent)) $(this).html(`${name}<span>${span}</span>`);
-            else if(parent == nameList[2][0]) $(this).html(`Glory<span>${span}</span>`);
-            else if(parent == nameList[2][1]) $(this).html(`Bobby<span>${span}</span>`);
+            else if(parent == nameList[2][0]) $(this).html(`グローリー<span>${span}</span>`);
+            else if(parent == nameList[2][1]) $(this).html(`ボビー<span>${span}</span>`);
             else $(this).html(name.split("・").length > 1 ? `${name.split("・").slice(1).join("・")}<span>${span}</span>` : `${name}<span>${span}</span>`);
         }
-        else {
+        else if (langNum != null) {
             // 공백으로 구분
             if(nameList[0].includes(parent)) $(this).html(`${name.split(" ")[0]}<span>${span}</span>`);
             else if(nameList[1].includes(parent)) $(this).html(`${name}<span>${span}</span>`);
