@@ -1333,7 +1333,7 @@ $(document).ready(function () {
 
         // 선수 정보 삽입
         $("#playerProfile > div:nth-of-type(1) > p").html(pos)
-        $("#playerProfile > div:nth-of-type(2) > p").html("<span>" + playerNum + "</span>" + playerName)
+        $("#playerProfile > div:nth-of-type(2) > p").html("<span>" + playerNum + "</span>" + playerName.replace(/[0-9]/g, ""))
         $("#playerProfile > div:nth-of-type(2) > div > img").attr("src", "./files/" + natl + ".svg")
 
         if (playerNum == "--" || player[id]["sefc"] !== "O") {
