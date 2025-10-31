@@ -1954,7 +1954,7 @@ function transl() {
         "박준영2": ["Park Junyoung", "Park Junyoung", "Park Junyoung", "パク・チュニョン"],
         "박창환": ["Park Changhwan", "Park Changhwan", "Park Changhwan", "パク・チャンファン"],
         "박태준": ["Park Taejun", "Park Taejun", "Park Taejun", "パク・テジュン"],
-        "반토안": ["Nguyễn Văn Toàn", "Nguyễn Văn Toàn", "Nguyễn Văn Toàn", "グエン・バン・トアン"],
+        "반토안": ["Nguyễn Văn&nbsp;Toàn", "Nguyễn Văn&nbsp;Toàn", "Nguyễn Văn&nbsp;Toàn", "グエン・バン・トアン"],
         "배서준": ["Bae Seojoon", "Bae Seojoon", "Bae Seojoon", "ペ・ソジュン"],
         "배재우": ["Bae Jaewoo", "Bae Jaewoo", "Bae Jaewoo", "ペ・チェウ"],
         "배진우": ["Bae Jinwoo", "Bae Jinwoo", "Bae Jinwoo", "ペ・チヌ"],
@@ -2107,6 +2107,7 @@ function transl() {
         "오규빈": ["Oh Kyubin", "Oh Kyubin", "Oh Kyubin", "オ・キュビン"],
         "이도성": ["Lee Doseong", "Lee Doseong", "Lee Doseong", "イ・トソン"],
         "이상헌": ["Lee Sangheon", "Lee Sangheon", "Lee Sangheon", "イ・サンホン"],
+        "황인택": ["Hwang Intaek", "Hwang Intaek", "Hwang Intaek", "ファン・インテク"],
 
         "강민우": ["Kang Minwoo", "Kang Minwoo", "Kang Minwoo", "カン・ミヌ"],
         "강승묵": ["Kang Seungmuk", "Kang Seungmuk", "Kang Seungmuk", "カン・スンムク"],
