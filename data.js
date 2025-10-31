@@ -706,7 +706,7 @@ $(document).ready(function () {
         year = new Date().getFullYear()
         status_ = "A"
 
-        $(".statsSeason").html("<select transl='y'></select><p>◀</p><p>▶</p><p glass='true' transl='y'>오늘</p><p glass='true' transl='y'></p>")
+        $(".statsSeason").html("<select></select><p>◀</p><p>▶</p><p glass='true' transl='y'>오늘</p><p glass='true' transl='y'></p>")
 
         if (window.location.href.split("?")[1] == undefined) {
             window.history.replaceState({}, "", window.location.href.split("?")[0] + "?" + year + "?" + status_)
@@ -1411,7 +1411,7 @@ $(document).ready(function () {
         for (i = new Date().getFullYear(); i >= 2015; i--) {
             $(".standingsSeason > select").append("<option value='" + i + "'>" + i + "</option>")
         }
-        $("option[value='" + year + "']").prop("selected", true)
+        $(".standingsSeason > select").val(year)
         if (status_ !== "A") {
             $("option[value='2015']").remove()
         }
@@ -2155,7 +2155,7 @@ function fixtures() {
     $("#fixturesU15 > .fixtures").empty()
     $("#calendar > table > tbody").empty()
 
-    $("option[value='" + year + "']").prop("selected", true)
+    $(".fixturesSeason > select").val(year)
     $(".fixturesSeason > span").text(month)
     $("#calendar > table > tbody").append("<tr><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td></tr><tr><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td></tr><tr><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td></tr><tr><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td></tr><tr><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td></tr><tr><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td></tr>")
 
@@ -2234,7 +2234,7 @@ function fixtures() {
 function standings() {
     year = window.location.href.split("?")[1]
     status_ = window.location.href.split("?")[2]
-    $("option[value='" + year + "']").prop("selected", true)
+    $(".standingsSeason > select").val(year)
 
     if (status_ == "A") {
         $("#standingsA").css("display", "block")
@@ -2506,12 +2506,12 @@ function stats() {
             for (i = new Date().getFullYear(); i >= 2015; i--) {
                 $(".statsSeason > select").append("<option value='" + i + "'>" + i + "</option>")
             }
-            $("option[value='" + year + "']").prop("selected", true)
+            $(".statsSeason > select").val(year)
             if (status_ !== "A") {
                 $("option[value='2015']").remove()
             }
         } else {
-            $(".statsSeason > select").empty().append("<option selected>통산</option>").prop("disabled", true)
+            $(".statsSeason > select").empty().append("<option selected transl='y'>통산</option>").prop("disabled", true)
         }
     }
 

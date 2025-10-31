@@ -98,7 +98,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #standingsHome > a > p {width: 65vw; font-weight: 300; padding: 8px 0 16px 0;}
 
 /* 선수단 */
-.playerButton {width: 80vw; height: 40px; margin: 0 0 0 -5vw; padding-left: 5vw; z-index: 98; display: flex; justify-content: flex-start;}
+.playerButton {width: 65vw; height: 40px; margin: 0 0 0 -5vw; padding-left: 5vw; z-index: 98; display: flex; justify-content: flex-start;}
 .playerButton > button {width: calc(65vw / 3 - 5vw); margin: 0 2.5vw; height: 40px; border: none; border-radius: 10vw; font-size: 16px; cursor: pointer;}
 
 #playerA {margin-top: 40px;}
@@ -259,7 +259,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #playedMatchBG {width: 75vw; height: 100vh; background: #05090a10; border: none !important; border-radius: 20px 20px 0 0; position: fixed; top: 0; left: 25vw; display: none; opacity: 0; z-index: 300;}
 
 /* 선수 기록 */
-.statsButton {width: 80vw; height: 40px; margin: 0 0 0 -5vw; padding-left: 5vw; z-index: 98; display: flex; justify-content: flex-start;}
+.statsButton {width: 65vw; height: 40px; margin: 0 0 0 -5vw; padding-left: 5vw; z-index: 98; display: flex; justify-content: flex-start;}
 .statsButton > button {width: calc(65vw / 3 - 5vw); margin: 0 2.5vw; height: 40px; border: none; border-radius: 10vw; font-size: 16px; cursor: pointer;}
 
 .statsSeason {width: 65vw; margin-top: 80px; display: flex; align-items: baseline;}
@@ -281,7 +281,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #stats > .stats > table > tbody > tr > td:nth-last-of-type(1) {border-radius: 0 20px 20px 0;}
 
 /* 일정 */
-.fixturesButton {width: 80vw; height: 40px; margin: 0 0 0 -5vw; padding-left: 5vw; z-index: 98; display: flex; justify-content: flex-start;}
+.fixturesButton {width: 65vw; height: 40px; margin: 0 0 0 -5vw; padding-left: 5vw; z-index: 98; display: flex; justify-content: flex-start;}
 .fixturesButton > button {width: calc(65vw / 3 - 5vw); margin: 0 2.5vw; height: 40px; border: none; border-radius: 10vw; font-size: 16px; cursor: pointer;}
 
 .fixturesSeason {width: 65vw; margin-top: 80px; display: flex; align-items: baseline;}
@@ -456,7 +456,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #viewAll {height: 20px !important; display: flex; justify-content: center; align-items: center; font-weight: 300;}
 
 /* 순위 */
-.standingsButton {width: 80vw; height: 40px; margin: 0 0 0 -5vw; padding-left: 5vw; z-index: 98; display: flex; justify-content: flex-start;}
+.standingsButton {width: 65vw; height: 40px; margin: 0 0 0 -5vw; padding-left: 5vw; z-index: 98; display: flex; justify-content: flex-start;}
 .standingsButton > button {width: calc(65vw / 3 - 5vw); margin: 0 2.5vw; height: 40px; border: none; border-radius: 10vw; font-size: 16px; cursor: pointer;}
 
 .standingsSeason {width: 65vw; margin-top: 80px; display: flex; align-items: baseline;}
