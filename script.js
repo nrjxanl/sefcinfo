@@ -2554,7 +2554,7 @@ function transl() {
     };
 
     nameList = {
-        0:[20250207, 20200151, 20130116, 20220286, 20170227, 20250192, 20140067, 20160266, 20240313, 20250194, 20230211, 20230194],
+        0:[20230195, 20250207, 20200151, 20130116, 20220286, 20170227, 20250192, 20140067, 20160266, 20240313, 20250194, 20230211, 20230194],
         1:[20240190],
         2:[20020081, 20150222],
     };
@@ -2647,6 +2647,10 @@ function transl() {
         }).first().attr("id");
         parent = Number(parent);
 
+        // 반토안 이름 예외 적용
+        if (name == "グエン・バン・トアン") name = "グエン・バン·トアン";
+        else if (name == "バン・トアン") name = "バン·トアン";
+
         // nameList[0]: 이름만, nameList[1]: 성명 전체, nameList[2]: 별명
         if (langNum == 3) {
             // 나카구로(・)로 구분
@@ -2654,7 +2658,7 @@ function transl() {
             else if(nameList[1].includes(parent)) $(this).html(`${name}<span>${span}</span>`);
             else if(parent == nameList[2][0]) $(this).html(`グローリー<span>${span}</span>`);
             else if(parent == nameList[2][1]) $(this).html(`ボビー<span>${span}</span>`);
-            else $(this).html(name.split("・").length > 1 ? `${name.split("・").slice(1).join("・")}<span>${span}</span>` : `${name}<span>${span}</span>`);
+            else $(this).html(name.split("・").length > 1 ? `${name.split("・").slice(1).join("・").replace("·", "・")}<span>${span}</span>` : `${name.replace("·", "・")}<span>${span}</span>`);
         }
         else if (langNum != null) {
             // 공백으로 구분
