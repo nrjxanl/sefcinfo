@@ -475,7 +475,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #standingsA > div > table > tbody > tr > td:nth-of-type(3) > ruby > rt {font-size: 12px; font-weight: 300; margin-top: -12px;}
 #standingsA > div > table > tbody > tr > td:nth-of-type(n+5):nth-of-type(-n+7) {display: none;}
 #standingsA > div > table > tbody > tr > td:nth-of-type(n+9) {display: none;}
-#standingsA > div > table > tbody > tr > td > img {height: 24px;}
+#standingsA > div > table > tbody > tr > td > img {height: 24px; vertical-align: middle;}
 
 #standingsU18 {margin-top: 20px;}
 #standingsU18 > div {width: 90vw; margin: 0 0 40px 5vw;}

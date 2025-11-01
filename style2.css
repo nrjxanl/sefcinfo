@@ -484,7 +484,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #standingsA > div > table > tbody > tr > td:nth-of-type(n+5):nth-of-type(-n+7) {display: none;}
 #standingsA > div > table > tbody > tr > td:nth-of-type(n+9) {display: none;}
 #standingsA > div > table > tbody > tr > td:nth-last-of-type(1) {border-radius: 0 20px 20px 0;}
-#standingsA > div > table > tbody > tr > td > img {height: 24px;}
+#standingsA > div > table > tbody > tr > td > img {height: 24px; vertical-align: middle;}
 
 #standingsU18 > div {width: 65vw; margin-bottom: 40px;}
 #standingsU18 > div > table {width: 65vw; vertical-align: middle; border-spacing: 0 10px; border-collapse: separate;}
