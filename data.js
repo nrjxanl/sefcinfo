@@ -3149,4 +3149,7 @@ function matchH2H() {
             $("#matchH2H").empty().append("<p style='font-size: 16px; font-weight: 300;'>이전 맞대결 기록이 없습니다.</p>")
         }
     }
+
+    transl()
+    console.trace(`Translated(${localStorage.getItem("lang")})`)
 }
