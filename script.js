@@ -1818,6 +1818,7 @@ function transl() {
         "흥덕축구공원": ["Heungdeok Football Park", "Parque de Futebol Heungdeok", "Parque de Fútbol de Heungdeok", "<ruby>フンドク<rt>興徳</rt></ruby>サッカー公園h"],
         "걸매A축구장": ["Geolmae A Football Stadium", "Estádio A de Futebol de Geolmae", "Estadio A de Fútbol de Geolmae", "コルメサッカー専用競技場"],
         "조종생활체육공원": ["Jojong Sports Park", "Parque Desportivo de Jojong", "Parque Deportivo Jojong", "<ruby>チョジョン<rt>清平</rt></ruby>生活体育公園"],
+        "효창운동장": ["Hyochang Stadium", "Estádio Hyochang", "Estadio Hyochang", "<ruby>ヒョチャン<rt>孝昌</rt></ruby>運動場"],
 
         // 응원가
         "팀 응원": ["Team", "Equipe", "Equipo", "チーム"],
@@ -2436,6 +2437,7 @@ function transl() {
         "기상청 제공": ["Provided by the Korea Meteorological Administration", "Fornecido pela Administração Meteorológica da Coreia", "Proporcionado por la Administración Meteorológica de Corea", "気象庁提供"],
 
         "시즌별 기록": ["All Seasons", "Estatísticas por Temporada", "Estadísticas por Temporada", "年別スタッツ"],
+        "일정이 없습니다.": ["No upcoming fixtures.", "Não há próximos jogos.", "No hay próximos partidos.", "予定されている試合はありません。"],
 
         // 배경화면
         "홈 킷": ["Home Kit", "Camiseta Principal", "Camiseta 1ª Equipación", "ホームユニフォーム"],
@@ -2443,7 +2445,7 @@ function transl() {
 
         // 메뉴
         "홈": ["Home", "Home", "Inicio", "ホーム"],
-        "일정": ["Fixtures", "Partidas", "Partidos", "日程"],
+        "일정": ["Fixtures", "Jogos", "Partidos", "日程"],
         "선수단": ["Players", "Jogadoras", "Jugadores", "選手名鑑"],
         "기록": ["Stats", "Estatísticos", "Estadísticas", "スタッツ"],
         "순위": ["Standings", "Classificações", "Clasificaciones", "順位表"],

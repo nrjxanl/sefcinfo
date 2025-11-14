@@ -2221,7 +2221,7 @@ function fixtures() {
         })
 
     } else {
-        $("#fixtures" + status_ + " > .fixtures").append("<p>일정이 없습니다.</p>")
+        $("#fixtures" + status_ + " > .fixtures").append("<p transl='y'>일정이 없습니다.</p>")
 
         $("#fixtures" + status_ + " > .fixtures > p").css({ "font-size": "16px", "margin-top": "calc(27px + 5vw)", "font-weight": "300" })
     }
