@@ -928,7 +928,15 @@ $(document).ready(function () {
                 window.location.href = "./match?" + Object.keys(dataA)[Object.values(dataA).indexOf(next)]
             })
         } else {
-            $("#nextMatch").css({"height": "0", "padding": "0", "box-shadow": "none", "margin": "80px 0 0 5vw"})
+            $("#nextMatch").css("display", "none");
+
+            if ($(window).width() < 768) $("#prevMatch").css("margin-top", "100px");
+            else {
+                $("#prevMatch").css("width", "65vw");
+                $("#prevMatch > div > div, #prevMatch > div > div > div").css("width", "12vw");
+                $("#prevMatch > div > div > p:nth-of-type(1)").css({"width": "8vw", "margin": "0 2vw"});
+                $("#prevMatch > div > div > p:nth-of-type(2)").css({"width": "6vw", "margin": "4px 3vw 0 3vw"});
+            }
         }
 
         // 이전 경기
