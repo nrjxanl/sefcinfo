@@ -428,16 +428,16 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #matchH2H {display: none; flex-direction: column; align-items: center; padding-bottom: 40px;}
 #matchH2H > div:nth-of-type(2) {width: 80vw; display: flex; border-radius: 8px; overflow: hidden;}
 #matchH2H > div:nth-of-type(2) > p {font-size: 16px; font-weight: 600; color: #faf5f6; display: flex; align-items: center; justify-content: center;}
-#matchH2H > div:nth-of-type(4) {width: 80vw; display: flex; border-radius: 8px; overflow: hidden; margin-top: 10vw;}
+#matchH2H > div:nth-of-type(4) {width: 80vw; display: flex; border-radius: 8px; overflow: hidden;}
 #matchH2H > div:nth-of-type(4) > p {font-size: 16px; font-weight: 600; color: #faf5f6; display: flex; align-items: center; justify-content: center;}
 
 #h2hBar > p {width: 80vw; height: 2vw; border-radius: 1vw;}
 
 #h2hText {display: flex; justify-content: flex-start; margin-top: 5vw;}
 #h2hText > div {display: flex;}
-#h2hText > div > p:nth-of-type(1) {width: 10vw; height: 10vw; margin-left: 10vw; font-size: 16px; border-radius: 50%; display: flex; justify-content: center; align-items: center;}
+#h2hText > div > p:nth-of-type(1) {width: 10vw; height: 10vw; font-size: 16px; border-radius: 50%; display: flex; justify-content: center; align-items: center;}
 #h2hText > div > div > p:nth-of-type(1) {height: 4vw; font-weight: 600; padding: 1vw 0 0 2vw; text-align: left; display: flex; align-items: center;}
-#h2hText > div > div > p:nth-of-type(2) {height: 4vw; font-weight: 600; padding: 0 8vw 0 2vw; text-align: left; display: flex; align-items: center;}
+#h2hText > div > div > p:nth-of-type(2) {height: 4vw; font-weight: 600; padding: 0 7vw 0 2vw; text-align: left; display: flex; align-items: center;}
 
 #h2hGoalsBar {margin-top: 40px;}
 #h2hGoalsBar > p {width: 80vw; height: 2vw; border-radius: 1vw;}
@@ -446,7 +446,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #h2hGoalsText > div {display: flex;}
 #h2hGoalsText > div > p:nth-of-type(1) {width: 10vw; height: 10vw; margin-left: 10vw; font-size: 16px; border-radius: 50%; display: flex; justify-content: center; align-items: center;}
 #h2hGoalsText > div > div > p:nth-of-type(1) {height: 4vw; font-weight: 600; padding: 1vw 0 0 2vw; text-align: left; display: flex; align-items: center;}
-#h2hGoalsText > div > div > p:nth-of-type(2) {height: 4vw; font-weight: 600; padding: 0 8vw 0 2vw; text-align: left; display: flex; align-items: center;}
+#h2hGoalsText > div > div > p:nth-of-type(2) {height: 4vw; font-weight: 600; padding-left: 2vw; text-align: left; display: flex; align-items: center;}
 
 #recentMatch {width: 80vw; border-radius: 20px; margin-top: 40px;}
 #recentMatch > div {width: 80vw; height: 60px; border-bottom: 2px solid #05090a20; padding: 4px 0 8px 0;}
