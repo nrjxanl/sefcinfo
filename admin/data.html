@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Page-Enter" content="revealtrans(duration=1, transition=23)">
+    <title>SEFCiNFO Data Manager</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="../files/favicon.png">
+    
+    <style>
+        /* =========================================
+           기본 스타일
+           ========================================= */
+        body { font-family: 'Noto Sans KR', sans-serif; padding: 20px; background: #f4f4f4; margin: 0; box-sizing: border-box; }
+        h1 { color: #000060; margin-bottom: 0; font-size: 24px; }
+
+        /* 로그인 화면 스타일 */
+        #login-container {
+            max-width: 400px; margin: 100px auto; background: white; padding: 40px;
+            border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;
+        }
+        #login-container h2 { color: #000060; margin-bottom: 10px; }
+        #btnLogin {
+            width: 100%; padding: 15px; background: #4285F4; color: white; border: none;
+            border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 16px; margin-top: 20px;
+            transition: background 0.2s;
+        }
+        #btnLogin:hover { background: #357ae8; }
+
+        /* 관리자 패널 (로그인 전엔 숨김) */
+        #admin-panel { display: none; }
+        
+        /* 로그아웃 버튼 */
+        #btnLogout {
+            background: #666; color: white; border: none; padding: 8px 15px;
+            border-radius: 5px; cursor: pointer; font-size: 14px;
+        }
+        #btnLogout:hover { background: #444; }
+
+        /* 팀 선택 */
+        .team-selector { background: #fff; padding: 15px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .team-selector label { font-weight: bold; margin-right: 20px; font-size: 16px; cursor: pointer; display: inline-flex; align-items: center; }
+        .team-selector input[type="radio"] { transform: scale(1.3); margin-right: 8px; cursor: pointer; }
+
+        /* 메뉴 바 */
+        .menu-bar { margin-bottom: 20px; white-space: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 5px; }
+        .menu-bar::-webkit-scrollbar { height: 4px; }
+        .menu-bar::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+        .menu-bar button {
+            padding: 10px 16px; margin-right: 5px; border: none; cursor: pointer;
+            background: #ddd; color: #333; font-weight: bold; border-radius: 20px;
+            font-size: 14px; transition: background 0.2s;
+        }
+        .menu-bar button.active { background: #000060; color: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+
+        /* 폼 컨테이너 */
+        .form-container { display: none; background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .form-container.active { display: block; animation: fadeIn 0.3s; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* 입력 그룹 */
+        .input-group { margin-bottom: 20px; position: relative; }
+        .input-group label { display: block; font-weight: bold; margin-bottom: 8px; font-size: 14px; color: #333; }
+        .input-group input, .input-group select, .input-group textarea {
+            width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box;
+            font-size: 15px; appearance: none;
+        }
+        .input-group input:focus, .input-group select:focus, .input-group textarea:focus {
+            border-color: #000060; outline: none;
+        }
+        .warning-input { border: 2px solid #ff4d4d !important; background-color: #fff0f0; }
+        .warning-input::placeholder { color: #ff4d4d; font-weight: bold; }
+
+        .btn-inline {
+            position: absolute; right: 0; top: 0;
+            background: #555; color: white; border: none; padding: 6px 12px;
+            font-size: 12px; cursor: pointer; border-radius: 4px;
+        }
+        
+        .row { display: flex; gap: 15px; }
+        .row .input-group { flex: 1; }
+
+        /* HEX 색상 및 엠블럼 */
+        .hex-wrapper, .code-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .hex-wrapper .prefix {
+            position: absolute; left: 12px; color: #888; font-weight: bold; font-size: 16px; pointer-events: none;
+        }
+        .hex-wrapper input {
+            padding-left: 28px !important; text-transform: uppercase; font-family: monospace; letter-spacing: 1px;
+        }
+        .color-preview {
+            width: 40px; height: 40px; border: 1px solid #ccc; border-radius: 6px; margin-left: 10px;
+            background-color: #fff; flex-shrink: 0; box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+        }
+        .team-emblem-preview {
+            width: 40px; height: 40px; margin-left: 10px; object-fit: contain;
+            display: none; background-color: #f9f9f9; border-radius: 5px; border: 1px solid #eee;
+        }
+
+        /* 선수 그리드 */
+        .pos-section { margin-bottom: 25px; border-top: 2px solid #f0f0f0; padding-top: 15px; }
+        .pos-title { font-weight: bold; color: #000060; margin-bottom: 10px; font-size: 1.2em; display: inline-block; background: #f0f0f0; padding: 2px 8px; border-radius: 4px; }
+        
+        .player-grid-row { display: flex; gap: 8px; margin-bottom: 8px; align-items: center; }
+        .row-index {
+            flex: 0 0 24px; text-align: center; font-size: 12px; font-weight: bold; color: #666;
+            background: #eee; border-radius: 4px; height: 38px; line-height: 38px;
+        }
+        .player-grid-row input { 
+            padding: 8px; font-size: 13px; border: 1px solid #eee; border-radius: 4px; 
+            min-width: 0; height: 38px;
+        }
+        .player-grid-row input:nth-child(2) { flex: 1.2; background: #f9fbfc; }
+        .player-grid-row input:nth-child(3) { flex: 1; text-align: center; }
+        .player-grid-row input:nth-child(4) { flex: 0.8; text-align: center; }
+
+        .sub-title { font-size: 1.2em; font-weight: bold; margin: 30px 0 15px; color: #333; border-bottom: 2px solid #000060; padding-bottom: 8px;}
+        .helper-text { font-size: 13px; color: #666; margin-top: -15px; margin-bottom: 15px; line-height: 1.4; }
+
+        .btn-submit {
+            background: #00979c; color: white; padding: 16px; width: 100%; border: none;
+            font-size: 17px; font-weight: bold; border-radius: 8px; cursor: pointer; margin-top: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: background 0.2s;
+        }
+        .btn-submit:active { transform: scale(0.98); }
+
+        .btn-delete {
+            background: #d63031; color: white; padding: 12px; width: 100%; border: none;
+            font-size: 15px; font-weight: bold; border-radius: 8px; cursor: pointer; margin-top: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); opacity: 0.9;
+        }
+        .btn-delete:hover { opacity: 1; }
+
+        /* [순위표 스타일] 입력창 헤더 추가 */
+        .standings-header {
+            display: flex; background: #e0e0e0; padding: 8px 10px; border-radius: 5px 5px 0 0;
+            font-weight: bold; font-size: 13px; color: #444; border: 1px solid #ccc; border-bottom: none;
+        }
+        .standings-header span { text-align: center; }
+        #s_data { 
+            height: 150px; font-family: monospace; white-space: pre; line-height: 1.6; overflow-x: auto;
+            border-top-left-radius: 0; border-top-right-radius: 0; /* 헤더랑 붙이기 */
+        }
+        #standings-preview { margin-top: 15px; border: 1px solid #eee; border-radius: 5px; padding: 10px; background: #fafafa; overflow-x: auto; }
+        #preview-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 300px; }
+        #preview-table th { background: #e0e0e0; font-weight: bold; padding: 8px; border: 1px solid #ccc; white-space: nowrap;}
+        #preview-table td { border: 1px solid #ccc; padding: 6px; text-align: center; white-space: nowrap;}
+        #preview-table tr:nth-child(even) { background: #fff; }
+
+        /* 모바일 스타일 */
+        @media screen and (max-width: 768px) {
+            body { padding: 10px; }
+            h1 { font-size: 20px; text-align: center; }
+            .team-selector { display: flex; justify-content: space-around; padding: 12px; }
+            .team-selector label { margin-right: 0; font-size: 14px; }
+            .form-container { padding: 15px; }
+            .row { flex-direction: column; gap: 0; }
+            .btn-inline { top: -2px; padding: 5px 10px; font-size: 11px; }
+            .input-group { margin-bottom: 15px; }
+            .input-group input { padding: 12px; font-size: 16px; }
+
+            .player-grid-row { gap: 4px; }
+            .player-grid-row input { padding: 10px 4px; font-size: 12px; border-radius: 4px; }
+            .row-index { flex: 0 0 20px; font-size: 11px; }
+            .player-grid-row input:nth-child(2) { flex: 1.3; }
+            .player-grid-row input:nth-child(3) { flex: 0.9; }
+            .player-grid-row input:nth-child(4) { flex: 0.8; }
+
+            #num-list-container .player-grid-row input:nth-child(1) { flex: 1.2; }
+            #num-list-container .player-grid-row input:nth-child(2) { flex: 0.9; }
+            #num-list-container .player-grid-row input:nth-child(3) { flex: 0.5; }
+
+            .btn-submit { margin-bottom: 10px; }
+            #preview-table { font-size: 11px; }
+            #preview-table th, #preview-table td { padding: 4px; }
+        }
+    </style>
+</head>
+
+<body oncontextmenu="return false">
+
+    <div id="login-container">
+        <h2>관리자 접속</h2>
+        <p style="color:#666; font-size:14px;">데이터 관리를 위해 로그인이 필요합니다.</p>
+        <button id="btnLogin">G Google 계정으로 로그인</button>
+    </div>
+
+    <div id="admin-panel">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+            <h1>SEFCiNFO Data Manager</h1>
+            <button id="btnLogout">로그아웃</button>
+        </div>
+
+        <div class="team-selector">
+            <label><input type="radio" name="teamType" value="A" checked> A팀</label>
+            <label><input type="radio" name="teamType" value="U18"> U-18</label>
+            <label><input type="radio" name="teamType" value="U15"> U-15</label>
+        </div>
+
+        <div class="menu-bar">
+            <button onclick="showForm('match')" class="active">경기 기록</button>
+            <button onclick="showForm('player')">선수 정보</button>
+            <button onclick="showForm('h2h')">상대 전적</button>
+            <button onclick="showForm('num')">등번호</button>
+            <button onclick="showForm('standings')">순위</button>
+        </div>
+
+        <div id="match" class="form-container active">
+            <h2>경기 데이터 추가/수정</h2>
+            <div class="row">
+                <div class="input-group">
+                    <label>날짜 (YYYYMMDD)</label>
+                    <input type="tel" id="m_date" placeholder="예: 20250301">
+                    <button class="btn-inline" id="btnSearchMatch">검색 / 불러오기</button>
+                    <p style="font-size:12px; color:#666; margin-top:5px;">* 팀 선택에 따라 끝자리(0, 8, 5)가 자동 생성됩니다.</p>
+                </div>
+                <div class="input-group"><label>라운드</label><input type="text" id="m_round"></div>
+            </div>
+            <div class="row">
+                <div class="input-group"><label>대회명</label><input type="text" id="m_compName"></div>
+                <div class="input-group"><label>대회코드</label><input type="text" id="m_compCode"></div>
+            </div>
+            <div class="row">
+                <div class="input-group"><label>경기장</label><input type="text" id="m_stadium"></div>
+                <div class="input-group">
+                    <label>시간</label>
+                    <div style="display:flex; gap:5px; align-items:center;">
+                        <input type="tel" id="m_hour" placeholder="시" style="text-align:center;">
+                        <span>:</span>
+                        <input type="tel" id="m_min" placeholder="분" style="text-align:center;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="sub-title">팀 & 스코어</div>
+            <div class="row">
+                <div class="input-group"><label>홈팀명</label><input type="text" id="m_homeName"></div>
+                <div class="input-group">
+                    <label>홈팀코드</label>
+                    <div class="code-wrapper">
+                        <input type="text" id="m_homeCode">
+                        <img id="preview_home" class="team-emblem-preview" alt="Home">
+                    </div>
+                </div>
+                <div class="input-group"><label>홈점수</label><input type="tel" id="m_homeScore"></div>
+            </div>
+            <div class="input-group"><label>홈 득점자 (HTML 가능)</label><input type="text" id="m_homeScorer"></div>
+
+            <div class="row">
+                <div class="input-group"><label>원정팀명</label><input type="text" id="m_awayName"></div>
+                <div class="input-group">
+                    <label>원정팀코드</label>
+                    <div class="code-wrapper">
+                        <input type="text" id="m_awayCode">
+                        <img id="preview_away" class="team-emblem-preview" alt="Away">
+                    </div>
+                </div>
+                <div class="input-group"><label>원정점수</label><input type="tel" id="m_awayScore"></div>
+            </div>
+            <div class="input-group"><label>원정 득점자 (HTML 가능)</label><input type="text" id="m_awayScorer"></div>
+
+            <div class="sub-title">선수 명단 (이름 입력 시 ID 자동)</div>
+            <p class="helper-text">* 입력하면 자동으로 다음 칸이 생성됩니다.</p>
+            <div id="match-player-inputs"></div>
+            <button class="btn-submit" id="btnSaveMatch">Firebase에 저장 (덮어쓰기)</button>
+            <button class="btn-delete" id="btnDeleteMatch">현재 날짜의 경기 데이터 삭제</button>
+        </div>
+
+        <div id="player" class="form-container">
+            <h2>선수 상세 정보 추가/수정</h2>
+            <div class="input-group">
+                <label>선수 ID</label>
+                <input type="tel" id="p_id">
+                <button class="btn-inline" id="btnSearchPlayer">ID로 데이터 불러오기</button>
+            </div>
+            <div class="row">
+                <div class="input-group">
+                    <label>이름</label>
+                    <input type="text" id="p_name">
+                    <button class="btn-inline" id="btnCheckName" style="top:25px;">중복확인 (동명이인 포함)</button>
+                    <button class="btn-inline" id="btnGenerateId" style="top:60px; background:#444;">ID 난수 생성</button>
+                </div>
+                <div class="input-group"><label>생년월일</label><input type="tel" id="p_bd"></div>
+            </div>
+            <div class="row">
+                <div class="input-group"><label>국적</label><input type="text" id="p_natl"></div>
+                <div class="input-group"><label>포지션</label><input type="text" id="p_pos"></div>
+                <div class="input-group"><label>키 (cm)</label><input type="tel" id="p_height"></div>
+            </div>
+            <div class="row">
+                <div class="input-group"><label>SNS ID</label><input type="text" id="p_sns"></div>
+                <div class="input-group"><label>현재 소속 여부 (O/X)</label><input type="text" id="p_sefc"></div>
+            </div>
+            <button class="btn-submit" id="btnSavePlayer">Firebase에 저장</button>
+            <button class="btn-delete" id="btnDeletePlayer">현재 ID의 선수 데이터 삭제</button>
+        </div>
+
+        <div id="h2h" class="form-container">
+            <h2>상대 전적 추가/수정</h2>
+            <div class="input-group">
+                <label>상대팀 코드 (Key)</label>
+                <div class="code-wrapper">
+                    <input type="text" id="h_code">
+                    <img id="preview_h2h" class="team-emblem-preview" alt="H2H">
+                    <button class="btn-inline" id="btnSearchH2H" style="top:-30px;">코드 검색 / 불러오기</button>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="input-group">
+                    <label>배경색 (Hex)</label>
+                    <div class="hex-wrapper">
+                        <span class="prefix">#</span>
+                        <input type="text" id="h_bg" maxlength="6" placeholder="FFFFFF">
+                        <div class="color-preview" id="preview_bg"></div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>글자색 (Hex)</label>
+                    <div class="hex-wrapper">
+                        <span class="prefix">#</span>
+                        <input type="text" id="h_text" maxlength="6" placeholder="000000">
+                        <div class="color-preview" id="preview_text"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-group"><label>승</label><input type="tel" id="h_w"></div>
+                <div class="input-group"><label>무</label><input type="tel" id="h_d"></div>
+                <div class="input-group"><label>패</label><input type="tel" id="h_l"></div>
+            </div>
+            <div class="row">
+                <div class="input-group"><label>득점</label><input type="tel" id="h_gf"></div>
+                <div class="input-group"><label>실점</label><input type="tel" id="h_ga"></div>
+            </div>
+            <button class="btn-submit" id="btnSaveH2H">Firebase에 저장</button>
+        </div>
+
+        <div id="num" class="form-container">
+            <h2>등번호 데이터 관리</h2>
+            <div class="row">
+                <div class="input-group">
+                    <label>연도 선택</label>
+                    <select id="n_yearSelect"></select>
+                </div>
+            </div>
+            
+            <div class="sub-title">선수 목록 (이름 입력 시 ID 자동)</div>
+            <div class="player-grid-row" style="font-weight:bold; background:#e0e0e0; padding:8px; border-radius:4px;">
+                <div style="flex:1.2;">이름</div>
+                <div style="flex:0.9; text-align:center;">ID</div>
+                <div style="flex:0.5; text-align:center;">번호</div>
+            </div>
+            <div id="num-list-container"></div>
+            <button class="btn-submit" id="btnSaveNum">전체 리스트 저장 (덮어쓰기)</button>
+        </div>
+
+        <div id="standings" class="form-container">
+            <h2>순위표 데이터 (자동 계산)</h2>
+            <div class="row">
+                <div class="input-group">
+                    <label>연도 (Key)</label>
+                    <select id="s_yearSelect"></select>
+                </div>
+                <div class="input-group">
+                    <label>리그 선택</label>
+                    <select id="s_leagueType">
+                        <option value="A">A팀</option>
+                        <option value="U18F">U-18 (전반기)</option>
+                        <option value="U18S">U-18 (후반기)</option>
+                        <option value="U15">U-15</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>데이터 입력 (공백 2개로 구분)</label>
+                <div class="standings-header">
+                    <span style="flex:2.5;">팀명</span>
+                    <span style="flex:1;">승</span>
+                    <span style="flex:1;">무</span>
+                    <span style="flex:1;">패</span>
+                    <span style="flex:1;">득</span>
+                    <span style="flex:1;">실</span>
+                </div>
+                <textarea id="s_data" placeholder="예: 서울 이랜드  20  10  6  60  30"></textarea>
+                
+                <div id="standings-preview">
+                    <div style="color:#888; font-size:13px; text-align:center;">데이터를 입력하면 미리보기가 표시됩니다.</div>
+                </div>
+            </div>
+            <button class="btn-submit" id="btnSaveStanding">전체 순위 저장 (덮어쓰기)</button>
+        </div>
+    </div>
+    
+    <script type="module">
+        import { db, auth } from '../firebase.js';
+        import { ref, set, update, get, child, remove } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+        import { signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+        // ===============================================
+        // [설정] 여기에 허용할 관리자 이메일을 정확히 입력하세요!
+        // ===============================================
+        const ADMIN_EMAIL = "gwcom112@gmail.com"; 
+
+        const provider = new GoogleAuthProvider();
+        const loginContainer = document.getElementById('login-container');
+        const adminPanel = document.getElementById('admin-panel');
+
+        // 1. 로그인 버튼
+        document.getElementById('btnLogin').addEventListener('click', () => {
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    console.log("로그인 성공:", result.user.email);
+                })
+                .catch((error) => {
+                    alert("로그인 실패: " + error.message);
+                });
+        });
+
+        // 2. 로그아웃 버튼
+        document.getElementById('btnLogout').addEventListener('click', () => {
+            if(confirm("로그아웃 하시겠습니까?")) {
+                signOut(auth).then(() => {
+                    alert("로그아웃 되었습니다.");
+                    location.reload();
+                });
+            }
+        });
+
+        // 3. 로그인 상태 감지
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                // 이메일 확인
+                if (user.email === ADMIN_EMAIL) {
+                    loginContainer.style.display = 'none';
+                    adminPanel.style.display = 'block';
+                    if (allPlayersList.length === 0) fetchAllPlayers();
+                } else {
+                    alert("접근 권한이 없는 계정입니다.\n(" + user.email + ")");
+                    signOut(auth).then(() => { location.reload(); });
+                }
+            } else {
+                loginContainer.style.display = 'block';
+                adminPanel.style.display = 'none';
+            }
+        });
+
+        // ==========================================
+        // 0. 초기화 및 선수 매핑
+        // ==========================================
+        let nameToIdMap = {};
+        let allPlayersList = [];
+
+        async function fetchAllPlayers() {
+            const teams = ['playerA', 'playerU18', 'playerU15'];
+            nameToIdMap = {};
+            allPlayersList = [];
+
+            for (const t of teams) {
+                try {
+                    const snapshot = await get(ref(db, t));
+                    if (snapshot.exists()) {
+                        const data = snapshot.val();
+                        for (const [id, info] of Object.entries(data)) {
+                            if (info.name) {
+                                if (!nameToIdMap[info.name]) nameToIdMap[info.name] = id;
+                                allPlayersList.push({ name: info.name, id: id });
+                            }
+                        }
+                    }
+                } catch (e) { console.log("로드 에러:", t); }
+            }
+            console.log("매핑 완료. 총 선수:", allPlayersList.length);
+        }
+
+        const currYear = new Date().getFullYear();
+        const yearOptions = [];
+        for (let y = 2015; y <= currYear + 1; y++) yearOptions.push(y);
+        
+        const nSelect = document.getElementById('n_yearSelect');
+        const sSelect = document.getElementById('s_yearSelect');
+        
+        yearOptions.reverse().forEach(y => {
+            nSelect.add(new Option(y, y));
+            sSelect.add(new Option(y, y));
+        });
+        nSelect.value = currYear;
+        sSelect.value = currYear;
+
+
+        // ==========================================
+        // 1. 경기 데이터 로직
+        // ==========================================
+        const positions = ['GK', 'DF', 'MF', 'FW', 'SUB'];
+        const matchContainer = document.getElementById('match-player-inputs');
+
+        positions.forEach(pos => {
+            const section = document.createElement('div');
+            section.className = 'pos-section';
+            section.id = `section-${pos}`;
+            section.innerHTML = `<div class="pos-title">${pos}</div><div class="pos-rows-container"></div>`;
+            matchContainer.appendChild(section);
+            addMatchPlayerRow(pos); 
+        });
+
+        function addMatchPlayerRow(pos, name='', id='', stat='') {
+            const container = document.querySelector(`#section-${pos} .pos-rows-container`);
+            const index = container.querySelectorAll('.player-grid-row').length + 1; 
+            
+            const div = document.createElement('div');
+            div.className = `player-grid-row ${pos}-row`;
+            div.innerHTML = `
+                <div class="row-index">${index}</div>
+                <input type="text" placeholder="이름" class="p-name-auto" value="${name}">
+                <input type="tel" placeholder="ID" class="p-id" value="${id}">
+                <input type="text" placeholder="스탯" class="p-stat" value="${stat}">
+            `;
+            
+            div.querySelectorAll('input').forEach(input => {
+                input.addEventListener('input', () => checkAndAddMatchRow(pos));
+            });
+            container.appendChild(div);
+        }
+
+        function checkAndAddMatchRow(pos) {
+            const container = document.querySelector(`#section-${pos} .pos-rows-container`);
+            const lastRow = container.lastElementChild;
+            if(!lastRow) return;
+            const inputs = lastRow.querySelectorAll('input');
+            let hasValue = false;
+            inputs.forEach(i => { if(i.value.trim()) hasValue = true; });
+            if(hasValue) addMatchPlayerRow(pos);
+        }
+
+        document.body.addEventListener('input', function(e) {
+            if (e.target.classList.contains('p-name-auto')) {
+                const nameInput = e.target;
+                const row = nameInput.parentElement;
+                const idInput = row.querySelector('.p-id'); 
+                if (!idInput) return;
+
+                const name = nameInput.value.trim();
+                
+                if (name === '') {
+                    idInput.value = '';
+                    idInput.classList.remove('warning-input');
+                    idInput.placeholder = "ID";
+                    return;
+                }
+
+                if (nameToIdMap[name]) {
+                    idInput.value = nameToIdMap[name];
+                    idInput.classList.remove('warning-input');
+                } else {
+                    idInput.value = ''; 
+                    idInput.classList.add('warning-input');
+                    idInput.placeholder = "ID 없음";
+                }
+            }
+        });
+
+
+        // ==========================================
+        // 2. [선수 정보] 중복 확인 & ID 생성
+        // ==========================================
+        document.getElementById('btnCheckName').addEventListener('click', () => {
+            const inputName = document.getElementById('p_name').value.trim();
+            if(!inputName) return alert("이름을 입력하세요.");
+
+            const cleanInputName = inputName.replace(/[0-9]/g, '');
+            const matches = allPlayersList.filter(player => {
+                const cleanDbName = player.name.replace(/[0-9]/g, '');
+                return cleanDbName === cleanInputName;
+            });
+
+            if (matches.length > 0) {
+                const msgList = matches.map(m => `- ${m.name} (${m.id})`).join('\n');
+                alert(`총 ${matches.length}명의 선수가 검색되었습니다:\n\n${msgList}`);
+            } else {
+                alert('중복된 선수가 없습니다.');
+            }
+        });
+
+        document.getElementById('btnGenerateId').addEventListener('click', () => {
+            const name = document.getElementById('p_name').value.trim();
+            if (!name) return alert("이름을 먼저 입력하세요.");
+
+            const codes = [];
+            for (let i = 0; i < name.length; i++) {
+                codes.push(name.charCodeAt(i));
+            }
+
+            let id = 0;
+            if (name.length === 3) {
+                id = Math.round((codes[0] * codes[1] + codes[2]) / 100);
+            } else if (name.length === 2) {
+                id = Math.round((codes[0] + codes[1]) * 1000);
+            } else if (name.length === 4) {
+                let part1 = Math.round((codes[0] * codes[1] + codes[2]) / 1000);
+                id = part1 * 10 + codes[3];
+            } else {
+                return alert("2~4글자 이름만 생성 가능합니다.");
+            }
+
+            const generatedId = id.toString();
+            document.getElementById('p_id').value = generatedId;
+
+            const duplicatePlayer = allPlayersList.find(p => p.id === generatedId);
+            if (duplicatePlayer) {
+                alert(`ID가 생성되었습니다: ${generatedId}\n\n⚠️ 경고: 이 ID는 이미 존재합니다!\n(중복된 선수: ${duplicatePlayer.name})`);
+            } else {
+                alert(`ID가 생성되었습니다: ${generatedId}\n\n✅ 사용 가능한 ID입니다.`);
+            }
+        });
+
+
+        // ==========================================
+        // 3. 색상/엠블럼 미리보기
+        // ==========================================
+        function updateColorPreview(inputId, previewId) {
+            const input = document.getElementById(inputId);
+            const preview = document.getElementById(previewId);
+            const value = input.value.replace(/[^0-9A-Fa-f]/g, '');
+            input.value = value; 
+            if(value.length >= 3) {
+                preview.style.backgroundColor = '#' + value;
+            } else {
+                preview.style.backgroundColor = '#fff';
+            }
+        }
+
+// 엠블럼 미리보기 함수
+function updateEmblemPreview(inputId, previewId, useSearch = false) {
+    const input = document.getElementById(inputId);
+    const img = document.getElementById(previewId);
+    const code = input.value.trim();
+
+    if (!code) {
+        img.style.display = 'none';
+        img.src = '';
+        return;
+    }
+
+    const exactSrc = `../files/${code}_s.png`;
+    const testImg = new Image();
+
+    testImg.onload = function() {
+        img.src = exactSrc; 
+        img.style.display = 'block';
+    };
+
+    testImg.onerror = function() {
+        // [수정] useSearch가 true일 때만 연도별 재귀 탐색 함수 호출
+        if (useSearch) {
+            // 아래에 정의될 함수를 호출합니다.
+            startYearSearch(code, img); 
+        } else {
+            img.style.display = 'none';
+            img.src = '';
+        }
+    };
+    testImg.src = exactSrc;
+}
+
+        // ----------------------------------------------------
+        // [이벤트 리스너] 이 부분이 정확히 연결되어야 즉시 반응합니다.
+        // ----------------------------------------------------
+
+        // 1. 경기 기록 페이지 (정확히 일치할 때만 - 세 번째 인자 false)
+        document.getElementById('m_homeCode').addEventListener('input', () => updateEmblemPreview('m_homeCode', 'preview_home', false));
+        document.getElementById('m_awayCode').addEventListener('input', () => updateEmblemPreview('m_awayCode', 'preview_away', false));
+        
+        // 2. 상대 전적 페이지 (연도 없어도 검색 - 세 번째 인자 true)
+        document.getElementById('h_code').addEventListener('input', () => updateEmblemPreview('h_code', 'preview_h2h', true));
+
+        // 색상 미리보기는 유지
+        document.getElementById('h_bg').addEventListener('input', () => updateColorPreview('h_bg', 'preview_bg'));
+        document.getElementById('h_text').addEventListener('input', () => updateColorPreview('h_text', 'preview_text'));
+
+        // ==========================================
+        // 4. 순위표 미리보기 & 자동 계산 (수정됨)
+        // ==========================================
+        function updateStandingsPreview() {
+            const raw = document.getElementById('s_data').value;
+            const container = document.getElementById('standings-preview');
+            
+            if(!raw.trim()) {
+                container.innerHTML = '<div style="color:#888; font-size:13px; text-align:center;">데이터를 입력하면 미리보기가 표시됩니다.</div>';
+                return;
+            }
+
+            const rows = raw.split('\n');
+            let html = '<table id="preview-table"><thead><tr><th>순위</th><th>팀명</th><th>승점</th><th>승</th><th>무</th><th>패</th><th>득</th><th>실</th><th>득실</th></tr></thead><tbody>';
+            
+            rows.forEach((row, index) => {
+                if(!row.trim()) return;
+                
+                // 입력: [팀명, 승, 무, 패, 득, 실] (6개)
+                const cols = row.split('  ').map(c => c.trim());
+                if (cols.length < 6) return; // 데이터 부족하면 스킵
+
+                const team = cols[0];
+                const w = parseInt(cols[1]) || 0;
+                const d = parseInt(cols[2]) || 0;
+                const l = parseInt(cols[3]) || 0;
+                const gf = parseInt(cols[4]) || 0;
+                const ga = parseInt(cols[5]) || 0;
+
+                // 자동 계산
+                const rank = index + 1;
+                const pts = (w * 3) + (d * 1);
+                const gd = gf - ga;
+
+                // 미리보기 출력
+                html += '<tr>';
+                html += `<td>${rank}</td>`;
+                html += `<td>${team}</td>`;
+                html += `<td>${pts}</td>`;
+                html += `<td>${w}</td>`;
+                html += `<td>${d}</td>`;
+                html += `<td>${l}</td>`;
+                html += `<td>${gf}</td>`;
+                html += `<td>${ga}</td>`;
+                html += `<td>${gd}</td>`;
+                html += '</tr>';
+            });
+            html += '</tbody></table>';
+            container.innerHTML = html;
+        }
+        document.getElementById('s_data').addEventListener('input', updateStandingsPreview);
+
+
+        // ==========================================
+        // 5. 기본 기능 구현 (저장/불러오기)
+        // ==========================================
+
+        window.showForm = function (id) {
+            document.querySelectorAll('.form-container').forEach(el => el.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            document.querySelectorAll('.menu-bar button').forEach(el => el.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        function getTeamType() {
+            return document.querySelector('input[name="teamType"]:checked').value;
+        }
+
+        // [경기 기록]
+        document.getElementById('btnSearchMatch').addEventListener('click', async () => {
+            const team = getTeamType();
+            const date = document.getElementById('m_date').value;
+            if(!date) { alert('날짜 입력'); return; }
+
+            let suffix = team === 'U18' ? '8' : (team === 'U15' ? '5' : '0');
+            const id = date + suffix;
+            
+            try {
+                const snapshot = await get(ref(db, `data${team}/${id}`));
+                if (snapshot.exists()) {
+                    const data = snapshot.val();
+                    document.getElementById('m_round').value = data.round || '';
+                    document.getElementById('m_compName').value = data.comp?.[0] || '';
+                    document.getElementById('m_compCode').value = data.comp?.[1] || '';
+                    document.getElementById('m_stadium').value = data.stadium || '';
+                    
+                    if(data.time) {
+                        const [h, m] = data.time.split(':');
+                        document.getElementById('m_hour').value = h; document.getElementById('m_min').value = m;
+                    }
+                    document.getElementById('m_homeName').value = data.home?.[0] || '';
+                    document.getElementById('m_homeCode').value = data.home?.[1] || '';
+                    document.getElementById('m_homeScore').value = data.homeScore || '';
+                    document.getElementById('m_homeScorer').value = data.homeScorer || '';
+
+                    document.getElementById('m_awayName').value = data.away?.[0] || '';
+                    document.getElementById('m_awayCode').value = data.away?.[1] || '';
+                    document.getElementById('m_awayScore').value = data.awayScore || '';
+                    document.getElementById('m_awayScorer').value = data.awayScorer || '';
+
+                    updateEmblemPreview('m_homeCode', 'preview_home');
+                    updateEmblemPreview('m_awayCode', 'preview_away');
+
+                    positions.forEach(pos => {
+                        const rowContainer = document.querySelector(`#section-${pos} .pos-rows-container`);
+                        rowContainer.innerHTML = ''; 
+                        
+                        if(data[pos] && data[pos].length > 0) {
+                            data[pos].forEach(p => {
+                                const pid = p[0];
+                                const stat = p[1];
+                                const name = Object.keys(nameToIdMap).find(key => nameToIdMap[key] === pid) || '';
+                                addMatchPlayerRow(pos, name, pid, stat);
+                            });
+                        }
+                        addMatchPlayerRow(pos);
+                    });
+
+                    alert('로드 완료');
+                } else { alert('데이터 없음'); }
+            } catch(e) { console.error(e); alert('실패'); }
+        });
+
+        document.getElementById('btnSaveMatch').addEventListener('click', async () => {
+            const team = getTeamType();
+            const date = document.getElementById('m_date').value;
+            if (!date) { alert('날짜 입력'); return; }
+            let suffix = team === 'U18' ? '8' : (team === 'U15' ? '5' : '0');
+            const id = date + suffix;
+            const timeStr = (document.getElementById('m_hour').value && document.getElementById('m_min').value) 
+                            ? `${document.getElementById('m_hour').value}:${document.getElementById('m_min').value}` : "";
+
+            const getPlayers = (pos) => {
+                const rows = document.querySelectorAll(`#section-${pos} .player-grid-row`);
+                let result = [];
+                rows.forEach(row => {
+                    const pid = row.querySelector('.p-id').value.trim();
+                    const stat = row.querySelector('.p-stat').value.trim();
+                    if(pid) result.push([pid, stat]); 
+                });
+                return result;
+            };
+
+            const matchData = {
+                "round": document.getElementById('m_round').value,
+                "comp": [document.getElementById('m_compName').value, document.getElementById('m_compCode').value],
+                "time": timeStr,
+                "stadium": document.getElementById('m_stadium').value,
+                "home": [document.getElementById('m_homeName').value, document.getElementById('m_homeCode').value],
+                "away": [document.getElementById('m_awayName').value, document.getElementById('m_awayCode').value],
+                "homeScore": document.getElementById('m_homeScore').value,
+                "awayScore": document.getElementById('m_awayScore').value,
+                "homeScorer": document.getElementById('m_homeScorer').value,
+                "awayScorer": document.getElementById('m_awayScorer').value,
+                "hl": "",
+                "matchStat": Array(20).fill(""),
+                "GK": getPlayers('GK'), "DF": getPlayers('DF'), "MF": getPlayers('MF'), "FW": getPlayers('FW'), "SUB": getPlayers('SUB')
+            };
+
+            try { await set(ref(db, `data${team}/${id}`), matchData); alert(`저장 완료: ${id}`); } 
+            catch (e) { console.error(e); alert("실패"); }
+        });
+
+        // [경기 삭제 기능]
+        document.getElementById('btnDeleteMatch').addEventListener('click', async () => {
+            const team = getTeamType();
+            const date = document.getElementById('m_date').value;
+            
+            if(!date) return alert('삭제할 날짜를 입력하세요.');
+            
+            let suffix = team === 'U18' ? '8' : (team === 'U15' ? '5' : '0');
+            const id = date + suffix;
+
+            if(confirm(`정말로 삭제하시겠습니까?\n\n팀: ${team}\n날짜: ${date}\nID: ${id}`)) {
+                try {
+                    await remove(ref(db, `data${team}/${id}`));
+                    alert('삭제 완료되었습니다.');
+                    document.getElementById('m_date').value = '';
+                } catch(e) {
+                    console.error(e);
+                    alert('삭제 실패: ' + e.message);
+                }
+            }
+        });
+
+        // [선수 정보]
+        document.getElementById('btnSearchPlayer').addEventListener('click', async () => {
+            const team = getTeamType();
+            const id = document.getElementById('p_id').value;
+            if(!id) { alert('ID 입력'); return; }
+            try {
+                const s = await get(ref(db, `player${team}/${id}`));
+                if(s.exists()) {
+                    const d = s.val();
+                    document.getElementById('p_name').value = d.name||''; document.getElementById('p_bd').value = d.bd||'';
+                    document.getElementById('p_natl').value = d.natl||''; document.getElementById('p_pos').value = d.pos||'';
+                    document.getElementById('p_height').value = d.height||''; document.getElementById('p_sns').value = d.sns||'';
+                    document.getElementById('p_sefc').value = d.sefc||'';
+                    alert('로드 완료');
+                } else alert('데이터 없음');
+            } catch(e) { console.error(e); }
+        });
+
+        document.getElementById('btnSavePlayer').addEventListener('click', async () => {
+            const team = getTeamType();
+            const id = document.getElementById('p_id').value;
+            if(!id) return alert('ID 필수');
+            const data = {
+                name: document.getElementById('p_name').value, bd: document.getElementById('p_bd').value,
+                natl: document.getElementById('p_natl').value, pos: document.getElementById('p_pos').value,
+                height: document.getElementById('p_height').value, sns: document.getElementById('p_sns').value,
+                sefc: document.getElementById('p_sefc').value
+            };
+            try {
+                await update(ref(db, `player${team}/${id}`), data);
+                if(data.name) nameToIdMap[data.name] = id;
+                const existingIdx = allPlayersList.findIndex(p => p.id === id);
+                if(existingIdx > -1) allPlayersList[existingIdx].name = data.name;
+                else allPlayersList.push({name: data.name, id: id});
+                
+                alert('저장 완료');
+            } catch(e) { console.error(e); }
+        });
+
+        // [선수 삭제 기능]
+        document.getElementById('btnDeletePlayer').addEventListener('click', async () => {
+            const team = getTeamType();
+            const id = document.getElementById('p_id').value;
+            if(!id) return alert('삭제할 선수 ID를 입력하세요.');
+            
+            if(confirm(`정말로 삭제하시겠습니까?\n\n팀: ${team}\nID: ${id}`)) {
+                try {
+                    await remove(ref(db, `player${team}/${id}`));
+                    const idx = allPlayersList.findIndex(p => p.id === id);
+                    if(idx > -1) allPlayersList.splice(idx, 1);
+                    if(nameToIdMap[document.getElementById('p_name').value]) {
+                        delete nameToIdMap[document.getElementById('p_name').value];
+                    }
+                    alert('삭제 완료되었습니다.');
+                    document.getElementById('p_id').value = '';
+                    document.getElementById('p_name').value = '';
+                } catch(e) {
+                    console.error(e);
+                    alert('삭제 실패: ' + e.message);
+                }
+            }
+        });
+
+        // [상대 전적]
+        document.getElementById('btnSearchH2H').addEventListener('click', async () => {
+            const team = getTeamType();
+            const code = document.getElementById('h_code').value;
+            if(!code) return;
+            try {
+                const s = await get(ref(db, `h2h${team}/${code}`));
+                if(s.exists() && Array.isArray(s.val())) {
+                    const a = s.val();
+                    updateEmblemPreview('h_code', 'preview_h2h');
+                    document.getElementById('h_bg').value=a[0]; document.getElementById('h_text').value=a[1];
+                    updateColorPreview('h_bg', 'preview_bg'); updateColorPreview('h_text', 'preview_text');
+                    document.getElementById('h_w').value=a[2]; document.getElementById('h_d').value=a[3];
+                    document.getElementById('h_l').value=a[4]; document.getElementById('h_gf').value=a[5];
+                    document.getElementById('h_ga').value=a[6];
+                    alert('로드 완료');
+                } else alert('데이터 없음');
+            } catch(e) { console.error(e); }
+        });
+
+        document.getElementById('btnSaveH2H').addEventListener('click', async () => {
+            const team = getTeamType();
+            const code = document.getElementById('h_code').value;
+            if(!code) return alert('코드 입력');
+            const arr = [
+                document.getElementById('h_bg').value, document.getElementById('h_text').value,
+                document.getElementById('h_w').value, document.getElementById('h_d').value,
+                document.getElementById('h_l').value, document.getElementById('h_gf').value,
+                document.getElementById('h_ga').value
+            ];
+            try { await set(ref(db, `h2h${team}/${code}`), arr); alert('저장 완료'); } catch(e){console.error(e);}
+        });
+
+        // [등번호]
+        const numContainer = document.getElementById('num-list-container');
+        function addNumRow(name='', id='', num='') {
+            const div = document.createElement('div');
+            div.className = 'player-grid-row num-item';
+            div.innerHTML = `
+                <input type="text" placeholder="이름" class="p-name-auto" value="${name}">
+                <input type="tel" placeholder="ID" class="p-id" value="${id}">
+                <input type="tel" placeholder="번호" class="p-num" value="${num}">
+            `;
+            div.querySelector('.p-num').addEventListener('input', checkAndAddRow);
+            div.querySelector('.p-name-auto').addEventListener('input', checkAndAddRow);
+            numContainer.appendChild(div);
+        }
+        function checkAndAddRow() {
+            const last = numContainer.lastElementChild;
+            if(!last) return;
+            const inputs = last.querySelectorAll('input');
+            let has = false; inputs.forEach(i=>{if(i.value.trim())has=true});
+            if(has) addNumRow();
+        }
+
+        document.getElementById('n_yearSelect').addEventListener('change', async function() {
+            const year = this.value;
+            numContainer.innerHTML = '';
+            try {
+                const s = await get(ref(db, `playerNum/${year}`));
+                if(s.exists()) {
+                    for(const [pid, info] of Object.entries(s.val())) addNumRow(info[0], pid, info[1]);
+                }
+                addNumRow();
+            } catch(e) { console.error(e); }
+        });
+        (async()=>{ document.getElementById('n_yearSelect').dispatchEvent(new Event('change')); })();
+
+        document.getElementById('btnSaveNum').addEventListener('click', async () => {
+            const year = document.getElementById('n_yearSelect').value;
+            const rows = document.querySelectorAll('.num-item');
+            let data = {}, count = 0;
+            rows.forEach(r => {
+                const nm=r.querySelector('.p-name-auto').value, id=r.querySelector('.p-id').value, n=r.querySelector('.p-num').value;
+                if(id) { data[id]=[nm,n]; count++; }
+            });
+            if(count===0 && !confirm('비우시겠습니까?')) return;
+            try { await set(ref(db, `playerNum/${year}`), data); alert('저장 완료'); } catch(e){console.error(e);}
+        });
+
+        // [순위 - 불러오기 및 저장 로직 수정]
+        async function loadStandings() {
+            const year = document.getElementById('s_yearSelect').value;
+            const league = document.getElementById('s_leagueType').value;
+            const ta = document.getElementById('s_data');
+            ta.value = '로드 중...';
+            try {
+                const s = await get(ref(db, `standings/${year}/${league}`));
+                if(s.exists() && Array.isArray(s.val())) {
+                    ta.value = s.val().map(row => {
+                        return `${row[1]}  ${row[3]}  ${row[4]}  ${row[5]}  ${row[6]}  ${row[7]}`;
+                    }).join('\n');
+                } else ta.value = '';
+                updateStandingsPreview();
+            } catch(e) { ta.value='에러'; console.error(e); }
+        }
+        document.getElementById('s_yearSelect').addEventListener('change', loadStandings);
+        document.getElementById('s_leagueType').addEventListener('change', loadStandings);
+
+        document.getElementById('btnSaveStanding').addEventListener('click', async () => {
+            const year = document.getElementById('s_yearSelect').value;
+            const league = document.getElementById('s_leagueType').value;
+            const raw = document.getElementById('s_data').value.trim();
+            if(!raw && !confirm('삭제하시겠습니까?')) return;
+            
+            const data = [];
+            raw.split('\n').forEach((l, index) => {
+                if(l.trim()) {
+                    const cols = l.split('  ').map(c => c.trim());
+                    if (cols.length >= 6) {
+                        const team = cols[0];
+                        const w = parseInt(cols[1]) || 0;
+                        const d = parseInt(cols[2]) || 0;
+                        const l = parseInt(cols[3]) || 0;
+                        const gf = parseInt(cols[4]) || 0;
+                        const ga = parseInt(cols[5]) || 0;
+                        const rank = index + 1;
+                        const pts = (w * 3) + (d * 1);
+                        const gd = gf - ga;
+                        data.push([rank, team, pts, w, d, l, gf, ga, gd]);
+                    }
+                }
+            });
+
+            try { await set(ref(db, `standings/${year}/${league}`), data); alert('저장 완료'); } catch(e){console.error(e);}
+        });
+
+        loadStandings();
+
+        // 상대 전적용 연도별 자동 탐색 함수
+function startYearSearch(code, targetImgElement, yearToCheck = new Date().getFullYear()) {
+    // 1983년(K리그 출범) 밑으로 내려가면 탐색 중단
+    if (yearToCheck < 1983) {
+        targetImgElement.style.display = 'none'; 
+        return;
+    }
+
+    const yearSrc = `../files/${code}${yearToCheck}_s.png`;
+    const searchImg = new Image();
+
+    searchImg.onload = function() {
+        targetImgElement.src = yearSrc; 
+        targetImgElement.style.display = 'block';
+    };
+
+    searchImg.onerror = function() {
+        // 실패 시 1년 전으로 거슬러 올라가며 재귀 호출
+        startYearSearch(code, targetImgElement, yearToCheck - 1);
+    };
+
+    searchImg.src = yearSrc;
+}
+
+    </script>
+</body>
+</html>

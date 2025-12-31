@@ -68,14 +68,20 @@
     </div>
 
     <div class="statsButton">
-        <button onclick="statsA()" glass="true" transl='y'>A팀</button>
-        <button onclick="statsU18()" glass="true">U-18</button>
-        <button onclick="statsU15()" glass="true">U-15</button>
+        <button glass="true" transl='y'>A팀</button>
+        <button glass="true">U-18</button>
+        <button glass="true">U-15</button>
     </div>
 
     <div id="actualContents">
 
-        <div class="statsSeason"></div>
+        <div class="statsSeason">
+            <select></select>
+            <p>◀</p>
+            <p>▶</p>
+            <p glass='true' transl='y'>오늘</p>
+            <p glass='true' transl='y'>통산</p>
+        </div>
 
         <div id="stats">
     
@@ -101,8 +107,9 @@
     
     </div>
 
-    <script src="./script.js"></script>
-    <script src="./data.js"></script>
+    <script src="script.js"></script>
+    <script type="module" src="./firebase.js"></script>
+    <script type="module" src="./stats.js"></script>
 
 </body>
 

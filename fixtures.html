@@ -56,14 +56,20 @@
     </div>
 
     <div class="fixturesButton">
-        <button onclick="fixturesA()" glass="true" transl="y">A팀</button>
-        <button onclick="fixturesU18()" glass="true">U-18</button>
-        <button onclick="fixturesU15()" glass="true">U-15</button>
+        <button glass="true" transl="y">A팀</button>
+        <button glass="true">U-18</button>
+        <button glass="true">U-15</button>
     </div>
 
     <div id="actualContents">
     
-        <div class="fixturesSeason"></div>
+        <div class="fixturesSeason">
+            <select></select>
+            <span></span>
+            <p>◀</p>
+            <p>▶</p>
+            <p glass='true' transl='y'>오늘</p>
+        </div>
     
         <div id="fixturesA">
     
@@ -108,7 +114,8 @@
     </div>
 
     <script src="script.js"></script>
-    <script src="data.js"></script>
+    <script type="module" src="./firebase.js"></script>
+    <script type="module" src="./fixtures.js"></script>
 
 </body>
 

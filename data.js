@@ -224,7 +224,7 @@ $(document).ready(function () {
                     }
 
                     transl()
-                    console.trace(`Translated(${localStorage.getItem("lang")})`)
+                    // console.trace(`Translated(${localStorage.getItem("lang")})`)
                 }
 
                 for (i = 0; i < Object.keys(dataList["GK"]).length; i++) {
@@ -309,7 +309,7 @@ $(document).ready(function () {
                     }
 
                     transl()
-                    console.trace(`Translated(${localStorage.getItem("lang")})`)
+                    // console.trace(`Translated(${localStorage.getItem("lang")})`)
                 }
 
                 // 선수 평점 칸 배색
@@ -399,7 +399,7 @@ $(document).ready(function () {
                     }
 
                     transl()
-                    console.trace(`Translated(${localStorage.getItem("lang")})`)
+                    // console.trace(`Translated(${localStorage.getItem("lang")})`)
                 }
 
                 $("#startingXI").html("<div><table><tbody></tbody></table></div>")
@@ -494,7 +494,7 @@ $(document).ready(function () {
                     })
 
                     transl()
-                    console.trace(`Translated(${localStorage.getItem("lang")})`)
+                    // console.trace(`Translated(${localStorage.getItem("lang")})`)
                 }
             }
 
@@ -964,7 +964,7 @@ $(document).ready(function () {
                 } else if (dataA[prev[i]]["homeScore"] == dataA[prev[i]]["awayScore"]) {
                     $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p").css({"color": "#faf6f5", "background": "#05090a40", "border": "1px solid #05090a40"})
                 } else {
-                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p").css({"color": "#faf6f5", "background": "#e0000080", "border": "1px solid #e0000080"})
+                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p").css({"color": "#faf6f5", "background": "#e0000060", "border": "1px solid #e0000060"})
                 }
             } else {
                 $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > div > img").attr("src", "./files/" + dataA[prev[i]]["home"][1] + "_s.png")
@@ -974,7 +974,7 @@ $(document).ready(function () {
                 } else if (dataA[prev[i]]["homeScore"] == dataA[prev[i]]["awayScore"]) {
                     $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p").css({"color": "#faf6f5", "background": "#05090a40", "border": "1px solid #05090a40"})
                 } else {
-                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p").css({"color": "#faf6f5", "background": "#e0000080", "border": "1px solid #e0000080"})
+                    $("#prevMatch > div > div:nth-of-type(" + (i + 1) + ") > p").css({"color": "#faf6f5", "background": "#e0000060", "border": "1px solid #e0000060"})
                 }
             }
         }
@@ -1401,7 +1401,7 @@ $(document).ready(function () {
         }
 
         transl()
-        console.trace(`Translated(${localStorage.getItem("lang")})`)
+        // console.trace(`Translated(${localStorage.getItem("lang")})`)
     }
 
     ////////// 순위 화면 //////////
@@ -1465,7 +1465,7 @@ $(document).ready(function () {
         }
 
         transl()
-        console.trace(`Translated(${localStorage.getItem("lang")})`)
+        // console.trace(`Translated(${localStorage.getItem("lang")})`)
     })
 
     if ($(window).width() >= 768) {
@@ -1768,7 +1768,7 @@ $(document).ready(function () {
                     }
 
                     transl()
-                    console.trace(`Translated(${localStorage.getItem("lang")})`)
+                    // console.trace(`Translated(${localStorage.getItem("lang")})`)
                 });
         }
 
@@ -1821,7 +1821,7 @@ $(document).ready(function () {
                     }
 
                     transl()
-                    console.trace(`Translated(${localStorage.getItem("lang")})`)
+                    // console.trace(`Translated(${localStorage.getItem("lang")})`)
                 }
             })
             .catch(error => {
@@ -2018,7 +2018,7 @@ $(document).ready(function () {
         }
         
         transl()
-        console.trace(`Translated(${localStorage.getItem("lang")})`)
+        // console.trace(`Translated(${localStorage.getItem("lang")})`)
     }
 
     // 게시판
@@ -2125,7 +2125,7 @@ function playerList_ () {
     })
 
     transl()
-    console.trace(`Translated(${localStorage.getItem("lang")})`)
+    // console.trace(`Translated(${localStorage.getItem("lang")})`)
 }
 
 // 일정
@@ -2196,7 +2196,7 @@ function fixtures() {
                 } else if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") == data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "") && data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"] !== "") {
                     $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css({"color": "#faf6f5", "background": "#05090a40", "border": "1px solid #05090a40"})
                 } else if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") < data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
-                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css({"color": "#faf6f5", "background": "#e0000080", "border": "1px solid #e0000080"})
+                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css({"color": "#faf6f5", "background": "#e0000060", "border": "1px solid #e0000060"})
                 }
             } else if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["away"][0] == "서울E") {
                 if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") < data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
@@ -2204,7 +2204,7 @@ function fixtures() {
                 } else if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") == data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "") && data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"] !== "") {
                     $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css({"color": "#faf6f5", "background": "#05090a40", "border": "1px solid #05090a40"})
                 } else if (data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") > data[Object.keys(data).filter((a) => a.substring(0, 4) == year).filter((b) => b.substring(4, 6) == month)[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
-                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css({"color": "#faf6f5", "background": "#e0000080", "border": "1px solid #e0000080"})
+                    $(".fixtures_:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)").css({"color": "#faf6f5", "background": "#e0000060", "border": "1px solid #e0000060"})
                 }
             }
 
@@ -2235,7 +2235,7 @@ function fixtures() {
     }
 
     transl()
-    console.trace(`Translated(${localStorage.getItem("lang")})`)
+    // console.trace(`Translated(${localStorage.getItem("lang")})`)
 }
 
 // 순위
@@ -2500,7 +2500,7 @@ function standings() {
     }
 
     transl()
-    console.trace(`Translated(${localStorage.getItem("lang")})`)
+    // console.trace(`Translated(${localStorage.getItem("lang")})`)
 }
 
 // 기록
@@ -2804,7 +2804,7 @@ function stats() {
     }
 
     transl()
-    console.trace(`Translated(${localStorage.getItem("lang")})`)
+    // console.trace(`Translated(${localStorage.getItem("lang")})`)
 }
 
 // 전적
@@ -3024,7 +3024,7 @@ function matchH2H() {
                     } else if (data[h2hList[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") == data[h2hList[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "") && data[h2hList[i]]["homeScore"] !== "") {
                         $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css({"color": "#faf6f5", "background": "#05090a40", "border": "1px solid #05090a40"})
                     } else if (data[h2hList[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") < data[h2hList[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
-                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css({"color": "#faf6f5", "background": "#e0000080", "border": "1px solid #e0000080"})
+                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css({"color": "#faf6f5", "background": "#e0000060", "border": "1px solid #e0000060"})
                     }
 
                     if (h2hList[i] < id) {
@@ -3039,7 +3039,7 @@ function matchH2H() {
                     } else if (data[h2hList[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") == data[h2hList[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "") && data[h2hList[i]]["homeScore"] !== "") {
                         $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css({"color": "#faf6f5", "background": "#05090a40", "border": "1px solid #05090a40"})
                     } else if (data[h2hList[i]]["homeScore"].replace(/\(\d+\)|<[^>]*>/g, "") > data[h2hList[i]]["awayScore"].replace(/\(\d+\)|<[^>]*>/g, "")) {
-                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css({"color": "#faf6f5", "background": "#e0000080", "border": "1px solid #e0000080"})
+                        $("#recentMatch > div:nth-of-type(" + (i + 1) + ") > div:nth-of-type(2) > p").css({"color": "#faf6f5", "background": "#e0000060", "border": "1px solid #e0000060"})
                     }
 
                     if (h2hList[i] < id) {
@@ -3159,5 +3159,5 @@ function matchH2H() {
     }
 
     transl()
-    console.trace(`Translated(${localStorage.getItem("lang")})`)
+    // console.trace(`Translated(${localStorage.getItem("lang")})`)
 }

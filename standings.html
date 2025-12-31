@@ -15,7 +15,7 @@
     <meta name="keywords" content="서울, 서울 이랜드, 서울 이랜드 FC. SEFC. SEFCiNFO">
     <link rel="stylesheet" href="style1.css" media="screen and (max-width: 768px)">
     <link rel="stylesheet" href="style2.css" media="screen and (min-width: 768px)">
-    <title>SEFCiNFO - 서울 이랜드 FC 팬 페이지</title>
+    <title>SEFCiNFO - 순위</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="icon" type="image/x-icon" href="./files/favicon.png">
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="39318110-e4f0-4fd3-87a9-3f0c2b33fe85" type="text/javascript" async></script>
@@ -68,14 +68,19 @@
         </div>
 
         <div class="standingsButton">
-            <button onclick="standingsA()" glass="true" transl='y'>A팀</button>
-            <button onclick="standingsU18()" glass="true">U-18</button>
-            <button onclick="standingsU15()" glass="true">U-15</button>
+            <button glass="true" transl='y'>A팀</button>
+            <button glass="true">U-18</button>
+            <button glass="true">U-15</button>
         </div>
 
         <div id="actualContents">
 
-            <div class="standingsSeason"></div>
+            <div class="standingsSeason"><select></select>
+                <p transl='y'>순위 자세히</p>
+                <p>◀</p>
+                <p>▶</p>
+                <p glass='true' transl='y'>오늘</p>
+            </div>
 
             <div id="standingsA">
                 <div>
@@ -83,7 +88,7 @@
                         <thead>
                             <tr>
                                 <th transl='y'>순위</th>
-                                <th colspan="2" transl='y'>구단</th>
+                                <th transl='y'>구단</th>
                                 <th transl='y'>승점</th>
                                 <th transl='y'>승</th>
                                 <th transl='y'>무</th>
@@ -168,8 +173,9 @@
     
         </div>
 
-        <script src="script.js"></script>
-        <script src="data.js"></script>
+    <script src="script.js"></script>
+    <script type="module" src="./firebase.js"></script>
+    <script type="module" src="./standings.js"></script>
 
     </body>
 

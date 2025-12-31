@@ -64,17 +64,49 @@
 
     <div id="actualContents">
 
-        <div id="matchScore" glass="true"></div>
+        <div id="matchScore" glass="true">
+            <div>
+                <img>
+                <p transl='y'></p>
+            </div>
+            <div>
+                <div>
+                    <div><img></div>
+                    <p transl='y'></p>
+                </div>
+                <div>
+                    <p></p>
+                    <p></p>
+                    <p transl='y'></p>
+                </div>
+                <div>
+                    <div><img></div>
+                    <p transl='y'></p>
+                </div>
+            </div>
+            <div>
+                <p></p>
+                <p></p>
+            </div>
+        </div>
 
         <div class="matchDetail">
-            <button onclick="matchInfo()" transl="y">정보</button>
-            <button onclick="matchLineup()" transl="y" style="font-weight: 300;">라인업</button>
-            <button onclick="matchStat()" transl="y" style="font-weight: 300;">기록</button>
-            <button onclick="matchH2H()" transl="y" style="font-weight: 300;">전적</button>
+            <button transl="y">정보</button>
+            <button transl="y" style="font-weight: 300;">라인업</button>
+            <button transl="y" style="font-weight: 300;">기록</button>
+            <button transl="y" style="font-weight: 300;">전적</button>
         </div>
 
         <div id="matchInfo">
-            <div id="highlight" glass="true"></div>
+            <div id="highlight" glass="true"><a>
+                    <p transl='y'>
+                        하이라이트
+                        <span>
+                            youtube.com
+                        </span>
+                    </p>
+                    <img src='./files/youtube.png'>
+                </a></div>
             <div id="potm" glass="true"></div>
         </div>
 
@@ -161,8 +193,8 @@
         </div>
 
         <div id="matchH2H">
-            <div id="expectedResult" style="display: none;">
-                <!-- <div>
+            <!-- <div id="expectedResult" style="display: none;">
+                <div>
                     예상 경기 결과
                     <img src="./files/help.svg">
                     <div id="help">
@@ -186,8 +218,8 @@
                     <p></p>
                     <p>기대 득점(xG)</p>
                     <p></p>
-                </div> -->
-            </div>
+                </div>
+            </div> -->
             <div id="h2hBar" glass="true">
                 <p></p>
             </div>
@@ -233,12 +265,15 @@
                     </div>
                 </div>
             </div>
+            <div id='recentMatch' glass='true'>
+            </div>
         </div>
 
     </div>
 
     <script src="./script.js"></script>
-    <script src="./data.js"></script>
+    <script type="module" src="./firebase.js"></script>
+    <script type="module" src="./match.js"></script>
 
 </body>
 

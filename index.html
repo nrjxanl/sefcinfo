@@ -53,16 +53,79 @@
 
     <div id="actualContents">
 
-        <div id="nextMatch" glass="true" title="날씨 정보: 기상청 제공"><div><img src="./files/weather.svg"><p transl = 'y'></p><img src="./files/temp.svg"><p></p><img src="./files/wind.svg"><p></p></div><div><p transl = 'y'></p><div><img></div><div><p></p></div><div><img></div><p transl = 'y'></p></div><div><p transl="y"></p></div></div>
+        <div id="nextMatch" glass="true" title="날씨 정보: 기상청 제공">
+            <div><img src="./files/weather.svg">
+                <p transl='y'></p><img src="./files/temp.svg">
+                <p></p><img src="./files/wind.svg">
+                <p></p>
+            </div>
+            <div>
+                <p transl='y'></p>
+                <div>
+                    <img>
+                </div>
+                <div> - </div>
+                <div>
+                    <img>
+                </div>
+                <p transl='y'></p>
+            </div>
+            <div>
+                <p transl="y"></p>
+            </div>
+        </div>
 
-        <div id="prevMatch" glass="true"><div><div><div><img></div><p glass="true"></p></div><div><div><img></div><p glass="true"></p></div><div><div><img></div><p glass="true"></p></div><div><div><img></div><p glass="true"></p></div><div><div><img></div><p glass="true"></p><p glass="true"></p></div></div><a href="./fixtures"><p transl = 'y'>경기 일정 모두 보기&nbsp;&nbsp;》</p></a></div>
-    
-        <div id="standingsHome" glass="true"><div><img src="./files/kleague2.png"></div><table><thead><tr><th transl = 'y'>순위</th><th colspan="2" transl = 'y'>구단</th><th transl = 'y'>승점</th><th transl = 'y'>득점</th></tr></thead><tbody></tbody></table><a href="./standings"><p transl = 'y'>순위 모두 보기&nbsp;&nbsp;》</p></a></div>
+        <div id="prevMatch" glass="true">
+            <div>
+                <div>
+                    <div><img></div>
+                    <p glass="true"></p>
+                </div>
+                <div>
+                    <div><img></div>
+                    <p glass="true"></p>
+                </div>
+                <div>
+                    <div><img></div>
+                    <p glass="true"></p>
+                </div>
+                <div>
+                    <div><img></div>
+                    <p glass="true"></p>
+                </div>
+                <div>
+                    <div><img></div>
+                    <p glass="true"></p>
+                    <p glass="true"></p>
+                </div>
+            </div><a href="./fixtures">
+                <p transl='y'>경기 일정 모두 보기&nbsp;&nbsp;》</p>
+            </a>
+        </div>
+
+        <div id="standingsHome" glass="true">
+            <div><img src="./files/kleague2.png"></div>
+            <table>
+                <thead>
+                    <tr>
+                        <th transl='y'>순위</th>
+                        <th colspan="2" transl='y'>구단</th>
+                        <th transl='y'>승점</th>
+                        <th transl='y'>득점</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <a href="./standings">
+                <p transl='y'>순위 모두 보기&nbsp;&nbsp;》</p>
+            </a>
+        </div>
 
     </div>
 
     <script src="script.js"></script>
-    <script src="data.js"></script>
+    <script type="module" src="./firebase.js"></script>
+    <script type="module" src="./index.js"></script>
 
 </body>
 

@@ -275,7 +275,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #stats > .stats > table > tbody > tr > td:nth-of-type(2) {width: 30vw; font-size: 20px; text-align: left;}
 #stats > .stats > table > tbody > tr > td:nth-of-type(2) > ruby {font-size: 20px;}
 #stats > .stats > table > tbody > tr > td:nth-of-type(2) > ruby > rt {font-size: 12px; font-weight: 300;}
-#stats > .stats > table > tbody > tr > td:nth-of-type(n+3) {font-size: 16px; font-weight: 600;}
+#stats > .stats > table > tbody > tr > td:nth-of-type(n+3) {font-size: 16px; font-weight: 600; width: calc(45vw / 6);}
 #stats > .stats > table > tbody > tr > td:nth-last-of-type(1) {border-radius: 0 20px 20px 0;}
 
 /* 일정 */
@@ -335,7 +335,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #matchScore > div:nth-of-type(2) > div:nth-of-type(2n+1) > div > img {height: 32px;}
 #matchScore > div:nth-of-type(2) > div:nth-of-type(2n+1) > p {font-size: 14px; margin-top: 4px;}
 #matchScore > div:nth-of-type(2) > div:nth-of-type(2) {width: 30vw;}
-#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1) {font-size: 32px; margin: -8px 0 8px 0;}
+#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1) {font-size: 32px; margin: -8px 0 8px 0; white-space: nowrap;}
 #matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2) {width: fit-content; height: fit-content; padding: 2px 8px; margin: auto; font-size: 12px; font-weight: 600; border: 1px solid #05090a; border-radius: 8px;}
 #matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(3) {font-weight: 300; margin-top: 6px;}
 #matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(3) > ruby {font-weight: 300;}
@@ -364,6 +364,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #highlight > a > p > span {margin-left: 2vw; font-weight: 600;}
 #highlight > a > img {width: 8vw; padding: 1vw 0; margin-right: 2vw; border-radius: 50%;}
 
+#potm {display: none; width: 74vw; padding: 1vw 3vw 2vw 3vw; margin: 20px 0 0 10vw; border-radius: 20px;}
 #potm > p {font-size: 16px; padding: 3vw 2vw 2vw 2vw; text-align: left; margin-left: 5vw;}
 #potm > div {width: 74vw; height: 40px; display: flex; align-items: center; justify-content: space-between;}
 #potm > div > p:nth-of-type(1) {font-size: 16px; font-weight: 600; margin-left: 5vw;}
@@ -382,7 +383,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #startingXI > table > tbody > tr > td {height: 27.5vw; display: flex; flex-direction: column; justify-content: center; align-items: center;}
 #startingXI > table > tbody > tr > td > div > img {height: 40px; border-radius: 20px;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(1) {margin: -34px 1px 8px 0; color: #faf5f6; font-family: "KLeagueBasic"; font-size: 20px; letter-spacing: -1px; z-index: 0;}
-#startingXI > table > tbody > tr > td > p:nth-of-type(2) {height: 14px; font-weight: 600; margin-top: 4px;}
+#startingXI > table > tbody > tr > td > p:nth-of-type(2) {height: 14px; font-weight: 600; margin-top: 4px; white-space: nowrap;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(2) > ruby {font-weight: 600;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(2) > ruby > rt {font-size: 10px; font-weight: 300;}
 #startingXI > table > tbody > tr > td > p:nth-of-type(2) > span {display: inline-block;}
@@ -430,9 +431,22 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #matchH2H > div:nth-of-type(4) {width: 80vw; display: flex; border-radius: 8px; overflow: hidden; margin-top: 10vw;}
 #matchH2H > div:nth-of-type(4) > p {font-size: 16px; font-weight: 600; color: #faf5f6; display: flex; align-items: center; justify-content: center;}
 
-#h2hText > div > p:nth-of-type(1) {width: 10vw; height: 10vw; font-size: 16px; border-radius: 50%; display: flex; justify-content: center; align-items: center;}
+#h2hBar > p {width: 80vw; height: 2vw; border-radius: 1vw;}
 
-#h2hGoalsText > div > p:nth-of-type(1) {width: 10vw; height: 10vw; font-size: 16px; border-radius: 50%; display: flex; justify-content: center; align-items: center;}
+#h2hText {display: flex; justify-content: flex-start; margin-top: 5vw;}
+#h2hText > div {display: flex;}
+#h2hText > div > p:nth-of-type(1) {width: 10vw; height: 10vw; margin-left: 10vw; font-size: 16px; border-radius: 50%; display: flex; justify-content: center; align-items: center;}
+#h2hText > div > div > p:nth-of-type(1) {height: 4vw; font-weight: 600; padding: 1vw 0 0 2vw; text-align: left; display: flex; align-items: center;}
+#h2hText > div > div > p:nth-of-type(2) {height: 4vw; font-weight: 600; padding: 0 8vw 0 2vw; text-align: left; display: flex; align-items: center;}
+
+#h2hGoalsBar {margin-top: 40px;}
+#h2hGoalsBar > p {width: 80vw; height: 2vw; border-radius: 1vw;}
+
+#h2hGoalsText {display: flex; justify-content: flex-start; margin-top: 5vw;}
+#h2hGoalsText > div {display: flex;}
+#h2hGoalsText > div > p:nth-of-type(1) {width: 10vw; height: 10vw; margin-left: 10vw; font-size: 16px; border-radius: 50%; display: flex; justify-content: center; align-items: center;}
+#h2hGoalsText > div > div > p:nth-of-type(1) {height: 4vw; font-weight: 600; padding: 1vw 0 0 2vw; text-align: left; display: flex; align-items: center;}
+#h2hGoalsText > div > div > p:nth-of-type(2) {height: 4vw; font-weight: 600; padding: 0 8vw 0 2vw; text-align: left; display: flex; align-items: center;}
 
 #recentMatch {width: 80vw; border-radius: 20px; margin-top: 40px;}
 #recentMatch > div {width: 80vw; height: 60px; border-bottom: 2px solid #05090a20; padding: 4px 0 8px 0;}
@@ -702,8 +716,8 @@ path.cls-64 {pointer-events: none;}
 .modal {width: 100vw; height: 100vh; position: fixed; z-index: 300; top: 0; left: 0; overflow: auto; background: #05090a10; display: flex; align-items: center; justify-content: center;}
 .modal-content {background: #faf6f5; padding: 20px; width: 70vw; max-width: 400px; border-radius: 20px;}
 .modal-content > p:nth-of-type(1) {font-size: 16px; font-weight: 600;}
-.modal-content > p:nth-of-type(2) {font-size: 16px; font-weight: 300; color: #00000080; margin-bottom: 20px;}
-#profile-name-input {width: 100%; padding: 10px; margin: 20px 0; box-sizing: border-box; border: 1px solid #00000080; border-radius: 20px; font-size: 16px; font-weight: 600;}
+.modal-content > p:nth-of-type(2) {font-size: 16px; font-weight: 300; color: #00000060; margin-bottom: 20px;}
+#profile-name-input {width: 100%; padding: 10px; margin: 20px 0; box-sizing: border-box; border: 1px solid #00000060; border-radius: 20px; font-size: 16px; font-weight: 600;}
 #profile-save-btn {padding: 6px 12px; border-radius: 20px; background: #faf6f540; cursor: pointer; font-size: 16px; font-weight: 600;}
 #profile-save-btn:hover {color: #faf6f5; background: #000060c0;}
 

@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEFCiNFO - 기록 분석 리포트</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="../files/favicon.png">
+    <style>
+        :root { 
+            --sefc-blue: #000060; --sefc-red: #d63031; --bg: #f0f2f5; 
+            --white: #ffffff; --gray-light: #f8f9fa; --gray-border: #e9ecef;
+            --orange-achieve: #e67e22; --rank-blue: #0984e3;
+            --scope-total: #444; --scope-home: #d63031; --scope-away: #0984e3;
+        }
+        body { font-family: 'Noto Sans KR', sans-serif; background: var(--bg); margin: 0; padding: 0; color: #333; line-height: 1.6; }
+        header { background: var(--sefc-blue); color: white; padding: 40px 20px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        header h1 { margin: 0; font-size: 24px; letter-spacing: -1px; font-weight: 900; }
+        header p { margin: 8px 0 0; opacity: 0.8; font-size: 13px; }
+
+        .container { max-width: 1050px; margin: -30px auto 100px; padding: 0 15px; }
+        
+        .match-card { background: var(--white); border-radius: 20px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); display: flex; justify-content: space-around; align-items: center; text-align: center; border: 1px solid rgba(0,0,0,0.05); }
+        .match-card .score { font-size: 32px; font-weight: 900; color: var(--sefc-blue); letter-spacing: 1px; flex: 1; }
+        .team-box { flex: 1; }
+        .team-box img { width: 50px; height: 50px; object-fit: contain; margin-bottom: 5px; }
+        .team-box div { font-size: 14px; font-weight: 800; }
+
+        .player-section { background: var(--white); border-radius: 18px; margin-top: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-left: 6px solid var(--sefc-blue); overflow: hidden; }
+        .team-section { border-left-color: var(--orange-achieve); }
+
+        .player-header { 
+            background: #fff; padding: 18px 20px; font-size: 17px; font-weight: 800; color: var(--sefc-blue); 
+            cursor: pointer; display: flex; justify-content: space-between; align-items: center; 
+            transition: background 0.2s; border-bottom: 1px solid var(--gray-border);
+        }
+        .player-header:hover { background: var(--gray-light); }
+        .player-header.active { background: var(--gray-light); color: var(--sefc-red); }
+        .player-content { display: none; } 
+
+        .category-wrapper { border-bottom: 1px solid var(--gray-border); }
+        .category-title-bar { 
+            padding: 15px 20px; display: flex; align-items: center; gap: 8px; cursor: pointer; background: #fff;
+            font-size: 14px; position: sticky; top: 0; z-index: 10; border-bottom: 1px solid #f0f0f0;
+        }
+        .category-title-bar.cat-active { color: var(--sefc-red); background: #fffdfd; }
+        .category-title-bar::after { content: '▼'; margin-left: auto; font-size: 10px; color: #ccc; transition: 0.2s; }
+        .category-title-bar.cat-active::after { content: '▲'; transform: rotate(180deg); color: var(--sefc-red); }
+
+        /* 강조 색상 정의 */
+        .hero-target { background: #ffebeb !important; color: var(--sefc-red) !important; font-weight: 900 !important; }
+        .hero-orange { background: #fff4e6 !important; color: #e67e22 !important; font-weight: 900 !important; }
+        .just-bold { font-weight: 800 !important; color: #222 !important; }
+
+        .update-badge { font-size: 10px; color: var(--sefc-red); font-weight: bold; background: #fff0f0; padding: 2px 6px; border-radius: 4px; border: 1px solid #ffcccc; margin-left: 5px; }
+        .status-tag { font-size: 11px; color: #999; font-weight: normal; }
+
+        .record-item-area { display: none; padding: 20px; background: #fafafa; }
+        .record-box { border: 1px solid var(--gray-border); border-radius: 12px; background: #fff; padding: 12px; margin-top: 5px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 11px; min-width: 480px; }
+        th { text-align: left; color: #888; padding: 10px 8px; border-bottom: 2px solid #eee; font-weight: 600; }
+        td { padding: 12px 8px; border-bottom: 1px solid #f5f5f5; vertical-align: middle; }
+
+        .rank-change-badge, .match-stat-badge { 
+            display: inline-flex; align-items: center; justify-content: center;
+            font-size: 9px; padding: 1px 5px; border-radius: 4px; margin-left: 6px; 
+            font-weight: 900; vertical-align: middle; line-height: 1.2; min-width: 24px;
+        }
+        
+        .rank-up { background: #ffebeb; color: var(--sefc-red); border: 1px solid #ffcccc; }
+        .rank-down { background: #eef7ff; color: var(--rank-blue); border: 1px solid #cce5ff; }
+        .rank-new { background: #fff9db; color: #f08c00; border: 1px solid #ffe066; }
+        .match-stat-badge { background: #e3f2fd; color: var(--rank-blue); border: 1px solid #bbdefb; }
+
+        .col-rank { width: 100px; text-align: center; font-weight: 900; color: #333; font-size: 13px; }
+        .col-val { width: 60px; text-align: center; font-size: 14px; font-weight: 800; }
+        .col-period { font-size: 10.5px; color: #666; line-height: 1.5; white-space: normal !important; }
+
+        .btn-more-toggle { 
+            display: block; width: 100%; margin-top: 15px; padding: 10px; 
+            background: #eee; border: 0; border-radius: 8px; 
+            font-size: 12px; font-weight: 800; color: #666; cursor: pointer; transition: 0.2s;
+        }
+        .btn-more-toggle:hover { background: #e2e2e2; color: #333; }
+        .more-records-container { display: none; }
+
+        .tab-container { display: flex; gap: 4px; margin-bottom: 12px; }
+        .tab-btn { flex: 1; padding: 8px 4px; border: 1px solid #ddd; background: #fff; border-radius: 6px; font-size: 11px; font-weight: 800; cursor: pointer; color: #888; }
+        .tab-btn.active { background: var(--sefc-blue); color: #fff; border-color: var(--sefc-blue); }
+
+        #loading { position: fixed; inset: 0; background: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 10000; }
+        .loader { border: 4px solid #f3f3f3; border-top: 4px solid var(--sefc-blue); border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+
+    <div id="loading">
+        <div class="loader"></div>
+        <p style="margin-top:20px; font-weight:bold; color:var(--sefc-blue);">기록을 집계 중입니다...</p>
+    </div>
+
+    <header>
+        <h1>MATCH RECORD REPORT</h1>
+        <p id="match-info-text">데이터 분석 중...</p>
+    </header>
+
+    <div class="container">
+        <div id="match-hero" class="match-card"></div>
+        <div id="analysis-content"></div>
+    </div>
+
+<script type="module">
+    import { loadData } from '../firebase.js';
+
+    const CAT_LABELS = { g: '득점', a: '도움', p: '공격포인트', y: '경고', r: '퇴장', apps: '출전' };
+    const STREAK_LABELS = { win: '연승', draw: '연무', loss: '연패', unbeaten: '무패', winless: '무승(Winless)', scoring: '연속 득점', conceding: '연속 실점', cleanSheet: '연속 클린시트', noScoring: '연속 무득점' };
+    
+    let currentActiveStats = new Map(); 
+
+    async function init() {
+        try {
+            const [dataA, playerA] = await Promise.all([ loadData('dataA'), loadData('playerA') ]);
+            const todayStr = new Date().toISOString().slice(0,10).replace(/-/g, "");
+            const allIds = Object.keys(dataA).sort();
+            const validIds = allIds.filter(id => id.substring(0, 8) <= todayStr);
+
+            if (validIds.length === 0) return;
+
+            const latestId = validIds[validIds.length - 1];
+            const latestMatch = dataA[latestId];
+            
+            currentActiveStats.clear();
+            ['GK','DF','MF','FW','SUB'].forEach(pos => {
+                if(latestMatch[pos]) latestMatch[pos].forEach(p => {
+                    if(p[1] !== "" || pos !== 'SUB') currentActiveStats.set(p[0], parseStat(p[1]));
+                });
+            });
+
+            const allTimelines = buildTimelines(dataA, validIds);
+            const playerRecords = performExhaustiveAnalysis(allTimelines, latestId, validIds);
+            const teamRecords = performTeamComprehensiveAnalysis(dataA, validIds, latestId);
+            
+            renderHero(latestId, latestMatch);
+            renderTeamResults(teamRecords);
+            renderGroupedResults(playerRecords, playerA);
+
+            $('#loading').fadeOut();
+        } catch (e) { console.error(e); $('#loading p').text('오류 발생'); }
+    }
+
+    function getCompGroup(name) {
+        if (name.includes('승강 플레이오프')) return 'K리그 승강 플레이오프';
+        if (name.includes('K리그')) return 'K리그';
+        if (name.includes('FA CUP') || name.includes('코리아컵')) return '코리아컵(舊 FA CUP)';
+        return name;
+    }
+
+    function parseScore(val) {
+        if (typeof val === 'number') return val;
+        const cleaned = String(val || "0").replace(/<[^>]*>/g, "").replace(/\(.*\)/g, "").trim();
+        return parseInt(cleaned) || 0;
+    }
+
+    function parseStat(s) {
+        const lowS = (s || "").toLowerCase();
+        const g = (lowS.match(/g/g) || []).length;
+        const a = (lowS.match(/a/g) || []).length;
+        return { g, a, y: (lowS.match(/y/g) || []).length, r: (lowS.match(/r/g) || []).length, p: g + a, apps: 1 };
+    }
+
+    function buildTimelines(data, validIds) {
+        const timelines = {};
+        validIds.forEach(mId => {
+            const m = data[mId];
+            const dateStr = `${mId.substring(0,4)}.${mId.substring(4,6)}.${mId.substring(6,8)}.`;
+            const opp = m.home[0] === '서울E' ? m.away[0] : m.home[0];
+            ['GK','DF','MF','FW','SUB'].forEach(pos => {
+                if(!m[pos]) return;
+                m[pos].forEach(p => {
+                    if(p[1] === "" && pos === 'SUB') return;
+                    if(!timelines[p[0]]) timelines[p[0]] = [];
+                    timelines[p[0]].push({ mId, ...parseStat(p[1]), meta: { comp: m.comp[0], round: m.round, date: dateStr, opp: opp } });
+                });
+            });
+        });
+        return timelines;
+    }
+
+    function calculateRanks(list) {
+        const sorted = [...list].sort((a,b) => b.val - a.val || (b.isCurrent ? 1 : -1));
+        let lastVal = -1, curRank = 0;
+        const rankMap = new Map();
+        sorted.forEach((item, idx) => {
+            if (item.val !== lastVal) curRank = idx + 1;
+            rankMap.set(item.pid || item.id, curRank);
+            lastVal = item.val;
+        });
+        return rankMap;
+    }
+
+    function injectRankJumpsStrict(top10List, curFullRankMap, prevRankMap, isAppsTotal, curFullList, prevFullList) {
+        top10List.forEach(item => {
+            const id = item.pid || item.id;
+            const cRank = curFullRankMap.get(id);
+            const pRank = prevRankMap.get(id) || 999;
+            if (item.isCurrent) {
+                if (isAppsTotal && curFullList && prevFullList) {
+                    const myP = prevFullList.find(i => i.pid === id);
+                    const myC = curFullList.find(i => i.pid === id);
+                    let leapCount = 0;
+                    if (myP && myC) {
+                        prevFullList.forEach(otherP => {
+                            if (otherP.pid === id) return;
+                            const otherC = curFullList.find(i => i.pid === otherP.pid) || { val: 0 };
+                            if (otherP.val >= myP.val && myC.val > otherC.val) leapCount++;
+                            else if (otherP.val > myP.val && myC.val === otherC.val) leapCount++;
+                        });
+                    }
+                    if (pRank === 999) item.rankJump = 'NEW';
+                    else if (leapCount > 0) item.rankJump = leapCount; 
+                } else {
+                    if (pRank === 999) item.rankJump = 'NEW';
+                    else if (cRank < pRank) item.rankJump = pRank - cRank; 
+                }
+            } else {
+                if (cRank > pRank && pRank !== 999) item.rankJump = pRank - cRank;
+            }
+        });
+    }
+
+    function performExhaustiveAnalysis(timelines, latestId, validIds) {
+        const results = [];
+        const prevId = validIds.length > 1 ? validIds[validIds.length - 2] : null;
+        ['g', 'a', 'p', 'y', 'r', 'apps'].forEach(cat => {
+            const curFullList = Object.entries(timelines).map(([pid, h]) => {
+                const cur = h.filter(x => x.mId <= latestId);
+                if (cur.length === 0) return null;
+                const val = cur.reduce((s, x) => s + x[cat], 0);
+                return val > 0 ? { pid, val, start: cur[0].meta, end: cur[cur.length-1].meta, isCurrent: cur[cur.length-1].mId === latestId } : null;
+            }).filter(x => x);
+            const curFullRankMap = calculateRanks(curFullList);
+            let prevRankMap = new Map();
+            let prevFullList = [];
+            if (prevId) {
+                prevFullList = Object.entries(timelines).map(([pid, h]) => {
+                    const past = h.filter(x => x.mId <= prevId);
+                    if (past.length === 0) return null;
+                    const val = past.reduce((s, x) => s + x[cat], 0);
+                    return val > 0 ? { pid, val } : null;
+                }).filter(x => x);
+                prevRankMap = calculateRanks(prevFullList);
+            }
+            const top10 = curFullList.sort((a,b) => b.val - a.val || (b.isCurrent ? 1 : -1)).filter((v,i,a) => i < 10 || v.val === a[9]?.val);
+            injectRankJumpsStrict(top10, curFullRankMap, prevRankMap, cat === 'apps', curFullList, prevFullList);
+            currentActiveStats.forEach((stats, pid) => {
+                const pItem = top10.find(i => i.pid === pid && i.isCurrent);
+                if (pItem && pItem.rankJump) results.push({ pid, cat, subType: 'TOTAL', title: `역대 통산 ${CAT_LABELS[cat]} 순위`, list: JSON.parse(JSON.stringify(top10)) });
+            });
+            if (['g', 'a', 'p'].includes(cat)) {
+                let lastAnalysisResults = new Map(); 
+                for (let n = 2; n <= Math.min(validIds.length, 100); n++) {
+                    const windowList = []; const prevWinList = []; let isMeaningfulChange = false;
+                    Object.entries(timelines).forEach(([pid, h]) => {
+                        let maxVal = 0, bestWin = null;
+                        for (let i = 0; i <= h.length - n; i++) {
+                            const win = h.slice(i, i + n);
+                            const val = win.reduce((s, x) => s + x[cat], 0);
+                            if (val > maxVal) { maxVal = val; bestWin = win; }
+                        }
+                        if (maxVal > 1) {
+                            const isCurr = bestWin[bestWin.length-1].mId === latestId;
+                            windowList.push({ pid, val: maxVal, start: bestWin[0].meta, end: bestWin[bestWin.length-1].meta, isCurrent: isCurr });
+                            if (isCurr || lastAnalysisResults.get(pid) !== maxVal) isMeaningfulChange = true;
+                            lastAnalysisResults.set(pid, maxVal);
+                            const prevH = h.filter(x => x.mId <= (prevId || ""));
+                            let pMax = 0;
+                            for (let i = 0; i <= prevH.length - n; i++) {
+                                const pVal = prevH.slice(i, i + n).reduce((s, x) => s + x[cat], 0);
+                                if (pVal > pMax) pMax = pVal;
+                            }
+                            if (pMax > 0) prevWinList.push({ pid, val: pMax });
+                        }
+                    });
+                    if (!isMeaningfulChange || windowList.length === 0) continue;
+                    const curWinRankMap = calculateRanks(windowList); const prevWinRankMap = calculateRanks(prevWinList);
+                    const winTop10 = windowList.sort((a,b) => b.val - a.val || (b.isCurrent ? 1 : -1)).filter((v,i,a) => i < 10 || v.val === a[9]?.val);
+                    injectRankJumpsStrict(winTop10, curWinRankMap, prevWinRankMap, false, windowList, prevWinList);
+                    currentActiveStats.forEach((stats, pid) => {
+                        const pItem = winTop10.find(i => i.pid === pid && i.isCurrent);
+                        if (pItem && pItem.rankJump && stats[cat] > 0) results.push({ pid, cat, subType: 'WINDOW', n, title: `연속 ${n}경기 최다 ${CAT_LABELS[cat]}`, list: JSON.parse(JSON.stringify(winTop10)) });
+                    });
+                }
+            }
+        });
+        return results;
+    }
+
+    function performTeamComprehensiveAnalysis(data, validIds, latestId) {
+        const latestMatch = data[latestId];
+        const latestOpp = latestMatch.home[0] === '서울E' ? latestMatch.away[0] : latestMatch.home[0];
+        const results = { latestOpp, cumulative: { total: {}, season: {} }, h2h: { total: {}, rankings: [] }, rankings: [] };
+        const thisSeasonYear = latestId.substring(0, 4);
+        const prevId = validIds.length > 1 ? validIds[validIds.length - 2] : null;
+        const comps = ["전체", "K리그", "코리아컵(舊 FA CUP)", "K리그 승강 플레이오프"];
+        const scopes = ["통합", "홈", "원정"];
+
+        comps.forEach(comp => {
+            results.cumulative.total[comp] = {}; results.cumulative.season[comp] = {};
+            scopes.forEach(scope => {
+                const getStats = (ids) => {
+                    let w=0, d=0, l=0, gf=0, ga=0, ast=0;
+                    ids.forEach(id => {
+                        const m = data[id]; const isHome = m.home[0] === "서울E";
+                        const myS = parseScore(isHome ? m.homeScore : m.awayScore); const oppS = parseScore(isHome ? m.awayScore : m.homeScore);
+                        if(myS > oppS) w++; else if(myS === oppS) d++; else l++;
+                        gf += myS; ga += oppS;
+                        ['GK','DF','MF','FW','SUB'].forEach(pos => { if(m[pos]) m[pos].forEach(p => ast += (p[1].match(/a/g) || []).length); });
+                    });
+                    return { matches: ids.length, w, d, l, pts: w*3+d, gf, ga, gd: gf-ga, ast };
+                };
+                const filterIds = (baseIds) => baseIds.filter(id => {
+                    const m = data[id]; const normComp = getCompGroup(m.comp[0]);
+                    return (comp === "전체" || normComp === comp) && (scope === "통합" || (scope === "홈" && m.home[0] === "서울E") || (scope === "원정" && m.away[0] === "서울E"));
+                });
+                results.cumulative.total[comp][scope] = getStats(filterIds(validIds));
+                results.cumulative.season[comp][scope] = getStats(filterIds(validIds.filter(id => id.startsWith(thisSeasonYear))));
+            });
+
+            scopes.forEach(scope => {
+                const curMatches = validIds.filter(id => {
+                    const m = data[id]; const normComp = getCompGroup(m.comp[0]);
+                    return (comp === "전체" || normComp === comp) && (scope === "통합" || (scope === "홈" && m.home[0] === "서울E") || (scope === "원정" && m.away[0] === "서울E"));
+                });
+                const prevMatches = curMatches.filter(id => id <= (prevId || ""));
+                extractAndRankTeam(curMatches, prevMatches, data, comp, scope, latestId, prevId, results.rankings);
+            });
+        });
+
+        comps.forEach(comp => {
+            results.h2h.total[comp] = {};
+            scopes.forEach(scope => {
+                const h2hMatches = validIds.filter(id => {
+                    const m = data[id]; const opp = m.home[0] === '서울E' ? m.away[0] : m.home[0];
+                    const normComp = getCompGroup(m.comp[0]);
+                    return opp === latestOpp && (comp === "전체" || normComp === comp) && (scope === "통합" || (scope === "홈" && m.home[0] === "서울E") || (scope === "원정" && m.away[0] === "서울E"));
+                });
+                const curH2H = h2hMatches; const prevH2H = h2hMatches.filter(id => id <= (prevId || ""));
+                let w=0, d=0, l=0;
+                h2hMatches.forEach(id => {
+                    const m = data[id]; const myS = parseScore(m.home[0] === "서울E" ? m.homeScore : m.awayScore); const oppS = parseScore(m.home[0] === "서울E" ? m.awayScore : m.homeScore);
+                    if(myS > oppS) w++; else if(myS === oppS) d++; else l++;
+                });
+                results.h2h.total[comp][scope] = { matches: h2hMatches.length, w, d, l, pts: w*3+d };
+                extractAndRankTeam(curH2H, prevH2H, data, comp, scope, latestId, prevId, results.h2h.rankings, true);
+            });
+        });
+        return results;
+    }
+
+    function extractAndRankTeam(curMatches, prevMatches, data, comp, scope, latestId, prevId, targetArr, isH2H = false) {
+        const getStreaks = (matches) => {
+            const out = {};
+            Object.keys(STREAK_LABELS).forEach(type => {
+                const list = []; let current = []; let sW=0, sD=0, sL=0;
+                matches.forEach((id, idx) => {
+                    const m = data[id]; const isHome = m.home[0] === "서울E";
+                    const myS = parseScore(isHome ? m.homeScore : m.awayScore); const oppS = parseScore(isHome ? m.awayScore : m.homeScore);
+                    let hit = false;
+                    if (type === 'win') hit = myS > oppS; else if (type === 'draw') hit = myS === oppS; else if (type === 'loss') hit = myS < oppS; else if (type === 'unbeaten') hit = myS >= oppS; else if (type === 'winless') hit = myS <= oppS; else if (type === 'scoring') hit = myS > 0; else if (type === 'conceding') hit = oppS > 0; else if (type === 'cleanSheet') hit = oppS === 0; else if (type === 'noScoring') hit = myS === 0;
+                    if (hit) { current.push(id); if (myS > oppS) sW++; else if (myS === oppS) sD++; else sL++; }
+                    if (!hit || idx === matches.length - 1) {
+                        if (current.length > 0) {
+                            const startM = data[current[0]], endM = data[current[current.length-1]];
+                            let dStr = (type === 'win') ? `(${current.length}승)` : (type === 'draw' ? `(${current.length}무)` : (type === 'loss' ? `(${current.length}패)` : (type === 'unbeaten' ? `(${sW}승 ${sD}무)` : (type === 'winless' ? `(${sD}무 ${sL}패)` : `(${current.length}경기)`))));
+                            list.push({ id: `ST_${isH2H?'H':'T'}_${type}_${comp}_${scope}_${current[0]}`, scope, val: current.length, detail: dStr, isCurrent: current.includes(latestId), start: { date: current[0].substring(0,4)+'.'+current[0].substring(4,6)+'.'+current[0].substring(6,8)+'.', comp: startM.comp[0], round: startM.round, opp: startM.home[0]==='서울E'?startM.away[0]:startM.home[0] }, end: { date: current[current.length-1].substring(0,4)+'.'+current[current.length-1].substring(4,6)+'.'+current[current.length-1].substring(6,8)+'.', comp: endM.comp[0], round: endM.round, opp: endM.home[0]==='서울E'?endM.away[0]:endM.home[0] } });
+                        }
+                        current = []; sW=0; sD=0; sL=0;
+                    }
+                });
+                out[type] = list;
+            });
+            return out;
+        };
+        const cS = getStreaks(curMatches); const pS = getStreaks(prevMatches);
+        Object.keys(STREAK_LABELS).forEach(type => {
+            if (cS[type].length > 0) {
+                const top10 = cS[type].sort((a,b) => b.val - a.val || (b.isCurrent?1:-1)).filter((v,i,a) => i < 10 || v.val === a[9]?.val);
+                injectRankJumpsStrict(top10, calculateRanks(cS[type]), calculateRanks(pS[type]), false);
+                targetArr.push({ comp, scope, type: 'streak', streakType: type, title: `역대 최다 ${STREAK_LABELS[type]} 기록`, list: top10 });
+            }
+        });
+        const getMatchesRecords = (matches) => {
+            const out = { bestGF: [], mostGA: [], bestGD: [], worstGD: [] };
+            ['bestGF', 'mostGA', 'bestGD', 'worstGD'].forEach(type => {
+                out[type] = matches.map(id => {
+                    const m = data[id]; const isHome = m.home[0] === "서울E";
+                    const myS = parseScore(isHome ? m.homeScore : m.awayScore); const oppS = parseScore(isHome ? m.awayScore : m.homeScore);
+                    let val = (type === 'bestGF') ? myS : (type === 'mostGA') ? oppS : (type === 'bestGD') ? myS - oppS : oppS - myS;
+                    const dStr = id.substring(0,4)+'.'+id.substring(4,6)+'.'+id.substring(6,8)+'.';
+                    return { id: `BM_${isH2H?'H':'T'}_${type}_${comp}_${scope}_${id}`, scope, val, score: isHome?`${myS}:${oppS}`:`${oppS}:${myS}`, isCurrent: id === latestId, start: { date: dStr, comp: m.comp[0], round: m.round, opp: isHome?m.away[0]:m.home[0] }, end: { date: dStr, comp: m.comp[0], round: m.round, opp: isHome?m.away[0]:m.home[0] } };
+                }).filter(r => r.val > 0);
+            });
+            return out;
+        };
+        const cM = getMatchesRecords(curMatches); const pM = getMatchesRecords(prevMatches);
+        ['bestGF', 'mostGA', 'bestGD', 'worstGD'].forEach(type => {
+            if (cM[type].length > 0) {
+                const top10 = cM[type].sort((a,b) => b.val - a.val || (b.isCurrent?1:-1)).filter((v,i,a) => i < 10 || v.val === a[9]?.val);
+                injectRankJumpsStrict(top10, calculateRanks(cM[type]), calculateRanks(pM[type]), false);
+                let label = (type === 'bestGF') ? '최다 득점' : (type === 'mostGA' ? '최다 실점' : (type === 'bestGD' ? '최다 점수 차 승리' : '최다 점수 차 패배'));
+                targetArr.push({ comp, scope, type: 'match', matchType: type, title: `역대 ${label} 경기`, list: top10 });
+            }
+        });
+    }
+
+    function renderScopeTabs(uniqueId) {
+        return `<div class="tab-container">
+            <button class="tab-btn active btn-total" onclick="switchTableScope(this, '${uniqueId}', '통합')">통합</button>
+            <button class="tab-btn btn-home" onclick="switchTableScope(this, '${uniqueId}', '홈')">홈</button>
+            <button class="tab-btn btn-away" onclick="switchTableScope(this, '${uniqueId}', '원정')">원정</button>
+        </div>`;
+    }
+
+    window.switchTableScope = (btn, uniqueId, scope) => {
+        const $btns = $(btn).closest('.tab-container').find('.tab-btn');
+        $btns.removeClass('active');
+        $(btn).addClass('active');
+        const $group = $(`.group-${uniqueId}`);
+        $group.find('.scope-content').hide();
+        $group.find(`.scope-content[data-scope="${scope}"]`).fadeIn(100);
+    };
+
+    function countBrokenRecords(rankings, compFilter = null) {
+        let count = 0;
+        rankings.forEach(r => {
+            if (compFilter && r.comp !== compFilter) return;
+            const brokenItems = r.list.filter(item => item.rankJump && item.isCurrent);
+            count += brokenItems.length;
+        });
+        return count;
+    }
+
+    function renderTeamResults(team) {
+        const container = $('#analysis-content').empty();
+        const latestOpp = team.latestOpp;
+        let html = `<div class="player-section team-section"><div class="player-header" onclick="toggleSection(this)">CLUB RECORDS (서울 이랜드 FC)<span class="status-tag">구단 통합 리포트</span></div><div class="player-content">`;
+
+        const h2hComps = Object.keys(team.h2h.total).filter(c => team.h2h.total[c]["통합"].matches > 0);
+        const h2hBrokenCount = countBrokenRecords(team.h2h.rankings);
+        const h2hBadge = h2hBrokenCount > 0 ? `<span class="update-badge">${h2hBrokenCount}개 경신</span>` : "";
+
+        html += `<div class="category-wrapper"><div class="category-title-bar" onclick="toggleCategory(this)"><b>상대 전적 및 기록 (vs ${latestOpp})</b>${h2hBadge}</div><div class="record-item-area">`;
+        html += renderCompTabs(h2hComps, 'h2hComp');
+        h2hComps.forEach((comp) => {
+            html += `<div class="comp-content h2hComp-content" data-comp="${comp}" style="${comp === '전체' ? 'display:block;' : 'display:none;'}">`;
+            const summaryId = `h2h_sum_${comp.replace(/\s/g,'_')}`;
+            html += `<div class="group-${summaryId}"><span class="rep-record-label">[${comp} vs ${latestOpp} 전적 요약]</span>${renderScopeTabs(summaryId)}`;
+            ["통합", "홈", "원정"].forEach(scope => {
+                const s = team.h2h.total[comp][scope];
+                html += `<div class="scope-content" data-scope="${scope}" style="${scope === '통합' ? 'display:block;' : 'display:none;'}">
+                    <div class="record-box"><table><thead><tr><th>경기</th><th>승점</th><th>승</th><th>무</th><th>패</th></tr></thead><tbody><tr class="${scope === '통합' ? 'just-bold' : ''}"><td>${s.matches}</td><td>${s.pts}</td><td>${s.w}</td><td>${s.d}</td><td>${s.l}</td></tr></tbody></table></div></div>`;
+            });
+            html += `</div>`;
+
+            const rankings = team.h2h.rankings.filter(r => r.comp === comp);
+            const uniqueTitles = [...new Set(rankings.map(r => r.title))];
+            uniqueTitles.forEach((title, tIdx) => {
+                const rankId = `h2h_rank_${comp.replace(/\s/g,'_')}_${tIdx}`;
+                html += `<div class="group-${rankId}" style="margin-top:25px;"><span class="rep-record-label" style="font-size:12px; color:#666;">[${title}]</span>${renderScopeTabs(rankId)}`;
+                ["통합", "홈", "원정"].forEach(scope => {
+                    const r = rankings.find(rank => rank.title === title && rank.scope === scope);
+                    html += `<div class="scope-content" data-scope="${scope}" style="${scope === '통합' ? 'display:block;' : 'display:none;'}">${r ? renderTeamRankingTable(r, true) : '<div class="record-box" style="text-align:center; color:#ccc; font-size:11px;">기록 없음</div>'}</div>`;
+                });
+                html += `</div>`;
+            });
+            html += `</div>`;
+        });
+        html += `</div></div>`;
+
+        html += `<div class="category-wrapper"><div class="category-title-bar" onclick="toggleCategory(this)"><b>구단 성적 요약 및 대회별 전적 합산</b></div><div class="record-item-area">`;
+        const sumId = 'club_summary';
+        html += `<div class="group-${sumId}">${renderScopeTabs(sumId)}`;
+        ["통합", "홈", "원정"].forEach(scope => {
+            html += `<div class="scope-content" data-scope="${scope}" style="${scope === '통합' ? 'display:block;' : 'display:none;'}">
+                <div class="record-box"><table><thead><tr><th>대회 구분</th><th>경기</th><th>승점</th><th>승</th><th>무</th><th>패</th><th>득점</th><th>실점</th><th>득실</th></tr></thead><tbody>`;
+            ["전체", "K리그", "코리아컵(舊 FA CUP)", "K리그 승강 플레이오프"].forEach(group => {
+                const s = team.cumulative.total[group][scope];
+                if (s.matches === 0) return;
+                const gdStr = s.gd > 0 ? `+${s.gd}` : s.gd;
+                html += `<tr class="${scope === '통합' ? 'just-bold' : ''}"><td>${group}</td><td>${s.matches}</td><td>${s.pts}</td><td>${s.w}</td><td>${s.d}</td><td>${s.l}</td><td>${s.gf}</td><td>${s.ga}</td><td>${gdStr}</td></tr>`;
+            });
+            html += `</tbody></table></div></div>`;
+        });
+        html += `</div></div></div>`;
+
+        ["전체", "K리그", "코리아컵(舊 FA CUP)", "K리그 승강 플레이오프"].forEach((group, gIdx) => {
+            if (team.cumulative.total[group]["통합"].matches === 0) return;
+            const groupBrokenCount = countBrokenRecords(team.rankings, group);
+            const groupBadge = groupBrokenCount > 0 ? `<span class="update-badge">${groupBrokenCount}개 경신</span>` : "";
+
+            html += `<div class="category-wrapper"><div class="category-title-bar" onclick="toggleCategory(this)"><b>역대 ${group} 순위 및 기록</b>${groupBadge}</div><div class="record-item-area">`;
+            const seasonId = `season_sum_${gIdx}`;
+            html += `<div class="group-${seasonId}"><span class="rep-record-label" style="font-size:12px;">이번 시즌 성적 요약</span>${renderScopeTabs(seasonId)}`;
+            ["통합", "홈", "원정"].forEach(scope => {
+                const sc = team.cumulative.season[group][scope];
+                const gdStr = sc.gd > 0 ? `+${sc.gd}` : sc.gd;
+                html += `<div class="scope-content" data-scope="${scope}" style="${scope === '통합' ? 'display:block;' : 'display:none;'}">
+                    ${sc.matches > 0 ? `<div class="record-box"><table><thead><tr><th>경기</th><th>승점</th><th>승</th><th>무</th><th>패</th><th>득점</th><th>실점</th><th>득실</th></tr></thead><tbody><tr class="${scope === '통합' ? 'just-bold' : ''}"><td>${sc.matches}</td><td>${sc.pts}</td><td>${sc.w}</td><td>${sc.d}</td><td>${sc.l}</td><td>${sc.gf}</td><td>${sc.ga}</td><td>${gdStr}</td></tr></tbody></table></div>` : '<div class="record-box" style="text-align:center; color:#ccc; font-size:11px;">데이터 없음</div>'}</div>`;
+            });
+            html += `</div>`;
+
+            const groupRanks = team.rankings.filter(r => r.comp === group);
+            const uniqueTitles = [...new Set(groupRanks.map(r => r.title))];
+            uniqueTitles.forEach((title, tIdx) => {
+                const rankId = `club_rank_${gIdx}_${tIdx}`;
+                html += `<div class="group-${rankId}" style="margin-top:25px;"><span class="rep-record-label" style="font-size:12px; color:#666;">[${title}]</span>${renderScopeTabs(rankId)}`;
+                ["통합", "홈", "원정"].forEach(scope => {
+                    const r = groupRanks.find(rank => rank.title === title && rank.scope === scope);
+                    html += `<div class="scope-content" data-scope="${scope}" style="${scope === '통합' ? 'display:block;' : 'display:none;'}">${r ? renderTeamRankingTable(r, false) : '<div class="record-box" style="text-align:center; color:#ccc; font-size:11px;">기록 없음</div>'}</div>`;
+                });
+                html += `</div>`;
+            });
+            html += `</div></div>`;
+        });
+        container.append(html + `</div></div>`);
+    }
+
+    function renderCompTabs(comps, containerId) {
+        let btns = comps.map(c => `<button class="tab-btn ${c==='전체'?'active':''}" onclick="switchComp(this, '${containerId}', '${c}')">${c}</button>`).join('');
+        return `<div class="tab-container" style="margin-bottom:10px;">${btns}</div><hr style="border:0; border-top:1px solid #eee; margin-bottom:15px;">`;
+    }
+
+    window.switchComp = (btn, containerId, comp) => {
+        const $parent = $(btn).closest('.record-item-area');
+        $(btn).siblings().removeClass('active');
+        $(btn).addClass('active');
+        $parent.find(`.${containerId}-content`).hide();
+        $parent.find(`.${containerId}-content[data-comp="${comp}"]`).fadeIn(150);
+    };
+
+    function renderTeamRankingTable(ranking, isH2H = false) {
+        let lastV = -1, curR = 0;
+        const rows = ranking.list.map((item, idx) => {
+            if(item.val !== lastV) curR = idx + 1;
+            lastV = item.val;
+            let rankBadge = "";
+            if (item.rankJump === 'NEW') rankBadge = `<span class="rank-change-badge rank-new">NEW</span>`;
+            else if (typeof item.rankJump === 'number' && item.rankJump !== 0) {
+                const cls = item.rankJump > 0 ? "rank-up" : "rank-down";
+                const sign = item.rankJump > 0 ? "+" : ""; 
+                rankBadge = `<span class="rank-change-badge ${cls}">${sign}${item.rankJump}</span>`;
+            }
+            const valDisplay = ranking.type === 'streak' ? `${item.val} <span style="font-size:10px; color:#888;">${item.detail}</span>` : `${item.val}`;
+            const oppStart = isH2H ? "" : ` (vs ${item.start.opp})`;
+            const oppEnd = isH2H ? "" : ` (vs ${item.end.opp})`;
+            const periodInfo = ranking.type === 'match' 
+                ? `${item.start.date} ${item.start.round}${oppStart} <b style="color:var(--sefc-blue); margin-left:5px;">[${item.score}]</b>` 
+                : `${item.start.date} ${item.start.round}${oppStart}<br>~ ${item.end.date} ${item.end.round}${oppEnd}`;
+            return `<tr class="${item.isCurrent ? 'hero-target' : ''}"><td class="col-rank">${curR}${rankBadge}</td><td class="col-val" style="width:110px; text-align:left;">${valDisplay}</td><td class="col-period">${periodInfo}</td></tr>`;
+        }).join('');
+        return `<div class="record-box"><table><thead><tr><th class="col-rank">순위</th><th class="col-val">기록</th><th>구간</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+    }
+
+    function renderGroupedResults(records, playerA) {
+        const container = $('#analysis-content');
+        const groupedByPlayer = {};
+        records.forEach(r => { if (!groupedByPlayer[r.pid]) groupedByPlayer[r.pid] = []; groupedByPlayer[r.pid].push(r); });
+        Object.keys(groupedByPlayer).sort((a,b) => (playerA[a]?.name||a).localeCompare(playerA[b]?.name||b)).forEach(pid => {
+            const pName = playerA[pid]?.name || pid; const playerRecords = groupedByPlayer[pid];
+            let playerHtml = `<div class="player-section"><div class="player-header" onclick="toggleSection(this)">${pName}<span class="status-tag">${playerRecords.length}개의 기록 경신</span></div><div class="player-content">`;
+            const categories = {};
+            playerRecords.forEach(r => {
+                let key = r.subType === 'TOTAL' ? `TOTAL_${r.cat}` : (r.subType === 'WINDOW' ? `WINDOW_${r.cat}` : `STREAK`);
+                if (!categories[key]) categories[key] = []; categories[key].push(r);
+            });
+            Object.keys(categories).forEach(key => {
+                const group = categories[key]; if (key.startsWith('WINDOW')) group.sort((a,b) => a.n - b.n);
+                const rep = group[0]; const others = group.slice(1);
+                let displayTitle = key.startsWith('WINDOW') ? `연속 n경기 최다 ${CAT_LABELS[rep.cat]} 기록` : rep.title;
+                let groupHtml = `<div class="category-wrapper"><div class="category-title-bar" onclick="toggleCategory(this)"><b>${displayTitle}</b>${others.length > 0 ? `<span class="update-badge" style="background:#eee; color:#666; border-color:#ddd;">외 ${others.length}개</span>` : ''}</div><div class="record-item-area"><span class="rep-record-label">[대표 기록: ${rep.title}]</span>${renderRecordTable(rep, playerA, pid)}${others.length > 0 ? `<button class="btn-more-toggle" onclick="toggleMore(this)">다른 모든 경기 수 구간 보기 (+${others.length})</button><div class="more-records-container">${others.map(o => `<div style="margin-top:25px; padding-top:15px; border-top:1px dashed #eee;"><span class="rep-record-label" style="font-size:13px; color:#aaa;">[${o.title}]</span>${renderRecordTable(o, playerA, pid)}</div>`).join('')}</div>` : ''}</div></div>`;
+                playerHtml += groupHtml;
+            });
+            container.append(playerHtml + `</div></div>`);
+        });
+    }
+
+    function renderRecordTable(r, playerA, targetPid) {
+        let lastV = -1, curR = 0;
+        const rows = r.list.map((item, idx) => {
+            if(item.val !== lastV) curR = idx + 1;
+            lastV = item.val;
+            
+            const stats = currentActiveStats.get(item.pid); // 출전 여부 및 스탯
+            const isTarget = (item.pid === targetPid);      // 선수 본인 여부
+            const isRankUp = (item.rankJump === 'NEW' || (typeof item.rankJump === 'number' && item.rankJump > 0)); // 순위 상승 여부
+            
+            let rowClass = "";
+            let nameStyle = "";
+
+            // [로직 적용]
+            if (isTarget && item.isCurrent) {
+                // 1. 선수 본인이며 이번 경기 결과가 포함됨: 빨간색 강조
+                rowClass = "hero-target";
+            } else if (stats && !isTarget) {
+                if (item.isCurrent && isRankUp) {
+                    // 2. 본인이 아니고 이번 경기 출전했으며 순위 상승: 주황색 강조
+                    rowClass = "hero-orange";
+                } else {
+                    // 3. 본인이 아니고 이번 경기 출전했으나 순위 변동 없음: 볼드체만
+                    nameStyle = "font-weight:800; color:#222;";
+                }
+            }
+            // 4. 나머지: 강조 없음 (rowClass, nameStyle 공백)
+
+            let rankBadge = "";
+            if (item.rankJump === 'NEW') rankBadge = `<span class="rank-change-badge rank-new">NEW</span>`;
+            else if (typeof item.rankJump === 'number' && item.rankJump !== 0) {
+                const cls = item.rankJump > 0 ? "rank-up" : "rank-down";
+                const sign = item.rankJump > 0 ? "+" : ""; 
+                rankBadge = `<span class="rank-change-badge ${cls}">${sign}${item.rankJump}</span>`;
+            }
+            
+            let statBadge = "";
+            if (item.isCurrent && stats) {
+                if (stats[r.cat] > 0) statBadge = `<span class="match-stat-badge">+${stats[r.cat]} ${CAT_LABELS[r.cat]}</span>`;
+                else if (r.cat === 'apps') statBadge = `<span class="match-stat-badge">+1 출전</span>`;
+            }
+
+            return `<tr class="${rowClass}">
+                <td class="col-rank">${curR}${rankBadge}</td>
+                <td class="col-name" style="${nameStyle}">${playerA[item.pid]?.name || item.pid}${statBadge}</td>
+                <td class="col-val">${item.val}</td>
+                <td class="col-period">${item.start.date} ${item.start.round} (vs ${item.start.opp})<br>~ ${item.end.date} ${item.end.round} (vs ${item.end.opp})</td>
+            </tr>`;
+        }).join('');
+        return `<div class="record-box"><table><thead><tr><th class="col-rank">순위</th><th>선수</th><th class="col-val">기록</th><th>구간</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+    }
+
+    window.toggleSection = (el) => { 
+        const $t = $(el).next(); const open = $t.is(':visible'); 
+        $('.player-content').slideUp(150); $('.player-header').removeClass('active'); 
+        if (!open) { $(el).addClass('active'); $t.slideDown(150); } 
+    };
+    window.toggleCategory = (el) => { 
+        const $t = $(el).next(); const open = $t.is(':visible'); 
+        $(el).closest('.player-content').find('.record-item-area').slideUp(150); 
+        $(el).closest('.player-content').find('.category-title-bar').removeClass('cat-active'); 
+        if (!open) { $(el).addClass('cat-active'); $t.slideDown(150); } 
+    };
+    window.toggleMore = (el) => { 
+        $(el).next().slideToggle(150); 
+        const txt = $(el).text(); 
+        $(el).text(txt.includes('보기') ? '기록 접기 ▲' : txt.replace('접기 ▲', '보기')); 
+    };
+
+    function renderHero(id, m) {
+        $('#match-hero').html(`<div class="team-box"><img src="../files/${m.home[1]}_s.png"><div>${m.home[0]}</div></div><div class="score">${m.homeScore} : ${m.awayScore}</div><div class="team-box"><img src="../files/${m.away[1]}_s.png"><div>${m.away[0]}</div></div>`);
+        $('#match-info-text').text(`${m.comp[0]} | ${m.round} (${id.substring(0,4)}.${id.substring(4,6)}.${id.substring(6,8)}.) 리포트`);
+    }
+    $(document).ready(init);
+</script>
+</body>
+</html>
