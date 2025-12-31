@@ -130,7 +130,12 @@ function render(dataA, dataU18, dataU15, playerA, playerU18, playerU15, playerNu
         currSortIdx = idx + 1;
 
         sort(currSortIdx);
-    })
+    });
+
+    // 클릭 시 선수 프로필로 이동
+    $('#stats > .stats > table > tbody > tr').click(function() {
+        window.location.href = `./player?${$(this).attr('class')}`;
+    });
 }
 
 // 스탯 계산
