@@ -523,7 +523,7 @@ function matchH2H(matchId) {
         $('#matchInfo').css('display', 'none');
         $('#matchLineup').css('display', 'none');
         $('#matchStat').css('display', 'none');
-        $('#matchH2H').css('display', 'block');
+        $('#matchH2H').css('display', 'flex');
     }
 
     $('.matchDetail > button').css('font-weight', 300);
