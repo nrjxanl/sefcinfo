@@ -171,7 +171,7 @@ function afterLoading() {
     history.scrollRestoration = 'manual';
 
     // 미완성 기능 숨기기
-    $('#menu > div:nth-of-type(n + 7)').css('display', 'none');
+    $('#menu > div:nth-of-type(n + 6)').css('display', 'none');
 }
 
 // 메뉴 열기
