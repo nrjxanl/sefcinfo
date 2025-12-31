@@ -120,6 +120,12 @@
         .player-grid-row input:nth-child(3) { flex: 1; text-align: center; }
         .player-grid-row input:nth-child(4) { flex: 0.8; text-align: center; }
 
+        /* 세부 지표 스타일 */
+        .stat-grid { display: flex; flex-direction: column; gap: 10px; background: #f9f9f9; padding: 15px; border-radius: 8px; }
+        .stat-row { display: flex; gap: 10px; align-items: center; }
+        .stat-label { flex: 1; font-weight: bold; font-size: 14px; color: #555; }
+        .stat-input { flex: 1; text-align: center; padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
+
         .sub-title { font-size: 1.2em; font-weight: bold; margin: 30px 0 15px; color: #333; border-bottom: 2px solid #000060; padding-bottom: 8px;}
         .helper-text { font-size: 13px; color: #666; margin-top: -15px; margin-bottom: 15px; line-height: 1.4; }
 
@@ -229,13 +235,17 @@
             <div class="row">
                 <div class="input-group"><label>경기장</label><input type="text" id="m_stadium"></div>
                 <div class="input-group">
-                    <label>시간</label>
+                    <label>시각</label>
                     <div style="display:flex; gap:5px; align-items:center;">
                         <input type="tel" id="m_hour" placeholder="시" style="text-align:center;">
                         <span>:</span>
                         <input type="tel" id="m_min" placeholder="분" style="text-align:center;">
                     </div>
                 </div>
+            </div>
+            <div class="input-group">
+                <label>하이라이트 (URL)</label>
+                <input type="text" id="m_hl" placeholder="예: https://youtu.be/...">
             </div>
 
             <div class="sub-title">팀 & 스코어</div>
@@ -268,6 +278,16 @@
             <div class="sub-title">선수 명단 (이름 입력 시 ID 자동)</div>
             <p class="helper-text">* 입력하면 자동으로 다음 칸이 생성됩니다.</p>
             <div id="match-player-inputs"></div>
+
+            <div class="sub-title">경기 세부 지표</div>
+            <div class="stat-grid" id="match-stats-inputs">
+                <div class="stat-row" style="font-weight:bold; border-bottom:1px solid #ccc; padding-bottom:5px;">
+                    <div class="stat-label">항목</div>
+                    <div class="stat-input" style="border:none; background:none;">홈</div>
+                    <div class="stat-input" style="border:none; background:none;">원정</div>
+                </div>
+                </div>
+
             <button class="btn-submit" id="btnSaveMatch">Firebase에 저장 (덮어쓰기)</button>
             <button class="btn-delete" id="btnDeleteMatch">현재 날짜의 경기 데이터 삭제</button>
         </div>
@@ -540,6 +560,20 @@
             if(hasValue) addMatchPlayerRow(pos);
         }
 
+        // 세부 지표 입력칸 생성
+        const statLabels = ['점유율', '슈팅', '유효슈팅', '파울', '경고', '퇴장', '경고 누적', '코너킥', '프리킥', '오프사이드'];
+        const statContainer = document.getElementById('match-stats-inputs');
+        statLabels.forEach((label, idx) => {
+            const row = document.createElement('div');
+            row.className = 'stat-row';
+            row.innerHTML = `
+                <div class="stat-label">${label}</div>
+                <input type="text" class="stat-input m-stat-home" id="m_stat_home_${idx}" placeholder="0">
+                <input type="text" class="stat-input m-stat-away" id="m_stat_away_${idx}" placeholder="0">
+            `;
+            statContainer.appendChild(row);
+        });
+
         document.body.addEventListener('input', function(e) {
             if (e.target.classList.contains('p-name-auto')) {
                 const nameInput = e.target;
@@ -770,6 +804,7 @@ function updateEmblemPreview(inputId, previewId, useSearch = false) {
                     document.getElementById('m_compName').value = data.comp?.[0] || '';
                     document.getElementById('m_compCode').value = data.comp?.[1] || '';
                     document.getElementById('m_stadium').value = data.stadium || '';
+                    document.getElementById('m_hl').value = data.hl || '';
                     
                     if(data.time) {
                         const [h, m] = data.time.split(':');
@@ -784,6 +819,17 @@ function updateEmblemPreview(inputId, previewId, useSearch = false) {
                     document.getElementById('m_awayCode').value = data.away?.[1] || '';
                     document.getElementById('m_awayScore').value = data.awayScore || '';
                     document.getElementById('m_awayScorer').value = data.awayScorer || '';
+
+                    // 세부 지표 불러오기
+                    if(data.matchStat && data.matchStat.length === 20) {
+                        for(let i=0; i<10; i++) {
+                            document.getElementById(`m_stat_home_${i}`).value = data.matchStat[i*2];
+                            document.getElementById(`m_stat_away_${i}`).value = data.matchStat[i*2 + 1];
+                        }
+                    } else {
+                        // 데이터가 없거나 형식이 다르면 초기화
+                        document.querySelectorAll('.stat-input').forEach(input => input.value = '');
+                    }
 
                     updateEmblemPreview('m_homeCode', 'preview_home');
                     updateEmblemPreview('m_awayCode', 'preview_away');
@@ -828,6 +874,13 @@ function updateEmblemPreview(inputId, previewId, useSearch = false) {
                 return result;
             };
 
+            // 세부 지표 배열 생성
+            const matchStats = [];
+            for(let i=0; i<10; i++) {
+                matchStats.push(document.getElementById(`m_stat_home_${i}`).value || "");
+                matchStats.push(document.getElementById(`m_stat_away_${i}`).value || "");
+            }
+
             const matchData = {
                 "round": document.getElementById('m_round').value,
                 "comp": [document.getElementById('m_compName').value, document.getElementById('m_compCode').value],
@@ -839,8 +892,8 @@ function updateEmblemPreview(inputId, previewId, useSearch = false) {
                 "awayScore": document.getElementById('m_awayScore').value,
                 "homeScorer": document.getElementById('m_homeScorer').value,
                 "awayScorer": document.getElementById('m_awayScorer').value,
-                "hl": "",
-                "matchStat": Array(20).fill(""),
+                "hl": document.getElementById('m_hl').value,
+                "matchStat": matchStats,
                 "GK": getPlayers('GK'), "DF": getPlayers('DF'), "MF": getPlayers('MF'), "FW": getPlayers('FW'), "SUB": getPlayers('SUB')
             };
 
