@@ -153,7 +153,7 @@ function playerInfo(id, player, playerNum) {
 
     const bd = `${player[id]['bd'].substring(2, 4)}.${player[id]['bd'].substring(4, 6)}.${player[id]['bd'].substring(6, 8)}.`;
     const height = player[id]['height'];
-    const num = (playerNum[new Date().getFullYear()][id] != undefined) ? playerNum[new Date().getFullYear()][id][1] : '-';
+    const num = (playerNum[new Date().getFullYear()] != undefined) ? playerNum[new Date().getFullYear()][id][1] : '';
     const name = player[id]['name'].replace(/[0-9]/g, '');
     const natl = player[id]['natl'];
     const pos = player[id]['pos'];
@@ -165,7 +165,7 @@ function playerInfo(id, player, playerNum) {
     $('#playerProfile > div:nth-of-type(1) > p').text(pos);
 
     if (isSefc) $('#playerProfile > div:nth-of-type(2) > p').html(`<span>${num}</span>${name}`);
-    else $('#playerProfile > div:nth-of-type(2) > p').html(`<span>-</span>${name}`);
+    else $('#playerProfile > div:nth-of-type(2) > p').html(`${name}`);
 
     $('#playerProfile > div:nth-of-type(2) > div > img').attr('src', `./files/${natl}.svg`);
 
