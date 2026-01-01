@@ -10,182 +10,245 @@
     <link rel="icon" type="image/x-icon" href="../files/favicon.png">
     
     <style>
-        /* =========================================
-           기본 스타일
-           ========================================= */
-        body { font-family: 'Noto Sans KR', sans-serif; padding: 20px; background: #f4f4f4; margin: 0; box-sizing: border-box; }
-        h1 { color: #000060; margin-bottom: 0; font-size: 24px; }
+/* =========================================
+   Paperlogy & KLeague 디자인 가이드라인 반영
+   순위표 입력창 자동 높이 조절 포함 최종 CSS
+   ========================================= */
 
-        /* 로그인 화면 스타일 */
-        #login-container {
-            max-width: 400px; margin: 100px auto; background: white; padding: 40px;
-            border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;
-        }
-        #login-container h2 { color: #000060; margin-bottom: 10px; }
-        #btnLogin {
-            width: 100%; padding: 15px; background: #4285F4; color: white; border: none;
-            border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 16px; margin-top: 20px;
-            transition: background 0.2s;
-        }
-        #btnLogin:hover { background: #357ae8; }
+/* 1. 폰트 설정 (경로: ../files/) */
+@font-face {font-family: "Paperlogy"; font-weight: 300; src: url(../files/Paperlogy-3Light.ttf);}
+@font-face {font-family: "Paperlogy"; font-weight: 600; src: url(../files/Paperlogy-6SemiBold.ttf);}
+@font-face {font-family: "Paperlogy"; font-weight: 900; src: url(../files/Paperlogy-9Black.ttf);}
+@font-face {font-family: "KLeagueBasic"; font-weight: 900; src: url(../files/KLeagueBasic-Medium.ttf);}
 
-        /* 관리자 패널 (로그인 전엔 숨김) */
-        #admin-panel { display: none; }
-        
-        /* 로그아웃 버튼 */
-        #btnLogout {
-            background: #666; color: white; border: none; padding: 8px 15px;
-            border-radius: 5px; cursor: pointer; font-size: 14px;
-        }
-        #btnLogout:hover { background: #444; }
+/* 2. 기본 초기화 */
+* {
+    color: #05090a; 
+    margin: 0; padding: 0; 
+    font-family: "Paperlogy"; 
+    font-weight: 600; 
+    word-break: keep-all; 
+    -webkit-tap-highlight-color: transparent; 
+    user-select: none;
+    box-sizing: border-box;
+}
 
-        /* 팀 선택 */
-        .team-selector { background: #fff; padding: 15px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .team-selector label { font-weight: bold; margin-right: 20px; font-size: 16px; cursor: pointer; display: inline-flex; align-items: center; }
-        .team-selector input[type="radio"] { transform: scale(1.3); margin-right: 8px; cursor: pointer; }
+/* 스크롤바 숨기기 */
+*::-webkit-scrollbar { display: none; }
 
-        /* 메뉴 바 */
-        .menu-bar { margin-bottom: 20px; white-space: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 5px; }
-        .menu-bar::-webkit-scrollbar { height: 4px; }
-        .menu-bar::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
-        .menu-bar button {
-            padding: 10px 16px; margin-right: 5px; border: none; cursor: pointer;
-            background: #ddd; color: #333; font-weight: bold; border-radius: 20px;
-            font-size: 14px; transition: background 0.2s;
-        }
-        .menu-bar button.active { background: #000060; color: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+html, body { 
+    width: 100%; 
+    overflow-x: hidden; 
+    background: #00006003; 
+}
 
-        /* 폼 컨테이너 */
-        .form-container { display: none; background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .form-container.active { display: block; animation: fadeIn 0.3s; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+body { 
+    padding: 40px 15px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+}
 
-        /* 입력 그룹 */
-        .input-group { margin-bottom: 20px; position: relative; }
-        .input-group label { display: block; font-weight: bold; margin-bottom: 8px; font-size: 14px; color: #333; }
-        .input-group input, .input-group select, .input-group textarea {
-            width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box;
-            font-size: 15px; appearance: none;
-        }
-        .input-group input:focus, .input-group select:focus, .input-group textarea:focus {
-            border-color: #000060; outline: none;
-        }
-        .warning-input { border: 2px solid #ff4d4d !important; background-color: #fff0f0; }
-        .warning-input::placeholder { color: #ff4d4d; font-weight: bold; }
+h1 { font-family: "Paperlogy"; font-weight: 900; font-size: 26px; color: #000060; margin-bottom: 5px; }
+h2 { font-family: "Paperlogy"; font-weight: 900; font-size: 20px; margin-bottom: 25px; color: #333; }
 
-        .btn-inline {
-            position: absolute; right: 0; top: 0;
-            background: #555; color: white; border: none; padding: 6px 12px;
-            font-size: 12px; cursor: pointer; border-radius: 4px;
-        }
-        
-        .row { display: flex; gap: 15px; }
-        .row .input-group { flex: 1; }
+/* 3. 로그인 및 상단 UI */
+#login-container {
+    max-width: 400px; width: 100%; margin-top: 100px; background: white; padding: 40px;
+    border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center;
+}
+#btnLogin {
+    width: 100%; padding: 18px; background: #000060; color: white; border: none;
+    border-radius: 30px; cursor: pointer; font-weight: 900; font-size: 16px; margin-top: 25px;
+    transition: transform 0.2s;
+}
+#btnLogin:active { transform: scale(0.96); }
 
-        /* HEX 색상 및 엠블럼 */
-        .hex-wrapper, .code-wrapper {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-        .hex-wrapper .prefix {
-            position: absolute; left: 12px; color: #888; font-weight: bold; font-size: 16px; pointer-events: none;
-        }
-        .hex-wrapper input {
-            padding-left: 28px !important; text-transform: uppercase; font-family: monospace; letter-spacing: 1px;
-        }
-        .color-preview {
-            width: 40px; height: 40px; border: 1px solid #ccc; border-radius: 6px; margin-left: 10px;
-            background-color: #fff; flex-shrink: 0; box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
-        }
-        .team-emblem-preview {
-            width: 40px; height: 40px; margin-left: 10px; object-fit: contain;
-            display: none; background-color: #f9f9f9; border-radius: 5px; border: 1px solid #eee;
-        }
+#admin-panel { display: none; width: 100%; max-width: 800px; }
+#btnLogout {
+    background: #faf6f5; color: #666; border: 1px solid #eee; padding: 8px 18px;
+    border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: 600;
+}
 
-        /* 선수 그리드 */
-        .pos-section { margin-bottom: 25px; border-top: 2px solid #f0f0f0; padding-top: 15px; }
-        .pos-title { font-weight: bold; color: #000060; margin-bottom: 10px; font-size: 1.2em; display: inline-block; background: #f0f0f0; padding: 2px 8px; border-radius: 4px; }
-        
-        .player-grid-row { display: flex; gap: 8px; margin-bottom: 8px; align-items: center; }
-        .row-index {
-            flex: 0 0 24px; text-align: center; font-size: 12px; font-weight: bold; color: #666;
-            background: #eee; border-radius: 4px; height: 38px; line-height: 38px;
-        }
-        .player-grid-row input { 
-            padding: 8px; font-size: 13px; border: 1px solid #eee; border-radius: 4px; 
-            min-width: 0; height: 38px;
-        }
-        .player-grid-row input:nth-child(2) { flex: 1.2; background: #f9fbfc; }
-        .player-grid-row input:nth-child(3) { flex: 1; text-align: center; }
-        .player-grid-row input:nth-child(4) { flex: 0.8; text-align: center; }
+.team-selector { 
+    background: #fff; padding: 20px; border-radius: 25px; margin-bottom: 20px; 
+    display: flex; justify-content: center; gap: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); 
+}
+.team-selector label { font-weight: 900; font-size: 16px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+.team-selector input[type="radio"] { transform: scale(1.4); accent-color: #000060; }
 
-        /* 세부 지표 스타일 */
-        .stat-grid { display: flex; flex-direction: column; gap: 10px; background: #f9f9f9; padding: 15px; border-radius: 8px; }
-        .stat-row { display: flex; gap: 10px; align-items: center; }
-        .stat-label { flex: 1; font-weight: bold; font-size: 14px; color: #555; }
-        .stat-input { flex: 1; text-align: center; padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
+.menu-bar { margin-bottom: 25px; display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px; width: 100%; }
+.menu-bar button {
+    padding: 12px 24px; border: none; cursor: pointer; white-space: nowrap;
+    background: #fff; color: #aaa; font-weight: 900; border-radius: 30px;
+    font-size: 14px; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.menu-bar button.active { background: #000060; color: #fff; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,96,0.1); }
 
-        .sub-title { font-size: 1.2em; font-weight: bold; margin: 30px 0 15px; color: #333; border-bottom: 2px solid #000060; padding-bottom: 8px;}
-        .helper-text { font-size: 13px; color: #666; margin-top: -15px; margin-bottom: 15px; line-height: 1.4; }
+/* 4. 카드 및 입력창 공통 */
+.form-container { 
+    display: none; background: #fff; padding: 35px; border-radius: 30px; 
+    box-shadow: 0 10px 50px rgba(0,0,0,0.04); border: 1px solid rgba(0,0,60,0.03); 
+    width: 100%; margin-bottom: 50px;
+}
+.form-container.active { display: block; animation: fadeIn 0.4s ease; }
 
-        .btn-submit {
-            background: #00979c; color: white; padding: 16px; width: 100%; border: none;
-            font-size: 17px; font-weight: bold; border-radius: 8px; cursor: pointer; margin-top: 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: background 0.2s;
-        }
-        .btn-submit:active { transform: scale(0.98); }
+.input-group { margin-bottom: 22px; position: relative; text-align: left; }
+.input-group label { display: block; font-weight: 900; margin-bottom: 10px; font-size: 13px; color: #000060; padding-left: 5px; }
+.input-group input, .input-group select, .input-group textarea {
+    width: 100%; padding: 15px 20px; border: 1px solid #f2f2f5; border-radius: 18px; 
+    font-size: 15px; background: #f9f9fb; font-weight: 600; outline: none; transition: all 0.2s;
+}
+.input-group input:focus, .input-group textarea:focus { border-color: #000060; background: #fff; box-shadow: 0 0 0 4px rgba(0,0,96,0.03); }
 
-        .btn-delete {
-            background: #d63031; color: white; padding: 12px; width: 100%; border: none;
-            font-size: 15px; font-weight: bold; border-radius: 8px; cursor: pointer; margin-top: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1); opacity: 0.9;
-        }
-        .btn-delete:hover { opacity: 1; }
+/* [중요] 순위표 입력창 유동적 높이 설정 */
+#s_data {
+    height: auto;
+    min-height: 200px;
+    field-sizing: content; /* 내용에 따라 자동으로 늘어남 */
+    resize: vertical; /* 수동 조절도 가능하게 유지 */
+    line-height: 1.6;
+    font-family: monospace;
+}
 
-        /* [순위표 스타일] 입력창 헤더 추가 */
-        .standings-header {
-            display: flex; background: #e0e0e0; padding: 8px 10px; border-radius: 5px 5px 0 0;
-            font-weight: bold; font-size: 13px; color: #444; border: 1px solid #ccc; border-bottom: none;
-        }
-        .standings-header span { text-align: center; }
-        #s_data { 
-            height: 150px; font-family: monospace; white-space: pre; line-height: 1.6; overflow-x: auto;
-            border-top-left-radius: 0; border-top-right-radius: 0; /* 헤더랑 붙이기 */
-        }
-        #standings-preview { margin-top: 15px; border: 1px solid #eee; border-radius: 5px; padding: 10px; background: #fafafa; overflow-x: auto; }
-        #preview-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 300px; }
-        #preview-table th { background: #e0e0e0; font-weight: bold; padding: 8px; border: 1px solid #ccc; white-space: nowrap;}
-        #preview-table td { border: 1px solid #ccc; padding: 6px; text-align: center; white-space: nowrap;}
-        #preview-table tr:nth-child(even) { background: #fff; }
+.btn-inline {
+    position: absolute; right: 10px; top: 0;
+    background: #000060; color: white; border: none; padding: 6px 16px;
+    font-size: 11px; cursor: pointer; border-radius: 15px; font-weight: 900;
+}
 
-        /* 모바일 스타일 */
-        @media screen and (max-width: 768px) {
-            body { padding: 10px; }
-            h1 { font-size: 20px; text-align: center; }
-            .team-selector { display: flex; justify-content: space-around; padding: 12px; }
-            .team-selector label { margin-right: 0; font-size: 14px; }
-            .form-container { padding: 15px; }
-            .row { flex-direction: column; gap: 0; }
-            .btn-inline { top: -2px; padding: 5px 10px; font-size: 11px; }
-            .input-group { margin-bottom: 15px; }
-            .input-group input { padding: 12px; font-size: 16px; }
+.row { display: flex; gap: 15px; width: 100%; }
+.row .input-group { flex: 1; min-width: 0; }
 
-            .player-grid-row { gap: 4px; }
-            .player-grid-row input { padding: 10px 4px; font-size: 12px; border-radius: 4px; }
-            .row-index { flex: 0 0 20px; font-size: 11px; }
-            .player-grid-row input:nth-child(2) { flex: 1.3; }
-            .player-grid-row input:nth-child(3) { flex: 0.9; }
-            .player-grid-row input:nth-child(4) { flex: 0.8; }
+/* 5. 미리보기 요소 (엠블럼 & 색상) */
+.code-wrapper { position: relative; display: flex; align-items: center; gap: 12px; width: 100%; }
+.team-emblem-preview {
+    width: 46px; height: 46px; object-fit: contain;
+    background: #fff; border-radius: 15px; padding: 5px; border: 1px solid #eee; display: none; flex-shrink: 0;
+}
+.hex-wrapper { display: flex; align-items: center; gap: 12px; width: 100%; position: relative; }
+.hex-wrapper .prefix { position: absolute; left: 18px; color: #000060; font-weight: 900; z-index: 1; }
+.hex-wrapper input { padding-left: 35px !important; text-transform: uppercase; font-family: monospace; }
+.color-preview {
+    width: 46px; height: 46px; border-radius: 15px; border: 1px solid #f0f0f4;
+    background-color: #fff; flex-shrink: 0; box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+}
 
-            #num-list-container .player-grid-row input:nth-child(1) { flex: 1.2; }
-            #num-list-container .player-grid-row input:nth-child(2) { flex: 0.9; }
-            #num-list-container .player-grid-row input:nth-child(3) { flex: 0.5; }
+/* 6. 선수 명단 그리드 */
+.pos-section { margin-bottom: 35px; }
+.pos-title { 
+    font-family: "KLeagueBasic"; font-weight: 900; color: #000060; 
+    margin-bottom: 18px; font-size: 18px; border-left: 6px solid #000060; padding-left: 14px;
+}
+.player-grid-row { 
+    display: grid; 
+    grid-template-columns: 40px 1.5fr 1fr 0.8fr; 
+    gap: 10px; 
+    margin-bottom: 10px; 
+    align-items: center; 
+}
+.row-index {
+    text-align: center; font-size: 11px; font-weight: 900; color: #bbb;
+    background: #f0f0f4; border-radius: 12px; height: 45px; line-height: 45px;
+}
+.player-grid-row input { 
+    padding: 12px; font-size: 14px; border: 1px solid #f0f0f4; border-radius: 15px; 
+    height: 45px; background: #f9f9fb; text-align: center;
+}
+.player-grid-row input:nth-child(2) { text-align: left; padding-left: 15px; font-weight: 900; }
 
-            .btn-submit { margin-bottom: 10px; }
-            #preview-table { font-size: 11px; }
-            #preview-table th, #preview-table td { padding: 4px; }
-        }
+/* 7. 등번호 페이지 그리드 (3열) */
+.num-item { display: grid !important; grid-template-columns: 2.2fr 1fr 0.8fr !important; gap: 10px; width: 100%; margin-bottom: 10px; }
+#num .player-grid-row[style*="font-weight:bold"] {
+    display: grid !important; grid-template-columns: 2.2fr 1fr 0.8fr !important;
+    gap: 10px; background: #f0f0f4 !important; color: #000060 !important;
+    padding: 12px; border-radius: 18px; margin-bottom: 15px;
+}
+
+/* 8. 세부 지표 디자인 */
+.stat-header {
+    display: grid; grid-template-columns: 1.2fr 1fr 1fr; 
+    gap: 10px; background: #f0f0f4; padding: 12px; border-radius: 18px; 
+    margin-bottom: 12px; font-weight: 900; font-size: 13px; color: #000060; text-align: center;
+}
+.stat-row { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+.stat-label { background: #f0f0f4; border-radius: 12px; height: 45px; line-height: 45px; text-align: center; font-size: 13px; font-weight: 900; color: #000060; }
+.stat-input { padding: 10px; font-size: 14px; border: 1px solid #f0f0f4; border-radius: 15px; height: 45px; text-align: center; font-weight: 900; background: #f9f9fb; }
+
+/* 9. 순위표 미리보기 (스크롤 없는 고정 너비) */
+#standings-preview { 
+    margin-top: 25px; 
+    padding: 10px; 
+    background: #f9f9fb; 
+    border-radius: 20px; 
+    border: 1px solid #f0f0f4; 
+    width: 100%;
+    overflow: hidden;
+}
+#preview-table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    font-size: 13px;
+    table-layout: fixed;
+}
+#preview-table th { 
+    background: #f0f0f4; 
+    color: #000060; 
+    font-weight: 900; 
+    padding: 12px 2px; 
+    border-bottom: 2px solid #00006015;
+}
+#preview-table td { 
+    padding: 10px 2px; 
+    color: #333; 
+    font-weight: 600; 
+    text-align: center; 
+    border-bottom: 1px solid #f0f0f4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#preview-table th:nth-child(1), #preview-table td:nth-child(1) { width: 8%; }
+#preview-table th:nth-child(2), #preview-table td:nth-child(2) { width: 28%; text-align: left; padding-left: 10px; font-weight: 900; color: #000060; }
+#preview-table th:nth-child(3), #preview-table td:nth-child(3) { width: 10%; }
+#preview-table th:nth-child(n+4), #preview-table td:nth-child(n+4) { width: 9%; }
+
+/* 10. 하단 버튼 */
+.sub-title { font-size: 22px; font-weight: 900; margin: 45px 0 25px; color: #000060; text-align: left; }
+.btn-submit {
+    background: #000060; color: white; padding: 22px; width: 100%; border: none;
+    font-size: 18px; font-weight: 900; border-radius: 25px; cursor: pointer; margin-top: 40px;
+    box-shadow: 0 10px 25px rgba(0,0,96,0.15); transition: all 0.2s;
+}
+.btn-submit:active { transform: scale(0.97); }
+.btn-delete {
+    background: #fff; color: #ff4d4d; padding: 15px; width: 100%; border: 1.5px solid #ff4d4d;
+    font-size: 14px; font-weight: 900; border-radius: 25px; cursor: pointer; margin-top: 15px;
+}
+
+/* 11. 모바일 반응형 (768px 이하) */
+@media screen and (max-width: 768px) {
+    body { padding: 25px 15px; }
+    h1 { font-size: 22px; }
+    .form-container { padding: 25px 18px; border-radius: 25px; }
+    .row { flex-direction: column; gap: 0; }
+    
+    .player-grid-row { gap: 6px; grid-template-columns: 35px 1.8fr 1fr 0.8fr; }
+    .player-grid-row input { font-size: 12px; padding: 8px; height: 42px; }
+    
+    .num-item, #num .player-grid-row[style*="font-weight:bold"] { grid-template-columns: 1.8fr 1fr 0.7fr !important; gap: 6px; }
+    
+    .stat-row, .stat-header { grid-template-columns: 1.1fr 1fr 1fr; gap: 6px; }
+    .stat-label, .stat-input { font-size: 11px; height: 42px; line-height: 42px; }
+    
+    #preview-table { font-size: 9px; }
+    #preview-table th, #preview-table td { padding: 8px 1px; }
+    #preview-table td:nth-child(2) { padding-left: 5px; }
+
+    .btn-inline { font-size: 10px; padding: 5px 12px; right: 5px; }
+    .input-group label { font-size: 11px; }
+    .sub-title { font-size: 19px; margin: 35px 0 20px; }
+}
     </style>
 </head>
 
@@ -230,7 +293,13 @@
             </div>
             <div class="row">
                 <div class="input-group"><label>대회명</label><input type="text" id="m_compName"></div>
-                <div class="input-group"><label>대회코드</label><input type="text" id="m_compCode"></div>
+                <div class="input-group">
+                    <label>대회코드</label>
+                    <div class="code-wrapper">
+                        <input type="text" id="m_compCode">
+                        <img id="preview_comp" class="team-emblem-preview" alt="Comp">
+                    </div>
+                </div>
             </div>
             <div class="row">
                 <div class="input-group"><label>경기장</label><input type="text" id="m_stadium"></div>
@@ -245,7 +314,7 @@
             </div>
             <div class="input-group">
                 <label>하이라이트 (URL)</label>
-                <input type="text" id="m_hl" placeholder="예: https://youtu.be/...">
+                <input type="text" id="m_hl" placeholder="youtu.be 제외">
             </div>
 
             <div class="sub-title">팀 & 스코어</div>
@@ -281,10 +350,10 @@
 
             <div class="sub-title">경기 세부 지표</div>
             <div class="stat-grid" id="match-stats-inputs">
-                <div class="stat-row" style="font-weight:bold; border-bottom:1px solid #ccc; padding-bottom:5px;">
-                    <div class="stat-label">항목</div>
-                    <div class="stat-input" style="border:none; background:none;">홈</div>
-                    <div class="stat-input" style="border:none; background:none;">원정</div>
+                <div class="stat-header">
+                    <div style="flex:1.2; text-align:center;">항목</div>
+                    <div style="flex:1; text-align:center;">홈</div>
+                    <div style="flex:1; text-align:center;">원정</div>
                 </div>
                 </div>
 
@@ -705,17 +774,18 @@ function updateEmblemPreview(inputId, previewId, useSearch = false) {
 }
 
         // ----------------------------------------------------
-        // [이벤트 리스너] 이 부분이 정확히 연결되어야 즉시 반응합니다.
+        // [이벤트 리스너] 
         // ----------------------------------------------------
 
-        // 1. 경기 기록 페이지 (정확히 일치할 때만 - 세 번째 인자 false)
+        // 1. 경기 기록 페이지 (대회 코드 및 팀 코드 - 정확히 일치할 때만 false)
+        document.getElementById('m_compCode').addEventListener('input', () => updateEmblemPreview('m_compCode', 'preview_comp', false));
         document.getElementById('m_homeCode').addEventListener('input', () => updateEmblemPreview('m_homeCode', 'preview_home', false));
         document.getElementById('m_awayCode').addEventListener('input', () => updateEmblemPreview('m_awayCode', 'preview_away', false));
         
         // 2. 상대 전적 페이지 (연도 없어도 검색 - 세 번째 인자 true)
         document.getElementById('h_code').addEventListener('input', () => updateEmblemPreview('h_code', 'preview_h2h', true));
 
-        // 색상 미리보기는 유지
+        // 색상 미리보기
         document.getElementById('h_bg').addEventListener('input', () => updateColorPreview('h_bg', 'preview_bg'));
         document.getElementById('h_text').addEventListener('input', () => updateColorPreview('h_text', 'preview_text'));
 
@@ -827,10 +897,11 @@ function updateEmblemPreview(inputId, previewId, useSearch = false) {
                             document.getElementById(`m_stat_away_${i}`).value = data.matchStat[i*2 + 1];
                         }
                     } else {
-                        // 데이터가 없거나 형식이 다르면 초기화
                         document.querySelectorAll('.stat-input').forEach(input => input.value = '');
                     }
 
+                    // 사진 미리보기 업데이트
+                    updateEmblemPreview('m_compCode', 'preview_comp');
                     updateEmblemPreview('m_homeCode', 'preview_home');
                     updateEmblemPreview('m_awayCode', 'preview_away');
 
@@ -874,11 +945,10 @@ function updateEmblemPreview(inputId, previewId, useSearch = false) {
                 return result;
             };
 
-            // 세부 지표 배열 생성
-            const matchStats = [];
+            const matchStatsArr = [];
             for(let i=0; i<10; i++) {
-                matchStats.push(document.getElementById(`m_stat_home_${i}`).value || "");
-                matchStats.push(document.getElementById(`m_stat_away_${i}`).value || "");
+                matchStatsArr.push(document.getElementById(`m_stat_home_${i}`).value || "");
+                matchStatsArr.push(document.getElementById(`m_stat_away_${i}`).value || "");
             }
 
             const matchData = {
@@ -893,7 +963,7 @@ function updateEmblemPreview(inputId, previewId, useSearch = false) {
                 "homeScorer": document.getElementById('m_homeScorer').value,
                 "awayScorer": document.getElementById('m_awayScorer').value,
                 "hl": document.getElementById('m_hl').value,
-                "matchStat": matchStats,
+                "matchStat": matchStatsArr,
                 "GK": getPlayers('GK'), "DF": getPlayers('DF'), "MF": getPlayers('MF'), "FW": getPlayers('FW'), "SUB": getPlayers('SUB')
             };
 
