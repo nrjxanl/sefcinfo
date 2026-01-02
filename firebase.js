@@ -27,7 +27,6 @@ export async function loadData(path) {
     if (snapshot.exists()) {
         return snapshot.val();
     } else {
-        console.log(`데이터 없음: ${path}`);
-        return null;
+        return {};
     }
 }

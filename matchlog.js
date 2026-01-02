@@ -156,6 +156,13 @@ function getList(data, matchlog, year) {
     $('#matchlogList').empty();
     
     for (let i = 0; i < matchKeys.length; i++) {
+        const matchId = matchKeys[i];
+        
+        if (!data[matchId]) {
+            console.warn(`${matchId}에 해당하는 경기 정보가 dataA에 없습니다.`);
+            continue; 
+        }
+
         const matchData = data[matchKeys[i]];
         const homeScore = matchData['homeScore'];
         const awayScore = matchData['awayScore'];
