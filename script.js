@@ -15,6 +15,28 @@ function afterLoading() {
         }, 300);
     }
 
+    // 쿼리스트링 제거
+    if (window.location.search.includes('fbclid')) {
+        var url = new URL(window.location.href);
+        url.searchParams.delete('fbclid');
+
+        if (url.search.endsWith('=')) {
+            url.search = url.search.slice(0, -1);
+        }
+
+        history.replaceState(null, '', url.pathname + url.search + url.hash);
+    }
+
+    // 화면 너비 300px 이하일 때 경고
+    if ($(window).width() < 300) {
+        $('body').append(`<div style='width: 80vw; height: 65px; padding: 0 10vw; background: #faf6f5; position: fixed; bottom: 0; left: 0; font-size: 14px; font-weight: 300; z-index: 300; display: flex; align-items: center; justify-content: center;'>기기의 화면 크기가 작아 페이지가 정상적으로 보이지 않을 수 있습니다.</div>`);
+    }
+
+    // 새로고침 시 맨 위로 이동
+    history.scrollRestoration = 'manual';
+
+    if ($('#menu').length > 0) return;
+
     // 메뉴
     $(`body`).append(`<div id='menu' glass='true'><div transl='y'><img src='https://sefc.info/files/home.svg'>홈</div><div transl='y'><img src='https://sefc.info/files/fixtures.svg'>일정</div><div transl='y'><img src='https://sefc.info/files/players.svg'>선수단</div><div transl='y'><img src='https://sefc.info/files/stats.svg'>기록</div><div transl='y'><img src='https://sefc.info/files/standings.svg'>순위</div><div transl='y'><img src='https://sefc.info/files/chants.svg'>응원가</div><div transl='y'><img src='https://sefc.info/files/wallpaper.svg'>배경화면</div><div transl='y'><img src='https://sefc.info/files/stadium.svg'>직관 가이드</div><div id='selectLang'><img src='https://sefc.info/files/lang.svg'><div><p l='ko'>KO</p><p l='en'>EN</p><p l='pt'>PT</p><p l='es'>ES</p><p l='jp'>JP</p></div></div><a href='https://naver.me/GlJ18AQh' target='_blank' transl='y'>오류 제보 및 건의</a><img class='bannerMenu' src='https://sefc.info/files/banner_1.jpg'></div><div id='menuBg' glass='true'></div>`);
 
@@ -149,26 +171,6 @@ function afterLoading() {
     $(".instaMenu:nth-of-type(1)").click(function () {
         window.open("https://www.instagram.com/sefcinfo/");
     });
-
-    // 쿼리스트링 제거
-    if (window.location.search.includes('fbclid')) {
-        var url = new URL(window.location.href);
-        url.searchParams.delete('fbclid');
-
-        if (url.search.endsWith('=')) {
-            url.search = url.search.slice(0, -1);
-        }
-
-        history.replaceState(null, '', url.pathname + url.search + url.hash);
-    }
-
-    // 화면 너비 300px 이하일 때 경고
-    if ($(window).width() < 300) {
-        $('body').append(`<div style='width: 80vw; height: 65px; padding: 0 10vw; background: #faf6f5; position: fixed; bottom: 0; left: 0; font-size: 14px; font-weight: 300; z-index: 300; display: flex; align-items: center; justify-content: center;'>기기의 화면 크기가 작아 페이지가 정상적으로 보이지 않을 수 있습니다.</div>`);
-    }
-
-    // 새로고침 시 맨 위로 이동
-    history.scrollRestoration = 'manual';
 
     // 미완성 기능 숨기기
     $('#menu > div:nth-of-type(n + 6)').css('display', 'none');

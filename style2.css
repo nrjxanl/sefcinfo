@@ -20,7 +20,7 @@ header > p {width: fit-content; position: absolute; left: 20vw; text-align: left
 /* 푸터 */
 footer {width: 100vw; height: fit-content; padding: 16px 0; position: fixed; left: 0; bottom: 0; background: #faf6f5; z-index: 2000;}
 footer > p {width: 100vw; font-size: 14px; font-weight: 600;}
-footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 10px; filter: brightness(0) saturate(100%) invert(0%) sepia(90%) saturate(7460%) hue-rotate(63deg) brightness(96%) contrast(93%);}
+footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 10px; filter: brightness(0) saturate(100%) invert(0%) sepia(90%) saturate(7436.1702%) hue-rotate(63deg) brightness(96%) contrast(93%);}
 
 /* 스켈레톤 */
 #skeletonMobile {display: none;}
@@ -771,3 +771,94 @@ path.cls-64 {pointer-events: none;}
 .admin-comment > div > p {color: #000060;}
 
 .author-comment > div > p {color: #174fff;}
+
+/* 직관 기록 */
+#btnLogout {width: 10vw; height: 40px; border: none; border-radius: 10vw; font-size: 16px; font-weight: 600; cursor: pointer;}
+#btnLogout:hover {background: #000060c0; color: #faf6f5;}
+
+#matchlogSelect {width: 10vw; height: 40px; background: none; color: #05090a; border: none; font-size: 16px; font-weight: 600; padding-right: .5vw; margin-right: calc(35vw - 40px); -webkit-tap-highlight-color: transparent; appearance: none; -webkit-appearance: none; -moz-appearance: none; background: transparent;}
+#matchlogSelect:focus {outline: none; box-shadow: none; border-color: inherit;}
+
+#addLogBtn {width: 40px; height: 40px; border: none; border-radius: 10vw; font-size: 24px; font-weight: 300; cursor: pointer;}
+#addLogBtn:hover {background: #000060c0; color: #faf6f5; font-weight: 600;}
+
+#matchlogBtn {width: 65vw;}
+#matchlogBtn > button {width: 10vw; height: 40px; border: none; border-radius: 10vw; margin: 0 1vw; font-size: 16px; font-weight: 600; cursor: pointer;}
+#matchlogBtn > button:hover {background: #000060c0; color: #faf6f5;}
+
+#matchNum {width: calc(65vw - 64px); padding: 24px 32px; display: flex; justify-content: space-between; align-items: center; border-radius: 20px;}
+#matchNum > div {display: flex; flex-direction: column; align-items: flex-start;}
+#matchNum > div > p:nth-of-type(1) {font-weight: 600; opacity: .7;}
+#matchNum > div > p:nth-of-type(2) {font-size: 24px; margin-top: 4px;}
+#matchNum > p {font-size: 40px;}
+#matchNum > p > span {font-size: 16px; font-weight: 600; opacity: .7; padding-left: 4px;}
+
+#matchlogList {display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 2.5vw; margin-bottom: 40px;}
+#matchlogList > div {width: 100%; box-sizing: border-box; margin: 0 !important;}
+#matchlogList > p {width: 65vw; font-size: 16px; font-weight: 300;}
+
+#addLog {width: calc(30vw - 64px); height: calc(90vh - 32px); padding: 16px 32px; background: #faf6f5e0; border-radius: 20px; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000; display: none;}
+#addLog > p {font-size: 16px; font-weight: 600; text-align: left; margin-top: 16px;}
+#addLog > p:nth-of-type(3) {font-size: 14px; font-weight: 300; margin-top: 4px;}
+#addLog > p > span {font-weight: 300; padding-left: 8px;}
+#addLog > input {width: 100%; border: 1px solid #05090a; border-radius: 20px; padding: 4px 0; margin-top: 8px; font-weight: 600;}
+#addLog > div {display: flex; justify-content: space-around; align-items: center; margin-top: 8px; font-weight: 600;}
+#addLog > div:nth-of-type(1) > input {width: 25%; border: 1px solid #05090a; border-radius: 20px; padding: 4px 0; font-weight: 600;}
+#addLog > div:nth-of-type(2) > input {width: 10%; border: none; margin-right: -20px;}
+#addLog > textarea {width: calc(100% - 24px); height: 15% !important; border: 1px solid #05090a; border-radius: 20px; padding: 12px; margin-top: 8px; font-weight: 300; text-align: left; resize: none;}
+#addLog > button {border: none; border-radius: 10vw; padding: 8px 16px; position: absolute; bottom: 24px; left: 50%; transform: translate(-50%, 0); font-size: 16px; font-weight: 600; cursor: pointer;}
+
+#styleSample {height: 20%; margin-top: 24px !important;}
+#styleSample > img {height: 100%; border-radius: 5px;}
+
+#addLogBg {width: 100vw; height: 200vh; position: fixed; top: 0; left: 0; background: #05090a20; display: none; z-index: 999;}
+
+#log {width: calc(80vh * 5 / 11); height: 80vh; background: none; border-radius: 20px; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000; display: none;}
+#log > div {position: absolute; top: 0; right: 0; z-index: 1000;}
+#log > div > button:nth-of-type(1) {height: 32px; font-size: 16px; font-weight: 600; line-height: 32px; background: none; border: none; position: absolute; top: 16px; right: 64px; cursor: pointer;}
+#log > div > button:nth-of-type(2) {width: 32px; height: 32px; border: none; border-radius: 16px; position: absolute; top: 16px; right: 16px; cursor: pointer;}
+#log > div > button:nth-of-type(2) > img {height: 16px;}
+#log > img {width: calc(80vh * 5 / 11); height: 80vh; border-radius: 20px;}
+#log > svg {position: absolute; width: calc(80vh * 5 / 11); height: 80vh; top: 0; left: 0;}
+
+#style1 #ticketText > p {width: 68px; word-break: break-all; font-family: monospace;}
+#style1 #ticketText > p:nth-of-type(1) {height: 12px; padding: 6px 6px 2px 6px; font-size: 5px; font-weight: 600; text-align: left;}
+#style1 #ticketText > p:nth-of-type(2) {height: 8px; padding: 0 6px 2px 6px; font-size: 7px; font-weight: 600; text-align: left; text-shadow: 0.1px 0px 0px currentColor, -0.1px 0px 0px currentColor, 0px 0.1px 0px currentColor, 0px -0.1px 0px currentColor; letter-spacing: -0.6px;}
+#style1 #ticketText > p:nth-of-type(3) {height: 6px; padding: 0 6px 2px 6px; font-size: 5px; font-weight: 600; text-align: left;}
+#style1 #ticketText > p:nth-of-type(4) {height: 5px; padding: 0 6px 4px 6px; font-size: 4px; font-weight: 600; text-align: left;}
+#style1 #ticketText > p:nth-of-type(5) {height: 47px; padding: 0 6px; font-size: 5px; font-weight: 600; text-align: left; line-height: 1.2; overflow: hidden; white-space: pre-wrap;}
+#style1 #ticketText > p:nth-of-type(5)::before {content: ""; float: right; height: 100%; width: 44.12%; shape-outside: polygon(100% 0%, 100% 36.17%, 0% 36.17%, 0% 100%, 100% 100%);}
+
+#style2 #ticketText > p {width: 68px; word-break: break-all; color: #faf6f5; font-weight: 300;}
+#style2 #ticketText > p:nth-of-type(1) {height: 5px; padding: 5px 6px 1px 6px; font-size: 4px; text-align: left;}
+#style2 #ticketText > p:nth-of-type(2) {height: 8px; padding: 0 6px 1px 6px; font-size: 6px; text-align: left; font-weight: 600;}
+#style2 #ticketText > p:nth-of-type(3) {height: 6px; padding: 0 6px 1px 6px; font-size: 4px; text-align: left;}
+#style2 #ticketText > p:nth-of-type(4) {height: 6px; padding: 0 6px 4px 6px; font-size: 4px; text-align: left;}
+#style2 #ticketText > p:nth-of-type(5) {width: 43px; height: 17px; padding: 0 6px; margin-left: 25px; font-size: 3px; text-align: left; line-height: 1.2; overflow: hidden; white-space: pre-wrap;}
+
+#style3 #ticketText > p {width: 68px; word-break: break-all; font-weight: 300; text-align: center;}
+#style3 #ticketText > p:nth-of-type(1) {height: 5px; padding: 24px 6px 4px 6px; font-size: 4px;}
+#style3 #ticketText > p:nth-of-type(2) {height: 8px; padding: 0 6px 4px 6px; font-size: 7px; font-weight: 900;}
+#style3 #ticketText > p:nth-of-type(3) {height: 7px; padding: 0 6px 1px 6px; font-size: 5px;}
+#style3 #ticketText > p:nth-of-type(4) {height: 7px; padding: 0 6px 4px 6px; font-size: 5px;}
+#style3 #ticketText > p:nth-of-type(5) {width: 68px; height: 94px; padding: 0 6px; font-size: 4px; line-height: 1.2; overflow: hidden; white-space: pre-wrap;}
+#style3 #ticketText > div {width: 80px; display: flex; justify-content: center; align-items: center; gap: 2px; padding-bottom: 8px;}
+#style3 #ticketText > div > img {height: 16px;}
+
+#stamp {display: none; fill: #dfc69f;}
+
+#logBg {width: 100vw; height: 200vh; position: fixed; top: 0; left: 0; background: #05090a20; display: none; z-index: 999;}
+
+/* 달력 */
+.flatpickr-calendar {background: #faf6f5 !important; border-radius: 20px !important;}
+.flatpickr-day, .flatpickr-weekday {color: #05090a !important; font-weight: 600 !important; font-family: 'Paperlogy' !important; border-radius: 14px !important;}
+.flatpickr-day.flatpickr-disabled {color: #05090a30 !important; font-weight: 300 !important;}
+.flatpickr-day.selected, .flatpickr-day.today {background: #000060 !important; border-color: #000060 !important; color: #faf6f5 !important;}
+.flatpickr-months .flatpickr-month, .flatpickr-current-month .flatpickr-month {fill: #000060 !important; color: #000060 !important;}
+.flatpickr-day {position: relative; line-height: 28px !important;  vertical-align: top !important;}
+.calendar-opponent-img {position: absolute; bottom: 2px; width: 16px; height: 16px; object-fit: contain; pointer-events: none;}
+.calendar-opponent-img.is-home {right: 2px;}
+.calendar-opponent-img.is-away {right: 2px; filter: grayscale(30%); opacity: .7;}
+.flatpickr-day.home-match {box-shadow: inset 0 0 0 1px #000060;}
+.flatpickr-current-month .flatpickr-monthDropdown-months {color: #05090a !important;}
+.flatpickr-latest-btn {width: 100%; padding: 4px 0; background: #000060; color: #faf6f5; text-align: center; border-top: 1px solid #000060; cursor: pointer; font-size: 13px; font-weight: 600; border-radius: 0 0 20px 20px;}

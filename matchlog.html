@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Page-Enter" content="revealtrans(duration=1, transition=23)">
+    <meta property="og:url" content="sefc.info">
+    <meta property="og:title" content="SEFCiNFO - 서울 이랜드 FC 팬 페이지">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./files/thumbnail.jpg">
+    <meta property="og:description" content="서울 이랜드 FC의 모든 것">
+    <meta name="description" content="서울 이랜드 FC의 모든 정보를 이곳에서 확인하세요!">
+    <meta name="keywords" content="서울, 서울 이랜드, 서울 이랜드 FC. SEFC. SEFCiNFO">
+    <link rel="stylesheet" href="style1.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="style2.css" media="screen and (min-width: 768px)">
+    <title>SEFCiNFO - 직관 기록</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <link rel="icon" type="image/x-icon" href="./files/favicon.png">
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="39318110-e4f0-4fd3-87a9-3f0c2b33fe85" type="text/javascript" async></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/ko.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async
+    src="https://www.googletagmanager.com/gtag/js?id=G-85LBNDC5SG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-85LBNDC5SG');
+</script>
+
+<header>
+    <div><img src='./files/menu.svg' onclick='menu()'></div>
+    <div><img src="./files/sefcinfo.svg"></div>
+</header>
+
+<body oncontextmenu="return false">
+
+    <div id="skeletonMobile">
+    </div>
+
+    <div id="skeletonPC">
+    </div>
+
+    <div id="actualContents">
+        <button id="btnLogin" class="gsi-material-button" glass="true" style="user-select: none; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; appearance: none; -webkit-appearance: none; background-color: #f2f2f2; background-image: none; border: none; -webkit-border-radius: 20px; border-radius: 20px; -webkit-box-sizing: border-box; box-sizing: border-box; color: #1f1f1f; cursor: pointer; font-family: 'Roboto', arial, sans-serif; font-size: 14px; height: 40px; letter-spacing: 0.25px; outline: none; overflow: hidden; padding: 0 12px; position: relative; text-align: center; -webkit-transition: background-color .218s, border-color .218s, box-shadow .218s; transition: background-color .218s, border-color .218s, box-shadow .218s; vertical-align: middle; white-space: nowrap; width: auto; max-width: 400px; min-width: min-content;"><div class="state-layer" style="-webkit-transition: opacity .218s; transition: opacity .218s; bottom: 0; left: 0; opacity: 0; position: absolute; right: 0; top: 0;"></div><div style="-webkit-align-items: center; align-items: center; display: flex; -webkit-flex-direction: row; flex-direction: row; -webkit-flex-wrap: nowrap; flex-wrap: nowrap; height: 100%; justify-content: space-between; position: relative; width: 100%;"><div style="height: 20px; margin-right: 10px; min-width: 20px; width: 20px; display: flex; align-items: center; justify-content: center;"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" style="display: block;"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path></svg></div><span style="-webkit-flex-grow: 1; flex-grow: 1; font-family: 'Roboto', arial, sans-serif; font-weight: 500; overflow: hidden; text-overflow: ellipsis; vertical-align: top; white-space: nowrap;">Sign in with Google</span></div></button>
+        <button id="btnLogout" glass="true">로그아웃</button>
+
+        <select id="matchlogSelect"></select>
+        
+        <button id="addLogBtn" glass="true">+</button>
+        
+        <div id="matchlogBtn">
+            <button glass="true">기록</button>
+            <button glass="true">분석</button>
+        </div>
+
+        <p id="winRate"></p>
+
+        <div id="matchNum" glass="true">
+            <div>
+                <p></p>
+                <p></p>
+            </div>
+            <p></p>
+        </div>
+
+        <div id="matchlogList"></div>
+
+        <div id="matchStatList"></div>
+
+        <div id="addLog" glass="true">
+            <p>날짜<span>해당 날짜의 경기 정보를 자동으로 가져와요</span></p>
+            <input type="date" min="2015-03-29" max="" placeholder="날짜 선택">
+            <p></p>
+            <p></p>
+            <p>좌석 정보<span>앉은 좌석 정보를 입력해 주세요</span></p>
+            <div>
+                <input type="text" placeholder="구역">
+                <input type="text" placeholder="열">
+                <input type="text" placeholder="좌석 번호">
+            </div>
+            <p>코멘트<span>기록하고 싶은 말을 자유롭게 남겨 주세요</span></p>
+            <textarea></textarea>
+            <p>티켓 디자인</p>
+            <div>
+                <input type="radio" name="style" value="1" checked> 스타일 1
+                <input type="radio" name="style" value="2"> 스타일 2
+                <input type="radio" name="style" value="3"> 스타일 3
+            </div>
+
+            <div id="styleSample"></div>
+
+            <button type="submit" glass="true">저장</button>
+        </div>
+
+        <div id="addLogBg"></div>
+
+        <div id="log">
+            <div>
+                <button>수정</button>
+                <button glass="true"><img src="./files/download.svg"></button>
+            </div>
+            <img>
+        </div>
+
+        <div id="logBg"></div>
+    </div>
+
+    <script src="script.js"></script>
+    <script type="module" src="./firebase.js"></script>
+    <script type="module" src="./matchlog.js"></script>
+
+</body>
+
+</html>
