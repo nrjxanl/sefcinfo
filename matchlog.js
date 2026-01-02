@@ -194,7 +194,7 @@ function getList(data, matchlog, year) {
                     </div>
                     <div>
                         <p>${homeScore} : ${awayScore}</p>
-                        <p glass='true'>${matchKeys[i].substring(4, 6)}.${matchKeys[i].substring(6, 8)}. ${matchData['time']}</p>
+                        <p glass='true'>${matchKeys[i].substring(4, 6)}.${matchKeys[i].substring(6, 8)}.${matchData['time'] ? ' ' + matchData['time'] : ''}</p>
                     </div>
                     <div>
                         <div>
@@ -266,10 +266,10 @@ function getLog(data, matchlog, matchId) {
             <p>${comment}</p>    
         `)
 
-        if (seat[0] == '') $('#ticketText > p:nth-of-type(4)').text(stadium);
-        else if (seat[1] == '') $('#ticketText > p:nth-of-type(4)').text(`${stadium} | ${seat[0]}구역`);
-        else if (seat[2] == '') $('#ticketText > p:nth-of-type(4)').text(`${stadium} | ${seat[0]}구역 ${seat[1]}열`);
-        else $('#ticketText > p:nth-of-type(4)').text(`${stadium} | ${seat[0]}구역 ${seat[1]}열 ${seat[2]}`);
+        if (seat[0] == '') $('#ticketText > p:nth-of-type(4)').text(stadium || '');
+        else if (seat[1] == '') $('#ticketText > p:nth-of-type(4)').text(`${stadium ? stadium + ' | ' : ''}${seat[0]}구역`);
+        else if (seat[2] == '') $('#ticketText > p:nth-of-type(4)').text(`${stadium ? stadium + ' | ' : ''}${seat[0]}구역 ${seat[1]}열`);
+        else $('#ticketText > p:nth-of-type(4)').text(`${stadium ? stadium + ' | ' : ''}${seat[0]}구역 ${seat[1]}열 ${seat[2]}`);
     } else if (style == 2) {
         $('#log > svg').remove();
         $('#log > img').attr('src', './files/티켓 2.svg');
@@ -285,10 +285,10 @@ function getLog(data, matchlog, matchId) {
             <p>${comment}</p>    
         `)
 
-        if (seat[0] == '') $('#ticketText > p:nth-of-type(4)').text(stadium);
-        else if (seat[1] == '') $('#ticketText > p:nth-of-type(4)').text(`${stadium} | ${seat[0]}구역`);
-        else if (seat[2] == '') $('#ticketText > p:nth-of-type(4)').text(`${stadium} | ${seat[0]}구역 ${seat[1]}열`);
-        else $('#ticketText > p:nth-of-type(4)').text(`${stadium} | ${seat[0]}구역 ${seat[1]}열 ${seat[2]}`);
+        if (seat[0] == '') $('#ticketText > p:nth-of-type(4)').text(stadium || '');
+        else if (seat[1] == '') $('#ticketText > p:nth-of-type(4)').text(`${stadium ? stadium + ' | ' : ''}${seat[0]}구역`);
+        else if (seat[2] == '') $('#ticketText > p:nth-of-type(4)').text(`${stadium ? stadium + ' | ' : ''}${seat[0]}구역 ${seat[1]}열`);
+        else $('#ticketText > p:nth-of-type(4)').text(`${stadium ? stadium + ' | ' : ''}${seat[0]}구역 ${seat[1]}열 ${seat[2]}`);
     } else if (style == 3) {
         $('#log > svg').remove();
         $('#log > img').attr('src', './files/티켓 3.svg');
@@ -308,10 +308,10 @@ function getLog(data, matchlog, matchId) {
             <p>${comment}</p>    
         `)
 
-        if (seat[0] == '') $('#ticketText > p:nth-of-type(4)').text(stadium);
-        else if (seat[1] == '') $('#ticketText > p:nth-of-type(4)').text(`${stadium} | ${seat[0]}구역`);
-        else if (seat[2] == '') $('#ticketText > p:nth-of-type(4)').text(`${stadium} | ${seat[0]}구역 ${seat[1]}열`);
-        else $('#ticketText > p:nth-of-type(4)').text(`${stadium} | ${seat[0]}구역 ${seat[1]}열 ${seat[2]}`);
+        if (seat[0] == '') $('#ticketText > p:nth-of-type(4)').text(stadium || '');
+        else if (seat[1] == '') $('#ticketText > p:nth-of-type(4)').text(`${stadium ? stadium + ' | ' : ''}${seat[0]}구역`);
+        else if (seat[2] == '') $('#ticketText > p:nth-of-type(4)').text(`${stadium ? stadium + ' | ' : ''}${seat[0]}구역 ${seat[1]}열`);
+        else $('#ticketText > p:nth-of-type(4)').text(`${stadium ? stadium + ' | ' : ''}${seat[0]}구역 ${seat[1]}열 ${seat[2]}`);
     }
 
     const isHome = (home[1] == 'seouleland') ? 1 : 0;
