@@ -94,6 +94,8 @@ function render(dataA, dataU18, dataU15, playerA, playerU18, playerU15, playerNu
 
     // 버튼 제어
     $('.statsSeason > select').on('change', function() {
+        $(this).blur();
+        
         year = $(this).val();
     
         setYear(getCurrentData(), year, getCurrentPlayer(), playerNum, teamType);

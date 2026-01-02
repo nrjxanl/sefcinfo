@@ -66,6 +66,8 @@ function render(standings) {
 
     // 연도 선택 변경 이벤트
     $('.standingsSeason > select').on('change', function () {
+        $(this).blur();
+        
         year = $(this).val();
         setYear(standings, year, teamType);
     });

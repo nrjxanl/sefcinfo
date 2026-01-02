@@ -82,6 +82,8 @@ function render(dataA, dataU18, dataU15) {
 
     // 버튼 제어
     $('.fixturesSeason > select').on('change', function() {
+        $(this).blur();
+        
         year = $(this).val();
     
         setYear(getCurrentData(), year, month);

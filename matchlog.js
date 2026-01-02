@@ -75,6 +75,8 @@ function render(data, matchlog, uid) {
 
 
     $('#matchlogSelect').on('change', function() {
+        $(this).blur();
+        
         year = $(this).val();
         getList(data, matchlog, year);
     });
