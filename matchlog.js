@@ -467,8 +467,8 @@ function addLog(data, matchlog, uid, editDate) {
 
         const krRegex = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g;
         section = ($('#addLog > div:nth-of-type(1) > input:nth-of-type(1)').val() || '').replace(krRegex, '');
-        row = ($('#addLog > div:nth-of-type(1) > input:nth-of-type(2)').val() || '').replace(/[^0-9]/g, '');
-        seatNum = ($('#addLog > div:nth-of-type(1) > input:nth-of-type(3)').val() || '').replace(/[^0-9]/g, '');
+        row = ($('#addLog > div:nth-of-type(1) > input:nth-of-type(2)').val() || '').replace(krRegex, '');
+        seatNum = ($('#addLog > div:nth-of-type(1) > input:nth-of-type(3)').val() || '').replace(krRegex, '');
         
         comment = $('#addLog > textarea').val().replace(/\r?\n/g, '<br>');
         style = Number($('input[name="style"]:checked').val() || 1);
