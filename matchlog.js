@@ -376,7 +376,7 @@ function getList(data, matchlog, year) {
 
         if (!stadiumBucket[cnt]) stadiumBucket[cnt] = [];
 
-        stadiumBucket[cnt].push(stadium.split(' ')[0]);
+        stadiumBucket[cnt].push(stadium);
     }
 
     if (stadiumBucket.length > 0) {
