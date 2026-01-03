@@ -63,8 +63,6 @@
             <button glass="true">분석</button>
         </div>
 
-        <p id="winRate"></p>
-
         <div id="matchNum" glass="true">
             <div>
                 <p></p>
@@ -75,7 +73,70 @@
 
         <div id="matchlogList"></div>
 
-        <div id="matchStatList"></div>
+        <div id="matchStatList">
+            <div glass="true">
+                <div>
+                    <svg viewBox="0 0 100 100" class="gauge">
+                        <circle class="bg" cx="50" cy="50" r="45"></circle>
+                        <circle class="meter" cx="50" cy="50" r="45"></circle>
+                    </svg>
+                    <div class="gauge-text">
+                        <span>0</span>%
+                    </div>
+                </div>
+                <div>
+                    <p>직관 횟수<br><span></span></p>
+                </div>
+            </div>
+            <div glass="true">
+                <div>
+                    <svg viewBox="0 0 100 100" class="gauge">
+                        <circle class="bg" cx="50" cy="50" r="45"></circle>
+                        <circle class="meter" cx="50" cy="50" r="45"></circle>
+                    </svg>
+                    <div class="gauge-text">
+                        <span>0</span>%
+                    </div>
+                </div>
+                <div>
+                    <p>직관 승률<br><span></span></p>
+                </div>
+            </div>
+            <div glass="true">
+                <div>
+                    <p>직관한 경기</p>
+                    <div>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+                <div>
+                    <p>직관하지 않은 경기</p>
+                    <div>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div glass="true">
+                <div>
+                    <p></p>
+                    <p></p>
+                </div>
+                <div>
+                    <p>가장 많이 만난 상대<br><span></span></p>
+                </div>
+            </div>
+            <div glass="true">
+                <div>
+                    <p></p>
+                    <p></p>
+                </div>
+                <div>
+                    <p>가장 많이 방문한 경기장<br><span></span></p>
+                </div>
+            </div>
+        </div>
 
         <div id="addLog" glass="true">
             <p>날짜<span>해당 날짜의 경기 정보를 자동으로 가져와요</span></p>
@@ -106,6 +167,7 @@
 
         <div id="log">
             <div>
+                <button glass="true"><img src="./files/x.svg"></button>
                 <button>수정</button>
                 <button>삭제</button>
                 <button glass="true"><img src="./files/download.svg"></button>
