@@ -366,7 +366,7 @@ function getList(data, matchlog, year) {
     }
 
     // 가장 많이 간 경기장
-    const excl = ['목동운동장', 'LEOUL PARK'];
+    const excl = ['목동운동장', '레울파크'];
     let stadiumBucket = [];
 
     for (const stadium in stadiumAttend) {
@@ -390,7 +390,7 @@ function getList(data, matchlog, year) {
             $('#matchStatList > div:nth-of-type(5) > div:nth-of-type(1) > p:nth-of-type(2)').text(`${stadiumBucket.length - 1}회`);
         }
 
-        $('#matchStatList > div:nth-of-type(5) > div:nth-of-type(2) > p > span').html(`홈 경기장(${(stadiumAttend['목동운동장'] || 0) + (stadiumAttend['LEOUL PARK'] || 0)}회) 제외,<br>${w + d + l}경기 중 ${((stadiumBucket.length - 1) / (w + d + l) * 100).toFixed(1)}%`);
+        $('#matchStatList > div:nth-of-type(5) > div:nth-of-type(2) > p > span').html(`홈 경기장(${(stadiumAttend['목동운동장'] || 0) + (stadiumAttend['레울파크'] || 0)}회) 제외,<br>${w + d + l}경기 중 ${((stadiumBucket.length - 1) / (w + d + l) * 100).toFixed(1)}%`);
     } else {
         $('#matchStatList > div:nth-of-type(5)').css('display', 'none');
     }
