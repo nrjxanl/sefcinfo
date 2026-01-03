@@ -450,6 +450,7 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 
 #recentMatch {width: 80vw; border-radius: 20px; margin-top: 40px;}
 #recentMatch > div {width: 80vw; height: 60px; border-bottom: 2px solid #05090a20; padding: 4px 0 8px 0;}
+#recentMatch > div:nth-last-of-type(1) {border-bottom: none;}
 #recentMatch > div > div:nth-of-type(1) {width: 80vw; height: 40px; display: flex; align-items: center;}
 #recentMatch > div > div:nth-of-type(1) > div:nth-of-type(1) {width: 30vw; display: flex; align-items: center; justify-content: flex-end;}
 #recentMatch > div > div:nth-of-type(1) > div:nth-of-type(1) > img {height: 20px;}
