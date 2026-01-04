@@ -399,6 +399,33 @@ function getList(data, matchlog, year) {
     } else {
         $('#matchStatList > div:nth-of-type(5)').css('display', 'none');
     }
+
+    // 월별 직관 횟수
+    const maxAll = Math.max(...Object.values(monthAll));
+
+    for (let i = 1; i <= 12; i++) {
+        $(`#matchStatList > div:nth-of-type(6) > div > div:nth-of-type(${i})`).css('height', `calc(180px * ${monthAll[i] / maxAll} + 56px)`);
+        $(`#matchStatList > div:nth-of-type(6) > div > div:nth-of-type(${i}) > p:nth-of-type(1)`).text(`${monthAll[i]}`).css('height', `calc(180px * ${(monthAll[i] - monthAttend[i]) / maxAll})`);
+        $(`#matchStatList > div:nth-of-type(6) > div > div:nth-of-type(${i}) > p:nth-of-type(2)`).text(`${monthAttend[i]}`).css('height', `calc(180px * ${monthAttend[i] / maxAll})`);
+
+        if (monthAll[i] == monthAttend[i]) $(`#matchStatList > div:nth-of-type(6) > div > div:nth-of-type(${i}) > p:nth-of-type(1)`).css('display', 'none');
+        else $(`#matchStatList > div:nth-of-type(6) > div > div:nth-of-type(${i}) > p:nth-of-type(1)`).css('display', 'block');
+
+        if (monthAll[i] == 0) {
+            $(`#matchStatList > div:nth-of-type(6) > div > div:nth-of-type(${i})`).css('display', 'none');
+        } else {
+            $(`#matchStatList > div:nth-of-type(6) > div > div:nth-of-type(${i})`).css('display', 'flex');
+
+            if (monthAttend[i] == 0) {
+                $(`#matchStatList > div:nth-of-type(6) > div > div:nth-of-type(${i}) > p:nth-of-type(2)`).css('display', 'none');
+            } else {
+                $(`#matchStatList > div:nth-of-type(6) > div > div:nth-of-type(${i}) > p:nth-of-type(2)`).css('display', 'block');
+            }
+        }    
+    }
+
+    if (maxAll == 0) $('#matchStatList > div:nth-of-type(6)').css('display', 'none');
+    else $('#matchStatList > div:nth-of-type(6)').css('display', 'flex');
 }
 
 function getLog(data, matchlog, matchId) {
