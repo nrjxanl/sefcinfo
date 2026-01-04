@@ -205,6 +205,7 @@ h2 { font-family: "Paperlogy"; font-weight: 900; font-size: 20px; margin-bottom:
     font-weight: 900; 
     padding: 12px 1px; 
     border-bottom: 2px solid #00006015;
+    text-align: center;
 }
 #preview-table td { 
     padding: 10px 1px; 
@@ -766,27 +767,27 @@ h2 { font-family: "Paperlogy"; font-weight: 900; font-size: 20px; margin-bottom:
                 const snapshot = await get(ref(db, `data${team}/${id}`));
                 if (snapshot.exists()) {
                     const data = snapshot.val();
-                    document.getElementById('m_round').value = data.round || '';
-                    document.getElementById('m_compName').value = data.comp?.[0] || '';
-                    document.getElementById('m_compCode').value = data.comp?.[1] || '';
-                    document.getElementById('m_stadium').value = data.stadium || '';
-                    document.getElementById('m_hl').value = data.hl || '';
+                    document.getElementById('m_round').value = data.round ?? '';
+                    document.getElementById('m_compName').value = data.comp?.[0] ?? '';
+                    document.getElementById('m_compCode').value = data.comp?.[1] ?? '';
+                    document.getElementById('m_stadium').value = data.stadium ?? '';
+                    document.getElementById('m_hl').value = data.hl ?? '';
                     if(data.time) {
                         const [h, m] = data.time.split(':');
                         document.getElementById('m_hour').value = h; document.getElementById('m_min').value = m;
                     } else { document.getElementById('m_hour').value = ''; document.getElementById('m_min').value = ''; }
-                    document.getElementById('m_homeName').value = data.home?.[0] || '';
-                    document.getElementById('m_homeCode').value = data.home?.[1] || '';
-                    document.getElementById('m_homeScore').value = data.homeScore || '';
-                    document.getElementById('m_homeScorer').value = data.homeScorer || '';
-                    document.getElementById('m_awayName').value = data.away?.[0] || '';
-                    document.getElementById('m_awayCode').value = data.away?.[1] || '';
-                    document.getElementById('m_awayScore').value = data.awayScore || '';
-                    document.getElementById('m_awayScorer').value = data.awayScorer || '';
+                    document.getElementById('m_homeName').value = data.home?.[0] ?? '';
+                    document.getElementById('m_homeCode').value = data.home?.[1] ?? '';
+                    document.getElementById('m_homeScore').value = data.homeScore ?? '';
+                    document.getElementById('m_homeScorer').value = data.homeScorer ?? '';
+                    document.getElementById('m_awayName').value = data.away?.[0] ?? '';
+                    document.getElementById('m_awayCode').value = data.away?.[1] ?? '';
+                    document.getElementById('m_awayScore').value = data.awayScore ?? '';
+                    document.getElementById('m_awayScorer').value = data.awayScorer ?? '';
                     if(data.matchStat && data.matchStat.length === 20) {
                         for(let i=0; i<10; i++) {
-                            document.getElementById(`m_stat_home_${i}`).value = data.matchStat[i*2] || '';
-                            document.getElementById(`m_stat_away_${i}`).value = data.matchStat[i*2 + 1] || '';
+                            document.getElementById(`m_stat_home_${i}`).value = data.matchStat[i*2] ?? '';
+                            document.getElementById(`m_stat_away_${i}`).value = data.matchStat[i*2 + 1] ?? '';
                         }
                     } else { document.querySelectorAll('.stat-input').forEach(input => input.value = ''); }
                     updateEmblemPreview('m_compCode', 'preview_comp');
@@ -797,7 +798,7 @@ h2 { font-family: "Paperlogy"; font-weight: 900; font-size: 20px; margin-bottom:
                         rowContainer.innerHTML = ''; 
                         if(data[pos] && data[pos].length > 0) {
                             data[pos].forEach(p => {
-                                const pid = p[0] || ''; const stat = p[1] || '';
+                                const pid = p[0] ?? ''; const stat = p[1] ?? '';
                                 const name = Object.keys(nameToIdMap).find(key => nameToIdMap[key] === pid) || '';
                                 addMatchPlayerRow(pos, name, pid, stat);
                             });
@@ -867,13 +868,13 @@ h2 { font-family: "Paperlogy"; font-weight: 900; font-size: 20px; margin-bottom:
                 const s = await get(ref(db, `player${team}/${id}`));
                 if(s.exists()) {
                     const d = s.val();
-                    document.getElementById('p_name').value = d.name || '';
-                    document.getElementById('p_bd').value = d.bd || '';
-                    document.getElementById('p_natl').value = d.natl || '';
-                    document.getElementById('p_pos').value = d.pos || '';
-                    document.getElementById('p_height').value = d.height || '';
-                    document.getElementById('p_sns').value = d.sns || '';
-                    document.getElementById('p_sefc').value = d.sefc || '';
+                    document.getElementById('p_name').value = d.name ?? '';
+                    document.getElementById('p_bd').value = d.bd ?? '';
+                    document.getElementById('p_natl').value = d.natl ?? '';
+                    document.getElementById('p_pos').value = d.pos ?? '';
+                    document.getElementById('p_height').value = d.height ?? '';
+                    document.getElementById('p_sns').value = d.sns ?? '';
+                    document.getElementById('p_sefc').value = d.sefc ?? '';
                     alert('로드 완료');
                 } else alert('데이터 없음');
             } catch(e) { console.error(e); }
@@ -922,13 +923,13 @@ h2 { font-family: "Paperlogy"; font-weight: 900; font-size: 20px; margin-bottom:
                 const s = await get(ref(db, `h2h${team}/${code}`));
                 if(s.exists()) {
                     const a = s.val();
-                    document.getElementById('h_bg').value = a[0] || '';
-                    document.getElementById('h_text').value = a[1] || '';
-                    document.getElementById('h_w').value = a[2] || '';
-                    document.getElementById('h_d').value = a[3] || '';
-                    document.getElementById('h_l').value = a[4] || '';
-                    document.getElementById('h_gf').value = a[5] || '';
-                    document.getElementById('h_ga').value = a[6] || '';
+                    document.getElementById('h_bg').value = a[0] ?? '';
+                    document.getElementById('h_text').value = a[1] ?? '';
+                    document.getElementById('h_w').value = a[2] ?? '';
+                    document.getElementById('h_d').value = a[3] ?? '';
+                    document.getElementById('h_l').value = a[4] ?? '';
+                    document.getElementById('h_gf').value = a[5] ?? '';
+                    document.getElementById('h_ga').value = a[6] ?? '';
                     updateEmblemPreview('h_code', 'preview_h2h');
                     updateColorPreview('h_bg', 'preview_bg'); updateColorPreview('h_text', 'preview_text');
                     alert('로드 완료');
@@ -971,7 +972,7 @@ h2 { font-family: "Paperlogy"; font-weight: 900; font-size: 20px; margin-bottom:
             numContainer.innerHTML = '';
             try {
                 const s = await get(ref(db, `playerNum/${year}`));
-                if(s.exists()) for(const [pid, info] of Object.entries(s.val())) addNumRow(info[0] || '', pid || '', info[1] || '');
+                if(s.exists()) for(const [pid, info] of Object.entries(s.val())) addNumRow(info[0] ?? '', pid ?? '', info[1] ?? '');
                 addNumRow();
             } catch(e) { console.error(e); }
         });
@@ -997,7 +998,7 @@ h2 { font-family: "Paperlogy"; font-weight: 900; font-size: 20px; margin-bottom:
             try {
                 const s = await get(ref(db, `standings/${year}/${league}`));
                 if(s.exists() && Array.isArray(s.val())) {
-                    ta.value = s.val().map(row => `${row[1] || ''}  ${row[3] || ''}  ${row[4] || ''}  ${row[5] || ''}  ${row[6] || ''}  ${row[7] || ''}`).join('\n');
+                    ta.value = s.val().map(row => `${row[1] ?? ''}  ${row[3] ?? ''}  ${row[4] ?? ''}  ${row[5] ?? ''}  ${row[6] ?? ''}  ${row[7] ?? ''}`).join('\n');
                 } else ta.value = '';
                 updateStandingsPreview();
             } catch(e) { ta.value='에러'; }
@@ -1032,5 +1033,5 @@ h2 { font-family: "Paperlogy"; font-weight: 900; font-size: 20px; margin-bottom:
 
         loadStandings();
     </script>
-    </body>
+        </body>
 </html>
