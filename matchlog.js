@@ -226,13 +226,15 @@ function getList(data, matchlog, year) {
         const awayScore = parseInt(matchData['awayScore'].replace(/<span[^>]*>.*?<\/span>/gi, ''));
         const isHome = (matchData['home'][1] == 'seouleland') ? 1 : 0;
         const opp = isHome ? matchData['away'][0] : matchData['home'][0];
-        const st = matchData['stadium'] || '';
         const month = parseInt(matchId.substring(4, 6));
+        
+        let st = matchData['stadium'] || '';
+        if (st == '강릉종합운동장') st = '강릉하이원아레나';
 
         monthAll[month]++;
         oppAll[opp] = (oppAll[opp] || 0) + 1;
         if (st != '') stadiumAll[st] = (stadiumAll[st] || 0) + 1;
-        
+
         if (isHome) {
             gsAll += homeScore;
             gcAll += awayScore;
@@ -375,6 +377,9 @@ function getList(data, matchlog, year) {
         let cnt = stadiumAttend[stadium];
 
         if (!stadiumBucket[cnt]) stadiumBucket[cnt] = [];
+
+        let stadiumName = stadium;
+        if (stadium == '강릉하이원아레나' && !(year == 0 || year >= 2025)) stadiumName = '강릉종합운동장';
 
         stadiumBucket[cnt].push(stadium);
     }
