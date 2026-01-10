@@ -151,7 +151,7 @@ h2 { font-family: "Paperlogy"; font-weight: 900; font-size: 20px; margin-bottom:
     width: 100%;
 }
 .row-index {
-    text-align: center; font-size: 11px; font-weight: 900; color: #bbb;
+    text-align: center; font-size: 11px; font-weight: 900;;
     background: #f0f0f4; border-radius: 12px; height: 45px; line-height: 45px;
 }
 .player-grid-row input { 
@@ -597,14 +597,14 @@ h2 { font-family: "Paperlogy"; font-weight: 900; font-size: 20px; margin-bottom:
             addMatchPlayerRow(pos); 
         });
 
-        function addMatchPlayerRow(pos, name='', id='', stat='') {
+        // [수정] 인덱스 대신 등번호(num)를 인자로 받음
+        function addMatchPlayerRow(pos, name='', id='', stat='', num='') {
             const container = document.querySelector(`#section-${pos} .pos-rows-container`);
-            const index = container.querySelectorAll('.player-grid-row').length + 1; 
             
             const div = document.createElement('div');
             div.className = `player-grid-row ${pos}-row`;
             div.innerHTML = `
-                <div class="row-index">${index}</div>
+                <div class="row-index">${num || '-'}</div>
                 <input type="text" placeholder="이름" class="p-name-auto" value="${name}">
                 <input type="tel" placeholder="ID" class="p-id" value="${id}">
                 <input type="text" placeholder="스탯" class="p-stat" value="${stat}">
@@ -639,24 +639,39 @@ h2 { font-family: "Paperlogy"; font-weight: 900; font-size: 20px; margin-bottom:
             statContainer.appendChild(row);
         });
 
-        document.body.addEventListener('input', function(e) {
+        // [수정] 이름 입력 시 ID와 등번호를 동시에 찾음
+        document.body.addEventListener('input', async function(e) {
             if (e.target.classList.contains('p-name-auto')) {
                 const nameInput = e.target;
                 const row = nameInput.parentElement;
                 const idInput = row.querySelector('.p-id'); 
+                const indexDiv = row.querySelector('.row-index');
                 if (!idInput) return;
+                
                 const name = nameInput.value.trim();
+                const dateVal = document.getElementById('m_date').value;
+
                 if (name === '') {
                     idInput.value = '';
+                    indexDiv.innerText = '-';
                     idInput.classList.remove('warning-input');
-                    idInput.placeholder = "ID";
                     return;
                 }
+
                 if (nameToIdMap[name]) {
-                    idInput.value = nameToIdMap[name];
+                    const pid = nameToIdMap[name];
+                    idInput.value = pid;
                     idInput.classList.remove('warning-input');
+
+                    // 연도 추출 및 등번호 조회
+                    if (dateVal && dateVal.length >= 4) {
+                        const year = dateVal.substring(0, 4);
+                        const numSnap = await get(ref(db, `playerNum/${year}/${pid}`));
+                        indexDiv.innerText = numSnap.exists() ? numSnap.val()[1] : '-';
+                    }
                 } else {
                     idInput.value = ''; 
+                    indexDiv.innerText = '-';
                     idInput.classList.add('warning-input');
                     idInput.placeholder = "ID 없음";
                 }
@@ -727,6 +742,39 @@ h2 { font-family: "Paperlogy"; font-weight: 900; font-size: 20px; margin-bottom:
         document.getElementById('h_bg').addEventListener('input', () => updateColorPreview('h_bg', 'preview_bg'));
         document.getElementById('h_text').addEventListener('input', () => updateColorPreview('h_text', 'preview_text'));
 
+        async function autoFillTeamCode(nameId, codeId, previewId) {
+            const teamName = document.getElementById(nameId).value.trim();
+            const dateStr = document.getElementById('m_date').value;
+            if (!teamName || !dateStr || dateStr.length < 4) return;
+            const currentYear = parseInt(dateStr.substring(0, 4));
+            const dataNodes = ['dataA', 'dataU18', 'dataU15'];
+            let bestCode = ""; let maxFoundYear = -1;
+            for (const node of dataNodes) {
+                const snapshot = await get(ref(db, node));
+                if (snapshot.exists()) {
+                    const matches = snapshot.val();
+                    for (const id in matches) {
+                        const m = matches[id];
+                        const teams = [m.home, m.away];
+                        for (const t of teams) {
+                            if (t && t[0] === teamName) {
+                                const code = t[1];
+                                const yearMatch = code.match(/\d{4}$/);
+                                const codeYear = yearMatch ? parseInt(yearMatch[0]) : 0;
+                                if (codeYear === 0 || codeYear <= currentYear) {
+                                    if (codeYear >= maxFoundYear) { maxFoundYear = codeYear; bestCode = code; }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if (bestCode) { document.getElementById(codeId).value = bestCode; updateEmblemPreview(codeId, previewId); }
+        }
+
+        document.getElementById('m_homeName').addEventListener('blur', () => autoFillTeamCode('m_homeName', 'm_homeCode', 'preview_home'));
+        document.getElementById('m_awayName').addEventListener('blur', () => autoFillTeamCode('m_awayName', 'm_awayCode', 'preview_away'));
+
         function updateStandingsPreview() {
             const raw = document.getElementById('s_data').value;
             const container = document.getElementById('standings-preview');
@@ -741,7 +789,7 @@ h2 { font-family: "Paperlogy"; font-weight: 900; font-size: 20px; margin-bottom:
                 const cols = row.split('  ').map(c => c.trim());
                 if (cols.length < 6) return;
                 const pts = (parseInt(cols[1]) || 0) * 3 + (parseInt(cols[2]) || 0);
-                html += `<tr><td>${index+1}</td><td>${cols[0]}</td><td>${pts}</td><td>${cols[1]}</td><td>${cols[2]}</td><td>${cols[3]}</td><td>${cols[4]}</td><td>${cols[5]}</td><td>${parseInt(cols[4])-parseInt(cols[5])}</td></tr>`;
+                html += `<tr><td>${index+1}</td><td>${cols[0]}</td><td>${pts}</td><td>${cols[1]}</td><td>${cols[2]}</td><td>${cols[3]}</td><td>${cols[4]}</td><td>${cols[5]}</td><td>${(parseInt(cols[4]) || 0) - (parseInt(cols[5]) || 0)}</td></tr>`;
             });
             html += '</tbody></table>';
             container.innerHTML = html;
@@ -767,6 +815,11 @@ h2 { font-family: "Paperlogy"; font-weight: 900; font-size: 20px; margin-bottom:
                 const snapshot = await get(ref(db, `data${team}/${id}`));
                 if (snapshot.exists()) {
                     const data = snapshot.val();
+                    const matchYear = id.substring(0, 4);
+                    // 연도별 등번호 데이터 미리 가져오기
+                    const numSnapshot = await get(ref(db, `playerNum/${matchYear}`));
+                    const yearNums = numSnapshot.exists() ? numSnapshot.val() : {};
+
                     document.getElementById('m_round').value = data.round ?? '';
                     document.getElementById('m_compName').value = data.comp?.[0] ?? '';
                     document.getElementById('m_compCode').value = data.comp?.[1] ?? '';
@@ -793,14 +846,16 @@ h2 { font-family: "Paperlogy"; font-weight: 900; font-size: 20px; margin-bottom:
                     updateEmblemPreview('m_compCode', 'preview_comp');
                     updateEmblemPreview('m_homeCode', 'preview_home');
                     updateEmblemPreview('m_awayCode', 'preview_away');
+                    
                     positions.forEach(pos => {
                         const rowContainer = document.querySelector(`#section-${pos} .pos-rows-container`);
                         rowContainer.innerHTML = ''; 
                         if(data[pos] && data[pos].length > 0) {
                             data[pos].forEach(p => {
                                 const pid = p[0] ?? ''; const stat = p[1] ?? '';
+                                const pNum = yearNums[pid] ? yearNums[pid][1] : '-'; // 등번호 매칭
                                 const name = Object.keys(nameToIdMap).find(key => nameToIdMap[key] === pid) || '';
-                                addMatchPlayerRow(pos, name, pid, stat);
+                                addMatchPlayerRow(pos, name, pid, stat, pNum);
                             });
                         }
                         addMatchPlayerRow(pos);
@@ -1033,5 +1088,5 @@ h2 { font-family: "Paperlogy"; font-weight: 900; font-size: 20px; margin-bottom:
 
         loadStandings();
     </script>
-        </body>
+            </body>
 </html>
