@@ -66,16 +66,16 @@ function render(data, matchData, num, h2h) {
         $('#matchScore > div:nth-of-type(3) > p:nth-of-type(2)').html(matchData['awayScorer']);
     }
 
+    // 하이라이트 표시
+    if (matchData['hl'] != '') $('#highlight > a').attr('href', `https://youtu.be/${matchData['hl']}`).attr('target', '_blank');
+    else $('#highlight').remove();
+
     // 유스 경기에서는 matchInfo 창 삭제
     if (teamType != 'A') {
         $('.matchDetail > button:nth-of-type(1)').css('display', 'none');
         if (localStorage.getItem(matchId) != 'matchH2H') matchLineup();
         else matchH2H(matchId);
     }
-
-    // 하이라이트 표시
-    if (matchData['hl'] != '') $('#highlight > a').attr('href', `https://youtu.be/${matchData['hl']}`).attr('target', '_blank');
-    else $('#highlight').remove();
 
     // 라인업
     if (matchData['GK']?.length) lineup(matchData, num, matchId.substring(0, 4)); // matchData, players, num, year 전달
@@ -250,6 +250,13 @@ function lineup(matchData, num, year) {
         })
     }
 
+    // potm 없으면 matchInfo 창 삭제
+    if ($('#matchInfo > div').length == 1 && $('#potm').css('display') == 'none') {
+        $('.matchDetail > button:nth-of-type(1)').css('display', 'none');
+        if (localStorage.getItem(matchId) != 'matchH2H') matchLineup();
+        else matchH2H(matchId);
+    }
+
     // 유니폼 색상 설정
     if (year == 2025) {
         $('#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img').css('filter', 'brightness(0) saturate(100%) invert(80%) sepia(99%) saturate(292%) hue-rotate(16deg) brightness(99%) contrast(86%)')
@@ -413,11 +420,11 @@ function H2h(data, matchData, h2h) {
     }
 
     if (w + d + l > 0) {
-        const wPct = Number(parseFloat((100 * w / (w + d + l))).toFixed(1));
-        const dPct = Number(parseFloat((100 * d / (w + d + l))).toFixed(1));
-        const lPct = Number(parseFloat((100 * l / (w + d + l))).toFixed(1));
-        const goalSpG = Number(parseFloat((goalS / (w + d + l))).toFixed(1));
-        const goalCpG = Number(parseFloat((goalC / (w + d + l))).toFixed(1));
+        const wPct = parseFloat((100 * w / (w + d + l)));
+        const dPct = parseFloat((100 * d / (w + d + l)));
+        const lPct = parseFloat((100 * l / (w + d + l)));
+        const goalSpG = parseFloat((goalS / (w + d + l)));
+        const goalCpG = parseFloat((goalC / (w + d + l)));
 
         // 승무패 기록
         const getEnd = v => (v >= 100 ? 100 : Math.max(0, v - 3));
@@ -446,9 +453,9 @@ function H2h(data, matchData, h2h) {
         $(`#h2hText > div:nth-of-type(2) > p:nth-of-type(1)`).text(d).css({ 'background': '#05090a40', 'color': '#faf6f5' });
         $(`#h2hText > div:nth-of-type(${2 * isHome + 1}) > p:nth-of-type(1)`).text(l).css({ 'background': bgColor, 'color': textColor });
 
-        $(`#h2hText > div:nth-of-type(${-2 * isHome + 3}) > div > p:nth-of-type(2)`).text(wPct + "%");
-        $(`#h2hText > div:nth-of-type(2) > div > p:nth-of-type(2)`).text(dPct + "%");
-        $(`#h2hText > div:nth-of-type(${2 * isHome + 1}) > div > p:nth-of-type(2)`).text(lPct + "%");
+        $(`#h2hText > div:nth-of-type(${-2 * isHome + 3}) > div > p:nth-of-type(2)`).text(wPct.toFixed(1) + "%");
+        $(`#h2hText > div:nth-of-type(2) > div > p:nth-of-type(2)`).text(dPct.toFixed(1) + "%");
+        $(`#h2hText > div:nth-of-type(${2 * isHome + 1}) > div > p:nth-of-type(2)`).text(lPct.toFixed(1) + "%");
         
         $(`#h2hText > div:nth-of-type(${-2 * isHome + 3}) > div > p:nth-of-type(1)`).text('승리');
         $(`#h2hText > div:nth-of-type(${2 * isHome + 1}) > div > p:nth-of-type(1)`).text('패배');
@@ -471,8 +478,8 @@ function H2h(data, matchData, h2h) {
         $(`#h2hGoalsText > div:nth-of-type(${-1 * isHome + 2}) > p:nth-of-type(1)`).text(goalS).css({ 'background': '#000060c0', 'color': '#faf6f5' });
         $(`#h2hGoalsText > div:nth-of-type(${isHome + 1}) > p:nth-of-type(1)`).text(goalC).css({ 'background': bgColor, 'color': textColor });
 
-        $(`#h2hGoalsText > div:nth-of-type(${-1 * isHome + 2}) > div > p:nth-of-type(2)`).text('경기당 ' + goalSpG);
-        $(`#h2hGoalsText > div:nth-of-type(${isHome + 1}) > div > p:nth-of-type(2)`).text('경기당 ' + goalCpG);
+        $(`#h2hGoalsText > div:nth-of-type(${-1 * isHome + 2}) > div > p:nth-of-type(2)`).text('경기당 ' + goalSpG.toFixed(1));
+        $(`#h2hGoalsText > div:nth-of-type(${isHome + 1}) > div > p:nth-of-type(2)`).text('경기당 ' + goalCpG.toFixed(1));
         
         $(`#h2hGoalsText > div:nth-of-type(${-1 * isHome + 2}) > div > p:nth-of-type(1)`).text('득점');
         $(`#h2hGoalsText > div:nth-of-type(${isHome + 1}) > div > p:nth-of-type(1)`).text('실점');
