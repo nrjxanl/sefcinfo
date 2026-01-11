@@ -78,7 +78,7 @@ function render(data, matchData, num, h2h) {
     else $('#highlight').remove();
 
     // 라인업
-    if (matchData['GK'].length) lineup(matchData, num, matchId.substring(0, 4)); // matchData, players, num, year 전달
+    if (matchData['GK']?.length) lineup(matchData, num, matchId.substring(0, 4)); // matchData, players, num, year 전달
     else {
         $('#matchLineup').css('display', 'none');
         $('#matchDetail > button:nth-of-type(2)').css('display', 'none');
@@ -360,8 +360,8 @@ function H2h(data, matchData, h2h) {
         const away = teamNameMapper[data[keys[i]]['away'][1].replace(/[0-9]/g, '')] || data[keys[i]]['away'][1].replace(/[0-9]/g, '');
         
         if ((home == opp || away == opp)) {
-            const homeScore = parseInt(data[keys[i]]['homeScore'].replace(/<span[^>]*>.*?<\/span>/gi, ""));
-            const awayScore = parseInt(data[keys[i]]['awayScore'].replace(/<span[^>]*>.*?<\/span>/gi, ""));
+            const homeScore = parseFloat(data[keys[i]]['homeScore'].replace(/<span[^>]*>.*?<\/span>/gi, ""));
+            const awayScore = parseFloat(data[keys[i]]['awayScore'].replace(/<span[^>]*>.*?<\/span>/gi, ""));
 
             if (home == opp) {
                 if (homeScore > awayScore) l++;
@@ -413,11 +413,11 @@ function H2h(data, matchData, h2h) {
     }
 
     if (w + d + l > 0) {
-        const wPct = Number((100 * w / (w + d + l))).toFixed(1);
-        const dPct = Number((100 * d / (w + d + l))).toFixed(1);
-        const lPct = Number((100 * l / (w + d + l))).toFixed(1);
-        const goalSpG = Number((goalS / (w + d + l))).toFixed(1);
-        const goalCpG = Number((goalC / (w + d + l))).toFixed(1);
+        const wPct = Number(parseFloat((100 * w / (w + d + l))).toFixed(1));
+        const dPct = Number(parseFloat((100 * d / (w + d + l))).toFixed(1));
+        const lPct = Number(parseFloat((100 * l / (w + d + l))).toFixed(1));
+        const goalSpG = Number(parseFloat((goalS / (w + d + l))).toFixed(1));
+        const goalCpG = Number(parseFloat((goalC / (w + d + l))).toFixed(1));
 
         // 승무패 기록
         const getEnd = v => (v >= 100 ? 100 : Math.max(0, v - 3));
@@ -439,7 +439,7 @@ function H2h(data, matchData, h2h) {
                 (w > 0) ? `#000060c0 ${getStart((d > 0) ? (lPct + dPct) : lPct)}%` : null
             ];
         }
-        
+
         $('#h2hBar > p').css('background', `linear-gradient(105deg, ${stops.filter(Boolean).join(', ')})`);
 
         $(`#h2hText > div:nth-of-type(${-2 * isHome + 3}) > p:nth-of-type(1)`).text(w).css({ 'background': '#000060c0', 'color': '#faf6f5' });
