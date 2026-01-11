@@ -176,10 +176,10 @@ function playerInfo(id, player, playerNum) {
     }
     
     $('#playerInfo > div:nth-of-type(1) > p:nth-of-type(2)').text(natl);
-    $('#playerInfo > div:nth-of-type(2) > p:nth-of-type(2)').text(`${height}㎝`);
+    $('#playerInfo > div:nth-of-type(2) > p:nth-of-type(2)').text(`${(height != '') ? (height + '㎝') : '-'}`);
 
-    $('#playerInfo > div:nth-of-type(3) > p:nth-of-type(1)').text(bd);
-    $('#playerInfo > div:nth-of-type(3) > p:nth-of-type(2)').text(`${age}세`);
+    $('#playerInfo > div:nth-of-type(3) > p:nth-of-type(1)').text((bd != '...') ? bd : '나이');
+    $('#playerInfo > div:nth-of-type(3) > p:nth-of-type(2)').text(`${(bd != '...') ? (age + '세') : '-'}`);
 
     // 페이지명
     $('title').text(`SEFCiNFO - ${name}(${bd})`);
