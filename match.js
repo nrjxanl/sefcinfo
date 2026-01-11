@@ -348,18 +348,76 @@ function H2h(data, matchData, h2h) {
 
     const bgColor = `#${h2h[opp][0]}c0`;
     const textColor = `#${h2h[opp][1]}`;
-    const w = Number(h2h[opp][2]);
-    const d = Number(h2h[opp][3]);
-    const l = Number(h2h[opp][4]);
-    const goalS = Number(h2h[opp][5]);
-    const goalC = Number(h2h[opp][6]);
+
+    let w = 0, d = 0, l = 0, goalS = 0, goalC = 0;
+
+    // 역대 맞대결 경기
+    const keys = Object.keys(data);
+    let cnt = 0;
+
+    for (let i = 0; i < keys.length; i++) {
+        const home = teamNameMapper[data[keys[i]]['home'][1].replace(/[0-9]/g, '')] || data[keys[i]]['home'][1].replace(/[0-9]/g, '');
+        const away = teamNameMapper[data[keys[i]]['away'][1].replace(/[0-9]/g, '')] || data[keys[i]]['away'][1].replace(/[0-9]/g, '');
+        
+        if ((home == opp || away == opp)) {
+            const homeScore = parseInt(data[keys[i]]['homeScore'].replace(/<span[^>]*>.*?<\/span>/gi, ""));
+            const awayScore = parseInt(data[keys[i]]['awayScore'].replace(/<span[^>]*>.*?<\/span>/gi, ""));
+
+            if (home == opp) {
+                if (homeScore > awayScore) l++;
+                else if (homeScore < awayScore) w++;
+                else d++;
+
+                goalS += awayScore;
+                goalC += homeScore;
+            } else if (away == opp) {
+                if (homeScore > awayScore) w++;
+                else if (homeScore < awayScore) l++;
+                else d++;
+
+                goalS += homeScore;
+                goalC += awayScore;
+            }
+
+            $('#recentMatch').prepend(`
+                <div class = '${keys[i]}'>
+                    <div>
+                        <div>
+                            <img src = './files/${data[keys[i]]['home'][1]}_s.png'>
+                        </div>
+                        <div>
+                            <p>${homeScore}</p>
+                            <img src = './files/${data[keys[i]]['comp'][1]}_s.png'>
+                            <p>${awayScore}</p>
+                        </div>
+                        <div>
+                            <img src = './files/${data[keys[i]]['away'][1]}_s.png'>
+                        </div>
+                    </div>
+                    <div>
+                        <p>${keys[i].substring(0, 4)}.${keys[i].substring(4, 6)}.${keys[i].substring(6, 8)}.</p>
+                    </div>
+                </div>
+            `);
+
+            if (((home == 'seouleland') && (homeScore > awayScore)) || ((home != 'seouleland') && (homeScore < awayScore))) {
+                $(`#recentMatch > div:nth-of-type(1) > div:nth-of-type(2) > p`).css({'color': '#faf6f5', 'background': '#374df5c0', 'border': '1px solid #374df5c0'});
+            } else if (((home != 'seouleland') && (homeScore > awayScore)) || ((home == 'seouleland') && (homeScore < awayScore))) {
+                $(`#recentMatch > div:nth-of-type(1) > div:nth-of-type(2) > p`).css({'color': '#faf6f5', 'background': '#e0000060', 'border': '1px solid #e0000060'});
+            } else {
+                $(`#recentMatch > div:nth-of-type(1) > div:nth-of-type(2) > p`).css({'color': '#faf6f5', 'background': '#05090a40', 'border': '1px solid #05090a40'});
+            }
+
+            cnt++;
+        }
+    }
 
     if (w + d + l > 0) {
-        const wPct = Number((100 * w / (w + d + l)).toFixed(1));
-        const dPct = Number((100 * d / (w + d + l)).toFixed(1));
-        const lPct = Number((100 * l / (w + d + l)).toFixed(1));
-        const goalSpG = Number((goalS / (w + d + l)).toFixed(1));
-        const goalCpG = Number((goalC / (w + d + l)).toFixed(1));
+        const wPct = Number((100 * w / (w + d + l))).toFixed(1);
+        const dPct = Number((100 * d / (w + d + l))).toFixed(1);
+        const lPct = Number((100 * l / (w + d + l))).toFixed(1);
+        const goalSpG = Number((goalS / (w + d + l))).toFixed(1);
+        const goalCpG = Number((goalC / (w + d + l))).toFixed(1);
 
         // 승무패 기록
         const getEnd = v => (v >= 100 ? 100 : Math.max(0, v - 3));
@@ -418,53 +476,6 @@ function H2h(data, matchData, h2h) {
         
         $(`#h2hGoalsText > div:nth-of-type(${-1 * isHome + 2}) > div > p:nth-of-type(1)`).text('득점');
         $(`#h2hGoalsText > div:nth-of-type(${isHome + 1}) > div > p:nth-of-type(1)`).text('실점');
-
-        // 역대 맞대결 경기
-        const keys = Object.keys(data);
-        let cnt = 0;
-
-        for (let i = 0; i < keys.length; i++) {
-            const home = teamNameMapper[data[keys[i]]['home'][1].replace(/[0-9]/g, '')] || data[keys[i]]['home'][1].replace(/[0-9]/g, '');
-            const away = teamNameMapper[data[keys[i]]['away'][1].replace(/[0-9]/g, '')] || data[keys[i]]['away'][1].replace(/[0-9]/g, '');
-            
-            if ((home == opp || away == opp) && (cnt < (w + d + l))) {
-                const homeScore = data[keys[i]]['homeScore'];
-                const awayScore = data[keys[i]]['awayScore'];
-
-                $('#recentMatch').prepend(`
-                    <div class = '${keys[i]}'>
-                        <div>
-                            <div>
-                                <img src = './files/${data[keys[i]]['home'][1]}_s.png'>
-                            </div>
-                            <div>
-                                <p>${homeScore}</p>
-                                <img src = './files/${data[keys[i]]['comp'][1]}_s.png'>
-                                <p>${awayScore}</p>
-                            </div>
-                            <div>
-                                <img src = './files/${data[keys[i]]['away'][1]}_s.png'>
-                            </div>
-                        </div>
-                        <div>
-                            <p>${keys[i].substring(0, 4)}.${keys[i].substring(4, 6)}.${keys[i].substring(6, 8)}.</p>
-                        </div>
-                    </div>
-                `);
-
-                if (((home == 'seouleland') && (homeScore.replace(/<span[^>]*>.*?<\/span>/gi, "") > awayScore.replace(/<span[^>]*>.*?<\/span>/gi, ""))) || ((home != 'seouleland') && (homeScore.replace(/<span[^>]*>.*?<\/span>/gi, "") < awayScore.replace(/<span[^>]*>.*?<\/span>/gi, "")))) {
-                    $(`#recentMatch > div:nth-of-type(1) > div:nth-of-type(2) > p`).css({'color': '#faf6f5', 'background': '#374df5c0', 'border': '1px solid #374df5c0'});
-                } else if (((home != 'seouleland') && (homeScore.replace(/<span[^>]*>.*?<\/span>/gi, "") > awayScore.replace(/<span[^>]*>.*?<\/span>/gi, ""))) || ((home == 'seouleland') && (homeScore.replace(/<span[^>]*>.*?<\/span>/gi, "") < awayScore.replace(/<span[^>]*>.*?<\/span>/gi, "")))) {
-                    $(`#recentMatch > div:nth-of-type(1) > div:nth-of-type(2) > p`).css({'color': '#faf6f5', 'background': '#e0000060', 'border': '1px solid #e0000060'});
-                } else {
-                    $(`#recentMatch > div:nth-of-type(1) > div:nth-of-type(2) > p`).css({'color': '#faf6f5', 'background': '#05090a40', 'border': '1px solid #05090a40'});
-                }
-
-                cnt++;
-            }
-            
-            if (cnt >= (w + d + l)) break;
-        }
 
         // 클릭 시 페이지 이동
         $('#recentMatch > div').each(function() {
