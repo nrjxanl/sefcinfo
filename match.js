@@ -68,7 +68,7 @@ function render(data, matchData, num, h2h) {
 
     // 유스 경기에서는 matchInfo 창 삭제
     if (teamType != 'A') {
-        $('button[onclick="matchInfo()"]').css('display', 'none');
+        $('.matchDetail > button:nth-of-type(1)').css('display', 'none');
         if (localStorage.getItem(matchId) != 'matchH2H') matchLineup();
         else matchH2H(matchId);
     }
@@ -81,7 +81,7 @@ function render(data, matchData, num, h2h) {
     if (matchData['GK']?.length) lineup(matchData, num, matchId.substring(0, 4)); // matchData, players, num, year 전달
     else {
         $('#matchLineup').css('display', 'none');
-        $('#matchDetail > button:nth-of-type(2)').css('display', 'none');
+        $('.matchDetail > button:nth-of-type(2)').css('display', 'none');
         matchH2H(matchId);
     }
 
@@ -89,7 +89,7 @@ function render(data, matchData, num, h2h) {
     if (teamType == 'A' && matchData['matchStat'][0].length) stat(matchData, h2h); // matchData, h2h 전달
     else {
         $('#matchStat').css('display', 'none');
-        $('#matchDetail > button:nth-of-type(3)').css('display', 'none');
+        $('.matchDetail > button:nth-of-type(3)').css('display', 'none');
         matchH2H(matchId);
     }
 
