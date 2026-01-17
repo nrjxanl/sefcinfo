@@ -47,15 +47,15 @@ function render(data, matchData, num, h2h) {
     $('#matchScore > div:nth-of-type(2) > div:nth-of-type(3) > div > img').attr('src', `./files/${matchData['away'][1]}_s.png`);
 
     // 경기 점수
-    if (matchData['homeScore'] != '') $('#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)').html(`${matchData['homeScore']} : ${matchData['awayScore']}`);
+    if (matchData['homeScore'] != undefined && matchData['homeScore'] != '') $('#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)').html(`${matchData['homeScore']} : ${matchData['awayScore']}`);
     else $('#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)').text(`vs`);
 
     // 경기 일자
-    if (matchData['time'] != undefined) $('#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)').text(`${matchId.substring(4, 6)}.${matchId.substring(6, 8)}. ${matchData['time']}`);
+    if (matchData['time'] != undefined && matchData['time'] != '') $('#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)').text(`${matchId.substring(4, 6)}.${matchId.substring(6, 8)}. ${matchData['time']}`);
     else $('#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)').text(`${matchId.substring(0, 4)}.${matchId.substring(4, 6)}.${matchId.substring(6, 8)}.`);
 
     // 경기 장소
-    if (matchData['stadium'] != undefined) $('#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(3)').text(`@${matchData['stadium']}`);
+    if (matchData['stadium'] != undefined && matchData['stadium'] != '') $('#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(3)').text(`@${matchData['stadium']}`);
 
     // 득점자
     if ($(window).width() < 768) {
@@ -366,7 +366,7 @@ function H2h(data, matchData, h2h) {
         const home = teamNameMapper[data[keys[i]]['home'][1].replace(/[0-9]/g, '')] || data[keys[i]]['home'][1].replace(/[0-9]/g, '');
         const away = teamNameMapper[data[keys[i]]['away'][1].replace(/[0-9]/g, '')] || data[keys[i]]['away'][1].replace(/[0-9]/g, '');
         
-        if ((home == opp || away == opp)) {
+        if ((home == opp || away == opp) && (data[keys[i]]['homeScore'] != undefined && data[keys[i]]['homeScore'] != '')) {
             const homeScore = parseFloat(data[keys[i]]['homeScore'].replace(/<span[^>]*>.*?<\/span>/gi, ""));
             const awayScore = parseFloat(data[keys[i]]['awayScore'].replace(/<span[^>]*>.*?<\/span>/gi, ""));
 
@@ -490,6 +490,8 @@ function H2h(data, matchData, h2h) {
                 window.location.href = `./match?${$(this).attr('class')}`;
             })
         })
+    } else {
+        $('#matchH2H').empty().append('<p>맞대결 기록이 없습니다.</p>');
     }
 }
 

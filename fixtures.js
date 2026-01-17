@@ -210,17 +210,19 @@ function loadFixtures(data, year, month) {
         `);
 
         // 승무패 색상
-        if ((isHome && (homeScore.replace(/<span[^>]*>.*?<\/span>/gi, "") > awayScore.replace(/<span[^>]*>.*?<\/span>/gi, ""))) || (!(isHome) && (homeScore.replace(/<span[^>]*>.*?<\/span>/gi, "") < awayScore.replace(/<span[^>]*>.*?<\/span>/gi, "")))) {
-            $(`#fixtures${teamType} > .fixtures > .fixtures_:nth-of-type(${i + 1}) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)`).css({ 'color': '#faf6f5', 'background': '#374df5c0', 'border': '1px solid #374df5c0' });
-        } else if ((!(isHome) && (homeScore.replace(/<span[^>]*>.*?<\/span>/gi, "") > awayScore.replace(/<span[^>]*>.*?<\/span>/gi, ""))) || (isHome && (homeScore.replace(/<span[^>]*>.*?<\/span>/gi, "") < awayScore.replace(/<span[^>]*>.*?<\/span>/gi, "")))) {
-            $(`#fixtures${teamType} > .fixtures > .fixtures_:nth-of-type(${i + 1}) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)`).css({ 'color': '#faf6f5', 'background': '#e0000060', 'border': '1px solid #e0000060' });
-        } else {
-            $(`#fixtures${teamType} > .fixtures > .fixtures_:nth-of-type(${i + 1}) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)`).css({ 'color': '#faf6f5', 'background': '#05090a40', 'border': '1px solid #05090a40' });
+        if (homeScore != undefined && homeScore != '') {
+            if ((isHome && (homeScore.replace(/<span[^>]*>.*?<\/span>/gi, "") > awayScore.replace(/<span[^>]*>.*?<\/span>/gi, ""))) || (!(isHome) && (homeScore.replace(/<span[^>]*>.*?<\/span>/gi, "") < awayScore.replace(/<span[^>]*>.*?<\/span>/gi, "")))) {
+                $(`#fixtures${teamType} > .fixtures > .fixtures_:nth-of-type(${i + 1}) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)`).css({ 'color': '#faf6f5', 'background': '#374df5c0', 'border': '1px solid #374df5c0' });
+            } else if ((!(isHome) && (homeScore.replace(/<span[^>]*>.*?<\/span>/gi, "") > awayScore.replace(/<span[^>]*>.*?<\/span>/gi, ""))) || (isHome && (homeScore.replace(/<span[^>]*>.*?<\/span>/gi, "") < awayScore.replace(/<span[^>]*>.*?<\/span>/gi, "")))) {
+                $(`#fixtures${teamType} > .fixtures > .fixtures_:nth-of-type(${i + 1}) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)`).css({ 'color': '#faf6f5', 'background': '#e0000060', 'border': '1px solid #e0000060' });
+            } else {
+                $(`#fixtures${teamType} > .fixtures > .fixtures_:nth-of-type(${i + 1}) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)`).css({ 'color': '#faf6f5', 'background': '#05090a40', 'border': '1px solid #05090a40' });
+            }
         }
 
         // 데이터 없을 때 대체
-        if (homeScore == undefined) $(`#fixtures${teamType} > .fixtures > .fixtures_:nth-of-type(${i + 1}) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)`).text(`vs`);
-        if (matchData['time'] == undefined) $(`#fixtures${teamType} > .fixtures > .fixtures_:nth-of-type(${i + 1}) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)`).text(`${keys[i].substring(4, 6)}.${keys[i].substring(6, 8)}.`).css('padding', '2px 20px');
+        if (homeScore == undefined || homeScore == '') $(`#fixtures${teamType} > .fixtures > .fixtures_:nth-of-type(${i + 1}) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)`).text(`vs`);
+        if (matchData['time'] == undefined || matchData['time'] == '') $(`#fixtures${teamType} > .fixtures > .fixtures_:nth-of-type(${i + 1}) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)`).text(`${keys[i].substring(4, 6)}.${keys[i].substring(6, 8)}.`).css('padding', '2px 20px');
     }
 
     if (keys.length == 0) {
