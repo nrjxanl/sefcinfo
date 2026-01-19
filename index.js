@@ -41,7 +41,7 @@ function render(data, standings) {
         const awayScore = data[nextKey]['awayScore'];
         const comp = data[nextKey]['comp'];
         const round = data[nextKey]['round'];
-        const date = `${nextKey.substring(0, 4)}.${nextKey.substring(4, 6)}.${nextKey.substring(6, 8)}.`;
+        const date = `${nextKey.substring(4, 6)}.${nextKey.substring(6, 8)}.`;
         const time = data[nextKey]['time'];
 
         $('#nextMatch > div:nth-of-type(2) > p:nth-of-type(1)').text(home[0]);
@@ -49,7 +49,7 @@ function render(data, standings) {
         $('#nextMatch > div:nth-of-type(2) > p:nth-of-type(2)').text(away[0]);
         $('#nextMatch > div:nth-of-type(2) > div:nth-of-type(3) > img').attr('src', `./files/${away[1]}_s.png`);
 
-        $('#nextMatch > div:nth-of-type(3) > p').text(`${comp[0]} ${round} | ${date}`);
+        $('#nextMatch > div:nth-of-type(3) > p').html(`${comp[0]} ${round}&nbsp;&nbsp;|&nbsp;&nbsp;${date} ${time}`);
 
         if (homeScore != '') $('#nextMatch > div:nth-of-type(2) > div:nth-of-type(2)').text(`${homeScore} : ${awayScore}`).css('font-size', '18px');
         else {
