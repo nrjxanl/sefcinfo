@@ -1,5 +1,7 @@
 import { loadData } from './firebase.js';
 
+beforeLoading();
+
 async function initPage() {
     try {
         /*

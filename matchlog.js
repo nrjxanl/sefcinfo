@@ -4,6 +4,8 @@ import { ref, set, remove } from "https://www.gstatic.com/firebasejs/10.7.1/fire
 
 let currId;
 
+beforeLoading();
+
 async function initPage() {
     onAuthStateChanged(auth, async (user) => {
         if (user) {

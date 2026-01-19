@@ -3,6 +3,8 @@ import { loadData } from './firebase.js';
 const matchId = window.location.href.split('?')[1];
 const teamType = (matchId.substring(8, 9) == 0) ? 'A' : (matchId.substring(8, 9) == 8) ? 'U18' : 'U15';
 
+beforeLoading();
+
 async function initPage() {
     try {
         /*

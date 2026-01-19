@@ -3,6 +3,8 @@ import { loadData } from './firebase.js';
 let teamType = (window.location.href.split('?')[2] == 'A' || window.location.href.split('?')[2] == 'U18' || window.location.href.split('?')[2] == 'U15') ? window.location.href.split('?')[2] : 'A';
 let currSortIdx = 3;
 
+beforeLoading();
+
 async function initPage() {
     try {
         /*

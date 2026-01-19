@@ -2,6 +2,8 @@ import { loadData } from './firebase.js';
 
 let teamType = (window.location.href.split('?')[1] == 'A' || window.location.href.split('?')[1] == 'U18' || window.location.href.split('?')[1] == 'U15') ? window.location.href.split('?')[1] : 'A';
 
+beforeLoading();
+
 async function initPage() {
     try {
         /*

@@ -1,57 +1,7 @@
-function afterLoading() {
-    // 스켈레톤 애니메이션
-    if ($(window).width() < 768) {
-        setTimeout(function () {
-            $('#skeletonMobile').css('display', 'none');
-            $('#actualContents').css('display', 'block');
-        }, 300)
-    } else {
-        setTimeout(function () {
-            $('#skeletonPC').css('display', 'none');
-            if ($('#standingsA').length || $('#chantsName').length) {
-                $('#actualContents').css('flex-direction', 'column');
-            }
-            $('#actualContents').css('display', 'flex');
-        }, 300);
-    }
-
-    // 쿼리스트링 제거
-    if (window.location.search.includes('fbclid')) {
-        var url = new URL(window.location.href);
-        url.searchParams.delete('fbclid');
-
-        if (url.search.endsWith('=')) {
-            url.search = url.search.slice(0, -1);
-        }
-
-        history.replaceState(null, '', url.pathname + url.search + url.hash);
-    }
-
-    // 화면 너비 300px 이하일 때 경고
-    if ($(window).width() < 300) {
-        $('body').append(`<div style='width: 80vw; height: 65px; padding: 0 10vw; background: #faf6f5; position: fixed; bottom: 0; left: 0; font-size: 14px; font-weight: 300; z-index: 300; display: flex; align-items: center; justify-content: center;'>기기의 화면 크기가 작아 페이지가 정상적으로 보이지 않을 수 있습니다.</div>`);
-    }
-
-    // 새로고침 시 맨 위로 이동
-    history.scrollRestoration = 'manual';
-
-    if ($('#menu').length > 0) return;
-
+function beforeLoading() {
     // 메뉴
     $(`body`).append(`<div id='menu' glass='true'><div transl='y'><img src='https://sefc.info/files/home.svg'>홈</div><div transl='y'><img src='https://sefc.info/files/fixtures.svg'>일정</div><div transl='y'><img src='https://sefc.info/files/players.svg'>선수단</div><div transl='y'><img src='https://sefc.info/files/stats.svg'>기록</div><div transl='y'><img src='https://sefc.info/files/standings.svg'>순위</div><div transl='y'><img src='https://sefc.info/files/chants.svg'>응원가</div><div transl='y'><img src='https://sefc.info/files/wallpaper.svg'>배경화면</div><div transl='y'><img src='https://sefc.info/files/stadium.svg'>직관 가이드</div><div id='selectLang'><img src='https://sefc.info/files/lang.svg'><div><p l='ko'>KO</p><p l='en'>EN</p><p l='pt'>PT</p><p l='es'>ES</p><p l='jp'>JP</p></div></div><a href='https://naver.me/GlJ18AQh' target='_blank' transl='y'>오류 제보 및 건의</a><img class='bannerMenu' src='https://sefc.info/files/banner_1.jpg'></div><div id='menuBg' glass='true'></div>`);
-
-    // 매년 7월 7일 메인 로고, 배너 변경
-    if (new Date().getMonth() == 6 && new Date().getDate() == 7) {
-        $("header > div:nth-of-type(2) > img").attr("src", "https://sefc.info/files/july7th.svg")
-        $(".bannerMenu:nth-of-type(1)").attr("src", "https://sefc.info/files/july7th_1.png").css("pointer-events", "none")
-        $(".bannerFixtures > img").attr("src", "https://sefc.info/files/july7th_2.png").parent().css("pointer-events", "none")
-    }
-
-    // 모바일 버전에서 일정 페이지 배너 숨기기
-    if ($(window).width() < 768) {
-        $(".bannerFixtures").css("display", "none")
-    }
-
+    
     // 메뉴 내 현재 페이지 이름 강조
     if ($("#prevMatch").length) {
         $("#menu > div:nth-of-type(1)").css("color", "#000060")
@@ -125,11 +75,6 @@ function afterLoading() {
         }
     })
 
-    // 상단 클릭 시 홈으로 이동
-    $('header > div:nth-of-type(2)').click(function () {
-        window.location = 'https://sefc.info';
-    });
-
     // 메뉴 닫기
     $('#menuBg').click(function () {
         $("#menuBg").animate({ opacity: "0" }, 200, function () {
@@ -162,6 +107,64 @@ function afterLoading() {
     });
     $("#menu > div:nth-of-type(8)").click(function () {
         window.location = "https://sefc.info/stadium";
+    });
+
+}
+
+function afterLoading() {
+    // 스켈레톤 애니메이션
+    if ($(window).width() < 768) {
+        setTimeout(function () {
+            $('#skeletonMobile').css('display', 'none');
+            $('#actualContents').css('display', 'block');
+        }, 300)
+    } else {
+        setTimeout(function () {
+            $('#skeletonPC').css('display', 'none');
+            if ($('#standingsA').length || $('#chantsName').length) {
+                $('#actualContents').css('flex-direction', 'column');
+            }
+            $('#actualContents').css('display', 'flex');
+        }, 300);
+    }
+
+    // 쿼리스트링 제거
+    if (window.location.search.includes('fbclid')) {
+        var url = new URL(window.location.href);
+        url.searchParams.delete('fbclid');
+
+        if (url.search.endsWith('=')) {
+            url.search = url.search.slice(0, -1);
+        }
+
+        history.replaceState(null, '', url.pathname + url.search + url.hash);
+    }
+
+    // 화면 너비 300px 이하일 때 경고
+    if ($(window).width() < 300) {
+        $('body').append(`<div style='width: 80vw; height: 65px; padding: 0 10vw; background: #faf6f5; position: fixed; bottom: 0; left: 0; font-size: 14px; font-weight: 300; z-index: 300; display: flex; align-items: center; justify-content: center;'>기기의 화면 크기가 작아 페이지가 정상적으로 보이지 않을 수 있습니다.</div>`);
+    }
+
+    // 새로고침 시 맨 위로 이동
+    history.scrollRestoration = 'manual';
+
+    if ($('#menu').length > 0) return;
+
+    // 매년 7월 7일 메인 로고, 배너 변경
+    if (new Date().getMonth() == 6 && new Date().getDate() == 7) {
+        $("header > div:nth-of-type(2) > img").attr("src", "https://sefc.info/files/july7th.svg")
+        $(".bannerMenu:nth-of-type(1)").attr("src", "https://sefc.info/files/july7th_1.png").css("pointer-events", "none")
+        $(".bannerFixtures > img").attr("src", "https://sefc.info/files/july7th_2.png").parent().css("pointer-events", "none")
+    }
+
+    // 모바일 버전에서 일정 페이지 배너 숨기기
+    if ($(window).width() < 768) {
+        $(".bannerFixtures").css("display", "none")
+    }
+
+    // 상단 클릭 시 홈으로 이동
+    $('header > div:nth-of-type(2)').click(function () {
+        window.location = 'https://sefc.info';
     });
 
     // 배너 클릭 시 페이지 이동
