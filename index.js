@@ -59,23 +59,34 @@ function render(data, standings) {
             const kickoffHour = time.split(':')[0];
             const kickoffMin = time.split(':')[1];
 
-            const targetDate = new Date(kickoffYear, kickoffMonth, kickoffDay, kickoffHour, kickoffMin).getTime();
+            // 경기 시간 데이터 (정확한 시/분 포함)
+            const targetDate = new Date(kickoffYear, kickoffMonth, kickoffDay, kickoffHour, kickoffMin);
+            // 경기 날짜 데이터 (시간 제외, D-Day 계산용)
+            const targetDateOnly = new Date(kickoffYear, kickoffMonth, kickoffDay);
 
             const countdownTimer = setInterval(function () {
-                const now = new Date().getTime();
-                const distance = targetDate - now;
-
-                const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const s = Math.floor((distance % (1000 * 60)) / 1000);
+                const now = new Date();
+                const distance = targetDate.getTime() - now.getTime();
 
                 if (distance < 0) {
                     clearInterval(countdownTimer);
-                    $('#nextMatch > div:nth-of-type(2) > div:nth-of-type(2)').text('-');
-                } else {
-                    const text = d > 0 ? `D-${d}` : `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
-                    $('#nextMatch > div:nth-of-type(2) > div:nth-of-type(2)').text(text);
+                    $('#nextMatch > div:nth-of-type(2) > div:nth-of-type(2)').text('-').css('font-size', '18px');
+                } 
+                // 1. 남은 시간이 24시간(1000ms * 60s * 60m * 24h) 이하일 때
+                else if (distance <= 24 * 60 * 60 * 1000) {
+                    const h = Math.floor(distance / (1000 * 60 * 60));
+                    const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const s = Math.floor((distance % (1000 * 60)) / 1000);
+                    
+                    const timeText = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+                    $('#nextMatch > div:nth-of-type(2) > div:nth-of-type(2)').text(timeText).css('font-size', '18px');
+                } 
+                // 2. 24시간보다 많이 남았을 때 (날짜 기준 D-Day)
+                else {
+                    const nowOnly = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+                    const diffDays = Math.round((targetDateOnly - nowOnly) / (1000 * 60 * 60 * 24));
+                    
+                    $('#nextMatch > div:nth-of-type(2) > div:nth-of-type(2)').text(`D-${diffDays}`).css('font-size', '18px');
                 }
             }, 1000);
         }
