@@ -311,6 +311,8 @@ footer > img {width: 20px; height: 20px; position: absolute; right: 10px; top: 1
 #fixturesU18 {display: none;}
 #fixturesU15 {display: none;}
 
+.bannerFixtures {display: none;}
+
 #calendar {width: 90vw; margin-left: 5vw; display: none;}
 #calendar > table {width: 90vw; border-collapse: separate; border-spacing: 8px; table-layout: fixed; margin-top: 32px;}
 #calendar > table > thead > tr > th {font-size: 20px; font-weight: 600;}
