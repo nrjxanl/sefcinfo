@@ -116,6 +116,10 @@ function beforeLoading() {
     $(".instaMenu:nth-of-type(1)").click(function () {
         window.open("https://www.instagram.com/sefcinfo/");
     });
+    
+    // 미완성 기능 숨기기
+    $('#menu > div:nth-of-type(n + 6)').css('display', 'none');
+
 }
 
 function afterLoading() {
@@ -173,9 +177,6 @@ function afterLoading() {
     $('header > div:nth-of-type(2)').click(function () {
         window.location = 'https://sefc.info';
     });
-
-    // 미완성 기능 숨기기
-    $('#menu > div:nth-of-type(n + 6)').css('display', 'none');
 }
 
 // 메뉴 열기
