@@ -109,6 +109,13 @@ function beforeLoading() {
         window.location = "https://sefc.info/stadium";
     });
 
+    // 배너 클릭 시 페이지 이동
+    $(".bannerMenu:nth-of-type(1), .bannerFixtures").click(function () {
+        window.open("https://linktr.ee/sefcnuevo");
+    });
+    $(".instaMenu:nth-of-type(1)").click(function () {
+        window.open("https://www.instagram.com/sefcinfo/");
+    });
 }
 
 function afterLoading() {
@@ -165,14 +172,6 @@ function afterLoading() {
     // 상단 클릭 시 홈으로 이동
     $('header > div:nth-of-type(2)').click(function () {
         window.location = 'https://sefc.info';
-    });
-
-    // 배너 클릭 시 페이지 이동
-    $(".bannerMenu:nth-of-type(1), .bannerFixtures").click(function () {
-        window.open("https://linktr.ee/sefcnuevo");
-    });
-    $(".instaMenu:nth-of-type(1)").click(function () {
-        window.open("https://www.instagram.com/sefcinfo/");
     });
 
     // 미완성 기능 숨기기
