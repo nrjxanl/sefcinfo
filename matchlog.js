@@ -11,7 +11,7 @@ async function initPage() {
         if (user) {
             console.log(user.displayName);
             
-            $('#btnLogin').hide();
+            $('#btnLogin, #txtLogin').hide();
             $('#btnLogout').show();
 
             $('#matchlogSelect, #addLogBtn, #matchlogBtn, #matchNum, #matchlogList').show();
@@ -32,7 +32,7 @@ async function initPage() {
         } else {
             console.log("로그인이 필요합니다.");
             
-            $('#btnLogin').css('display', 'block');
+            $('#btnLogin, #txtLogin').css('display', 'block');
             $('#btnLogout').css('display', 'none');
 
             $('#matchlogSelect, #addLogBtn, #matchlogBtn, #matchNum, #matchlogList, #matchStatList').css('display', 'none');

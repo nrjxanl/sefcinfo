@@ -778,7 +778,9 @@ path.cls-64 {pointer-events: none;}
 #btnLogout {width: 10vw; height: 40px; border: none; border-radius: 10vw; font-size: 16px; font-weight: 600; cursor: pointer;}
 #btnLogout:hover {background: #000060c0; color: #faf6f5;}
 
-#matchlogSelect {width: 10vw; height: 40px; background: none; color: #05090a; border: none; font-size: 16px; font-weight: 600; padding-right: .5vw; margin-right: calc(35vw - 40px); -webkit-tap-highlight-color: transparent; appearance: none; -webkit-appearance: none; -moz-appearance: none; background: transparent;}
+#txtLogin {height: 40px; font-size: 16px; font-weight: 300; line-height: 40px;}
+
+#matchlogSelect {width: 10vw; height: 40px; background: none; color: #05090a; border: none; font-size: 16px; font-weight: 600; padding-right: .5vw; margin-right: calc(35vw - 40px); -webkit-tap-highlight-color: transparent; background: transparent;}
 #matchlogSelect:focus {outline: none; box-shadow: none; border-color: inherit;}
 
 #addLogBtn {width: 40px; height: 40px; border: none; border-radius: 10vw; font-size: 24px; font-weight: 300; cursor: pointer;}

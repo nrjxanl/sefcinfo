@@ -1,6 +1,59 @@
 function beforeLoading() {
     // 메뉴
-    $(`body`).append(`<div id='menu' glass='true'><div transl='y'><img src='https://sefc.info/files/home.svg'>홈</div><div transl='y'><img src='https://sefc.info/files/fixtures.svg'>일정</div><div transl='y'><img src='https://sefc.info/files/players.svg'>선수단</div><div transl='y'><img src='https://sefc.info/files/stats.svg'>기록</div><div transl='y'><img src='https://sefc.info/files/standings.svg'>순위</div><div transl='y'><img src='https://sefc.info/files/chants.svg'>응원가</div><div transl='y'><img src='https://sefc.info/files/wallpaper.svg'>배경화면</div><div transl='y'><img src='https://sefc.info/files/stadium.svg'>직관 가이드</div><div id='selectLang'><img src='https://sefc.info/files/lang.svg'><div><p l='ko'>KO</p><p l='en'>EN</p><p l='pt'>PT</p><p l='es'>ES</p><p l='jp'>JP</p></div></div><a href='https://naver.me/GlJ18AQh' target='_blank' transl='y'>오류 제보 및 건의</a><img class='bannerMenu' src='https://sefc.info/files/banner_1.jpg'></div><div id='menuBg' glass='true'></div>`);
+    $(`body`).append(`
+        <div id='menu' glass='true'>
+            <div transl='y'>
+                <img src='https://sefc.info/files/home.svg'>
+                홈
+            </div>
+            <div transl='y'>
+                <img src='https://sefc.info/files/fixtures.svg'>
+                일정
+            </div>
+            <div transl='y'>
+                <img src='https://sefc.info/files/players.svg'>
+                선수단
+            </div>
+            <div transl='y'>
+                <img src='https://sefc.info/files/stats.svg'>
+                기록
+            </div>
+            <div transl='y'>
+                <img src='https://sefc.info/files/standings.svg'>
+                순위
+            </div>
+            <div transl='y'>
+                <img src='https://sefc.info/files/matchlog.svg'>
+                직관 기록
+            </div>
+            <div transl='y'>
+                <img src='https://sefc.info/files/chants.svg'>
+                응원가
+            </div>
+            <div transl='y'>
+                <img src='https://sefc.info/files/wallpaper.svg'>
+                배경화면
+            </div>
+            <div transl='y'>
+                <img src='https://sefc.info/files/stadium.svg'>
+                직관 가이드
+            </div>
+            <div id='selectLang'>
+                <img src='https://sefc.info/files/lang.svg'>
+                <div>
+                    <p l='ko'>KO</p>
+                    <p l='en'>EN</p>
+                    <p l='pt'>PT</p>
+                    <p l='es'>ES</p>
+                    <p l='jp'>JP</p>
+                </div>
+            </div>
+            <a href='https://naver.me/GlJ18AQh' target='_blank' transl='y'>오류 제보 및 건의</a>
+            <img class='bannerMenu' src='https://sefc.info/files/banner_1.jpg'>
+        </div>
+        <div id='menuBg' glass='true'>
+        </div>
+    `);
     
     // 메뉴 내 현재 페이지 이름 강조
     if ($("#prevMatch").length) {
@@ -100,12 +153,15 @@ function beforeLoading() {
         window.location = "https://sefc.info/standings";
     });
     $("#menu > div:nth-of-type(6)").click(function () {
-        window.location = "https://sefc.info/chants";
+        window.location = "https://sefc.info/matchlog";
     });
     $("#menu > div:nth-of-type(7)").click(function () {
-        window.location = "https://sefc.info/wallpaper";
+        window.location = "https://sefc.info/chants";
     });
     $("#menu > div:nth-of-type(8)").click(function () {
+        window.location = "https://sefc.info/wallpaper";
+    });
+    $("#menu > div:nth-of-type(9)").click(function () {
         window.location = "https://sefc.info/stadium";
     });
 
@@ -116,9 +172,9 @@ function beforeLoading() {
     $(".instaMenu:nth-of-type(1)").click(function () {
         window.open("https://www.instagram.com/sefcinfo/");
     });
-    
+
     // 미완성 기능 숨기기
-    $('#menu > div:nth-of-type(n + 6)').css('display', 'none');
+    $('#menu > div:nth-of-type(n + 7)').css('display', 'none');
 
 }
 
