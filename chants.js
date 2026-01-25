@@ -5,12 +5,10 @@ beforeLoading();
 async function initPage() {
     try {
         /*
-            dataA: A팀 전체 데이터
-            
-            standings: 순위
+            chants: 응원가(가사)
         */
 
-    const chants = await loadData('chants');
+        const chants = await loadData('chants');
 
         render(chants);
     } catch (error) {
@@ -23,5 +21,12 @@ async function initPage() {
 initPage();
 
 function render(chants) {
-    
+    $('#chantsList > div').remove();
+
+    for (let i = 0; i < Object.keys(chants['team']).length; i++) {
+        const name = Object.keys(chants['team'])[i].replace(/^[0-9]+_/, '');
+        const lyrics = chants['team'][name];
+
+        $('#chantsList').append(`<div glass = 'true'>${name}</div>`);
+    }
 }

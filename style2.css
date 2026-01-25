@@ -534,37 +534,26 @@ tr.sefc > td:nth-last-of-type(1) {border-radius: 0 20px 20px 0;}
 tr.sefc > td > p {background: #faf6f5 !important; color: #05090a !important;}
 
 /* 응원가 */
-#team {width: 30vw; margin: 40px 0;}
-#team > p {width: 30vw; text-align: left; font-size: 24px; margin: 0 0 20px 2vw;}
-#team > div {width: 30vw; padding: 14px 0; cursor: pointer; border-radius: 20px; margin-top: 10px;}
-#team > div > p {width: 30vw; font-size: 18px; font-weight: 600; vertical-align: bottom;}
-#team > div > p > span {font-weight: 600; margin-left: 4px;}
-#team > div > p > ruby {font-size: 18px; font-weight: 600;}
-#team > div > p > ruby > rt {font-weight: 300; padding-bottom: 2px;}
-#team > div > div {display: none; height: fit-content;}
-#team > div > div > p {width: 28vw; font-size: 16px; font-weight: 300; padding: 4px 0; margin-left: 1vw;}
-#team > div > div > p:nth-of-type(1) {padding-top: 20px;}
-#team > div > div > p:nth-last-of-type(1) {padding-bottom: 20px;}
-#team > div > div > p > ruby > rb {font-size: 16px; font-weight: 300;}
-#team > div > div > p > ruby > rp {font-size: 12px; font-weight: 300;}
-#team > div > div > p > ruby > rt {font-size: 12px; font-weight: 300;}
+#team {width: 60vw; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px 8px;}
+#team > p {width: 60vw; text-align: left; font-size: 20px; font-weight: 600;}
+#team > div {width: fit-content; padding: 8px 12px; border: 1px solid #05090a; border-radius: 20vw; font-size: 16px; font-weight: 600; cursor: pointer;}
 
-#players {width: 30vw; margin: 40px 0;}
-#players > p {width: 30vw; text-align: left; font-size: 24px; margin: 0 0 20px 2vw;}
-#players > div {width: 30vw; padding: 14px 0; cursor: pointer; border-radius: 20px; margin-top: 10px;}
-#players > div > p {width: 30vw; font-size: 18px; font-weight: 600; vertical-align: bottom;}
-#players > div > p > span {font-weight: 600; margin-left: 4px;}
-#players > div > p > ruby {font-size: 18px; font-weight: 600;}
-#players > div > p > ruby > rt {font-weight: 300; padding-bottom: 2px;}
-#players > div > div {display: none; height: fit-content;}
-#players > div > div > p {width: 28vw; font-size: 16px; font-weight: 300; padding: 4px 0; margin-left: 1vw;}
-#players > div > div > p:nth-of-type(1) {padding-top: 20px;}
-#players > div > div > p:nth-last-of-type(1) {padding-bottom: 20px;}
-#players > div > div > p > ruby > rb {font-size: 16px; font-weight: 300;}
-#players > div > div > p > ruby > rp {font-size: 12px; font-weight: 300;}
-#players > div > div > p > ruby > rt {font-size: 12px; font-weight: 300;}
+#chantsPlayer {width: calc(60vw - 80px); height: fit-content; padding: 40px; border-radius: 20px; position: fixed; left: 30vw; bottom: 40px;}
+#chantsPlayer > p {text-align: left; font-size: 20px; font-weight: 600; margin-bottom: 20px;}
 
-#chantsVideo {width: 25vw; height: calc(25vw * 9 / 16); margin-top: 20px; border-radius: 20px; overflow: hidden;}
+#progressBar {width: 100%; height: 32px; position: relative;}
+#progressBar > div {user-select: none; pointer-events: none;}
+#progressBar > div:nth-of-type(1) {width: 100%; height: 100%; position: absolute; top: 0; left: 0; background: #00006040; border-radius: 10px;}
+#progressBar > div:nth-of-type(2) {width: 20%; height: 100%; position: absolute; top: 0; left: 0; background: #00006080; border-radius: 10px 0 0 10px;}
+#progressBar > div:nth-of-type(3) {width: 4px; height: 120%; position: absolute; top: -10%; left: 20%; background: #000060; border-radius: 2px;}
+#progressBar > p {user-select: none; pointer-events: none;}
+#progressBar > p:nth-of-type(1) {height: 100%; position: absolute; left: 2%; color: #faf6fa; font-size: 14px; font-weight: 300; line-height: 32px; z-index: 1;}
+#progressBar > p:nth-of-type(2) {height: 100%; position: absolute; right: 2%; color: #faf6fa; font-size: 14px; font-weight: 300; line-height: 32px; z-index: 1;}
+#progressBar > input {width: 100%; height: 100%; position: absolute; top: 0; left: 0; cursor: pointer; z-index: 2; opacity: 0;}
+
+#chantsControl {width: 100%; margin-top: 20px;}
+#chantsControl > button {width: 5vw; height: 5vw; border: none; border-radius: 50%; background: #00006040; margin: 0 2.5vw; cursor: pointer;}
+#chantsControl > button > img {height: 2vw; display: block; margin: auto; filter: brightness(0) saturate(100%) invert(95%) sepia(75%) saturate(204%) hue-rotate(292deg) brightness(105%) contrast(96%);}
 
 /* 배경화면 */
 #wallpaperButton {width: 70vw; text-align: left;}
