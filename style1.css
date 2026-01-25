@@ -1,7 +1,7 @@
-@font-face {font-family: "Paperlogy"; font-weight: 300; src: url(./files/Paperlogy-3Light.ttf);}
-@font-face {font-family: "Paperlogy"; font-weight: 600; src: url(./files/Paperlogy-6SemiBold.ttf);}
-@font-face {font-family: "Paperlogy"; font-weight: 900; src: url(./files/Paperlogy-9Black.ttf);}
-@font-face {font-family: "KLeagueBasic"; font-weight: 900; src: url(./files/KLeagueBasic-Medium.ttf);}
+@font-face {font-family: "Paperlogy"; font-weight: 300; src: url(./files/fonts/Paperlogy-3Light.ttf); font-display: swap;}
+@font-face {font-family: "Paperlogy"; font-weight: 600; src: url(./files/fonts/Paperlogy-6SemiBold.ttf); font-display: swap;}
+@font-face {font-family: "Paperlogy"; font-weight: 900; src: url(./files/fonts/Paperlogy-9Black.ttf); font-display: swap;}
+@font-face {font-family: "KLeagueBasic"; font-weight: 900; src: url(./files/fonts/KLeagueBasic-Medium.ttf); font-display: swap;}
 
 * {color: #05090a; margin: 0; padding: 0; text-align: center; font-family: "Paperlogy"; font-weight: 900; font-size: 12px; list-style: none; text-decoration-line: none; border-collapse: collapse; border-spacing: 0; word-break: keep-all; -webkit-tap-highlight-color: transparent; user-select: none;}
 *::-webkit-scrollbar {display: none;}
