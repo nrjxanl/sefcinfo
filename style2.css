@@ -10,8 +10,9 @@ body {position: absolute; background: #00006003; width: 65vw; top: 100px; left: 
 #actualContents {display: none; width: 70vw; flex-wrap: wrap; gap: 30px 5vw;}
 
 /* 헤더 */
-header {width: 100vw; height: 100px; position: fixed; top: 0; left: 0; z-index: 301; display: flex; justify-content: center; align-items: center; background: none; pointer-events: none;}
+header {width: 100vw; height: 100px; position: fixed; top: 0; left: 0; z-index: 301; display: flex; justify-content: center; align-items: center; border: none !important; box-shadow: none !important; background: none !important;}
 header > div {width: fit-content; position: absolute;}
+header > div > img {transition: all 0.5s ease;}
 header > div:nth-of-type(1) {display: none;}
 header > div:nth-of-type(2) {left: 5vw;}
 header > div:nth-of-type(2) > img {width: 18vw; height: auto; cursor: pointer; margin-left: -1vw; pointer-events: auto;}

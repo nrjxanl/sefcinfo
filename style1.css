@@ -3,15 +3,16 @@
 @font-face {font-family: "Paperlogy"; font-weight: 900; src: url(./files/fonts/Paperlogy-9Black.ttf); font-display: swap;}
 @font-face {font-family: "KLeagueBasic"; font-weight: 900; src: url(./files/fonts/KLeagueBasic-Medium.ttf); font-display: swap;}
 
-* {color: #05090a; margin: 0; padding: 0; text-align: center; font-family: "Paperlogy"; font-weight: 900; font-size: 12px; list-style: none; text-decoration-line: none; border-collapse: collapse; border-spacing: 0; word-break: keep-all; -webkit-tap-highlight-color: transparent; user-select: none;}
+* {color: #05090a; margin: 0; padding: 0; text-align: center; font-family: "Paperlogy"; font-weight: 900; font-size: 12px; list-style: none; text-decoration-line: none; border-collapse: collapse; border-spacing: 0; word-break: keep-all; -webkit-tap-highlight-color: transparent; user-select: none; }
 *::-webkit-scrollbar {display: none;}
 
 body {position: absolute; background: #00006003;}
 #actualContents {display: none; width: 100vw;}
 
 /* 헤더 */
-header {width: 100vw; height: 80px; position: fixed; top: 0; left: 0; z-index: 99; display: flex; justify-content: center; align-items: center; z-index: 100; background: #faf5f640; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);}
+header {width: 100vw; height: 80px; position: fixed; top: 0; left: 0; z-index: 99; display: flex; justify-content: center; align-items: center; z-index: 100; border: none !important; box-shadow: none !important; background: none !important;}
 header > div {width: fit-content; position: absolute;}
+header > div > img {transition: all 0.3s ease;}
 header > div:nth-of-type(1) {left: 5vw;}
 header > div:nth-of-type(1) > img {width: auto; height: 40px; padding: 5vw 0;}
 header > div:nth-of-type(2) {left: calc(10vw + 40px);}
@@ -536,21 +537,27 @@ tr.sefc > td:nth-last-of-type(1) {border-radius: 0 20px 20px 0;}
 tr.sefc > td > p {background: #faf5f6 !important; color: #05090a !important;}
 
 /* 응원가 */
-#chantsList {width: 90vw; margin: 100px 0 300px 5vw; text-align: left;}
+#chantsList {width: 90vw; margin: 100px 0 240px 5vw; text-align: left;}
 #chantsList > button {width: fit-content; height: 40px; padding: 0 5vw; margin: 0 1vw 20px 1vw; font-size: 16px; font-weight: 600; border: none; border-radius: 10vw; font-size: 16px; font-weight: 600; cursor: pointer;}
 #chantsList > div {width: calc(90vw - 40px); padding: 16px 20px; margin-bottom: 10px; border-radius: 20px; text-align: left; font-size: 18px; font-weight: 600; cursor: pointer;}
 
-#chantsPlayer {width: 100vw; height: fit-content; padding-top: 28px; position: fixed; left: 0; bottom: 0; background: #000060c0; border-radius: 20px 20px 0 0;}
-#chantsPlayer > p {margin: 0 0 20px 5vw; text-align: left; color: #faf6f5; font-size: 20px; font-weight: 600;}
+#chantsPlayer {width: 100vw; height: fit-content; padding-top: 28px; position: fixed; left: 0; bottom: 0; background: #000060c0; border-radius: 20px 20px 0 0; display: flex; flex-direction: column; justify-content: flex-end; touch-action: none;}
+#chantsPlayer > p {margin: 0 0 20px 5vw; text-align: left; color: #faf6f5; font-size: 20px; font-weight: 300;}
 
-#pullupHandle {width: 12vw; height: 8px; border-radius: 10px; position: absolute; top: -16px; left: 44vw; background: #000060c0;}
+#closePlayer {width: 10vw; height: 10vw; border: none; border-radius: 5vw; cursor: pointer; position: absolute; top: 110px; right: 28px; display: none;}
+#closePlayer > img {width: 5vw; height: 5vw; display: block; margin: auto; filter: brightness(0) saturate(100%) invert(90%) sepia(92%) saturate(1717%) hue-rotate(188deg) brightness(132%) contrast(93%);}
+
+#lyricBox {width: 80vw; height: fit-content; max-height: 50vh; margin-left: 10vw; overflow: hidden; position: absolute; bottom: 0; display: none;}
+#lyricBox > p {font-size: 20px; color: #faf6f5; font-weight: 300; text-align: left; line-height: 40px; transition: all 0.3s ease;}
+
+#pullupHandle {width: 14vw; height: 8px; border-radius: 6px; position: absolute; top: -16px; left: 43vw; background: #000060c0;}
 
 #progressBar {width: 90%; height: 16px; position: relative;}
 #progressBar > div {user-select: none; pointer-events: none;}
 #progressBar > div:nth-of-type(1) {width: 100%; height: 100%; position: absolute; top: 0; left: 5%; background: #faf6f540; border-radius: 10px;}
-#progressBar > div:nth-of-type(2) {width: 20%; height: 100%; position: absolute; top: 0; left: 5%; background: #faf6f5c0; border-radius: 10px 0 0 10px;}
-#progressBar > div:nth-of-type(3) {width: 4px; height: 120%; position: absolute; top: -10%; left: 25%; background: #faf6f5; border-radius: 2px;}
-#progressBar > input {width: 90%; height: 90%; position: absolute; top: 0; left: 0; cursor: pointer; z-index: 2; opacity: 0;}
+#progressBar > div:nth-of-type(2) {width: 0%; height: 100%; position: absolute; top: 0; left: 5%; background: #faf6f5c0; border-radius: 10px 0 0 10px;}
+#progressBar > div:nth-of-type(3) {width: 4px; height: 120%; position: absolute; top: -10%; left: 5%; background: #faf6f5; border-radius: 2px;}
+#progressBar > input {width: 100%; height: 100%; position: absolute; top: 0; left: 5%; cursor: pointer; z-index: 2; opacity: 0;}
 
 #chantsControl {width: 100%; margin: 20px 0 28px 0;}
 #chantsControl > button {width: 10vw; height: 10vw; border: none; border-radius: 50%; background: #faf6f5c0; margin: 0 5vw; cursor: pointer;}

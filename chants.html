@@ -33,7 +33,7 @@
     gtag('config', 'G-85LBNDC5SG');
 </script>
 
-<header>
+<header glass='true'>
     <div><img src='./files/menu.svg' onclick='menu()'></div>
     <div><img src="./files/sefcinfo.svg"></div>
 </header>
@@ -73,26 +73,40 @@
             <button glass="true">팀 응원가</button>
             <button glass="true">선수 응원가</button>
         </div>
+
         <div id="chantsPlayer" glass="true">
+            <button id="closePlayer" glass="true">
+                <img src="./files/x.svg">
+            </button>
+
+            <div id="lyricBox">
+            </div>
+
             <div id="pullupHandle" glass="true"></div>
-            <p>Lorem Ipsum</p>
+
+            <p>응원가를 클릭하여 재생하세요.</p>
+
             <div id="progressBar">
                 <div></div>
                 <div></div>
                 <div></div>
                 <input type="range" value="0" min="0" max="100" step="0.1">
             </div>
+
             <div id="chantsControl">
                 <button id="chantsPrev">
                     <img src="./files/prev.svg">
                 </button>
                 <button id="chantsPause">
                     <img src="./files/play.svg">
+                    <img src="./files/pause.svg" style="display: none;">
                 </button>
                 <button id="chantsNext">
                     <img src="./files/next.svg">
                 </button>
             </div>
+
+            <audio id="audio"></audio>
         </div>
     </div>
 
