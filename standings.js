@@ -162,7 +162,7 @@ function loadStandings(standings, year, teamType) {
         '고양 자이크로': 'goyangzaicro',
         '김천 상무 FC': 'gimcheonsangmu',
         '김포 FC': 'gimpofc2022',
-        '김해 FC 2008': 'gimhaefc',
+        '김해 FC 2008': 'gimhaefc2026',
         '대구 FC': 'daegufc2013',
         '대전 시티즌': 'daejeoncitizen2003',
         '대전 하나 시티즌': 'daejeonhana2020',
