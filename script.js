@@ -90,6 +90,11 @@ function beforeLoading() {
         $("#menu > div:nth-of-type(8) > img").css("filter", "brightness(0) saturate(100%) invert(8%) sepia(76%) saturate(5175%) hue-rotate(242deg) brightness(71%) contrast(125%)")
     }
 
+    // 상단 클릭 시 홈으로 이동
+    $('header > div:nth-of-type(2)').click(function () {
+        window.location = 'https://sefc.info';
+    });
+
     // 언어 선택 버튼
     if (localStorage.getItem('lang') == null) localStorage.setItem('lang', 'ko');
 
@@ -228,11 +233,6 @@ function afterLoading() {
     if ($(window).width() < 768) {
         $(".bannerFixtures").css("display", "none")
     }
-
-    // 상단 클릭 시 홈으로 이동
-    $('header > div:nth-of-type(2)').click(function () {
-        window.location = 'https://sefc.info';
-    });
 }
 
 // 메뉴 열기
