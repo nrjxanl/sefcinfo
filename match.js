@@ -87,12 +87,18 @@ function render(data, matchData, num, h2h) {
         matchH2H(matchId);
     }
 
+    // potm 없으면 matchInfo 창 삭제
+    if ($('#matchInfo > div').length == 1 && $('#potm').css('display') == 'none') {
+        $('.matchDetail > button:nth-of-type(1)').css('display', 'none');
+        if (localStorage.getItem(matchId) != 'matchH2H') matchLineup();
+        else matchH2H(matchId);
+    }
+
     // 경기 기록
     if (teamType == 'A' && matchData['matchStat'][0].length) stat(matchData, h2h); // matchData, h2h 전달
     else {
         $('#matchStat').css('display', 'none');
         $('.matchDetail > button:nth-of-type(3)').css('display', 'none');
-        matchH2H(matchId);
     }
 
     // 상대 전적
@@ -250,13 +256,6 @@ function lineup(matchData, num, year) {
                 if (matchColor) $(`#${pId} > td:nth-of-type(2) > p:nth-of-type(2)`).css('background', matchColor.c);
             }
         })
-    }
-
-    // potm 없으면 matchInfo 창 삭제
-    if ($('#matchInfo > div').length == 1 && $('#potm').css('display') == 'none') {
-        $('.matchDetail > button:nth-of-type(1)').css('display', 'none');
-        if (localStorage.getItem(matchId) != 'matchH2H') matchLineup();
-        else matchH2H(matchId);
     }
 
     // 유니폼 색상 설정
