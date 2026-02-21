@@ -550,7 +550,7 @@ tr.sefc > td > p {background: #faf5f6 !important; color: #05090a !important;}
 #lyricBox {width: 80vw; height: fit-content; max-height: 50vh; margin-left: 10vw; overflow: hidden; position: absolute; bottom: 0; display: none;}
 #lyricBox > p {font-size: 20px; color: #faf6f5; font-weight: 300; text-align: left; line-height: 40px; transition: all 0.3s ease;}
 
-#pullupHandle {width: 14vw; height: 8px; border-radius: 6px; position: absolute; top: -16px; left: 43vw; background: #000060c0;}
+#pullupHandle {width: 18vw; height: 6px; border-radius: 6px; position: absolute; top: -12px; left: 41vw; background: #000060c0;}
 
 #progressBar {width: 90%; height: 16px; position: relative;}
 #progressBar > div {user-select: none; pointer-events: none;}
