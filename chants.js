@@ -228,8 +228,11 @@ function playChant(chants, name, type, idx) {
         }
 
         if (activeIdx != currIdx) {
-            $(`#lyricBox > p`).css({'font-size': '20px', 'font-weight': '300'});
-            $(`#lyricBox > p:nth-of-type(${activeIdx + 1})`).css({'font-size': '24px', 'font-weight': '600'});
+            if ($(window).width() < 768) $(`#lyricBox > p`).css({'font-size': '20px', 'font-weight': '300'});
+            else $(`#lyricBox > p`).css({'font-size': '16px', 'font-weight': '300'});
+            
+            if ($(window).width() < 768) $(`#lyricBox > p:nth-of-type(${activeIdx + 1})`).css({'font-size': '24px', 'font-weight': '600'});
+            else $(`#lyricBox > p:nth-of-type(${activeIdx + 1})`).css({'font-size': '18px', 'font-weight': '600'});
 
             $(`#lyricBox > p:nth-of-type(${activeIdx + 1})`)[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
         }

@@ -535,26 +535,30 @@ tr.sefc > td:nth-last-of-type(1) {border-radius: 0 20px 20px 0;}
 tr.sefc > td > p {background: #faf6f5 !important; color: #05090a !important;}
 
 /* 응원가 */
-#team {width: 60vw; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px 8px;}
-#team > p {width: 60vw; text-align: left; font-size: 20px; font-weight: 600;}
-#team > div {width: fit-content; padding: 8px 12px; border: 1px solid #05090a; border-radius: 20vw; font-size: 16px; font-weight: 600; cursor: pointer;}
+#chantsList {width: 30vw; margin: 2.5vw 0 5vw 0; text-align: left;}
+#chantsList > button {width: fit-content; height: 40px; padding: 0 2vw; margin: 0 1vw 20px 1vw; font-size: 16px; font-weight: 600; border: none; border-radius: 10vw; font-size: 16px; font-weight: 600; cursor: pointer;}
+#chantsList > div {width: calc(30vw - 40px); padding: 16px 20px; margin-bottom: 10px; border-radius: 20px; text-align: left; font-size: 18px; font-weight: 600; cursor: pointer;}
 
-#chantsPlayer {width: calc(60vw - 80px); height: fit-content; padding: 40px; border-radius: 20px; position: fixed; left: 30vw; bottom: 40px;}
-#chantsPlayer > p {text-align: left; font-size: 20px; font-weight: 600; margin-bottom: 20px;}
+#chantsPlayer {width: 30vw; height: calc(100vh - 10vw - 100px); padding-top: 28px; position: fixed; left: 65vw; bottom: 5vw; background: #000060c0; border-radius: 20px; display: flex; flex-direction: column; justify-content: flex-end; touch-action: none;}
+#chantsPlayer > p {margin: 0 0 20px 1.5vw; text-align: left; color: #faf6f5; font-size: 18px; font-weight: 300;}
 
-#progressBar {width: 100%; height: 32px; position: relative;}
+#closePlayer {display: none;}
+
+#lyricBox {width: 24vw; height: fit-content; max-height: 42vh; margin-left: 3vw; overflow: hidden; position: absolute; bottom: 25vh;}
+#lyricBox > p {font-size: 16px; color: #faf6f5; font-weight: 300; text-align: left; line-height: 30px; transition: all 0.3s ease;}
+
+#pullupHandle {display: none;}
+
+#progressBar {width: 90%; height: 16px; position: relative;}
 #progressBar > div {user-select: none; pointer-events: none;}
-#progressBar > div:nth-of-type(1) {width: 100%; height: 100%; position: absolute; top: 0; left: 0; background: #00006040; border-radius: 10px;}
-#progressBar > div:nth-of-type(2) {width: 20%; height: 100%; position: absolute; top: 0; left: 0; background: #00006080; border-radius: 10px 0 0 10px;}
-#progressBar > div:nth-of-type(3) {width: 4px; height: 120%; position: absolute; top: -10%; left: 20%; background: #000060; border-radius: 2px;}
-#progressBar > p {user-select: none; pointer-events: none;}
-#progressBar > p:nth-of-type(1) {height: 100%; position: absolute; left: 2%; color: #faf6fa; font-size: 14px; font-weight: 300; line-height: 32px; z-index: 1;}
-#progressBar > p:nth-of-type(2) {height: 100%; position: absolute; right: 2%; color: #faf6fa; font-size: 14px; font-weight: 300; line-height: 32px; z-index: 1;}
-#progressBar > input {width: 100%; height: 100%; position: absolute; top: 0; left: 0; cursor: pointer; z-index: 2; opacity: 0;}
+#progressBar > div:nth-of-type(1) {width: 100%; height: 100%; position: absolute; top: 0; left: 5%; background: #faf6f540; border-radius: 10px;}
+#progressBar > div:nth-of-type(2) {width: 0%; height: 100%; position: absolute; top: 0; left: 5%; background: #faf6f5c0; border-radius: 10px 0 0 10px;}
+#progressBar > div:nth-of-type(3) {width: 4px; height: 120%; position: absolute; top: -10%; left: 5%; background: #faf6f5; border-radius: 2px;}
+#progressBar > input {width: 100%; height: 100%; position: absolute; top: 0; left: 5%; cursor: pointer; z-index: 2; opacity: 0;}
 
-#chantsControl {width: 100%; margin-top: 20px;}
-#chantsControl > button {width: 5vw; height: 5vw; border: none; border-radius: 50%; background: #00006040; margin: 0 2.5vw; cursor: pointer;}
-#chantsControl > button > img {height: 2vw; display: block; margin: auto; filter: brightness(0) saturate(100%) invert(95%) sepia(75%) saturate(204%) hue-rotate(292deg) brightness(105%) contrast(96%);}
+#chantsControl {width: 100%; margin: 20px 0 28px 0;}
+#chantsControl > button {width: 4vw; height: 4vw; border: none; border-radius: 50%; background: #faf6f5c0; margin: 0 1vw; cursor: pointer;}
+#chantsControl > button > img {height: 1.5vw; display: block; margin: auto; filter: brightness(0) saturate(100%) invert(20%) sepia(92%) saturate(7406%) hue-rotate(225deg) brightness(43%) contrast(156%);}
 
 /* 배경화면 */
 #wallpaperButton {width: 70vw; text-align: left;}
