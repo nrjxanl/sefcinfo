@@ -579,37 +579,41 @@ tr.sefc > td > p {background: #faf6f5 !important; color: #05090a !important;}
 
 /* 경기장 */
 #selectStadium {width: 75vw; display: flex; flex-wrap: wrap;}
-#selectStadium > a {width: calc(65vw / 3 - 5vw); display: block; margin: 0 2.5vw 24px 2.5vw; cursor: pointer;}
-#selectStadium > a > div {width: calc(65vw / 3 - 5vw); height: calc((65vw / 3 - 5vw) * (3 / 4)); margin-bottom: 12px; overflow: hidden; border-radius: 20px;}
-#selectStadium > a > div > img {width: 100%; height: 100%; object-fit: cover; object-position: center bottom;}
-#selectStadium > a > div > button {width: calc((65vw / 3 - 5vw) - 20px); height: calc((((65vw / 3 - 5vw) * (3 / 4)) - 40px) / 3); margin-top: 10px; font-size: 16px; border: none; border-radius: 100vw; color: #faf6f5; background: #000060; opacity: .5; cursor: pointer;}
+#selectStadium > a {width: calc(65vw / 2 - 5vw - 32px); height: 60px; display: flex; justify-content: space-between; align-items: flex-end; margin: 0 2.5vw 24px 2.5vw; padding: 16px; border-radius: 20px; cursor: pointer;}
+#selectStadium > a > div {width: 10vw; height: 60px; overflow: hidden;}
+#selectStadium > a > div > img {width: 100%; height: 100%; object-fit: contain;}
+#selectStadium > a > div > button {width: 10vw; height: 26px; margin-bottom: 8px; font-size: 14px; border: none; border-radius: 100vw; color: #faf6f5; background: #000060; opacity: .5; cursor: pointer;}
 #selectStadium > a > div > button:hover {opacity: 1; transition: opacity .2s;}
-#selectStadium > a > p {font-size: 20px; font-weight: 600; line-height: 1; word-break: break-all;}
-#selectStadium > a > p > ruby {font-size: 20px; font-weight: 600; line-height: 1;}
+#selectStadium > a > p {text-align: right; font-size: 16px; font-weight: 600; line-height: 1.2; word-break: break-all;}
+#selectStadium > a > p > ruby {text-align: right; font-size: 16px; font-weight: 600; line-height: 1;}
 #selectStadium > a > p > ruby > rt {font-size: 12px; font-weight: 300; padding-bottom: 2px;}
-#selectStadium > a > p > span {font-size: 14px; font-weight: 300;}
-#selectStadium > a > p > span > ruby {font-size: 14px; font-weight: 300;}
+#selectStadium > a > p > span {text-align: right; font-size: 14px; font-weight: 300;}
+#selectStadium > a > p > span > ruby {text-align: right; font-size: 14px; font-weight: 300;}
 #selectStadium > a > p > span > ruby > rt {font-size: 10px; font-weight: 300;}
 
 .noHover {opacity: .2 !important; transition: none; cursor: auto !important;}
 
 /* 관중석 시야 */
-#stadium {width: 55vw; max-height: calc(100vh - 200px); margin-left: 5vw;}
-#stadium > g:nth-of-type(n + 3):nth-of-type(-n + 6) > g:hover {opacity: 0.5; transition: opacity 0.2s; cursor: pointer;}
+#stadiumSvg {width: 60vw; padding-top: 40px;}
+#stadiumSvg > svg {width: 100%;}
+#seats {cursor: pointer;}
+#signages {pointer-events: none;}
+#addPhoto {width: 15vw; height: 32px; color: #faf6f5; background: #000060c0; font-size: 16px; font-weight: 600; border: none; border-radius: 20px; margin: 5vh 0 0 22.5vw; cursor: pointer;}
 
-#seats {display: none; width: 55vw; height: calc(100vh - 200px); padding: 0 5vw 50vh 5vw; background: #fcfcfd; position: fixed; top: 40px; left: 30vw;}
-#seats > div {display: none; pointer-events: none; width: 100%; height: 100%;}
-#seats > div > svg {width: 100%; max-height: calc(100vh - 200px); object-fit: contain;}
-#seats > div > svg > g > g > g > rect {opacity: 0.5; transition: opacity 0.2s;}
-#seats > div > svg > g > g > g > rect:hover {opacity: 1; transition: opacity 0.2s; cursor: pointer;}
-#seats > button {width: 15vw; height: 32px; color: #faf6f5; background: #000060c0; font-size: 16px; font-weight: 600; border: none; border-radius: 20px; margin-top: 5vh; cursor: pointer;}
+#zonesPopUp {width: calc(65vw - 64px); height: calc(95vh - 164px); background: #faf6f5; border: 32px solid #faf6f5; border-radius: 20px; position: fixed; left: 30vw; bottom: 2.5vh; display: none; overflow: scroll; -webkit-overflow-scrolling: touch;}
+#zonesPopUp > p {font-size: 24px; padding-bottom: 24px; text-align: left; position: sticky; top: 0; left: 0;}
+#zonesPopUp > p > span {width: 3vw; height: 3vw; border-radius: 3vw; overflow: hidden; display: flex; justify-content: center; align-items: center; float: right; cursor: pointer;}
+#zonesPopUp > p > span > img {width: 2vw; height: 2vw; pointer-events: none;}
+#zonesPopUp > table {width: max-content; min-width: calc(65vw - 64px);}
+#zonesPopUp > table > tr > td {width: 28px; height: 28px; font-weight: 300; border: .5px solid #05090a; padding: 4px 0;}
+#zonesPopUp > table > tr > td:nth-of-type(1) {text-align: right; border: none; padding-right: 4px; cursor: auto;}
+#zonesPopUp > table > tr > td:nth-last-of-type(1) {text-align: left; border: none; padding-left: 4px; cursor: auto;}
 
-path.cls-64 {pointer-events: none;}
-
-#seatsPopUp {width: 30vw; height: 80vh; position: fixed; top: 10vh; left: 47.5vw; background: #faf6f5d0; border-radius: 20px; opacity: 0; z-index: 2; pointer-events: none; display: flex; flex-direction: column; align-items: center;}
-#seatsPopUp > p:nth-of-type(1) {font-size: 20px; font-weight: 600; margin-top: 5vh;}
-#seatsPopUp > p:nth-of-type(2) {font-size: 16px; font-weight: 300; margin-top: 5vh;}
-#seatsPopUp > img {max-width: 25vw; max-height: 55vh; margin-top: 5vh; border-radius: 20px;}
+#seatsPopUp {width: 30vw; height: 80vh; position: fixed; top: 10vh; left: 47.5vw; background: #faf6f5d0; border-radius: 20px; opacity: 0; pointer-events: none; display: flex; flex-direction: column; align-items: center; z-index: 2;}
+#seatsPopUp > p {font-size: 20px; font-weight: 600; line-height: 3vw; margin-top: 5vh;}
+#seatsPopUp > p > span {width: 3vw; height: 3vw; border-radius: 3vw; margin-left: 4px; overflow: hidden; display: flex; justify-content: center; align-items: center; float: right; cursor: pointer;}
+#seatsPopUp > p > span > img {width: 2vw; height: 2vw; pointer-events: none;}
+#seatsPopUp > img {max-width: 25vw; max-height: 50vh; margin-top: 5vh; border-radius: 20px;}
 #seatsPopUp > button {width: 15vw; height: 32px; color: #faf6f5; background: #000060c0; font-size: 16px; font-weight: 600; border: none; border-radius: 20px; margin-top: 5vh; cursor: pointer;}
 
 #seatsPopUpBG {width: 80vw; height: 100vh; position: fixed; top: 0; left: 20vw; opacity: 0; z-index: 1; pointer-events: none;}
