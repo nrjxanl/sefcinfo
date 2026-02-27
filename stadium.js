@@ -60,7 +60,7 @@ function render(seats) {
     });
 
     // 관중석 시야
-    $('#seats > path').click(function() {
+    $('#seats > path, #seats > g').click(function() {
         let stadium = window.location.pathname.split('/').pop().replace('.html', '');
         let zone = $(this).attr('id');
 
@@ -85,7 +85,7 @@ function render(seats) {
             }
         } else alert('준비 중입니다.');
 
-        $('.y').click(function(){
+        $('.y').click(function() {
             let row = $(this).attr('class').replace('y ', '').split('_')[0];
             let num = $(this).attr('class').replace('y ', '').split('_')[1];
             let img = data[row][num];
@@ -95,7 +95,7 @@ function render(seats) {
             $('#seatsPopUp > p').html(`${zone}구역 ${row}열 ${num}<span><img src="../files/x.svg"></span>`);
             $('#seatsPopUp > img').attr('src', `../files/stadium/${img}`);
             
-            $('#seatsPopUp > p > span').click(function() {
+            $('#seatsPopUp > p > span, #seatsPopUpBG').click(function() {
                 $('#seatsPopUp, #seatsPopUpBG').css({'opacity': 0, 'pointer-events': 'none'});
             });
         });
@@ -104,4 +104,24 @@ function render(seats) {
             $('#zonesPopUp').css('display', 'none');
         });
     });
+
+    // 주변 맛집 불러오기
+    if ($('#addFnb').length) {
+        let stadium = window.location.pathname.split('/').pop().replace('.html', '');
+
+        let food = seats[stadium]['fnb']['food'];
+        let cafe = seats[stadium]['fnb']['cafe'];
+
+        for (let i = 0; i < Object.keys(food).length; i++) {
+            let name = Object.keys(food)[i];
+            
+            $('#food').append(`<div glass='true'><p>${name}<span>${food[name][0]}</span><span>${food[name][1]}</span></p><div><img onclick='window.open("${food[name][2]}")' src='https://play-lh.googleusercontent.com/BaWUhtRONqb2Tt0ESjnaEH9KiaAUnOlFJqGzGUYN6oPsEEpZhPwQeHZhuGcM1Y8g1Io=w480-h960-rw' glass='true'><img onclick='window.open("${food[name][3]}")' src='https://play-lh.googleusercontent.com/pPTTNz433EYFurg2j__bFU5ONdMoU_bs_-yS2JLZriua3iHrksGP6XBPF5VtDPlpGcW4=w480-h960-rw' glass='true'></div></div>`);
+        }
+
+        for (let i = 0; i < Object.keys(cafe).length; i++) {
+            let name = Object.keys(cafe)[i];
+            
+            $('#cafe').append(`<div glass='true'><p>${name}<span>${cafe[name][0]}</span><span>${cafe[name][1]}</span></p><div><img onclick='window.open("${cafe[name][2]}")' src='https://play-lh.googleusercontent.com/BaWUhtRONqb2Tt0ESjnaEH9KiaAUnOlFJqGzGUYN6oPsEEpZhPwQeHZhuGcM1Y8g1Io=w480-h960-rw' glass='true'><img onclick='window.open("${cafe[name][3]}")' src='https://play-lh.googleusercontent.com/pPTTNz433EYFurg2j__bFU5ONdMoU_bs_-yS2JLZriua3iHrksGP6XBPF5VtDPlpGcW4=w480-h960-rw' glass='true'></div></div>`);
+        }
+    }
 }
