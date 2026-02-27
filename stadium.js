@@ -59,6 +59,12 @@ function render(seats) {
         });
     });
 
+    $('#selectStadium > a').on('mouseleave', function () {
+        $(this).css('cursor', 'pointer');
+        $(this).find('div > img').css('display', 'inline');
+        $(this).find('div > button').remove();
+    });
+
     // 관중석 시야
     $('#seats > path, #seats > g').click(function() {
         let stadium = window.location.pathname.split('/').pop().replace('.html', '');

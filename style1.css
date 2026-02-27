@@ -585,7 +585,7 @@ tr.sefc > td > p {background: #faf5f6 !important; color: #05090a !important;}
 #selectStadium > a {width: calc(90vw - 32px); height: 60px; display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; padding: 16px; border-radius: 20px;}
 #selectStadium > a > div {width: 30vw; height: 60px; overflow: hidden;}
 #selectStadium > a > div > img {width: 100%; height: 100%; object-fit: contain;}
-#selectStadium > a > div > button {width: 30vw; height: 26px; margin-bottom: 8px; font-size: 14px; border: none; border-radius: 100vw; color: #faf6f5; background: #000060; opacity: .5; cursor: pointer;}
+#selectStadium > a > div > button {width: 30vw; height: 26px; margin-bottom: 8px; font-size: 14px; border: none; border-radius: 100vw; color: #faf6f5; background: #00006080; opacity: 1; cursor: pointer;}
 #selectStadium > a > div > button:active {opacity: 1; transition: opacity .2s;}
 #selectStadium > a > p {text-align: right; font-size: 16px; font-weight: 600; line-height: 1.2; word-break: break-all;}
 #selectStadium > a > p > ruby {text-align: right; font-size: 16px; font-weight: 600; line-height: 1;}
