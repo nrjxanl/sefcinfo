@@ -183,7 +183,7 @@ function beforeLoading() {
     });
 
     // 미완성 기능 숨기기
-    $('#menu > div:nth-of-type(7), #menu > div:nth-of-type(n + 9)').css('display', 'none');
+    $('#menu > div:nth-of-type(n + 9)').css('display', 'none');
 
 }
 
