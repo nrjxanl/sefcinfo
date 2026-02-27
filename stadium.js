@@ -24,13 +24,16 @@ function render(seats) {
     // 마우스 올리거나 클릭하면 버튼 생성
     $('#selectStadium > a').on('mouseenter click', function (e) {
         if ($(e.target).is('button')) return;
+        if ($(this).find('button').length) return;
 
         $('#selectStadium > a').css('cursor', 'pointer');
         $('#selectStadium > a > div > img').css('display', 'inline');
         $('#selectStadium > a > div > button').remove();
         $(this).css('cursor', 'auto');
         $(this).find('div > img').css('display', 'none');
-        $(this).find('div').append('<button glass="true" transl="y">관중석 시야</button><button glass="true" transl="y">주변 맛집</button>');
+
+        $(this).find('div').append('<button glass="true" transl="y" style="pointer-events:none;">관중석 시야</button><button glass="true" transl="y" style="pointer-events:none;">주변 맛집</button>');
+        setTimeout(() => $(this).find('button').css('pointer-events', 'auto'), 100);
 
         let stadium = $(this).closest('a').find('p').contents().filter(function () {
             return this.nodeType == 3;
