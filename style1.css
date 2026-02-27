@@ -588,7 +588,7 @@ tr.sefc > td > p {background: #faf5f6 !important; color: #05090a !important;}
 #addPhoto {width: 80vw; height: 32px; color: #faf6f5; background: #00006080; font-size: 16px; font-weight: 600; border: none; border-radius: 20px; margin-top: 32px; cursor: pointer;}
 #addPhoto:hover {background: #000060c0;}
 
-#zonesPopUp {width: calc(90vw - 64px); height: calc(95vh - 164px); background: #faf6f5; border: 32px solid #faf6f5; border-radius: 20px; position: fixed; left: 5vw; bottom: 2.5vh; display: none; overflow: scroll; -webkit-overflow-scrolling: touch;}
+#zonesPopUp {width: calc(90vw - 64px); height: calc(85vh - 164px); background: #faf6f5; border: 32px solid #faf6f5; border-radius: 20px; position: fixed; left: 5vw; top: calc(10vh + 100px); display: none; overflow: scroll; -webkit-overflow-scrolling: touch;}
 #zonesPopUp > p {font-size: 24px; background: #faf6f5; padding-bottom: 24px; line-height: 8vw; text-align: left; position: sticky; top: 0; left: 0;}
 #zonesPopUp > p > span {width: 8vw; height: 8vw; border-radius: 3vw; overflow: hidden; display: flex; justify-content: center; align-items: center; float: right; cursor: pointer;}
 #zonesPopUp > p > span > img {width: 6vw; height: 6vw; pointer-events: none;}
