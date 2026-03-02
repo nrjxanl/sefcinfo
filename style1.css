@@ -599,7 +599,7 @@ tr.sefc > td > p {background: #faf5f6 !important; color: #05090a !important;}
 #stadiumSvg > svg {width: 100%;}
 #seats {cursor: pointer;}
 #signages {pointer-events: none;}
-#addPhoto {width: 80vw; height: 32px; color: #faf6f5; background: #00006080; font-size: 16px; font-weight: 600; border: none; border-radius: 20px; margin-top: 32px; cursor: pointer;}
+#addPhoto {width: 80vw; height: 32px; color: #faf6f5; background: #00006080; font-size: 16px; font-weight: 600; border: none; border-radius: 20px; margin: 32px 0 40px 0; cursor: pointer;}
 #addPhoto:hover {background: #000060c0;}
 
 #zonesPopUp {width: calc(90vw - 64px); height: calc(95dvh - 164px); background: #faf6f5; border: 32px solid #faf6f5; border-radius: 20px; position: fixed; left: 5vw; bottom: 2.5dvh; display: none; overflow: scroll; -webkit-overflow-scrolling: touch;}

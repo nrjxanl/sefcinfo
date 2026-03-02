@@ -69,7 +69,7 @@ function render(seats) {
     });
 
     // 관중석 시야
-    $('#seats > path, #seats > g').click(function() {
+    $('#seats > path, #seats > g, #seats > polygon, #seats > rect').click(function() {
         let stadium = window.location.pathname.split('/').pop().replace('.html', '');
         let zone = $(this).attr('id');
 
