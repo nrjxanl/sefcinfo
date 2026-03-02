@@ -216,9 +216,14 @@ function getList(data, matchlog, year) {
         monthAttend[i] = 0;
     }
 
-    const keys = (year == 0) ? Object.keys(data) : Object.keys(data).filter(y => y.substring(0, 4) == year);
-    const matchKeys = (year == 0) ? Object.keys(matchlog) : Object.keys(matchlog).filter(y => y.substring(0, 4) == year);
+    const todayStr = new Date().getFullYear() +
+        String(new Date().getMonth() + 1).padStart(2, '0') +
+        String(new Date().getDate()).padStart(2, '0');
 
+    const keys = Object.keys(data).filter(key =>
+        key <= todayStr && (year == 0 || key.substring(0, 4) == year)
+    );
+    const matchKeys = (year == 0) ? Object.keys(matchlog) : Object.keys(matchlog).filter(y => y.substring(0, 4) == year);
     $('#matchlogList').empty();
 
     // 데이터 집계
@@ -239,7 +244,6 @@ function getList(data, matchlog, year) {
         const month = parseInt(matchId.substring(4, 6));
         const date = parseInt(matchId.substring(6, 8));
         const day = "일월화수목금토"[new Date(year, month - 1, date).getDay()];
-
         
         let st = matchData['stadium'] || '';
         if (st == '강릉종합운동장') st = '강릉하이원아레나';
