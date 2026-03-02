@@ -131,7 +131,14 @@ function render(data, matchlog, uid) {
         $('.gauge-text > span').text(0);
         $('.meter').css({ 'transition': 'none', 'stroke-dasharray': '0 283' });
 
-        const keys = (year == 0) ? Object.keys(data) : Object.keys(data).filter(y => y.substring(0, 4) == year);
+        const todayStr = new Date().getFullYear() +
+            String(new Date().getMonth() + 1).padStart(2, '0') +
+            String(new Date().getDate()).padStart(2, '0');
+
+        const keys = Object.keys(data).filter(key =>
+            key <= todayStr && (year == 0 || key.substring(0, 4) == year)
+        );
+
         const { w, d, l } = window.currentStats || { w: 0, d: 0, l: 0 };
 
         setTimeout(() => {
