@@ -184,6 +184,9 @@ function loadFixtures(data, year, month) {
         const awayScore = matchData['awayScore'];
         const isHome = (matchData['home'][1] == 'seouleland') ? 1 : 0;
 
+        const date = parseInt(keys[i].substring(6, 8));
+        const day = "일월화수목금토"[new Date(year, month - 1, date).getDay()];
+
         $(`#fixtures${teamType} > .fixtures`).append(`
             <div id = '${keys[i]}' class='fixtures_' glass='true'>
                 <div>
@@ -199,7 +202,7 @@ function loadFixtures(data, year, month) {
                     </div>
                     <div>
                         <p>${homeScore} : ${awayScore}</p>
-                        <p glass='true'>${keys[i].substring(4, 6)}.${keys[i].substring(6, 8)}. ${matchData['time']}</p>
+                        <p glass='true'>${parseInt(month)}.${parseInt(date)}.(${day}) ${matchData['time']}</p>
                     </div>
                     <div>
                         <div>
@@ -224,7 +227,7 @@ function loadFixtures(data, year, month) {
 
         // 데이터 없을 때 대체
         if (homeScore == undefined || homeScore == '') $(`#fixtures${teamType} > .fixtures > .fixtures_:nth-of-type(${i + 1}) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)`).text(`vs`);
-        if (matchData['time'] == undefined || matchData['time'] == '') $(`#fixtures${teamType} > .fixtures > .fixtures_:nth-of-type(${i + 1}) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)`).text(`${keys[i].substring(4, 6)}.${keys[i].substring(6, 8)}.`).css('padding', '2px 20px');
+        if (matchData['time'] == undefined || matchData['time'] == '') $(`#fixtures${teamType} > .fixtures > .fixtures_:nth-of-type(${i + 1}) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)`).text(`${parseInt(month)}.${parseInt(date)}.(${day})`).css('padding', '2px 20px');
     }
 
     if (keys.length == 0) {

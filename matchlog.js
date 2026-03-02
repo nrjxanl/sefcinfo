@@ -235,7 +235,11 @@ function getList(data, matchlog, year) {
         const awayScore = parseInt(matchData['awayScore'].replace(/<span[^>]*>.*?<\/span>/gi, '')) || 0;
         const isHome = (matchData['home'][1] == 'seouleland') ? 1 : 0;
         const opp = isHome ? matchData['away'][0] : matchData['home'][0];
+
         const month = parseInt(matchId.substring(4, 6));
+        const date = parseInt(matchId.substring(6, 8));
+        const day = "일월화수목금토"[new Date(year, month - 1, date).getDay()];
+
         
         let st = matchData['stadium'] || '';
         if (st == '강릉종합운동장') st = '강릉하이원아레나';
@@ -289,7 +293,7 @@ function getList(data, matchlog, year) {
                         </div>
                         <div>
                             <p>${homeScore} : ${awayScore}</p>
-                            <p glass='true'>${matchId.substring(4, 6)}.${matchId.substring(6, 8)}.${matchData['time'] ? ' ' + matchData['time'] : ''}</p>
+                            <p glass='true'>${month}.${date}.(${day}) ${matchData['time'] ? ' ' + matchData['time'] : ''}</p>
                         </div>
                         <div>
                             <div>

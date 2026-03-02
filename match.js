@@ -33,8 +33,13 @@ async function initPage() {
 initPage();
 
 function render(data, matchData, num, h2h) {
+    const year = parseInt(matchId.substring(0, 4));
+    const month = parseInt(matchId.substring(4, 6));
+    const date = parseInt(matchId.substring(6, 8));
+    const day = "일월화수목금토"[new Date(year, month - 1, date).getDay()];
+
     // 페이지명
-    $('title').text(`SEFCiNFO - ${matchData['home'][0]} vs ${matchData['away'][0]}(${matchId.substring(0, 4)}.${matchId.substring(4, 6)}.${matchId.substring(6, 8)}.)`);
+    $('title').text(`SEFCiNFO - ${matchData['home'][0]} vs ${matchData['away'][0]}(${year}.${month}.${date}.(${day}))`);
     
     // 대회 정보
     $('#matchScore > div:nth-of-type(1) > img').attr('src', `./files/${matchData['comp'][1]}_s.png`);
@@ -53,8 +58,8 @@ function render(data, matchData, num, h2h) {
     else $('#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)').text(`vs`);
 
     // 경기 일자
-    if (matchData['time'] != undefined && matchData['time'] != '') $('#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)').text(`${matchId.substring(4, 6)}.${matchId.substring(6, 8)}. ${matchData['time']}`);
-    else $('#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)').text(`${matchId.substring(0, 4)}.${matchId.substring(4, 6)}.${matchId.substring(6, 8)}.`);
+    if (matchData['time'] != undefined && matchData['time'] != '') $('#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)').text(`${month}.${date}.(${day}) ${matchData['time']}`);
+    else $('#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)').text(`${year}.${month}.${date}.`);
 
     // 경기 장소
     if (matchData['stadium'] != undefined && matchData['stadium'] != '') $('#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(3)').text(`@${matchData['stadium']}`);
@@ -80,7 +85,7 @@ function render(data, matchData, num, h2h) {
     }
 
     // 라인업
-    if (matchData['GK']?.length) lineup(matchData, num, matchId.substring(0, 4)); // matchData, players, num, year 전달
+    if (matchData['GK']?.length) lineup(matchData, num, year); // matchData, players, num, year 전달
     else {
         $('#matchLineup').css('display', 'none');
         $('.matchDetail > button:nth-of-type(2)').css('display', 'none');
