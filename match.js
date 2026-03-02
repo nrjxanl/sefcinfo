@@ -259,35 +259,38 @@ function lineup(matchData, num, year) {
     }
 
     // 유니폼 색상 설정
-    if (year == 2025) {
-        $('#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img').css('filter', 'brightness(0) saturate(100%) invert(80%) sepia(99%) saturate(292%) hue-rotate(16deg) brightness(99%) contrast(86%)')
-        $('#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)').css('color', '#000')
+    if (year == 2026) {
+        $('#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img').css('filter', 'brightness(0) saturate(100%) invert(46%) sepia(78%) saturate(2289%) hue-rotate(349deg) brightness(96%) contrast(89%)');
+        $('#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)').css('color', '#000');
+    } else if (year == 2025) {
+        $('#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img').css('filter', 'brightness(0) saturate(100%) invert(80%) sepia(99%) saturate(292%) hue-rotate(16deg) brightness(99%) contrast(86%)');
+        $('#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)').css('color', '#000');
     } else if (year == 2024) {
-        $('#startingXI > table > tbody > tr:nth-of-type(-n+3) > td > p:nth-of-type(1)').css('color', '#d4a73f')
-        $('#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img').css('filter', 'brightness(0) saturate(100%) invert(77%) sepia(44%) saturate(5344%) hue-rotate(328deg) brightness(106%) contrast(99%)')
-        $('#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)').css('color', '#000')
+        $('#startingXI > table > tbody > tr:nth-of-type(-n+3) > td > p:nth-of-type(1)').css('color', '#d4a73f');
+        $('#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img').css('filter', 'brightness(0) saturate(100%) invert(77%) sepia(44%) saturate(5344%) hue-rotate(328deg) brightness(106%) contrast(99%)');
+        $('#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)').css('color', '#000');
     } else if (year == 2023) {
-        $('#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img').css('filter', 'brightness(0) saturate(100%) invert(100%) sepia(93%) saturate(1239%) hue-rotate(11deg) brightness(101%) contrast(93%)')
-        $('#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)').css('color', '#000')
+        $('#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img').css('filter', 'brightness(0) saturate(100%) invert(100%) sepia(93%) saturate(1239%) hue-rotate(11deg) brightness(101%) contrast(93%)');
+        $('#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)').css('color', '#000');
     } else if (year == 2022 || year == 2021) {
-        $('#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img').css('filter', 'brightness(0) saturate(100%) invert(22%) sepia(91%) saturate(7210%) hue-rotate(334deg) brightness(95%) contrast(104%)')
-        $('#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)').css('color', '#000060')
+        $('#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img').css('filter', 'brightness(0) saturate(100%) invert(22%) sepia(91%) saturate(7210%) hue-rotate(334deg) brightness(95%) contrast(104%)');
+        $('#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)').css('color', '#000060');
     } else if (year == 2020 || year == 2019 || year == 2018) {
-        $('#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img').css('filter', 'brightness(0) saturate(100%) invert(83%) sepia(8%) saturate(3343%) hue-rotate(49deg) brightness(95%) contrast(89%)')
-        $('#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)').css('color', '#000')
+        $('#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img').css('filter', 'brightness(0) saturate(100%) invert(83%) sepia(8%) saturate(3343%) hue-rotate(49deg) brightness(95%) contrast(89%)');
+        $('#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)').css('color', '#000');
     } else if (year == 2017) {
-        $('#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img').css('filter', 'brightness(0) saturate(100%) invert(41%) sepia(32%) saturate(1362%) hue-rotate(290deg) brightness(94%) contrast(94%)')
-        $('#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)').css('color', '#faf6f5')
+        $('#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img').css('filter', 'brightness(0) saturate(100%) invert(41%) sepia(32%) saturate(1362%) hue-rotate(290deg) brightness(94%) contrast(94%)');
+        $('#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)').css('color', '#faf6f5');
     } else if (year == 2016) {
-        $('#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img').css('filter', 'brightness(0) saturate(100%) invert(44%) sepia(73%) saturate(3412%) hue-rotate(359deg) brightness(102%) contrast(85%)')
-        $('#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)').css('color', '#000')
+        $('#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img').css('filter', 'brightness(0) saturate(100%) invert(44%) sepia(73%) saturate(3412%) hue-rotate(359deg) brightness(102%) contrast(85%)');
+        $('#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)').css('color', '#000');
     } else if (year == 2015) {
         if (Number($('#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)').text().replace('.', '')) >= 20150822) {
-            $('#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img').css('filter', 'brightness(0) saturate(100%) invert(53%) sepia(34%) saturate(4466%) hue-rotate(311deg) brightness(99%) contrast(107%)')
-            $('#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)').css('color', '#faf6f5')
+            $('#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img').css('filter', 'brightness(0) saturate(100%) invert(53%) sepia(34%) saturate(4466%) hue-rotate(311deg) brightness(99%) contrast(107%)');
+            $('#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)').css('color', '#faf6f5');
         } else {
-            $('#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img').css('filter', 'brightness(0) saturate(100%) invert(14%) sepia(82%) saturate(3416%) hue-rotate(319deg) brightness(99%) contrast(89%)')
-            $('#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)').css('color', '#faf6f5')
+            $('#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img').css('filter', 'brightness(0) saturate(100%) invert(14%) sepia(82%) saturate(3416%) hue-rotate(319deg) brightness(99%) contrast(89%)');
+            $('#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)').css('color', '#faf6f5');
         }
     }
 }
