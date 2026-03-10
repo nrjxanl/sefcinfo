@@ -200,7 +200,7 @@ function loadPlayers(data, player, playerNum, teamType) {
         }
 
         // 유스 선수 기록 일부 숨김 처리
-        if (teamType != 'A') $(this).find('p:nth-of-type(n+3):nth-of-type(-n+4)').css('display', 'none');
+        if (teamType != 'A') $(this).find('p:nth-of-type(n+5):nth-of-type(-n+6)').css('display', 'none');
 
         // 클릭 시 선수 세부 정보 창으로 이동
         $(this).click(function () {
