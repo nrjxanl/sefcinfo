@@ -106,6 +106,7 @@ function render(seats) {
             
             $('#seatsPopUp > p > span, #seatsPopUpBG').click(function() {
                 $('#seatsPopUp, #seatsPopUpBG').css({'opacity': 0, 'pointer-events': 'none'});
+            $('#seatsPopUp > img').removeAttr('src');
             });
         });
 
