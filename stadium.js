@@ -35,10 +35,7 @@ function render(seats) {
         $(this).find('div').append('<button glass="true" transl="y" style="pointer-events:none;">관중석 시야</button><button glass="true" transl="y" style="pointer-events:none;">주변 맛집</button>');
         setTimeout(() => $(this).find('button').css('pointer-events', 'auto'), 100);
 
-        let stadium = $(this).closest('a').find('p').contents().filter(function () {
-            return this.nodeType == 3;
-        }).text().trim();
-
+        let stadium = $(this).closest('a').find('p').clone().find('span').remove().end().html().replace(/<br\s*\/?>/gi, ' ').trim();
         let stadiumId = $(this).closest('a').attr('id');
 
         // 관중석 시야 미지원 경기장
@@ -47,7 +44,7 @@ function render(seats) {
         };
 
         // 주변 맛집 미지원 경기장
-        if (stadium == '김포솔터축구장' || stadium == '구덕운동장' || stadium == '안산와~스타디움' || stadium == '이순신종합운동장' || stadium == '창원축구센터 주경기장' || stadium == '천안종합운동장 주경기장' || stadium == '화성종합경기타운 주경기장' || stadium == '수원종합운동장 주경기장' || stadium == '대구iM뱅크파크' || stadium == '용인미르스타디움' || stadium == '파주스타디움' || stadium == '김해종합운동장') {
+        if (stadium == '김포솔터축구장' || stadium == '구덕운동장' || stadium == '안산와~스타디움' || stadium == '이순신종합운동장' || stadium == '창원축구센터 주경기장' || stadium == '화성종합경기타운 주경기장' || stadium == '수원종합운동장 주경기장' || stadium == '대구iM뱅크파크' || stadium == '용인미르스타디움' || stadium == '파주스타디움' || stadium == '김해종합운동장') {
             $(this).find('div > button:nth-of-type(2)').css('opacity', 0.3).attr('class', 'noHover');
         };
 
