@@ -1115,6 +1115,10 @@ textarea.auto-resize {
         }
 
         loadStandings();
+
+        $('select').on('change', function() {
+            $(this).blur();
+        });
     </script>
             </body>
 </html>
