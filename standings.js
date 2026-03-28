@@ -225,7 +225,7 @@ function loadStandings(standings, year, teamType) {
 
     $('[id^=standings] > div > table > tbody').empty();
 
-    if (teamType != 'U18') {
+    if (teamType == 'A') {
         $('[id^=standings]').css('display', 'none');
         $(`#standings${teamType}`).css('display', 'block');
 
@@ -282,10 +282,10 @@ function loadStandings(standings, year, teamType) {
         if (typeof applyViewState === 'function') applyViewState();
     } else {
         $('[id^=standings]').css('display', 'none');
-        $(`#standingsU18, #standingsU18F, #standingsU18S`).css('display', 'block');
+        $(`#standings${teamType}, #standings${teamType}F, #standings${teamType}S`).css('display', 'block');
 
         // 전반기
-        const teamDataListF = standings[year]['U18F'];
+        const teamDataListF = standings[year][`${teamType}F`];
         const teamNumF = teamDataListF.length;
 
         for (let i = 0; i < teamNumF; i++) {
@@ -332,12 +332,12 @@ function loadStandings(standings, year, teamType) {
                 </tr>
             `);
 
-            $(`#standingsU18F > table > tbody`).append($tr);
+            $(`#standings${teamType}F > table > tbody`).append($tr);
         }
 
         // 후반기
-        if (standings[year]['U18S'] != undefined) {
-            const teamDataListS = standings[year]['U18S'];
+        if (standings[year][`${teamType}S`] != undefined) {
+            const teamDataListS = standings[year][`${teamType}S`];
             const teamNumS = teamDataListS.length;
 
             for (let i = 0; i < teamNumS; i++) {
@@ -384,10 +384,10 @@ function loadStandings(standings, year, teamType) {
                 </tr>
             `);
 
-                $(`#standingsU18S > table > tbody`).append($tr);
+                $(`#standings${teamType}S > table > tbody`).append($tr);
             }
         } else {
-            $('#standingsU18S, #standingsU18F > p').css('display', 'none');
+            $(`#standings${teamType}S, #standings${teamType}F > p`).css('display', 'none');
         }
         
         if (typeof applyViewState === 'function') applyViewState();
