@@ -187,6 +187,10 @@ function loadStats(data, year, player, playerNum, teamType) {
             ? (playerNum[new Date().getFullYear()] && playerNum[new Date().getFullYear()][id] != undefined ? playerNum[new Date().getFullYear()][id][1] : '-')
             : (playerNum[year] && playerNum[year][id] != undefined ? playerNum[year][id][1] : '-'); let name = player[id]['name'].replace(/[0-9]/g, '');
         
+        // 준프로 등번호
+        if (teamType == "U18" && year == 2024 && name == "장석훈") num = 10;
+        if (teamType == "A" && (year == 2026 || year == 0) && name == "양승민") num = 25;
+
         let app = playerData[id][0];
         let g = playerData[id][1];
         let a = playerData[id][2];

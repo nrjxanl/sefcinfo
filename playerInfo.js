@@ -153,17 +153,20 @@ function render(dataA, dataU18, dataU15, playerA, playerU18, playerU15, playerNu
 
 function playerInfo(id, player, playerNum) {
 
-    const bd = `${player[id]['bd'].substring(2, 4)}.${player[id]['bd'].substring(4, 6)}.${player[id]['bd'].substring(6, 8)}.`;
-    const height = player[id]['height'];
-    const num = (playerNum[new Date().getFullYear()][id] != undefined) ? playerNum[new Date().getFullYear()][id][1] : '';
-    const name = player[id]['name'].replace(/[0-9]/g, '');
-    const natl = player[id]['natl'];
-    const pos = player[id]['pos'];
-    const sns = player[id]['sns'];
-    const isSefc = (player[id]['sefc'] == 'O') ? true : false;
+    let bd = `${player[id]['bd'].substring(2, 4)}.${player[id]['bd'].substring(4, 6)}.${player[id]['bd'].substring(6, 8)}.`;
+    let height = player[id]['height'];
+    let num = (playerNum[new Date().getFullYear()][id] != undefined) ? playerNum[new Date().getFullYear()][id][1] : '';
+    let name = player[id]['name'].replace(/[0-9]/g, '');
+    let natl = player[id]['natl'];
+    let pos = player[id]['pos'];
+    let sns = player[id]['sns'];
+    let isSefc = (player[id]['sefc'] == 'O') ? true : false;
 
-    const age = new Date().getFullYear() - parseInt(player[id]['bd'].substring(0, 4)) - (((new Date().getMonth() + 1) * 100 + new Date().getDate()) < parseInt(player[id]['bd'].substring(4, 8)) ? 1 : 0);
+    let age = new Date().getFullYear() - parseInt(player[id]['bd'].substring(0, 4)) - (((new Date().getMonth() + 1) * 100 + new Date().getDate()) < parseInt(player[id]['bd'].substring(4, 8)) ? 1 : 0);
     
+    // 준프로 등번호
+    if (name == "양승민") num = 25;
+
     $('#playerProfile > div:nth-of-type(1) > p').text(pos);
 
     if (isSefc) $('#playerProfile > div:nth-of-type(2) > p').html(`<span>${num}</span>${name}`);

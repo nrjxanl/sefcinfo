@@ -147,6 +147,9 @@ function loadPlayers(data, player, playerNum, teamType) {
             let name = playerList[i][id][0].replace(/[0-9]/g, '');
             let num = playerList[i][id][1];
 
+            // 준프로 등번호
+            if (teamType == "A" && name == "양승민") num = 25;
+
             $(`#player${teamType} > div > div:nth-of-type(${2 * i + 2})`).append(`<div class = ${id} glass = 'true'><p>${num}</p><p transl = 'y'>${name}</p><p>0</p><p>0</p><p>0</p><p>0</p><p>0</p><p>0</p></div>`);
         }
     }

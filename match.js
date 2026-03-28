@@ -161,7 +161,8 @@ function lineup(matchData, num, year) {
                 let pNum = num[year][pId][1];
 
                 // 준프로 등번호 설정
-                if (pId == 20240155 && year == 2024 && teamType == 'U18') pNum = 10;    // 장석훈
+                if (num[year][pId][0] == "장석훈" && year == 2024 && teamType == 'U18') pNum = 10;
+                if (num[year][pId][0] == "양승민" && year == 2026 && teamType == 'A') pNum = 25;
 
                 // div 삽입
                 if (teamType == 'A') {
