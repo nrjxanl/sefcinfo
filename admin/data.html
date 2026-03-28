@@ -87,6 +87,12 @@ h2 { font-family: "Paperlogy"; font-weight: 900; font-size: 20px; margin-bottom:
 .menu-bar button.active { background: #000060; color: #fff; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,96,0.1); }
 
 /* 4. 카드 및 입력창 공통 */
+textarea.auto-resize {
+    min-height: 52px; /* 기본 input 높이와 비슷하게 설정 */
+    overflow: hidden; /* 글자가 넘칠 때 생기는 스크롤바 숨김 */
+    resize: none; /* 사용자가 마우스로 크기를 마음대로 조절하는 것 방지 */
+}
+
 .form-container { 
     display: none; background: #fff; padding: 35px; border-radius: 30px; 
     box-shadow: 0 10px 50px rgba(0,0,0,0.04); border: 1px solid rgba(0,0,60,0.03); 
@@ -339,8 +345,7 @@ h2 { font-family: "Paperlogy"; font-weight: 900; font-size: 20px; margin-bottom:
                 </div>
                 <div class="input-group"><label>홈점수</label><input type="tel" id="m_homeScore"></div>
             </div>
-            <div class="input-group"><label>홈 득점자 (HTML 가능)</label><input type="text" id="m_homeScorer"></div>
-
+            <div class="input-group"><label>홈 득점자</label><textarea id="m_homeScorer" class="auto-resize"></textarea></div>
             <div class="row">
                 <div class="input-group"><label>원정팀명</label><input type="text" id="m_awayName"></div>
                 <div class="input-group">
@@ -352,7 +357,7 @@ h2 { font-family: "Paperlogy"; font-weight: 900; font-size: 20px; margin-bottom:
                 </div>
                 <div class="input-group"><label>원정점수</label><input type="tel" id="m_awayScore"></div>
             </div>
-            <div class="input-group"><label>원정 득점자 (HTML 가능)</label><input type="text" id="m_awayScorer"></div>
+            <div class="input-group"><label>원정 득점자</label><textarea id="m_awayScorer" class="auto-resize"></textarea></div>
 
             <div class="sub-title">선수 명단 (이름 입력 시 ID 자동)</div>
             <p class="helper-text">* 입력하면 자동으로 다음 칸이 생성됩니다.</p>
@@ -389,12 +394,27 @@ h2 { font-family: "Paperlogy"; font-weight: 900; font-size: 20px; margin-bottom:
             </div>
             <div class="row">
                 <div class="input-group"><label>국적</label><input type="text" id="p_natl"></div>
-                <div class="input-group"><label>포지션</label><input type="text" id="p_pos"></div>
+                <div class="input-group">
+                    <label>포지션</label>
+                    <select id="p_pos">
+                        <option value="">선택</option>
+                        <option value="골키퍼">골키퍼</option>
+                        <option value="수비수">수비수</option>
+                        <option value="미드필더">미드필더</option>
+                        <option value="공격수">공격수</option>
+                    </select>
+                </div>
                 <div class="input-group"><label>키 (cm)</label><input type="tel" id="p_height"></div>
             </div>
             <div class="row">
                 <div class="input-group"><label>SNS ID</label><input type="text" id="p_sns"></div>
-                <div class="input-group"><label>현재 소속 여부 (O/X)</label><input type="text" id="p_sefc"></div>
+                <div class="input-group">
+                    <label>현재 소속 여부 (O/X)</label>
+                    <select id="p_sefc">
+                        <option value="O">O</option>
+                        <option value="">X</option>
+                    </select>
+                </div>
             </div>
             <button class="btn-submit" id="btnSavePlayer">Firebase에 저장</button>
             <button class="btn-delete" id="btnDeletePlayer">현재 ID의 선수 데이터 삭제</button>
@@ -474,7 +494,8 @@ h2 { font-family: "Paperlogy"; font-weight: 900; font-size: 20px; margin-bottom:
                         <option value="A">A팀</option>
                         <option value="U18F">U-18 (전반기)</option>
                         <option value="U18S">U-18 (후반기)</option>
-                        <option value="U15">U-15</option>
+                        <option value="U15F">U-15 (전반기)</option>
+                        <option value="U15S">U-15 (후반기)</option>
                     </select>
                 </div>
             </div>
@@ -775,6 +796,12 @@ h2 { font-family: "Paperlogy"; font-weight: 900; font-size: 20px; margin-bottom:
         document.getElementById('m_homeName').addEventListener('blur', () => autoFillTeamCode('m_homeName', 'm_homeCode', 'preview_home'));
         document.getElementById('m_awayName').addEventListener('blur', () => autoFillTeamCode('m_awayName', 'm_awayCode', 'preview_away'));
 
+        // 텍스트 영역 자동 높이 조절 이벤트
+        $('.auto-resize').on('input', function() {
+            this.style.height = 'auto'; // 높이를 초기화해서 줄어들 수 있게 함
+            this.style.height = (this.scrollHeight) + 'px'; // 안에 들어있는 글자의 전체 높이만큼 늘림
+        });
+
         function updateStandingsPreview() {
             const raw = document.getElementById('s_data').value;
             const container = document.getElementById('standings-preview');
@@ -832,11 +859,12 @@ h2 { font-family: "Paperlogy"; font-weight: 900; font-size: 20px; margin-bottom:
                     document.getElementById('m_homeName').value = data.home?.[0] ?? '';
                     document.getElementById('m_homeCode').value = data.home?.[1] ?? '';
                     document.getElementById('m_homeScore').value = data.homeScore ?? '';
-                    document.getElementById('m_homeScorer').value = data.homeScorer ?? '';
+                    document.getElementById('m_homeScorer').value = (data.homeScorer ?? '').replace(/<br\s*\/?>/gi, '\n');
                     document.getElementById('m_awayName').value = data.away?.[0] ?? '';
                     document.getElementById('m_awayCode').value = data.away?.[1] ?? '';
                     document.getElementById('m_awayScore').value = data.awayScore ?? '';
-                    document.getElementById('m_awayScorer').value = data.awayScorer ?? '';
+                    document.getElementById('m_awayScorer').value = (data.awayScorer ?? '').replace(/<br\s*\/?>/gi, '\n');
+                    $('.auto-resize').trigger('input');
                     if(data.matchStat && data.matchStat.length === 20) {
                         for(let i=0; i<10; i++) {
                             document.getElementById(`m_stat_home_${i}`).value = data.matchStat[i*2] ?? '';
@@ -896,7 +924,7 @@ h2 { font-family: "Paperlogy"; font-weight: 900; font-size: 20px; margin-bottom:
                 "home": [document.getElementById('m_homeName').value, document.getElementById('m_homeCode').value],
                 "away": [document.getElementById('m_awayName').value, document.getElementById('m_awayCode').value],
                 "homeScore": document.getElementById('m_homeScore').value, "awayScore": document.getElementById('m_awayScore').value,
-                "homeScorer": document.getElementById('m_homeScorer').value, "awayScorer": document.getElementById('m_awayScorer').value,
+                "homeScorer": document.getElementById('m_homeScorer').value.replace(/\r?\n/g, '<br>'), "awayScorer": document.getElementById('m_awayScorer').value.replace(/\r?\n/g, '<br>'),
                 "hl": document.getElementById('m_hl').value, "matchStat": matchStatsArr,
                 "GK": getPlayers('GK'), "DF": getPlayers('DF'), "MF": getPlayers('MF'), "FW": getPlayers('FW'), "SUB": getPlayers('SUB')
             };
