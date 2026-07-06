@@ -220,7 +220,7 @@ function afterLoading() {
     if ($(window).width() < 300) {
         $('body').append(`<div style='width: 80vw; height: 65px; padding: 0 10vw; background: #faf6f5; position: fixed; bottom: 0; left: 0; font-size: 14px; font-weight: 300; z-index: 300; display: flex; align-items: center; justify-content: center;'>기기의 화면 크기가 작아 페이지가 정상적으로 보이지 않을 수 있습니다.</div>`);
     }
-console.log(new Date().getMonth(), new Date().getDate())
+
     // 매년 7월 7일 메인 로고, 배너 변경
     if (new Date().getMonth() == 6 && new Date().getDate() == 7) {
         $("header > div:nth-of-type(2) > img").attr("src", "https://sefc.info/files/july7th.svg")
