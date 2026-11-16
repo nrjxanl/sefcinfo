@@ -241,12 +241,359 @@ textarea.auto-resize {
     font-size: 14px; font-weight: 900; border-radius: 25px; cursor: pointer; margin-top: 15px;
 }
 
+/* 10-1. 평점 계산 탭 전용 스타일 */
+.rating-paste-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+    width: 100%;
+}
+.rating-paste-box textarea {
+    width: 100%;
+    min-height: 115px;
+    max-height: 200px;
+    padding: 12px 15px;
+    border: 1px solid #f0f0f4;
+    border-radius: 18px;
+    font-size: 12px;
+    background: #f9f9fb;
+    font-family: monospace;
+    line-height: 1.45;
+    resize: vertical;
+    user-select: text;
+}
+.rating-paste-box textarea:focus {
+    border-color: #000060;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(0,0,96,0.03);
+}
+.rating-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    background: #f9f9fb;
+    border: 1px solid #f0f0f4;
+    border-radius: 20px;
+    padding: 14px 18px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+.rating-toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.rating-toolbar-left label {
+    font-size: 13px;
+    font-weight: 900;
+    color: #000060;
+}
+.rating-toolbar-left input {
+    width: 68px;
+    height: 38px;
+    border-radius: 12px;
+    border: 1px solid #e0e0e8;
+    background: #fff;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 900;
+    color: #000060;
+}
+.btn-small-action {
+    background: #000060;
+    color: #fff;
+    border: none;
+    padding: 9px 15px;
+    border-radius: 14px;
+    font-size: 12px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.btn-small-action.secondary {
+    background: #fff;
+    color: #555;
+    border: 1px solid #ddd;
+}
+.btn-small-action:active { transform: scale(0.96); }
+
+.rating-player-card {
+    background: #fafafc;
+    border: 1px solid #f0f0f4;
+    border-left: 6px solid #000060;
+    border-radius: 20px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    transition: all 0.2s;
+}
+.rating-player-card.unselected-pos {
+    border-left-color: #d63031;
+    background: #fff8f8;
+    border-color: #ffd6d6;
+}
+.rating-player-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+.rating-player-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.rating-num-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 34px;
+    height: 28px;
+    padding: 0 8px;
+    background: #000060;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 900;
+}
+.rating-player-name {
+    font-size: 16px;
+    font-weight: 900;
+    color: #05090a;
+}
+.rating-sub-badge {
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 8px;
+    background: #eef2ff;
+    color: #000060;
+    font-weight: 900;
+}
+.rating-sub-badge.sub-tag {
+    background: #fff0e6;
+    color: #e67e22;
+}
+.rating-pos-select {
+    padding: 8px 14px;
+    border-radius: 12px;
+    border: 1.5px solid #d8d8e5;
+    background: #fff;
+    font-size: 13px;
+    font-weight: 900;
+    color: #000060;
+    cursor: pointer;
+    outline: none;
+}
+.rating-pos-select.needs-select {
+    border-color: #d63031;
+    background: #fff0f0;
+    color: #d63031;
+}
+.rating-score-pills {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+.score-pill {
+    font-size: 11px;
+    padding: 4px 9px;
+    border-radius: 9px;
+    background: #fff;
+    border: 1px solid #ececf2;
+    color: #555;
+    font-weight: 600;
+}
+.score-pill b {
+    font-weight: 900;
+    color: #000060;
+}
+.score-pill.total-pill {
+    background: #000060;
+    color: #fff;
+    border-color: #000060;
+    font-weight: 900;
+    font-size: 12px;
+}
+.score-pill.total-pill b { color: #fff; }
+.cs-auto-badge {
+    font-size: 10px;
+    padding: 3px 7px;
+    border-radius: 7px;
+    background: #e6fcf5;
+    color: #0ca678;
+    border: 1px solid #96f2d7;
+    font-weight: 900;
+}
+.rating-manual-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
+    gap: 8px;
+    padding-top: 10px;
+    border-top: 1px dashed #e6e6ef;
+}
+.manual-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: #fff;
+    padding: 7px 8px;
+    border-radius: 12px;
+    border: 1px solid #f0f0f4;
+}
+.manual-field label {
+    font-size: 10px;
+    font-weight: 900;
+    color: #666;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.manual-field input {
+    width: 100%;
+    height: 30px;
+    border: 1px solid #ebebf0;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 900;
+    background: #f9f9fb;
+    color: #05090a;
+}
+.manual-field input.nonzero-val {
+    background: #eef2ff;
+    border-color: #00006050;
+    color: #000060;
+}
+.manual-field input.nonzero-neg {
+    background: #fff5f5;
+    border-color: #ffaaaa;
+    color: #d63031;
+}
+
+/* 요약 테이블 */
+#rating-summary-box {
+    margin-top: 15px;
+    padding: 12px;
+    background: #f9f9fb;
+    border-radius: 20px;
+    border: 1px solid #f0f0f4;
+    width: 100%;
+    overflow-x: auto;
+}
+#rating-summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    table-layout: fixed;
+}
+#rating-summary-table th {
+    background: #f0f0f4;
+    color: #000060;
+    font-weight: 900;
+    padding: 11px 4px;
+    border-bottom: 2px solid #00006015;
+    text-align: center;
+    font-size: 12px;
+}
+#rating-summary-table td {
+    padding: 10px 4px;
+    color: #333;
+    font-weight: 600;
+    text-align: center;
+    border-bottom: 1px solid #f0f0f4;
+    vertical-align: middle;
+}
+#rating-summary-table tr.potm-row {
+    background: #fff5f5 !important;
+}
+#rating-summary-table tr.potm-row td {
+    color: #d63031;
+    font-weight: 900;
+}
+.rating-color-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 10px;
+    color: #fff !important;
+    font-weight: 900;
+    font-size: 12px;
+}
+.tie-warning-banner {
+    background: #fff5f5;
+    border: 1.5px solid #ffcccc;
+    color: #d63031;
+    padding: 12px 16px;
+    border-radius: 16px;
+    font-size: 13px;
+    font-weight: 900;
+    margin-bottom: 12px;
+    display: none;
+}
+.excluded-players-box {
+    margin-top: 18px;
+    background: #fafafc;
+    border: 1px solid #f0f0f4;
+    border-radius: 18px;
+    padding: 14px 18px;
+}
+.excluded-players-title {
+    font-size: 13px;
+    font-weight: 900;
+    color: #666;
+    margin-bottom: 10px;
+}
+.excluded-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 8px 10px;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #f0f0f4;
+    margin-bottom: 6px;
+    font-size: 12px;
+}
+.excluded-inputs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.excluded-inputs label {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: #555;
+}
+.excluded-inputs input {
+    width: 42px;
+    height: 26px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 900;
+}
+
 /* 11. 모바일 반응형 (768px 이하) */
 @media screen and (max-width: 768px) {
     body { padding: 25px 15px; }
     h1 { font-size: 22px; text-align: center; }
     .form-container { padding: 25px 18px; border-radius: 25px; }
     .row { flex-direction: column; gap: 0; }
+    .rating-paste-grid { grid-template-columns: 1fr; gap: 8px; }
+    .rating-manual-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    #rating-summary-table { font-size: 10px; }
+    #rating-summary-table th, #rating-summary-table td { padding: 8px 2px; }
     
     .player-grid-row { gap: 6px; grid-template-columns: 35px minmax(0, 1.8fr) minmax(0, 1fr) minmax(0, 0.8fr); }
     .player-grid-row input { font-size: 12px; padding: 8px 2px; height: 42px; }
@@ -289,11 +636,12 @@ textarea.auto-resize {
         </div>
 
         <div class="menu-bar">
-            <button onclick="showForm('match')" class="active">경기 기록</button>
-            <button onclick="showForm('player')">선수 정보</button>
-            <button onclick="showForm('h2h')">상대 전적</button>
-            <button onclick="showForm('num')">등번호</button>
-            <button onclick="showForm('standings')">순위</button>
+            <button onclick="showForm('match')" data-form="match" class="active">경기 기록</button>
+            <button onclick="showForm('rating')" data-form="rating">평점 계산</button>
+            <button onclick="showForm('player')" data-form="player">선수 정보</button>
+            <button onclick="showForm('h2h')" data-form="h2h">상대 전적</button>
+            <button onclick="showForm('num')" data-form="num">등번호</button>
+            <button onclick="showForm('standings')" data-form="standings">순위</button>
         </div>
 
         <div id="match" class="form-container active">
@@ -517,6 +865,63 @@ textarea.auto-resize {
                 </div>
             </div>
             <button class="btn-submit" id="btnSaveStanding">전체 순위 저장 (덮어쓰기)</button>
+        </div>
+
+        <div id="rating" class="form-container">
+            <h2>선수 평점 자동 계산</h2>
+            <p style="font-size:13px; color:#666; margin-top:-15px; margin-bottom:20px;">
+                * K리그 데이터포털 등에서 <b>공격 / 패스 / 수비 / 골키퍼</b> 표를 복사해 각 칸에 붙여넣으세요.
+            </p>
+
+            <div class="rating-paste-grid">
+                <div class="input-group rating-paste-box" style="margin-bottom:10px;">
+                    <label>1. 공격 데이터</label>
+                    <textarea id="r_raw_atk" placeholder="번호  선수  포지션  출전시간  평점  득점  도움  슈팅  유효슈팅 ... 드리블 성공  드리블 성공률"></textarea>
+                </div>
+                <div class="input-group rating-paste-box" style="margin-bottom:10px;">
+                    <label>2. 패스 데이터</label>
+                    <textarea id="r_raw_pas" placeholder="번호  선수  포지션  출전시간  평점  패스 성공  패스 성공률  키패스 ... 탈압박"></textarea>
+                </div>
+                <div class="input-group rating-paste-box" style="margin-bottom:10px;">
+                    <label>3. 수비 데이터</label>
+                    <textarea id="r_raw_def" placeholder="번호  선수  포지션  출전시간  평점  지상 경합 성공 ... 경고  퇴장"></textarea>
+                </div>
+                <div class="input-group rating-paste-box" style="margin-bottom:10px;">
+                    <label>4. 골키퍼 데이터</label>
+                    <textarea id="r_raw_gk" placeholder="번호  선수  포지션  출전시간  평점  실점  캐칭  펀칭  골킥 성공  골킥 성공률  공중볼 처리 성공  공중볼 처리 성공률"></textarea>
+                </div>
+            </div>
+
+            <div class="rating-toolbar">
+                <div class="rating-toolbar-left">
+                    <label for="r_team_conceded">팀 기본 실점 일괄 설정</label>
+                    <input type="number" id="r_team_conceded" min="0" value="0">
+                    <button type="button" class="btn-small-action" id="btnApplyTeamConceded">전체 선수 실점 일괄 적용</button>
+                    <span style="font-size:11px; color:#777;">* GK 표 붙여넣기 시 자동 감지되며, 선수별로 개별 수정 가능합니다.</span>
+                </div>
+                <div style="display:flex; gap:8px;">
+                    <button type="button" class="btn-small-action secondary" id="btnResetRating">초기화</button>
+                </div>
+            </div>
+
+            <div class="sub-title" style="margin-top:25px;">선수별 포지션 지정 및 세부 기록 조정</div>
+            <div id="rating-players-list">
+                <div style="color:#888; font-size:13px; text-align:center; padding:30px 0; background:#f9f9fb; border-radius:20px;">
+                    위 입력창에 데이터를 붙여넣으면 선수 목록이 생성됩니다.
+                </div>
+            </div>
+
+            <div id="rating-excluded-container" style="display:none;"></div>
+
+            <div class="sub-title">최종 평점 요약표</div>
+            <div id="rating-tie-warning" class="tie-warning-banner"></div>
+            <div id="rating-summary-box">
+                <div style="color:#888; font-size:13px; text-align:center; padding:20px 0;">
+                    데이터를 입력하면 평점 요약표가 실시간으로 표시됩니다.
+                </div>
+            </div>
+
+            <button type="button" class="btn-submit" id="btnApplyToMatch">경기 기록 탭에 평점 · 스탯 바로 반영</button>
         </div>
     </div>
     
@@ -826,8 +1231,10 @@ textarea.auto-resize {
         window.showForm = function (id) {
             document.querySelectorAll('.form-container').forEach(el => el.classList.remove('active'));
             document.getElementById(id).classList.add('active');
-            document.querySelectorAll('.menu-bar button').forEach(el => el.classList.remove('active'));
-            event.target.classList.add('active');
+            document.querySelectorAll('.menu-bar button').forEach(el => {
+                if (el.getAttribute('data-form') === id) el.classList.add('active');
+                else el.classList.remove('active');
+            });
         }
 
         function getTeamType() { return document.querySelector('input[name="teamType"]:checked').value; }
@@ -1115,6 +1522,893 @@ textarea.auto-resize {
         }
 
         loadStandings();
+
+        // =========================================
+        // 선수 평점 자동 계산 & 경기 기록 연동 로직
+        // =========================================
+        const RATING_WEIGHTS = {
+            // 공격
+            assist:        { GK: 0.8,   DF: 0.5,   MF: 0.3,   FW: 0.3 },
+            sot:           { GK: 0.4,   DF: 0.2,   MF: 0.15,  FW: 0.15 },
+            dribble:       { GK: 0.3,   DF: 0.3,   MF: 0.2,   FW: 0.2 },
+            // 패스
+            keyPass:       { GK: 0.2,   DF: 0.15,  MF: 0.15,  FW: 0.15 },
+            dePressure:    { GK: 0.04,  DF: 0.04,  MF: 0.08,  FW: 0.08 },
+            // 수비
+            groundDuel:    { GK: 0.05,  DF: 0.1,   MF: 0.1,   FW: 0.1 },
+            aerialDuel:    { GK: 0,     DF: 0.05,  MF: 0.05,  FW: 0.05 },
+            tackle:        { GK: 0.05,  DF: 0.06,  MF: 0.05,  FW: 0.05 },
+            clearing:      { GK: 0.025, DF: 0.025, MF: 0.025, FW: 0.025 },
+            intercept:     { GK: 0.03,  DF: 0.04,  MF: 0.04,  FW: 0.04 },
+            blockPass:     { GK: 0.015, DF: 0.015, MF: 0.045, FW: 0.015 },
+            recovery:      { GK: 0.03,  DF: 0.03,  MF: 0.03,  FW: 0.03 },
+            shotBlock:     { GK: 0,     DF: 0.04,  MF: 0.02,  FW: 0.02 },
+            ballMiss:      { GK: -0.02, DF: -0.02, MF: -0.02, FW: -0.02 },
+            yellow:        { GK: -0.5,  DF: -0.5,  MF: -0.5,  FW: -0.5 },
+            directRed:     { GK: -2,    DF: -2,    MF: -2,    FW: -2 },
+            // 기타 (GK + 수동)
+            conceded:      { GK: -0.3,  DF: -0.2,  MF: -0.1,  FW: 0 },
+            cleanSheet:    { GK: 0.3,   DF: 0.2,   MF: 0,     FW: 0 },
+            catching:      { GK: 0.15,  DF: 0,     MF: 0,     FW: 0 },
+            punching:      { GK: 0.15,  DF: 0,     MF: 0,     FW: 0 },
+            aerialClear:   { GK: 0.05,  DF: 0,     MF: 0,     FW: 0 },
+            pkConceded:    { GK: -0.5,  DF: -0.5,  MF: -0.5,  FW: -0.5 },
+            pkSaved:       { GK: 1,     DF: 0,     MF: 0,     FW: 0 },
+            ownGoal:       { GK: -1,    DF: -1,    MF: -1,    FW: -1 },
+            goalInPA:      { GK: 1.5,   DF: 1,     MF: 0.8,   FW: 0.5 },
+            goalOutPA:     { GK: 2,     DF: 1.2,   MF: 1,     FW: 0.7 },
+            goalPK:        { GK: 0.5,   DF: 0.5,   MF: 0.5,   FW: 0.5 },
+            pkWon:         { GK: 0.4,   DF: 0.4,   MF: 0.4,   FW: 0.4 },
+            pkMissed:      { GK: -0.5,  DF: -0.5,  MF: -0.5,  FW: -0.5 },
+            errorToGoal:   { GK: -0.5,  DF: -0.5,  MF: -0.5,  FW: -0.5 },
+            bigChanceMiss: { GK: -0.1,  DF: -0.2,  MF: -0.3,  FW: -0.5 }
+        };
+
+        const RATING_CHIP_COLORS = [
+            { l: 8.5, c: "#374df5" },
+            { l: 7.5, c: "#00adc4" },
+            { l: 6.5, c: "#00c424" },
+            { l: 6.0, c: "#d9af00" },
+            { l: 5.0, c: "#ed7e07" },
+            { l: 0.0, c: "#dc0c00" }
+        ];
+
+        let ratingPlayersMap = {};
+        let ratingPlayerOrder = [];
+        let manualPotmKey = null;
+        let lastDetectedGkConceded = null;
+
+        function cleanFloat(n) {
+            return Math.round((Number(n) || 0) * 1e6) / 1e6;
+        }
+
+        function roundToOneDecimal(n) {
+            const val = cleanFloat(n);
+            return Math.round((val + Number.EPSILON) * 10) / 10;
+        }
+
+        function getChipColor(roundedVal) {
+            const found = RATING_CHIP_COLORS.find(rule => roundedVal >= rule.l);
+            return found ? found.c : "#000060";
+        }
+
+        function tokenizePasteRow(line, expectedCols = 0) {
+            let trimmed = line.replace(/^[\r\n]+|[\r\n]+$/g, '');
+            if (!trimmed.trim()) return [];
+            let parts;
+            let splitBySpace = false;
+            if (trimmed.includes('\t')) {
+                parts = trimmed.split('\t').map(s => s.trim());
+            } else if (trimmed.includes(',')) {
+                parts = trimmed.split(',').map(s => s.trim());
+            } else {
+                parts = trimmed.trim().split(/\s+/).map(s => s.trim());
+                splitBySpace = true;
+            }
+            while (parts.length > 0 && parts[0] === '') {
+                parts.shift();
+            }
+            if (parts.length < 4 || !/^\d+$/.test(parts[0])) return parts;
+
+            // 이름에 공백이 포함되어 분리된 경우(예: '브루노 실바') 포지션 토큰 위치 기준으로 병합
+            const validPositions = ['GK', 'DF', 'MF', 'FW', '대기', 'SUB'];
+            let posIdx = -1;
+            for (let i = 2; i <= Math.min(5, parts.length - 1); i++) {
+                if (validPositions.includes(parts[i])) {
+                    posIdx = i;
+                    break;
+                }
+            }
+            if (posIdx > 2) {
+                const mergedName = parts.slice(1, posIdx).join(' ');
+                parts.splice(1, posIdx - 1, mergedName);
+            }
+
+            // 공백 구분 붙여넣기 시 출전시간 0분 선수의 빈 '평점' 칸이 합쳐진 경우 보정
+            if (splitBySpace) {
+                const minsVal = parseFloat(parts[3]);
+                if (minsVal === 0 || (expectedCols > 0 && parts.length === expectedCols - 1)) {
+                    parts.splice(4, 0, '');
+                }
+            }
+            return parts;
+        }
+
+        function isValidPlayerDataRow(cols) {
+            if (!cols || cols.length < 5) return false;
+            const num = cols[0];
+            const name = cols[1];
+            const pos = cols[2];
+            if (!/^\d+$/.test(num)) return false;
+            if (!name || /^\d+$/.test(name) || name === '선수' || name === '합계' || name === '평균') return false;
+            if (!['GK', 'DF', 'MF', 'FW', '대기', 'SUB'].includes(pos)) return false;
+            return true;
+        }
+
+        function ensurePlayerRecord(num, name, rawPos, mins) {
+            const key = `${num}_${name}`;
+            const teamConceded = parseInt(document.getElementById('r_team_conceded').value) || 0;
+            if (!ratingPlayersMap[key]) {
+                const isStarterPos = ['GK', 'DF', 'MF', 'FW'].includes(rawPos);
+                ratingPlayersMap[key] = {
+                    key,
+                    num: String(num),
+                    name: String(name),
+                    rawPos: String(rawPos),
+                    pos: isStarterPos ? rawPos : '',
+                    mins: Number(mins) || 0,
+                    rawGoals: 0,
+                    assist: 0,
+                    sot: 0,
+                    dribble: 0,
+                    keyPass: 0,
+                    dePressure: 0,
+                    dePressureManual: false,
+                    groundDuel: 0,
+                    aerialDuel: 0,
+                    tackle: 0,
+                    clearing: 0,
+                    intercept: 0,
+                    blockPass: 0,
+                    recovery: 0,
+                    shotBlock: 0,
+                    ballMiss: 0,
+                    rawYellow: 0,
+                    rawRed: 0,
+                    rawGkConceded: 0,
+                    catching: 0,
+                    punching: 0,
+                    aerialClear: 0,
+                    conceded: teamConceded,
+                    concededManual: false,
+                    goalInPA: 0,
+                    goalOutPA: 0,
+                    goalPK: 0,
+                    goalsManual: false,
+                    yellow: 0,
+                    directRed: 0,
+                    cardsManual: false,
+                    pkConceded: 0,
+                    pkSaved: 0,
+                    ownGoal: 0,
+                    pkWon: 0,
+                    pkMissed: 0,
+                    errorToGoal: 0,
+                    bigChanceMiss: 0
+                };
+                ratingPlayerOrder.push(key);
+            } else {
+                const p = ratingPlayersMap[key];
+                if (mins !== undefined && !isNaN(mins)) p.mins = Number(mins);
+                if (rawPos && p.rawPos !== rawPos) {
+                    p.rawPos = rawPos;
+                    if (['GK', 'DF', 'MF', 'FW'].includes(rawPos) && !p.pos) {
+                        p.pos = rawPos;
+                    }
+                }
+            }
+            return ratingPlayersMap[key];
+        }
+
+        function parseAllRatingInputs() {
+            const atkLines = document.getElementById('r_raw_atk').value.split(/\r?\n/);
+            const pasLines = document.getElementById('r_raw_pas').value.split(/\r?\n/);
+            const defLines = document.getElementById('r_raw_def').value.split(/\r?\n/);
+            const gkLines  = document.getElementById('r_raw_gk').value.split(/\r?\n/);
+
+            const seenKeys = new Set();
+
+            // 4. 골키퍼 표를 먼저 스캔하여 팀 실점 자동 감지
+            let gkConcededSum = 0;
+            let gkRowFound = false;
+            gkLines.forEach(line => {
+                const cols = tokenizePasteRow(line, 12);
+                if (!isValidPlayerDataRow(cols)) return;
+                const rawPos = cols[2];
+                const mins = parseFloat(cols[3]) || 0;
+                const gkConceded = parseFloat(cols[5]) || 0;
+                if (rawPos === 'GK' || (cols.length >= 11 && (parseFloat(cols[6]) > 0 || parseFloat(cols[7]) > 0 || parseFloat(cols[10]) > 0 || gkConceded > 0))) {
+                    if (mins > 0) {
+                        gkConcededSum += gkConceded;
+                        gkRowFound = true;
+                    }
+                }
+            });
+
+            if (gkRowFound && gkConcededSum !== lastDetectedGkConceded) {
+                lastDetectedGkConceded = gkConcededSum;
+                document.getElementById('r_team_conceded').value = gkConcededSum;
+                Object.values(ratingPlayersMap).forEach(p => {
+                    if (!p.concededManual) p.conceded = gkConcededSum;
+                });
+            }
+
+            // 기존 자동 스탯 초기화 (수동 입력값은 유지)
+            Object.values(ratingPlayersMap).forEach(p => {
+                p.rawGoals = 0; p.assist = 0; p.sot = 0; p.dribble = 0;
+                p.keyPass = 0;
+                if (!p.dePressureManual) p.dePressure = 0;
+                p.groundDuel = 0; p.aerialDuel = 0; p.tackle = 0; p.clearing = 0;
+                p.intercept = 0; p.blockPass = 0; p.recovery = 0; p.shotBlock = 0;
+                p.ballMiss = 0; p.rawYellow = 0; p.rawRed = 0;
+                p.rawGkConceded = 0; p.catching = 0; p.punching = 0; p.aerialClear = 0;
+            });
+
+            // 1. 공격 표 파싱 (총 19열: 0번호,1선수,2포지션,3출전시간,4평점,5득점,6도움,7슈팅,8유효슈팅,...,17드리블성공,18드리블성공률)
+            atkLines.forEach(line => {
+                const cols = tokenizePasteRow(line, 19);
+                if (!isValidPlayerDataRow(cols)) return;
+                const p = ensurePlayerRecord(cols[0], cols[1], cols[2], cols[3]);
+                seenKeys.add(p.key);
+                p.rawGoals = parseFloat(cols[5]) || 0;
+                p.assist   = parseFloat(cols[6]) || 0;
+                p.sot      = parseFloat(cols[8]) || 0;
+                p.dribble  = parseFloat(cols[17]) || 0;
+                if (!p.goalsManual) {
+                    p.goalInPA = p.rawGoals;
+                    p.goalOutPA = 0;
+                    p.goalPK = 0;
+                }
+            });
+
+            // 2. 패스 표 파싱 (기본 28열: 0~27 크로스%까지 / 탈압박 포함 시 29열: 28번 인덱스만 탈압박으로 인식!)
+            pasLines.forEach(line => {
+                const cols = tokenizePasteRow(line, 28);
+                if (!isValidPlayerDataRow(cols)) return;
+                const p = ensurePlayerRecord(cols[0], cols[1], cols[2], cols[3]);
+                seenKeys.add(p.key);
+                p.keyPass = parseFloat(cols[7]) || 0;
+                if (!p.dePressureManual) {
+                    p.dePressure = cols.length >= 29 ? (parseFloat(cols[28]) || 0) : 0;
+                }
+            });
+
+            // 3. 수비 표 파싱 (총 21열: 5지상경합,7공중경합,9태클,11클리어링,12인터셉트,13차단,14획득,15블락,16볼미스,19경고,20퇴장)
+            defLines.forEach(line => {
+                const cols = tokenizePasteRow(line, 21);
+                if (!isValidPlayerDataRow(cols)) return;
+                const p = ensurePlayerRecord(cols[0], cols[1], cols[2], cols[3]);
+                seenKeys.add(p.key);
+                p.groundDuel = parseFloat(cols[5]) || 0;
+                p.aerialDuel = parseFloat(cols[7]) || 0;
+                p.tackle     = parseFloat(cols[9]) || 0;
+                p.clearing   = parseFloat(cols[11]) || 0;
+                p.intercept  = parseFloat(cols[12]) || 0;
+                p.blockPass  = parseFloat(cols[13]) || 0;
+                p.recovery   = parseFloat(cols[14]) || 0;
+                p.shotBlock  = parseFloat(cols[15]) || 0;
+                p.ballMiss   = parseFloat(cols[16]) || 0;
+                p.rawYellow  = parseFloat(cols[19]) || 0;
+                p.rawRed     = parseFloat(cols[20]) || 0;
+                if (!p.cardsManual) {
+                    p.yellow    = p.rawYellow;
+                    p.directRed = p.rawRed;
+                }
+            });
+
+            // 4. 골키퍼(부가) 표 파싱 (총 12열: 5실점,6캐칭,7펀칭,8골킥,9골킥%,10공중볼처리,11공중볼처리%)
+            gkLines.forEach(line => {
+                const cols = tokenizePasteRow(line, 12);
+                if (!isValidPlayerDataRow(cols)) return;
+                const p = ensurePlayerRecord(cols[0], cols[1], cols[2], cols[3]);
+                seenKeys.add(p.key);
+                p.rawGkConceded = parseFloat(cols[5]) || 0;
+                p.catching      = parseFloat(cols[6]) || 0;
+                p.punching      = parseFloat(cols[7]) || 0;
+                p.aerialClear   = parseFloat(cols[10]) || 0;
+                if (p.rawPos === 'GK' && !p.concededManual) {
+                    p.conceded = p.rawGkConceded;
+                }
+            });
+
+            // 더 이상 입력 텍스트에 존재하지 않는 선수 제거 (수동 추가한 벤치 선수는 유지)
+            ratingPlayerOrder = ratingPlayerOrder.filter(k => {
+                if (ratingPlayersMap[k] && ratingPlayersMap[k].manualBench) return true;
+                if (!seenKeys.has(k)) {
+                    delete ratingPlayersMap[k];
+                    if (manualPotmKey === k) manualPotmKey = null;
+                    return false;
+                }
+                return true;
+            });
+
+            renderRatingPlayersList();
+            renderRatingSummary();
+        }
+
+        function calculatePlayerScores(p) {
+            const pos = p.pos;
+            if (!pos || !['GK', 'DF', 'MF', 'FW'].includes(pos)) {
+                return {
+                    valid: false,
+                    atk: 0, pas: 0, def: 0,
+                    cleanSheetBonus: 0,
+                    rawTotal: 6,
+                    roundedTotal: 6.0
+                };
+            }
+
+            const w = RATING_WEIGHTS;
+
+            // 공격: 도움, 유효슈팅, 드리블 성공 + PA안/밖/PK 득점, PK 획득, PK 실축, 완벽한 득점 기회 놓침
+            const atk = cleanFloat(
+                p.assist        * w.assist[pos] +
+                p.sot           * w.sot[pos] +
+                p.dribble       * w.dribble[pos] +
+                p.goalInPA      * w.goalInPA[pos] +
+                p.goalOutPA     * w.goalOutPA[pos] +
+                p.goalPK        * w.goalPK[pos] +
+                p.pkWon         * w.pkWon[pos] +
+                p.pkMissed      * w.pkMissed[pos] +
+                p.bigChanceMiss * w.bigChanceMiss[pos]
+            );
+
+            // 패스: 키패스, 탈압박
+            const pas = cleanFloat(
+                p.keyPass    * w.keyPass[pos] +
+                p.dePressure * w.dePressure[pos]
+            );
+
+            // 실점이 0이면 클린시트 자동 적용 (GK +0.3, DF +0.2, MF/FW 0)
+            const isCleanSheet = (Number(p.conceded) === 0);
+            const cleanSheetBonus = isCleanSheet ? w.cleanSheet[pos] : 0;
+
+            // 수비: 기존 수비/카드 + 실점, 클린시트, 캐칭, 펀칭, 공중볼 처리 성공, PK 제공, PK 선방, 자책골, 실점으로 이어진 실책
+            const def = cleanFloat(
+                p.groundDuel  * w.groundDuel[pos] +
+                p.aerialDuel  * w.aerialDuel[pos] +
+                p.tackle      * w.tackle[pos] +
+                p.clearing    * w.clearing[pos] +
+                p.intercept   * w.intercept[pos] +
+                p.blockPass   * w.blockPass[pos] +
+                p.recovery    * w.recovery[pos] +
+                p.shotBlock   * w.shotBlock[pos] +
+                p.ballMiss    * w.ballMiss[pos] +
+                p.yellow      * w.yellow[pos] +
+                p.directRed   * w.directRed[pos] +
+                p.conceded    * w.conceded[pos] +
+                cleanSheetBonus +
+                p.catching    * w.catching[pos] +
+                p.punching    * w.punching[pos] +
+                p.aerialClear * w.aerialClear[pos] +
+                p.pkConceded  * w.pkConceded[pos] +
+                p.pkSaved     * w.pkSaved[pos] +
+                p.ownGoal     * w.ownGoal[pos] +
+                p.errorToGoal * w.errorToGoal[pos]
+            );
+
+            const rawTotal = cleanFloat(6 + atk + pas + def);
+            const roundedTotal = roundToOneDecimal(rawTotal);
+
+            return {
+                valid: true,
+                atk, pas, def,
+                cleanSheetBonus,
+                rawTotal,
+                roundedTotal
+            };
+        }
+
+        function buildEventSuffix(p, isPotm = false) {
+            const totalGoals = Math.max(0, Math.round((Number(p.goalInPA) || 0) + (Number(p.goalOutPA) || 0) + (Number(p.goalPK) || 0)));
+            const totalAssists = Math.max(0, Math.round(Number(p.assist) || 0));
+            const totalYellows = Math.max(0, Math.round(Number(p.yellow) || 0));
+            const totalReds    = Math.max(0, Math.round(Number(p.directRed) || 0));
+            const totalOg      = Math.max(0, Math.round(Number(p.ownGoal) || 0));
+
+            return (
+                'g'.repeat(totalGoals) +
+                'a'.repeat(totalAssists) +
+                'y'.repeat(totalYellows) +
+                'r'.repeat(totalReds) +
+                'o'.repeat(totalOg) +
+                (isPotm ? 'p' : '')
+            );
+        }
+
+        function buildStatStringForPlayer(p, isPotm = false) {
+            const suffix = buildEventSuffix(p, isPotm);
+            if (p.mins >= 10) {
+                const calc = calculatePlayerScores(p);
+                return calc.roundedTotal.toFixed(1) + suffix;
+            } else if (p.mins > 0) {
+                return '-' + buildEventSuffix(p, false);
+            } else {
+                return buildEventSuffix(p, false);
+            }
+        }
+
+        function renderRatingPlayersList() {
+            const listEl = document.getElementById('rating-players-list');
+            const excludedEl = document.getElementById('rating-excluded-container');
+
+            const activePlayers = ratingPlayerOrder
+                .map(k => ratingPlayersMap[k])
+                .filter(p => p && p.mins >= 10);
+
+            const excludedPlayers = ratingPlayerOrder
+                .map(k => ratingPlayersMap[k])
+                .filter(p => p && p.mins < 10);
+
+            if (activePlayers.length === 0 && excludedPlayers.length === 0) {
+                listEl.innerHTML = `
+                    <div style="color:#888; font-size:13px; text-align:center; padding:30px 0; background:#f9f9fb; border-radius:20px;">
+                        위 입력창에 데이터를 붙여넣으면 선수 목록이 생성됩니다.
+                    </div>
+                `;
+                excludedEl.style.display = 'none';
+                excludedEl.innerHTML = '';
+                return;
+            }
+
+            let html = '';
+            activePlayers.forEach(p => {
+                const calc = calculatePlayerScores(p);
+                const needsPos = !p.pos;
+                const isSub = !['GK', 'DF', 'MF', 'FW'].includes(p.rawPos);
+                const csBadge = (calc.valid && calc.cleanSheetBonus > 0)
+                    ? `<span class="cs-auto-badge">클린시트 +${calc.cleanSheetBonus}</span>`
+                    : '';
+
+                html += `
+                    <div class="rating-player-card ${needsPos ? 'unselected-pos' : ''}" data-key="${p.key}">
+                        <div class="rating-player-top">
+                            <div class="rating-player-info">
+                                <span class="rating-num-badge">${p.num}</span>
+                                <span class="rating-player-name">${p.name}</span>
+                                <span class="rating-sub-badge ${isSub ? 'sub-tag' : ''}">${isSub ? '대기' : '선발 ' + p.rawPos} · ${p.mins}'</span>
+                                <select class="rating-pos-select ${needsPos ? 'needs-select' : ''}" data-key="${p.key}">
+                                    <option value="" ${p.pos === '' ? 'selected' : ''}>포지션 선택</option>
+                                    <option value="GK" ${p.pos === 'GK' ? 'selected' : ''}>GK</option>
+                                    <option value="DF" ${p.pos === 'DF' ? 'selected' : ''}>DF</option>
+                                    <option value="MF" ${p.pos === 'MF' ? 'selected' : ''}>MF</option>
+                                    <option value="FW" ${p.pos === 'FW' ? 'selected' : ''}>FW</option>
+                                </select>
+                                <span id="cs_badge_${p.key}">${csBadge}</span>
+                            </div>
+                            <div class="rating-score-pills" id="pills_${p.key}">
+                                ${calc.valid ? `
+                                    <span class="score-pill">공격 <b>${calc.atk}</b></span>
+                                    <span class="score-pill">패스 <b>${calc.pas}</b></span>
+                                    <span class="score-pill">수비 <b>${calc.def}</b></span>
+                                    <span class="score-pill total-pill">합계 ${calc.rawTotal} · 반올림 ${calc.roundedTotal.toFixed(1)}</span>
+                                ` : `<span style="color:#d63031; font-size:12px; font-weight:900;">⚠️ 포지션을 선택하면 평점이 계산됩니다</span>`}
+                            </div>
+                        </div>
+                        <div style="font-size:11px; color:#555; background:#fff; border:1px solid #f0f0f4; border-radius:10px; padding:6px 10px; margin-bottom:8px; line-height:1.5;">
+                            <b>자동 인식 기록</b> —
+                            공격: 득점 <b>${p.rawGoals}</b> · 도움 <b>${p.assist}</b> · 유효슈팅 <b>${p.sot}</b> · 드리블 <b>${p.dribble}</b> &nbsp;|&nbsp;
+                            패스: 키패스 <b>${p.keyPass}</b> &nbsp;|&nbsp;
+                            수비: 지상 <b>${p.groundDuel}</b> · 공중 <b>${p.aerialDuel}</b> · 태클 <b>${p.tackle}</b> · 클리어 <b>${p.clearing}</b> · 인터셉트 <b>${p.intercept}</b> · 차단 <b>${p.blockPass}</b> · 획득 <b>${p.recovery}</b> · 블락 <b>${p.shotBlock}</b> · 볼미스 <b>${p.ballMiss}</b>
+                            ${(p.rawPos === 'GK' || p.pos === 'GK' || p.catching > 0 || p.punching > 0 || p.aerialClear > 0) ? `&nbsp;|&nbsp; GK: 캐칭 <b>${p.catching}</b> · 펀칭 <b>${p.punching}</b> · 공중볼처리 <b>${p.aerialClear}</b>` : ''}
+                        </div>
+                        <div class="rating-manual-grid">
+                            <div class="manual-field">
+                                <label title="출전 중 실점">실점</label>
+                                <input type="number" min="0" data-key="${p.key}" data-field="conceded" value="${p.conceded}" class="${p.conceded > 0 ? 'nonzero-neg' : ''}">
+                            </div>
+                            <div class="manual-field">
+                                <label title="페널티 지역 안 득점">PA안 득점</label>
+                                <input type="number" min="0" data-key="${p.key}" data-field="goalInPA" value="${p.goalInPA}" class="${p.goalInPA > 0 ? 'nonzero-val' : ''}">
+                            </div>
+                            <div class="manual-field">
+                                <label title="페널티 지역 밖 득점">PA밖 득점</label>
+                                <input type="number" min="0" data-key="${p.key}" data-field="goalOutPA" value="${p.goalOutPA}" class="${p.goalOutPA > 0 ? 'nonzero-val' : ''}">
+                            </div>
+                            <div class="manual-field">
+                                <label title="페널티킥 득점">PK 득점</label>
+                                <input type="number" min="0" data-key="${p.key}" data-field="goalPK" value="${p.goalPK}" class="${p.goalPK > 0 ? 'nonzero-val' : ''}">
+                            </div>
+                            <div class="manual-field">
+                                <label title="탈압박">탈압박</label>
+                                <input type="number" min="0" data-key="${p.key}" data-field="dePressure" value="${p.dePressure}" class="${p.dePressure > 0 ? 'nonzero-val' : ''}">
+                            </div>
+                            <div class="manual-field">
+                                <label title="경고">경고</label>
+                                <input type="number" min="0" max="2" data-key="${p.key}" data-field="yellow" value="${p.yellow}" class="${p.yellow > 0 ? 'nonzero-neg' : ''}">
+                            </div>
+                            <div class="manual-field">
+                                <label title="다이렉트 퇴장">퇴장</label>
+                                <input type="number" min="0" max="1" data-key="${p.key}" data-field="directRed" value="${p.directRed}" class="${p.directRed > 0 ? 'nonzero-neg' : ''}">
+                            </div>
+                            <div class="manual-field">
+                                <label title="PK 획득">PK 획득</label>
+                                <input type="number" min="0" data-key="${p.key}" data-field="pkWon" value="${p.pkWon}" class="${p.pkWon > 0 ? 'nonzero-val' : ''}">
+                            </div>
+                            <div class="manual-field">
+                                <label title="페널티킥 제공">PK 제공</label>
+                                <input type="number" min="0" data-key="${p.key}" data-field="pkConceded" value="${p.pkConceded}" class="${p.pkConceded > 0 ? 'nonzero-neg' : ''}">
+                            </div>
+                            <div class="manual-field">
+                                <label title="PK 실축">PK 실축</label>
+                                <input type="number" min="0" data-key="${p.key}" data-field="pkMissed" value="${p.pkMissed}" class="${p.pkMissed > 0 ? 'nonzero-neg' : ''}">
+                            </div>
+                            <div class="manual-field">
+                                <label title="페널티킥 선방">PK 선방</label>
+                                <input type="number" min="0" data-key="${p.key}" data-field="pkSaved" value="${p.pkSaved}" class="${p.pkSaved > 0 ? 'nonzero-val' : ''}">
+                            </div>
+                            <div class="manual-field">
+                                <label title="자책골">자책골</label>
+                                <input type="number" min="0" data-key="${p.key}" data-field="ownGoal" value="${p.ownGoal}" class="${p.ownGoal > 0 ? 'nonzero-neg' : ''}">
+                            </div>
+                            <div class="manual-field">
+                                <label title="실점으로 이어진 실책">실점직결실책</label>
+                                <input type="number" min="0" data-key="${p.key}" data-field="errorToGoal" value="${p.errorToGoal}" class="${p.errorToGoal > 0 ? 'nonzero-neg' : ''}">
+                            </div>
+                            <div class="manual-field">
+                                <label title="완벽한 득점 기회 놓침">득점기회놓침</label>
+                                <input type="number" min="0" data-key="${p.key}" data-field="bigChanceMiss" value="${p.bigChanceMiss}" class="${p.bigChanceMiss > 0 ? 'nonzero-neg' : ''}">
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            listEl.innerHTML = html;
+
+            excludedEl.style.display = 'block';
+            let exHtml = `
+                <div class="excluded-players-box">
+                    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:10px;">
+                        <div class="excluded-players-title" style="margin-bottom:0;">평점 계산 제외 선수</div>
+                        <button type="button" class="btn-small-action secondary" id="btnAddBenchPlayer" style="padding:5px 11px; font-size:11px;">+ 미출전/10분 미만 선수 수동 추가</button>
+                    </div>
+            `;
+            if (excludedPlayers.length === 0) {
+                exHtml += `<div style="font-size:12px; color:#888;">붙여넣은 데이터 내 10분 미만/미출전 선수가 없습니다.</div>`;
+            } else {
+                excludedPlayers.forEach(p => {
+                    const previewCode = buildStatStringForPlayer(p, false);
+                    exHtml += `
+                        <div class="excluded-row" data-key="${p.key}">
+                            <div>
+                                <span class="rating-num-badge" style="min-width:28px; height:22px; font-size:11px;">${p.num}</span>
+                                <b style="margin-left:6px;">${p.name}</b>
+                                <span style="color:#888; margin-left:6px;">${p.mins}분</span>
+                                <span id="ex_code_${p.key}" style="margin-left:8px; color:#000060; font-weight:900;">→ 스탯: "${previewCode}"</span>
+                            </div>
+                            <div class="excluded-inputs">
+                                <label>출전시간<input type="number" min="0" max="9" data-key="${p.key}" data-field="mins" value="${p.mins}"></label>
+                                <label>득점<input type="number" min="0" data-key="${p.key}" data-field="goalInPA" value="${p.goalInPA}"></label>
+                                <label>도움<input type="number" min="0" data-key="${p.key}" data-field="assist" value="${p.assist}"></label>
+                                <label>경고<input type="number" min="0" max="2" data-key="${p.key}" data-field="yellow" value="${p.yellow}"></label>
+                                <label>퇴장<input type="number" min="0" max="1" data-key="${p.key}" data-field="directRed" value="${p.directRed}"></label>
+                                <label>자책골<input type="number" min="0" data-key="${p.key}" data-field="ownGoal" value="${p.ownGoal}"></label>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+            exHtml += `</div>`;
+            excludedEl.innerHTML = exHtml;
+        }
+
+        function getPotmStatus(evaluatedPlayers) {
+            const validPlayers = evaluatedPlayers.filter(item => item.calc.valid);
+            if (validPlayers.length === 0) {
+                return { potmKey: null, isTied: false, tiedKeys: [], maxRaw: null };
+            }
+            const maxRaw = Math.max(...validPlayers.map(item => item.calc.rawTotal));
+            const tiedItems = validPlayers.filter(item => item.calc.rawTotal === maxRaw);
+            const tiedKeys = tiedItems.map(item => item.p.key);
+
+            if (tiedItems.length === 1) {
+                const effectiveKey = (manualPotmKey && validPlayers.some(v => v.p.key === manualPotmKey))
+                    ? manualPotmKey
+                    : tiedItems[0].p.key;
+                return { potmKey: effectiveKey, isTied: false, tiedKeys, maxRaw };
+            } else {
+                const effectiveKey = (manualPotmKey && validPlayers.some(v => v.p.key === manualPotmKey))
+                    ? manualPotmKey
+                    : null;
+                return { potmKey: effectiveKey, isTied: true, tiedKeys, maxRaw };
+            }
+        }
+
+        function renderRatingSummary() {
+            const box = document.getElementById('rating-summary-box');
+            const tieBanner = document.getElementById('rating-tie-warning');
+
+            const activePlayers = ratingPlayerOrder
+                .map(k => ratingPlayersMap[k])
+                .filter(p => p && p.mins >= 10);
+
+            if (activePlayers.length === 0) {
+                tieBanner.style.display = 'none';
+                box.innerHTML = `<div style="color:#888; font-size:13px; text-align:center; padding:20px 0;">데이터를 입력하면 평점 요약표가 실시간으로 표시됩니다.</div>`;
+                return;
+            }
+
+            const evaluated = activePlayers.map(p => ({
+                p,
+                calc: calculatePlayerScores(p)
+            }));
+
+            evaluated.sort((a, b) => {
+                if (a.calc.valid !== b.calc.valid) return a.calc.valid ? -1 : 1;
+                if (b.calc.rawTotal !== a.calc.rawTotal) return b.calc.rawTotal - a.calc.rawTotal;
+                return parseInt(a.p.num) - parseInt(b.p.num);
+            });
+
+            const potmInfo = getPotmStatus(evaluated);
+
+            if (potmInfo.isTied) {
+                const tiedNames = evaluated
+                    .filter(item => potmInfo.tiedKeys.includes(item.p.key))
+                    .map(item => item.p.name)
+                    .join(', ');
+                tieBanner.style.display = 'block';
+                tieBanner.innerHTML = `⚠️ 반올림 전 최고 평점(<b>${potmInfo.maxRaw}</b>) 동률 선수가 있습니다 (${tiedNames}). 아래 표의 <b>POTM</b> 열에서 최고 평점 선수를 직접 선택해 주세요!`;
+            } else {
+                tieBanner.style.display = 'none';
+            }
+
+            let html = `
+                <table id="rating-summary-table">
+                    <thead>
+                        <tr>
+                            <th style="width:9%;">POTM</th>
+                            <th style="width:18%;">이름</th>
+                            <th style="width:11%;">포지션</th>
+                            <th style="width:12%;">공격</th>
+                            <th style="width:12%;">패스</th>
+                            <th style="width:12%;">수비</th>
+                            <th style="width:13%;">합계</th>
+                            <th style="width:13%;">반올림</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            evaluated.forEach(item => {
+                const { p, calc } = item;
+                const isPotm = (potmInfo.potmKey === p.key);
+                const chipBg = calc.valid ? getChipColor(calc.roundedTotal) : '#aaa';
+
+                html += `
+                    <tr class="${isPotm ? 'potm-row' : ''}">
+                        <td>
+                            ${calc.valid ? `<input type="radio" name="potmSelect" class="potm-radio" data-key="${p.key}" ${isPotm ? 'checked' : ''} style="transform:scale(1.3); accent-color:#d63031; cursor:pointer;">` : '-'}
+                        </td>
+                        <td style="font-weight:900; color:#000060;">${p.name}</td>
+                        <td>${p.pos || '<span style="color:#d63031; font-weight:900;">미선택</span>'}</td>
+                        <td>${calc.valid ? calc.atk : '-'}</td>
+                        <td>${calc.valid ? calc.pas : '-'}</td>
+                        <td>${calc.valid ? calc.def : '-'}</td>
+                        <td style="font-weight:900;">${calc.valid ? calc.rawTotal : '-'}</td>
+                        <td>
+                            ${calc.valid
+                                ? `<span class="rating-color-chip" style="background:${chipBg};">${calc.roundedTotal.toFixed(1)}</span>`
+                                : '<span style="color:#d63031; font-size:11px;">포지션 필요</span>'}
+                        </td>
+                    </tr>
+                `;
+            });
+
+            html += `</tbody></table>`;
+            box.innerHTML = html;
+        }
+
+        ['r_raw_atk', 'r_raw_pas', 'r_raw_def', 'r_raw_gk'].forEach(id => {
+            document.getElementById(id).addEventListener('input', parseAllRatingInputs);
+        });
+
+        document.getElementById('btnApplyTeamConceded').addEventListener('click', () => {
+            const teamConceded = Math.max(0, parseInt(document.getElementById('r_team_conceded').value) || 0);
+            Object.values(ratingPlayersMap).forEach(p => {
+                p.conceded = teamConceded;
+                p.concededManual = false;
+            });
+            renderRatingPlayersList();
+            renderRatingSummary();
+        });
+
+        document.getElementById('btnResetRating').addEventListener('click', () => {
+            if (!confirm('붙여넣은 평점 데이터와 입력값을 모두 초기화하시겠습니까?')) return;
+            ['r_raw_atk', 'r_raw_pas', 'r_raw_def', 'r_raw_gk'].forEach(id => {
+                document.getElementById(id).value = '';
+            });
+            document.getElementById('r_team_conceded').value = '0';
+            ratingPlayersMap = {};
+            ratingPlayerOrder = [];
+            manualPotmKey = null;
+            lastDetectedGkConceded = null;
+            renderRatingPlayersList();
+            renderRatingSummary();
+        });
+
+        document.getElementById('rating').addEventListener('change', (e) => {
+            if (e.target.classList.contains('rating-pos-select')) {
+                const key = e.target.getAttribute('data-key');
+                const p = ratingPlayersMap[key];
+                if (!p) return;
+                p.pos = e.target.value;
+                renderRatingPlayersList();
+                renderRatingSummary();
+            } else if (e.target.classList.contains('potm-radio')) {
+                manualPotmKey = e.target.getAttribute('data-key');
+                renderRatingSummary();
+            }
+        });
+
+        document.getElementById('rating').addEventListener('input', (e) => {
+            const field = e.target.getAttribute('data-field');
+            const key = e.target.getAttribute('data-key');
+            if (!field || !key || !ratingPlayersMap[key]) return;
+
+            const p = ratingPlayersMap[key];
+            const val = Math.max(0, parseFloat(e.target.value) || 0);
+            p[field] = val;
+
+            if (field === 'conceded') p.concededManual = true;
+            if (field === 'dePressure') p.dePressureManual = true;
+            if (['goalInPA', 'goalOutPA', 'goalPK'].includes(field)) p.goalsManual = true;
+            if (['yellow', 'directRed'].includes(field)) p.cardsManual = true;
+
+            const negFields = ['conceded', 'yellow', 'directRed', 'pkConceded', 'pkMissed', 'ownGoal', 'errorToGoal', 'bigChanceMiss'];
+            e.target.classList.remove('nonzero-val', 'nonzero-neg');
+            if (val > 0) {
+                e.target.classList.add(negFields.includes(field) ? 'nonzero-neg' : 'nonzero-val');
+            }
+
+            const pillsEl = document.getElementById(`pills_${key}`);
+            if (pillsEl) {
+                const calc = calculatePlayerScores(p);
+                pillsEl.innerHTML = calc.valid ? `
+                    <span class="score-pill">공격 <b>${calc.atk}</b></span>
+                    <span class="score-pill">패스 <b>${calc.pas}</b></span>
+                    <span class="score-pill">수비 <b>${calc.def}</b></span>
+                    <span class="score-pill total-pill">합계 ${calc.rawTotal} · 반올림 ${calc.roundedTotal.toFixed(1)}</span>
+                ` : `<span style="color:#d63031; font-size:12px; font-weight:900;">⚠️ 포지션을 선택하면 평점이 계산됩니다</span>`;
+                const csEl = document.getElementById(`cs_badge_${key}`);
+                if (csEl) {
+                    csEl.innerHTML = (calc.valid && calc.cleanSheetBonus > 0)
+                        ? `<span class="cs-auto-badge">클린시트 +${calc.cleanSheetBonus}</span>`
+                        : '';
+                }
+            }
+
+            const exCodeEl = document.getElementById(`ex_code_${key}`);
+            if (exCodeEl) {
+                exCodeEl.innerText = `→ 스탯: "${buildStatStringForPlayer(p, false)}"`;
+            }
+
+            renderRatingSummary();
+        });
+
+        document.getElementById('rating').addEventListener('click', (e) => {
+            if (e.target && e.target.id === 'btnAddBenchPlayer') {
+                const name = prompt('추가할 미출전(0분) 또는 10분 미만 출전 선수의 이름을 입력하세요:');
+                if (!name || !name.trim()) return;
+                const num = prompt('등번호를 입력하세요 (모를 경우 0):', '0') || '0';
+                const minsStr = prompt('출전 시간(분)을 입력하세요 (미출전 벤치는 0, 1~9분 교체는 해당 분 입력):', '0') || '0';
+                const mins = Math.min(9, Math.max(0, parseInt(minsStr) || 0));
+                const p = ensurePlayerRecord(num.trim(), name.trim(), '대기', mins);
+                p.manualBench = true;
+                renderRatingPlayersList();
+            }
+        });
+
+        // '경기 기록' 탭에 바로 반영 버튼
+        document.getElementById('btnApplyToMatch').addEventListener('click', () => {
+            const allPasted = ratingPlayerOrder.map(k => ratingPlayersMap[k]).filter(Boolean);
+            const activePlayers = allPasted.filter(p => p.mins >= 10);
+
+            if (activePlayers.length === 0) {
+                return alert('먼저 평점 데이터를 붙여넣어 주세요.');
+            }
+
+            const unselected = activePlayers.filter(p => !p.pos);
+            if (unselected.length > 0) {
+                return alert(`포지션이 선택되지 않은 선수가 있습니다:\n- ${unselected.map(p => p.name).join(', ')}\n\n드롭다운에서 포지션을 모두 선택해 주세요.`);
+            }
+
+            const lineupRows = [];
+            positions.forEach(pos => {
+                const rows = document.querySelectorAll(`#section-${pos} .player-grid-row`);
+                rows.forEach(row => {
+                    const nameInput = row.querySelector('.p-name-auto');
+                    const idInput   = row.querySelector('.p-id');
+                    const statInput = row.querySelector('.p-stat');
+                    const numDiv    = row.querySelector('.row-index');
+                    const rawName   = nameInput ? nameInput.value.trim() : '';
+                    const pid       = idInput ? idInput.value.trim() : '';
+                    const rowNum    = numDiv ? numDiv.innerText.trim() : '-';
+                    if (rawName || pid) {
+                        lineupRows.push({
+                            posSection: pos,
+                            row,
+                            rawName,
+                            cleanName: rawName.replace(/[0-9]/g, '').trim(),
+                            pid,
+                            rowNum,
+                            statInput
+                        });
+                    }
+                });
+            });
+
+            if (lineupRows.length === 0) {
+                return alert('경기 기록 탭에 라인업이 입력되어 있지 않습니다.\n먼저 경기 기록 탭에서 라인업을 입력하거나 기존 경기를 불러와 주세요.');
+            }
+
+            const evaluated = activePlayers.map(p => ({ p, calc: calculatePlayerScores(p) }));
+            const potmInfo = getPotmStatus(evaluated);
+            if (!potmInfo.potmKey) {
+                return alert('반올림 전 최고 평점이 동일한 선수가 여러 명입니다.\n최종 평점 요약표에서 POTM(p) 선수를 직접 선택한 뒤 다시 눌러 주세요.');
+            }
+
+            const usedPastedKeys = new Set();
+            let appliedCount = 0;
+
+            lineupRows.forEach(lRow => {
+                let candidates = allPasted.filter(p => p.name.replace(/[0-9]/g, '').trim() === lRow.cleanName);
+
+                let matchedPlayer = null;
+                if (candidates.length === 1) {
+                    matchedPlayer = candidates[0];
+                } else if (candidates.length > 1) {
+                    if (lRow.rowNum && lRow.rowNum !== '-') {
+                        matchedPlayer = candidates.find(p => String(p.num) === String(lRow.rowNum));
+                    }
+                    if (!matchedPlayer) {
+                        const isLineupSub = (lRow.posSection === 'SUB');
+                        const filteredBySub = candidates.filter(p => {
+                            const isPastedSub = !['GK', 'DF', 'MF', 'FW'].includes(p.rawPos);
+                            return isLineupSub === isPastedSub && !usedPastedKeys.has(p.key);
+                        });
+                        if (filteredBySub.length === 1) {
+                            matchedPlayer = filteredBySub[0];
+                        } else if (filteredBySub.length > 1) {
+                            const optionsText = filteredBySub.map((c, idx) => `${idx + 1}. 등번호 ${c.num}번 ${c.name} (${c.mins}분, 포지션 ${c.pos || c.rawPos})`).join('\n');
+                            const choice = prompt(`동명이인 [${lRow.rawName}] 선수에 해당하는 기록 번호를 선택해 주세요:\n${optionsText}`, '1');
+                            const choiceIdx = (parseInt(choice) || 1) - 1;
+                            matchedPlayer = filteredBySub[choiceIdx] || filteredBySub[0];
+                        }
+                    }
+                    if (!matchedPlayer) {
+                        matchedPlayer = candidates.find(p => !usedPastedKeys.has(p.key)) || candidates[0];
+                    }
+                }
+
+                if (matchedPlayer) {
+                    usedPastedKeys.add(matchedPlayer.key);
+                    const isPotm = (matchedPlayer.key === potmInfo.potmKey);
+                    lRow.statInput.value = buildStatStringForPlayer(matchedPlayer, isPotm);
+                    appliedCount++;
+                } else {
+                    lRow.statInput.value = '';
+                }
+            });
+
+            const unmatchedActive = activePlayers.filter(p => !usedPastedKeys.has(p.key));
+            if (unmatchedActive.length > 0) {
+                alert(`⚠️ 평점 데이터의 다음 선수를 '경기 기록' 라인업에서 찾지 못했습니다:\n- ${unmatchedActive.map(p => `${p.num}번 ${p.name}`).join(', ')}\n\n경기 기록 탭의 선수 이름을 확인해 주세요.`);
+            } else {
+                const potmPlayer = ratingPlayersMap[potmInfo.potmKey];
+                alert(`✅ 총 ${appliedCount}명의 평점 및 스탯이 '경기 기록' 탭에 반영되었습니다!\n(POTM: ${potmPlayer ? potmPlayer.name : '-'})`);
+                showForm('match');
+            }
+        });
 
         $('select').on('change', function() {
             $(this).blur();
