@@ -1,6 +1,7 @@
 import { loadData } from './firebase.js';
 
-let teamType = (window.location.href.split('?')[2] == 'A' || window.location.href.split('?')[2] == 'U18' || window.location.href.split('?')[2] == 'U15') ? window.location.href.split('?')[2] : 'A';
+const rawTeamParam = (window.location.href.split('?')[2] || '').split('&')[0].split('#')[0];
+let teamType = (rawTeamParam == 'A' || rawTeamParam == 'U18' || rawTeamParam == 'U15') ? rawTeamParam : 'A';
 let currSortIdx = 3;
 
 beforeLoading();
@@ -32,6 +33,7 @@ async function initPage() {
         render(dataA, dataU18, dataU15, playerA, playerU18, playerU15, playerNum);
     } catch (error) {
         console.error('데이터 불러오기 실패', error);
+        window.showLoadError?.('데이터를 불러오지 못했습니다.');
     }
 
     afterLoading();
@@ -42,35 +44,46 @@ initPage();
 function render(dataA, dataU18, dataU15, playerA, playerU18, playerU15, playerNum) {
     let year;
     const currYear = new Date().getFullYear();
+    const allPlayers = { ...(playerU15 || {}), ...(playerU18 || {}), ...(playerA || {}) };
 
     // 현재 팀 데이터 가져오기
     const getCurrentData = () => {
-        if(teamType == 'A') return dataA;
-        if(teamType == 'U18') return dataU18;
-        if(teamType == 'U15') return dataU15;
-    }
+        if (teamType == 'A') return dataA;
+        if (teamType == 'U18') return dataU18;
+        if (teamType == 'U15') return dataU15;
+    };
 
     const getCurrentPlayer = () => {
-        if(teamType == 'A') return playerA;
-        if(teamType == 'U18') return playerU18;
-        if(teamType == 'U15') return playerU15;
-    }
+        if (teamType == 'A') return { ...allPlayers, ...(playerA || {}) };
+        if (teamType == 'U18') return { ...allPlayers, ...(playerU18 || {}) };
+        if (teamType == 'U15') return { ...allPlayers, ...(playerU15 || {}) };
+    };
 
     // 버튼 역할 지정
-    $('.statsButton > button:nth-of-type(1)').click(() => teamA(dataA, year, playerA, playerNum));
-    $('.statsButton > button:nth-of-type(2)').click(() => teamU18(dataU18, year, playerU18, playerNum));
-    $('.statsButton > button:nth-of-type(3)').click(() => teamU15(dataU15, year, playerU15, playerNum));
+    $('.statsButton > button:nth-of-type(1)').click(() => teamA(dataA, year, getCurrentPlayerFor('A'), playerNum));
+    $('.statsButton > button:nth-of-type(2)').click(() => teamU18(dataU18, year, getCurrentPlayerFor('U18'), playerNum));
+    $('.statsButton > button:nth-of-type(3)').click(() => teamU15(dataU15, year, getCurrentPlayerFor('U15'), playerNum));
+
+    function getCurrentPlayerFor(t) {
+        if (t == 'A') return { ...allPlayers, ...(playerA || {}) };
+        if (t == 'U18') return { ...allPlayers, ...(playerU18 || {}) };
+        return { ...allPlayers, ...(playerU15 || {}) };
+    }
 
     // 연도 선언
     try {
-        if (window.location.href.split('?')[1].length == 4) {
-            if ((window.location.href.split('?')[1] >= 2015) && (window.location.href.split('?')[1] <= currYear)) {
-                year = window.location.href.split('?')[1];
+        const rawYear = (window.location.href.split('?')[1] || '').split('&')[0].split('#')[0];
+        if (rawYear.length == 4 && /^\d{4}$/.test(rawYear)) {
+            const qYear = Number(rawYear);
+            if (qYear >= 2015 && qYear <= currYear) {
+                year = rawYear;
             } else {
                 year = currYear;
             }
-        } else if (window.location.href.split('?')[1] == 'alltime') {
+        } else if (rawYear == 'alltime') {
             year = 0;
+        } else {
+            year = currYear;
         }
     } catch (error) {
         year = currYear;
@@ -83,13 +96,13 @@ function render(dataA, dataU18, dataU15, playerA, playerU18, playerU15, playerNu
     // 기본 함수 실행
     switch (teamType) {
         case 'A':
-            teamA(dataA, year, playerA, playerNum);
+            teamA(dataA, year, getCurrentPlayerFor('A'), playerNum);
             break;
         case 'U18':
-            teamU18(dataU18, year, playerU18, playerNum);
+            teamU18(dataU18, year, getCurrentPlayerFor('U18'), playerNum);
             break;
         case 'U15':
-            teamU15(dataU15, year, playerU15, playerNum);
+            teamU15(dataU15, year, getCurrentPlayerFor('U15'), playerNum);
             break;
         default: ;
     }
@@ -104,13 +117,15 @@ function render(dataA, dataU18, dataU15, playerA, playerU18, playerU15, playerNu
     });
 
     $('.statsSeason > p:nth-of-type(1)').click(function() {
-        if (!(year == 2015)) year--;
+        if (year == 0 || year == 2015) return;
+        year--;
 
         setYear(getCurrentData(), year, getCurrentPlayer(), playerNum, teamType);
     });
 
     $('.statsSeason > p:nth-of-type(2)').click(function() {
-        if (!(year == currYear)) year++;
+        if (year == 0 || year == currYear) return;
+        year++;
 
         setYear(getCurrentData(), year, getCurrentPlayer(), playerNum, teamType);
     });
@@ -123,7 +138,7 @@ function render(dataA, dataU18, dataU15, playerA, playerU18, playerU15, playerNu
 
     $('.statsSeason > p:nth-of-type(4)').click(function() {
         // 통산 기록은 year == 0으로 설정
-        year = (year ==  0) ? currYear : 0;
+        year = (year == 0) ? currYear : 0;
 
         setYear(getCurrentData(), year, getCurrentPlayer(), playerNum, teamType);
     });
@@ -141,13 +156,13 @@ function render(dataA, dataU18, dataU15, playerA, playerU18, playerU15, playerNu
 function loadStats(data, year, player, playerNum, teamType) {
     // 표 비우기
     $('#stats > .stats > table > tbody').empty();
-    $('#stats > .stats > table > thead > tr > th, #stats > .stats > table > tbody > tr > tr').css('display', 'table-cell');
+    $('#stats > .stats > table > thead > tr > th, #stats > .stats > table > tbody > tr > td').css('display', 'table-cell');
 
     // 선수 기록 추가
     let playerData = {};
 
     const pos = ['GK', 'DF', 'MF', 'FW', 'SUB'];
-    const matchId = (year == 0) ? Object.keys(data) : Object.keys(data).filter((id) => id.substring(0, 4) == year);
+    const matchId = (year == 0) ? Object.keys(data || {}) : Object.keys(data || {}).filter((id) => id.substring(0, 4) == year);
 
     for (let i = 0; i < matchId.length; i++) {
         let matchData = data[matchId[i]];
@@ -157,7 +172,7 @@ function loadStats(data, year, player, playerNum, teamType) {
 
             for (let k = 0; k < posLength; k++) {
                 const id = matchData[pos[j]][k][0];
-                const stat = matchData[pos[j]][k][1];
+                const stat = String(matchData[pos[j]][k][1] ?? '');
 
                 const app = /[\d-]/.test(stat) ? 1 : 0;
                 const g = stat.split('g').length - 1;
@@ -179,13 +194,15 @@ function loadStats(data, year, player, playerNum, teamType) {
     }
 
     const playerKeys = Object.keys(playerData);
+    const currYear = new Date().getFullYear();
 
     for (let i = 0; i < playerKeys.length; i++) {
         let id = playerKeys[i];
 
         let num = (year == 0)
-            ? (playerNum[new Date().getFullYear()] && playerNum[new Date().getFullYear()][id] != undefined ? playerNum[new Date().getFullYear()][id][1] : '-')
-            : (playerNum[year] && playerNum[year][id] != undefined ? playerNum[year][id][1] : '-'); let name = player[id]['name'].replace(/[0-9]/g, '');
+            ? (playerNum?.[currYear]?.[id] != undefined ? playerNum[currYear][id][1] : '-')
+            : (playerNum?.[year]?.[id] != undefined ? playerNum[year][id][1] : '-');
+        let name = String(player?.[id]?.['name'] || id).replace(/[0-9]/g, '');
         
         // 준프로 등번호
         if (teamType == "U18" && year == 2024 && name == "장석훈") num = 10;
@@ -208,6 +225,7 @@ function loadStats(data, year, player, playerNum, teamType) {
     if (teamType != 'A') {
         $('#stats > .stats > table > thead > tr > th:nth-of-type(n+4):nth-of-type(-n+5)').css('display', 'none');
         $('#stats > .stats > table > tbody > tr > td:nth-of-type(n+5):nth-of-type(-n+6)').css('display', 'none');
+        if (currSortIdx == 4 || currSortIdx == 5) currSortIdx = 3;
     }
 
     // 통산 기록 css
@@ -219,7 +237,7 @@ function loadStats(data, year, player, playerNum, teamType) {
         window.history.replaceState({}, '', `${window.location.href.split("?")[0]}?alltime?${teamType}`);
     } else {
         $('.statsSeason > select').empty().prop('disabled', false);
-        for (let i = new Date().getFullYear(); i >= 2015; i--) {
+        for (let i = currYear; i >= 2015; i--) {
             $('.statsSeason > select').append(`<option value = '${i}'>${i}</option>`);
         }
         $('.statsSeason > select').val(year);
@@ -265,7 +283,7 @@ function sort(idx) {
         table.children('tbody').append(row);
     });
 
-    $('#stats th, #stats td:nth-of-type(n + 3)').css('font-weight', '600');
+    $('#stats th, #stats td:nth-of-type(n + 2)').css('font-weight', '600');
     $(`#stats th:nth-of-type(${idx})`).css('font-weight', '900');
     $(`#stats td:nth-of-type(${idx + 1})`).css('font-weight', '900');
 }

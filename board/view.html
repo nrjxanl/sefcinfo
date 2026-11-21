@@ -5,16 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SEFCiNFO - 글 보기</title>
-    <link rel="stylesheet" href="../style1.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="../style1.css" media="screen and (max-width: 767.98px)">
     <link rel="stylesheet" href="../style2.css" media="screen and (min-width: 768px)">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="icon" type="image/x-icon" href="../files/favicon.png">
 </head>
-<header glass='true'>
-    <div><img src='../files/menu.svg' onclick='menu()'></div>
-    <div><img src="../files/sefcinfo.svg"></div>
-</header>
 
 <body oncontextmenu="return false">
+    <header glass='true'>
+        <div><img src='../files/menu.svg' onclick='menu()'></div>
+        <div><img src="../files/sefcinfo.svg"></div>
+    </header>
     <div id="skeletonMobile"></div>
     <div id="skeletonPC"></div>
 
@@ -42,11 +43,9 @@
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <script src="../board.js"></script>
     <script src="../script.js"></script>
-    <script src="../data.js"></script>
+    <script src="../board.js"></script>
 </body>
 
 </html>

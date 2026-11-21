@@ -8,265 +8,460 @@
     <link rel="icon" type="image/x-icon" href="../files/favicon.png">
 <style>
     /* =========================================
-       Paperlogy & KLeague 디자인 가이드라인 반영
+       SEFCiNFO 디자인 시스템 통합 (Glassmorphism & Navy/Surface Tokens)
        RECORD REPORT 전용 최적화 스타일
        ========================================= */
 
-    /* 1. 폰트 설정 (경로: ../files/) */
-    @font-face {font-family: "Paperlogy"; font-weight: 300; src: url(../files/Paperlogy-3Light.ttf);}
-    @font-face {font-family: "Paperlogy"; font-weight: 600; src: url(../files/Paperlogy-6SemiBold.ttf);}
-    @font-face {font-family: "Paperlogy"; font-weight: 900; src: url(../files/Paperlogy-9Black.ttf);}
-    @font-face {font-family: "KLeagueBasic"; font-weight: 900; src: url(../files/KLeagueBasic-Medium.ttf);}
+    /* 1. 폰트 설정 (경로: ../files/fonts/) */
+    @font-face {font-family: "Paperlogy"; font-weight: 300; src: url(../files/fonts/Paperlogy-3Light.ttf); font-display: swap;}
+    @font-face {font-family: "Paperlogy"; font-weight: 600; src: url(../files/fonts/Paperlogy-6SemiBold.ttf); font-display: swap;}
+    @font-face {font-family: "Paperlogy"; font-weight: 900; src: url(../files/fonts/Paperlogy-9Black.ttf); font-display: swap;}
+    @font-face {font-family: "KLeagueBasic"; font-weight: 900; src: url(../files/fonts/KLeagueBasic-Medium.ttf); font-display: swap;}
 
-    /* 2. 기본 초기화 및 배경 */
+    :root {
+        --sefc-blue: #000060;
+        --sefc-navy-75: #000060c0;
+        --sefc-navy-50: #00006080;
+        --sefc-navy-25: #00006040;
+        --sefc-navy-10: #00006010;
+        --sefc-gold: #dfc69f;
+        --sefc-ink: #05090a;
+        --sefc-surface: #faf6f5;
+    }
+
+    /* 2. 기본 초기화 및 글래스모피즘 */
     * {
-        color: #05090a; 
-        margin: 0; padding: 0; 
-        font-family: "Paperlogy"; 
-        font-weight: 600; 
-        word-break: keep-all; 
-        -webkit-tap-highlight-color: transparent; 
+        color: #05090a;
+        margin: 0; padding: 0;
+        font-family: "Paperlogy";
+        font-weight: 600;
+        word-break: keep-all;
+        -webkit-tap-highlight-color: transparent;
         box-sizing: border-box;
     }
 
     *::-webkit-scrollbar { display: none; }
 
-    body { 
-        background: #00006003; /* 아주 연한 네이비 빛 배경 */
-        line-height: 1.6;
-        overflow-x: hidden;
+    [glass="true"] {
+        background: #faf6f540;
+        box-shadow: 0 4px 30px #05090a16;
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        border: 1px solid #faf6f580;
     }
 
-    /* 3. 헤더 디자인 */
-    header { 
-        background: #000060; 
-        color: white; 
-        padding: 60px 20px 80px; /* 아래쪽 여백을 더 줘서 카드가 겹치게 함 */
-        text-align: center; 
-        box-shadow: 0 4px 20px rgba(0,0,0,0.1); 
+    html, body {
+        width: 100%;
+        overflow-x: hidden;
+        background: #00006003;
     }
-    header h1 { 
-        font-family: "Paperlogy"; 
-        font-weight: 900; 
-        font-size: 28px; 
-        color: #fff; 
-        letter-spacing: -1px;
+
+    body {
+        padding: 40px 15px 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        line-height: 1.6;
     }
-    header p { 
-        font-weight: 300; 
-        margin-top: 10px; 
-        opacity: 0.8; 
-        font-size: 14px; 
-        color: #fff;
+
+    /* 2-1. 관리자 로그인 UI */
+    #login-container {
+        max-width: 400px;
+        width: 100%;
+        margin-top: 100px;
+        padding: 40px;
+        border-radius: 20px;
+        text-align: center;
+    }
+    #login-container h2 {
+        font-family: "Paperlogy";
+        font-weight: 900;
+        font-size: 20px;
+        margin-bottom: 20px;
+        color: #000060;
+    }
+    .admin-desc {
+        color: #05090a80;
+        font-size: 14px;
+        font-weight: 300;
+    }
+    #btnLogin {
+        width: 100%;
+        padding: 16px 18px;
+        background: #00006080;
+        color: #faf6f5;
+        border: 1px solid #00006040;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: 900;
+        font-size: 16px;
+        margin-top: 25px;
+        transition: all 0.2s;
+    }
+    #btnLogin:hover, #btnLogin:active {
+        background: #000060c0;
+    }
+    #btnLogin:active { transform: scale(0.96); }
+
+    #admin-panel {
+        width: 100%;
+        max-width: 1000px;
+    }
+
+    /* 3. 공통 글래스 헤더 디자인 */
+    header.admin-header {
+        border-radius: 20px;
+        padding: 18px 24px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        width: 100%;
+    }
+    .admin-header-brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+    }
+    .admin-logo img {
+        height: 28px;
+        display: block;
+    }
+    .admin-title-box h1 {
+        font-size: 20px;
+        font-weight: 900;
+        color: #000060;
+        margin: 0;
+        letter-spacing: -0.5px;
+    }
+    .admin-title-box p {
+        font-size: 13px;
+        font-weight: 300;
+        color: #05090a80;
+        margin: 2px 0 0;
+    }
+    .admin-header-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+    .admin-nav-btn, #btnLogout {
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        color: #05090a;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .admin-nav-btn.active, .admin-nav-btn:hover {
+        background: #000060c0;
+        color: #faf6f5;
+        border-color: #00006040;
+    }
+    #btnLogout:hover {
+        background: #05090a20;
+    }
+    #btnLogout:active, .admin-nav-btn:active {
+        transform: scale(0.96);
     }
 
     /* 4. 컨테이너 및 매치 카드 */
-    .container { 
-        max-width: 1000px; 
-        margin: -40px auto 100px; 
-        padding: 0 15px; 
+    .container {
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto 80px;
+        padding: 0;
     }
-    
-    .match-card { 
-        background: #fff; 
-        border-radius: 30px; 
-        padding: 30px 20px; 
-        box-shadow: 0 15px 35px rgba(0,0,0,0.08); 
-        display: flex; 
-        justify-content: space-around; 
-        align-items: center; 
-        text-align: center; 
-        border: 1px solid rgba(0,0,0,0.03);
+
+    .match-card {
+        border-radius: 20px;
+        padding: 28px 20px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
     }
-    .match-card .score { 
-        font-family: "Paperlogy"; 
-        font-weight: 900; 
-        font-size: 38px; 
-        color: #000060; 
-        letter-spacing: 2px; 
+    .match-card .score {
+        font-family: "Paperlogy";
+        font-weight: 900;
+        font-size: 38px;
+        color: #000060;
+        letter-spacing: 2px;
     }
     .team-box { flex: 1; }
-    .team-box img { 
-        width: 65px; 
-        height: 65px; 
-        object-fit: contain; 
-        margin-bottom: 10px; 
-        filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+    .team-box img {
+        width: 65px;
+        height: 65px;
+        object-fit: contain;
+        margin-bottom: 10px;
+        filter: drop-shadow(0 4px 6px #05090a16);
     }
-    .team-box div { 
-        font-family: "Paperlogy"; 
-        font-weight: 900; 
-        font-size: 16px; 
-        color: #333; 
+    .team-box div {
+        font-family: "Paperlogy";
+        font-weight: 900;
+        font-size: 16px;
+        color: #05090a;
     }
 
     /* 5. 섹션 및 아코디언 스타일 */
-    .player-section { 
-        background: #fff; 
-        border-radius: 25px; 
-        margin-top: 25px; 
-        box-shadow: 0 8px 25px rgba(0,0,0,0.04); 
-        border-left: 8px solid #000060; 
-        overflow: hidden; 
+    .player-section {
+        background: #faf6f540;
+        box-shadow: 0 4px 30px #05090a16;
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        border: 1px solid #faf6f580;
+        border-left: 8px solid #000060;
+        border-radius: 20px;
+        margin-top: 20px;
+        overflow: hidden;
     }
-    .team-section { border-left-color: #e67e22; } /* 팀 섹션은 주황색 포인트 */
+    .team-section { border-left-color: #e67e22; }
 
-    .player-header { 
-        background: #fff; 
-        padding: 22px 25px; 
-        font-size: 19px; 
-        font-weight: 900; 
-        color: #000060; 
-        cursor: pointer; 
-        display: flex; 
-        justify-content: space-between; 
-        align-items: center; 
-        transition: all 0.3s ease;
+    .player-header {
+        background: #faf6f580;
+        padding: 20px 24px;
+        font-size: 18px;
+        font-weight: 900;
+        color: #000060;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.25s ease;
     }
-    .player-header:hover { background: #fcfcfd; }
-    .player-header.active { background: #f9f9fb; color: #d63031; }
-    
-    .status-tag { 
-        font-size: 12px; 
-        color: #aaa; 
-        font-weight: 300; 
-        background: #f5f5f7; 
-        padding: 4px 12px; 
-        border-radius: 15px; 
+    .player-header:hover { background: #faf6f5d0; }
+    .player-header.active { background: #faf6f5d0; color: #d63031; }
+    .player-content { display: none; }
+
+    .status-tag {
+        font-size: 12px;
+        color: #05090a80;
+        font-weight: 600;
+        background: #00006010;
+        padding: 4px 12px;
+        border-radius: 20px;
     }
 
     /* 6. 카테고리(기록 종류) 스타일 */
-    .category-wrapper { border-bottom: 1px solid #f0f0f4; }
-    .category-title-bar { 
-        padding: 18px 25px; 
-        display: flex; 
-        align-items: center; 
-        gap: 10px; 
-        cursor: pointer; 
-        background: #fff;
-        font-size: 15px; 
+    .category-wrapper { border-top: 1px solid #05090a10; }
+    .category-title-bar {
+        padding: 16px 24px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        background: #faf6f540;
+        font-size: 15px;
         font-weight: 600;
         transition: 0.2s;
     }
-    .category-title-bar b { font-weight: 900; color: #444; }
-    .category-title-bar.cat-active { background: #fcfcfd; }
+    .category-title-bar:hover { background: #faf6f580; }
+    .category-title-bar b { font-weight: 900; color: #05090a; }
+    .category-title-bar.cat-active { background: #faf6f580; }
     .category-title-bar.cat-active b { color: #d63031; }
+    .category-title-bar::after { content: '▼'; margin-left: auto; font-size: 10px; color: #05090a60; transition: transform 0.2s; }
+    .category-title-bar.cat-active::after { transform: rotate(180deg); color: #d63031; }
 
-    /* 7. 기록 테이블 디자인 (스크롤 최적화) */
-    .record-item-area { padding: 25px; background: #fafafc; }
-    .record-box { 
-        border: 1px solid #f0f0f4; 
-        border-radius: 20px; 
-        background: #fff; 
-        padding: 10px; 
-        overflow: hidden; 
+    /* 7. 기록 테이블 디자인 */
+    .record-item-area { display: none; padding: 22px 24px; background: #faf6f540; border-top: 1px solid #05090a10; }
+    .more-records-container { display: none; }
+    .record-box {
+        border: 1px solid #faf6f580;
+        border-radius: 20px;
+        background: #faf6f580;
+        box-shadow: 0 4px 20px #05090a10;
+        padding: 10px;
+        overflow: hidden;
     }
-    
-    table { 
-        width: 100%; 
-        border-collapse: collapse; 
-        table-layout: fixed; /* 너비 고정 */
-    }
-    th { 
-        font-weight: 900; 
-        font-size: 12px; 
-        color: #aaa; 
-        padding: 12px 5px; 
-        border-bottom: 2px solid #f0f0f4; 
-        text-align: center;
-    }
-    td { 
-        padding: 15px 5px; 
-        border-bottom: 1px solid #f8f8fa; 
-        vertical-align: middle; 
+
+    .rep-record-label {
+        display: block;
         font-size: 13px;
+        font-weight: 900;
+        color: #000060;
+        margin-bottom: 10px;
+    }
+    .more-record-block {
+        margin-top: 25px;
+        padding-top: 15px;
+        border-top: 1px dashed #05090a20;
+    }
+    .more-record-block .rep-record-label {
+        font-size: 12px;
+        color: #05090a80;
+    }
+    [class^="group-"] + [class^="group-"],
+    .rank-group-block {
+        margin-top: 25px;
+    }
+    .comp-divider {
+        border: 0;
+        border-top: 1px solid #05090a20;
+        margin-bottom: 15px;
+    }
+    .empty-preview-msg {
         text-align: center;
+        color: #05090a60;
+        font-size: 12px;
+        padding: 18px 10px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+    }
+    th {
+        background: #00006010;
+        font-weight: 900;
+        font-size: 12px;
+        color: #000060;
+        padding: 12px 5px;
+        border-bottom: 1px solid #05090a20;
+        text-align: center;
+    }
+    td {
+        padding: 14px 5px;
+        border-bottom: 1px solid #05090a10;
+        vertical-align: middle;
+        font-size: 13px;
+        color: #05090a;
+        text-align: center;
+    }
+    tr.just-bold td {
+        font-weight: 900;
+        color: #000060;
     }
 
     /* 열 너비 최적화 */
     .col-rank { width: 70px; font-weight: 900; font-size: 15px !important; }
     .col-name { text-align: left !important; font-weight: 900; padding-left: 10px !important; width: 35%; }
     .col-val { width: 60px; font-weight: 900; color: #000060; font-size: 16px !important; }
-    .col-period { font-size: 11px !important; color: #777; font-weight: 300; text-align: left !important; }
+    .col-period { font-size: 11px !important; color: #05090a80; font-weight: 300; text-align: left !important; }
+    .streak-detail { font-size: 10px; color: #05090a80; font-weight: 600; }
+    .match-score-tag { color: var(--sefc-blue); margin-left: 5px; font-weight: 900; }
 
-    /* 8. 강조 효과 (중요!) */
-    /* 이번 경기 직접적 주인공: 빨간색 */
+    /* 8. 강조 효과 (사용자 승인 상태 강조색 A2 유지) */
     .hero-target { background: #fff5f5 !important; }
     .hero-target td, .hero-target .col-name, .hero-target .col-val { color: #d63031 !important; }
-    
-    /* 출전하여 순위 상승한 조연: 주황색 */
+
     .hero-orange { background: #fffaf2 !important; }
     .hero-orange td, .hero-orange .col-name, .hero-orange .col-val { color: #e67e22 !important; }
 
-    /* 9. 배지(Badge) 스타일 */
-    .update-badge { 
-        font-size: 10px; 
-        color: #d63031; 
-        font-weight: 900; 
-        background: #fff0f0; 
-        padding: 3px 8px; 
-        border-radius: 8px; 
-        border: 1px solid #ffcccc; 
-        margin-left: 8px; 
+    .player-active-bold,
+    tr.player-active-bold td.col-name,
+    td.col-name.player-active-bold {
+        font-weight: 900 !important;
+        color: #05090a !important;
     }
-    .rank-change-badge, .match-stat-badge { 
-        display: inline-flex; 
-        align-items: center; 
+
+    /* 9. 배지(Badge) 스타일 */
+    .update-badge {
+        font-size: 10px;
+        color: #d63031;
+        font-weight: 900;
+        background: #fff5f5;
+        padding: 3px 8px;
+        border-radius: 10px;
+        border: 1px solid #ffcccc;
+        margin-left: 8px;
+    }
+    .update-badge.badge-neutral,
+    .badge-neutral {
+        background: #05090a10;
+        color: #05090a80;
+        border: 1px solid #05090a20;
+    }
+    .rank-change-badge, .match-stat-badge {
+        display: inline-flex;
+        align-items: center;
         justify-content: center;
-        font-size: 10px; 
-        padding: 2px 6px; 
-        border-radius: 6px; 
-        margin-left: 6px; 
-        font-weight: 900; 
+        font-size: 10px;
+        padding: 2px 6px;
+        border-radius: 6px;
+        margin-left: 6px;
+        font-weight: 900;
         vertical-align: middle;
     }
-    .rank-up { background: #d63031; color: #fff; }
-    .rank-down { background: #0984e3; color: #fff; }
-    .rank-new { background: #f08c00; color: #fff; }
-    .match-stat-badge { background: #eef2ff; color: #000060; border: 1px solid #e0e7ff; font-size: 9px; }
+    .rank-up { background: #d63031; color: #faf6f5; }
+    .rank-down { background: #0984e3; color: #faf6f5; }
+    .rank-new { background: #f08c00; color: #faf6f5; }
+    .match-stat-badge { background: #00006010; color: #000060; border: 1px solid #00006020; font-size: 9px; }
 
-    /* 10. 기타 UI 요소 */
+    /* 10. 탭 및 더보기 버튼 */
     .tab-container { display: flex; gap: 6px; margin-bottom: 15px; overflow-x: auto; padding-bottom: 5px; }
-    .tab-btn { 
-        flex: 1; 
-        padding: 10px 5px; 
-        border: 1px solid #f0f0f4; 
-        background: #fff; 
-        border-radius: 12px; 
-        font-size: 12px; 
-        font-weight: 900; 
-        cursor: pointer; 
-        color: #aaa;
-        white-space: nowrap;
-        transition: 0.2s;
-    }
-    .tab-btn.active { background: #000060; color: #fff; border-color: #000060; box-shadow: 0 4px 10px rgba(0,0,96,0.2); }
-
-    .btn-more-toggle { 
-        display: block; 
-        width: 100%; 
-        margin-top: 20px; 
-        padding: 15px; 
-        background: #f0f0f4; 
-        border: 0; 
-        border-radius: 15px; 
-        font-size: 13px; 
-        font-weight: 900; 
-        color: #666; 
+    .tab-btn {
+        flex: 1;
+        padding: 10px 12px;
+        border: 1px solid #faf6f580;
+        background: #faf6f540;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
         cursor: pointer;
+        color: #05090a80;
+        white-space: nowrap;
+        transition: all 0.2s;
+    }
+    .tab-btn:hover,
+    .tab-btn.active {
+        background: #000060c0;
+        color: #faf6f5;
+        border-color: #00006040;
+        font-weight: 900;
+    }
+
+    .btn-more-toggle {
+        display: block;
+        width: 100%;
+        margin-top: 20px;
+        padding: 14px 16px;
+        background: #faf6f580;
+        border: 1px solid #05090a20;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 900;
+        color: #05090a;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .btn-more-toggle:hover,
+    .btn-more-toggle:active {
+        background: #000060c0;
+        color: #faf6f5;
+        border-color: #00006040;
     }
 
     /* 로딩 화면 */
-    #loading { 
-        position: fixed; inset: 0; background: #fff; 
-        display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 10000; 
+    #loading {
+        position: fixed;
+        inset: 0;
+        background: #faf6f5d0;
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
     }
-    .loader { 
-        border: 5px solid #f3f3f3; 
-        border-top: 5px solid #000060; 
-        border-radius: 50%; 
-        width: 50px; height: 50px; 
-        animation: spin 1s linear infinite; 
+    .loader {
+        border: 5px solid #00006010;
+        border-top: 5px solid #000060;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+    }
+    .loading-text {
+        margin-top: 20px;
+        font-weight: 900;
+        color: var(--sefc-blue);
     }
     @keyframes spin { 100% { transform: rotate(360deg); } }
 
@@ -274,58 +469,170 @@
        모바일 반응형 최적화 (768px 이하)
        ========================================= */
     @media screen and (max-width: 768px) {
-        header { padding: 50px 20px 70px; }
-        header h1 { font-size: 22px; }
-        .match-card { border-radius: 25px; padding: 20px 10px; }
+        body { padding: 20px 12px 60px; }
+        #login-container { margin-top: 60px; padding: 30px 20px; border-radius: 20px; }
+        header.admin-header { padding: 14px 16px; }
+        .admin-title-box h1 { font-size: 17px; }
+        .admin-title-box p { font-size: 11px; }
+        .admin-nav-btn, #btnLogout { padding: 6px 12px; font-size: 12px; }
+        .match-card { border-radius: 20px; padding: 20px 10px; }
         .match-card .score { font-size: 28px; }
         .team-box img { width: 50px; height: 50px; }
         .team-box div { font-size: 13px; }
 
-        .player-header { padding: 18px 20px; font-size: 17px; }
+        .player-header { padding: 16px 18px; font-size: 16px; }
+        .category-title-bar { padding: 14px 18px; font-size: 14px; }
         .record-item-area { padding: 15px; }
-        
+
         .col-rank { width: 55px; font-size: 13px !important; }
         .col-name { font-size: 12px !important; width: 30%; }
         .col-val { width: 45px; font-size: 14px !important; }
-        
-        .match-stat-badge { display: none; } /* 모바일에서는 이름 옆 배지 숨김 (공간 부족) */
+
+        .match-stat-badge { display: none; }
         .rank-change-badge { font-size: 8px; padding: 1px 4px; }
     }
 </style>
 </head>
 <body>
 
-    <div id="loading">
-        <div class="loader"></div>
-        <p style="margin-top:20px; font-weight:bold; color:var(--sefc-blue);">기록을 집계 중입니다...</p>
+    <div id="login-container" glass="true">
+        <h2>관리자 접속</h2>
+        <p class="admin-desc">기록 분석 리포트 확인을 위해 로그인이 필요합니다.</p>
+        <button id="btnLogin" type="button">G Google 계정으로 로그인</button>
     </div>
 
-    <header glass='true'>
-        <h1>MATCH RECORD REPORT</h1>
-        <p id="match-info-text">데이터 분석 중...</p>
-    </header>
+    <div id="admin-panel" style="display:none;">
+        <div id="loading">
+            <div class="loader"></div>
+            <p class="loading-text">기록을 집계 중입니다...</p>
+        </div>
 
-    <div class="container">
-        <div id="match-hero" class="match-card"></div>
-        <div id="analysis-content"></div>
+        <header glass="true" class="admin-header">
+            <div class="admin-header-brand">
+                <a href="/" class="admin-logo"><img src="../files/sefcinfo.svg" alt="SEFCiNFO"></a>
+                <div class="admin-title-box">
+                    <h1>MATCH RECORD REPORT</h1>
+                    <p id="match-info-text">데이터 분석 중...</p>
+                </div>
+            </div>
+            <div class="admin-header-actions">
+                <a href="./data" class="admin-nav-btn" glass="true">데이터 관리</a>
+                <a href="./stat" class="admin-nav-btn active" glass="true">기록 리포트</a>
+                <button id="btnLogout" type="button" glass="true">로그아웃</button>
+            </div>
+        </header>
+
+        <div class="container">
+            <div id="match-hero" class="match-card" glass="true"></div>
+            <div id="analysis-content"></div>
+        </div>
     </div>
 
 <script type="module">
-    import { loadData } from '../firebase.js';
+    import { auth, loadData } from '../firebase.js';
+    import { signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+    const ADMIN_EMAIL = "gwcom112@gmail.com";
+    const provider = new GoogleAuthProvider();
+    const loginContainer = document.getElementById('login-container');
+    const adminPanel = document.getElementById('admin-panel');
 
     const CAT_LABELS = { g: '득점', a: '도움', p: '공격포인트', y: '경고', r: '퇴장', apps: '출전' };
     const STREAK_LABELS = { win: '연승', draw: '연무', loss: '연패', unbeaten: '무패', winless: '무승(Winless)', scoring: '연속 득점', conceding: '연속 실점', cleanSheet: '연속 클린시트', noScoring: '연속 무득점' };
-    
-    let currentActiveStats = new Map(); 
+    const TEAM_NAME_MAPPER = {
+        'ansanpolice': 'ansanmugunghwa',
+        'daejeoncitizen': 'daejeonhana',
+        'goyanghifc': 'goyangzaicro',
+        'jejuutd': 'jejusk',
+        'ulsanhyundai': 'ulsanhd'
+    };
+
+    let currentActiveStats = new Map();
+    let initialized = false;
+
+    document.getElementById('btnLogin').addEventListener('click', () => {
+        signInWithPopup(auth, provider)
+            .catch((error) => {
+                alert("로그인 실패: " + error.message);
+            });
+    });
+
+    document.getElementById('btnLogout').addEventListener('click', () => {
+        if (confirm("로그아웃 하시겠습니까?")) {
+            signOut(auth)
+                .then(() => {
+                    alert("로그아웃 되었습니다.");
+                    location.reload();
+                })
+                .catch((error) => {
+                    alert("로그아웃 실패: " + error.message);
+                });
+        }
+    });
+
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            if (user.email === ADMIN_EMAIL) {
+                loginContainer.style.display = 'none';
+                adminPanel.style.display = 'block';
+                if (!initialized) {
+                    initialized = true;
+                    init();
+                }
+            } else {
+                alert("접근 권한이 없는 계정입니다.\n(" + user.email + ")");
+                signOut(auth).then(() => { location.reload(); });
+            }
+        } else {
+            loginContainer.style.display = 'block';
+            adminPanel.style.display = 'none';
+        }
+    });
+
+    function getNormalizedOppCode(m) {
+        const rawCode = m.home[0] === '서울E' ? m.away?.[1] : m.home?.[1];
+        const stripped = String(rawCode || '').replace(/[0-9]/g, '');
+        return TEAM_NAME_MAPPER[stripped] || stripped;
+    }
+
+    function getPlayerDisplayName(playerMap, pid) {
+        const raw = playerMap?.[pid]?.name;
+        return raw ? String(raw).replace(/[0-9]/g, '') : pid;
+    }
+
+    function sanitizeId(str) {
+        return String(str || '').replace(/[^a-zA-Z0-9_-]/g, '_');
+    }
 
     async function init() {
         try {
-            const [dataA, playerA] = await Promise.all([ loadData('dataA'), loadData('playerA') ]);
-            const todayStr = new Date().toISOString().slice(0,10).replace(/-/g, "");
-            const allIds = Object.keys(dataA).sort();
-            const validIds = allIds.filter(id => id.substring(0, 8) <= todayStr);
+            const [dataA, playerA, playerU18, playerU15] = await Promise.all([
+                loadData('dataA'),
+                loadData('playerA'),
+                loadData('playerU18'),
+                loadData('playerU15')
+            ]);
+            const allPlayers = { ...(playerU15 || {}), ...(playerU18 || {}), ...(playerA || {}) };
 
-            if (validIds.length === 0) return;
+            const now = new Date();
+            const todayStr = now.getFullYear() +
+                String(now.getMonth() + 1).padStart(2, '0') +
+                String(now.getDate()).padStart(2, '0');
+            const allIds = Object.keys(dataA || {}).sort();
+            const validIds = allIds.filter(id => {
+                const m = dataA[id];
+                return id.substring(0, 8) <= todayStr
+                    && m?.homeScore !== undefined && m.homeScore !== ''
+                    && m?.awayScore !== undefined && m.awayScore !== '';
+            });
+
+            if (validIds.length === 0) {
+                $('#match-info-text').text('완료된 경기 데이터가 없습니다.');
+                $('#match-hero').html('<div class="empty-preview-msg" style="width:100%;">분석할 경기 기록이 없습니다.</div>');
+                $('#analysis-content').empty();
+                $('#loading').fadeOut();
+                return;
+            }
 
             const latestId = validIds[validIds.length - 1];
             const latestMatch = dataA[latestId];
@@ -343,7 +650,7 @@
             
             renderHero(latestId, latestMatch);
             renderTeamResults(teamRecords);
-            renderGroupedResults(playerRecords, playerA);
+            renderGroupedResults(playerRecords, allPlayers);
 
             $('#loading').fadeOut();
         } catch (e) { console.error(e); $('#loading p').text('오류 발생'); }
@@ -359,7 +666,7 @@
     function parseScore(val) {
         if (typeof val === 'number') return val;
         const cleaned = String(val || "0").replace(/<[^>]*>/g, "").replace(/\(.*\)/g, "").trim();
-        return parseInt(cleaned) || 0;
+        return parseInt(cleaned, 10) || 0;
     }
 
     function parseStat(s) {
@@ -432,8 +739,10 @@
     function performExhaustiveAnalysis(timelines, latestId, validIds) {
         const results = [];
         const prevId = validIds.length > 1 ? validIds[validIds.length - 2] : null;
+        const timelineEntries = Object.entries(timelines);
+
         ['g', 'a', 'p', 'y', 'r', 'apps'].forEach(cat => {
-            const curFullList = Object.entries(timelines).map(([pid, h]) => {
+            const curFullList = timelineEntries.map(([pid, h]) => {
                 const cur = h.filter(x => x.mId <= latestId);
                 if (cur.length === 0) return null;
                 const val = cur.reduce((s, x) => s + x[cat], 0);
@@ -443,7 +752,7 @@
             let prevRankMap = new Map();
             let prevFullList = [];
             if (prevId) {
-                prevFullList = Object.entries(timelines).map(([pid, h]) => {
+                prevFullList = timelineEntries.map(([pid, h]) => {
                     const past = h.filter(x => x.mId <= prevId);
                     if (past.length === 0) return null;
                     const val = past.reduce((s, x) => s + x[cat], 0);
@@ -458,30 +767,44 @@
                 if (pItem && pItem.rankJump) results.push({ pid, cat, subType: 'TOTAL', title: `역대 통산 ${CAT_LABELS[cat]} 순위`, list: JSON.parse(JSON.stringify(top10)) });
             });
             if (['g', 'a', 'p'].includes(cat)) {
+                // 누적합(prefix sum) 사전 계산
+                const prepared = timelineEntries.map(([pid, h]) => {
+                    const prefix = new Int32Array(h.length + 1);
+                    let prevLen = 0;
+                    for (let i = 0; i < h.length; i++) {
+                        prefix[i + 1] = prefix[i] + h[i][cat];
+                        if (prevId && h[i].mId <= prevId) prevLen = i + 1;
+                    }
+                    return { pid, h, prefix, prevLen };
+                });
+
                 let lastAnalysisResults = new Map(); 
                 for (let n = 2; n <= Math.min(validIds.length, 100); n++) {
                     const windowList = []; const prevWinList = []; let isMeaningfulChange = false;
-                    Object.entries(timelines).forEach(([pid, h]) => {
-                        let maxVal = 0, bestWin = null;
+                    for (let idx = 0; idx < prepared.length; idx++) {
+                        const { pid, h, prefix, prevLen } = prepared[idx];
+                        if (h.length < n) continue;
+
+                        let maxVal = 0, bestStart = -1;
                         for (let i = 0; i <= h.length - n; i++) {
-                            const win = h.slice(i, i + n);
-                            const val = win.reduce((s, x) => s + x[cat], 0);
-                            if (val > maxVal) { maxVal = val; bestWin = win; }
+                            const val = prefix[i + n] - prefix[i];
+                            if (val > maxVal) { maxVal = val; bestStart = i; }
                         }
                         if (maxVal > 1) {
-                            const isCurr = bestWin[bestWin.length-1].mId === latestId;
-                            windowList.push({ pid, val: maxVal, start: bestWin[0].meta, end: bestWin[bestWin.length-1].meta, isCurrent: isCurr });
+                            const bestEnd = bestStart + n - 1;
+                            const isCurr = h[bestEnd].mId === latestId;
+                            windowList.push({ pid, val: maxVal, start: h[bestStart].meta, end: h[bestEnd].meta, isCurrent: isCurr });
                             if (isCurr || lastAnalysisResults.get(pid) !== maxVal) isMeaningfulChange = true;
                             lastAnalysisResults.set(pid, maxVal);
-                            const prevH = h.filter(x => x.mId <= (prevId || ""));
+
                             let pMax = 0;
-                            for (let i = 0; i <= prevH.length - n; i++) {
-                                const pVal = prevH.slice(i, i + n).reduce((s, x) => s + x[cat], 0);
+                            for (let i = 0; i <= prevLen - n; i++) {
+                                const pVal = prefix[i + n] - prefix[i];
                                 if (pVal > pMax) pMax = pVal;
                             }
-                            if (pMax > 0) prevWinList.push({ pid, val: pMax });
+                            if (pMax > 1) prevWinList.push({ pid, val: pMax });
                         }
-                    });
+                    }
                     if (!isMeaningfulChange || windowList.length === 0) continue;
                     const curWinRankMap = calculateRanks(windowList); const prevWinRankMap = calculateRanks(prevWinList);
                     const winTop10 = windowList.sort((a,b) => b.val - a.val || (b.isCurrent ? 1 : -1)).filter((v,i,a) => i < 10 || v.val === a[9]?.val);
@@ -499,6 +822,7 @@
     function performTeamComprehensiveAnalysis(data, validIds, latestId) {
         const latestMatch = data[latestId];
         const latestOpp = latestMatch.home[0] === '서울E' ? latestMatch.away[0] : latestMatch.home[0];
+        const latestOppCode = getNormalizedOppCode(latestMatch);
         const results = { latestOpp, cumulative: { total: {}, season: {} }, h2h: { total: {}, rankings: [] }, rankings: [] };
         const thisSeasonYear = latestId.substring(0, 4);
         const prevId = validIds.length > 1 ? validIds[validIds.length - 2] : null;
@@ -541,9 +865,12 @@
             results.h2h.total[comp] = {};
             scopes.forEach(scope => {
                 const h2hMatches = validIds.filter(id => {
-                    const m = data[id]; const opp = m.home[0] === '서울E' ? m.away[0] : m.home[0];
+                    const m = data[id];
+                    const oppCode = getNormalizedOppCode(m);
+                    const oppName = m.home[0] === '서울E' ? m.away[0] : m.home[0];
+                    const isSameOpp = latestOppCode ? (oppCode === latestOppCode) : (oppName === latestOpp);
                     const normComp = getCompGroup(m.comp[0]);
-                    return opp === latestOpp && (comp === "전체" || normComp === comp) && (scope === "통합" || (scope === "홈" && m.home[0] === "서울E") || (scope === "원정" && m.away[0] === "서울E"));
+                    return isSameOpp && (comp === "전체" || normComp === comp) && (scope === "통합" || (scope === "홈" && m.home[0] === "서울E") || (scope === "원정" && m.away[0] === "서울E"));
                 });
                 const curH2H = h2hMatches; const prevH2H = h2hMatches.filter(id => id <= (prevId || ""));
                 let w=0, d=0, l=0;
@@ -616,9 +943,9 @@
 
     function renderScopeTabs(uniqueId) {
         return `<div class="tab-container">
-            <button class="tab-btn active btn-total" onclick="switchTableScope(this, '${uniqueId}', '통합')">통합</button>
-            <button class="tab-btn btn-home" onclick="switchTableScope(this, '${uniqueId}', '홈')">홈</button>
-            <button class="tab-btn btn-away" onclick="switchTableScope(this, '${uniqueId}', '원정')">원정</button>
+            <button class="tab-btn active btn-total" glass="true" onclick="switchTableScope(this, '${uniqueId}', '통합')">통합</button>
+            <button class="tab-btn btn-home" glass="true" onclick="switchTableScope(this, '${uniqueId}', '홈')">홈</button>
+            <button class="tab-btn btn-away" glass="true" onclick="switchTableScope(this, '${uniqueId}', '원정')">원정</button>
         </div>`;
     }
 
@@ -644,7 +971,7 @@
     function renderTeamResults(team) {
         const container = $('#analysis-content').empty();
         const latestOpp = team.latestOpp;
-        let html = `<div class="player-section team-section"><div class="player-header" onclick="toggleSection(this)">CLUB RECORDS (서울 이랜드 FC)<span class="status-tag">구단 통합 리포트</span></div><div class="player-content">`;
+        let html = `<div class="player-section team-section" glass="true"><div class="player-header" onclick="toggleSection(this)">CLUB RECORDS (서울 이랜드 FC)<span class="status-tag">구단 통합 리포트</span></div><div class="player-content">`;
 
         const h2hComps = Object.keys(team.h2h.total).filter(c => team.h2h.total[c]["통합"].matches > 0);
         const h2hBrokenCount = countBrokenRecords(team.h2h.rankings);
@@ -652,9 +979,9 @@
 
         html += `<div class="category-wrapper"><div class="category-title-bar" onclick="toggleCategory(this)"><b>상대 전적 및 기록 (vs ${latestOpp})</b>${h2hBadge}</div><div class="record-item-area">`;
         html += renderCompTabs(h2hComps, 'h2hComp');
-        h2hComps.forEach((comp) => {
+        h2hComps.forEach((comp, cIdx) => {
             html += `<div class="comp-content h2hComp-content" data-comp="${comp}" style="${comp === '전체' ? 'display:block;' : 'display:none;'}">`;
-            const summaryId = `h2h_sum_${comp.replace(/\s/g,'_')}`;
+            const summaryId = `h2h_sum_${cIdx}_${sanitizeId(comp)}`;
             html += `<div class="group-${summaryId}"><span class="rep-record-label">[${comp} vs ${latestOpp} 전적 요약]</span>${renderScopeTabs(summaryId)}`;
             ["통합", "홈", "원정"].forEach(scope => {
                 const s = team.h2h.total[comp][scope];
@@ -666,11 +993,11 @@
             const rankings = team.h2h.rankings.filter(r => r.comp === comp);
             const uniqueTitles = [...new Set(rankings.map(r => r.title))];
             uniqueTitles.forEach((title, tIdx) => {
-                const rankId = `h2h_rank_${comp.replace(/\s/g,'_')}_${tIdx}`;
-                html += `<div class="group-${rankId}" style="margin-top:25px;"><span class="rep-record-label" style="font-size:12px; color:#666;">[${title}]</span>${renderScopeTabs(rankId)}`;
+                const rankId = `h2h_rank_${cIdx}_${sanitizeId(comp)}_${tIdx}`;
+                html += `<div class="group-${rankId} rank-group-block"><span class="rep-record-label">[${title}]</span>${renderScopeTabs(rankId)}`;
                 ["통합", "홈", "원정"].forEach(scope => {
                     const r = rankings.find(rank => rank.title === title && rank.scope === scope);
-                    html += `<div class="scope-content" data-scope="${scope}" style="${scope === '통합' ? 'display:block;' : 'display:none;'}">${r ? renderTeamRankingTable(r, true) : '<div class="record-box" style="text-align:center; color:#ccc; font-size:11px;">기록 없음</div>'}</div>`;
+                    html += `<div class="scope-content" data-scope="${scope}" style="${scope === '통합' ? 'display:block;' : 'display:none;'}">${r ? renderTeamRankingTable(r, true) : '<div class="record-box empty-preview-msg">기록 없음</div>'}</div>`;
                 });
                 html += `</div>`;
             });
@@ -701,12 +1028,12 @@
 
             html += `<div class="category-wrapper"><div class="category-title-bar" onclick="toggleCategory(this)"><b>역대 ${group} 순위 및 기록</b>${groupBadge}</div><div class="record-item-area">`;
             const seasonId = `season_sum_${gIdx}`;
-            html += `<div class="group-${seasonId}"><span class="rep-record-label" style="font-size:12px;">이번 시즌 성적 요약</span>${renderScopeTabs(seasonId)}`;
+            html += `<div class="group-${seasonId}"><span class="rep-record-label">이번 시즌 성적 요약</span>${renderScopeTabs(seasonId)}`;
             ["통합", "홈", "원정"].forEach(scope => {
                 const sc = team.cumulative.season[group][scope];
                 const gdStr = sc.gd > 0 ? `+${sc.gd}` : sc.gd;
                 html += `<div class="scope-content" data-scope="${scope}" style="${scope === '통합' ? 'display:block;' : 'display:none;'}">
-                    ${sc.matches > 0 ? `<div class="record-box"><table><thead><tr><th>경기</th><th>승점</th><th>승</th><th>무</th><th>패</th><th>득점</th><th>실점</th><th>득실</th></tr></thead><tbody><tr class="${scope === '통합' ? 'just-bold' : ''}"><td>${sc.matches}</td><td>${sc.pts}</td><td>${sc.w}</td><td>${sc.d}</td><td>${sc.l}</td><td>${sc.gf}</td><td>${sc.ga}</td><td>${gdStr}</td></tr></tbody></table></div>` : '<div class="record-box" style="text-align:center; color:#ccc; font-size:11px;">데이터 없음</div>'}</div>`;
+                    ${sc.matches > 0 ? `<div class="record-box"><table><thead><tr><th>경기</th><th>승점</th><th>승</th><th>무</th><th>패</th><th>득점</th><th>실점</th><th>득실</th></tr></thead><tbody><tr class="${scope === '통합' ? 'just-bold' : ''}"><td>${sc.matches}</td><td>${sc.pts}</td><td>${sc.w}</td><td>${sc.d}</td><td>${sc.l}</td><td>${sc.gf}</td><td>${sc.ga}</td><td>${gdStr}</td></tr></tbody></table></div>` : '<div class="record-box empty-preview-msg">데이터 없음</div>'}</div>`;
             });
             html += `</div>`;
 
@@ -714,10 +1041,10 @@
             const uniqueTitles = [...new Set(groupRanks.map(r => r.title))];
             uniqueTitles.forEach((title, tIdx) => {
                 const rankId = `club_rank_${gIdx}_${tIdx}`;
-                html += `<div class="group-${rankId}" style="margin-top:25px;"><span class="rep-record-label" style="font-size:12px; color:#666;">[${title}]</span>${renderScopeTabs(rankId)}`;
+                html += `<div class="group-${rankId} rank-group-block"><span class="rep-record-label">[${title}]</span>${renderScopeTabs(rankId)}`;
                 ["통합", "홈", "원정"].forEach(scope => {
                     const r = groupRanks.find(rank => rank.title === title && rank.scope === scope);
-                    html += `<div class="scope-content" data-scope="${scope}" style="${scope === '통합' ? 'display:block;' : 'display:none;'}">${r ? renderTeamRankingTable(r, false) : '<div class="record-box" style="text-align:center; color:#ccc; font-size:11px;">기록 없음</div>'}</div>`;
+                    html += `<div class="scope-content" data-scope="${scope}" style="${scope === '통합' ? 'display:block;' : 'display:none;'}">${r ? renderTeamRankingTable(r, false) : '<div class="record-box empty-preview-msg">기록 없음</div>'}</div>`;
                 });
                 html += `</div>`;
             });
@@ -727,8 +1054,8 @@
     }
 
     function renderCompTabs(comps, containerId) {
-        let btns = comps.map(c => `<button class="tab-btn ${c==='전체'?'active':''}" onclick="switchComp(this, '${containerId}', '${c}')">${c}</button>`).join('');
-        return `<div class="tab-container" style="margin-bottom:10px;">${btns}</div><hr style="border:0; border-top:1px solid #eee; margin-bottom:15px;">`;
+        let btns = comps.map(c => `<button class="tab-btn ${c==='전체'?'active':''}" glass="true" onclick="switchComp(this, '${containerId}', '${c}')">${c}</button>`).join('');
+        return `<div class="tab-container" style="margin-bottom:10px;">${btns}</div><hr class="comp-divider">`;
     }
 
     window.switchComp = (btn, containerId, comp) => {
@@ -751,24 +1078,24 @@
                 const sign = item.rankJump > 0 ? "+" : ""; 
                 rankBadge = `<span class="rank-change-badge ${cls}">${sign}${item.rankJump}</span>`;
             }
-            const valDisplay = ranking.type === 'streak' ? `${item.val} <span style="font-size:10px; color:#888;">${item.detail}</span>` : `${item.val}`;
+            const valDisplay = ranking.type === 'streak' ? `${item.val} <span class="streak-detail">${item.detail}</span>` : `${item.val}`;
             const oppStart = isH2H ? "" : ` (vs ${item.start.opp})`;
             const oppEnd = isH2H ? "" : ` (vs ${item.end.opp})`;
             const periodInfo = ranking.type === 'match' 
-                ? `${item.start.date} ${item.start.round}${oppStart} <b style="color:var(--sefc-blue); margin-left:5px;">[${item.score}]</b>` 
+                ? `${item.start.date} ${item.start.round}${oppStart} <b class="match-score-tag">[${item.score}]</b>` 
                 : `${item.start.date} ${item.start.round}${oppStart}<br>~ ${item.end.date} ${item.end.round}${oppEnd}`;
             return `<tr class="${item.isCurrent ? 'hero-target' : ''}"><td class="col-rank">${curR}${rankBadge}</td><td class="col-val" style="width:110px; text-align:left;">${valDisplay}</td><td class="col-period">${periodInfo}</td></tr>`;
         }).join('');
         return `<div class="record-box"><table><thead><tr><th class="col-rank">순위</th><th class="col-val">기록</th><th>구간</th></tr></thead><tbody>${rows}</tbody></table></div>`;
     }
 
-    function renderGroupedResults(records, playerA) {
+    function renderGroupedResults(records, allPlayers) {
         const container = $('#analysis-content');
         const groupedByPlayer = {};
         records.forEach(r => { if (!groupedByPlayer[r.pid]) groupedByPlayer[r.pid] = []; groupedByPlayer[r.pid].push(r); });
-        Object.keys(groupedByPlayer).sort((a,b) => (playerA[a]?.name||a).localeCompare(playerA[b]?.name||b)).forEach(pid => {
-            const pName = playerA[pid]?.name || pid; const playerRecords = groupedByPlayer[pid];
-            let playerHtml = `<div class="player-section"><div class="player-header" onclick="toggleSection(this)">${pName}<span class="status-tag">${playerRecords.length}개의 기록 경신</span></div><div class="player-content">`;
+        Object.keys(groupedByPlayer).sort((a,b) => getPlayerDisplayName(allPlayers, a).localeCompare(getPlayerDisplayName(allPlayers, b))).forEach(pid => {
+            const pName = getPlayerDisplayName(allPlayers, pid); const playerRecords = groupedByPlayer[pid];
+            let playerHtml = `<div class="player-section" glass="true"><div class="player-header" onclick="toggleSection(this)">${pName}<span class="status-tag">${playerRecords.length}개의 기록 경신</span></div><div class="player-content">`;
             const categories = {};
             playerRecords.forEach(r => {
                 let key = r.subType === 'TOTAL' ? `TOTAL_${r.cat}` : (r.subType === 'WINDOW' ? `WINDOW_${r.cat}` : `STREAK`);
@@ -778,14 +1105,15 @@
                 const group = categories[key]; if (key.startsWith('WINDOW')) group.sort((a,b) => a.n - b.n);
                 const rep = group[0]; const others = group.slice(1);
                 let displayTitle = key.startsWith('WINDOW') ? `연속 n경기 최다 ${CAT_LABELS[rep.cat]} 기록` : rep.title;
-                let groupHtml = `<div class="category-wrapper"><div class="category-title-bar" onclick="toggleCategory(this)"><b>${displayTitle}</b>${others.length > 0 ? `<span class="update-badge" style="background:#eee; color:#666; border-color:#ddd;">외 ${others.length}개</span>` : ''}</div><div class="record-item-area"><span class="rep-record-label">[대표 기록: ${rep.title}]</span>${renderRecordTable(rep, playerA, pid)}${others.length > 0 ? `<button class="btn-more-toggle" onclick="toggleMore(this)">다른 모든 경기 수 구간 보기 (+${others.length})</button><div class="more-records-container">${others.map(o => `<div style="margin-top:25px; padding-top:15px; border-top:1px dashed #eee;"><span class="rep-record-label" style="font-size:13px; color:#aaa;">[${o.title}]</span>${renderRecordTable(o, playerA, pid)}</div>`).join('')}</div>` : ''}</div></div>`;
+                const moreLabel = `다른 모든 경기 수 구간 보기 (+${others.length})`;
+                let groupHtml = `<div class="category-wrapper"><div class="category-title-bar" onclick="toggleCategory(this)"><b>${displayTitle}</b>${others.length > 0 ? `<span class="update-badge badge-neutral">외 ${others.length}개</span>` : ''}</div><div class="record-item-area"><span class="rep-record-label">[대표 기록: ${rep.title}]</span>${renderRecordTable(rep, allPlayers, pid)}${others.length > 0 ? `<button class="btn-more-toggle" glass="true" data-label="${moreLabel}" onclick="toggleMore(this)">${moreLabel}</button><div class="more-records-container">${others.map(o => `<div class="more-record-block"><span class="rep-record-label">[${o.title}]</span>${renderRecordTable(o, allPlayers, pid)}</div>`).join('')}</div>` : ''}</div></div>`;
                 playerHtml += groupHtml;
             });
             container.append(playerHtml + `</div></div>`);
         });
     }
 
-    function renderRecordTable(r, playerA, targetPid) {
+    function renderRecordTable(r, allPlayers, targetPid) {
         let lastV = -1, curR = 0;
         const rows = r.list.map((item, idx) => {
             if(item.val !== lastV) curR = idx + 1;
@@ -796,7 +1124,7 @@
             const isRankUp = (item.rankJump === 'NEW' || (typeof item.rankJump === 'number' && item.rankJump > 0)); // 순위 상승 여부
             
             let rowClass = "";
-            let nameStyle = "";
+            let nameClass = "";
 
             // [로직 적용]
             if (isTarget && item.isCurrent) {
@@ -808,10 +1136,10 @@
                     rowClass = "hero-orange";
                 } else {
                     // 3. 본인이 아니고 이번 경기 출전했으나 순위 변동 없음: 볼드체만
-                    nameStyle = "font-weight:800; color:#222;";
+                    nameClass = " player-active-bold";
                 }
             }
-            // 4. 나머지: 강조 없음 (rowClass, nameStyle 공백)
+            // 4. 나머지: 강조 없음 (rowClass, nameClass 공백)
 
             let rankBadge = "";
             if (item.rankJump === 'NEW') rankBadge = `<span class="rank-change-badge rank-new">NEW</span>`;
@@ -829,7 +1157,7 @@
 
             return `<tr class="${rowClass}">
                 <td class="col-rank">${curR}${rankBadge}</td>
-                <td class="col-name" style="${nameStyle}">${playerA[item.pid]?.name || item.pid}${statBadge}</td>
+                <td class="col-name${nameClass}">${getPlayerDisplayName(allPlayers, item.pid)}${statBadge}</td>
                 <td class="col-val">${item.val}</td>
                 <td class="col-period">${item.start.date} ${item.start.round} (vs ${item.start.opp})<br>~ ${item.end.date} ${item.end.round} (vs ${item.end.opp})</td>
             </tr>`;
@@ -849,16 +1177,18 @@
         if (!open) { $(el).addClass('cat-active'); $t.slideDown(150); } 
     };
     window.toggleMore = (el) => { 
-        $(el).next().slideToggle(150); 
-        const txt = $(el).text(); 
-        $(el).text(txt.includes('보기') ? '기록 접기 ▲' : txt.replace('접기 ▲', '보기')); 
+        const $btn = $(el);
+        const $target = $btn.next();
+        if (!$btn.attr('data-label')) $btn.attr('data-label', $btn.text());
+        const isVisible = $target.is(':visible');
+        $target.slideToggle(150);
+        $btn.text(isVisible ? $btn.attr('data-label') : '기록 접기 ▲');
     };
 
     function renderHero(id, m) {
         $('#match-hero').html(`<div class="team-box"><img src="../files/${m.home[1]}_s.png"><div>${m.home[0]}</div></div><div class="score">${m.homeScore} : ${m.awayScore}</div><div class="team-box"><img src="../files/${m.away[1]}_s.png"><div>${m.away[0]}</div></div>`);
         $('#match-info-text').text(`${m.comp[0]} | ${m.round} (${id.substring(0,4)}.${id.substring(4,6)}.${id.substring(6,8)}.) 리포트`);
     }
-    $(document).ready(init);
 </script>
 </body>
 </html>

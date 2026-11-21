@@ -5,44 +5,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Page-Enter" content="revealtrans(duration=1, transition=23)">
-    <meta property="og:url" content="sefc.info">
+    <meta property="og:url" content="https://sefc.info/matchlog">
     <meta property="og:title" content="SEFCiNFO - 서울 이랜드 FC 팬 페이지">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="./files/thumbnail.jpg">
+    <meta property="og:image" content="https://sefc.info/files/thumbnail.jpg">
     <meta property="og:description" content="서울 이랜드 FC의 모든 것">
     <meta name="description" content="서울 이랜드 FC의 모든 정보를 이곳에서 확인하세요!">
-    <meta name="keywords" content="서울, 서울 이랜드, 서울 이랜드 FC. SEFC. SEFCiNFO">
-    <link rel="stylesheet" href="style1.css" media="screen and (max-width: 768px)">
+    <meta name="keywords" content="서울, 서울 이랜드, 서울 이랜드 FC, SEFC, SEFCiNFO">
+    <link rel="stylesheet" href="style1.css" media="screen and (max-width: 767.98px)">
     <link rel="stylesheet" href="style2.css" media="screen and (min-width: 768px)">
     <title>SEFCiNFO - 직관 기록</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://www.youtube.com/iframe_api"></script>
     <link rel="icon" type="image/x-icon" href="./files/favicon.png">
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="39318110-e4f0-4fd3-87a9-3f0c2b33fe85" type="text/javascript" async></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://npmcdn.com/flatpickr/dist/l10n/ko.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async
+        src="https://www.googletagmanager.com/gtag/js?id=G-85LBNDC5SG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-85LBNDC5SG');
+    </script>
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async
-    src="https://www.googletagmanager.com/gtag/js?id=G-85LBNDC5SG"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-85LBNDC5SG');
-</script>
-
-<header glass='true'>
-    <div><img src='./files/menu.svg' onclick='menu()'></div>
-    <div><img src="./files/sefcinfo.svg"></div>
-</header>
-
 <body oncontextmenu="return false">
+
+    <header glass='true'>
+        <div><img src='./files/menu.svg' onclick='menu()'></div>
+        <div><img src="./files/sefcinfo.svg"></div>
+    </header>
 
     <div id="skeletonMobile">
     </div>
@@ -207,7 +204,7 @@
 
         <div id="addLog" glass="true">
             <p>날짜<span>해당 날짜의 경기 정보를 자동으로 가져와요</span></p>
-            <input type="date" min="2015-03-29" max="" placeholder="날짜 선택">
+            <input type="date" min="2015-03-29" placeholder="날짜 선택">
             <p></p>
             <p></p>
             <p>좌석 정보<span>앉은 좌석 정보를 입력해 주세요</span></p>
@@ -220,14 +217,14 @@
             <textarea></textarea>
             <p>티켓 디자인</p>
             <div>
-                <input type="radio" name="style" value="1" checked> 스타일 1
-                <input type="radio" name="style" value="2"> 스타일 2
-                <input type="radio" name="style" value="3"> 스타일 3
+                <label><input type="radio" name="style" value="1" checked> 스타일 1</label>
+                <label><input type="radio" name="style" value="2"> 스타일 2</label>
+                <label><input type="radio" name="style" value="3"> 스타일 3</label>
             </div>
 
             <div id="styleSample"></div>
 
-            <button type="submit" glass="true">저장</button>
+            <button type="button" id="saveLogBtn" glass="true">저장</button>
         </div>
 
         <div id="addLogBg"></div>

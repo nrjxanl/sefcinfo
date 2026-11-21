@@ -1,6 +1,7 @@
 import { loadData } from './firebase.js';
 
-let teamType = (window.location.href.split('?')[2] == 'A' || window.location.href.split('?')[2] == 'U18' || window.location.href.split('?')[2] == 'U15') ? window.location.href.split('?')[2] : 'A';
+const rawTeamParam = (window.location.href.split('?')[2] || '').split('&')[0].split('#')[0];
+let teamType = (rawTeamParam == 'A' || rawTeamParam == 'U18' || rawTeamParam == 'U15') ? rawTeamParam : 'A';
 
 beforeLoading();
 
@@ -21,6 +22,7 @@ async function initPage() {
         render(dataA, dataU18, dataU15);
     } catch (error) {
         console.error('데이터 불러오기 실패', error);
+        window.showLoadError?.('데이터를 불러오지 못했습니다.');
     }
 
     afterLoading();
@@ -35,10 +37,10 @@ function render(dataA, dataU18, dataU15) {
 
     // 현재 팀 데이터 가져오기
     const getCurrentData = () => {
-        if(teamType == 'A') return dataA;
-        if(teamType == 'U18') return dataU18;
-        if(teamType == 'U15') return dataU15;
-    }
+        if (teamType == 'A') return dataA;
+        if (teamType == 'U18') return dataU18;
+        if (teamType == 'U15') return dataU15;
+    };
 
     // 버튼 역할 지정
     $('.fixturesButton > button:nth-of-type(1)').click(() => teamA(dataA, year, month));
@@ -47,17 +49,23 @@ function render(dataA, dataU18, dataU15) {
 
     // 연월 선언
     try {
-        if (window.location.href.split('?')[1].length == 6) {
-            if ((window.location.href.split('?')[1].substring(0, 4) >= 2015) && (window.location.href.split('?')[1].substring(0, 4) <= currYear)) {
-                year = window.location.href.split('?')[1].substring(0, 4);
+        const rawYm = (window.location.href.split('?')[1] || '').split('&')[0].split('#')[0];
+        if (rawYm.length == 6 && /^\d{6}$/.test(rawYm)) {
+            const qYear = Number(rawYm.substring(0, 4));
+            const qMonth = Number(rawYm.substring(4, 6));
+            if (qYear >= 2015 && qYear <= currYear) {
+                year = rawYm.substring(0, 4);
             } else {
                 year = currYear;
             }
-            if ((window.location.href.split('?')[1].substring(4, 6) >= 1) && (window.location.href.split('?')[1].substring(4, 6) <= 12)) {
-                month = window.location.href.split('?')[1].substring(4, 6);
+            if (qMonth >= 1 && qMonth <= 12) {
+                month = rawYm.substring(4, 6);
             } else {
                 month = currMonth;
             }
+        } else {
+            year = currYear;
+            month = currMonth;
         }
     } catch (error) {
         year = currYear;
@@ -69,7 +77,7 @@ function render(dataA, dataU18, dataU15) {
     }
 
     // 기본 함수 실행
-    switch(teamType) {
+    switch (teamType) {
         case 'A':
             teamA(dataA, year, month);
             break;
@@ -150,13 +158,13 @@ function loadFixtures(data, year, month) {
     const target = `${year}${month}`;
     const filtered = {};
 
-    Object.keys(data).forEach(key => {
+    Object.keys(data || {}).forEach(key => {
         if (key.startsWith(target)) {
             filtered[key] = data[key];
         }
-    })
+    });
 
-    const keys = Object.keys(filtered);
+    const keys = Object.keys(filtered).sort();
 
     switch (teamType) {
         case 'A':
@@ -184,8 +192,8 @@ function loadFixtures(data, year, month) {
         const awayScore = matchData['awayScore'];
         const isHome = (matchData['home'][1] == 'seouleland') ? 1 : 0;
 
-        const date = parseInt(keys[i].substring(6, 8));
-        const day = "일월화수목금토"[new Date(year, month - 1, date).getDay()];
+        const date = parseInt(keys[i].substring(6, 8), 10);
+        const day = "일월화수목금토"[new Date(Number(year), Number(month) - 1, date).getDay()];
 
         $(`#fixtures${teamType} > .fixtures`).append(`
             <div id = '${keys[i]}' class='fixtures_' glass='true'>
@@ -202,7 +210,7 @@ function loadFixtures(data, year, month) {
                     </div>
                     <div>
                         <p>${homeScore} : ${awayScore}</p>
-                        <p glass='true'>${parseInt(month)}.${parseInt(date)}.(${day}) ${matchData['time']}</p>
+                        <p glass='true'>${parseInt(month, 10)}.${parseInt(date, 10)}.(${day}) ${matchData['time']}</p>
                     </div>
                     <div>
                         <div>
@@ -215,10 +223,13 @@ function loadFixtures(data, year, month) {
         `);
 
         // 승무패 색상
-        if (homeScore != undefined && homeScore != '') {
-            if ((isHome && (homeScore.replace(/<span[^>]*>.*?<\/span>/gi, "") > awayScore.replace(/<span[^>]*>.*?<\/span>/gi, ""))) || (!(isHome) && (homeScore.replace(/<span[^>]*>.*?<\/span>/gi, "") < awayScore.replace(/<span[^>]*>.*?<\/span>/gi, "")))) {
+        if (homeScore != undefined && homeScore != '' && awayScore != undefined && awayScore != '') {
+            const homeScoreNum = Number(String(homeScore).replace(/<span[^>]*>.*?<\/span>/gi, "").trim());
+            const awayScoreNum = Number(String(awayScore).replace(/<span[^>]*>.*?<\/span>/gi, "").trim());
+
+            if ((isHome && (homeScoreNum > awayScoreNum)) || (!(isHome) && (homeScoreNum < awayScoreNum))) {
                 $(`#fixtures${teamType} > .fixtures > .fixtures_:nth-of-type(${i + 1}) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)`).css({ 'color': '#faf6f5', 'background': '#374df5c0', 'border': '1px solid #374df5c0' });
-            } else if ((!(isHome) && (homeScore.replace(/<span[^>]*>.*?<\/span>/gi, "") > awayScore.replace(/<span[^>]*>.*?<\/span>/gi, ""))) || (isHome && (homeScore.replace(/<span[^>]*>.*?<\/span>/gi, "") < awayScore.replace(/<span[^>]*>.*?<\/span>/gi, "")))) {
+            } else if ((!(isHome) && (homeScoreNum > awayScoreNum)) || (isHome && (homeScoreNum < awayScoreNum))) {
                 $(`#fixtures${teamType} > .fixtures > .fixtures_:nth-of-type(${i + 1}) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)`).css({ 'color': '#faf6f5', 'background': '#e0000060', 'border': '1px solid #e0000060' });
             } else {
                 $(`#fixtures${teamType} > .fixtures > .fixtures_:nth-of-type(${i + 1}) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)`).css({ 'color': '#faf6f5', 'background': '#05090a40', 'border': '1px solid #05090a40' });
@@ -227,7 +238,7 @@ function loadFixtures(data, year, month) {
 
         // 데이터 없을 때 대체
         if (homeScore == undefined || homeScore == '') $(`#fixtures${teamType} > .fixtures > .fixtures_:nth-of-type(${i + 1}) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)`).text(`vs`);
-        if (matchData['time'] == undefined || matchData['time'] == '') $(`#fixtures${teamType} > .fixtures > .fixtures_:nth-of-type(${i + 1}) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)`).text(`${parseInt(month)}.${parseInt(date)}.(${day})`).css('padding', '2px 20px');
+        if (matchData['time'] == undefined || matchData['time'] == '') $(`#fixtures${teamType} > .fixtures > .fixtures_:nth-of-type(${i + 1}) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)`).text(`${parseInt(month, 10)}.${parseInt(date, 10)}.(${day})`).css('padding', '2px 20px');
     }
 
     if (keys.length == 0) {

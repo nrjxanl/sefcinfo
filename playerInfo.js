@@ -29,6 +29,7 @@ async function initPage() {
         render(dataA, dataU18, dataU15, playerA, playerU18, playerU15, playerNum);
     } catch (error) {
         console.error('데이터 불러오기 실패', error);
+        window.showLoadError?.('데이터를 불러오지 못했습니다.');
     }
 
     afterLoading();
@@ -37,41 +38,31 @@ async function initPage() {
 initPage();
 
 function render(dataA, dataU18, dataU15, playerA, playerU18, playerU15, playerNum) {
-    const id = window.location.href.split('?')[1];
+    const rawId = (window.location.href.split('?')[1] || '').split('&')[0].split('#')[0];
+    const id = rawId.trim();
     const teamType = ['A', 'U18', 'U15'];
-    
-    const playerKeysA = Object.keys(playerA);
-    const playerKeysU18 = Object.keys(playerU18);
-    const playerKeysU15 = Object.keys(playerU15);
 
-    // 선수 정보 표시
-    let player, playerType;
+    // 선수 정보 순차 탐색 (무한 루프 방지)
+    const playerPools = {
+        A: playerA || {},
+        U18: playerU18 || {},
+        U15: playerU15 || {}
+    };
 
-    loop: while (true) {
-        for (let i = 0; i < playerKeysA.length; i++) {
-            if (playerKeysA[i] == id) {
-                player = playerA;
-                playerType = 'A';
-                break loop;
-            }
-        }
-        for (let i = 0; i < playerKeysU18.length; i++) {
-            if (playerKeysU18[i] == id) {
-                player = playerU18;
-                playerType = 'U18';
-                break loop;
-            }
-        }
-        for (let i = 0; i < playerKeysU15.length; i++) {
-            if (playerKeysU15[i] == id) {
-                player = playerU15;
-                playerType = 'U15';
-                break loop;
-            }
+    let player = null;
+    for (const t of teamType) {
+        if (id && playerPools[t][id]) {
+            player = playerPools[t];
+            break;
         }
     }
 
-    playerInfo(id, player, playerNum);
+    if (!player) {
+        window.showLoadError?.('선수 정보를 찾을 수 없습니다.');
+        return;
+    }
+
+    playerInfo(id, player, playerNum || {});
 
     // 선수 스탯 찾아서 저장
     let playerData = {
@@ -91,13 +82,13 @@ function render(dataA, dataU18, dataU15, playerA, playerU18, playerU15, playerNu
 
         switch (type) {
             case 'A':
-                loadStat(id, dataA, playerData, type);
+                loadStat(id, dataA || {}, playerData, type);
                 break;
             case 'U18':
-                loadStat(id, dataU18, playerData, type);
+                loadStat(id, dataU18 || {}, playerData, type);
                 break;
             case 'U15':
-                loadStat(id, dataU15, playerData, type);
+                loadStat(id, dataU15 || {}, playerData, type);
                 break;
             default: ;
         }
@@ -113,9 +104,9 @@ function render(dataA, dataU18, dataU15, playerA, playerU18, playerU15, playerNu
 
     // PC 버전 margin 수정
     if ($(window).width() >= 768) {
-        if ($('#playedSEFC').length) {
+        if ($('#playedSEFC').css('display') !== 'none') {
             $('#playedSEFCU18, #playedSEFCU15').css('margin-left', '0');
-        } else if ($('#playedSEFCU18').length) {
+        } else if ($('#playedSEFCU18').css('display') !== 'none') {
             $('#playedSEFCU15').css('margin-left', '0');
         }
     }
@@ -126,53 +117,55 @@ function render(dataA, dataU18, dataU15, playerA, playerU18, playerU15, playerNu
     }
 
     // 모두 보기 버튼 기능
-    let click = 0;
     $('[id^=playedSEFC] > p:nth-of-type(2)').click(function() {
-        let teamType = this.parentNode.id.replace('playedSEFC', '');
+        let tType = this.parentNode.id.replace('playedSEFC', '');
         
         $('#playedMatchBG').css('display', 'block').animate({ opacity: '1' }, 300);
-        $(`#playedMatch${teamType}`).animate({ bottom: '0' }, 300);
+        $(`#playedMatch${tType}`).animate({ bottom: '0' }, 300);
 
-        $('body').css({ 'overflow': 'hidden' })
-
-        click = 1;
+        $('body').css({ 'overflow': 'hidden' });
     });
 
     $('#playedMatchBG').click(function () {
         $('#playedMatchBG').animate({ opacity: '0' }, 300, function () {
-            $('#playedMatchBG').css('display', 'none')
-        })
+            $('#playedMatchBG').css('display', 'none');
+        });
 
-        $('[id^=playedMatch]').animate({ bottom: '-100vh' }, 300)
+        $('[id^=playedMatch]').animate({ bottom: '-100vh' }, 300);
 
-        $('body').css({ 'overflow': 'scroll' })
-
-        click = 0
-    })
+        $('body').css({ 'overflow': '' });
+    });
 }
 
 function playerInfo(id, player, playerNum) {
+    const info = player[id] || {};
+    const now = new Date();
+    const currYear = now.getFullYear();
 
-    let bd = `${player[id]['bd'].substring(2, 4)}.${player[id]['bd'].substring(4, 6)}.${player[id]['bd'].substring(6, 8)}.`;
-    let height = player[id]['height'];
-    let num = (playerNum[new Date().getFullYear()][id] != undefined) ? playerNum[new Date().getFullYear()][id][1] : '';
-    let name = player[id]['name'].replace(/[0-9]/g, '');
-    let natl = player[id]['natl'];
-    let pos = player[id]['pos'];
-    let sns = player[id]['sns'];
-    let isSefc = (player[id]['sefc'] == 'O') ? true : false;
+    const rawBd = String(info['bd'] || '');
+    const hasBd = rawBd.length === 8 && /^\d{8}$/.test(rawBd);
+    const bd = hasBd ? `${rawBd.substring(2, 4)}.${rawBd.substring(4, 6)}.${rawBd.substring(6, 8)}.` : '...';
+    const height = info['height'] || '';
+    let num = (playerNum?.[currYear]?.[id] != undefined) ? playerNum[currYear][id][1] : '';
+    const name = String(info['name'] || '').replace(/[0-9]/g, '');
+    const natl = info['natl'] || '';
+    const pos = info['pos'] || '';
+    const sns = info['sns'] || '';
+    const isSefc = (info['sefc'] == 'O') ? true : false;
 
-    let age = new Date().getFullYear() - parseInt(player[id]['bd'].substring(0, 4)) - (((new Date().getMonth() + 1) * 100 + new Date().getDate()) < parseInt(player[id]['bd'].substring(4, 8)) ? 1 : 0);
+    const age = hasBd
+        ? (currYear - parseInt(rawBd.substring(0, 4), 10) - (((now.getMonth() + 1) * 100 + now.getDate()) < parseInt(rawBd.substring(4, 8), 10) ? 1 : 0))
+        : NaN;
     
     // 준프로 등번호
-    if (name == "양승민") num = 25;
+    if (currYear == 2026 && name == "양승민") num = 25;
 
     $('#playerProfile > div:nth-of-type(1) > p').text(pos);
 
     if (isSefc) $('#playerProfile > div:nth-of-type(2) > p').html(`<span>${num}</span>${name}`);
     else $('#playerProfile > div:nth-of-type(2) > p').html(`${name}`);
 
-    $('#playerProfile > div:nth-of-type(2) > div > img').attr('src', `./files/${natl}.svg`);
+    if (natl) $('#playerProfile > div:nth-of-type(2) > div > img').attr('src', `./files/${natl}.svg`);
 
     if (sns != '') $('#playerSNS').attr('href', `https://www.instagram.com/${sns}`);
     else {
@@ -180,14 +173,14 @@ function playerInfo(id, player, playerNum) {
         $('#playerSNS > div > img').css('opacity', '.5');
     }
     
-    $('#playerInfo > div:nth-of-type(1) > p:nth-of-type(2)').text(natl);
+    $('#playerInfo > div:nth-of-type(1) > p:nth-of-type(2)').text(natl || '-');
     $('#playerInfo > div:nth-of-type(2) > p:nth-of-type(2)').text(`${(height != '') ? (height + '㎝') : '-'}`);
 
-    $('#playerInfo > div:nth-of-type(3) > p:nth-of-type(1)').text((bd != '...') ? bd : '나이');
-    $('#playerInfo > div:nth-of-type(3) > p:nth-of-type(2)').text(`${(bd != '...') ? (age + '세') : '-'}`);
+    $('#playerInfo > div:nth-of-type(3) > p:nth-of-type(1)').text(hasBd ? bd : '나이');
+    $('#playerInfo > div:nth-of-type(3) > p:nth-of-type(2)').text(`${hasBd ? (age + '세') : '-'}`);
 
     // 페이지명
-    $('title').text(`SEFCiNFO - ${name}(${bd})`);
+    $('title').text(hasBd ? `SEFCiNFO - ${name}(${bd})` : `SEFCiNFO - ${name}`);
 }
 
 function loadStat(id, data, playerData, teamType) {
@@ -204,7 +197,7 @@ function loadStat(id, data, playerData, teamType) {
     ];
 
     for (let year = 2015; year <= currYear; year++) {
-        const dataKeys = Object.keys(data).filter((id) => id.substring(0, 4) == year);
+        const dataKeys = Object.keys(data).filter((key) => key.substring(0, 4) == year).sort();
 
         for (let i = 0; i < dataKeys.length; i++) {
             const matchId = dataKeys[i];
@@ -214,22 +207,23 @@ function loadStat(id, data, playerData, teamType) {
                 let posLength = matchData[pos[j]] != undefined ? matchData[pos[j]].length : 0;
 
                 for (let k = 0; k < posLength; k++) {
-                    let app, appWithRating, g, a, y, r, rating;
-
                     if (id == matchData[pos[j]][k][0]) {
                         // 스탯 배열에 저장
-                        const stat = matchData[pos[j]][k][1];
+                        const stat = String(matchData[pos[j]][k][1] ?? '');
 
-                        app = (/[\d-]/.test(stat)) ? 1 : 0;
-                        appWithRating = (/\d/.test(stat)) ? 1 : 0;
-                        g = stat.split('g').length - 1;
-                        a = stat.split('a').length - 1;
-                        y = stat.split('y').length - 1;
-                        r = stat.split('r').length - 1;
-                        rating = Number(stat.replace(/[a-z]/g, '').replace('-', ''));
+                        const app = (/[\d-]/.test(stat)) ? 1 : 0;
+                        const appWithRating = (/\d/.test(stat)) ? 1 : 0;
+                        const g = stat.split('g').length - 1;
+                        const a = stat.split('a').length - 1;
+                        const y = stat.split('y').length - 1;
+                        const r = stat.split('r').length - 1;
+                        const o = stat.split('o').length - 1;
+                        const ratingRaw = stat.replace(/[a-z]/g, '').replace('-', '').trim();
+                        const rating = ratingRaw !== '' ? Number(ratingRaw) : null;
+                        const ratingAdd = (rating !== null && !isNaN(rating)) ? rating : 0;
 
-                        if (playerData[teamType][year]  == undefined) {
-                            playerData[teamType][year] = [app, appWithRating, g, a, y, r, rating];
+                        if (playerData[teamType][year] == undefined) {
+                            playerData[teamType][year] = [app, appWithRating, g, a, y, r, ratingAdd];
                         } else {
                             playerData[teamType][year][0] += app;
                             playerData[teamType][year][1] += appWithRating;
@@ -237,7 +231,7 @@ function loadStat(id, data, playerData, teamType) {
                             playerData[teamType][year][3] += a;
                             playerData[teamType][year][4] += y;
                             playerData[teamType][year][5] += r;
-                            playerData[teamType][year][6] += rating;
+                            playerData[teamType][year][6] += ratingAdd;
                         }
 
                         // 각 경기 페이지에 표시
@@ -245,25 +239,30 @@ function loadStat(id, data, playerData, teamType) {
                             const opp = matchData['home'][0] == '서울E' ? matchData['away'][1] : matchData['home'][1];
                             const comp = matchData['comp'][1];
                             const date = `${matchId.substring(0, 4)}.${matchId.substring(4, 6)}.${matchId.substring(6, 8)}.`;
+                            const ratingText = (rating !== null && !isNaN(rating)) ? rating.toFixed(1) : '-';
 
-                            $(`#playedMatch${teamType.replace('A', '')} > div`).prepend(`<div class = '${matchId}'><p></p><div><img src = ./files/${opp}_s.png></div><div><img src = ./files/${comp}_s.png></div><p>${date}</p><p>${pos[j]}</p><p></p><p>${rating != '' ? rating.toFixed(1) : '-'}</p></div>`);
+                            $(`#playedMatch${teamType.replace('A', '')} > div`).prepend(`<div class='${matchId}'><p></p><div><img src="./files/${opp}_s.png"></div><div><img src="./files/${comp}_s.png"></div><p>${date}</p><p>${pos[j]}</p><p></p><p>${ratingText}</p></div>`);
 
                             // 스탯 아이콘 표시
-                            for (let i = 0; i < g; i++) {
-                                $(`#playedMatch${teamType.replace('A', '')} > div > div:nth-of-type(1) > p:nth-of-type(4)`).append('<img src = "./files/goal.svg">');
+                            const $iconSlot = $(`#playedMatch${teamType.replace('A', '')} > div > div:nth-of-type(1) > p:nth-of-type(4)`);
+                            for (let cnt = 0; cnt < g; cnt++) {
+                                $iconSlot.append('<img src="./files/goal.svg">');
                             }
-                            for (let i = 0; i < a; i++) {
-                                $(`#playedMatch${teamType.replace('A', '')} > div > div:nth-of-type(1) > p:nth-of-type(4)`).append('<img src = "./files/assist.svg">');
+                            for (let cnt = 0; cnt < a; cnt++) {
+                                $iconSlot.append('<img src="./files/assist.svg">');
                             }
-                            for (let i = 0; i < y; i++) {
-                                $(`#playedMatch${teamType.replace('A', '')} > div > div:nth-of-type(1) > p:nth-of-type(4)`).append('<img src = "./files/yc.svg">');
+                            for (let cnt = 0; cnt < y; cnt++) {
+                                $iconSlot.append('<img src="./files/yc.svg">');
                             }
-                            for (let i = 0; i < r; i++) {
-                                $(`#playedMatch${teamType.replace('A', '')} > div > div:nth-of-type(1) > p:nth-of-type(4)`).append('<img src = "./files/rc.svg">');
+                            for (let cnt = 0; cnt < r; cnt++) {
+                                $iconSlot.append('<img src="./files/rc.svg">');
+                            }
+                            for (let cnt = 0; cnt < o; cnt++) {
+                                $iconSlot.append('<img src="./files/og.svg">');
                             }
 
                             // 평점 칸 배색
-                            if (rating == '') $(`#playedMatch${teamType.replace('A', '')} > div > div:nth-of-type(1) > p:nth-of-type(5)`).css('background', '#00006040');
+                            if (rating === null || isNaN(rating)) $(`#playedMatch${teamType.replace('A', '')} > div > div:nth-of-type(1) > p:nth-of-type(5)`).css('background', '#00006040');
                             else {
                                 const matchColor = colors.find(rule => rating >= rule.l);
                                 if (matchColor) $(`#playedMatch${teamType.replace('A', '')} > div > div:nth-of-type(1) > p:nth-of-type(5)`).css('background', matchColor.c);
@@ -281,7 +280,6 @@ function loadStat(id, data, playerData, teamType) {
 
         // 시즌별 기록 표시
         if (playerData[teamType][year] != undefined && playerData[teamType][year][0] != 0) {
-
             let avgRating = playerData[teamType][year][1] > 0
                 ? (playerData[teamType][year][6] / playerData[teamType][year][1]).toFixed(1)
                 : '-';
@@ -292,7 +290,7 @@ function loadStat(id, data, playerData, teamType) {
 
             $('#statsBySeason > div').each(function () {
                 let yearText = $(this).find('p:nth-of-type(2)').text().replace("'", "");
-                let y = parseInt(yearText) + 2000;
+                let y = parseInt(yearText, 10) + 2000;
 
                 if (year > y) {
                     $(this).before(newHtml);
@@ -307,12 +305,12 @@ function loadStat(id, data, playerData, teamType) {
         }
     }
 
-        // 몇 번째 경기인지 표시
-        const total = playerData[teamType]['total'][0];
+    // 몇 번째 경기인지 표시
+    const total = playerData[teamType]['total'][0];
 
-        $(`#playedMatch${teamType.replace('A', '')} > div > div`).each(function (idx) {
-            $(`#playedMatch${teamType.replace('A', '')} > div > div:nth-of-type(${idx + 1}) > p:nth-of-type(1)`).text(total - idx);
-        })
+    $(`#playedMatch${teamType.replace('A', '')} > div > div`).each(function (idx) {
+        $(`#playedMatch${teamType.replace('A', '')} > div > div:nth-of-type(${idx + 1}) > p:nth-of-type(1)`).text(total - idx);
+    });
 
     // 통산 기록 표시
     if (playerData[teamType]['total'][0] == 0) $(`#playedSEFC${teamType.replace('A', '')}`).css('display', 'none');
@@ -326,7 +324,7 @@ function loadStat(id, data, playerData, teamType) {
         $(`#playedSEFC > div > div:nth-of-type(6) > p:nth-of-type(2)`).text((playerData['A']['total'][1] != 0) ? (playerData['A']['total'][6] / playerData['A']['total'][1]).toFixed(1) : '-');
     } else {
         $(`#playedSEFC${teamType.replace('A', '')} > div > div:nth-of-type(1) > p:nth-of-type(2)`).text(playerData[teamType]['total'][0]);
-        $(`#playedSEFC${teamType.replace('A', '')} > div > div:nth-of-type(2) > p:nth-of-type(2)`).text(playerData[teamType]['total'][3]);
+        $(`#playedSEFC${teamType.replace('A', '')} > div > div:nth-of-type(2) > p:nth-of-type(2)`).text(playerData[teamType]['total'][2]);
         $(`#playedSEFC${teamType.replace('A', '')} > div > div:nth-of-type(3) > p:nth-of-type(2)`).text(playerData[teamType]['total'][4]);
         $(`#playedSEFC${teamType.replace('A', '')} > div > div:nth-of-type(4) > p:nth-of-type(2)`).text(playerData[teamType]['total'][5]);
     }
@@ -340,5 +338,5 @@ function loadStat(id, data, playerData, teamType) {
                 $(this).find('p').css('font-weight', '900');
             }
         }
-    })
+    });
 }

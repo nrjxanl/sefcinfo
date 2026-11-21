@@ -223,7 +223,7 @@ $(document).ready(function () {
                         }
                     }
 
-                    transl()
+                    if (typeof transl === 'function') transl();
                     // console.trace(`Translated(${localStorage.getItem("lang")})`)
                 }
 
@@ -308,7 +308,7 @@ $(document).ready(function () {
                         }
                     }
 
-                    transl()
+                    if (typeof transl === 'function') transl();
                     // console.trace(`Translated(${localStorage.getItem("lang")})`)
                 }
 
@@ -398,7 +398,7 @@ $(document).ready(function () {
                         }
                     }
 
-                    transl()
+                    if (typeof transl === 'function') transl();
                     // console.trace(`Translated(${localStorage.getItem("lang")})`)
                 }
 
@@ -493,7 +493,7 @@ $(document).ready(function () {
                         }
                     })
 
-                    transl()
+                    if (typeof transl === 'function') transl();
                     // console.trace(`Translated(${localStorage.getItem("lang")})`)
                 }
             }
@@ -1400,7 +1400,7 @@ $(document).ready(function () {
             $("#playedSEFC > div > div:nth-of-type(6) > p:nth-of-type(2)").text("-")
         }
 
-        transl()
+        if (typeof transl === 'function') transl();
         // console.trace(`Translated(${localStorage.getItem("lang")})`)
     }
 
@@ -1464,7 +1464,7 @@ $(document).ready(function () {
 
         }
 
-        transl()
+        if (typeof transl === 'function') transl();
         // console.trace(`Translated(${localStorage.getItem("lang")})`)
     })
 
@@ -1676,7 +1676,7 @@ $(document).ready(function () {
             7: "눈 날림",
         }
 
-        const serviceKey = "xyzq7t%2BR5Yii8yb%2F%2F6hvWVoV%2BA4iXQyYN7PXz%2FLcg%2F4vuT9czLa9Xqw7e045JaZcu%2BIiqB15zOdXW1%2FUmn5T9Q%3D%3D";
+        const serviceKey = ""; // 보안상 삭제됨
         let numOfRows = "8";
         let pageNo = "1";
         let dataType = "JSON";
@@ -1767,7 +1767,7 @@ $(document).ready(function () {
                         }
                     }
 
-                    transl()
+                    if (typeof transl === 'function') transl();
                     // console.trace(`Translated(${localStorage.getItem("lang")})`)
                 });
         }
@@ -1820,7 +1820,7 @@ $(document).ready(function () {
                         $("#matchWeather > div").after(`<div><img src='./files/warning.svg'><p transl = 'y'>${wrn}</p></div>`)
                     }
 
-                    transl()
+                    if (typeof transl === 'function') transl();
                     // console.trace(`Translated(${localStorage.getItem("lang")})`)
                 }
             })
@@ -2017,7 +2017,7 @@ $(document).ready(function () {
             }
         }
         
-        transl()
+        if (typeof transl === 'function') transl();
         // console.trace(`Translated(${localStorage.getItem("lang")})`)
     }
 
@@ -2124,7 +2124,7 @@ function playerList_ () {
         })
     })
 
-    transl()
+    if (typeof transl === 'function') transl();
     // console.trace(`Translated(${localStorage.getItem("lang")})`)
 }
 
@@ -2234,7 +2234,7 @@ function fixtures() {
         $("#fixtures" + status_ + " > .fixtures > p").css({ "font-size": "16px", "margin-top": "calc(27px + 5vw)", "font-weight": "300" })
     }
 
-    transl()
+    if (typeof transl === 'function') transl();
     // console.trace(`Translated(${localStorage.getItem("lang")})`)
 }
 
@@ -2499,7 +2499,7 @@ function standings() {
         $("#standingsU18F > p").css("display", "block")
     }
 
-    transl()
+    if (typeof transl === 'function') transl();
     // console.trace(`Translated(${localStorage.getItem("lang")})`)
 }
 
@@ -2803,7 +2803,7 @@ function stats() {
         })
     }
 
-    transl()
+    if (typeof transl === 'function') transl();
     // console.trace(`Translated(${localStorage.getItem("lang")})`)
 }
 
@@ -3158,6 +3158,6 @@ function matchH2H() {
         }
     }
 
-    transl()
+    if (typeof transl === 'function') transl();
     // console.trace(`Translated(${localStorage.getItem("lang")})`)
 }

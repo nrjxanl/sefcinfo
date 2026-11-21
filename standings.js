@@ -1,6 +1,7 @@
 import { loadData } from './firebase.js';
 
-let teamType = (window.location.href.split('?')[2] == 'A' || window.location.href.split('?')[2] == 'U18' || window.location.href.split('?')[2] == 'U15') ? window.location.href.split('?')[2] : 'A';
+const rawTeamParam = (window.location.href.split('?')[2] || '').split('&')[0].split('#')[0];
+let teamType = (rawTeamParam == 'A' || rawTeamParam == 'U18' || rawTeamParam == 'U15') ? rawTeamParam : 'A';
 let click = 0;
 
 beforeLoading();
@@ -11,12 +12,13 @@ async function initPage() {
             standings: 순위
         */
         const standings = await loadData('standings');
-        render(standings);
+        render(standings || {});
     } catch (error) {
         console.error('데이터 불러오기 실패', error);
+        window.showLoadError?.('데이터를 불러오지 못했습니다.');
     }
 
-    // afterLoading 함수가 있다면 실행 (없으면 주석 처리)
+    // afterLoading 함수가 있다면 실행
     if (typeof afterLoading === 'function') afterLoading();
 }
 
@@ -33,9 +35,10 @@ function render(standings) {
 
     // 연도 선언
     try {
-        const urlYear = window.location.href.split('?')[1];
-        if (urlYear && urlYear.length == 4) {
-            if ((urlYear >= 2015) && (urlYear <= currYear)) {
+        const urlYear = (window.location.href.split('?')[1] || '').split('&')[0].split('#')[0];
+        if (urlYear && urlYear.length == 4 && /^\d{4}$/.test(urlYear)) {
+            const qYear = Number(urlYear);
+            if (qYear >= 2015 && qYear <= currYear) {
                 year = urlYear;
             } else {
                 year = currYear;
@@ -85,12 +88,14 @@ function render(standings) {
     }
 
     $('.standingsSeason > p:nth-of-type(2)').click(function () {
-        if (!(year == 2015)) year--;
+        if (year == 2015) return;
+        year--;
         setYear(standings, year, teamType);
     });
 
     $('.standingsSeason > p:nth-of-type(3)').click(function () {
-        if (!(year == currYear)) year++;
+        if (year == currYear) return;
+        year++;
         setYear(standings, year, teamType);
     });
 
@@ -177,7 +182,6 @@ function loadStandings(standings, year, teamType) {
         '수원 삼성 블루윙즈': 'suwonsamsung',
         '아산 무궁화 FC': 'asanmugunghwa',
         '안산 경찰청 축구단': 'ansanpolice',
-        '안산 경찰청 축구단': 'ansanpolice',
         '안산 무궁화 FC': 'ansanmugunghwa',
         'FC 안양': 'fcanyang',
         '용인 FC': 'yonginfc',
@@ -223,174 +227,87 @@ function loadStandings(standings, year, teamType) {
         'FOS': 'fcseoul'
     };
 
+    const buildRow = (row, idx) => {
+        const teamName = row?.[1] ?? '';
+        const cleanTeamName = String(teamName).replace(/ U-15| U-18/gi, '').trim();
+        let teamCode = '';
+        const mappingData = teamNameMap[cleanTeamName];
+
+        if (Array.isArray(mappingData)) {
+            for (let k = 0; k < mappingData.length; k++) {
+                if (parseInt(year, 10) >= mappingData[k].year) {
+                    teamCode = mappingData[k].code;
+                    break;
+                }
+            }
+        } else {
+            teamCode = mappingData || '';
+        }
+
+        const rank = (row?.[0] !== undefined && row?.[0] !== '') ? row[0] : (idx + 1);
+        const w = row?.[3] ?? 0;
+        const d = row?.[4] ?? 0;
+        const l = row?.[5] ?? 0;
+        const gs = row?.[6] ?? 0;
+        const gc = row?.[7] ?? 0;
+        const pts = (row?.[2] !== undefined && row?.[2] !== '') ? row[2] : ((parseInt(w, 10) * 3) + parseInt(d, 10));
+        const gd = (row?.[8] !== undefined && row?.[8] !== '') ? row[8] : (parseInt(gs, 10) - parseInt(gc, 10));
+
+        const rowClass = cleanTeamName.includes('서울 이랜드 FC') ? 'sefc' : '';
+        const imgHtml = teamCode ? `<img src='./files/${teamCode}_s.png'>` : '';
+
+        return $(`
+            <tr class='${rowClass}'>
+                <td>${rank}</td>
+                <td>${imgHtml}</td>
+                <td>${teamName}</td>
+                <td>${pts}</td>
+                <td>${w}</td>
+                <td>${d}</td>
+                <td>${l}</td>
+                <td>${gs}</td>
+                <td>${gc}</td>
+                <td>${gd}</td>
+            </tr>
+        `);
+    };
+
     $('[id^=standings] > div > table > tbody').empty();
 
     if (teamType == 'A') {
         $('[id^=standings]').css('display', 'none');
         $(`#standings${teamType}`).css('display', 'block');
 
-        const teamDataListF = standings[year][teamType];
-        const teamNumF = teamDataListF.length;
-
-        for (let i = 0; i < teamNumF; i++) {
-            let teamName = teamDataListF[i][1];
-            let cleanTeamName = teamName.replace(/ U-15| U-18/gi, '').trim();
-            let teamCode = '';
-            const mappingData = teamNameMap[cleanTeamName];
-
-            if (Array.isArray(mappingData)) {
-                for (let k = 0; k < mappingData.length; k++) {
-                    if (parseInt(year) >= mappingData[k].year) {
-                        teamCode = mappingData[k].code;
-                        break;
-                    }
-                }
-            } else {
-                teamCode = mappingData || '';
+        const teamDataListF = standings?.[year]?.[teamType];
+        if (Array.isArray(teamDataListF)) {
+            for (let i = 0; i < teamDataListF.length; i++) {
+                $(`#standings${teamType} > div > table > tbody`).append(buildRow(teamDataListF[i], i));
             }
-
-            let w = teamDataListF[i][3];
-            let d = teamDataListF[i][4];
-            let l = teamDataListF[i][5];
-            let gs = teamDataListF[i][6];
-            let gc = teamDataListF[i][7];
-            let pts = (parseInt(w) * 3) + parseInt(d);
-            let gd = parseInt(gs) - parseInt(gc);
-
-            let rowClass = cleanTeamName.includes('서울 이랜드 FC') ? 'sefc' : '';
-            
-            let emblemSrc = teamCode ? `./files/${teamCode}_s.png` : '';
-            
-            let $tr = $(`
-                <tr class='${rowClass}'>
-                    <td>${i + 1}</td>
-                    <td><img src='${emblemSrc}'></td>
-                    <td>${teamName}</td>
-                    <td>${pts}</td>
-                    <td>${w}</td>
-                    <td>${d}</td>
-                    <td>${l}</td>
-                    <td>${gs}</td>
-                    <td>${gc}</td>
-                    <td>${gd}</td>
-                </tr>
-            `);
-
-            $(`#standings${teamType} > div > table > tbody`).append($tr);
         }
-        
-        if (typeof applyViewState === 'function') applyViewState();
     } else {
         $('[id^=standings]').css('display', 'none');
         $(`#standings${teamType}, #standings${teamType}F, #standings${teamType}S`).css('display', 'block');
+        $(`#standings${teamType}F > p`).css('display', 'block');
 
         // 전반기
-        const teamDataListF = standings[year][`${teamType}F`];
-        const teamNumF = teamDataListF.length;
-
-        for (let i = 0; i < teamNumF; i++) {
-            let teamName = teamDataListF[i][1];
-            let cleanTeamName = teamName.replace(/ U-15| U-18/gi, '').trim();
-            let teamCode = '';
-            const mappingData = teamNameMap[cleanTeamName];
-
-            if (Array.isArray(mappingData)) {
-                for (let k = 0; k < mappingData.length; k++) {
-                    if (parseInt(year) >= mappingData[k].year) {
-                        teamCode = mappingData[k].code;
-                        break;
-                    }
-                }
-            } else {
-                teamCode = mappingData || '';
+        const teamDataListF = standings?.[year]?.[`${teamType}F`];
+        if (Array.isArray(teamDataListF)) {
+            for (let i = 0; i < teamDataListF.length; i++) {
+                $(`#standings${teamType}F > table > tbody`).append(buildRow(teamDataListF[i], i));
             }
-
-            let w = teamDataListF[i][3];
-            let d = teamDataListF[i][4];
-            let l = teamDataListF[i][5];
-            let gs = teamDataListF[i][6];
-            let gc = teamDataListF[i][7];
-            let pts = (parseInt(w) * 3) + parseInt(d);
-            let gd = parseInt(gs) - parseInt(gc);
-
-            let rowClass = cleanTeamName.includes('서울 이랜드 FC') ? 'sefc' : '';
-            
-            let emblemSrc = teamCode ? `./files/${teamCode}_s.png` : '';
-            
-            let $tr = $(`
-                <tr class='${rowClass}'>
-                    <td>${i + 1}</td>
-                    <td><img src='${emblemSrc}'></td>
-                    <td>${teamName}</td>
-                    <td>${pts}</td>
-                    <td>${w}</td>
-                    <td>${d}</td>
-                    <td>${l}</td>
-                    <td>${gs}</td>
-                    <td>${gc}</td>
-                    <td>${gd}</td>
-                </tr>
-            `);
-
-            $(`#standings${teamType}F > table > tbody`).append($tr);
+        } else {
+            $(`#standings${teamType}F`).css('display', 'none');
         }
 
         // 후반기
-        if (standings[year][`${teamType}S`] != undefined) {
-            const teamDataListS = standings[year][`${teamType}S`];
-            const teamNumS = teamDataListS.length;
-
-            for (let i = 0; i < teamNumS; i++) {
-                let teamName = teamDataListS[i][1];
-                let cleanTeamName = teamName.replace(/ U-15| U-18/gi, '').trim();
-                let teamCode = '';
-                const mappingData = teamNameMap[cleanTeamName];
-
-                if (Array.isArray(mappingData)) {
-                    for (let k = 0; k < mappingData.length; k++) {
-                        if (parseInt(year) >= mappingData[k].year) {
-                            teamCode = mappingData[k].code;
-                            break;
-                        }
-                    }
-                } else {
-                    teamCode = mappingData || '';
-                }
-
-                let w = teamDataListS[i][3];
-                let d = teamDataListS[i][4];
-                let l = teamDataListS[i][5];
-                let gs = teamDataListS[i][6];
-                let gc = teamDataListS[i][7];
-                let pts = (parseInt(w) * 3) + parseInt(d);
-                let gd = parseInt(gs) - parseInt(gc);
-
-                let rowClass = cleanTeamName.includes('서울 이랜드 FC') ? 'sefc' : '';
-
-                let emblemSrc = teamCode ? `./files/${teamCode}_s.png` : '';
-
-                let $tr = $(`
-                <tr class='${rowClass}'>
-                    <td>${i + 1}</td>
-                    <td><img src='${emblemSrc}'></td>
-                    <td>${teamName}</td>
-                    <td>${pts}</td>
-                    <td>${w}</td>
-                    <td>${d}</td>
-                    <td>${l}</td>
-                    <td>${gs}</td>
-                    <td>${gc}</td>
-                    <td>${gd}</td>
-                </tr>
-            `);
-
-                $(`#standings${teamType}S > table > tbody`).append($tr);
+        const teamDataListS = standings?.[year]?.[`${teamType}S`];
+        if (Array.isArray(teamDataListS) && teamDataListS.length > 0) {
+            for (let i = 0; i < teamDataListS.length; i++) {
+                $(`#standings${teamType}S > table > tbody`).append(buildRow(teamDataListS[i], i));
             }
         } else {
             $(`#standings${teamType}S, #standings${teamType}F > p`).css('display', 'none');
         }
-        
-        if (typeof applyViewState === 'function') applyViewState();
     }
 
     if ($(window).width() < 768) {

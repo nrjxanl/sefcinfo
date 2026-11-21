@@ -4,110 +4,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Page-Enter" content="revealtrans(duration=1, transition=23)">
     <title>SEFCiNFO Data Manager</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="icon" type="image/x-icon" href="../files/favicon.png">
     
 <style>
 /* =========================================
-   Paperlogy & KLeague 디자인 가이드라인 반영
-   순위표 가로 스크롤 제거 및 너비 최적화 버전
+   SEFCiNFO 디자인 시스템 통합 (Glassmorphism & Navy/Surface Tokens)
+   DATA MANAGER 전용 스타일
    ========================================= */
 
-/* 1. 폰트 설정 (경로: ../files/) */
-@font-face {font-family: "Paperlogy"; font-weight: 300; src: url(../files/Paperlogy-3Light.ttf);}
-@font-face {font-family: "Paperlogy"; font-weight: 600; src: url(../files/Paperlogy-6SemiBold.ttf);}
-@font-face {font-family: "Paperlogy"; font-weight: 900; src: url(../files/Paperlogy-9Black.ttf);}
-@font-face {font-family: "KLeagueBasic"; font-weight: 900; src: url(../files/KLeagueBasic-Medium.ttf);}
+/* 1. 폰트 설정 (경로: ../files/fonts/) */
+@font-face {font-family: "Paperlogy"; font-weight: 300; src: url(../files/fonts/Paperlogy-3Light.ttf); font-display: swap;}
+@font-face {font-family: "Paperlogy"; font-weight: 600; src: url(../files/fonts/Paperlogy-6SemiBold.ttf); font-display: swap;}
+@font-face {font-family: "Paperlogy"; font-weight: 900; src: url(../files/fonts/Paperlogy-9Black.ttf); font-display: swap;}
+@font-face {font-family: "KLeagueBasic"; font-weight: 900; src: url(../files/fonts/KLeagueBasic-Medium.ttf); font-display: swap;}
 
-/* 2. 기본 초기화 */
+:root {
+    --sefc-blue: #000060;
+    --sefc-navy-75: #000060c0;
+    --sefc-navy-50: #00006080;
+    --sefc-navy-25: #00006040;
+    --sefc-navy-10: #00006010;
+    --sefc-gold: #dfc69f;
+    --sefc-ink: #05090a;
+    --sefc-surface: #faf6f5;
+}
+
+/* 2. 기본 초기화 및 글래스모피즘 */
 * {
-    color: #05090a; 
-    margin: 0; padding: 0; 
-    font-family: "Paperlogy"; 
-    font-weight: 600; 
-    word-break: keep-all; 
-    -webkit-tap-highlight-color: transparent; 
+    color: #05090a;
+    margin: 0; padding: 0;
+    font-family: "Paperlogy";
+    font-weight: 600;
+    word-break: keep-all;
+    -webkit-tap-highlight-color: transparent;
     user-select: none;
     box-sizing: border-box;
 }
 
-/* 스크롤바 숨기기 */
 *::-webkit-scrollbar { display: none; }
 
-html, body { 
-    width: 100%; 
-    overflow-x: hidden; 
-    background: #00006003; 
+[glass="true"] {
+    background: #faf6f540;
+    box-shadow: 0 4px 30px #05090a16;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid #faf6f580;
 }
 
-body { 
-    padding: 40px 15px; 
-    display: flex; 
-    flex-direction: column; 
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+    background: #00006003;
+}
+
+body {
+    padding: 40px 15px 80px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
-h1 { font-family: "Paperlogy"; font-weight: 900; font-size: 26px; color: #000060; margin-bottom: 5px; }
-h2 { font-family: "Paperlogy"; font-weight: 900; font-size: 20px; margin-bottom: 25px; color: #333; }
+h1 { font-family: "Paperlogy"; font-weight: 900; font-size: 24px; color: #000060; margin-bottom: 5px; }
+h2 { font-family: "Paperlogy"; font-weight: 900; font-size: 20px; margin-bottom: 20px; color: #000060; }
 
-/* 3. 로그인 및 상단 UI */
+/* 3. 로그인 및 공통 글래스 헤더 UI */
 #login-container {
-    max-width: 400px; width: 100%; margin-top: 100px; background: white; padding: 40px;
-    border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center;
+    max-width: 400px;
+    width: 100%;
+    margin-top: 100px;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+}
+.admin-desc {
+    color: #05090a80;
+    font-size: 14px;
+    font-weight: 300;
 }
 #btnLogin {
-    width: 100%; padding: 18px; background: #000060; color: white; border: none;
-    border-radius: 30px; cursor: pointer; font-weight: 900; font-size: 16px; margin-top: 25px;
-    transition: transform 0.2s;
+    width: 100%;
+    padding: 16px 18px;
+    background: #00006080;
+    color: #faf6f5;
+    border: 1px solid #00006040;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 900;
+    font-size: 16px;
+    margin-top: 25px;
+    transition: all 0.2s;
+}
+#btnLogin:hover, #btnLogin:active {
+    background: #000060c0;
 }
 #btnLogin:active { transform: scale(0.96); }
 
-#admin-panel { display: none; width: 100%; max-width: 800px; }
-#btnLogout {
-    background: #faf6f5; color: #666; border: 1px solid #eee; padding: 8px 18px;
-    border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: 600;
-}
+#admin-panel { display: none; width: 100%; max-width: 860px; }
 
-.team-selector { 
-    background: #fff; padding: 20px; border-radius: 25px; margin-bottom: 20px; 
-    display: flex; justify-content: center; gap: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); 
+header.admin-header {
+    border-radius: 20px;
+    padding: 18px 24px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
     width: 100%;
 }
-.team-selector label { font-weight: 900; font-size: 16px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+.admin-header-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+.admin-logo img {
+    height: 28px;
+    display: block;
+}
+.admin-title-box h1 {
+    font-size: 20px;
+    font-weight: 900;
+    color: #000060;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+.admin-title-box p {
+    font-size: 13px;
+    font-weight: 300;
+    color: #05090a80;
+    margin: 2px 0 0;
+}
+.admin-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.admin-nav-btn, #btnLogout {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #05090a;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.admin-nav-btn.active, .admin-nav-btn:hover {
+    background: #000060c0;
+    color: #faf6f5;
+    border-color: #00006040;
+}
+#btnLogout:hover {
+    background: #05090a20;
+}
+#btnLogout:active, .admin-nav-btn:active {
+    transform: scale(0.96);
+}
+
+.team-selector {
+    padding: 18px 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+}
+.team-selector label { font-weight: 900; font-size: 16px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; color: #000060; }
 .team-selector input[type="radio"] { transform: scale(1.4); accent-color: #000060; }
 
-.menu-bar { margin-bottom: 25px; display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px; width: 100%; }
+.menu-bar { margin-bottom: 22px; display: flex; gap: 10px; overflow-x: auto; padding-bottom: 8px; width: 100%; }
 .menu-bar button {
-    padding: 12px 24px; border: none; cursor: pointer; white-space: nowrap;
-    background: #fff; color: #aaa; font-weight: 900; border-radius: 30px;
-    font-size: 14px; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    padding: 11px 22px;
+    cursor: pointer;
+    white-space: nowrap;
+    background: #faf6f540;
+    border: 1px solid #faf6f580;
+    color: #05090a80;
+    font-weight: 600;
+    border-radius: 20px;
+    font-size: 14px;
+    transition: all 0.25s;
 }
-.menu-bar button.active { background: #000060; color: #fff; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,96,0.1); }
+.menu-bar button:hover,
+.menu-bar button.active {
+    background: #000060c0;
+    color: #faf6f5;
+    border-color: #00006040;
+    font-weight: 900;
+    transform: translateY(-1px);
+}
 
 /* 4. 카드 및 입력창 공통 */
 textarea.auto-resize {
-    min-height: 52px; /* 기본 input 높이와 비슷하게 설정 */
-    overflow: hidden; /* 글자가 넘칠 때 생기는 스크롤바 숨김 */
-    resize: none; /* 사용자가 마우스로 크기를 마음대로 조절하는 것 방지 */
+    min-height: 52px;
+    overflow: hidden;
+    resize: none;
 }
 
-.form-container { 
-    display: none; background: #fff; padding: 35px; border-radius: 30px; 
-    box-shadow: 0 10px 50px rgba(0,0,0,0.04); border: 1px solid rgba(0,0,60,0.03); 
-    width: 100%; margin-bottom: 50px;
+.form-container {
+    display: none;
+    padding: 32px;
+    border-radius: 20px;
+    width: 100%;
+    margin-bottom: 50px;
     overflow: hidden;
 }
 .form-container.active { display: block; animation: fadeIn 0.4s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.helper-text {
+    font-size: 12px;
+    color: #05090a80;
+    font-weight: 300;
+    line-height: 1.5;
+    margin-top: 8px;
+}
+.form-container > .helper-text {
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+span.helper-text {
+    margin-top: 0;
+}
+
+.empty-preview-msg {
+    color: #05090a60;
+    font-size: 13px;
+    text-align: center;
+    padding: 24px 10px;
+    background: #faf6f540;
+    border-radius: 20px;
+}
+#standings-preview > .empty-preview-msg,
+#rating-summary-box > .empty-preview-msg {
+    background: transparent;
+}
 
 .input-group { margin-bottom: 22px; position: relative; text-align: left; width: 100%; }
 .input-group label { display: block; font-weight: 900; margin-bottom: 10px; font-size: 13px; color: #000060; padding-left: 5px; }
 .input-group input, .input-group select, .input-group textarea {
-    width: 100%; padding: 15px 20px; border: 1px solid #f2f2f5; border-radius: 18px; 
-    font-size: 15px; background: #f9f9fb; font-weight: 600; outline: none; transition: all 0.2s;
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid #05090a20;
+    border-radius: 20px;
+    font-size: 15px;
+    background: #faf6f580;
+    color: #05090a;
+    font-weight: 600;
+    outline: none;
+    transition: all 0.2s;
 }
-.input-group input:focus, .input-group textarea:focus { border-color: #000060; background: #fff; box-shadow: 0 0 0 4px rgba(0,0,96,0.03); }
+.input-group input:focus, .input-group select:focus, .input-group textarea:focus {
+    border-color: #000060;
+    background: #faf6f5d0;
+    box-shadow: 0 0 0 3px #00006010;
+}
 
 #s_data {
     width: 100%;
@@ -120,9 +275,30 @@ textarea.auto-resize {
 }
 
 .btn-inline {
-    position: absolute; right: 10px; top: 0;
-    background: #000060; color: white; border: none; padding: 6px 16px;
-    font-size: 11px; cursor: pointer; border-radius: 15px; font-weight: 900;
+    position: absolute;
+    right: 10px;
+    top: 0;
+    background: #00006080;
+    color: #faf6f5;
+    border: 1px solid #00006040;
+    padding: 6px 16px;
+    font-size: 11px;
+    cursor: pointer;
+    border-radius: 20px;
+    font-weight: 900;
+    transition: all 0.2s;
+}
+.btn-inline:hover, .btn-inline:active {
+    background: #000060c0;
+}
+.btn-inline-sub1 { top: 25px; }
+.btn-inline-sub2 {
+    top: 60px;
+    background: #05090a80;
+    border-color: #05090a40;
+}
+.btn-inline-sub2:hover, .btn-inline-sub2:active {
+    background: #05090a;
 }
 
 .row { display: flex; gap: 15px; width: 100%; }
@@ -132,93 +308,110 @@ textarea.auto-resize {
 .code-wrapper { position: relative; display: flex; align-items: center; gap: 12px; width: 100%; }
 .team-emblem-preview {
     width: 46px; height: 46px; object-fit: contain;
-    background: #fff; border-radius: 15px; padding: 5px; border: 1px solid #eee; display: none; flex-shrink: 0;
+    background: #faf6f580; border-radius: 14px; padding: 5px; border: 1px solid #05090a20; display: none; flex-shrink: 0;
 }
 .hex-wrapper { display: flex; align-items: center; gap: 12px; width: 100%; position: relative; }
 .hex-wrapper .prefix { position: absolute; left: 18px; color: #000060; font-weight: 900; z-index: 1; }
 .hex-wrapper input { padding-left: 35px !important; text-transform: uppercase; font-family: monospace; }
 .color-preview {
-    width: 46px; height: 46px; border-radius: 15px; border: 1px solid #f0f0f4;
-    background-color: #fff; flex-shrink: 0; box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+    width: 46px; height: 46px; border-radius: 14px; border: 1px solid #05090a20;
+    background-color: #faf6f5; flex-shrink: 0; box-shadow: inset 0 0 5px #05090a10;
 }
 
 /* 6. 선수 명단 그리드 */
 .pos-section { margin-bottom: 35px; width: 100%; }
-.pos-title { 
-    font-family: "KLeagueBasic"; font-weight: 900; color: #000060; 
+.pos-title {
+    font-family: "KLeagueBasic"; font-weight: 900; color: #000060;
     margin-bottom: 18px; font-size: 18px; border-left: 6px solid #000060; padding-left: 14px;
 }
-.player-grid-row { 
-    display: grid; 
-    grid-template-columns: 40px minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 0.8fr); 
-    gap: 10px; 
-    margin-bottom: 10px; 
-    align-items: center; 
+.player-grid-row {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 0.8fr);
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center;
     width: 100%;
 }
 .row-index {
-    text-align: center; font-size: 11px; font-weight: 900;;
-    background: #f0f0f4; border-radius: 12px; height: 45px; line-height: 45px;
+    text-align: center; font-size: 11px; font-weight: 900;
+    background: #00006010; color: #000060; border-radius: 12px; height: 45px; line-height: 45px;
 }
-.player-grid-row input { 
-    width: 100%; padding: 12px 5px; font-size: 14px; border: 1px solid #f0f0f4; border-radius: 15px; 
-    height: 45px; background: #f9f9fb; text-align: center;
+.player-grid-row input {
+    width: 100%; padding: 12px 5px; font-size: 14px; border: 1px solid #05090a20; border-radius: 14px;
+    height: 45px; background: #faf6f580; color: #05090a; text-align: center; outline: none; transition: all 0.2s;
+}
+.player-grid-row input:focus {
+    border-color: #000060;
+    background: #faf6f5d0;
+    box-shadow: 0 0 0 3px #00006010;
 }
 .player-grid-row input:nth-child(2) { text-align: left; padding-left: 15px; font-weight: 900; }
 
 /* 7. 등번호 페이지 그리드 (3열) */
-.num-item { 
-    display: grid !important; 
-    grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr) minmax(0, 0.8fr) !important; 
-    gap: 10px; width: 100%; margin-bottom: 10px; 
-}
-#num .player-grid-row[style*="font-weight:bold"] {
-    display: grid !important; 
+.num-item {
+    display: grid !important;
     grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr) minmax(0, 0.8fr) !important;
-    gap: 10px; background: #f0f0f4 !important; color: #000060 !important;
-    padding: 12px; border-radius: 18px; margin-bottom: 15px; width: 100%;
+    gap: 10px; width: 100%; margin-bottom: 10px;
+}
+#num .player-grid-row.num-grid-header {
+    display: grid !important;
+    grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr) minmax(0, 0.8fr) !important;
+    gap: 10px; font-weight: bold; background: #00006010 !important; color: #000060 !important;
+    padding: 12px; border-radius: 14px; margin-bottom: 15px; width: 100%;
+    border: 1px solid #00006020;
+}
+#num .player-grid-row.num-grid-header > * {
+    font-weight: inherit;
+    color: inherit;
 }
 
 /* 8. 세부 지표 디자인 */
 .stat-header {
-    display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr); 
-    gap: 10px; background: #f0f0f4; padding: 12px; border-radius: 18px; 
+    display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr);
+    gap: 10px; background: #00006010; padding: 12px; border-radius: 14px;
     margin-bottom: 12px; font-weight: 900; font-size: 13px; color: #000060; text-align: center; width: 100%;
+    border: 1px solid #00006020;
 }
 .stat-row { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr); gap: 10px; margin-bottom: 10px; width: 100%; }
-.stat-label { background: #f0f0f4; border-radius: 12px; height: 45px; line-height: 45px; text-align: center; font-size: 13px; font-weight: 900; color: #000060; }
-.stat-input { width: 100%; padding: 10px 5px; font-size: 14px; border: 1px solid #f0f0f4; border-radius: 15px; height: 45px; text-align: center; font-weight: 900; background: #f9f9fb; }
+.stat-label { background: #00006010; border-radius: 12px; height: 45px; line-height: 45px; text-align: center; font-size: 13px; font-weight: 900; color: #000060; }
+.stat-input {
+    width: 100%; padding: 10px 5px; font-size: 14px; border: 1px solid #05090a20; border-radius: 14px;
+    height: 45px; text-align: center; font-weight: 900; background: #faf6f580; color: #05090a; outline: none; transition: all 0.2s;
+}
+.stat-input:focus {
+    border-color: #000060;
+    background: #faf6f5d0;
+    box-shadow: 0 0 0 3px #00006010;
+}
 
 /* 9. 순위표 미리보기 - 가로 스크롤 제거 */
-#standings-preview { 
-    margin-top: 25px; 
-    padding: 10px; 
-    background: #f9f9fb; 
-    border-radius: 20px; 
-    border: 1px solid #f0f0f4; 
+#standings-preview {
+    margin-top: 25px;
+    padding: 12px;
+    border-radius: 20px;
     width: 100%;
-    overflow: hidden; /* 스크롤 제거 */
+    overflow: hidden;
 }
-#preview-table { 
-    width: 100%; 
-    border-collapse: collapse; 
+#preview-table {
+    width: 100%;
+    border-collapse: collapse;
     font-size: 13px;
-    table-layout: fixed; /* 칸 너비 고정 */
+    table-layout: fixed;
 }
-#preview-table th { 
-    background: #f0f0f4; 
-    color: #000060; 
-    font-weight: 900; 
-    padding: 12px 1px; 
-    border-bottom: 2px solid #00006015;
+#preview-table th {
+    background: #00006010;
+    color: #000060;
+    font-weight: 900;
+    padding: 12px 1px;
+    border-bottom: 1px solid #05090a20;
     text-align: center;
 }
-#preview-table td { 
-    padding: 10px 1px; 
-    color: #333; 
-    font-weight: 600; 
-    text-align: center; 
-    border-bottom: 1px solid #f0f0f4;
+#preview-table td {
+    padding: 10px 1px;
+    color: #05090a;
+    font-weight: 600;
+    text-align: center;
+    border-bottom: 1px solid #05090a10;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -231,14 +424,38 @@ textarea.auto-resize {
 /* 10. 하단 버튼 */
 .sub-title { font-size: 22px; font-weight: 900; margin: 45px 0 25px; color: #000060; text-align: left; }
 .btn-submit {
-    background: #000060; color: white; padding: 22px; width: 100%; border: none;
-    font-size: 18px; font-weight: 900; border-radius: 25px; cursor: pointer; margin-top: 40px;
-    box-shadow: 0 10px 25px rgba(0,0,96,0.15); transition: all 0.2s;
+    background: #00006080;
+    color: #faf6f5;
+    padding: 20px 22px;
+    width: 100%;
+    border: 1px solid #00006040;
+    font-size: 18px;
+    font-weight: 900;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 40px;
+    box-shadow: 0 4px 20px #05090a16;
+    transition: all 0.2s;
 }
-.btn-submit:active { transform: scale(0.97); }
+.btn-submit:hover, .btn-submit:active {
+    background: #000060c0;
+}
+.btn-submit:active { transform: scale(0.98); }
 .btn-delete {
-    background: #fff; color: #ff4d4d; padding: 15px; width: 100%; border: 1.5px solid #ff4d4d;
-    font-size: 14px; font-weight: 900; border-radius: 25px; cursor: pointer; margin-top: 15px;
+    background: #faf6f580;
+    color: #d63031;
+    padding: 15px;
+    width: 100%;
+    border: 1.5px solid #d63031;
+    font-size: 14px;
+    font-weight: 900;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.2s;
+}
+.btn-delete:hover {
+    background: #fff5f5;
 }
 
 /* 10-1. 평점 계산 탭 전용 스타일 */
@@ -253,19 +470,22 @@ textarea.auto-resize {
     min-height: 115px;
     max-height: 200px;
     padding: 12px 15px;
-    border: 1px solid #f0f0f4;
-    border-radius: 18px;
+    border: 1px solid #05090a20;
+    border-radius: 20px;
     font-size: 12px;
-    background: #f9f9fb;
+    background: #faf6f580;
+    color: #05090a;
     font-family: monospace;
     line-height: 1.45;
     resize: vertical;
     user-select: text;
+    outline: none;
+    transition: all 0.2s;
 }
 .rating-paste-box textarea:focus {
     border-color: #000060;
-    background: #fff;
-    box-shadow: 0 0 0 4px rgba(0,0,96,0.03);
+    background: #faf6f5d0;
+    box-shadow: 0 0 0 3px #00006010;
 }
 .rating-toolbar {
     display: flex;
@@ -273,8 +493,6 @@ textarea.auto-resize {
     align-items: center;
     gap: 12px;
     flex-wrap: wrap;
-    background: #f9f9fb;
-    border: 1px solid #f0f0f4;
     border-radius: 20px;
     padding: 14px 18px;
     margin-top: 10px;
@@ -295,34 +513,52 @@ textarea.auto-resize {
     width: 68px;
     height: 38px;
     border-radius: 12px;
-    border: 1px solid #e0e0e8;
-    background: #fff;
+    border: 1px solid #05090a20;
+    background: #faf6f580;
     text-align: center;
     font-size: 14px;
     font-weight: 900;
     color: #000060;
+    outline: none;
+    transition: all 0.2s;
+}
+.rating-toolbar-left input:focus {
+    border-color: #000060;
+    background: #faf6f5d0;
+    box-shadow: 0 0 0 3px #00006010;
 }
 .btn-small-action {
-    background: #000060;
-    color: #fff;
-    border: none;
-    padding: 9px 15px;
-    border-radius: 14px;
+    background: #00006080;
+    color: #faf6f5;
+    border: 1px solid #00006040;
+    padding: 9px 16px;
+    border-radius: 20px;
     font-size: 12px;
     font-weight: 900;
     cursor: pointer;
     transition: all 0.2s;
 }
+.btn-small-action:hover, .btn-small-action:active {
+    background: #000060c0;
+}
 .btn-small-action.secondary {
-    background: #fff;
-    color: #555;
-    border: 1px solid #ddd;
+    background: #faf6f580;
+    color: #05090a;
+    border: 1px solid #05090a20;
+}
+.btn-small-action.secondary:hover {
+    background: #000060c0;
+    color: #faf6f5;
+    border-color: #00006040;
 }
 .btn-small-action:active { transform: scale(0.96); }
 
 .rating-player-card {
-    background: #fafafc;
-    border: 1px solid #f0f0f4;
+    background: #faf6f540;
+    box-shadow: 0 4px 30px #05090a16;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid #faf6f580;
     border-left: 6px solid #000060;
     border-radius: 20px;
     padding: 16px 18px;
@@ -331,8 +567,8 @@ textarea.auto-resize {
 }
 .rating-player-card.unselected-pos {
     border-left-color: #d63031;
-    background: #fff8f8;
-    border-color: #ffd6d6;
+    background: #fff5f5;
+    border-color: #ffcccc;
 }
 .rating-player-top {
     display: flex;
@@ -356,7 +592,7 @@ textarea.auto-resize {
     height: 28px;
     padding: 0 8px;
     background: #000060;
-    color: #fff;
+    color: #faf6f5;
     border-radius: 10px;
     font-size: 12px;
     font-weight: 900;
@@ -370,19 +606,19 @@ textarea.auto-resize {
     font-size: 11px;
     padding: 3px 8px;
     border-radius: 8px;
-    background: #eef2ff;
+    background: #00006010;
     color: #000060;
     font-weight: 900;
 }
 .rating-sub-badge.sub-tag {
-    background: #fff0e6;
+    background: #fffaf2;
     color: #e67e22;
 }
 .rating-pos-select {
     padding: 8px 14px;
     border-radius: 12px;
-    border: 1.5px solid #d8d8e5;
-    background: #fff;
+    border: 1.5px solid #05090a20;
+    background: #faf6f580;
     font-size: 13px;
     font-weight: 900;
     color: #000060;
@@ -391,7 +627,7 @@ textarea.auto-resize {
 }
 .rating-pos-select.needs-select {
     border-color: #d63031;
-    background: #fff0f0;
+    background: #fff5f5;
     color: #d63031;
 }
 .rating-score-pills {
@@ -404,9 +640,9 @@ textarea.auto-resize {
     font-size: 11px;
     padding: 4px 9px;
     border-radius: 9px;
-    background: #fff;
-    border: 1px solid #ececf2;
-    color: #555;
+    background: #faf6f580;
+    border: 1px solid #05090a20;
+    color: #05090a80;
     font-weight: 600;
 }
 .score-pill b {
@@ -415,12 +651,12 @@ textarea.auto-resize {
 }
 .score-pill.total-pill {
     background: #000060;
-    color: #fff;
+    color: #faf6f5;
     border-color: #000060;
     font-weight: 900;
     font-size: 12px;
 }
-.score-pill.total-pill b { color: #fff; }
+.score-pill.total-pill b { color: #faf6f5; }
 .cs-auto-badge {
     font-size: 10px;
     padding: 3px 7px;
@@ -430,26 +666,40 @@ textarea.auto-resize {
     border: 1px solid #96f2d7;
     font-weight: 900;
 }
+.rating-auto-stats {
+    font-size: 11px;
+    color: #05090a80;
+    background: #faf6f580;
+    border: 1px solid #05090a10;
+    border-radius: 12px;
+    padding: 6px 10px;
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+.rating-auto-stats b {
+    color: #000060;
+    font-weight: 900;
+}
 .rating-manual-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
     gap: 8px;
     padding-top: 10px;
-    border-top: 1px dashed #e6e6ef;
+    border-top: 1px dashed #05090a20;
 }
 .manual-field {
     display: flex;
     flex-direction: column;
     gap: 4px;
-    background: #fff;
+    background: #faf6f580;
     padding: 7px 8px;
     border-radius: 12px;
-    border: 1px solid #f0f0f4;
+    border: 1px solid #05090a10;
 }
 .manual-field label {
     font-size: 10px;
     font-weight: 900;
-    color: #666;
+    color: #05090a80;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -457,22 +707,29 @@ textarea.auto-resize {
 .manual-field input {
     width: 100%;
     height: 30px;
-    border: 1px solid #ebebf0;
-    border-radius: 8px;
+    border: 1px solid #05090a20;
+    border-radius: 12px;
     text-align: center;
     font-size: 13px;
     font-weight: 900;
-    background: #f9f9fb;
+    background: #faf6f580;
     color: #05090a;
+    outline: none;
+    transition: all 0.2s;
+}
+.manual-field input:focus {
+    border-color: #000060;
+    background: #faf6f5d0;
+    box-shadow: 0 0 0 3px #00006010;
 }
 .manual-field input.nonzero-val {
-    background: #eef2ff;
-    border-color: #00006050;
+    background: #00006010;
+    border-color: #00006040;
     color: #000060;
 }
 .manual-field input.nonzero-neg {
     background: #fff5f5;
-    border-color: #ffaaaa;
+    border-color: #ffcccc;
     color: #d63031;
 }
 
@@ -480,9 +737,7 @@ textarea.auto-resize {
 #rating-summary-box {
     margin-top: 15px;
     padding: 12px;
-    background: #f9f9fb;
     border-radius: 20px;
-    border: 1px solid #f0f0f4;
     width: 100%;
     overflow-x: auto;
 }
@@ -493,20 +748,20 @@ textarea.auto-resize {
     table-layout: fixed;
 }
 #rating-summary-table th {
-    background: #f0f0f4;
+    background: #00006010;
     color: #000060;
     font-weight: 900;
     padding: 11px 4px;
-    border-bottom: 2px solid #00006015;
+    border-bottom: 1px solid #05090a20;
     text-align: center;
     font-size: 12px;
 }
 #rating-summary-table td {
     padding: 10px 4px;
-    color: #333;
+    color: #05090a;
     font-weight: 600;
     text-align: center;
-    border-bottom: 1px solid #f0f0f4;
+    border-bottom: 1px solid #05090a10;
     vertical-align: middle;
 }
 #rating-summary-table tr.potm-row {
@@ -520,7 +775,7 @@ textarea.auto-resize {
     display: inline-block;
     padding: 3px 9px;
     border-radius: 10px;
-    color: #fff !important;
+    color: #faf6f5 !important;
     font-weight: 900;
     font-size: 12px;
 }
@@ -537,16 +792,31 @@ textarea.auto-resize {
 }
 .excluded-players-box {
     margin-top: 18px;
-    background: #fafafc;
-    border: 1px solid #f0f0f4;
-    border-radius: 18px;
+    background: #faf6f540;
+    box-shadow: 0 4px 30px #05090a16;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid #faf6f580;
+    border-radius: 20px;
     padding: 14px 18px;
+}
+.excluded-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
 }
 .excluded-players-title {
     font-size: 13px;
     font-weight: 900;
-    color: #666;
+    color: #05090a80;
     margin-bottom: 10px;
+}
+.excluded-empty-msg {
+    font-size: 12px;
+    color: #05090a60;
 }
 .excluded-row {
     display: flex;
@@ -554,12 +824,21 @@ textarea.auto-resize {
     justify-content: space-between;
     gap: 10px;
     flex-wrap: wrap;
-    padding: 8px 10px;
-    background: #fff;
-    border-radius: 12px;
-    border: 1px solid #f0f0f4;
+    padding: 8px 12px;
+    background: #faf6f580;
+    border-radius: 14px;
+    border: 1px solid #05090a10;
     margin-bottom: 6px;
     font-size: 12px;
+}
+.excluded-mins {
+    color: #05090a60;
+    margin-left: 6px;
+}
+.excluded-code {
+    margin-left: 8px;
+    color: #000060;
+    font-weight: 900;
 }
 .excluded-inputs {
     display: flex;
@@ -572,13 +851,15 @@ textarea.auto-resize {
     align-items: center;
     gap: 4px;
     font-size: 11px;
-    color: #555;
+    color: #05090a80;
 }
 .excluded-inputs input {
     width: 42px;
     height: 26px;
-    border: 1px solid #ddd;
-    border-radius: 7px;
+    border: 1px solid #05090a20;
+    border-radius: 8px;
+    background: #faf6f580;
+    color: #05090a;
     text-align: center;
     font-size: 12px;
     font-weight: 900;
@@ -586,29 +867,33 @@ textarea.auto-resize {
 
 /* 11. 모바일 반응형 (768px 이하) */
 @media screen and (max-width: 768px) {
-    body { padding: 25px 15px; }
-    h1 { font-size: 22px; text-align: center; }
-    .form-container { padding: 25px 18px; border-radius: 25px; }
+    body { padding: 20px 12px 60px; }
+    header.admin-header { padding: 14px 16px; }
+    .admin-title-box h1 { font-size: 17px; }
+    .admin-title-box p { font-size: 11px; }
+    .admin-nav-btn, #btnLogout { padding: 6px 12px; font-size: 12px; }
+    .form-container { padding: 22px 16px; border-radius: 20px; }
     .row { flex-direction: column; gap: 0; }
     .rating-paste-grid { grid-template-columns: 1fr; gap: 8px; }
     .rating-manual-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     #rating-summary-table { font-size: 10px; }
     #rating-summary-table th, #rating-summary-table td { padding: 8px 2px; }
-    
+
     .player-grid-row { gap: 6px; grid-template-columns: 35px minmax(0, 1.8fr) minmax(0, 1fr) minmax(0, 0.8fr); }
     .player-grid-row input { font-size: 12px; padding: 8px 2px; height: 42px; }
-    
-    .num-item, #num .player-grid-row[style*="font-weight:bold"] { grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr) minmax(0, 0.7fr) !important; gap: 6px; }
-    
+
+    .num-item, #num .player-grid-row.num-grid-header { grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr) minmax(0, 0.7fr) !important; gap: 6px; }
+
     .stat-row, .stat-header { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) minmax(0, 1fr); gap: 6px; }
     .stat-label, .stat-input { font-size: 11px; height: 42px; line-height: 42px; }
-    
-    /* 모바일 순위표 텍스트 압축 */
+
     #preview-table { font-size: 8px; }
     #preview-table th, #preview-table td { padding: 8px 0.5px; }
     #preview-table td:nth-child(2) { padding-left: 3px; }
 
     .btn-inline { font-size: 10px; padding: 5px 12px; right: 5px; top: -5px; }
+    .btn-inline-sub1 { top: 22px; }
+    .btn-inline-sub2 { top: 54px; }
     .input-group label { font-size: 11px; }
     .sub-title { font-size: 19px; margin: 35px 0 20px; }
 }
@@ -617,41 +902,51 @@ textarea.auto-resize {
 
 <body oncontextmenu="return false">
 
-    <div id="login-container">
+    <div id="login-container" glass="true">
         <h2>관리자 접속</h2>
-        <p style="color:#666; font-size:14px;">데이터 관리를 위해 로그인이 필요합니다.</p>
+        <p class="admin-desc">데이터 관리를 위해 로그인이 필요합니다.</p>
         <button id="btnLogin">G Google 계정으로 로그인</button>
     </div>
 
     <div id="admin-panel">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
-            <h1>SEFCiNFO Data Manager</h1>
-            <button id="btnLogout">로그아웃</button>
-        </div>
+        <header glass="true" class="admin-header">
+            <div class="admin-header-brand">
+                <a href="/" class="admin-logo"><img src="../files/sefcinfo.svg" alt="SEFCiNFO"></a>
+                <div class="admin-title-box">
+                    <h1>DATA MANAGER</h1>
+                    <p>경기 · 평점 · 선수 · 순위 데이터 관리</p>
+                </div>
+            </div>
+            <div class="admin-header-actions">
+                <a href="./data" class="admin-nav-btn active" glass="true">데이터 관리</a>
+                <a href="./stat" class="admin-nav-btn" glass="true">기록 리포트</a>
+                <button id="btnLogout" type="button" glass="true">로그아웃</button>
+            </div>
+        </header>
 
-        <div class="team-selector">
+        <div class="team-selector" glass="true">
             <label><input type="radio" name="teamType" value="A" checked> A팀</label>
             <label><input type="radio" name="teamType" value="U18"> U-18</label>
             <label><input type="radio" name="teamType" value="U15"> U-15</label>
         </div>
 
         <div class="menu-bar">
-            <button onclick="showForm('match')" data-form="match" class="active">경기 기록</button>
-            <button onclick="showForm('rating')" data-form="rating">평점 계산</button>
-            <button onclick="showForm('player')" data-form="player">선수 정보</button>
-            <button onclick="showForm('h2h')" data-form="h2h">상대 전적</button>
-            <button onclick="showForm('num')" data-form="num">등번호</button>
-            <button onclick="showForm('standings')" data-form="standings">순위</button>
+            <button onclick="showForm('match')" data-form="match" class="active" glass="true">경기 기록</button>
+            <button onclick="showForm('rating')" data-form="rating" glass="true">평점 계산</button>
+            <button onclick="showForm('player')" data-form="player" glass="true">선수 정보</button>
+            <button onclick="showForm('h2h')" data-form="h2h" glass="true">상대 전적</button>
+            <button onclick="showForm('num')" data-form="num" glass="true">등번호</button>
+            <button onclick="showForm('standings')" data-form="standings" glass="true">순위</button>
         </div>
 
-        <div id="match" class="form-container active">
+        <div id="match" class="form-container active" glass="true">
             <h2>경기 데이터 추가/수정</h2>
             <div class="row">
                 <div class="input-group">
                     <label>날짜 (YYYYMMDD)</label>
                     <input type="tel" id="m_date" placeholder="예: 20250301">
                     <button class="btn-inline" id="btnSearchMatch">검색 / 불러오기</button>
-                    <p style="font-size:12px; color:#666; margin-top:5px;">* 팀 선택에 따라 끝자리(0, 8, 5)가 자동 생성됩니다.</p>
+                    <p class="helper-text">* 팀 선택에 따라 끝자리(0, 8, 5)가 자동 생성됩니다.</p>
                 </div>
                 <div class="input-group"><label>라운드</label><input type="text" id="m_round"></div>
             </div>
@@ -681,7 +976,7 @@ textarea.auto-resize {
                 <input type="text" id="m_hl" placeholder="youtu.be 제외">
             </div>
 
-            <div class="sub-title">팀 & 스코어</div>
+            <div class="sub-title">팀 &amp; 스코어</div>
             <div class="row">
                 <div class="input-group"><label>홈팀명</label><input type="text" id="m_homeName"></div>
                 <div class="input-group">
@@ -724,7 +1019,7 @@ textarea.auto-resize {
             <button class="btn-delete" id="btnDeleteMatch">현재 날짜의 경기 데이터 삭제</button>
         </div>
 
-        <div id="player" class="form-container">
+        <div id="player" class="form-container" glass="true">
             <h2>선수 상세 정보 추가/수정</h2>
             <div class="input-group">
                 <label>선수 ID</label>
@@ -735,8 +1030,8 @@ textarea.auto-resize {
                 <div class="input-group">
                     <label>이름</label>
                     <input type="text" id="p_name">
-                    <button class="btn-inline" id="btnCheckName" style="top:25px;">중복확인 (동명이인 포함)</button>
-                    <button class="btn-inline" id="btnGenerateId" style="top:60px; background:#444;">ID 난수 생성</button>
+                    <button class="btn-inline btn-inline-sub1" id="btnCheckName">중복확인 (동명이인 포함)</button>
+                    <button class="btn-inline btn-inline-sub2" id="btnGenerateId">ID 난수 생성</button>
                 </div>
                 <div class="input-group"><label>생년월일</label><input type="tel" id="p_bd"></div>
             </div>
@@ -768,7 +1063,7 @@ textarea.auto-resize {
             <button class="btn-delete" id="btnDeletePlayer">현재 ID의 선수 데이터 삭제</button>
         </div>
 
-        <div id="h2h" class="form-container">
+        <div id="h2h" class="form-container" glass="true">
             <h2>상대 전적 추가/수정</h2>
             <div class="input-group">
                 <label>상대팀 코드 (Key)</label>
@@ -810,7 +1105,7 @@ textarea.auto-resize {
             <button class="btn-submit" id="btnSaveH2H">Firebase에 저장</button>
         </div>
 
-        <div id="num" class="form-container">
+        <div id="num" class="form-container" glass="true">
             <h2>등번호 데이터 관리</h2>
             <div class="row">
                 <div class="input-group">
@@ -820,7 +1115,7 @@ textarea.auto-resize {
             </div>
             
             <div class="sub-title">선수 목록 (이름 입력 시 ID 자동)</div>
-            <div class="player-grid-row" style="font-weight:bold; background:#e0e0e0; padding:8px; border-radius:4px;">
+            <div class="player-grid-row num-grid-header">
                 <div style="flex:1.2;">이름</div>
                 <div style="flex:0.9; text-align:center;">ID</div>
                 <div style="flex:0.5; text-align:center;">번호</div>
@@ -829,7 +1124,7 @@ textarea.auto-resize {
             <button class="btn-submit" id="btnSaveNum">전체 리스트 저장 (덮어쓰기)</button>
         </div>
 
-        <div id="standings" class="form-container">
+        <div id="standings" class="form-container" glass="true">
             <h2>순위표 데이터 (자동 계산)</h2>
             <div class="row">
                 <div class="input-group">
@@ -860,16 +1155,16 @@ textarea.auto-resize {
                 </div>
                 <textarea id="s_data" placeholder="예: 서울 이랜드  20  10  6  60  30"></textarea>
                 
-                <div id="standings-preview">
-                    <div style="color:#888; font-size:13px; text-align:center;">데이터를 입력하면 미리보기가 표시됩니다.</div>
+                <div id="standings-preview" glass="true">
+                    <div class="empty-preview-msg">데이터를 입력하면 미리보기가 표시됩니다.</div>
                 </div>
             </div>
             <button class="btn-submit" id="btnSaveStanding">전체 순위 저장 (덮어쓰기)</button>
         </div>
 
-        <div id="rating" class="form-container">
+        <div id="rating" class="form-container" glass="true">
             <h2>선수 평점 자동 계산</h2>
-            <p style="font-size:13px; color:#666; margin-top:-15px; margin-bottom:20px;">
+            <p class="helper-text">
                 * K리그 데이터포털 등에서 <b>공격 / 패스 / 수비 / 골키퍼</b> 표를 복사해 각 칸에 붙여넣으세요.
             </p>
 
@@ -892,12 +1187,12 @@ textarea.auto-resize {
                 </div>
             </div>
 
-            <div class="rating-toolbar">
+            <div class="rating-toolbar" glass="true">
                 <div class="rating-toolbar-left">
                     <label for="r_team_conceded">팀 기본 실점 일괄 설정</label>
                     <input type="number" id="r_team_conceded" min="0" value="0">
                     <button type="button" class="btn-small-action" id="btnApplyTeamConceded">전체 선수 실점 일괄 적용</button>
-                    <span style="font-size:11px; color:#777;">* GK 표 붙여넣기 시 자동 감지되며, 선수별로 개별 수정 가능합니다.</span>
+                    <span class="helper-text">* GK 표 붙여넣기 시 자동 감지되며, 선수별로 개별 수정 가능합니다.</span>
                 </div>
                 <div style="display:flex; gap:8px;">
                     <button type="button" class="btn-small-action secondary" id="btnResetRating">초기화</button>
@@ -906,7 +1201,7 @@ textarea.auto-resize {
 
             <div class="sub-title" style="margin-top:25px;">선수별 포지션 지정 및 세부 기록 조정</div>
             <div id="rating-players-list">
-                <div style="color:#888; font-size:13px; text-align:center; padding:30px 0; background:#f9f9fb; border-radius:20px;">
+                <div class="empty-preview-msg">
                     위 입력창에 데이터를 붙여넣으면 선수 목록이 생성됩니다.
                 </div>
             </div>
@@ -915,8 +1210,8 @@ textarea.auto-resize {
 
             <div class="sub-title">최종 평점 요약표</div>
             <div id="rating-tie-warning" class="tie-warning-banner"></div>
-            <div id="rating-summary-box">
-                <div style="color:#888; font-size:13px; text-align:center; padding:20px 0;">
+            <div id="rating-summary-box" glass="true">
+                <div class="empty-preview-msg">
                     데이터를 입력하면 평점 요약표가 실시간으로 표시됩니다.
                 </div>
             </div>
@@ -935,6 +1230,34 @@ textarea.auto-resize {
         const loginContainer = document.getElementById('login-container');
         const adminPanel = document.getElementById('admin-panel');
 
+        function escapeHtml(str) {
+            return String(str ?? '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        function toSafeDomId(key) {
+            return String(key ?? '').replace(/\s+/g, '_').replace(/[^a-zA-Z0-9가-힣_-]/g, '_');
+        }
+
+        function autoResizeTextarea(el) {
+            if (!el) return;
+            el.style.height = 'auto';
+            el.style.height = el.scrollHeight + 'px';
+        }
+
+        let adminInitialized = false;
+        let nameToIdMap = {};
+        let idToNameMap = {};
+        let allPlayersList = [];
+        const matchDataCache = {};
+        const playerNumCache = {};
+        const emblemSearchTokens = new WeakMap();
+        let hCodeDebounceTimer = null;
+
         // 1. 로그인 버튼
         document.getElementById('btnLogin').addEventListener('click', () => {
             signInWithPopup(auth, provider)
@@ -952,6 +1275,9 @@ textarea.auto-resize {
                 signOut(auth).then(() => {
                     alert("로그아웃 되었습니다.");
                     location.reload();
+                }).catch((error) => {
+                    console.error(error);
+                    alert("로그아웃 실패: " + error.message);
                 });
             }
         });
@@ -962,7 +1288,12 @@ textarea.auto-resize {
                 if (user.email === ADMIN_EMAIL) {
                     loginContainer.style.display = 'none';
                     adminPanel.style.display = 'block';
-                    if (allPlayersList.length === 0) fetchAllPlayers();
+                    if (!adminInitialized) {
+                        adminInitialized = true;
+                        fetchAllPlayers();
+                        document.getElementById('n_yearSelect').dispatchEvent(new Event('change'));
+                        loadStandings();
+                    }
                 } else {
                     alert("접근 권한이 없는 계정입니다.\n(" + user.email + ")");
                     signOut(auth).then(() => { location.reload(); });
@@ -973,12 +1304,21 @@ textarea.auto-resize {
             }
         });
 
-        let nameToIdMap = {};
-        let allPlayersList = [];
+        function rebuildNameToIdMap() {
+            nameToIdMap = {};
+            idToNameMap = {};
+            allPlayersList.forEach(p => {
+                if (p.name) {
+                    if (!nameToIdMap[p.name]) nameToIdMap[p.name] = p.id;
+                    idToNameMap[p.id] = p.name;
+                }
+            });
+        }
 
         async function fetchAllPlayers() {
             const teams = ['playerA', 'playerU18', 'playerU15'];
             nameToIdMap = {};
+            idToNameMap = {};
             allPlayersList = [];
 
             for (const t of teams) {
@@ -989,12 +1329,29 @@ textarea.auto-resize {
                         for (const [id, info] of Object.entries(data)) {
                             if (info.name) {
                                 if (!nameToIdMap[info.name]) nameToIdMap[info.name] = id;
+                                idToNameMap[id] = info.name;
                                 allPlayersList.push({ name: info.name, id: id });
                             }
                         }
                     }
-                } catch (e) { console.log("로드 에러:", t); }
+                } catch (e) { console.error("로드 에러:", t, e); }
             }
+        }
+
+        async function getCachedPlayerNumYear(year) {
+            if (playerNumCache[year] !== undefined) return playerNumCache[year];
+            const snap = await get(ref(db, `playerNum/${year}`));
+            const val = snap.exists() ? snap.val() : {};
+            playerNumCache[year] = val;
+            return val;
+        }
+
+        async function getCachedMatchNode(node) {
+            if (matchDataCache[node] !== undefined) return matchDataCache[node];
+            const snap = await get(ref(db, node));
+            const val = snap.exists() ? snap.val() : {};
+            matchDataCache[node] = val;
+            return val;
         }
 
         const currYear = new Date().getFullYear();
@@ -1030,11 +1387,15 @@ textarea.auto-resize {
             const div = document.createElement('div');
             div.className = `player-grid-row ${pos}-row`;
             div.innerHTML = `
-                <div class="row-index">${num || '-'}</div>
-                <input type="text" placeholder="이름" class="p-name-auto" value="${name}">
-                <input type="tel" placeholder="ID" class="p-id" value="${id}">
-                <input type="text" placeholder="스탯" class="p-stat" value="${stat}">
+                <div class="row-index"></div>
+                <input type="text" placeholder="이름" class="p-name-auto">
+                <input type="tel" placeholder="ID" class="p-id">
+                <input type="text" placeholder="스탯" class="p-stat">
             `;
+            div.querySelector('.row-index').textContent = num || '-';
+            div.querySelector('.p-name-auto').value = name ?? '';
+            div.querySelector('.p-id').value = id ?? '';
+            div.querySelector('.p-stat').value = stat ?? '';
             
             div.querySelectorAll('input').forEach(input => {
                 input.addEventListener('input', () => checkAndAddMatchRow(pos));
@@ -1089,15 +1450,21 @@ textarea.auto-resize {
                     idInput.value = pid;
                     idInput.classList.remove('warning-input');
 
-                    // 연도 추출 및 등번호 조회
-                    if (dateVal && dateVal.length >= 4) {
+                    // 연도 추출 및 등번호 조회 (캐시 적용)
+                    if (indexDiv && dateVal && dateVal.length >= 4) {
                         const year = dateVal.substring(0, 4);
-                        const numSnap = await get(ref(db, `playerNum/${year}/${pid}`));
-                        indexDiv.innerText = numSnap.exists() ? numSnap.val()[1] : '-';
+                        try {
+                            const yearMap = await getCachedPlayerNumYear(year);
+                            if (nameInput.value.trim() !== name) return;
+                            indexDiv.innerText = yearMap?.[pid] ? yearMap[pid][1] : '-';
+                        } catch (err) {
+                            console.error('등번호 조회 실패:', err);
+                            if (nameInput.value.trim() === name) indexDiv.innerText = '-';
+                        }
                     }
                 } else {
                     idInput.value = ''; 
-                    indexDiv.innerText = '-';
+                    if (indexDiv) indexDiv.innerText = '-';
                     idInput.classList.add('warning-input');
                     idInput.placeholder = "ID 없음";
                 }
@@ -1129,8 +1496,16 @@ textarea.auto-resize {
             else if (name.length === 4) {
                 let part1 = Math.round((codes[0] * codes[1] + codes[2]) / 1000);
                 id = part1 * 10 + codes[3];
-            } else return alert("2~4글자 이름만 생성 가능합니다.");
-            const generatedId = id.toString();
+            }
+            if (!Number.isFinite(id) || id < 10000000 || id > 99999999) {
+                let hash = 2166136261;
+                for (let i = 0; i < name.length; i++) {
+                    hash ^= name.charCodeAt(i);
+                    hash = Math.imul(hash, 16777619);
+                }
+                id = 10000000 + ((hash >>> 0) % 90000000);
+            }
+            const generatedId = String(id);
             document.getElementById('p_id').value = generatedId;
             const duplicatePlayer = allPlayersList.find(p => p.id === generatedId);
             if (duplicatePlayer) alert(`ID 생성: ${generatedId}\n⚠️ 경고: 이미 존재함!`);
@@ -1143,19 +1518,26 @@ textarea.auto-resize {
             const value = input.value.replace(/[^0-9A-Fa-f]/g, '');
             input.value = value; 
             if(value.length >= 3) preview.style.backgroundColor = '#' + value;
-            else preview.style.backgroundColor = '#fff';
+            else preview.style.backgroundColor = '#faf6f5';
         }
 
         function updateEmblemPreview(inputId, previewId, useSearch = false) {
             const input = document.getElementById(inputId);
             const img = document.getElementById(previewId);
             const code = input.value.trim();
+            const token = (emblemSearchTokens.get(img) || 0) + 1;
+            emblemSearchTokens.set(img, token);
+
             if (!code) { img.style.display = 'none'; img.src = ''; return; }
             const exactSrc = `../files/${code}_s.png`;
             const testImg = new Image();
-            testImg.onload = function() { img.src = exactSrc; img.style.display = 'block'; };
+            testImg.onload = function() {
+                if (emblemSearchTokens.get(img) !== token) return;
+                img.src = exactSrc; img.style.display = 'block';
+            };
             testImg.onerror = function() {
-                if (useSearch) startYearSearch(code, img); 
+                if (emblemSearchTokens.get(img) !== token) return;
+                if (useSearch) startYearSearch(code, img, new Date().getFullYear(), token); 
                 else { img.style.display = 'none'; img.src = ''; }
             };
             testImg.src = exactSrc;
@@ -1164,7 +1546,10 @@ textarea.auto-resize {
         document.getElementById('m_compCode').addEventListener('input', () => updateEmblemPreview('m_compCode', 'preview_comp', false));
         document.getElementById('m_homeCode').addEventListener('input', () => updateEmblemPreview('m_homeCode', 'preview_home', false));
         document.getElementById('m_awayCode').addEventListener('input', () => updateEmblemPreview('m_awayCode', 'preview_away', false));
-        document.getElementById('h_code').addEventListener('input', () => updateEmblemPreview('h_code', 'preview_h2h', true));
+        document.getElementById('h_code').addEventListener('input', () => {
+            clearTimeout(hCodeDebounceTimer);
+            hCodeDebounceTimer = setTimeout(() => updateEmblemPreview('h_code', 'preview_h2h', true), 300);
+        });
         document.getElementById('h_bg').addEventListener('input', () => updateColorPreview('h_bg', 'preview_bg'));
         document.getElementById('h_text').addEventListener('input', () => updateColorPreview('h_text', 'preview_text'));
 
@@ -1172,21 +1557,20 @@ textarea.auto-resize {
             const teamName = document.getElementById(nameId).value.trim();
             const dateStr = document.getElementById('m_date').value;
             if (!teamName || !dateStr || dateStr.length < 4) return;
-            const currentYear = parseInt(dateStr.substring(0, 4));
+            const currentYear = parseInt(dateStr.substring(0, 4), 10);
             const dataNodes = ['dataA', 'dataU18', 'dataU15'];
             let bestCode = ""; let maxFoundYear = -1;
-            for (const node of dataNodes) {
-                const snapshot = await get(ref(db, node));
-                if (snapshot.exists()) {
-                    const matches = snapshot.val();
+            try {
+                for (const node of dataNodes) {
+                    const matches = await getCachedMatchNode(node);
                     for (const id in matches) {
                         const m = matches[id];
                         const teams = [m.home, m.away];
                         for (const t of teams) {
                             if (t && t[0] === teamName) {
                                 const code = t[1];
-                                const yearMatch = code.match(/\d{4}$/);
-                                const codeYear = yearMatch ? parseInt(yearMatch[0]) : 0;
+                                const yearMatch = String(code || '').match(/\d{4}$/);
+                                const codeYear = yearMatch ? parseInt(yearMatch[0], 10) : 0;
                                 if (codeYear === 0 || codeYear <= currentYear) {
                                     if (codeYear >= maxFoundYear) { maxFoundYear = codeYear; bestCode = code; }
                                 }
@@ -1194,8 +1578,10 @@ textarea.auto-resize {
                         }
                     }
                 }
+                if (bestCode) { document.getElementById(codeId).value = bestCode; updateEmblemPreview(codeId, previewId); }
+            } catch (err) {
+                console.error('팀 코드 자동 채우기 실패:', err);
             }
-            if (bestCode) { document.getElementById(codeId).value = bestCode; updateEmblemPreview(codeId, previewId); }
         }
 
         document.getElementById('m_homeName').addEventListener('blur', () => autoFillTeamCode('m_homeName', 'm_homeCode', 'preview_home'));
@@ -1203,30 +1589,39 @@ textarea.auto-resize {
 
         // 텍스트 영역 자동 높이 조절 이벤트
         $('.auto-resize').on('input', function() {
-            this.style.height = 'auto'; // 높이를 초기화해서 줄어들 수 있게 함
-            this.style.height = (this.scrollHeight) + 'px'; // 안에 들어있는 글자의 전체 높이만큼 늘림
+            autoResizeTextarea(this);
         });
 
         function updateStandingsPreview() {
             const raw = document.getElementById('s_data').value;
             const container = document.getElementById('standings-preview');
             if(!raw.trim()) {
-                container.innerHTML = '<div style="color:#888; font-size:13px; text-align:center;">데이터를 입력하면 미리보기가 표시됩니다.</div>';
+                container.innerHTML = '<div class="empty-preview-msg">데이터를 입력하면 미리보기가 표시됩니다.</div>';
                 return;
             }
             const rows = raw.split('\n');
             let html = '<table id="preview-table"><thead><tr><th>순위</th><th>팀명</th><th>승점</th><th>승</th><th>무</th><th>패</th><th>득</th><th>실</th><th>득실</th></tr></thead><tbody>';
-            rows.forEach((row, index) => {
+            let rank = 0;
+            rows.forEach((row) => {
                 if(!row.trim()) return;
                 const cols = row.split('  ').map(c => c.trim());
                 if (cols.length < 6) return;
-                const pts = (parseInt(cols[1]) || 0) * 3 + (parseInt(cols[2]) || 0);
-                html += `<tr><td>${index+1}</td><td>${cols[0]}</td><td>${pts}</td><td>${cols[1]}</td><td>${cols[2]}</td><td>${cols[3]}</td><td>${cols[4]}</td><td>${cols[5]}</td><td>${(parseInt(cols[4]) || 0) - (parseInt(cols[5]) || 0)}</td></tr>`;
+                rank++;
+                const w = parseInt(cols[1], 10) || 0;
+                const d = parseInt(cols[2], 10) || 0;
+                const l = parseInt(cols[3], 10) || 0;
+                const gf = parseInt(cols[4], 10) || 0;
+                const ga = parseInt(cols[5], 10) || 0;
+                const pts = w * 3 + d;
+                html += `<tr><td>${rank}</td><td>${escapeHtml(cols[0])}</td><td>${pts}</td><td>${w}</td><td>${d}</td><td>${l}</td><td>${gf}</td><td>${ga}</td><td>${gf - ga}</td></tr>`;
             });
             html += '</tbody></table>';
             container.innerHTML = html;
         }
-        document.getElementById('s_data').addEventListener('input', updateStandingsPreview);
+        document.getElementById('s_data').addEventListener('input', function() {
+            autoResizeTextarea(this);
+            updateStandingsPreview();
+        });
 
         window.showForm = function (id) {
             document.querySelectorAll('.form-container').forEach(el => el.classList.remove('active'));
@@ -1250,9 +1645,8 @@ textarea.auto-resize {
                 if (snapshot.exists()) {
                     const data = snapshot.val();
                     const matchYear = id.substring(0, 4);
-                    // 연도별 등번호 데이터 미리 가져오기
-                    const numSnapshot = await get(ref(db, `playerNum/${matchYear}`));
-                    const yearNums = numSnapshot.exists() ? numSnapshot.val() : {};
+                    // 연도별 등번호 데이터 캐시 조회
+                    const yearNums = await getCachedPlayerNumYear(matchYear);
 
                     document.getElementById('m_round').value = data.round ?? '';
                     document.getElementById('m_compName').value = data.comp?.[0] ?? '';
@@ -1288,8 +1682,8 @@ textarea.auto-resize {
                         if(data[pos] && data[pos].length > 0) {
                             data[pos].forEach(p => {
                                 const pid = p[0] ?? ''; const stat = p[1] ?? '';
-                                const pNum = yearNums[pid] ? yearNums[pid][1] : '-'; // 등번호 매칭
-                                const name = Object.keys(nameToIdMap).find(key => nameToIdMap[key] === pid) || '';
+                                const pNum = yearNums?.[pid] ? yearNums[pid][1] : '-'; // 등번호 매칭
+                                const name = idToNameMap[pid] || '';
                                 addMatchPlayerRow(pos, name, pid, stat, pNum);
                             });
                         }
@@ -1297,7 +1691,7 @@ textarea.auto-resize {
                     });
                     alert('로드 완료');
                 } else alert('데이터 없음');
-            } catch(e) { console.error(e); alert('실패'); }
+            } catch(e) { console.error(e); alert('경기 데이터 로드 실패: ' + (e.message || e)); }
         });
 
         document.getElementById('btnSaveMatch').addEventListener('click', async () => {
@@ -1308,7 +1702,7 @@ textarea.auto-resize {
             const id = date + suffix;
             const h = document.getElementById('m_hour').value.trim();
             const m = document.getElementById('m_min').value.trim();
-            const timeStr = (h && m) ? `${h}:${m}` : "";
+            const timeStr = (h && m) ? `${h.padStart(2, '0')}:${m.padStart(2, '0')}` : "";
             const getPlayers = (pos) => {
                 const rows = document.querySelectorAll(`#section-${pos} .player-grid-row`);
                 let result = [];
@@ -1335,7 +1729,11 @@ textarea.auto-resize {
                 "hl": document.getElementById('m_hl').value, "matchStat": matchStatsArr,
                 "GK": getPlayers('GK'), "DF": getPlayers('DF'), "MF": getPlayers('MF'), "FW": getPlayers('FW'), "SUB": getPlayers('SUB')
             };
-            try { await set(ref(db, `data${team}/${id}`), matchData); alert(`저장 완료: ${id}`); } catch (e) { alert("실패"); }
+            try {
+                await set(ref(db, `data${team}/${id}`), matchData);
+                delete matchDataCache[`data${team}`];
+                alert(`저장 완료: ${id}`);
+            } catch (e) { console.error(e); alert("경기 저장 실패: " + (e.message || e)); }
         });
 
         document.getElementById('btnDeleteMatch').addEventListener('click', async () => {
@@ -1345,8 +1743,12 @@ textarea.auto-resize {
             let suffix = team === 'U18' ? '8' : (team === 'U15' ? '5' : '0');
             const id = date + suffix;
             if(confirm(`정말로 삭제? ID: ${id}`)) {
-                try { await remove(ref(db, `data${team}/${id}`)); alert('삭제 완료'); document.getElementById('m_date').value = ''; }
-                catch(e) { alert('실패'); }
+                try {
+                    await remove(ref(db, `data${team}/${id}`));
+                    delete matchDataCache[`data${team}`];
+                    alert('삭제 완료');
+                    document.getElementById('m_date').value = '';
+                } catch(e) { console.error(e); alert('경기 삭제 실패: ' + (e.message || e)); }
             }
         });
 
@@ -1367,7 +1769,7 @@ textarea.auto-resize {
                     document.getElementById('p_sefc').value = d.sefc ?? '';
                     alert('로드 완료');
                 } else alert('데이터 없음');
-            } catch(e) { console.error(e); }
+            } catch(e) { console.error(e); alert('선수 조회 실패: ' + (e.message || e)); }
         });
 
         document.getElementById('btnSavePlayer').addEventListener('click', async () => {
@@ -1382,12 +1784,12 @@ textarea.auto-resize {
             };
             try {
                 await update(ref(db, `player${team}/${id}`), data);
-                if(data.name) nameToIdMap[data.name] = id;
                 const existingIdx = allPlayersList.findIndex(p => p.id === id);
                 if(existingIdx > -1) allPlayersList[existingIdx].name = data.name;
                 else allPlayersList.push({name: data.name, id: id});
+                rebuildNameToIdMap();
                 alert('저장 완료');
-            } catch(e) { console.error(e); }
+            } catch(e) { console.error(e); alert('선수 저장 실패: ' + (e.message || e)); }
         });
 
         document.getElementById('btnDeletePlayer').addEventListener('click', async () => {
@@ -1399,9 +1801,9 @@ textarea.auto-resize {
                     await remove(ref(db, `player${team}/${id}`));
                     const idx = allPlayersList.findIndex(p => p.id === id);
                     if(idx > -1) allPlayersList.splice(idx, 1);
-                    delete nameToIdMap[document.getElementById('p_name').value];
+                    rebuildNameToIdMap();
                     alert('삭제 완료'); document.getElementById('p_id').value = ''; document.getElementById('p_name').value = '';
-                } catch(e) { alert('실패'); }
+                } catch(e) { console.error(e); alert('선수 삭제 실패: ' + (e.message || e)); }
             }
         });
 
@@ -1424,7 +1826,7 @@ textarea.auto-resize {
                     updateColorPreview('h_bg', 'preview_bg'); updateColorPreview('h_text', 'preview_text');
                     alert('로드 완료');
                 } else alert('데이터 없음');
-            } catch(e) { console.error(e); }
+            } catch(e) { console.error(e); alert('상대전적 조회 실패: ' + (e.message || e)); }
         });
 
         document.getElementById('btnSaveH2H').addEventListener('click', async () => {
@@ -1437,14 +1839,17 @@ textarea.auto-resize {
                 document.getElementById('h_l').value, document.getElementById('h_gf').value,
                 document.getElementById('h_ga').value
             ];
-            try { await set(ref(db, `h2h${team}/${code}`), arr); alert('저장 완료'); } catch(e){console.error(e);}
+            try { await set(ref(db, `h2h${team}/${code}`), arr); alert('저장 완료'); } catch(e){ console.error(e); alert('상대전적 저장 실패: ' + (e.message || e)); }
         });
 
         const numContainer = document.getElementById('num-list-container');
         function addNumRow(name='', id='', num='') {
             const div = document.createElement('div');
             div.className = 'player-grid-row num-item';
-            div.innerHTML = `<input type="text" placeholder="이름" class="p-name-auto" value="${name}"><input type="tel" placeholder="ID" class="p-id" value="${id}"><input type="tel" placeholder="번호" class="p-num" value="${num}">`;
+            div.innerHTML = `<input type="text" placeholder="이름" class="p-name-auto"><input type="tel" placeholder="ID" class="p-id"><input type="tel" placeholder="번호" class="p-num">`;
+            div.querySelector('.p-name-auto').value = name ?? '';
+            div.querySelector('.p-id').value = id ?? '';
+            div.querySelector('.p-num').value = num ?? '';
             div.querySelector('.p-num').addEventListener('input', checkAndAddRow);
             div.querySelector('.p-name-auto').addEventListener('input', checkAndAddRow);
             numContainer.appendChild(div);
@@ -1462,11 +1867,12 @@ textarea.auto-resize {
             numContainer.innerHTML = '';
             try {
                 const s = await get(ref(db, `playerNum/${year}`));
-                if(s.exists()) for(const [pid, info] of Object.entries(s.val())) addNumRow(info[0] ?? '', pid ?? '', info[1] ?? '');
+                const val = s.exists() ? s.val() : {};
+                playerNumCache[year] = val;
+                for(const [pid, info] of Object.entries(val)) addNumRow(info[0] ?? '', pid ?? '', info[1] ?? '');
                 addNumRow();
-            } catch(e) { console.error(e); }
+            } catch(e) { console.error(e); alert('등번호 목록 로드 실패: ' + (e.message || e)); }
         });
-        (async()=>{ document.getElementById('n_yearSelect').dispatchEvent(new Event('change')); })();
 
         document.getElementById('btnSaveNum').addEventListener('click', async () => {
             const year = document.getElementById('n_yearSelect').value;
@@ -1477,7 +1883,11 @@ textarea.auto-resize {
                 if(id) { data[id]=[nm,n]; count++; }
             });
             if(count===0 && !confirm('비우시겠습니까?')) return;
-            try { await set(ref(db, `playerNum/${year}`), data); alert('저장 완료'); } catch(e){console.error(e);}
+            try {
+                await set(ref(db, `playerNum/${year}`), data);
+                playerNumCache[year] = data;
+                alert('저장 완료');
+            } catch(e){ console.error(e); alert('등번호 저장 실패: ' + (e.message || e)); }
         });
 
         async function loadStandings() {
@@ -1490,8 +1900,13 @@ textarea.auto-resize {
                 if(s.exists() && Array.isArray(s.val())) {
                     ta.value = s.val().map(row => `${row[1] ?? ''}  ${row[3] ?? ''}  ${row[4] ?? ''}  ${row[5] ?? ''}  ${row[6] ?? ''}  ${row[7] ?? ''}`).join('\n');
                 } else ta.value = '';
+                autoResizeTextarea(ta);
                 updateStandingsPreview();
-            } catch(e) { ta.value='에러'; }
+            } catch(e) {
+                console.error(e);
+                ta.value = '에러';
+                alert('순위 데이터 로드 실패: ' + (e.message || e));
+            }
         }
         document.getElementById('s_yearSelect').addEventListener('change', loadStandings);
         document.getElementById('s_leagueType').addEventListener('change', loadStandings);
@@ -1502,26 +1917,38 @@ textarea.auto-resize {
             const raw = document.getElementById('s_data').value.trim();
             if(!raw && !confirm('삭제?')) return;
             const data = [];
-            raw.split('\n').forEach((l, index) => {
+            let rank = 0;
+            raw.split('\n').forEach((l) => {
+                if (!l.trim()) return;
                 const cols = l.split('  ').map(c => c.trim());
                 if (cols.length >= 6) {
-                    const w = parseInt(cols[1]) || 0; const d = parseInt(cols[2]) || 0;
-                    data.push([index + 1, cols[0], (w * 3) + d, w, d, parseInt(cols[3]) || 0, parseInt(cols[4]) || 0, parseInt(cols[5]) || 0, (parseInt(cols[4]) || 0) - (parseInt(cols[5]) || 0)]);
+                    rank++;
+                    const w = parseInt(cols[1], 10) || 0;
+                    const d = parseInt(cols[2], 10) || 0;
+                    const loss = parseInt(cols[3], 10) || 0;
+                    const gf = parseInt(cols[4], 10) || 0;
+                    const ga = parseInt(cols[5], 10) || 0;
+                    data.push([rank, cols[0], (w * 3) + d, w, d, loss, gf, ga, gf - ga]);
                 }
             });
-            try { await set(ref(db, `standings/${year}/${league}`), data); alert('저장 완료'); } catch(e){console.error(e);}
+            try { await set(ref(db, `standings/${year}/${league}`), data); alert('저장 완료'); } catch(e){ console.error(e); alert('순위 저장 실패: ' + (e.message || e)); }
         });
 
-        function startYearSearch(code, targetImgElement, yearToCheck = new Date().getFullYear()) {
+        function startYearSearch(code, targetImgElement, yearToCheck = new Date().getFullYear(), token = emblemSearchTokens.get(targetImgElement)) {
+            if (emblemSearchTokens.get(targetImgElement) !== token) return;
             if (yearToCheck < 1983) { targetImgElement.style.display = 'none'; return; }
             const yearSrc = `../files/${code}${yearToCheck}_s.png`;
             const searchImg = new Image();
-            searchImg.onload = function() { targetImgElement.src = yearSrc; targetImgElement.style.display = 'block'; };
-            searchImg.onerror = function() { startYearSearch(code, targetImgElement, yearToCheck - 1); };
+            searchImg.onload = function() {
+                if (emblemSearchTokens.get(targetImgElement) !== token) return;
+                targetImgElement.src = yearSrc; targetImgElement.style.display = 'block';
+            };
+            searchImg.onerror = function() {
+                if (emblemSearchTokens.get(targetImgElement) !== token) return;
+                startYearSearch(code, targetImgElement, yearToCheck - 1, token);
+            };
             searchImg.src = yearSrc;
         }
-
-        loadStandings();
 
         // =========================================
         // 선수 평점 자동 계산 & 경기 기록 연동 로직
@@ -1952,7 +2379,7 @@ textarea.auto-resize {
 
             if (activePlayers.length === 0 && excludedPlayers.length === 0) {
                 listEl.innerHTML = `
-                    <div style="color:#888; font-size:13px; text-align:center; padding:30px 0; background:#f9f9fb; border-radius:20px;">
+                    <div class="empty-preview-msg">
                         위 입력창에 데이터를 붙여넣으면 선수 목록이 생성됩니다.
                     </div>
                 `;
@@ -1966,27 +2393,31 @@ textarea.auto-resize {
                 const calc = calculatePlayerScores(p);
                 const needsPos = !p.pos;
                 const isSub = !['GK', 'DF', 'MF', 'FW'].includes(p.rawPos);
+                const safeKeyAttr = escapeHtml(p.key);
+                const safeDomId = toSafeDomId(p.key);
+                const safeName = escapeHtml(p.name);
+                const safeNum = escapeHtml(p.num);
                 const csBadge = (calc.valid && calc.cleanSheetBonus > 0)
                     ? `<span class="cs-auto-badge">클린시트 +${calc.cleanSheetBonus}</span>`
                     : '';
 
                 html += `
-                    <div class="rating-player-card ${needsPos ? 'unselected-pos' : ''}" data-key="${p.key}">
+                    <div class="rating-player-card ${needsPos ? 'unselected-pos' : ''}" glass="true" data-key="${safeKeyAttr}">
                         <div class="rating-player-top">
                             <div class="rating-player-info">
-                                <span class="rating-num-badge">${p.num}</span>
-                                <span class="rating-player-name">${p.name}</span>
-                                <span class="rating-sub-badge ${isSub ? 'sub-tag' : ''}">${isSub ? '대기' : '선발 ' + p.rawPos} · ${p.mins}'</span>
-                                <select class="rating-pos-select ${needsPos ? 'needs-select' : ''}" data-key="${p.key}">
+                                <span class="rating-num-badge">${safeNum}</span>
+                                <span class="rating-player-name">${safeName}</span>
+                                <span class="rating-sub-badge ${isSub ? 'sub-tag' : ''}">${isSub ? '대기' : '선발 ' + escapeHtml(p.rawPos)} · ${p.mins}'</span>
+                                <select class="rating-pos-select ${needsPos ? 'needs-select' : ''}" data-key="${safeKeyAttr}">
                                     <option value="" ${p.pos === '' ? 'selected' : ''}>포지션 선택</option>
                                     <option value="GK" ${p.pos === 'GK' ? 'selected' : ''}>GK</option>
                                     <option value="DF" ${p.pos === 'DF' ? 'selected' : ''}>DF</option>
                                     <option value="MF" ${p.pos === 'MF' ? 'selected' : ''}>MF</option>
                                     <option value="FW" ${p.pos === 'FW' ? 'selected' : ''}>FW</option>
                                 </select>
-                                <span id="cs_badge_${p.key}">${csBadge}</span>
+                                <span id="cs_badge_${safeDomId}">${csBadge}</span>
                             </div>
-                            <div class="rating-score-pills" id="pills_${p.key}">
+                            <div class="rating-score-pills" id="pills_${safeDomId}">
                                 ${calc.valid ? `
                                     <span class="score-pill">공격 <b>${calc.atk}</b></span>
                                     <span class="score-pill">패스 <b>${calc.pas}</b></span>
@@ -1995,7 +2426,7 @@ textarea.auto-resize {
                                 ` : `<span style="color:#d63031; font-size:12px; font-weight:900;">⚠️ 포지션을 선택하면 평점이 계산됩니다</span>`}
                             </div>
                         </div>
-                        <div style="font-size:11px; color:#555; background:#fff; border:1px solid #f0f0f4; border-radius:10px; padding:6px 10px; margin-bottom:8px; line-height:1.5;">
+                        <div class="rating-auto-stats">
                             <b>자동 인식 기록</b> —
                             공격: 득점 <b>${p.rawGoals}</b> · 도움 <b>${p.assist}</b> · 유효슈팅 <b>${p.sot}</b> · 드리블 <b>${p.dribble}</b> &nbsp;|&nbsp;
                             패스: 키패스 <b>${p.keyPass}</b> &nbsp;|&nbsp;
@@ -2005,59 +2436,59 @@ textarea.auto-resize {
                         <div class="rating-manual-grid">
                             <div class="manual-field">
                                 <label title="출전 중 실점">실점</label>
-                                <input type="number" min="0" data-key="${p.key}" data-field="conceded" value="${p.conceded}" class="${p.conceded > 0 ? 'nonzero-neg' : ''}">
+                                <input type="number" min="0" data-key="${safeKeyAttr}" data-field="conceded" value="${p.conceded}" class="${p.conceded > 0 ? 'nonzero-neg' : ''}">
                             </div>
                             <div class="manual-field">
                                 <label title="페널티 지역 안 득점">PA안 득점</label>
-                                <input type="number" min="0" data-key="${p.key}" data-field="goalInPA" value="${p.goalInPA}" class="${p.goalInPA > 0 ? 'nonzero-val' : ''}">
+                                <input type="number" min="0" data-key="${safeKeyAttr}" data-field="goalInPA" value="${p.goalInPA}" class="${p.goalInPA > 0 ? 'nonzero-val' : ''}">
                             </div>
                             <div class="manual-field">
                                 <label title="페널티 지역 밖 득점">PA밖 득점</label>
-                                <input type="number" min="0" data-key="${p.key}" data-field="goalOutPA" value="${p.goalOutPA}" class="${p.goalOutPA > 0 ? 'nonzero-val' : ''}">
+                                <input type="number" min="0" data-key="${safeKeyAttr}" data-field="goalOutPA" value="${p.goalOutPA}" class="${p.goalOutPA > 0 ? 'nonzero-val' : ''}">
                             </div>
                             <div class="manual-field">
                                 <label title="페널티킥 득점">PK 득점</label>
-                                <input type="number" min="0" data-key="${p.key}" data-field="goalPK" value="${p.goalPK}" class="${p.goalPK > 0 ? 'nonzero-val' : ''}">
+                                <input type="number" min="0" data-key="${safeKeyAttr}" data-field="goalPK" value="${p.goalPK}" class="${p.goalPK > 0 ? 'nonzero-val' : ''}">
                             </div>
                             <div class="manual-field">
                                 <label title="탈압박">탈압박</label>
-                                <input type="number" min="0" data-key="${p.key}" data-field="dePressure" value="${p.dePressure}" class="${p.dePressure > 0 ? 'nonzero-val' : ''}">
+                                <input type="number" min="0" data-key="${safeKeyAttr}" data-field="dePressure" value="${p.dePressure}" class="${p.dePressure > 0 ? 'nonzero-val' : ''}">
                             </div>
                             <div class="manual-field">
                                 <label title="경고">경고</label>
-                                <input type="number" min="0" max="2" data-key="${p.key}" data-field="yellow" value="${p.yellow}" class="${p.yellow > 0 ? 'nonzero-neg' : ''}">
+                                <input type="number" min="0" max="2" data-key="${safeKeyAttr}" data-field="yellow" value="${p.yellow}" class="${p.yellow > 0 ? 'nonzero-neg' : ''}">
                             </div>
                             <div class="manual-field">
                                 <label title="다이렉트 퇴장">퇴장</label>
-                                <input type="number" min="0" max="1" data-key="${p.key}" data-field="directRed" value="${p.directRed}" class="${p.directRed > 0 ? 'nonzero-neg' : ''}">
+                                <input type="number" min="0" max="1" data-key="${safeKeyAttr}" data-field="directRed" value="${p.directRed}" class="${p.directRed > 0 ? 'nonzero-neg' : ''}">
                             </div>
                             <div class="manual-field">
                                 <label title="PK 획득">PK 획득</label>
-                                <input type="number" min="0" data-key="${p.key}" data-field="pkWon" value="${p.pkWon}" class="${p.pkWon > 0 ? 'nonzero-val' : ''}">
+                                <input type="number" min="0" data-key="${safeKeyAttr}" data-field="pkWon" value="${p.pkWon}" class="${p.pkWon > 0 ? 'nonzero-val' : ''}">
                             </div>
                             <div class="manual-field">
                                 <label title="페널티킥 제공">PK 제공</label>
-                                <input type="number" min="0" data-key="${p.key}" data-field="pkConceded" value="${p.pkConceded}" class="${p.pkConceded > 0 ? 'nonzero-neg' : ''}">
+                                <input type="number" min="0" data-key="${safeKeyAttr}" data-field="pkConceded" value="${p.pkConceded}" class="${p.pkConceded > 0 ? 'nonzero-neg' : ''}">
                             </div>
                             <div class="manual-field">
                                 <label title="PK 실축">PK 실축</label>
-                                <input type="number" min="0" data-key="${p.key}" data-field="pkMissed" value="${p.pkMissed}" class="${p.pkMissed > 0 ? 'nonzero-neg' : ''}">
+                                <input type="number" min="0" data-key="${safeKeyAttr}" data-field="pkMissed" value="${p.pkMissed}" class="${p.pkMissed > 0 ? 'nonzero-neg' : ''}">
                             </div>
                             <div class="manual-field">
                                 <label title="페널티킥 선방">PK 선방</label>
-                                <input type="number" min="0" data-key="${p.key}" data-field="pkSaved" value="${p.pkSaved}" class="${p.pkSaved > 0 ? 'nonzero-val' : ''}">
+                                <input type="number" min="0" data-key="${safeKeyAttr}" data-field="pkSaved" value="${p.pkSaved}" class="${p.pkSaved > 0 ? 'nonzero-val' : ''}">
                             </div>
                             <div class="manual-field">
                                 <label title="자책골">자책골</label>
-                                <input type="number" min="0" data-key="${p.key}" data-field="ownGoal" value="${p.ownGoal}" class="${p.ownGoal > 0 ? 'nonzero-neg' : ''}">
+                                <input type="number" min="0" data-key="${safeKeyAttr}" data-field="ownGoal" value="${p.ownGoal}" class="${p.ownGoal > 0 ? 'nonzero-neg' : ''}">
                             </div>
                             <div class="manual-field">
                                 <label title="실점으로 이어진 실책">실점직결실책</label>
-                                <input type="number" min="0" data-key="${p.key}" data-field="errorToGoal" value="${p.errorToGoal}" class="${p.errorToGoal > 0 ? 'nonzero-neg' : ''}">
+                                <input type="number" min="0" data-key="${safeKeyAttr}" data-field="errorToGoal" value="${p.errorToGoal}" class="${p.errorToGoal > 0 ? 'nonzero-neg' : ''}">
                             </div>
                             <div class="manual-field">
                                 <label title="완벽한 득점 기회 놓침">득점기회놓침</label>
-                                <input type="number" min="0" data-key="${p.key}" data-field="bigChanceMiss" value="${p.bigChanceMiss}" class="${p.bigChanceMiss > 0 ? 'nonzero-neg' : ''}">
+                                <input type="number" min="0" data-key="${safeKeyAttr}" data-field="bigChanceMiss" value="${p.bigChanceMiss}" class="${p.bigChanceMiss > 0 ? 'nonzero-neg' : ''}">
                             </div>
                         </div>
                     </div>
@@ -2067,32 +2498,34 @@ textarea.auto-resize {
 
             excludedEl.style.display = 'block';
             let exHtml = `
-                <div class="excluded-players-box">
-                    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:10px;">
+                <div class="excluded-players-box" glass="true">
+                    <div class="excluded-header">
                         <div class="excluded-players-title" style="margin-bottom:0;">평점 계산 제외 선수</div>
                         <button type="button" class="btn-small-action secondary" id="btnAddBenchPlayer" style="padding:5px 11px; font-size:11px;">+ 미출전/10분 미만 선수 수동 추가</button>
                     </div>
             `;
             if (excludedPlayers.length === 0) {
-                exHtml += `<div style="font-size:12px; color:#888;">붙여넣은 데이터 내 10분 미만/미출전 선수가 없습니다.</div>`;
+                exHtml += `<div class="excluded-empty-msg">붙여넣은 데이터 내 10분 미만/미출전 선수가 없습니다.</div>`;
             } else {
                 excludedPlayers.forEach(p => {
-                    const previewCode = buildStatStringForPlayer(p, false);
+                    const previewCode = escapeHtml(buildStatStringForPlayer(p, false));
+                    const safeKeyAttr = escapeHtml(p.key);
+                    const safeDomId = toSafeDomId(p.key);
                     exHtml += `
-                        <div class="excluded-row" data-key="${p.key}">
+                        <div class="excluded-row" data-key="${safeKeyAttr}">
                             <div>
-                                <span class="rating-num-badge" style="min-width:28px; height:22px; font-size:11px;">${p.num}</span>
-                                <b style="margin-left:6px;">${p.name}</b>
-                                <span style="color:#888; margin-left:6px;">${p.mins}분</span>
-                                <span id="ex_code_${p.key}" style="margin-left:8px; color:#000060; font-weight:900;">→ 스탯: "${previewCode}"</span>
+                                <span class="rating-num-badge" style="min-width:28px; height:22px; font-size:11px;">${escapeHtml(p.num)}</span>
+                                <b style="margin-left:6px;">${escapeHtml(p.name)}</b>
+                                <span class="excluded-mins">${p.mins}분</span>
+                                <span id="ex_code_${safeDomId}" class="excluded-code">→ 스탯: "${previewCode}"</span>
                             </div>
                             <div class="excluded-inputs">
-                                <label>출전시간<input type="number" min="0" max="9" data-key="${p.key}" data-field="mins" value="${p.mins}"></label>
-                                <label>득점<input type="number" min="0" data-key="${p.key}" data-field="goalInPA" value="${p.goalInPA}"></label>
-                                <label>도움<input type="number" min="0" data-key="${p.key}" data-field="assist" value="${p.assist}"></label>
-                                <label>경고<input type="number" min="0" max="2" data-key="${p.key}" data-field="yellow" value="${p.yellow}"></label>
-                                <label>퇴장<input type="number" min="0" max="1" data-key="${p.key}" data-field="directRed" value="${p.directRed}"></label>
-                                <label>자책골<input type="number" min="0" data-key="${p.key}" data-field="ownGoal" value="${p.ownGoal}"></label>
+                                <label>출전시간<input type="number" min="0" max="9" data-key="${safeKeyAttr}" data-field="mins" value="${p.mins}"></label>
+                                <label>득점<input type="number" min="0" data-key="${safeKeyAttr}" data-field="goalInPA" value="${p.goalInPA}"></label>
+                                <label>도움<input type="number" min="0" data-key="${safeKeyAttr}" data-field="assist" value="${p.assist}"></label>
+                                <label>경고<input type="number" min="0" max="2" data-key="${safeKeyAttr}" data-field="yellow" value="${p.yellow}"></label>
+                                <label>퇴장<input type="number" min="0" max="1" data-key="${safeKeyAttr}" data-field="directRed" value="${p.directRed}"></label>
+                                <label>자책골<input type="number" min="0" data-key="${safeKeyAttr}" data-field="ownGoal" value="${p.ownGoal}"></label>
                             </div>
                         </div>
                     `;
@@ -2134,7 +2567,7 @@ textarea.auto-resize {
 
             if (activePlayers.length === 0) {
                 tieBanner.style.display = 'none';
-                box.innerHTML = `<div style="color:#888; font-size:13px; text-align:center; padding:20px 0;">데이터를 입력하면 평점 요약표가 실시간으로 표시됩니다.</div>`;
+                box.innerHTML = `<div class="empty-preview-msg">데이터를 입력하면 평점 요약표가 실시간으로 표시됩니다.</div>`;
                 return;
             }
 
@@ -2154,7 +2587,7 @@ textarea.auto-resize {
             if (potmInfo.isTied) {
                 const tiedNames = evaluated
                     .filter(item => potmInfo.tiedKeys.includes(item.p.key))
-                    .map(item => item.p.name)
+                    .map(item => escapeHtml(item.p.name))
                     .join(', ');
                 tieBanner.style.display = 'block';
                 tieBanner.innerHTML = `⚠️ 반올림 전 최고 평점(<b>${potmInfo.maxRaw}</b>) 동률 선수가 있습니다 (${tiedNames}). 아래 표의 <b>POTM</b> 열에서 최고 평점 선수를 직접 선택해 주세요!`;
@@ -2182,15 +2615,16 @@ textarea.auto-resize {
             evaluated.forEach(item => {
                 const { p, calc } = item;
                 const isPotm = (potmInfo.potmKey === p.key);
-                const chipBg = calc.valid ? getChipColor(calc.roundedTotal) : '#aaa';
+                const chipBg = calc.valid ? getChipColor(calc.roundedTotal) : '#05090a40';
+                const safeKeyAttr = escapeHtml(p.key);
 
                 html += `
                     <tr class="${isPotm ? 'potm-row' : ''}">
                         <td>
-                            ${calc.valid ? `<input type="radio" name="potmSelect" class="potm-radio" data-key="${p.key}" ${isPotm ? 'checked' : ''} style="transform:scale(1.3); accent-color:#d63031; cursor:pointer;">` : '-'}
+                            ${calc.valid ? `<input type="radio" name="potmSelect" class="potm-radio" data-key="${safeKeyAttr}" ${isPotm ? 'checked' : ''} style="transform:scale(1.3); accent-color:#d63031; cursor:pointer;">` : '-'}
                         </td>
-                        <td style="font-weight:900; color:#000060;">${p.name}</td>
-                        <td>${p.pos || '<span style="color:#d63031; font-weight:900;">미선택</span>'}</td>
+                        <td style="font-weight:900; color:#000060;">${escapeHtml(p.name)}</td>
+                        <td>${p.pos ? escapeHtml(p.pos) : '<span style="color:#d63031; font-weight:900;">미선택</span>'}</td>
                         <td>${calc.valid ? calc.atk : '-'}</td>
                         <td>${calc.valid ? calc.pas : '-'}</td>
                         <td>${calc.valid ? calc.def : '-'}</td>
@@ -2256,6 +2690,7 @@ textarea.auto-resize {
             if (!field || !key || !ratingPlayersMap[key]) return;
 
             const p = ratingPlayersMap[key];
+            const prevMins = p.mins;
             const val = Math.max(0, parseFloat(e.target.value) || 0);
             p[field] = val;
 
@@ -2264,13 +2699,20 @@ textarea.auto-resize {
             if (['goalInPA', 'goalOutPA', 'goalPK'].includes(field)) p.goalsManual = true;
             if (['yellow', 'directRed'].includes(field)) p.cardsManual = true;
 
+            if (field === 'mins' && ((prevMins < 10 && val >= 10) || (prevMins >= 10 && val < 10))) {
+                renderRatingPlayersList();
+                renderRatingSummary();
+                return;
+            }
+
             const negFields = ['conceded', 'yellow', 'directRed', 'pkConceded', 'pkMissed', 'ownGoal', 'errorToGoal', 'bigChanceMiss'];
             e.target.classList.remove('nonzero-val', 'nonzero-neg');
             if (val > 0) {
                 e.target.classList.add(negFields.includes(field) ? 'nonzero-neg' : 'nonzero-val');
             }
 
-            const pillsEl = document.getElementById(`pills_${key}`);
+            const safeDomId = toSafeDomId(key);
+            const pillsEl = document.getElementById(`pills_${safeDomId}`);
             if (pillsEl) {
                 const calc = calculatePlayerScores(p);
                 pillsEl.innerHTML = calc.valid ? `
@@ -2279,7 +2721,7 @@ textarea.auto-resize {
                     <span class="score-pill">수비 <b>${calc.def}</b></span>
                     <span class="score-pill total-pill">합계 ${calc.rawTotal} · 반올림 ${calc.roundedTotal.toFixed(1)}</span>
                 ` : `<span style="color:#d63031; font-size:12px; font-weight:900;">⚠️ 포지션을 선택하면 평점이 계산됩니다</span>`;
-                const csEl = document.getElementById(`cs_badge_${key}`);
+                const csEl = document.getElementById(`cs_badge_${safeDomId}`);
                 if (csEl) {
                     csEl.innerHTML = (calc.valid && calc.cleanSheetBonus > 0)
                         ? `<span class="cs-auto-badge">클린시트 +${calc.cleanSheetBonus}</span>`
@@ -2287,7 +2729,7 @@ textarea.auto-resize {
                 }
             }
 
-            const exCodeEl = document.getElementById(`ex_code_${key}`);
+            const exCodeEl = document.getElementById(`ex_code_${safeDomId}`);
             if (exCodeEl) {
                 exCodeEl.innerText = `→ 스탯: "${buildStatStringForPlayer(p, false)}"`;
             }
@@ -2358,6 +2800,7 @@ textarea.auto-resize {
             }
 
             const usedPastedKeys = new Set();
+            const unmatchedWithExistingStat = [];
             let appliedCount = 0;
 
             lineupRows.forEach(lRow => {
@@ -2381,7 +2824,7 @@ textarea.auto-resize {
                         } else if (filteredBySub.length > 1) {
                             const optionsText = filteredBySub.map((c, idx) => `${idx + 1}. 등번호 ${c.num}번 ${c.name} (${c.mins}분, 포지션 ${c.pos || c.rawPos})`).join('\n');
                             const choice = prompt(`동명이인 [${lRow.rawName}] 선수에 해당하는 기록 번호를 선택해 주세요:\n${optionsText}`, '1');
-                            const choiceIdx = (parseInt(choice) || 1) - 1;
+                            const choiceIdx = (parseInt(choice, 10) || 1) - 1;
                             matchedPlayer = filteredBySub[choiceIdx] || filteredBySub[0];
                         }
                     }
@@ -2395,10 +2838,17 @@ textarea.auto-resize {
                     const isPotm = (matchedPlayer.key === potmInfo.potmKey);
                     lRow.statInput.value = buildStatStringForPlayer(matchedPlayer, isPotm);
                     appliedCount++;
-                } else {
-                    lRow.statInput.value = '';
+                } else if (lRow.statInput.value.trim() !== '') {
+                    unmatchedWithExistingStat.push(lRow);
                 }
             });
+
+            if (unmatchedWithExistingStat.length > 0) {
+                const names = unmatchedWithExistingStat.map(r => r.rawName || r.pid).join(', ');
+                if (confirm(`평점 데이터에 없는 기존 라인업 선수(${names})의 기존 스탯을 비우시겠습니까?\n(취소하면 기존 스탯을 유지합니다.)`)) {
+                    unmatchedWithExistingStat.forEach(r => { r.statInput.value = ''; });
+                }
+            }
 
             const unmatchedActive = activePlayers.filter(p => !usedPastedKeys.has(p.key));
             if (unmatchedActive.length > 0) {

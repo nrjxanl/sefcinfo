@@ -1,6 +1,7 @@
 import { loadData } from './firebase.js';
 
-let teamType = (window.location.href.split('?')[1] == 'A' || window.location.href.split('?')[1] == 'U18' || window.location.href.split('?')[1] == 'U15') ? window.location.href.split('?')[1] : 'A';
+const rawTeamParam = (window.location.href.split('?')[1] || '').split('&')[0].split('#')[0];
+let teamType = (rawTeamParam == 'A' || rawTeamParam == 'U18' || rawTeamParam == 'U15') ? rawTeamParam : 'A';
 
 beforeLoading();
 
@@ -31,6 +32,7 @@ async function initPage() {
         render(dataA, dataU18, dataU15, playerA, playerU18, playerU15, playerNum);
     } catch (error) {
         console.error('데이터 불러오기 실패', error);
+        window.showLoadError?.('데이터를 불러오지 못했습니다.');
     }
 
     afterLoading();
@@ -74,15 +76,16 @@ function loadPlayers(data, player, playerNum, teamType) {
     let playerListMF = {};
     let playerListFW = {};
 
-    let playerKeys = Object.keys(player);
+    let playerKeys = Object.keys(player || {});
 
     const year = new Date().getFullYear();
 
     for (let i = 0; i < playerKeys.length; i++) {
-        if (player[playerKeys[i]]['sefc'] == 'O') {
+        if (player[playerKeys[i]]?.['sefc'] == 'O') {
             try {
                 let id = playerKeys[i];
                 let name = player[id]['name'];
+                let cleanName = String(name || '').replace(/[0-9]/g, '');
                 let pos = player[id]['pos'];
                 let num;
 
@@ -91,6 +94,9 @@ function loadPlayers(data, player, playerNum, teamType) {
                 } catch (error) {
                     num = '--';
                 }
+
+                // 준프로 등번호 (정렬 전 적용)
+                if (year == 2026 && teamType == "A" && cleanName == "양승민") num = 25;
 
                 switch (pos) {
                     case '골키퍼':
@@ -130,14 +136,14 @@ function loadPlayers(data, player, playerNum, teamType) {
         let currList = playerList[i];
 
         currKeys.sort((a, b) => {
-            let numA = currList[a][1];
-            let numB = currList[b][1];
+            let numA = Number(currList[a][1]);
+            let numB = Number(currList[b][1]);
 
             if (isNaN(numA)) numA = 999;
             if (isNaN(numB)) numB = 999;
 
             return numA - numB;
-        })
+        });
     }
 
     // 선수 목록 삽입
@@ -147,10 +153,7 @@ function loadPlayers(data, player, playerNum, teamType) {
             let name = playerList[i][id][0].replace(/[0-9]/g, '');
             let num = playerList[i][id][1];
 
-            // 준프로 등번호
-            if (teamType == "A" && name == "양승민") num = 25;
-
-            $(`#player${teamType} > div > div:nth-of-type(${2 * i + 2})`).append(`<div class = ${id} glass = 'true'><p>${num}</p><p transl = 'y'>${name}</p><p>0</p><p>0</p><p>0</p><p>0</p><p>0</p><p>0</p></div>`);
+            $(`#player${teamType} > div > div:nth-of-type(${2 * i + 2})`).append(`<div data-id='${id}' glass='true'><p>${num}</p><p transl='y'>${name}</p><p>0</p><p>0</p><p>0</p><p>0</p><p>0</p><p>0</p></div>`);
         }
     }
 
@@ -158,7 +161,7 @@ function loadPlayers(data, player, playerNum, teamType) {
     let playerData = {};
 
     const pos = ['GK', 'DF', 'MF', 'FW', 'SUB'];
-    const matchId = Object.keys(data).filter((id) => id.substring(0, 4) == year);
+    const matchId = Object.keys(data || {}).filter((id) => id.substring(0, 4) == year);
 
     for (let i = 0; i < matchId.length; i++) {
         let matchData = data[matchId[i]];
@@ -168,7 +171,7 @@ function loadPlayers(data, player, playerNum, teamType) {
 
             for (let k = 0; k < posLength; k++) {
                 const id = matchData[pos[j]][k][0];
-                const stat = matchData[pos[j]][k][1];
+                const stat = String(matchData[pos[j]][k][1] ?? '');
 
                 const app = /[\d-]/.test(stat) ? 1 : 0;
                 const g = stat.split('g').length - 1;
@@ -190,7 +193,7 @@ function loadPlayers(data, player, playerNum, teamType) {
     }
 
     $('[id^="player"] > div > div > div').each(function () {
-        let id = $(this).attr('class');
+        let id = String($(this).data('id') || '');
 
         // 선수 스탯 추가
         if (playerData[id] != undefined) {
@@ -210,8 +213,8 @@ function loadPlayers(data, player, playerNum, teamType) {
             if (id.length >= 8) {
                 window.location.href = `./player?${id}`;
             }
-        })
-    })
+        });
+    });
 }
 
 // 팀 선택

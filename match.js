@@ -1,11 +1,34 @@
 import { loadData } from './firebase.js';
 
-const matchId = window.location.href.split('?')[1];
-const teamType = (matchId.substring(8, 9) == 0) ? 'A' : (matchId.substring(8, 9) == 8) ? 'U18' : 'U15';
+const TEAM_NAME_MAPPER = {
+    'ansanpolice': 'ansanmugunghwa',
+    'daejeoncitizen': 'daejeonhana',
+    'goyanghifc': 'goyangzaicro',
+    'jejuutd': 'jejusk',
+    'ulsanhyundai': 'ulsanhd'
+};
+
+function normalizeTeamCode(rawCode) {
+    const stripped = String(rawCode || '').replace(/[0-9]/g, '');
+    return TEAM_NAME_MAPPER[stripped] || stripped;
+}
+
+const rawMatchQuery = (window.location.href.split('?')[1] || '').split('&')[0].split('#')[0];
+const matchIdMatch = rawMatchQuery.match(/\d{9}/);
+const matchId = matchIdMatch ? matchIdMatch[0] : '';
+const teamType = matchId
+    ? ((matchId.substring(8, 9) == '0') ? 'A' : (matchId.substring(8, 9) == '8') ? 'U18' : 'U15')
+    : 'A';
 
 beforeLoading();
 
 async function initPage() {
+    if (!matchId) {
+        window.showLoadError?.('경기 정보를 찾을 수 없습니다.');
+        afterLoading();
+        return;
+    }
+
     try {
         /*
             data: 전체 데이터
@@ -20,11 +43,18 @@ async function initPage() {
             loadData(`h2h${teamType}`)
         ]);
 
-        const matchData = data[matchId];
+        const matchData = data?.[matchId];
 
-        render(data, matchData, num, h2h);
+        if (!matchData) {
+            window.showLoadError?.('경기 정보를 찾을 수 없습니다.');
+            afterLoading();
+            return;
+        }
+
+        render(data, matchData, num || {}, h2h || {});
     } catch (error) {
         console.error('데이터 불러오기 실패', error);
+        window.showLoadError?.('데이터를 불러오지 못했습니다.');
     }
 
     afterLoading();
@@ -33,25 +63,29 @@ async function initPage() {
 initPage();
 
 function render(data, matchData, num, h2h) {
-    const year = parseInt(matchId.substring(0, 4));
-    const month = parseInt(matchId.substring(4, 6));
-    const date = parseInt(matchId.substring(6, 8));
+    const year = parseInt(matchId.substring(0, 4), 10);
+    const month = parseInt(matchId.substring(4, 6), 10);
+    const date = parseInt(matchId.substring(6, 8), 10);
     const day = "일월화수목금토"[new Date(year, month - 1, date).getDay()];
 
+    const homeArr = matchData['home'] || ['', ''];
+    const awayArr = matchData['away'] || ['', ''];
+    const compArr = matchData['comp'] || ['', ''];
+
     // 페이지명
-    $('title').text(`SEFCiNFO - ${matchData['home'][0]} vs ${matchData['away'][0]}(${year}.${month}.${date}.(${day}))`);
+    $('title').text(`SEFCiNFO - ${homeArr[0]} vs ${awayArr[0]}(${year}.${month}.${date}.(${day}))`);
     
     // 대회 정보
-    $('#matchScore > div:nth-of-type(1) > img').attr('src', `./files/${matchData['comp'][1]}_s.png`);
-    $('#matchScore > div:nth-of-type(1) > p').text(`${matchData['comp'][0]} ${matchData['round']}`);
+    $('#matchScore > div:nth-of-type(1) > img').attr('src', `./files/${compArr[1]}_s.png`);
+    $('#matchScore > div:nth-of-type(1) > p').text(`${compArr[0]} ${matchData['round'] || ''}`);
 
     // 홈 팀 정보
-    $('#matchScore > div:nth-of-type(2) > div:nth-of-type(1) > p').text(matchData['home'][0]);
-    $('#matchScore > div:nth-of-type(2) > div:nth-of-type(1) > div > img').attr('src', `./files/${matchData['home'][1]}_s.png`);
+    $('#matchScore > div:nth-of-type(2) > div:nth-of-type(1) > p').text(homeArr[0]);
+    $('#matchScore > div:nth-of-type(2) > div:nth-of-type(1) > div > img').attr('src', `./files/${homeArr[1]}_s.png`);
 
     // 원정 팀 정보
-    $('#matchScore > div:nth-of-type(2) > div:nth-of-type(3) > p').text(matchData['away'][0]);
-    $('#matchScore > div:nth-of-type(2) > div:nth-of-type(3) > div > img').attr('src', `./files/${matchData['away'][1]}_s.png`);
+    $('#matchScore > div:nth-of-type(2) > div:nth-of-type(3) > p').text(awayArr[0]);
+    $('#matchScore > div:nth-of-type(2) > div:nth-of-type(3) > div > img').attr('src', `./files/${awayArr[1]}_s.png`);
 
     // 경기 점수
     if (matchData['homeScore'] != undefined && matchData['homeScore'] != '') $('#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)').html(`${matchData['homeScore']} : ${matchData['awayScore']}`);
@@ -65,27 +99,30 @@ function render(data, matchData, num, h2h) {
     if (matchData['stadium'] != undefined && matchData['stadium'] != '') $('#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(3)').text(`@${matchData['stadium']}`);
 
     // 득점자
+    const homeScorer = matchData['homeScorer'] || '';
+    const awayScorer = matchData['awayScorer'] || '';
     if ($(window).width() < 768) {
-        $('#matchScore > div:nth-of-type(3) > p:nth-of-type(1)').html(matchData['homeScorer'].replace(/\(.*?\)/g, ''));
-        $('#matchScore > div:nth-of-type(3) > p:nth-of-type(2)').html(matchData['awayScorer'].replace(/\(.*?\)/g, ''));
+        $('#matchScore > div:nth-of-type(3) > p:nth-of-type(1)').html(homeScorer.replace(/\(.*?\)/g, ''));
+        $('#matchScore > div:nth-of-type(3) > p:nth-of-type(2)').html(awayScorer.replace(/\(.*?\)/g, ''));
     } else {
-        $('#matchScore > div:nth-of-type(3) > p:nth-of-type(1)').html(matchData['homeScorer']);
-        $('#matchScore > div:nth-of-type(3) > p:nth-of-type(2)').html(matchData['awayScorer']);
+        $('#matchScore > div:nth-of-type(3) > p:nth-of-type(1)').html(homeScorer);
+        $('#matchScore > div:nth-of-type(3) > p:nth-of-type(2)').html(awayScorer);
     }
 
     // 하이라이트 표시
-    if (matchData['hl'] != '') $('#highlight > a').attr('href', `https://youtu.be/${matchData['hl']}`).attr('target', '_blank');
+    if (matchData['hl']) $('#highlight > a').attr('href', `https://youtu.be/${matchData['hl']}`).attr('target', '_blank').attr('rel', 'noopener noreferrer');
     else $('#highlight').remove();
 
     // 유스 경기에서는 matchInfo 창 삭제
     if (teamType != 'A') {
         $('.matchDetail > button:nth-of-type(1)').css('display', 'none');
-        if (localStorage.getItem(matchId) != 'matchH2H') matchLineup();
+        if (localStorage.getItem(matchId) != 'matchH2H') matchLineup(matchId);
         else matchH2H(matchId);
     }
 
     // 라인업
-    if (matchData['GK']?.length) lineup(matchData, num, year); // matchData, players, num, year 전달
+    const hasLineup = Boolean(matchData['GK']?.length);
+    if (hasLineup) lineup(matchData, num, year); // matchData, num, year 전달
     else {
         $('#matchLineup').css('display', 'none');
         $('.matchDetail > button:nth-of-type(2)').css('display', 'none');
@@ -95,33 +132,33 @@ function render(data, matchData, num, h2h) {
     // potm 없으면 matchInfo 창 삭제
     if ($('#matchInfo > div').length == 1 && $('#potm').css('display') == 'none') {
         $('.matchDetail > button:nth-of-type(1)').css('display', 'none');
-        if (localStorage.getItem(matchId) != 'matchH2H') matchLineup();
+        if (localStorage.getItem(matchId) != 'matchH2H' && hasLineup) matchLineup(matchId);
         else matchH2H(matchId);
     }
 
     // 경기 기록
-    if (teamType == 'A' && matchData['matchStat'][0].length) stat(matchData, h2h); // matchData, h2h 전달
+    if (teamType == 'A' && matchData['matchStat']?.[0]?.length) stat(matchData, h2h); // matchData, h2h 전달
     else {
         $('#matchStat').css('display', 'none');
         $('.matchDetail > button:nth-of-type(3)').css('display', 'none');
     }
 
     // 상대 전적
-    H2h(data, matchData, h2h);    // data, matchData, h2h 전달
+    H2h(data, matchData, h2h); // data, matchData, h2h 전달
 
     // 버튼별 역할 부여
     $('.matchDetail > button:nth-of-type(1)').click(() => {
         matchInfo(matchId);
-    })
+    });
     $('.matchDetail > button:nth-of-type(2)').click(() => {
         matchLineup(matchId);
-    })
+    });
     $('.matchDetail > button:nth-of-type(3)').click(() => {
         matchStat(matchId);
-    })
+    });
     $('.matchDetail > button:nth-of-type(4)').click(() => {
         matchH2H(matchId);
-    })
+    });
 
     if ($(window).width() < 768) {
         const func = { matchInfo, matchLineup, matchStat, matchH2H };
@@ -150,6 +187,31 @@ function lineup(matchData, num, year) {
         { l: 0.0, c: "#dc0c00c0" }
     ];
 
+    const resolvePlayerMeta = (pId) => {
+        const entry = num?.[year]?.[pId];
+        const rawName = entry?.[0] || '';
+        let pNum = entry?.[1] ?? '-';
+
+        // 준프로 등번호 설정
+        if (rawName == "장석훈" && year == 2024 && teamType == 'U18') pNum = 10;
+        if (rawName == "양승민" && year == 2026 && teamType == 'A') pNum = 25;
+
+        return { pName: rawName.replace(/[0-9]/g, ''), pNum };
+    };
+
+    const renderPotm = (pId, pNum, pName, rating) => {
+        const numericRating = rating.replace(/[a-z]/g, '');
+        $('#potm').css('display', 'block').html(`<p transl = 'y'>경기 최고의 선수</p><div><p transl = 'y'><span>${pNum}</span>${pName}</p><p class = 'potm' glass = 'true'>${numericRating}</p></div>`).off('click').on('click', function() {
+            window.location.href = `./player?${pId}`;
+        });
+
+        if (numericRating == '-') $(`#potm > div > p:nth-of-type(2)`).css('background', '#00006040');
+        else if (numericRating !== '') {
+            const matchColor = colors.find(rule => Number(numericRating) >= rule.l);
+            if (matchColor) $(`#potm > div > p:nth-of-type(2)`).css('background', matchColor.c);
+        }
+    };
+
     // 선발 선수 데이터
     if (teamType != 'A') $('#startingXI').html('<div><table><tbody></tbody></table></div>');
     
@@ -157,39 +219,28 @@ function lineup(matchData, num, year) {
         if (matchData[pos]?.length) {
             matchData[pos].forEach((playerInfo) => {
                 const pId = playerInfo[0];
-                const rating = playerInfo[1];
-                let pNum = num[year][pId][1];
-
-                // 준프로 등번호 설정
-                if (num[year][pId][0] == "장석훈" && year == 2024 && teamType == 'U18') pNum = 10;
-                if (num[year][pId][0] == "양승민" && year == 2026 && teamType == 'A') pNum = 25;
+                const rating = String(playerInfo[1] ?? '');
+                const numericRating = rating.replace(/[a-z]/g, '');
+                const { pName, pNum } = resolvePlayerMeta(pId);
 
                 // div 삽입
                 if (teamType == 'A') {
                     $(`#${pos.toLowerCase()}`).append(`<td id = ${pId}></td>`);
-                    $(`#${pId}`).html(`<div><img src = './files/jersey.svg'></div><p>${pNum}</p><p transl = 'y'>${num[year][pId][0].replace(/[0-9]/g, '')}<span></span></p><p glass = 'true'>${rating.replace(/[a-z]/g, '')}</p>`);
+                    $(`#${pId}`).html(`<div><img src = './files/jersey.svg'></div><p>${pNum}</p><p transl = 'y'>${pName}<span></span></p><p glass = 'true'>${numericRating}</p>`);
                 } else {
                     $(`#startingXI > div > table > tbody`).append(`<tr id = ${pId}></tr>`);
-                    $(`#${pId}`).html(`<td>${pNum}</td><td transl = 'y'><p>${num[year][pId][0].replace(/[0-9]/g, '')}<span></span></p><p glass = 'true'>${rating.replace(/[a-z]/g, '')}</p></td>`);
+                    $(`#${pId}`).html(`<td>${pNum}</td><td transl = 'y'><p>${pName}<span></span></p><p glass = 'true'>${numericRating}</p></td>`);
                 }
 
                 // POTM 여부
                 if (rating.replace(/[^p]/g, '') == 'p') {
-                    $('#potm').css('display', 'block').html(`<p transl = 'y'>경기 최고의 선수</p><div><p transl = 'y'><span>${pNum}</span>${num[year][pId][0].replace(/[0-9]/, '')}</p><p class = 'potm' glass = 'true'>${rating.replace(/[a-z]/g, '')}</p></div>`).click(function() {
-                        window.location.href = `./player?${pId}`;
-                    });
-                
-                    if (rating == '-') $(`#potm > div > p:nth-of-type(2)`).css('background', '#00006040');
-                    else {
-                        const matchColor = colors.find(rule => rating.replace(/[a-z]/g, '') >= rule.l);
-                        if (matchColor) $(`#potm > div > p:nth-of-type(2)`).css('background', matchColor.c);
-                    }
+                    renderPotm(pId, pNum, pName, rating);
                 }
 
                 // 클릭 시 화면 이동
                 $(`#${pId}`).click(function () {
                     window.location.href = `./player?${pId}`;
-                })
+                });
 
                 // 기록별 아이콘 추가
                 stats.forEach((type) => {
@@ -199,14 +250,17 @@ function lineup(matchData, num, year) {
                         if (teamType == 'A') $(`#${pId} > p:nth-of-type(2) > span`).append(`<img src = './files/${type.file}.svg'>`);
                         else $(`#${pId} > td:nth-of-type(2) > p:nth-of-type(1) > span`).append(`<img src = './files/${type.file}.svg'>`);
                     }
-                })
+                });
 
                 // 평점 칸 배색
-                if (rating.replace(/[a-z]/g, '') == '') $(`#${pId} > td:nth-of-type(2) > p:nth-of-type(2)`).css('display', 'none');
-                else if (rating.replace(/[a-z]/g, '') == '-') $(`#${pId} > p:nth-of-type(3)`).css('background', '#00006040');
+                const $ratingBadge = (teamType == 'A')
+                    ? $(`#${pId} > p:nth-of-type(3)`)
+                    : $(`#${pId} > td:nth-of-type(2) > p:nth-of-type(2)`);
+                if (numericRating == '') $ratingBadge.css('display', 'none');
+                else if (numericRating == '-') $ratingBadge.css('background', '#00006040');
                 else {
-                    const matchColor = colors.find(rule => rating.replace(/[a-z]/g, '') >= rule.l);
-                    if (matchColor) $(`#${pId} > p:nth-of-type(3)`).css('background', matchColor.c);
+                    const matchColor = colors.find(rule => Number(numericRating) >= rule.l);
+                    if (matchColor) $ratingBadge.css('background', matchColor.c);
                 }
 
                 // 너비 설정
@@ -214,54 +268,47 @@ function lineup(matchData, num, year) {
                     if ($(window).width() < 768) $(`#${pId}`).css('width', `calc(70vw / ${matchData[pos].length})`);
                     else $(`#${pId}`).css('width', `calc(26vw / ${matchData[pos].length})`);
                 }
-            })
+            });
         }
-    })
+    });
 
     // 교체 선수 데이터
     if (matchData['SUB']?.length) {
         matchData['SUB'].forEach((playerInfo) => {
             const pId = playerInfo[0];
-            const rating = playerInfo[1];
-            let pNum = num[year][pId][1];
+            const rating = String(playerInfo[1] ?? '');
+            const numericRating = rating.replace(/[a-z]/g, '');
+            const { pName, pNum } = resolvePlayerMeta(pId);
 
             // div 삽입
             $(`#sub > table > tbody`).append(`<tr id = ${pId}></tr>`);
-            $(`#${pId}`).html(`<td>${pNum}</td><td transl = 'y'><p>${num[year][pId][0].replace(/[0-9]/g, '')}<span></span></p><p glass = 'true'>${rating.replace(/[a-z]/g, '')}</p></td>`);
+            $(`#${pId}`).html(`<td>${pNum}</td><td transl = 'y'><p>${pName}<span></span></p><p glass = 'true'>${numericRating}</p></td>`);
             
             // POTM 여부
             if (rating.replace(/[^p]/g, '') == 'p') {
-                $('#potm').css('display', 'block').html(`<p transl = 'y'>경기 최고의 선수</p><div><p transl = 'y'><span>${pNum}</span>${num[year][pId][0].replace(/[0-9]/, '')}</p><p class = 'potm' glass = 'true'>${rating.replace(/[a-z]/g, '')}</p></div>`).click(function() {
-                    window.location.href = `./player?${pId}`;
-                });
-                
-                if (rating == '-') $(`#potm > div > p:nth-of-type(2)`).css('background', '#00006040');
-                else {
-                    const matchColor = colors.find(rule => rating.replace(/[a-z]/g, '') >= rule.l);
-                    if (matchColor) $(`#potm > div > p:nth-of-type(2)`).css('background', matchColor.c);
-                }
+                renderPotm(pId, pNum, pName, rating);
             }
 
             // 클릭 시 화면 이동
             $(`#${pId}`).click(function() {
                 window.location.href = `./player?${pId}`;
-            })
+            });
 
             // 기록별 아이콘 추가
             stats.forEach((type) => {
                 const cnt = rating.split(type.char).length - 1;
 
                 for (let i = 0; i < cnt; i++) $(`#${pId} > td:nth-of-type(2) > p:nth-of-type(1) > span`).append(`<img src = './files/${type.file}.svg'>`);
-            })
+            });
 
             // 평점 칸 배색
-            if (rating.replace(/[a-z]/g, '') == '') $(`#${pId} > td:nth-of-type(2) > p:nth-of-type(2)`).css('display', 'none');
-            else if (rating.replace(/[a-z]/g, '') == '-') $(`#${pId} > td:nth-of-type(2) > p:nth-of-type(2)`).css('background', '#00006040');
+            if (numericRating == '') $(`#${pId} > td:nth-of-type(2) > p:nth-of-type(2)`).css('display', 'none');
+            else if (numericRating == '-') $(`#${pId} > td:nth-of-type(2) > p:nth-of-type(2)`).css('background', '#00006040');
             else {
-                const matchColor = colors.find(rule => rating.replace(/[a-z]/g, '') >= rule.l);
+                const matchColor = colors.find(rule => Number(numericRating) >= rule.l);
                 if (matchColor) $(`#${pId} > td:nth-of-type(2) > p:nth-of-type(2)`).css('background', matchColor.c);
             }
-        })
+        });
     }
 
     // 유니폼 색상 설정
@@ -291,7 +338,7 @@ function lineup(matchData, num, year) {
         $('#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img').css('filter', 'brightness(0) saturate(100%) invert(44%) sepia(73%) saturate(3412%) hue-rotate(359deg) brightness(102%) contrast(85%)');
         $('#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)').css('color', '#000');
     } else if (year == 2015) {
-        if (Number($('#matchScore > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)').text().replace('.', '')) >= 20150822) {
+        if (Number(matchId.substring(0, 8)) >= 20150822) {
             $('#startingXI > table > tbody > tr:nth-of-type(4) > td > div > img').css('filter', 'brightness(0) saturate(100%) invert(53%) sepia(34%) saturate(4466%) hue-rotate(311deg) brightness(99%) contrast(107%)');
             $('#startingXI > table > tbody > tr:nth-of-type(4) > td > p:nth-of-type(1)').css('color', '#faf6f5');
         } else {
@@ -303,82 +350,82 @@ function lineup(matchData, num, year) {
 
 // 경기 기록 출력
 function stat(matchData, h2h) {
-
     // home, away 색상 설정
     let homeBg, homeColor, awayBg, awayColor;
+    const isHome = matchData['home']?.[1] == 'seouleland' || matchData['home']?.[0] == '서울E';
 
-    if (matchData['home'][0] == '서울E') {
+    if (isHome) {
+        const oppCode = normalizeTeamCode(matchData['away']?.[1]);
+        const oppH2h = h2h?.[oppCode];
         homeBg = '#000060c0';
         homeColor = '#faf6f5';
-        awayBg = `#${h2h[matchData['away'][1].replace(/[0-9]/g, '')][0]}c0`;
-        awayColor = `#${h2h[matchData['away'][1].replace(/[0-9]/g, '')][1]}`;
+        awayBg = `#${oppH2h?.[0] || '05090a'}c0`;
+        awayColor = `#${oppH2h?.[1] || 'faf6f5'}`;
     } else {
-        homeBg = `#${h2h[matchData['home'][1].replace(/[0-9]/g, '')][0]}c0`;
-        homeColor = `#${h2h[matchData['home'][1].replace(/[0-9]/g, '')][1]}`;
+        const oppCode = normalizeTeamCode(matchData['home']?.[1]);
+        const oppH2h = h2h?.[oppCode];
+        homeBg = `#${oppH2h?.[0] || '05090a'}c0`;
+        homeColor = `#${oppH2h?.[1] || 'faf6f5'}`;
         awayBg = '#000060c0';
         awayColor = '#faf6f5';
     }
 
     // 기록 값 삽입
-    const stat = matchData['matchStat'];
+    const statArr = matchData['matchStat'] || [];
 
-    $('#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(1)').text(stat[0] + '%');
-    $('#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(2)').text(stat[1] + '%');
+    $('#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(1)').text((statArr[0] ?? '') + '%');
+    $('#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(2)').text((statArr[1] ?? '') + '%');
 
-    for (let i = 2; i <=10; i++) {
-        $(`#matchStat > table > tbody > tr:nth-of-type(${i}) > td:nth-of-type(1) > p`).text(stat[2 * (i - 1)]);
-        $(`#matchStat > table > tbody > tr:nth-of-type(${i}) > td:nth-of-type(3) > p`).text(stat[2 * (i - 1) + 1]);
+    for (let i = 2; i <= 10; i++) {
+        $(`#matchStat > table > tbody > tr:nth-of-type(${i}) > td:nth-of-type(1) > p`).text(statArr[2 * (i - 1)] ?? '');
+        $(`#matchStat > table > tbody > tr:nth-of-type(${i}) > td:nth-of-type(3) > p`).text(statArr[2 * (i - 1) + 1] ?? '');
 
         // 기록 높은 쪽 색칠
         if (i <= 3 || (i >= 8 && i <= 9)) {
-            if (Number(stat[2 * (i - 1)]) > Number(stat[2 * (i - 1) + 1])) $(`#matchStat > table > tbody > tr:nth-of-type(${i}) > td:nth-of-type(1) > p`).css({ 'color': homeColor, 'background': homeBg, 'font-weight': '900' }).attr("glass", "true");
-            else if (Number(stat[2 * (i - 1)]) < Number(stat[2 * (i - 1) + 1])) $(`#matchStat > table > tbody > tr:nth-of-type(${i}) > td:nth-of-type(3) > p`).css({ 'color': awayColor, 'background': awayBg, 'font-weight': '900' }).attr("glass", "true");
+            if (Number(statArr[2 * (i - 1)]) > Number(statArr[2 * (i - 1) + 1])) $(`#matchStat > table > tbody > tr:nth-of-type(${i}) > td:nth-of-type(1) > p`).css({ 'color': homeColor, 'background': homeBg, 'font-weight': '900' }).attr("glass", "true");
+            else if (Number(statArr[2 * (i - 1)]) < Number(statArr[2 * (i - 1) + 1])) $(`#matchStat > table > tbody > tr:nth-of-type(${i}) > td:nth-of-type(3) > p`).css({ 'color': awayColor, 'background': awayBg, 'font-weight': '900' }).attr("glass", "true");
         } else {
-            if (Number(stat[2 * (i - 1)]) < Number(stat[2 * (i - 1) + 1])) $(`#matchStat > table > tbody > tr:nth-of-type(${i}) > td:nth-of-type(1) > p`).css({ 'color': homeColor, 'background': homeBg, 'font-weight': '900' }).attr("glass", "true");
-            else if (Number(stat[2 * (i - 1)]) > Number(stat[2 * (i - 1) + 1])) $(`#matchStat > table > tbody > tr:nth-of-type(${i}) > td:nth-of-type(3) > p`).css({ 'color': awayColor, 'background': awayBg, 'font-weight': '900' }).attr("glass", "true");
+            if (Number(statArr[2 * (i - 1)]) < Number(statArr[2 * (i - 1) + 1])) $(`#matchStat > table > tbody > tr:nth-of-type(${i}) > td:nth-of-type(1) > p`).css({ 'color': homeColor, 'background': homeBg, 'font-weight': '900' }).attr("glass", "true");
+            else if (Number(statArr[2 * (i - 1)]) > Number(statArr[2 * (i - 1) + 1])) $(`#matchStat > table > tbody > tr:nth-of-type(${i}) > td:nth-of-type(3) > p`).css({ 'color': awayColor, 'background': awayBg, 'font-weight': '900' }).attr("glass", "true");
         }
     }
 
     // 점유율 Gradient 설정
+    const homePoss = Math.max(0, Math.min(100, Number(statArr[0]) || 0));
+    const awayPoss = Math.max(0, Math.min(100, Number(statArr[1]) || 0));
+
     if ($(window).width() < 768) {
-        $('#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(1)').css({ 'width': 0.7 * matchData['matchStat'][0] - 2 + 'vw', 'color': homeColor, 'background': homeBg, 'padding-left': '2vw' });
-        $('#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(2)').css({ 'width': 0.7 * matchData['matchStat'][1] - 2 + 'vw', 'color': awayColor, 'background': awayBg, 'padding-right': '2vw' });
+        $('#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(1)').css({ 'width': Math.max(0, 0.7 * homePoss - 2) + 'vw', 'color': homeColor, 'background': homeBg, 'padding-left': '2vw' });
+        $('#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(2)').css({ 'width': Math.max(0, 0.7 * awayPoss - 2) + 'vw', 'color': awayColor, 'background': awayBg, 'padding-right': '2vw' });
     } else {
-        $('#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(1)').css({ 'width': 2 * matchData['matchStat'][0] - 10 + 'vw', 'color': homeColor, 'background': homeBg, 'padding-left': '10px' });
-        $('#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(2)').css({ 'width': 2 * matchData['matchStat'][1] - 10 + 'vw', 'color': awayColor, 'background': awayBg, 'padding-right': '10px' });
+        $('#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(1)').css({ 'width': `${homePoss}%`, 'box-sizing': 'border-box', 'color': homeColor, 'background': homeBg, 'padding-left': '10px' });
+        $('#matchStat > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > p:nth-of-type(2)').css({ 'width': `${awayPoss}%`, 'box-sizing': 'border-box', 'color': awayColor, 'background': awayBg, 'padding-right': '10px' });
     }
 }
 
 // 상대 전적 출력
 function H2h(data, matchData, h2h) {
-    const teamNameMapper = {
-        'ansanpolice': 'ansanmugunghwa',
-        'daejeoncitizen': 'daejeonhana',
-        'goyanghifc': 'goyangzaicro',
-        'jejuutd': 'jejusk',
-        'ulsanhyundai': 'ulsanhd'
-    };
+    const isHome = (matchData['home']?.[1] == 'seouleland') ? 1 : 0;
+    const opp = normalizeTeamCode(isHome ? matchData['away']?.[1] : matchData['home']?.[1]);
 
-    const isHome = (matchData['home'][1] == 'seouleland') ? 1 : 0;
-    let opp = isHome ? matchData['away'][1].replace(/[0-9]/g, '') : matchData['home'][1].replace(/[0-9]/g, '');
-    opp = teamNameMapper[opp] || opp;
-
-    const bgColor = `#${h2h[opp][0]}c0`;
-    const textColor = `#${h2h[opp][1]}`;
+    const oppH2h = h2h?.[opp];
+    const bgColor = `#${oppH2h?.[0] || '05090a'}c0`;
+    const textColor = `#${oppH2h?.[1] || 'faf6f5'}`;
 
     let w = 0, d = 0, l = 0, goalS = 0, goalC = 0;
 
     // 역대 맞대결 경기
-    const keys = Object.keys(data);
-    let cnt = 0;
+    const keys = Object.keys(data || {}).sort();
 
     for (let i = 0; i < keys.length; i++) {
-        const home = teamNameMapper[data[keys[i]]['home'][1].replace(/[0-9]/g, '')] || data[keys[i]]['home'][1].replace(/[0-9]/g, '');
-        const away = teamNameMapper[data[keys[i]]['away'][1].replace(/[0-9]/g, '')] || data[keys[i]]['away'][1].replace(/[0-9]/g, '');
+        const m = data[keys[i]];
+        const home = normalizeTeamCode(m?.['home']?.[1]);
+        const away = normalizeTeamCode(m?.['away']?.[1]);
         
-        if ((home == opp || away == opp) && (data[keys[i]]['homeScore'] != undefined && data[keys[i]]['homeScore'] != '')) {
-            const homeScore = parseFloat(data[keys[i]]['homeScore'].replace(/<span[^>]*>.*?<\/span>/gi, ""));
-            const awayScore = parseFloat(data[keys[i]]['awayScore'].replace(/<span[^>]*>.*?<\/span>/gi, ""));
+        if ((home == opp || away == opp) && (m['homeScore'] != undefined && m['homeScore'] != '' && m['awayScore'] != undefined && m['awayScore'] != '')) {
+            const homeScore = parseFloat(String(m['homeScore']).replace(/<span[^>]*>.*?<\/span>/gi, ""));
+            const awayScore = parseFloat(String(m['awayScore']).replace(/<span[^>]*>.*?<\/span>/gi, ""));
+            if (isNaN(homeScore) || isNaN(awayScore)) continue;
 
             if (home == opp) {
                 if (homeScore > awayScore) l++;
@@ -400,15 +447,15 @@ function H2h(data, matchData, h2h) {
                 <div class = '${keys[i]}'>
                     <div>
                         <div>
-                            <img src = './files/${data[keys[i]]['home'][1]}_s.png'>
+                            <img src = './files/${m['home'][1]}_s.png'>
                         </div>
                         <div>
                             <p>${homeScore}</p>
-                            <img src = './files/${data[keys[i]]['comp'][1]}_s.png'>
+                            <img src = './files/${m['comp'][1]}_s.png'>
                             <p>${awayScore}</p>
                         </div>
                         <div>
-                            <img src = './files/${data[keys[i]]['away'][1]}_s.png'>
+                            <img src = './files/${m['away'][1]}_s.png'>
                         </div>
                     </div>
                     <div>
@@ -424,8 +471,6 @@ function H2h(data, matchData, h2h) {
             } else {
                 $(`#recentMatch > div:nth-of-type(1) > div:nth-of-type(2) > p`).css({'color': '#faf6f5', 'background': '#05090a40', 'border': '1px solid #05090a40'});
             }
-
-            cnt++;
         }
     }
 
@@ -437,8 +482,8 @@ function H2h(data, matchData, h2h) {
         const goalCpG = parseFloat((goalC / (w + d + l)));
 
         // 승무패 기록
-        const getEnd = v => (v >= 100 ? 100 : Math.max(0, v - 3));
-        const getStart = v => (v <= 0 ? 0 : Math.min(100, v + 3));
+        const getEnd = v => (v >= 100 ? 100 : Math.max(0, Number(v) - 3));
+        const getStart = v => (v <= 0 ? 0 : Math.min(100, Number(v) + 3));
         let stops;
 
         if (isHome) {
@@ -471,16 +516,25 @@ function H2h(data, matchData, h2h) {
         $(`#h2hText > div:nth-of-type(${2 * isHome + 1}) > div > p:nth-of-type(1)`).text('패배');
 
         // 득실 기록
-        if (isHome) {
-            stops = [
-                `#000060c0 ${getEnd(Number(100 * goalS / (goalS + goalC)).toFixed(1))}%`,
-                `${bgColor} ${getStart(Number(100 * goalS / (goalS + goalC)).toFixed(1))}%`
-            ];
+        const goalTotal = goalS + goalC;
+        if (goalTotal === 0) {
+            stops = isHome
+                ? [`#000060c0 47%`, `${bgColor} 53%`]
+                : [`${bgColor} 47%`, `#000060c0 53%`];
         } else {
-            stops = [
-                `${bgColor} ${getEnd(100 - Number(100 * goalS / (goalS + goalC)).toFixed(1))}%`,
-                `#000060c0 ${getStart(100 - Number(100 * goalS / (goalS + goalC)).toFixed(1))}%`
-            ];
+            const goalSPct = Number((100 * goalS / goalTotal).toFixed(1));
+            if (isHome) {
+                stops = [
+                    `#000060c0 ${getEnd(goalSPct)}%`,
+                    `${bgColor} ${getStart(goalSPct)}%`
+                ];
+            } else {
+                const awayPct = Number((100 - goalSPct).toFixed(1));
+                stops = [
+                    `${bgColor} ${getEnd(awayPct)}%`,
+                    `#000060c0 ${getStart(awayPct)}%`
+                ];
+            }
         }
 
         $('#h2hGoalsBar > p').css('background', `linear-gradient(105deg, ${stops.filter(Boolean).join(', ')})`);
@@ -498,8 +552,8 @@ function H2h(data, matchData, h2h) {
         $('#recentMatch > div').each(function() {
             $(this).click(function() {
                 window.location.href = `./match?${$(this).attr('class')}`;
-            })
-        })
+            });
+        });
     } else {
         $('#matchH2H').empty().append('<p>맞대결 기록이 없습니다.</p>');
     }

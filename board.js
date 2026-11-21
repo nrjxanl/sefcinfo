@@ -19,19 +19,31 @@ const googleProvider = new firebase.auth.GoogleAuthProvider();
 let currentUser = null;
 let isAdmin = false;
 let unsubscribeUserProfile = null;
+let postAuthorUid = null;
 
 // --- 헬퍼 함수 ---
+function escapeHtml(text) {
+    return String(text ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
 function linkify(text) {
     if (!text) return '';
-    const urlRegex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])|(\bwww\.[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig; let linkedText = text.replace(urlRegex, function (url, urlWithProtocol, protocol, urlWithoutProtocol) {
-        const fullUrl = urlWithoutProtocol ? 'http://' + urlWithoutProtocol : urlWithProtocol;
+    const escaped = escapeHtml(text);
+    const urlRegex = /(\bhttps?:\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])|(\bwww\.[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    let linkedText = escaped.replace(urlRegex, function (url, urlWithProtocol, urlWithoutProtocol) {
+        const fullUrl = urlWithoutProtocol ? 'https://' + urlWithoutProtocol : urlWithProtocol;
         return `<a href="${fullUrl}" target="_blank" rel="noopener noreferrer">${url}</a>`;
     });
     const specialRegex = /\b(sefc\.info)\b(?![^<]*>|[^<>]*<\/a>)/ig;
     linkedText = linkedText.replace(specialRegex, function (match) {
-        return `<a href="http://${match}" target="_blank" rel="noopener noreferrer">${match}</a>`;
+        return `<a href="https://${match}" target="_blank" rel="noopener noreferrer">${match}</a>`;
     });
-    return linkedText;
+    return linkedText.replace(/\r?\n/g, '<br>');
 }
 
 function formatDate(timestamp) {
@@ -42,15 +54,21 @@ function formatDate(timestamp) {
     const day = String(date.getDate()).padStart(2, '0');
     const hours = String(date.getHours()).padStart(2, '0');
     const minutes = String(date.getMinutes()).padStart(2, '0');
-    if ($(window).width () < 768) return `${hours}:${minutes}`;
+    if ($(window).width() < 768) return `${hours}:${minutes}`;
     else return `${year}.${month}.${day}. ${hours}:${minutes}`;
 }
 
 // --- jQuery가 준비되면 코드 실행 ---
 $(document).ready(function () {
+    if (typeof beforeLoading === 'function') beforeLoading();
+
+    let resolveAuthReady;
+    const authReadyPromise = new Promise(resolve => {
+        resolveAuthReady = resolve;
+    });
 
     // --- 모든 페이지 공통 로직 ---
-    auth.onAuthStateChanged(user => {
+    auth.onAuthStateChanged(async user => {
         currentUser = user;
         if (user) {
             // --- 로그인 상태 ---
@@ -67,13 +85,14 @@ $(document).ready(function () {
                 const name = doc.exists && doc.data().displayName ? doc.data().displayName : user.displayName;
                 $('#user-name').text(name);
             });
-            db.collection('admins').doc(user.uid).get().then(doc => {
-                isAdmin = doc.exists;
-                // 로그인/관리자 상태가 확정된 후, 목록 UI를 다시 그려서 삭제 버튼 등을 갱신
-                if ($('#posts-container').length > 0) {
-                    $('#posts-container').trigger('custom:render');
-                }
-            });
+
+            try {
+                const adminDoc = await db.collection('admins').doc(user.uid).get();
+                isAdmin = adminDoc.exists;
+            } catch (err) {
+                console.error("관리자 확인 오류:", err);
+                isAdmin = false;
+            }
         } else {
             // --- 로그아웃 상태 ---
             $('#login-btn').removeClass('hidden');
@@ -85,20 +104,25 @@ $(document).ready(function () {
             }
 
             isAdmin = false;
-            // 로그아웃 시 목록 UI 갱신
-            if ($('#posts-container').length > 0) {
-                $('#posts-container').trigger('custom:render');
-            }
+        }
+
+        resolveAuthReady();
+
+        if ($('#posts-container').length > 0) {
+            $('#posts-container').trigger('custom:render');
+        }
+        if ($('#post-detail-container').length > 0) {
+            $('#post-detail-container').trigger('custom:render-detail');
+        }
+        if ($('#comments-list').length > 0) {
+            $('#comments-list').trigger('custom:render-comments');
         }
     });
 
     $('#logout-btn').on('click', () => {
-        // 1. 사용자에게 확인 창을 띄웁니다.
         if (confirm('정말 로그아웃하시겠습니까?')) {
-            // 2. 사용자가 '확인'을 눌렀을 경우에만 로그아웃을 실행합니다.
             auth.signOut().catch(e => console.error("로그아웃 오류:", e));
         }
-        // 3. '취소'를 누르면 아무 일도 일어나지 않습니다.
     });
     $('#login-btn').on('click', () => auth.signInWithPopup(googleProvider));
 
@@ -115,19 +139,24 @@ $(document).ready(function () {
         let lastVisibleDoc = null;
         let currentPage = 1;
         let postsCache = [];
+        let currentFilterUid = null;
+
+        $(document).on('click', '#back-to-list-from-filter', function () {
+            window.location.href = '/board';
+        });
 
         async function fetchPosts(direction = 'initial') {
             let query;
             const urlParams = new URLSearchParams(window.location.search);
             const filterUid = urlParams.get('uid');
+            currentFilterUid = filterUid;
             let baseQuery = db.collection('posts');
-            let postAuthorUid = null;
 
             if (filterUid) {
                 baseQuery = baseQuery.where('uid', '==', filterUid);
                 db.collection('users').doc(filterUid).get().then(doc => {
                     const name = doc.exists && doc.data().displayName ? doc.data().displayName : '알 수 없는 사용자';
-                    $('#board-header').html(`<p>${name} 님의 게시물 목록</p><button id="back-to-list-from-filter" glass="true">전체 목록 보기</button>`);
+                    $('#board-header').html(`<p>${escapeHtml(name)} 님의 게시물 목록</p><button id="back-to-list-from-filter" glass="true">전체 목록 보기</button>`);
                 });
             } else {
                 $('#board-header').empty();
@@ -154,14 +183,14 @@ $(document).ready(function () {
                     postsCache = [];
                 }
                 renderPostList();
-                updatePaginationButtons(snapshot);
+                updatePaginationButtons(snapshot, filterUid);
                 window.scrollTo(0, 0);
             } catch (error) {
                 console.error("게시물 로딩 오류:", error);
                 if (error.code === "failed-precondition") {
-                    const indexUrl = error.message.match(/https:\/\/.*/);
+                    const indexUrl = error.message.match(/https:\/\/[^\s]+/);
                     if (indexUrl) {
-                        $('#posts-container').html(`<p>데이터베이스 색인이 필요합니다. <a href="${indexUrl[0]}" target="_blank">여기</a>를 클릭해서 색인을 생성한 후, 몇 분 뒤에 페이지를 새로고침해주세요.</p>`);
+                        $('#posts-container').html(`<p>데이터베이스 색인이 필요합니다. <a href="${escapeHtml(indexUrl[0])}" target="_blank" rel="noopener noreferrer">여기</a>를 클릭해서 색인을 생성한 후, 몇 분 뒤에 페이지를 새로고침해주세요.</p>`);
                     }
                 } else {
                     $('#posts-container').html("<p>게시물을 불러오는 데 실패했습니다.</p>");
@@ -177,16 +206,16 @@ $(document).ready(function () {
             }
             postsCache.forEach(post => {
                 const postDate = formatDate(post.timestamp);
-                const postTitle = post.title || "(제목 없음)";
+                const postTitle = escapeHtml(post.title || "(제목 없음)");
+                const postAuthor = escapeHtml(post.author || "");
                 const viewCount = post.viewCount || 0;
 
-                // ✅ renderPostList 함수는 목록만 그리므로 상세보기 링크를 a 태그로 감싸야 합니다.
                 const $postElement = $(`
-                    <a href="/board/view?id=${post.id}" class="post-item-link">
+                    <a href="/board/view?id=${encodeURIComponent(post.id)}" class="post-item-link">
                         <div class="post">
                             <p>${postTitle}</p>
                             <div>
-                                <p>${post.author}</p>
+                                <p>${postAuthor}</p>
                                 <p>${postDate}</p>
                                 <p>조회수 ${viewCount}</p>
                             </div>
@@ -194,7 +223,6 @@ $(document).ready(function () {
                     </a>`);
 
                 if (post.author === "SEFCiNFO") {
-                    // <a> 태그 안의 .post div에 admin-post 클래스 추가
                     $postElement.find('.post').addClass('admin-post');
                 }
 
@@ -202,15 +230,20 @@ $(document).ready(function () {
             });
         }
 
-        function updatePaginationButtons(snapshot) {
+        function updatePaginationButtons(snapshot, filterUid) {
             $('#page-number').text(currentPage);
             $('#prev-btn').prop('disabled', currentPage === 1);
-            // ✅ 다음 페이지 유무를 더 정확하게 판단하는 로직
-            if (snapshot.docs.length < pageSize) {
+            if (snapshot.docs.length < pageSize || !lastVisibleDoc) {
                 $('#next-btn').prop('disabled', true);
             } else {
-                db.collection('posts').orderBy('timestamp', 'desc').startAfter(lastVisibleDoc).limit(1).get().then(snap => {
+                let nextBaseQuery = db.collection('posts');
+                if (filterUid) {
+                    nextBaseQuery = nextBaseQuery.where('uid', '==', filterUid);
+                }
+                nextBaseQuery.orderBy('timestamp', 'desc').startAfter(lastVisibleDoc).limit(1).get().then(snap => {
                     $('#next-btn').prop('disabled', snap.empty);
+                }).catch(() => {
+                    $('#next-btn').prop('disabled', true);
                 });
             }
         }
@@ -218,65 +251,114 @@ $(document).ready(function () {
         $('#next-btn').on('click', () => fetchPosts('next'));
         $('#prev-btn').on('click', () => fetchPosts('prev'));
 
-        // custom:render 이벤트가 발생하면 renderPostList 함수를 실행
         $('#posts-container').on('custom:render', function () {
             renderPostList();
         });
 
-        fetchPosts(); // 첫 페이지 로드
+        fetchPosts();
     }
 
     // ✅ 2. 상세보기 페이지 (view.html) 전용 코드
     if ($('#post-detail-container').length > 0) {
         const urlParams = new URLSearchParams(window.location.search);
         const postId = urlParams.get('id');
+        let loadedPost = null;
+        let loadedComments = [];
+        let commentsLoaded = false;
+
+        function renderPostDetail() {
+            if (!loadedPost) return;
+            const post = loadedPost;
+            const postDate = formatDate(post.timestamp);
+            const linkedContent = linkify(post.content || "");
+            const viewCount = post.viewCount || 0;
+
+            let buttonsHTML = '';
+            if (currentUser && (isAdmin || currentUser.uid === post.uid)) {
+                buttonsHTML = `
+                <div class="post-actions">
+                    <button class="post-edit-btn" data-id="${escapeHtml(postId)}" glass='true'>수정</button>
+                    <button class="post-delete-btn" data-id="${escapeHtml(postId)}" glass='true'>삭제</button>
+                </div>
+            `;
+            }
+
+            if (post.author === "SEFCiNFO") {
+                $('#post-detail-container').addClass('admin-post');
+            } else {
+                $('#post-detail-container').removeClass('admin-post');
+            }
+
+            const finalHTML = `
+            <p>${escapeHtml(post.title || "(제목 없음)")}</p>
+            <div class="post-meta">${escapeHtml(post.author || "")}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;${postDate}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;조회수 ${viewCount}</div>
+            ${buttonsHTML}
+            <div class="post-content-body">${linkedContent}</div>`;
+
+            $('#post-detail-container').html(finalHTML);
+        }
+
+        function renderComments() {
+            if (!commentsLoaded) return;
+            $('#comments-title').html(`댓글 <span>${loadedComments.length}</span>`);
+
+            const $commentsList = $('#comments-list');
+            $commentsList.empty();
+            if (loadedComments.length === 0) {
+                $commentsList.html('<p>아직 댓글이 없습니다.</p>');
+                return;
+            }
+            loadedComments.forEach(({ id: commentId, data: comment }) => {
+                const commentDate = formatDate(comment.timestamp);
+                let deleteBtnHTML = '';
+                if (currentUser && (isAdmin || currentUser.uid === comment.uid)) {
+                    deleteBtnHTML = `<button class="comment-delete-btn" data-comment-id="${escapeHtml(commentId)}" glass='true'>삭제</button>`;
+                }
+
+                const linkedCommentText = linkify(comment.text || "");
+
+                const $commentElement = $(`
+                    <div class="comment-item">
+                        <div>
+                            <div class="comment-header">
+                                <span class="comment-author">${escapeHtml(comment.author || "")}</span>
+                                <span class="comment-date">${commentDate}</span>
+                            </div>
+                            <p class="comment-text">${linkedCommentText}</p>
+                        </div>
+                        ${deleteBtnHTML}
+                    </div>
+                `);
+
+                if (comment.author === "SEFCiNFO") {
+                    $commentElement.addClass('admin-comment');
+                }
+
+                if (postAuthorUid && comment.uid === postAuthorUid) {
+                    $commentElement.addClass('author-comment');
+                }
+
+                $commentsList.append($commentElement);
+            });
+        }
+
+        $('#post-detail-container').on('custom:render-detail', renderPostDetail);
+        $('#comments-list').on('custom:render-comments', renderComments);
 
         if (postId) {
             const postRef = db.collection('posts').doc(postId);
 
-            postRef.get().then(doc => {
+            Promise.all([authReadyPromise, postRef.get()]).then(([, doc]) => {
                 if (doc.exists) {
-                    const post = doc.data();
-                    postAuthorUid = post.uid;
+                    loadedPost = doc.data();
+                    postAuthorUid = loadedPost.uid;
 
-                    // 1. 필요한 모든 정보를 변수에 미리 준비합니다.
-                    const postDate = formatDate(post.timestamp);
-                    const linkedContent = linkify((post.content || "").replace(/\n/g, '<br>'));
-                    const viewCount = post.viewCount || 0;
+                    renderPostDetail();
+                    renderComments();
 
-                    // 2. 버튼 HTML을 만들지 여부를 먼저 결정합니다.
-                    let buttonsHTML = '';
-                    if (currentUser && (isAdmin || currentUser.uid === post.uid)) {
-                        buttonsHTML = `
-                        <div class="post-actions">
-                            <button class="post-edit-btn" data-id="${postId}" glass='true'>수정</button>
-                            <button class="post-delete-btn" data-id="${postId}" glass='true'>삭제</button>
-                        </div>
-                    `;
-                    }
-
-                    // ✅ "SEFCiNFO"가 쓴 글이면 메인 컨테이너에 클래스 추가
-                    if (post.author === "SEFCiNFO") {
-                        $('#post-detail-container').addClass('admin-post');
-                    } else {
-                        $('#post-detail-container').removeClass('admin-post');
-                    }
-
-                    // 3. 모든 정보를 조합하여 최종 HTML을 완성합니다.
-                    const finalHTML = `
-                    <p>${post.title || "(제목 없음)"}</p>
-                    <div class="post-meta">${post.author}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;${postDate}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;조회수 ${viewCount}</div>
-                    ${buttonsHTML} 
-                    <div class="post-content-body">${linkedContent}</div>`;
-
-                    // 4. 완성된 HTML을 단 한 번만 화면에 그립니다.
-                    $('#post-detail-container').html(finalHTML);
-
-                    // 5. 조회수 업데이트는 화면이 그려진 후에 조용히 실행합니다.
                     postRef.update({
                         viewCount: firebase.firestore.FieldValue.increment(1)
-                    }).catch(err => { });
-
+                    }).catch(() => {});
                 } else {
                     $('#post-detail-container').html('<p>게시물을 찾을 수 없습니다.</p>');
                 }
@@ -285,108 +367,58 @@ $(document).ready(function () {
                 $('#post-detail-container').html('<p>게시물을 불러오는 데 오류가 발생했습니다.</p>');
             });
 
-            const urlParamsForComments = new URLSearchParams(window.location.search);
-            const postIdForComments = urlParamsForComments.get('id');
+            const commentsCollectionRef = db.collection('posts').doc(postId).collection('comments');
+            const commentsQuery = commentsCollectionRef.orderBy('timestamp', 'asc');
 
-            if (postIdForComments) {
-                // ✅ 1. '댓글' 컬렉션 자체에 대한 참조를 만듭니다. (add, delete용)
-                const commentsCollectionRef = db.collection('posts').doc(postIdForComments).collection('comments');
+            commentsQuery.onSnapshot(snapshot => {
+                commentsLoaded = true;
+                loadedComments = snapshot.docs.map(doc => ({ id: doc.id, data: doc.data() }));
+                renderComments();
+            });
 
-                // ✅ 2. 정렬된 데이터를 가져오기 위한 '쿼리'를 만듭니다. (onSnapshot용)
-                const commentsQuery = commentsCollectionRef.orderBy('timestamp', 'asc');
+            $('#comment-form').on('submit', async function (event) {
+                event.preventDefault();
+                if (!currentUser) { alert("로그인 후 댓글을 작성할 수 있습니다."); return; }
+                const text = $('#comment-input').val().trim();
+                if (text === '') return;
 
-                // 1. 댓글 목록 실시간으로 불러오기 (쿼리 변수 사용)
-                commentsQuery.onSnapshot(snapshot => {
-                    $('#comments-title').html(`댓글 <span>${snapshot.size}</span>`);
-
-                    const $commentsList = $('#comments-list');
-                    $commentsList.empty();
-                    if (snapshot.empty) {
-                        $commentsList.html('<p>아직 댓글이 없습니다.</p>');
-                        return;
-                    }
-                    snapshot.forEach(doc => {
-                        const comment = doc.data();
-                        const commentDate = formatDate(comment.timestamp);
-                        let deleteBtnHTML = '';
-                        if (currentUser && (isAdmin || currentUser.uid === comment.uid)) {
-                            deleteBtnHTML = `<button class="comment-delete-btn" data-comment-id="${doc.id}" glass='true'>삭제</button>`;
-                        }
-
-                        const linkedCommentText = linkify((comment.text || "").replace(/\n/g, '<br>'));
-                        
-                        const $commentElement = $(`
-                            <div class="comment-item">
-                                <div>
-                                    <div class="comment-header">
-                                        <span class="comment-author">${comment.author}</span>
-                                        <span class="comment-date">${commentDate}</span>
-                                    </div>
-                                    <p class="comment-text">${linkedCommentText}</p>
-                                </div>
-                                ${deleteBtnHTML}
-                            </div>
-                        `);
-
-                        if (comment.author === "SEFCiNFO") {
-                            $commentElement.addClass('admin-comment');
-                        }
-
-                        // 만약 댓글 작성자가 현재 글의 작성자라면, 'author-comment' 클래스를 추가합니다.
-                        if (postAuthorUid && comment.uid === postAuthorUid) {
-                            $commentElement.addClass('author-comment');
-                        }
-
-                        $commentsList.append($commentElement);
-                    });
-                });
-
-                // 2. 댓글 작성 폼 처리 (컬렉션 참조 변수 사용)
-                $('#comment-form').on('submit', async function (event) {
-                    event.preventDefault();
-                    if (!currentUser) { alert("로그인 후 댓글을 작성할 수 있습니다."); return; }
-                    const text = $('#comment-input').val().trim();
-                    if (text === '') return;
-
+                try {
                     const userDoc = await db.collection('users').doc(currentUser.uid).get();
                     const authorName = userDoc.exists && userDoc.data().displayName ? userDoc.data().displayName : currentUser.displayName;
 
-                    // ✅ .orderBy()가 없는 컬렉션 참조에 .add()를 사용
-                    commentsCollectionRef.add({
+                    await commentsCollectionRef.add({
                         uid: currentUser.uid,
                         author: authorName,
                         text: text,
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                    }).then(() => {
-                        $('#comment-input').val('');
-                    }).catch(error => console.error("댓글 작성 오류:", error));
-                });
+                    });
+                    $('#comment-input').val('');
+                } catch (error) {
+                    console.error("댓글 작성 오류:", error);
+                }
+            });
 
-                // 3. 댓글 삭제 처리 (컬렉션 참조 변수 사용)
-                $('#comments-list').on('click', '.comment-delete-btn', function () {
-                    const commentId = $(this).data('comment-id');
-                    if (confirm('정말 이 댓글을 삭제하시겠습니까?')) {
-                        // ✅ .orderBy()가 없는 컬렉션 참조에 .doc().delete()를 사용
-                        commentsCollectionRef.doc(commentId).delete().catch(error => console.error("댓글 삭제 오류:", error));
-                    }
-                });
-            }
+            $('#comments-list').on('click', '.comment-delete-btn', function () {
+                const commentId = $(this).data('comment-id');
+                if (confirm('정말 이 댓글을 삭제하시겠습니까?')) {
+                    commentsCollectionRef.doc(commentId).delete().catch(error => console.error("댓글 삭제 오류:", error));
+                }
+            });
 
             $('#back-to-list-btn').on('click', function () {
-                window.location.href = '../board';
+                window.location.href = '/board';
             });
         }
 
-        // --- 이벤트 리스너들은 여기에 그대로 둡니다 ---
         $('#post-detail-container').on('click', '.post-edit-btn', function () {
-            const postId = $(this).data('id');
-            window.location.href = `/board/write?editId=${postId}`;
+            const targetId = $(this).data('id');
+            window.location.href = `/board/write?editId=${encodeURIComponent(targetId)}`;
         });
 
         $('#post-detail-container').on('click', '.post-delete-btn', function () {
-            const postId = $(this).data('id');
+            const targetId = $(this).data('id');
             if (confirm('정말 이 글을 삭제하시겠습니까?')) {
-                db.collection('posts').doc(postId).delete().then(() => {
+                db.collection('posts').doc(targetId).delete().then(() => {
                     alert('게시물이 삭제되었습니다.');
                     window.location.href = '/board';
                 }).catch(e => console.error("삭제 오류:", e));
@@ -401,32 +433,31 @@ $(document).ready(function () {
 
         // --- 수정 모드 로직 ---
         if (editId) {
-            // 1. 페이지 제목 변경
             $('#write-form').prev('h2').text('글 수정');
             $('#post-save-btn').text('수정 완료');
 
-            // 2. 기존 글 데이터를 불러와서 폼에 채워넣기
-            db.collection('posts').doc(editId).get().then(doc => {
+            Promise.all([authReadyPromise, db.collection('posts').doc(editId).get()]).then(([, doc]) => {
                 if (doc.exists) {
                     const post = doc.data();
-                    // 권한 확인: 본인 또는 관리자만 수정 가능
-                    auth.onAuthStateChanged(user => {
-                        if (!user || (user.uid !== post.uid && !isAdmin)) {
-                            alert("수정할 권한이 없습니다.");
-                            window.location.href = '/board.html';
-                        }
-                    });
+                    if (!currentUser || (currentUser.uid !== post.uid && !isAdmin)) {
+                        alert("수정할 권한이 없습니다.");
+                        window.location.href = '/board';
+                        return;
+                    }
                     $('#post-title-input').val(post.title);
                     $('#post-content-input').val(post.content);
                 } else {
                     alert("존재하지 않는 게시물입니다.");
-                    window.location.href = '/board.html';
+                    window.location.href = '/board';
                 }
+            }).catch(error => {
+                console.error("게시물 불러오기 오류:", error);
+                alert("게시물을 불러오지 못했습니다.");
+                window.location.href = '/board';
             });
         }
 
         $('#cancel-write-btn').on('click', function () {
-            // 사용자가 실수로 누르는 것을 방지하기 위해 확인 창을 띄우는 것이 좋습니다.
             if (confirm('작성을 취소하시겠습니까? 변경 사항이 저장되지 않습니다.')) {
                 window.location.href = '/board';
             }
@@ -445,30 +476,32 @@ $(document).ready(function () {
 
             $('#post-save-btn').prop('disabled', true);
             try {
-                const userDoc = await db.collection('users').doc(currentUser.uid).get();
-                const authorName = userDoc.exists && userDoc.data().displayName ? userDoc.data().displayName : currentUser.displayName;
+                if (editId) {
+                    await db.collection('posts').doc(editId).update({
+                        title: title,
+                        content: content,
+                        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+                    });
+                    window.location.href = `/board/view?id=${encodeURIComponent(editId)}`;
+                } else {
+                    const userDoc = await db.collection('users').doc(currentUser.uid).get();
+                    const authorName = userDoc.exists && userDoc.data().displayName ? userDoc.data().displayName : currentUser.displayName;
 
-                // --- ✅ 여기가 핵심입니다 ---
-                // 1. add() 메소드는 방금 생성된 문서의 참조(reference)를 반환합니다.
-                const newPostRef = await db.collection('posts').add({
-                    uid: currentUser.uid,
-                    author: authorName,
-                    title: title,
-                    content: content,
-                    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-                    viewCount: 0
-                });
+                    const newPostRef = await db.collection('posts').add({
+                        uid: currentUser.uid,
+                        author: authorName,
+                        title: title,
+                        content: content,
+                        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                        viewCount: 0
+                    });
 
-                // 2. newPostRef에서 방금 생성된 문서의 고유 ID를 가져옵니다.
-                const newPostId = newPostRef.id;
-
-                // 3. 목록 페이지 대신, 방금 만든 글의 상세보기 페이지로 이동합니다.
-                window.location.href = `/board/view?id=${newPostId}`;
-                // --- ---
-
+                    const newPostId = newPostRef.id;
+                    window.location.href = `/board/view?id=${encodeURIComponent(newPostId)}`;
+                }
             } catch (error) {
-                console.error("글 작성 오류:", error);
-                alert('글 등록에 실패했습니다.');
+                console.error("글 작성/수정 오류:", error);
+                alert(editId ? '글 수정에 실패했습니다.' : '글 등록에 실패했습니다.');
                 $('#post-save-btn').prop('disabled', false);
             }
         });
@@ -488,19 +521,25 @@ $(document).ready(function () {
         }
     });
     $('#profile-save-btn').on('click', async () => {
-        const newName = $('#profile-name-input').val().trim().toLowerCase();
         if (!currentUser) return;
-        if (newName.length < 4 || newName.length > 16) { alert('닉네임은 4자 이상 16자 이하로 입력해주세요.'); return; }
+        const originalName = $('#profile-name-input').val().trim();
+        if (originalName.length < 4 || originalName.length > 16) {
+            alert('닉네임은 4자 이상 16자 이하로 입력해주세요.');
+            return;
+        }
         const nameRegex = /^[a-z0-9ㄱ-ㅎㅏ-ㅣ가-힣]+$/;
-        if (!nameRegex.test(newName)) { alert('닉네임은 영문, 한글, 숫자만 사용할 수 있습니다 (특수문자, 공백, 대문자 불가).'); return; }
+        if (!nameRegex.test(originalName)) {
+            alert('닉네임은 영문 소문자, 한글, 숫자만 사용할 수 있습니다 (특수문자, 공백, 대문자 불가).');
+            return;
+        }
+        const newNameLower = originalName.toLowerCase();
         try {
             const usersRef = db.collection('users');
-            const querySnapshot = await usersRef.where('displayName_lowercase', '==', newName).get();
+            const querySnapshot = await usersRef.where('displayName_lowercase', '==', newNameLower).get();
             let isDuplicate = false;
             querySnapshot.forEach(doc => { if (doc.id !== currentUser.uid) isDuplicate = true; });
             if (isDuplicate) { alert('이미 사용 중인 닉네임입니다.'); return; }
-            const originalName = $('#profile-name-input').val().trim();
-            await db.collection('users').doc(currentUser.uid).set({ displayName: originalName, displayName_lowercase: newName }, { merge: true });
+            await db.collection('users').doc(currentUser.uid).set({ displayName: originalName, displayName_lowercase: newNameLower }, { merge: true });
             const postsQuery = db.collection('posts').where('uid', '==', currentUser.uid);
             const postsSnapshot = await postsQuery.get();
             const batch = db.batch();
@@ -518,4 +557,6 @@ $(document).ready(function () {
             $('#profile-modal').addClass('hidden');
         }
     });
+
+    if (typeof afterLoading === 'function') afterLoading();
 });

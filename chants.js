@@ -10,9 +10,10 @@ async function initPage() {
 
         const chants = await loadData('chants');
 
-        render(chants);
+        render(chants || {});
     } catch (error) {
         console.error('데이터 불러오기 실패', error);
+        window.showLoadError?.('데이터를 불러오지 못했습니다.');
     }
 
     afterLoading();
@@ -21,37 +22,55 @@ async function initPage() {
 initPage();
 
 function render(chants) {
+    const audioEl = document.getElementById('audio');
     let type = 'team';
+    let name = '';
+    let idx = -1;
+
+    // 오디오 재생/일시정지 상태와 버튼 아이콘 동기화
+    $('#audio').off('play.sync pause.sync ended.sync')
+        .on('play.sync', function () {
+            $('#chantsPause > img:nth-of-type(1)').css('display', 'none');
+            $('#chantsPause > img:nth-of-type(2)').css('display', 'block');
+        })
+        .on('pause.sync ended.sync', function () {
+            $('#chantsPause > img:nth-of-type(1)').css('display', 'block');
+            $('#chantsPause > img:nth-of-type(2)').css('display', 'none');
+        });
+
+    const renderList = (listType) => {
+        $('#chantsList > div').remove();
+        const listObj = chants?.[listType] || {};
+        const keys = Object.keys(listObj);
+
+        for (let i = 0; i < keys.length; i++) {
+            const rawKey = keys[i];
+            const displayName = rawKey.replace(/^[0-9]+_/, '');
+
+            const $item = $(`<div glass='true'></div>`).text(displayName).attr('data-key', rawKey);
+            $('#chantsList').append($item);
+        }
+    };
 
     // 응원가 목록 불러오기
     $('#chantsList > button:nth-of-type(1)').click(function() {
         type = 'team';
+        idx = -1;
 
         $('#chantsList > button').css({'background': 'none', 'color': '#05090a'});
         $(this).css({'background': '#000060c0', 'color': '#faf6f5'});
 
-        $('#chantsList > div').remove();
-
-        for (let i = 0; i < Object.keys(chants['team']).length; i++) {
-            const name = Object.keys(chants['team'])[i].replace(/^[0-9]+_/, '');
-
-            $('#chantsList').append(`<div glass = 'true'>${name}</div>`);
-        }
+        renderList('team');
     });
 
     $('#chantsList > button:nth-of-type(2)').click(function() {
         type = 'players';
+        idx = -1;
 
         $('#chantsList > button').css({'background': 'none', 'color': '#05090a'});
         $(this).css({'background': '#000060c0', 'color': '#faf6f5'});
 
-        $('#chantsList > div').remove();
-
-        for (let i = 0; i < Object.keys(chants['players']).length; i++) {
-            const name = Object.keys(chants['players'])[i].replace(/^[0-9]+_/, '');
-
-            $('#chantsList').append(`<div glass = 'true'>${name}</div>`);
-        }
+        renderList('players');
     });
 
     $('#chantsList > button:nth-of-type(1)').trigger('click');
@@ -60,6 +79,7 @@ function render(chants) {
     let startY = 0;
     let startTime = 0;
     let currHeight;
+    let isOpen = false;
 
     $('#pullupHandle').on('touchstart', function(e) {
         startY = e.originalEvent.touches[0].clientY;
@@ -75,7 +95,8 @@ function render(chants) {
         const distance = startY - endY;
         const duration = endTime - startTime;
 
-        if (distance > 50 && duration < 300) {
+        if (distance > 50 && duration < 300 && !isOpen) {
+            isOpen = true;
             currHeight = openPlayer();
         }
 
@@ -84,64 +105,77 @@ function render(chants) {
 
     // 플레이어 닫기 버튼
     $('#closePlayer').click(function() {
-        closePlayer(currHeight);
+        if (isOpen) {
+            isOpen = false;
+            closePlayer(currHeight);
+        }
     });
 
     // 응원가 클릭하면 재생
-    let name, idx;
-
     $('#chantsList').on('click', 'div', function() {
+        const rawKey = $(this).attr('data-key');
         name = $(this).text().replaceAll(' ', '_');
         idx = $('#chantsList > div').index(this) + 1;
 
-        playChant(chants, name, type, idx);
+        playChant(audioEl, chants, name, type, rawKey);
     });
 
     // 재생 등 컨트롤
     $('#chantsPause').on('click', function() {
-        if (audio.paused) {
-            audio.play();
-            $('#chantsPause > img:nth-of-type(1)').css('display', 'none');
-            $('#chantsPause > img:nth-of-type(2)').css('display', 'block');
+        if (!audioEl || !audioEl.getAttribute('src')) return;
+        if (audioEl.paused) {
+            audioEl.play().catch(() => {});
         } else {
-            audio.pause();
-            $('#chantsPause > img:nth-of-type(1)').css('display', 'block');
-            $('#chantsPause > img:nth-of-type(2)').css('display', 'none');
+            audioEl.pause();
         }
     });
 
     $(document).on('keydown', function(e) {
         if (e.code === 'Space' || e.key === ' ' || e.keyCode === 32) {
+            const target = e.target;
+            if (target && (['INPUT', 'TEXTAREA', 'SELECT', 'BUTTON', 'A'].includes(target.tagName) || target.isContentEditable)) {
+                return;
+            }
+            if (!audioEl || !audioEl.getAttribute('src')) return;
+
             e.preventDefault();
 
-            if (audio.paused) {
-                audio.play();
-                $('#chantsPause > img:nth-of-type(1)').css('display', 'none');
-                $('#chantsPause > img:nth-of-type(2)').css('display', 'block');
+            if (audioEl.paused) {
+                audioEl.play().catch(() => {});
             } else {
-            audio.pause();
-                $('#chantsPause > img:nth-of-type(1)').css('display', 'block');
-                $('#chantsPause > img:nth-of-type(2)').css('display', 'none');
+                audioEl.pause();
             }
         }
     });
 
     $('#chantsPrev').on('click', function() {
-        if (idx != 1) idx--;
-        else idx = $('#chantsList > div').length;
-        
-        name = $(`#chantsList > div:nth-of-type(${idx})`).text().replaceAll(' ', '_');
+        const len = $('#chantsList > div').length;
+        if (len === 0) return;
 
-        playChant(chants, name, type, idx);
+        if (!Number.isInteger(idx) || idx < 1 || idx > len) idx = len;
+        else if (idx > 1) idx--;
+        else idx = len;
+        
+        const $item = $(`#chantsList > div:nth-of-type(${idx})`);
+        const rawKey = $item.attr('data-key');
+        name = $item.text().replaceAll(' ', '_');
+
+        playChant(audioEl, chants, name, type, rawKey);
     });
 
     $('#chantsNext').on('click', function() {
-        if (idx != $('#chantsList > div').length) idx++;
+        const len = $('#chantsList > div').length;
+        if (len === 0) return;
+
+        if (!Number.isInteger(idx) || idx < 1 || idx > len) idx = 1;
+        else if (idx < len) idx++;
         else idx = 1;
         
-        name = $(`#chantsList > div:nth-of-type(${idx})`).text().replaceAll(' ', '_');
+        const $item = $(`#chantsList > div:nth-of-type(${idx})`);
+        const rawKey = $item.attr('data-key');
+        name = $item.text().replaceAll(' ', '_');
 
-        playChant(chants, name, type, idx);
+        playChant(audioEl, chants, name, type, rawKey);
     });
 }
 
@@ -175,17 +209,17 @@ function closePlayer(currHeight) {
     $('#lyricBox').fadeOut(300);
 }
 
-function playChant(chants, name, type, idx) {
-    let pct;
+function playChant(audioEl, chants, name, type, rawKey) {
+    if (!audioEl) return;
 
     // m4a 파일 불러오기
     $('#audio').attr('src', `./files/chants/${name}.m4a`);
 
     // 메타데이터 불러오기
-    $('#audio').on('loadedmetadata', function() {
-        if (audio.duration && isFinite(audio.duration)) {
-            $('#progressBar > input').attr('max', audio.duration);
-            console.log(`${name}, ${audio.duration}s`);
+    $('#audio').off('loadedmetadata').on('loadedmetadata', function() {
+        if (audioEl.duration && isFinite(audioEl.duration)) {
+            $('#progressBar > input').attr('max', audioEl.duration);
+            console.log(`${name}, ${audioEl.duration}s`);
         }
     });
 
@@ -195,24 +229,24 @@ function playChant(chants, name, type, idx) {
     // 자막 표시
     $('#lyricBox').empty();
 
-    const lyricsArr = chants[type][`${idx.toString().padStart(2, '0')}_${name.replaceAll('_', ' ')}`];
+    const lyricsArr = chants?.[type]?.[rawKey] || {};
 
     const time = Object.keys(lyricsArr);
     const lyrics = Object.values(lyricsArr);
 
     for (let i = 0; i < lyrics.length; i++) {
-        $('#lyricBox').append(`<p>${lyrics[i]}</p>`);
+        $('#lyricBox').append($('<p></p>').text(lyrics[i]));
     }
 
     let currIdx = -1;
 
     // 시간 실시간 업데이트
     $('#audio').off('timeupdate').on('timeupdate', function() {
-        const curr = audio.currentTime;
-        const dur = audio.duration;
+        const curr = audioEl.currentTime;
+        const dur = audioEl.duration;
 
         if (dur && isFinite(dur)) {
-            pct = (curr / dur) * 100;
+            const pct = (curr / dur) * 100;
 
             $('#progressBar > input').val(curr);
 
@@ -227,60 +261,58 @@ function playChant(chants, name, type, idx) {
             else break;
         }
 
-        if (activeIdx != currIdx) {
+        if (activeIdx !== currIdx) {
+            currIdx = activeIdx;
+
             if ($(window).width() < 768) $(`#lyricBox > p`).css({'font-size': '20px', 'font-weight': '300'});
             else $(`#lyricBox > p`).css({'font-size': '16px', 'font-weight': '300'});
-            
-            if ($(window).width() < 768) $(`#lyricBox > p:nth-of-type(${activeIdx + 1})`).css({'font-size': '24px', 'font-weight': '600'});
-            else $(`#lyricBox > p:nth-of-type(${activeIdx + 1})`).css({'font-size': '18px', 'font-weight': '600'});
 
-            $(`#lyricBox > p:nth-of-type(${activeIdx + 1})`)[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+            if (activeIdx >= 0) {
+                const $activeLine = $(`#lyricBox > p:nth-of-type(${activeIdx + 1})`);
+                if ($(window).width() < 768) $activeLine.css({'font-size': '24px', 'font-weight': '600'});
+                else $activeLine.css({'font-size': '18px', 'font-weight': '600'});
+
+                $activeLine[0]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
         }
     });
 
     // 자막 클릭하면 시간 이동
-    $('#lyricBox > p').on('click', function() {
-        let idx = $(this).index();
-        let t = Number(time[idx].replace(':', '.'));
-        let pct = (t / audio.duration) * 100;
+    $('#lyricBox > p').off('click').on('click', function() {
+        let lineIdx = $(this).index();
+        let t = Number(String(time[lineIdx] ?? '').replace(':', '.'));
 
         if (isFinite(t)) {
-            audio.currentTime = t;
-
-            audio.play();
+            audioEl.currentTime = t;
+            audioEl.play().catch(() => {});
         }
 
-        if (audio.duration) updatePct(pct);
+        if (audioEl.duration && isFinite(audioEl.duration)) {
+            updatePct((t / audioEl.duration) * 100);
+        }
     });
 
     // 재생 바 기능 구현
-    $('#progressBar > input').on('input', function() {
+    $('#progressBar > input').off('input').on('input', function() {
         const val = Number($(this).val());
 
         if (isFinite(val)) {
-            audio.currentTime = val;
+            audioEl.currentTime = val;
 
-            const pct = (val / audio.duration) * 100;
-
-            if (audio.duration) updatePct(pct);
+            if (audioEl.duration && isFinite(audioEl.duration)) {
+                updatePct((val / audioEl.duration) * 100);
+            }
         }
     });
 
     // 자동 재생
-    $('#audio')[0].play();
-    $('#chantsPause > img:nth-of-type(1)').css('display', 'none');
-    $('#chantsPause > img:nth-of-type(2)').css('display', 'block');
-
-    // 재생 종료 시
-    $('#audio').off('ended').on('ended', function() {
-        $('#chantsPause > img:nth-of-type(1)').css('display', 'block');
-        $('#chantsPause > img:nth-of-type(2)').css('display', 'none');
-    });
+    audioEl.play().catch(() => {});
 }
 
 function updatePct(pct) {
     if (isFinite(pct)) {
-        $('#progressBar > div:nth-of-type(2)').css('width', `${pct}%`);
-        $('#progressBar > div:nth-of-type(3)').css('left', `${pct + 5}%`);
+        const clamped = Math.max(0, Math.min(100, pct));
+        $('#progressBar > div:nth-of-type(2)').css('width', `${clamped}%`);
+        $('#progressBar > div:nth-of-type(3)').css('left', `calc(${clamped + 5}% - ${(clamped * 0.04).toFixed(2)}px)`);
     }
 }

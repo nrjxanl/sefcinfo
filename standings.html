@@ -5,39 +5,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Page-Enter" content="revealtrans(duration=1, transition=23)">
-    <meta property="og:url" content="sefc.info">
+    <meta property="og:url" content="https://sefc.info/standings">
     <meta property="og:title" content="SEFCiNFO - 서울 이랜드 FC 팬 페이지">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="./files/thumbnail.jpg">
+    <meta property="og:image" content="https://sefc.info/files/thumbnail.jpg">
     <meta property="og:description" content="서울 이랜드 FC의 모든 것">
     <meta name="description" content="서울 이랜드 FC의 모든 정보를 이곳에서 확인하세요!">
-    <meta name="keywords" content="서울, 서울 이랜드, 서울 이랜드 FC. SEFC. SEFCiNFO">
-    <link rel="stylesheet" href="style1.css" media="screen and (max-width: 768px)">
+    <meta name="keywords" content="서울, 서울 이랜드, 서울 이랜드 FC, SEFC, SEFCiNFO">
+    <link rel="stylesheet" href="style1.css" media="screen and (max-width: 767.98px)">
     <link rel="stylesheet" href="style2.css" media="screen and (min-width: 768px)">
     <title>SEFCiNFO - 순위</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="icon" type="image/x-icon" href="./files/favicon.png">
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="39318110-e4f0-4fd3-87a9-3f0c2b33fe85" type="text/javascript" async></script>
+    <!-- Google tag (gtag.js) -->
+    <script async
+        src="https://www.googletagmanager.com/gtag/js?id=G-85LBNDC5SG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-85LBNDC5SG');
+    </script>
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async
-    src="https://www.googletagmanager.com/gtag/js?id=G-85LBNDC5SG"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-85LBNDC5SG');
-</script>
-
-<header glass='true'>
-    <div><img src='./files/menu.svg' onclick='menu()'></div>
-    <div><img src="./files/sefcinfo.svg"></div>
-</header>
-
     <body oncontextmenu="return false">
+
+        <header glass='true'>
+            <div><img src='./files/menu.svg' onclick='menu()'></div>
+            <div><img src="./files/sefcinfo.svg"></div>
+        </header>
 
         <div id="skeletonMobile">
             <div style="width: 110px; height: 40px; margin-top: 180px; margin-left: 10vw;"></div>
@@ -88,7 +86,7 @@
                         <thead>
                             <tr>
                                 <th transl='y'>순위</th>
-                                <th transl='y'>구단</th>
+                                <th colspan="2" transl='y'>구단</th>
                                 <th transl='y'>승점</th>
                                 <th transl='y'>승</th>
                                 <th transl='y'>무</th>

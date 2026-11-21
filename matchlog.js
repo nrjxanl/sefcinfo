@@ -3,6 +3,26 @@ import { onAuthStateChanged, signInWithPopup, GoogleAuthProvider, signOut } from
 import { ref, set, remove } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
 let currId;
+let fpInstance = null;
+let isAfterLoaded = false;
+
+function escapeHtml(str) {
+    return String(str ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+function formatCommentHtml(raw) {
+    const normalized = String(raw ?? '').replace(/<br\s*\/?>/gi, '\n');
+    return escapeHtml(normalized).replace(/\r?\n/g, '<br>');
+}
+
+function stripPkScore(val) {
+    return String(val ?? '').replace(/<span[^>]*>.*?<\/span>/gi, '').trim();
+}
 
 beforeLoading();
 
@@ -24,10 +44,11 @@ async function initPage() {
                     loadData(`matchlog/${user.uid}`) 
                 ]);
 
-                render(dataA, matchlog || {}, user.uid); 
+                render(dataA || {}, matchlog || {}, user.uid); 
 
             } catch (error) {
                 console.error('데이터 불러오기 실패:', error);
+                window.showLoadError?.('데이터를 불러오지 못했습니다.');
             }
         } else {
             console.log("로그인이 필요합니다.");
@@ -38,7 +59,10 @@ async function initPage() {
             $('#matchlogSelect, #addLogBtn, #matchlogBtn, #matchNum, #matchlogList, #matchStatList').css('display', 'none');
         }
 
-        afterLoading();
+        if (!isAfterLoaded) {
+            isAfterLoaded = true;
+            afterLoading();
+        }
     });
 }
 
@@ -69,14 +93,14 @@ function render(data, matchlog, uid) {
     let year = 0;
 
     // 버튼 기능
-    $('#matchlogSelect').append(`<option value='0'>전체</option>`);
+    $('#matchlogSelect').empty().append(`<option value='0'>전체</option>`);
     for (let i = new Date().getFullYear(); i >= 2015; i--) {
         $('#matchlogSelect').append(`<option value='${i}'>${i}</option>`);
     }
 
-    $(`option[value='0']`).prop('selected', true);
+    $(`#matchlogSelect option[value='0']`).prop('selected', true);
 
-    $('#matchlogSelect').on('change', function() {
+    $('#matchlogSelect').off('change').on('change', function() {
         $(this).blur();
 
         year = $(this).val();
@@ -94,26 +118,26 @@ function render(data, matchlog, uid) {
         getLog(data, matchlog, matchId);
     });
 
-    $('#logBg').click(function() {
+    $('#logBg').off('click').on('click', function() {
         $('#log, #logBg').fadeOut(300);
         $('body').css('overflow', 'auto');
-    })
+    });
 
     // 기록 추가
-    $('#addLogBtn').click(function() {
+    $('#addLogBtn').off('click').on('click', function() {
         $('#addLog, #addLogBg').hide().fadeIn(300);
         $('body').css('overflow', 'hidden');
 
         addLog(data, matchlog, uid);
-    })
+    });
 
-    $('#addLogBg').click(function() {
+    $('#addLogBg').off('click').on('click', function() {
         $('#addLog, #addLogBg').fadeOut(300);
         $('body').css('overflow', 'auto');
-    })
+    });
 
     // 버튼 클릭 이벤트
-    $('#matchlogBtn > button:nth-of-type(1)').click(function () {
+    $('#matchlogBtn > button:nth-of-type(1)').off('click').on('click', function () {
         $('#matchlogBtn > button:nth-of-type(1)').css({ 'background': '#000060c0', 'color': '#faf6f5' });
         $('#matchlogBtn > button:nth-of-type(2)').css({ 'background': '#faf6f540', 'color': '#05090a' });
 
@@ -121,7 +145,7 @@ function render(data, matchlog, uid) {
         $('#matchStatList').hide();
     });
 
-    $('#matchlogBtn > button:nth-of-type(2)').click(function () {
+    $('#matchlogBtn > button:nth-of-type(2)').off('click').on('click', function () {
         $('#matchlogBtn > button:nth-of-type(1)').css({ 'background': '#faf6f540', 'color': '#05090a' });
         $('#matchlogBtn > button:nth-of-type(2)').css({ 'background': '#000060c0', 'color': '#faf6f5' });
 
@@ -131,13 +155,19 @@ function render(data, matchlog, uid) {
         $('.gauge-text > span').text(0);
         $('.meter').css({ 'transition': 'none', 'stroke-dasharray': '0 283' });
 
-        const todayStr = new Date().getFullYear() +
-            String(new Date().getMonth() + 1).padStart(2, '0') +
-            String(new Date().getDate()).padStart(2, '0');
+        const now = new Date();
+        const todayStr = now.getFullYear() +
+            String(now.getMonth() + 1).padStart(2, '0') +
+            String(now.getDate()).padStart(2, '0') +
+            '0';
 
-        const keys = Object.keys(data).filter(key =>
-            key <= todayStr && (year == 0 || key.substring(0, 4) == year)
-        );
+        const keys = Object.keys(data).filter(key => {
+            const m = data[key];
+            return key <= todayStr
+                && (year == 0 || key.substring(0, 4) == year)
+                && m?.homeScore !== undefined && m.homeScore !== ''
+                && m?.awayScore !== undefined && m.awayScore !== '';
+        });
 
         const { w, d, l } = window.currentStats || { w: 0, d: 0, l: 0 };
 
@@ -154,7 +184,7 @@ function render(data, matchlog, uid) {
     });
 
     // 수정 버튼
-    $('#log > div > button:nth-of-type(2)').click(function() {
+    $('#log > div > button:nth-of-type(2)').off('click').on('click', function() {
         if (!currId) return;
 
         const y = currId.substring(0, 4);
@@ -195,7 +225,7 @@ function render(data, matchlog, uid) {
     });
 
     // 저장 버튼(임시)
-    $('#log > div > button:nth-of-type(4)').click(function() {
+    $('#log > div > button:nth-of-type(4)').off('click').on('click', function() {
         alert('저장 기능은 현재 준비 중입니다. 조금만 기다려 주세요.');
     });
 
@@ -216,13 +246,19 @@ function getList(data, matchlog, year) {
         monthAttend[i] = 0;
     }
 
-    const todayStr = new Date().getFullYear() +
-        String(new Date().getMonth() + 1).padStart(2, '0') +
-        String(new Date().getDate()).padStart(2, '0');
+    const now = new Date();
+    const todayStr = now.getFullYear() +
+        String(now.getMonth() + 1).padStart(2, '0') +
+        String(now.getDate()).padStart(2, '0') +
+        '0';
 
-    const keys = Object.keys(data).filter(key =>
-        key <= todayStr && (year == 0 || key.substring(0, 4) == year)
-    );
+    const keys = Object.keys(data).filter(key => {
+        const m = data[key];
+        return key <= todayStr
+            && (year == 0 || key.substring(0, 4) == year)
+            && m?.homeScore !== undefined && m.homeScore !== ''
+            && m?.awayScore !== undefined && m.awayScore !== '';
+    }).sort();
     const matchKeys = (year == 0) ? Object.keys(matchlog) : Object.keys(matchlog).filter(y => y.substring(0, 4) == year);
     $('#matchlogList').empty();
 
@@ -236,14 +272,15 @@ function getList(data, matchlog, year) {
         }
 
         const matchData = data[matchId];
-        const homeScore = parseInt(matchData['homeScore'].replace(/<span[^>]*>.*?<\/span>/gi, '')) || 0;
-        const awayScore = parseInt(matchData['awayScore'].replace(/<span[^>]*>.*?<\/span>/gi, '')) || 0;
+        const homeScore = parseInt(stripPkScore(matchData['homeScore']), 10) || 0;
+        const awayScore = parseInt(stripPkScore(matchData['awayScore']), 10) || 0;
         const isHome = (matchData['home'][1] == 'seouleland') ? 1 : 0;
         const opp = isHome ? matchData['away'][0] : matchData['home'][0];
 
-        const month = parseInt(matchId.substring(4, 6));
-        const date = parseInt(matchId.substring(6, 8));
-        const day = "일월화수목금토"[new Date(year, month - 1, date).getDay()];
+        const matchYear = parseInt(matchId.substring(0, 4), 10);
+        const month = parseInt(matchId.substring(4, 6), 10);
+        const date = parseInt(matchId.substring(6, 8), 10);
+        const day = "일월화수목금토"[new Date(matchYear, month - 1, date).getDay()];
         
         let st = matchData['stadium'] || '';
         if (st == '강릉종합운동장') st = '강릉하이원아레나';
@@ -335,12 +372,16 @@ function getList(data, matchlog, year) {
 
     // 득실점 비교
     const defaultWidth = ($(window).width() < 768) ? 80 : 25;
+    const attendGoalsTotal = gsAttend + gcAttend;
+    const nonAttendGs = gsAll - gsAttend;
+    const nonAttendGc = gcAll - gcAttend;
+    const nonAttendGoalsTotal = nonAttendGs + nonAttendGc;
 
-    $('#matchStatList > div:nth-of-type(3) > div:nth-of-type(1) > div > p:nth-of-type(1)').text(`${gsAttend}득점`).css('width', `calc(${defaultWidth}vw * ${gsAttend / (gsAttend + gcAttend)} - 16px)`).css('padding', '8px 0 8px 16px');
-    $('#matchStatList > div:nth-of-type(3) > div:nth-of-type(1) > div > p:nth-of-type(2)').text(`${gcAttend}실점`).css('width', `calc(${defaultWidth}vw * ${gcAttend / (gsAttend + gcAttend)} - 16px)`).css('padding', '8px 16px 8px 0');
+    $('#matchStatList > div:nth-of-type(3) > div:nth-of-type(1) > div > p:nth-of-type(1)').text(`${gsAttend}득점`).css('width', attendGoalsTotal > 0 ? `max(0px, calc(${defaultWidth}vw * ${gsAttend / attendGoalsTotal} - 16px))` : '0px').css('padding', '8px 0 8px 16px');
+    $('#matchStatList > div:nth-of-type(3) > div:nth-of-type(1) > div > p:nth-of-type(2)').text(`${gcAttend}실점`).css('width', attendGoalsTotal > 0 ? `max(0px, calc(${defaultWidth}vw * ${gcAttend / attendGoalsTotal} - 16px))` : '0px').css('padding', '8px 16px 8px 0');
     
-    $('#matchStatList > div:nth-of-type(3) > div:nth-of-type(2) > div > p:nth-of-type(1)').text(`${gsAll - gsAttend}득점`).css('width', `calc(${defaultWidth}vw * ${(gsAll - gsAttend) / ((gsAll - gsAttend) + (gcAll - gcAttend))} - 16px)`).css('padding', '8px 0 8px 16px');
-    $('#matchStatList > div:nth-of-type(3) > div:nth-of-type(2) > div > p:nth-of-type(2)').text(`${gcAll - gcAttend}실점`).css('width', `calc(${defaultWidth}vw * ${(gcAll - gcAttend) / ((gsAll - gsAttend) + (gcAll - gcAttend))} - 16px)`).css('padding', '8px 16px 8px 0');
+    $('#matchStatList > div:nth-of-type(3) > div:nth-of-type(2) > div > p:nth-of-type(1)').text(`${nonAttendGs}득점`).css('width', nonAttendGoalsTotal > 0 ? `max(0px, calc(${defaultWidth}vw * ${nonAttendGs / nonAttendGoalsTotal} - 16px))` : '0px').css('padding', '8px 0 8px 16px');
+    $('#matchStatList > div:nth-of-type(3) > div:nth-of-type(2) > div > p:nth-of-type(2)').text(`${nonAttendGc}실점`).css('width', nonAttendGoalsTotal > 0 ? `max(0px, calc(${defaultWidth}vw * ${nonAttendGc / nonAttendGoalsTotal} - 16px))` : '0px').css('padding', '8px 16px 8px 0');
 
     if (gsAttend == 0 && gcAttend == 0 && gsAttend == gsAll && gcAttend == gcAll) $('#matchStatList > div:nth-of-type(3)').css('display', 'none');
     else $('#matchStatList > div:nth-of-type(3)').css('display', 'flex');
@@ -398,7 +439,7 @@ function getList(data, matchlog, year) {
         let stadiumName = stadium;
         if (stadium == '강릉하이원아레나' && !(year == 0 || year >= 2025)) stadiumName = '강릉종합운동장';
 
-        stadiumBucket[cnt].push(stadium);
+        stadiumBucket[cnt].push(stadiumName);
     }
 
     if (stadiumBucket.length > 0) {
@@ -421,9 +462,13 @@ function getList(data, matchlog, year) {
     const maxAll = Math.max(...Object.values(monthAll));
 
     for (let i = 1; i <= 12; i++) {
-        $(`#matchStatList > div:nth-of-type(6) > div > div:nth-of-type(${i})`).css('height', `calc(180px * ${monthAll[i] / maxAll} + 56px)`);
-        $(`#matchStatList > div:nth-of-type(6) > div > div:nth-of-type(${i}) > p:nth-of-type(1)`).text(`${monthAll[i]}`).css('height', `calc(180px * ${(monthAll[i] - monthAttend[i]) / maxAll})`);
-        $(`#matchStatList > div:nth-of-type(6) > div > div:nth-of-type(${i}) > p:nth-of-type(2)`).text(`${monthAttend[i]}`).css('height', `calc(180px * ${monthAttend[i] / maxAll})`);
+        const allRatio = maxAll > 0 ? (monthAll[i] / maxAll) : 0;
+        const diffRatio = maxAll > 0 ? ((monthAll[i] - monthAttend[i]) / maxAll) : 0;
+        const attendRatio = maxAll > 0 ? (monthAttend[i] / maxAll) : 0;
+
+        $(`#matchStatList > div:nth-of-type(6) > div > div:nth-of-type(${i})`).css('height', `calc(180px * ${allRatio} + 56px)`);
+        $(`#matchStatList > div:nth-of-type(6) > div > div:nth-of-type(${i}) > p:nth-of-type(1)`).text(`${monthAll[i]}`).css('height', `calc(180px * ${diffRatio})`);
+        $(`#matchStatList > div:nth-of-type(6) > div > div:nth-of-type(${i}) > p:nth-of-type(2)`).text(`${monthAttend[i]}`).css('height', `calc(180px * ${attendRatio})`);
 
         if (monthAll[i] == monthAttend[i]) $(`#matchStatList > div:nth-of-type(6) > div > div:nth-of-type(${i}) > p:nth-of-type(1)`).css('display', 'none');
         else $(`#matchStatList > div:nth-of-type(6) > div > div:nth-of-type(${i}) > p:nth-of-type(1)`).css('display', 'block');
@@ -447,10 +492,13 @@ function getList(data, matchlog, year) {
 
 function getLog(data, matchlog, matchId) {
     currId = matchId;
+    if (!matchlog?.[matchId] || !data?.[matchId]) return;
 
     const comment = matchlog[matchId]['comment'];
+    const safeComment = formatCommentHtml(comment);
     const style = matchlog[matchId]['style'];
-    const seat = matchlog[matchId]['seat'];
+    const rawSeat = Array.isArray(matchlog[matchId]['seat']) ? matchlog[matchId]['seat'] : [];
+    const seat = [rawSeat[0] || '', rawSeat[1] || '', rawSeat[2] || ''];
 
     const matchData = data[matchId];
     const home = matchData['home'];
@@ -463,7 +511,7 @@ function getLog(data, matchlog, matchId) {
     const y = matchId.substring(0, 4);
     const m = matchId.substring(4, 6);
     const d = matchId.substring(6, 8);
-    const dayName = new Intl.DateTimeFormat('ko-KR', { weekday: 'short' }).format(new Date(`${y}-${m}-${d}`));
+    const dayName = new Intl.DateTimeFormat('ko-KR', { weekday: 'short' }).format(new Date(Number(y), Number(m) - 1, Number(d)));
     const t = (matchData['time'] != undefined) ? matchData['time'] : '';
 
     $('#log > svg').css('display', 'none');
@@ -480,7 +528,7 @@ function getLog(data, matchlog, matchId) {
             <p>${home[0]} ${homeScore}:${awayScore} ${away[0]}</p>    
             <p>${y}년 ${m}월 ${d}일(${dayName}) ${t}</p>    
             <p></p>    
-            <p>${comment}</p>    
+            <p>${safeComment}</p>    
         `)
 
         if (seat[0] == '') $('#ticketText > p:nth-of-type(4)').text(stadium || '');
@@ -499,7 +547,7 @@ function getLog(data, matchlog, matchId) {
             <p>${home[0]} ${homeScore}:${awayScore} ${away[0]}</p>    
             <p>${y}.${m}.${d}.(${dayName}) ${t}</p>    
             <p></p>
-            <p>${comment}</p>    
+            <p>${safeComment}</p>    
         `)
 
         if (seat[0] == '') $('#ticketText > p:nth-of-type(4)').text(stadium || '');
@@ -522,7 +570,7 @@ function getLog(data, matchlog, matchId) {
             </div>
             <p>${y}.${m}.${d}.(${dayName}) ${t}</p>    
             <p></p>
-            <p>${comment}</p>    
+            <p>${safeComment}</p>    
         `)
 
         if (seat[0] == '') $('#ticketText > p:nth-of-type(4)').text(stadium || '');
@@ -532,14 +580,15 @@ function getLog(data, matchlog, matchId) {
     }
 
     const isHome = (home[1] == 'seouleland') ? 1 : 0;
-    if ((isHome && (homeScore > awayScore)) || (!isHome && (homeScore < awayScore))) {
+    const homeScoreNum = Number(stripPkScore(homeScore));
+    const awayScoreNum = Number(stripPkScore(awayScore));
+    if (!isNaN(homeScoreNum) && !isNaN(awayScoreNum) && ((isHome && (homeScoreNum > awayScoreNum)) || (!isHome && (homeScoreNum < awayScoreNum)))) {
         $('#stamp').css('display', 'block');
     } else $('#stamp').css('display', 'none');
 }
 
 function addLog(data, matchlog, uid, editDate) {
     let date, id, section, row, seatNum, comment, style;
-    let fpInstance; 
 
     const matchLookup = {};
     const matchKeys = Object.keys(data).sort(); 
@@ -564,6 +613,12 @@ function addLog(data, matchlog, uid, editDate) {
 
     // 수정 모드라면 전달받은 날짜를, 아니면 최근 경기일을 기본값으로 설정
     const initialDate = editDate || latestDateStr;
+
+    // 기존 달력 인스턴스 파기 후 초기화
+    if (fpInstance) {
+        fpInstance.destroy();
+        fpInstance = null;
+    }
 
     // 달력 초기화
     fpInstance = flatpickr("#addLog > input:nth-of-type(1)", {
@@ -612,11 +667,34 @@ function addLog(data, matchlog, uid, editDate) {
         }
     });
 
+    const resetAddForm = () => {
+        $('#addLog > div:nth-of-type(1) > input').val('');
+        $('#addLog > textarea').val('');
+        $('#addLog > p:nth-of-type(2)').text('');
+        $('#addLog > p:nth-of-type(3)').text('');
+        $(`input[name="style"][value="1"]`).prop('checked', true).trigger('change');
+    };
+
+    const showMatchMeta = (targetId, targetDate) => {
+        if (!data?.[targetId]) return;
+        const home = data[targetId]['home'][0];
+        const away = data[targetId]['away'][0];
+        const stadium = (data[targetId]['stadium'] != undefined) ? data[targetId]['stadium'] : '';
+
+        $('#addLog > p:nth-of-type(2)').text(`${home} vs ${away}`);
+        $('#addLog > p:nth-of-type(3)').text(`${targetDate.split('-').join('.')}. | ${stadium}`);
+    };
+
+    $('#addLog > div:nth-of-type(2) input[name="style"]').off('change').on('change', function() {
+        $('#styleSample').empty().html(`<img src = './files/티켓 ${$(this).val()}.svg'>`);
+    });
+
     if (fpInstance) {
         if (editDate) {
             fpInstance.setDate(editDate); 
         } else {
             fpInstance.clear();
+            resetAddForm();
             fpInstance.jumpToDate(latestDateStr); 
         }
     }
@@ -624,23 +702,27 @@ function addLog(data, matchlog, uid, editDate) {
     function updateIdAndLoad(dateStr, isAuto) {
         if (!dateStr) return;
 
-        date = dateStr;
-        id = date.split('-').join('') + '0';
+        const nextId = dateStr.split('-').join('') + '0';
+        if (!data?.[nextId]) return;
 
         // 이미 저장되어 있는지 확인
-        if (matchlog[id] != undefined) {
+        if (matchlog[nextId] != undefined) {
             if (fpInstance) {
                 fpInstance.close();
                 $('#addLog > input:nth-of-type(1)').blur(); 
             }
 
             const fillData = () => {
-                const saved = matchlog[id];
-                $('#addLog > div:nth-of-type(1) > input:nth-of-type(1)').val(saved.seat[0]);
-                $('#addLog > div:nth-of-type(1) > input:nth-of-type(2)').val(saved.seat[1]);
-                $('#addLog > div:nth-of-type(1) > input:nth-of-type(3)').val(saved.seat[2]);
-                $('#addLog > textarea').val((saved.comment || "").replace(/<br>/g, '\n'));
-                $(`input[name="style"][value="${saved.style}"]`).prop('checked', true).trigger('change');
+                date = dateStr;
+                id = nextId;
+                const saved = matchlog[nextId];
+                const savedSeat = Array.isArray(saved.seat) ? saved.seat : ['', '', ''];
+                $('#addLog > div:nth-of-type(1) > input:nth-of-type(1)').val(savedSeat[0] || '');
+                $('#addLog > div:nth-of-type(1) > input:nth-of-type(2)').val(savedSeat[1] || '');
+                $('#addLog > div:nth-of-type(1) > input:nth-of-type(3)').val(savedSeat[2] || '');
+                $('#addLog > textarea').val((saved.comment || "").replace(/<br\s*\/?>/gi, '\n'));
+                $(`input[name="style"][value="${saved.style || 1}"]`).prop('checked', true).trigger('change');
+                showMatchMeta(nextId, dateStr);
             };
 
             if (isAuto) {
@@ -650,24 +732,21 @@ function addLog(data, matchlog, uid, editDate) {
                     if (confirm('이미 기록한 경기입니다. 수정하시겠습니까?')) {
                         fillData();
                     } else {
-                        if (fpInstance) fpInstance.clear();
-                        date = undefined;
-                        $(`input[name="style"][value="1"]`).prop('checked', true).trigger('change');
+                        if (fpInstance) {
+                            if (date) fpInstance.setDate(date, false);
+                            else fpInstance.clear();
+                        }
                     }
                 }, 100);
             }
         } else {
+            date = dateStr;
+            id = nextId;
             $('#addLog > div:nth-of-type(1) > input').val('');
             $('#addLog > textarea').val('');
             $(`input[name="style"][value="1"]`).prop('checked', true).trigger('change');
+            showMatchMeta(nextId, dateStr);
         }
-
-        const home = data[id]['home'][0];
-        const away = data[id]['away'][0];
-        const stadium = (data[id]['stadium'] != undefined) ? data[id]['stadium'] : '';
-        
-        $('#addLog > p:nth-of-type(2)').text(`${home} vs ${away}`);
-        $('#addLog > p:nth-of-type(3)').text(`${date.split('-').join('.')}. | ${stadium}`);
     }
 
     if (editDate) {
@@ -675,14 +754,14 @@ function addLog(data, matchlog, uid, editDate) {
     }
 
     // 입력값 저장
-    $('#addLog button[type="submit"]').off('click').on('click', function() {
+    $('#saveLogBtn').off('click').on('click', function() {
 
         if (!date) {
             alert('날짜를 먼저 선택해 주세요.');
             return;
         }
 
-        const krRegex = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g;
+        const krRegex = /[ㄱ-ㅎㅏ-ㅣ가-힣]/g;
         section = ($('#addLog > div:nth-of-type(1) > input:nth-of-type(1)').val() || '').replace(krRegex, '');
         row = ($('#addLog > div:nth-of-type(1) > input:nth-of-type(2)').val() || '').replace(krRegex, '');
         seatNum = ($('#addLog > div:nth-of-type(1) > input:nth-of-type(3)').val() || '').replace(krRegex, '');
@@ -708,8 +787,8 @@ function addLog(data, matchlog, uid, editDate) {
                 const currentYear = $('#matchlogSelect').val() || 0;
                 getList(data, matchlog, currentYear);
                 
-                if (currentYear != 0 && currentYear != id.substring(0,4)) {
-                    $('#matchlogSelect').val(id.substring(0,4)).trigger('change');
+                if (currentYear != 0 && currentYear != id.substring(0, 4)) {
+                    $('#matchlogSelect').val(id.substring(0, 4)).trigger('change');
                 }
 
             })
@@ -719,10 +798,6 @@ function addLog(data, matchlog, uid, editDate) {
             });
     });
 
-    $('#addLog > div:nth-of-type(2) input[name="style"]').on('change', function() {
-        $('#styleSample').empty().html(`<img src = './files/티켓 ${$(this).val()}.svg'>`);
-    });
-
     $('#addLog > div:nth-of-type(2) input[name="style"]:checked').trigger('change');
 }
 
@@ -730,20 +805,22 @@ function setGauge(len, w, d, l, y) {
     for (let n = 1; n <= 2; n++) {
         if (window['interval' + n]) clearInterval(window['interval' + n]);
 
-        let rate, offset
+        let rate, offset;
         let matchNum = w + d + l;
 
         if (n == 1) {
             // 무관중 고려한 경기 수 보정
-            if (y == 2022) len--;
-            else if (y == 2021) len -= 11;
-            else if (y == 2020) len -= 22;
-            else if (y == 0) len -= 34;
+            let adjustedLen = len;
+            if (y == 2022) adjustedLen--;
+            else if (y == 2021) adjustedLen -= 11;
+            else if (y == 2020) adjustedLen -= 22;
+            else if (y == 0) adjustedLen -= 34;
+            adjustedLen = Math.max(0, adjustedLen);
 
-            rate = (len > 0) ? Number((matchNum / len * 100).toFixed(0)) : 0;
+            rate = (adjustedLen > 0) ? Number((matchNum / adjustedLen * 100).toFixed(0)) : 0;
             offset = (rate / 100) * 212;
 
-            $(`#matchStatList > div:nth-of-type(1) > div:nth-of-type(2) > p > span`).text(`${w + d + l} / ${len}`);
+            $(`#matchStatList > div:nth-of-type(1) > div:nth-of-type(2) > p > span`).text(`${w + d + l} / ${adjustedLen}`);
         } else if (n == 2) {
             rate = (matchNum > 0) ? Number((w / matchNum * 100).toFixed(0)) : 0;
             offset = (rate / 100) * 212;

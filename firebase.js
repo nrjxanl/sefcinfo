@@ -21,12 +21,17 @@ export const db = getDatabase(app);
 export const auth = getAuth(app);
 
 export async function loadData(path) {
-    const dbRef = ref(db);
-    const snapshot = await get(child(dbRef, path));
+    try {
+        const dbRef = ref(db);
+        const snapshot = await get(child(dbRef, path));
 
-    if (snapshot.exists()) {
-        return snapshot.val();
-    } else {
-        return {};
+        if (snapshot.exists()) {
+            return snapshot.val();
+        } else {
+            return {};
+        }
+    } catch (error) {
+        console.error(`Firebase loadData('${path}') 실패:`, error);
+        throw error;
     }
 }

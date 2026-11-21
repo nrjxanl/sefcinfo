@@ -5,39 +5,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Page-Enter" content="revealtrans(duration=1, transition=23)">
-    <meta property="og:url" content="sefc.info">
+    <meta property="og:url" content="https://sefc.info/stadium">
     <meta property="og:title" content="SEFCiNFO - 서울 이랜드 FC 팬 페이지">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="./files/thumbnail.jpg">
+    <meta property="og:image" content="https://sefc.info/files/thumbnail.jpg">
     <meta property="og:description" content="서울 이랜드 FC의 모든 것">
     <meta name="description" content="서울 이랜드 FC의 모든 정보를 이곳에서 확인하세요!">
-    <meta name="keywords" content="서울, 서울 이랜드, 서울 이랜드 FC. SEFC. SEFCiNFO">
-    <link rel="stylesheet" href="style1.css" media="screen and (max-width: 768px)">
+    <meta name="keywords" content="서울, 서울 이랜드, 서울 이랜드 FC, SEFC, SEFCiNFO">
+    <link rel="stylesheet" href="style1.css" media="screen and (max-width: 767.98px)">
     <link rel="stylesheet" href="style2.css" media="screen and (min-width: 768px)">
     <title>SEFCiNFO - 직관 가이드</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="icon" type="image/x-icon" href="./files/favicon.png">
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="39318110-e4f0-4fd3-87a9-3f0c2b33fe85" type="text/javascript" async></script>
+    <!-- Google tag (gtag.js) -->
+    <script async
+        src="https://www.googletagmanager.com/gtag/js?id=G-85LBNDC5SG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-85LBNDC5SG');
+    </script>
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async
-    src="https://www.googletagmanager.com/gtag/js?id=G-85LBNDC5SG"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-85LBNDC5SG');
-</script>
-
-<header glass='true'>
-    <div><img src='./files/menu.svg' onclick='menu()'></div>
-    <div><img src="./files/sefcinfo.svg"></div>
-</header>
-
 <body oncontextmenu="return false">
+
+    <header glass='true'>
+        <div><img src='./files/menu.svg' onclick='menu()'></div>
+        <div><img src="./files/sefcinfo.svg"></div>
+    </header>
 
     <div id="skeletonMobile">
     </div>
@@ -48,105 +46,105 @@
     <div id="actualContents">
 
         <div id="selectStadium">
-            <a id="mokdong" glass="true">
+            <div id="mokdong" class="stadium-card" glass="true">
                 <div>
                     <img src="./files/stadium/mokdong.png">
                 </div>
                 <p transl="y">목동주경기장<br><span>서울 이랜드 FC</span></p>
-            </a>
-            <a id="gwangyang" glass="true" style="display: none;">
+            </div>
+            <div id="gwangyang" class="stadium-card" glass="true" style="display: none;">
                 <div>
                     <img src="./files/stadium/gwangyang.png">
                 </div>
                 <p transl="y">광양축구전용구장<br><span>전남 드래곤즈</span></p>
-            </a>
-            <a id="gudeok" glass="true" style="display: none;">
+            </div>
+            <div id="gudeok" class="stadium-card" glass="true" style="display: none;">
                 <div>
                     <img src="./files/stadium/gudeok.png">
                 </div>
                 <p transl="y">구덕운동장<br><span>부산 아이파크</span></p>
-            </a>
-            <a id="solteo" glass="true" style="display: none;">
+            </div>
+            <div id="solteo" class="stadium-card" glass="true" style="display: none;">
                 <div>
                     <img src="./files/stadium/solteo.png">
                 </div>
                 <p transl="y">김포솔터축구장<br><span>김포 FC</span></p>
-            </a>
-            <a id="gimhae" glass="true" style="display: none;">
+            </div>
+            <div id="gimhae" class="stadium-card" glass="true" style="display: none;">
                 <div>
                     <img src="./files/stadium/gimhae.png">
                 </div><p transl="y">김해종합운동장<br><span>김해 FC 2008</span></p>
-            </a>
-            <a id="daegu" glass="true">
+            </div>
+            <div id="daegu" class="stadium-card" glass="true">
                 <div>
                     <img src="./files/stadium/daegu.png">
                 </div>
                 <p transl="y">대구iM뱅크파크<br><span>대구 FC</span></p>
-            </a>
-            <a id="suwonwc" glass="true">
+            </div>
+            <div id="suwonwc" class="stadium-card" glass="true">
                 <div>
                     <img src="./files/stadium/suwonwc.png">
                 </div>
                 <p transl="y">수원월드컵경기장<br><span>수원 삼성 블루윙즈</span></p>
-            </a>
-            <a id="suwonsc" glass="true" style="display: none;">
+            </div>
+            <div id="suwonsc" class="stadium-card" glass="true" style="display: none;">
                 <div>
                     <img src="./files/stadium/suwonsc.png">
                 </div>
                 <p transl="y">수원종합운동장<br>주경기장<br><span>수원 FC</span></p>
-            </a>
-            <a id="ansan" glass="true" style="display: none;">
+            </div>
+            <div id="ansan" class="stadium-card" glass="true" style="display: none;">
                 <div>
                     <img src="./files/stadium/ansan.png">
                 </div><p transl="y">안산와~스타디움<br><span>안산 그리너스 FC</span></p>
-            </a>
-            <a id="mireu" glass="true" style="display: none;">
+            </div>
+            <div id="mireu" class="stadium-card" glass="true" style="display: none;">
                 <div>
                     <img src="./files/stadium/mireu.png">
                 </div>
                 <p transl="y">용인미르스타디움<br><span>용인 FC</span></p>
-            </a>
-            <a id="yisunsin" glass="true" style="display: none;">
+            </div>
+            <div id="yisunsin" class="stadium-card" glass="true" style="display: none;">
                 <div>
                     <img src="./files/stadium/yisunsin.png">
                 </div>
                 <p transl="y">이순신종합운동장<br><span>충남아산 FC</span></p>
-            </a>
-            <a id="changwon" glass="true" style="display: none;">
+            </div>
+            <div id="changwon" class="stadium-card" glass="true" style="display: none;">
                 <div>
                     <img src="./files/stadium/changwon.png">
                 </div>
                 <p transl="y">창원축구센터<br>주경기장<br><span>경남 FC</span></p>
-            </a>
-            <a id="cheonan" glass="true">
+            </div>
+            <div id="cheonan" class="stadium-card" glass="true">
                 <div>
                     <img src="./files/stadium/cheonan.png">
                 </div>
                 <p transl="y">천안종합운동장<br>주경기장<br><span>천안 시티 FC</span></p>
-            </a>
-            <a id="cheongju" glass="true" style="display: none;">
+            </div>
+            <div id="cheongju" class="stadium-card" glass="true" style="display: none;">
                 <div>
                     <img src="./files/stadium/cheongju.png">
                 </div>
                 <p transl="y">청주종합경기장<br><span>충북청주 FC</span></p>
-            </a>
-            <a id="tancheon" glass="true" style="display: none;">
+            </div>
+            <div id="tancheon" class="stadium-card" glass="true" style="display: none;">
                 <div>
                     <img src="./files/stadium/tancheon.png">
                 </div>
                 <p transl="y">탄천종합운동장<br><span>성남 FC</span></p>
-            </a>
-            <a id="paju" glass="true" style="display: none;">
+            </div>
+            <div id="paju" class="stadium-card" glass="true" style="display: none;">
                 <div>
                     <img src="./files/stadium/paju.png">
                 </div><p transl="y">파주스타디움<br><span>파주 프런티어 FC</span></p>
-            </a>
-            <a id="hwaseong" glass="true" style="display: none;">
+            </div>
+            <div id="hwaseong" class="stadium-card" glass="true" style="display: none;">
                 <div>
                     <img src="./files/stadium/hwaseong.png">
                 </div>
                 <p transl="y">화성종합경기타운<br>주경기장<br><span>화성 FC</span></p>
-            </a>
+            </div>
         </div>
 
     </div>
